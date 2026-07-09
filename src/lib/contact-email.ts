@@ -70,29 +70,35 @@ function buildConfirmationHtml(contact: ContactInput) {
 export async function sendContactEmails(contact: ContactInput) {
   if (!resend) {
     console.warn("[contact] RESEND_API_KEY not set — emails skipped.");
-    return { sent: false };
+    return { sent: false, error: "RESEND_API_KEY not configured" };
   }
 
-  const [ownerResult, confirmResult] = await Promise.all([
-    resend.emails.send({
-      from: buildFromAddress(),
-      to: toEmail,
-      subject: `Kontakt — ${contact.subject} (${contact.name})`,
-      html: buildOwnerHtml(contact),
-      replyTo: contact.email,
-    }),
-    resend.emails.send({
-      from: buildFromAddress(),
-      to: contact.email,
-      subject: "Tak for din besked — Lukas Svendsen",
-      html: buildConfirmationHtml(contact),
-      replyTo: siteConfig.email,
-    }),
-  ]);
+  const ownerResult = await resend.emails.send({
+    from: buildFromAddress(),
+    to: toEmail,
+    subject: `Kontakt — ${contact.subject} (${contact.name})`,
+    html: buildOwnerHtml(contact),
+    replyTo: contact.email,
+  });
 
-  if (ownerResult.error || confirmResult.error) {
-    console.error("[contact] Resend error:", ownerResult.error ?? confirmResult.error);
-    throw new Error("Kunne ikke sende kontakt-mails");
+  if (ownerResult.error) {
+    console.error("[contact] Resend owner error:", ownerResult.error);
+    return {
+      sent: false,
+      error: ownerResult.error.message ?? "Kunne ikke sende kontakt-mail",
+    };
+  }
+
+  const confirmResult = await resend.emails.send({
+    from: buildFromAddress(),
+    to: contact.email,
+    subject: "Tak for din besked — Lukas Svendsen",
+    html: buildConfirmationHtml(contact),
+    replyTo: siteConfig.email,
+  });
+
+  if (confirmResult.error) {
+    console.warn("[contact] Confirmation email failed:", confirmResult.error);
   }
 
   return { sent: true };

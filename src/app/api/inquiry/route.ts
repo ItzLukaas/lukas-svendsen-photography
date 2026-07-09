@@ -1,7 +1,7 @@
 import { createHash } from "crypto";
 import { NextResponse } from "next/server";
 import { inquirySchema } from "@/lib/inquiry-schema";
-import { saveInquiry } from "@/lib/inquiry-storage";
+import { createInquiryRecord, persistInquiry } from "@/lib/inquiry-storage";
 import { sendInquiryEmails } from "@/lib/inquiry-email";
 import { rateLimit } from "@/lib/rate-limit";
 
@@ -51,10 +51,17 @@ export async function POST(request: Request) {
     void _honeypot;
     void _formStartedAt;
 
-    const record = await saveInquiry(data, hashIp(ip));
-    const { sent } = await sendInquiryEmails(record);
+    const record = createInquiryRecord(data, hashIp(ip));
 
-    if (!sent) {
+    try {
+      await persistInquiry(record);
+    } catch (storageError) {
+      console.warn("[inquiry] Could not persist inquiry locally:", storageError);
+    }
+
+    const emailResult = await sendInquiryEmails(record);
+
+    if (!emailResult.sent) {
       return NextResponse.json(
         { error: "E-mail kunne ikke sendes. Kontakt mig direkte på kontakt@lukassvendsen.dk." },
         { status: 503 },

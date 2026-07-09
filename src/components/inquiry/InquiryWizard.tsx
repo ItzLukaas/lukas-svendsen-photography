@@ -203,9 +203,27 @@ export function InquiryWizard() {
         body: JSON.stringify(payload),
       });
 
-      const data = (await res.json()) as { error?: string; success?: boolean };
+      const data = (await res.json()) as {
+        error?: string;
+        success?: boolean;
+        details?: Record<string, string[] | undefined>;
+      };
 
       if (!res.ok) {
+        if (data.details) {
+          const fieldErrors: Record<string, string> = {};
+          for (const [field, messages] of Object.entries(data.details)) {
+            if (messages?.[0]) fieldErrors[field] = messages[0];
+          }
+          if (Object.keys(fieldErrors).length > 0) {
+            setErrors({
+              ...fieldErrors,
+              submit: data.error ?? "Tjek felterne og prøv igen.",
+            });
+            return;
+          }
+        }
+
         setErrors({ submit: data.error ?? "Noget gik galt. Prøv igen." });
         return;
       }

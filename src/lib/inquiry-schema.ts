@@ -1,9 +1,14 @@
 import { z } from "zod";
 
+const timeSchema = z
+  .string()
+  .regex(/^\d{2}:\d{2}(:\d{2})?$/, "Ugyldigt tidspunkt")
+  .transform((value) => value.slice(0, 5));
+
 const scheduleSlotSchema = z.object({
   date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Ugyldig dato"),
-  startTime: z.string().regex(/^\d{2}:\d{2}$/, "Ugyldigt starttidspunkt"),
-  endTime: z.string().regex(/^\d{2}:\d{2}$/, "Ugyldigt sluttidspunkt"),
+  startTime: timeSchema,
+  endTime: timeSchema,
 });
 
 export const inquirySchema = z

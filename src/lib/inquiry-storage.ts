@@ -7,6 +7,18 @@ import type { StoredInquiry } from "@/types/inquiry";
 const DATA_DIR = path.join(process.cwd(), ".data");
 const INQUIRIES_FILE = path.join(DATA_DIR, "inquiries.json");
 
+export function createInquiryRecord(
+  data: InquiryInput,
+  ipHash?: string,
+): StoredInquiry {
+  return {
+    ...data,
+    id: randomUUID(),
+    createdAt: new Date().toISOString(),
+    ipHash,
+  };
+}
+
 async function ensureDataFile() {
   await mkdir(DATA_DIR, { recursive: true });
 
@@ -17,30 +29,25 @@ async function ensureDataFile() {
   }
 }
 
-export async function saveInquiry(
-  data: InquiryInput,
-  ipHash?: string,
-): Promise<StoredInquiry> {
+async function readInquiries(): Promise<StoredInquiry[]> {
   await ensureDataFile();
-
   const raw = await readFile(INQUIRIES_FILE, "utf-8");
-  const inquiries = JSON.parse(raw) as StoredInquiry[];
 
-  const record: StoredInquiry = {
-    ...data,
-    id: randomUUID(),
-    createdAt: new Date().toISOString(),
-    ipHash,
-  };
+  try {
+    return JSON.parse(raw) as StoredInquiry[];
+  } catch (error) {
+    console.warn("[inquiry] Corrupt inquiries file, resetting:", error);
+    await writeFile(INQUIRIES_FILE, "[]", "utf-8");
+    return [];
+  }
+}
 
+export async function persistInquiry(record: StoredInquiry): Promise<void> {
+  const inquiries = await readInquiries();
   inquiries.unshift(record);
   await writeFile(INQUIRIES_FILE, JSON.stringify(inquiries, null, 2), "utf-8");
-
-  return record;
 }
 
 export async function listInquiries(): Promise<StoredInquiry[]> {
-  await ensureDataFile();
-  const raw = await readFile(INQUIRIES_FILE, "utf-8");
-  return JSON.parse(raw) as StoredInquiry[];
+  return readInquiries();
 }

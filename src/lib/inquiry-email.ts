@@ -17,11 +17,18 @@ const resend = process.env.RESEND_API_KEY
 const toEmail = process.env.INQUIRY_TO_EMAIL ?? siteConfig.email;
 
 function formatDateDa(date: string) {
-  return new Intl.DateTimeFormat("da-DK", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  }).format(new Date(`${date}T12:00:00`));
+  const parsed = new Date(`${date}T12:00:00`);
+  if (Number.isNaN(parsed.getTime())) return date;
+
+  try {
+    return new Intl.DateTimeFormat("da-DK", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    }).format(parsed);
+  } catch {
+    return date;
+  }
 }
 
 function formatSchedule(inquiry: StoredInquiry) {
@@ -108,30 +115,36 @@ function buildConfirmationHtml(inquiry: StoredInquiry) {
 
 export async function sendInquiryEmails(inquiry: StoredInquiry) {
   if (!resend) {
-    console.warn("[inquiry] RESEND_API_KEY not set — emails skipped, inquiry saved locally.");
-    return { sent: false };
+    console.warn("[inquiry] RESEND_API_KEY not set — emails skipped.");
+    return { sent: false, error: "RESEND_API_KEY not configured" };
   }
 
-  const [ownerResult, confirmResult] = await Promise.all([
-    resend.emails.send({
-      from: buildFromAddress(),
-      to: toEmail,
-      subject: `Ny forespørgsel — ${serviceLabels[inquiry.service]} (${inquiry.name})`,
-      html: buildOwnerHtml(inquiry),
-      replyTo: inquiry.email,
-    }),
-    resend.emails.send({
-      from: buildFromAddress(),
-      to: inquiry.email,
-      subject: "Tak for din forespørgsel — Lukas Svendsen",
-      html: buildConfirmationHtml(inquiry),
-      replyTo: siteConfig.email,
-    }),
-  ]);
+  const ownerResult = await resend.emails.send({
+    from: buildFromAddress(),
+    to: toEmail,
+    subject: `Ny forespørgsel — ${serviceLabels[inquiry.service]} (${inquiry.name})`,
+    html: buildOwnerHtml(inquiry),
+    replyTo: inquiry.email,
+  });
 
-  if (ownerResult.error || confirmResult.error) {
-    console.error("[inquiry] Resend error:", ownerResult.error ?? confirmResult.error);
-    throw new Error("Kunne ikke sende forespørgsels-mails");
+  if (ownerResult.error) {
+    console.error("[inquiry] Resend owner error:", ownerResult.error);
+    return {
+      sent: false,
+      error: ownerResult.error.message ?? "Kunne ikke sende forespørgsels-mail",
+    };
+  }
+
+  const confirmResult = await resend.emails.send({
+    from: buildFromAddress(),
+    to: inquiry.email,
+    subject: "Tak for din forespørgsel — Lukas Svendsen",
+    html: buildConfirmationHtml(inquiry),
+    replyTo: siteConfig.email,
+  });
+
+  if (confirmResult.error) {
+    console.warn("[inquiry] Confirmation email failed:", confirmResult.error);
   }
 
   return { sent: true };

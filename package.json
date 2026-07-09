@@ -1,0 +1,36 @@
+{
+  "name": "lukas-svendsen-photography",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "dev:clean": "node -e \"require('fs').rmSync('.next',{recursive:true,force:true})\" && next dev",
+    "import:portfolio": "node scripts/optimize-portfolio-images.mjs",
+    "import:portfolio:update": "node scripts/optimize-portfolio-images.mjs --updatePhotosTs",
+    "import:references": "node scripts/optimize-reference-images.mjs",
+    "import:references:skip": "node scripts/optimize-reference-images.mjs --skipExisting",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "framer-motion": "^12.16.0",
+    "lucide-react": "^1.23.0",
+    "next": "^15.3.3",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "resend": "^6.17.1",
+    "sharp": "^0.35.3",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.8",
+    "@types/node": "^22.15.29",
+    "@types/react": "^19.1.6",
+    "@types/react-dom": "^19.1.5",
+    "eslint": "^9.28.0",
+    "eslint-config-next": "^15.3.3",
+    "tailwindcss": "^4.1.8",
+    "typescript": "^5.8.3"
+  }
+}

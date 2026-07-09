@@ -1,0 +1,187 @@
+{
+  "generatedAt": "2026-07-09T10:37:07.353Z",
+  "options": {
+    "maxWidth": 1800,
+    "maxHeight": 2400,
+    "quality": 86,
+    "skipExisting": false,
+    "cleanupInput": false
+  },
+  "images": [
+    {
+      "caseSlug": "esbjerg-streetfood",
+      "src": "/images/references/esbjerg-streetfood/dsc04919.webp",
+      "alt": "DSC04919",
+      "width": 1800,
+      "height": 1200
+    },
+    {
+      "caseSlug": "esbjerg-streetfood",
+      "src": "/images/references/esbjerg-streetfood/dsc05100.webp",
+      "alt": "DSC05100",
+      "width": 1800,
+      "height": 1200
+    },
+    {
+      "caseSlug": "esbjerg-streetfood",
+      "src": "/images/references/esbjerg-streetfood/dsc05255.webp",
+      "alt": "DSC05255",
+      "width": 1800,
+      "height": 1200
+    },
+    {
+      "caseSlug": "esbjerg-streetfood",
+      "src": "/images/references/esbjerg-streetfood/dsc05265.webp",
+      "alt": "DSC05265",
+      "width": 1800,
+      "height": 1200
+    },
+    {
+      "caseSlug": "esbjerg-streetfood",
+      "src": "/images/references/esbjerg-streetfood/dsc05616.webp",
+      "alt": "DSC05616",
+      "width": 1800,
+      "height": 1200
+    },
+    {
+      "caseSlug": "esbjerg-streetfood",
+      "src": "/images/references/esbjerg-streetfood/dsc05685.webp",
+      "alt": "DSC05685",
+      "width": 1800,
+      "height": 1200
+    },
+    {
+      "caseSlug": "esbjerg-streetfood",
+      "src": "/images/references/esbjerg-streetfood/dsc05783.webp",
+      "alt": "DSC05783",
+      "width": 1800,
+      "height": 1200
+    },
+    {
+      "caseSlug": "fredericia-handboldklub",
+      "src": "/images/references/fredericia-handboldklub/dsc07230-4.webp",
+      "alt": "DSC07230 4",
+      "width": 1800,
+      "height": 1200
+    },
+    {
+      "caseSlug": "fredericia-handboldklub",
+      "src": "/images/references/fredericia-handboldklub/dsc07343-2.webp",
+      "alt": "DSC07343 2",
+      "width": 1800,
+      "height": 1200
+    },
+    {
+      "caseSlug": "fredericia-handboldklub",
+      "src": "/images/references/fredericia-handboldklub/dsc07398.webp",
+      "alt": "DSC07398",
+      "width": 1800,
+      "height": 1200
+    },
+    {
+      "caseSlug": "fredericia-handboldklub",
+      "src": "/images/references/fredericia-handboldklub/dsc07417.webp",
+      "alt": "DSC07417",
+      "width": 1800,
+      "height": 1200
+    },
+    {
+      "caseSlug": "fredericia-handboldklub",
+      "src": "/images/references/fredericia-handboldklub/dsc07471.webp",
+      "alt": "DSC07471",
+      "width": 1800,
+      "height": 1200
+    },
+    {
+      "caseSlug": "fredericia-handboldklub",
+      "src": "/images/references/fredericia-handboldklub/dsc08173-2.webp",
+      "alt": "DSC08173 2",
+      "width": 1800,
+      "height": 1200
+    },
+    {
+      "caseSlug": "fredericia-handboldklub",
+      "src": "/images/references/fredericia-handboldklub/dsc08253.webp",
+      "alt": "DSC08253",
+      "width": 1800,
+      "height": 1200
+    },
+    {
+      "caseSlug": "fredericia-handboldklub",
+      "src": "/images/references/fredericia-handboldklub/dsc08414-2.webp",
+      "alt": "DSC08414 2",
+      "width": 1800,
+      "height": 1200
+    },
+    {
+      "caseSlug": "kif-kolding",
+      "src": "/images/references/kif-kolding/dsc09393.webp",
+      "alt": "DSC09393",
+      "width": 1800,
+      "height": 1200
+    },
+    {
+      "caseSlug": "kif-kolding",
+      "src": "/images/references/kif-kolding/dsc09416.webp",
+      "alt": "DSC09416",
+      "width": 1800,
+      "height": 1200
+    },
+    {
+      "caseSlug": "kif-kolding",
+      "src": "/images/references/kif-kolding/dsc09439.webp",
+      "alt": "DSC09439",
+      "width": 1800,
+      "height": 1200
+    },
+    {
+      "caseSlug": "kif-kolding",
+      "src": "/images/references/kif-kolding/dsc09468.webp",
+      "alt": "DSC09468",
+      "width": 1800,
+      "height": 1200
+    },
+    {
+      "caseSlug": "kif-kolding",
+      "src": "/images/references/kif-kolding/dsc09548-6-2.webp",
+      "alt": "DSC09548 6 2",
+      "width": 1800,
+      "height": 1200
+    },
+    {
+      "caseSlug": "kif-kolding",
+      "src": "/images/references/kif-kolding/dsc09566-3.webp",
+      "alt": "DSC09566 3",
+      "width": 1800,
+      "height": 1200
+    },
+    {
+      "caseSlug": "kif-kolding",
+      "src": "/images/references/kif-kolding/dsc09613-9.webp",
+      "alt": "DSC09613 9",
+      "width": 1800,
+      "height": 1200
+    },
+    {
+      "caseSlug": "kif-kolding",
+      "src": "/images/references/kif-kolding/dsc09621-5.webp",
+      "alt": "DSC09621 5",
+      "width": 1800,
+      "height": 1200
+    },
+    {
+      "caseSlug": "kif-kolding",
+      "src": "/images/references/kif-kolding/dsc09694.webp",
+      "alt": "DSC09694",
+      "width": 1800,
+      "height": 1200
+    },
+    {
+      "caseSlug": "kif-kolding",
+      "src": "/images/references/kif-kolding/dsc09742.webp",
+      "alt": "DSC09742",
+      "width": 1800,
+      "height": 1200
+    }
+  ]
+}

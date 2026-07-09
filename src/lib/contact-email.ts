@@ -1,0 +1,99 @@
+import { siteConfig } from "@/data/photos";
+import type { ContactInput } from "@/lib/contact-schema";
+import {
+  buildBrandedEmail,
+  buildFromAddress,
+  emailInfoTable,
+  emailParagraph,
+  emailRow,
+} from "@/lib/email-template";
+import { Resend } from "resend";
+
+const resend = process.env.RESEND_API_KEY
+  ? new Resend(process.env.RESEND_API_KEY)
+  : null;
+
+const toEmail = process.env.INQUIRY_TO_EMAIL ?? siteConfig.email;
+
+function buildOwnerHtml(contact: ContactInput) {
+  const body = `
+    ${emailParagraph(`Du har modtaget en ny besked fra ${contact.name}.`)}
+    ${emailInfoTable(
+      [
+        emailRow("Emne", contact.subject),
+        emailRow("Navn", contact.name),
+        emailRow("E-mail", contact.email),
+        emailRow("Besked", contact.message),
+      ].join(""),
+    )}
+  `;
+
+  return buildBrandedEmail({
+    preheader: `Ny kontaktbesked fra ${contact.name}`,
+    title: "Ny kontaktbesked",
+    body,
+    cta: {
+      label: "Svar kunden",
+      href: `mailto:${contact.email}`,
+    },
+  });
+}
+
+function buildConfirmationHtml(contact: ContactInput) {
+  const body = `
+    ${emailParagraph(`Hej ${contact.name},`)}
+    ${emailParagraph(
+      "Tak for din besked — jeg har modtaget den og vender tilbage hurtigst muligt.",
+    )}
+    ${emailParagraph("Her er en kopi af det, du sendte:")}
+    ${emailInfoTable(
+      [
+        emailRow("Emne", contact.subject),
+        emailRow("Besked", contact.message),
+      ].join(""),
+    )}
+    ${emailParagraph("Du kan svare direkte på denne mail, hvis du vil tilføje noget.")}
+    ${emailParagraph(`Kh ${siteConfig.name}`)}
+  `;
+
+  return buildBrandedEmail({
+    preheader: "Tak for din besked — jeg vender tilbage hurtigst muligt",
+    title: "Tak for din besked",
+    body,
+    cta: {
+      label: "Besøg min hjemmeside",
+      href: siteConfig.url,
+    },
+  });
+}
+
+export async function sendContactEmails(contact: ContactInput) {
+  if (!resend) {
+    console.warn("[contact] RESEND_API_KEY not set — emails skipped.");
+    return { sent: false };
+  }
+
+  const [ownerResult, confirmResult] = await Promise.all([
+    resend.emails.send({
+      from: buildFromAddress(),
+      to: toEmail,
+      subject: `Kontakt — ${contact.subject} (${contact.name})`,
+      html: buildOwnerHtml(contact),
+      replyTo: contact.email,
+    }),
+    resend.emails.send({
+      from: buildFromAddress(),
+      to: contact.email,
+      subject: "Tak for din besked — Lukas Svendsen",
+      html: buildConfirmationHtml(contact),
+      replyTo: siteConfig.email,
+    }),
+  ]);
+
+  if (ownerResult.error || confirmResult.error) {
+    console.error("[contact] Resend error:", ownerResult.error ?? confirmResult.error);
+    throw new Error("Kunne ikke sende kontakt-mails");
+  }
+
+  return { sent: true };
+}

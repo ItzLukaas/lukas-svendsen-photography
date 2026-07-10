@@ -17,8 +17,12 @@ export function Hero() {
         <div className="hero-content-rise max-w-3xl">
           <h1 className={heroTitle}>
             <span className="block max-sm:whitespace-nowrap">Ung, 16-årig ambitiøs</span>
-            <span className="block max-sm:whitespace-nowrap">foto- & videoproducent</span>
+            <span className="block max-sm:whitespace-nowrap">fotograf og videoproducent</span>
           </h1>
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-white/65 sm:text-lg sm:leading-relaxed">
+            Jeg hedder Lukas Svendsen og arbejder som fotograf, videograf og dronepilot i Grindsted
+            og Billund — med foto, video og drone til sport, events og erhverv.
+          </p>
 
           <div className="mt-11 flex flex-col gap-4 sm:flex-row sm:items-center">
             <Link href="/portfolio" className={btnPrimary}>

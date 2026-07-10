@@ -130,7 +130,7 @@ export function Footer() {
 
         <div className="mt-16 border-t border-white/5 pt-12 text-center">
           <p className="font-display text-lg font-light whitespace-nowrap text-white sm:text-2xl md:text-3xl">
-            Skal vi skabe noget sammen?
+            Fortæl mig om dit projekt
           </p>
           <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-white/50">
             Fortæl mig om dit projekt — jeg vender tilbage hurtigst muligt.

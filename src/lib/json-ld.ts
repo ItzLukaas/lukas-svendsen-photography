@@ -283,7 +283,7 @@ export function homeJsonLd() {
         "@type": "ProfilePage",
         "@id": `${siteConfig.url}/#webpage`,
         url: siteConfig.url,
-        name: siteConfig.title,
+        name: "Lukas Svendsen | Ung fotograf og videoproducent i Grindsted",
         description: siteConfig.description,
         inLanguage: "da-DK",
         isPartOf: { "@id": `${siteConfig.url}/#website` },

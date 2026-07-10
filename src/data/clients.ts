@@ -9,11 +9,17 @@ export interface ClientLogo {
   href?: string;
 }
 
+function clientAlt(name: string, detail?: string) {
+  return detail
+    ? `${name} logo — ${detail}, samarbejdspartner hos Lukas Svendsen`
+    : `${name} logo — samarbejdspartner og kunde hos Lukas Svendsen Photography`;
+}
+
 export const clientLogos: ClientLogo[] = [
   {
     id: "billund-kommune",
     name: "Billund Kommune",
-    alt: "Billund Kommune logo",
+    alt: clientAlt("Billund Kommune", "kommune i Sydjylland"),
     src: "/images/clients/billund-kommune.webp",
     width: 288,
     height: 112,
@@ -21,7 +27,7 @@ export const clientLogos: ClientLogo[] = [
   {
     id: "dansk-handbold",
     name: "Dansk Håndbold",
-    alt: "Dansk Håndbold logo",
+    alt: clientAlt("Dansk Håndbold", "dansk håndboldforbund"),
     src: "/images/clients/dansk-handbold.webp",
     width: 440,
     height: 96,
@@ -29,7 +35,7 @@ export const clientLogos: ClientLogo[] = [
   {
     id: "frisko",
     name: "Frisko",
-    alt: "Frisko logo",
+    alt: clientAlt("Frisko", "fødevarevirksomhed"),
     src: "/images/clients/frisko.webp",
     width: 150,
     height: 112,
@@ -37,7 +43,7 @@ export const clientLogos: ClientLogo[] = [
   {
     id: "3p-group",
     name: "3P Group",
-    alt: "3P Group logo",
+    alt: clientAlt("3P Group", "erhvervsvirksomhed"),
     src: "/images/clients/3p-group.webp",
     width: 203,
     height: 112,
@@ -45,7 +51,7 @@ export const clientLogos: ClientLogo[] = [
   {
     id: "vejle-kommune",
     name: "Vejle Kommune",
-    alt: "Vejle Kommune logo",
+    alt: clientAlt("Vejle Kommune", "kommune i Trekantsområdet"),
     src: "/images/clients/vejle-kommune.webp",
     width: 280,
     height: 112,
@@ -53,7 +59,7 @@ export const clientLogos: ClientLogo[] = [
   {
     id: "bygningen",
     name: "Bygningen",
-    alt: "Bygningen Vejle logo — Vejles kulturelle puls",
+    alt: clientAlt("Bygningen Vejle", "kulturhus og koncertsted"),
     src: "/images/clients/bygningen.webp",
     width: 248,
     height: 112,
@@ -61,7 +67,7 @@ export const clientLogos: ClientLogo[] = [
   {
     id: "ggif-handbold",
     name: "GGIF Håndbold",
-    alt: "GGIF Håndbold logo",
+    alt: clientAlt("GGIF Håndbold", "håndboldklub"),
     src: "/images/clients/ggif-handbold.webp",
     width: 268,
     height: 112,
@@ -69,7 +75,7 @@ export const clientLogos: ClientLogo[] = [
   {
     id: "magion",
     name: "MAGION",
-    alt: "MAGION Kultur og Idræt logo",
+    alt: clientAlt("MAGION Kultur og Idræt", "kultur- og idrætsorganisation"),
     src: "/images/clients/magion.webp",
     width: 296,
     height: 112,
@@ -77,7 +83,7 @@ export const clientLogos: ClientLogo[] = [
   {
     id: "dgi",
     name: "DGI",
-    alt: "DGI logo — Danske Gymnastik- og Idrætsforeninger",
+    alt: clientAlt("DGI", "Danske Gymnastik- og Idrætsforeninger"),
     src: "/images/clients/dgi.webp",
     width: 204,
     height: 112,
@@ -85,7 +91,7 @@ export const clientLogos: ClientLogo[] = [
   {
     id: "bambuni-herreligaen",
     name: "Bambuni Herreligaen",
-    alt: "Bambuni Herreligaen logo",
+    alt: clientAlt("Bambuni Herreligaen", "dansk herrehåndboldliga"),
     src: "/images/clients/bambuni-herreligaen.webp",
     width: 440,
     height: 97,
@@ -93,7 +99,7 @@ export const clientLogos: ClientLogo[] = [
   {
     id: "esbjerg-street-food",
     name: "Esbjerg Street Food",
-    alt: "Esbjerg Street Food logo — Det Gamle Teater",
+    alt: clientAlt("Esbjerg Street Food", "street food i Det Gamle Teater"),
     src: "/images/clients/esbjerg-street-food.webp",
     width: 138,
     height: 112,
@@ -102,7 +108,7 @@ export const clientLogos: ClientLogo[] = [
   {
     id: "royal-fireworks",
     name: "Royal Fireworks",
-    alt: "Royal Fireworks logo",
+    alt: clientAlt("Royal Fireworks", "fyrværkeri og pyroteknik"),
     src: "/images/clients/royal-fireworks-2026.webp",
     width: 164,
     height: 112,
@@ -110,7 +116,7 @@ export const clientLogos: ClientLogo[] = [
   {
     id: "venstre",
     name: "Venstre",
-    alt: "Venstre logo",
+    alt: clientAlt("Venstre", "politisk parti"),
     src: "/images/clients/venstre.webp",
     width: 440,
     height: 112,
@@ -118,7 +124,7 @@ export const clientLogos: ClientLogo[] = [
   {
     id: "stay-and-sleep",
     name: "Stay and Sleep",
-    alt: "Stay and Sleep logo — Rest, Relax, Recharge",
+    alt: clientAlt("Stay and Sleep", "hotel og overnatning"),
     src: "/images/clients/stay-and-sleep.webp",
     width: 440,
     height: 97,

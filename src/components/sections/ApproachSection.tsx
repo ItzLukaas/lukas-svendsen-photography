@@ -30,7 +30,7 @@ export function ApproachSection() {
           <ScrollReveal>
             <p className={sectionLabel}>Min tilgang</p>
             <AnimatedHeading className="font-display text-3xl font-light leading-tight text-white md:text-4xl lg:text-5xl">
-              Min tilgang til visuelt indhold
+              Sådan arbejder jeg
             </AnimatedHeading>
           </ScrollReveal>
           <ScrollReveal delay={0.15}>

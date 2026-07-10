@@ -6,9 +6,9 @@ export function ReferenceCta() {
   return (
     <section className="border-t border-white/5 px-6 py-24 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-2xl text-center">
-        <p className="font-display text-2xl font-light text-white md:text-3xl">
-          Skal vi skabe noget sammen?
-        </p>
+        <h2 className="font-display text-2xl font-light text-white md:text-3xl">
+          Lyst til et lignende samarbejde?
+        </h2>
         <p className={`mx-auto mt-5 max-w-md ${sectionBody}`}>
           Fortæl mig om dit næste projekt — jeg vender tilbage hurtigst muligt.
         </p>

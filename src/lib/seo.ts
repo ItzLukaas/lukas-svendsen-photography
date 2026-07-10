@@ -84,10 +84,11 @@ export function pageMetadata({
 
 export function homeMetadata(): Metadata {
   const images = buildOgImages();
+  const homeTitle = "Lukas Svendsen | Ung fotograf og videoproducent i Grindsted";
 
   return {
     title: {
-      absolute: siteConfig.title,
+      absolute: homeTitle,
     },
     description: siteConfig.description,
     keywords: [
@@ -103,7 +104,7 @@ export function homeMetadata(): Metadata {
       "fotograf Syddanmark",
     ],
     openGraph: {
-      title: siteConfig.title,
+      title: homeTitle,
       description: siteConfig.description,
       url: siteConfig.url,
       type: "website",
@@ -113,7 +114,7 @@ export function homeMetadata(): Metadata {
     },
     twitter: {
       card: "summary_large_image",
-      title: siteConfig.title,
+      title: homeTitle,
       description: siteConfig.description,
       images: images.map((image) => image.url),
     },

@@ -39,7 +39,7 @@ export const approachPoints = [
     icon: "sliders" as const,
   },
   {
-    title: "Levering",
+    title: "Overdragelse",
     description: "Du modtager filer klar til web, sociale medier eller print.",
     icon: "heart" as const,
   },

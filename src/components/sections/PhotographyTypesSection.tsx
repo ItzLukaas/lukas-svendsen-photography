@@ -19,7 +19,7 @@ export function PhotographyTypesSection() {
           <div className="relative aspect-[4/5] overflow-hidden bg-[#111] sm:aspect-[5/6]">
             <Image
               src="/images/IMG_3454.webp"
-              alt="Lukas Svendsen — fotograf og videoproducent"
+              alt="Lukas Svendsen — ung fotograf og videoproducent ved kamera"
               fill
               className="object-cover object-[50%_15%]"
               sizes="(max-width: 1024px) 100vw, 50vw"

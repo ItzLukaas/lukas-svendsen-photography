@@ -18,7 +18,8 @@ export function ClientsSection() {
           Betroet af førende brands
         </h2>
         <p className="mx-auto mt-5 max-w-lg text-sm leading-relaxed text-white/50">
-          Samarbejder med kommuner, sportsklubber, events og virksomheder i hele Danmark.
+          Som ung fotograf og videoproducent samarbejder jeg med kommuner, sportsklubber, events og
+          virksomheder i hele Danmark.
         </p>
         <Link href="/referencer" className={`mt-6 ${linkSubtle}`}>
           Se referencer og cases

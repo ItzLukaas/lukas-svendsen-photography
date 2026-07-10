@@ -42,8 +42,8 @@ export function ServicesSection() {
             <h2 className={sectionTitle}>Foto, video og drone</h2>
           </div>
           <p className={`mt-7 max-w-md lg:mt-0 lg:text-right ${sectionBody}`}>
-            Professionelle produktioner med fokus på stemning, bevægelse og historie — ikke
-            standardpakker.
+            Professionel fotografering, videoproduktion og droneflyvning med fokus på stemning,
+            bevægelse og historie — ikke standardpakker.
           </p>
         </div>
 
@@ -64,7 +64,7 @@ export function ServicesSection() {
                       {Icon ? <Icon size={20} strokeWidth={1.5} /> : <DroneIcon size={20} />}
                     </span>
                     <p className="text-[10px] tracking-[0.3em] text-white/45 uppercase">
-                      Produktion
+                      Ydelse
                     </p>
                     <h3 className="mt-3 font-display text-2xl font-light text-white lg:text-[1.65rem]">
                       {service.title}

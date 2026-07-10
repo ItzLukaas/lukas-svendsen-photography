@@ -3,6 +3,7 @@ import path from "path";
 import sharp from "sharp";
 
 const ASSETS_DIR = "C:/Users/Bandit/.cursor/projects/h-LukasSvendsen/assets";
+const IMAGE_IMPORT_DIR = "H:/LukasSvendsen/image-import";
 const OUT_DIR = "H:/LukasSvendsen/public/images/clients";
 const MANIFEST = "H:/LukasSvendsen/src/data/clients.generated.json";
 
@@ -43,7 +44,17 @@ const SLUG_MAP = [
     { id: "bambuni-herreligaen", name: "Bambuni Herreligaen", alt: "Bambuni Herreligaen logo", mode: "light" },
   ],
   ["vejle-kommune", { id: "vejle-kommune", name: "Vejle Kommune", alt: "Vejle Kommune logo", mode: "light" }],
-  ["royal-fireworks", { id: "royal-fireworks", name: "Royal Fireworks", alt: "Royal Fireworks logo", mode: "light" }],
+  [
+    "1748329421277",
+    {
+      id: "royal-fireworks",
+      name: "Royal Fireworks",
+      alt: "Royal Fireworks logo",
+      mode: "dark-on-light",
+      maxW: 440,
+      outId: "royal-fireworks-2026",
+    },
+  ],
   ["venstre", { id: "venstre", name: "Venstre", alt: "Venstre logo", mode: "light" }],
   [
     "stay-and-sleep",
@@ -224,11 +235,13 @@ function applyMode(px, w, h, mode) {
     const c = chroma(r, g, b);
 
     if (mode === "dark-on-light") {
-      if (a < 20 || l > 210) {
+      if (a < 20 || l > 198) {
         clear(px, i);
         continue;
       }
-      setWhite(px, i, inkAlpha(255 - l));
+      const ink = 255 - l;
+      const alpha = ink < 12 ? 0 : ink > 220 ? 255 : Math.min(255, Math.round(ink * 1.12));
+      setWhite(px, i, alpha);
       continue;
     }
 
@@ -273,7 +286,8 @@ async function toWhiteWebp(inputPath, meta) {
   const px = Buffer.from(data);
   applyMode(px, info.width, info.height, meta.mode ?? "light");
 
-  const outPath = path.join(OUT_DIR, `${meta.id}.webp`);
+  const outId = meta.outId ?? meta.id;
+  const outPath = path.join(OUT_DIR, `${outId}.webp`);
   await sharp(px, {
     raw: { width: info.width, height: info.height, channels: 4 },
   })
@@ -284,26 +298,49 @@ async function toWhiteWebp(inputPath, meta) {
     id: meta.id,
     name: meta.name,
     alt: meta.alt,
-    src: `/images/clients/${meta.id}.webp`,
+    src: `/images/clients/${outId}.webp`,
     width: info.width,
     height: info.height,
   };
 }
 
-const files = fs
-  .readdirSync(ASSETS_DIR)
-  .filter((f) => f.toLowerCase().endsWith(".png"));
-
 const results = [];
 const seen = new Set();
 
-for (const file of files) {
-  const meta = matchLogo(file);
-  if (seen.has(meta.id)) continue;
+function matchesSlugMap(filename) {
+  const key = filename.includes("images_")
+    ? filename.split("images_")[1]
+    : filename.replace(/\.(png|jpe?g)$/i, "");
+
+  return SLUG_MAP.some(([needle]) => key.includes(needle));
+}
+
+async function processLogoFile(filePath, sourceLabel, { requireKnown = false } = {}) {
+  const basename = path.basename(filePath);
+  if (requireKnown && !matchesSlugMap(basename)) return;
+
+  const meta = matchLogo(basename);
+  if (seen.has(meta.id)) return;
   seen.add(meta.id);
-  const result = await toWhiteWebp(path.join(ASSETS_DIR, file), meta);
+  const result = await toWhiteWebp(filePath, meta);
   results.push(result);
-  console.log(`✓ ${meta.id} [${meta.mode ?? "light"}] (${result.width}x${result.height})`);
+  console.log(`✓ ${meta.id} [${sourceLabel}] (${result.width}x${result.height})`);
+}
+
+if (fs.existsSync(IMAGE_IMPORT_DIR)) {
+  const importFiles = fs
+    .readdirSync(IMAGE_IMPORT_DIR)
+    .filter((f) => /\.(png|jpe?g)$/i.test(f));
+  for (const file of importFiles) {
+    await processLogoFile(path.join(IMAGE_IMPORT_DIR, file), "import", { requireKnown: true });
+  }
+}
+
+if (fs.existsSync(ASSETS_DIR)) {
+  const files = fs.readdirSync(ASSETS_DIR).filter((f) => f.toLowerCase().endsWith(".png"));
+  for (const file of files) {
+    await processLogoFile(path.join(ASSETS_DIR, file), "assets");
+  }
 }
 
 results.sort((a, b) => a.name.localeCompare(b.name, "da"));

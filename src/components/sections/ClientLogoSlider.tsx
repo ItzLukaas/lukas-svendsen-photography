@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { ClientLogo } from "@/data/clients";
 
 interface ClientLogoSliderProps {
@@ -7,55 +8,69 @@ interface ClientLogoSliderProps {
 
 function LogoItem({
   client,
-  duplicate = false,
+  interactive,
 }: {
   client: ClientLogo;
-  duplicate?: boolean;
+  interactive: boolean;
 }) {
+  const image = (
+    <Image
+      src={client.src}
+      alt={interactive ? client.alt : ""}
+      width={client.width}
+      height={client.height}
+      loading="lazy"
+      sizes="(max-width: 640px) 120px, 160px"
+      quality={75}
+      aria-hidden={interactive ? undefined : true}
+      className="logo-marquee-img"
+    />
+  );
+
+  const isExternal = client.href.startsWith("http");
+
   return (
-    <li className={`logo-marquee-item${duplicate ? " logo-marquee-item-duplicate" : ""}`}>
-      <Image
-        src={client.src}
-        alt={duplicate ? "" : client.alt}
-        width={client.width}
-        height={client.height}
-        loading="lazy"
-        sizes="(max-width: 640px) 120px, 160px"
-        quality={75}
-        aria-hidden={duplicate ? true : undefined}
-        className="logo-marquee-img brightness-[0.85] transition-opacity duration-500 ease-premium hover:opacity-90 sm:brightness-100"
-      />
+    <li
+      className={`logo-marquee-item${interactive ? "" : " logo-marquee-item-duplicate"}`}
+      aria-hidden={interactive ? undefined : true}
+    >
+      {interactive ? (
+        isExternal ? (
+          <a
+            href={client.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="logo-marquee-link"
+            aria-label={client.name}
+          >
+            {image}
+          </a>
+        ) : (
+          <Link href={client.href} className="logo-marquee-link" aria-label={client.name}>
+            {image}
+          </Link>
+        )
+      ) : (
+        <span className="logo-marquee-link pointer-events-none">{image}</span>
+      )}
     </li>
   );
 }
 
-function LogoSet({
-  logos,
-  duplicate = false,
-}: {
-  logos: ClientLogo[];
-  duplicate?: boolean;
-}) {
-  return (
-    <ul className="logo-marquee-set" aria-hidden={duplicate ? true : undefined}>
-      {logos.map((client) => (
-        <LogoItem
-          key={duplicate ? `${client.id}-dup` : client.id}
-          client={client}
-          duplicate={duplicate}
-        />
-      ))}
-    </ul>
-  );
-}
-
 export function ClientLogoSlider({ logos }: ClientLogoSliderProps) {
+  const trackLogos = [...logos, ...logos];
+
   return (
     <div className="logo-marquee" aria-label="Kundelogoer">
-      <div className="logo-marquee-track motion-reduce:animate-none">
-        <LogoSet logos={logos} />
-        <LogoSet logos={logos} duplicate />
-      </div>
+      <ul className="logo-marquee-track motion-reduce:animate-none">
+        {trackLogos.map((client, index) => (
+          <LogoItem
+            key={`${client.id}-${index}`}
+            client={client}
+            interactive={index < logos.length}
+          />
+        ))}
+      </ul>
     </div>
   );
 }

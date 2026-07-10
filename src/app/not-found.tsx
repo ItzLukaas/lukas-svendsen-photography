@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { btnPrimary } from "@/lib/styles";
+import { btnGhost, btnPrimary } from "@/lib/styles";
 import { notFoundMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = notFoundMetadata();
@@ -17,7 +17,7 @@ export default function NotFound() {
         <p className="mt-5 text-sm leading-relaxed text-white/50">
           Den side, du leder efter, findes ikke eller er blevet flyttet.
         </p>
-        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:items-center">
           <Link href="/" className={btnPrimary}>
             Gå til forsiden
             <ArrowRight
@@ -26,10 +26,7 @@ export default function NotFound() {
               className="transition-transform duration-500 ease-premium group-hover:translate-x-1"
             />
           </Link>
-          <Link
-            href="/portfolio"
-            className="text-xs tracking-[0.2em] text-white/50 uppercase transition-colors duration-500 ease-premium hover:text-white"
-          >
+          <Link href="/portfolio" className={btnGhost}>
             Se portefølje
           </Link>
         </div>

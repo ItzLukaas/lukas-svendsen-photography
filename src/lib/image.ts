@@ -4,13 +4,18 @@ export const BLUR_DATA_URL =
 
 export const IMAGE_QUALITY = {
   hero: 82,
+  heroCarousel: 80,
   gallery: 78,
   card: 75,
 } as const;
 
 export const IMAGE_SIZES = {
   hero: "100vw",
+  heroCarousel: "(max-width: 1920px) 100vw, 1920px",
   gallery: "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw",
   card: "(max-width: 1024px) 100vw, 33vw",
   full: "100vw",
 } as const;
+
+/** Max width served for fullscreen hero carousel (SEO / LCP friendly). */
+export const HERO_CAROUSEL_WIDTH = 1920;

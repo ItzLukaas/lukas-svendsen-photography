@@ -95,7 +95,7 @@ function FormField({
 const textareaClass =
   "w-full resize-none border-0 bg-transparent px-0 py-3.5 text-white placeholder-white/20 transition-colors duration-500 ease-premium focus:outline-none";
 
-export function InquiryWizard() {
+export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
   const prefersReducedMotion = useReducedMotion();
   const [step, setStep] = useState(1);
   const [form, setForm] = useState<FormState>(initialState);
@@ -245,7 +245,7 @@ export function InquiryWizard() {
         transition={{ duration: 0.6, ease: EASE }}
         className="flex flex-col items-center py-16 text-center"
       >
-        <div className="mb-7 flex h-16 w-16 items-center justify-center rounded-full border border-white/20 bg-white/5">
+        <div className="mb-7 flex h-16 w-16 items-center justify-center rounded-full border border-white/25 bg-white/[0.06] shadow-[0_0_40px_rgba(255,255,255,0.06)]">
           <Check size={24} strokeWidth={1.5} className="text-white" />
         </div>
         <h3 className="font-display text-2xl font-light text-white">
@@ -259,7 +259,11 @@ export function InquiryWizard() {
   }
 
   return (
-    <div className="border border-white/8 bg-white/[0.02] p-8 lg:p-12">
+    <div
+      className={
+        embedded ? "p-0" : "border border-white/8 bg-white/[0.02] p-8 lg:p-12"
+      }
+    >
       <InquiryProgress currentStep={step} />
 
       <AnimatePresence mode="wait">
@@ -293,17 +297,19 @@ export function InquiryWizard() {
                       }}
                       className={`group flex flex-col items-start border p-6 text-left transition-all duration-500 ease-premium hover:-translate-y-0.5 ${
                         selected
-                          ? "border-white/30 bg-white/[0.04]"
-                          : "border-white/10 hover:border-white/20"
+                          ? "border-white/35 bg-white/[0.06] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]"
+                          : "border-white/10 bg-white/[0.01] hover:border-white/20 hover:bg-white/[0.03]"
                       }`}
                     >
-                      <Icon
-                        size={20}
-                        strokeWidth={1.5}
-                        className={`mb-5 transition-colors duration-500 ${
-                          selected ? "text-white" : "text-white/40 group-hover:text-white/70"
+                      <span
+                        className={`mb-5 flex h-11 w-11 items-center justify-center rounded-full border transition-all duration-500 ease-premium ${
+                          selected
+                            ? "border-white/30 bg-white/[0.08] text-white"
+                            : "border-white/10 text-white/40 group-hover:border-white/20 group-hover:text-white/70"
                         }`}
-                      />
+                      >
+                        <Icon size={18} strokeWidth={1.5} />
+                      </span>
                       <span className="text-sm tracking-wide text-white">
                         {service.label}
                       </span>
@@ -334,10 +340,10 @@ export function InquiryWizard() {
                     key={cat}
                     type="button"
                     onClick={() => update("category", cat)}
-                    className={`border px-5 py-2.5 text-xs tracking-[0.15em] uppercase transition-all duration-500 ease-premium hover:-translate-y-px ${
+                    className={`rounded-full border px-5 py-2.5 text-xs tracking-[0.15em] uppercase transition-all duration-500 ease-premium hover:-translate-y-px ${
                       form.category === cat
-                        ? "border-white/40 bg-white/10 text-white"
-                        : "border-white/10 text-white/50 hover:border-white/25 hover:text-white/80"
+                        ? "border-white/40 bg-white/10 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]"
+                        : "border-white/10 bg-white/[0.02] text-white/50 hover:border-white/25 hover:text-white/80"
                     }`}
                   >
                     {cat}
@@ -391,7 +397,7 @@ export function InquiryWizard() {
                   {form.schedule.map((slot, index) => (
                     <div
                       key={index}
-                      className="grid gap-4 border border-white/8 p-5 sm:grid-cols-[1fr_auto_auto_auto]"
+                      className="grid gap-4 rounded-sm border border-white/10 bg-white/[0.02] p-5 sm:grid-cols-[1fr_auto_auto_auto]"
                     >
                       <FormField id={`date-${index}`} label="Dato">
                         <input
@@ -566,7 +572,7 @@ export function InquiryWizard() {
               <p className={`mt-3 ${sectionBody}`}>
                 Gennemgå dine oplysninger inden afsendelse.
               </p>
-              <dl className="mt-10 space-y-5 border-t border-white/8 pt-8">
+              <dl className="mt-10 space-y-5 rounded-sm border border-white/10 bg-white/[0.02] p-6 sm:p-8">
                 {[
                   ["Ydelse", serviceLabels[form.service]],
                   [
@@ -623,7 +629,7 @@ export function InquiryWizard() {
         </m.div>
       </AnimatePresence>
 
-      <div className="mt-12 flex items-center justify-between gap-4 pt-2">
+      <div className="mt-12 flex items-center justify-between gap-4 border-t border-white/[0.08] pt-8">
         {step > 1 ? (
           <button
             type="button"

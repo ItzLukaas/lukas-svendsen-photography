@@ -7,7 +7,7 @@ import {
   seoCities,
   cityPath,
 } from "@/data/seo-cities";
-import { pageMetadata } from "@/lib/seo";
+import { notFoundMetadata, pageMetadata } from "@/lib/seo";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
 
   if (!isSeoCitySlug(slug)) {
-    return { title: "Side ikke fundet" };
+    return notFoundMetadata();
   }
 
   const city = getSeoCityBySlug(slug)!;

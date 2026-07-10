@@ -3,27 +3,18 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { ArrowRight } from "lucide-react";
 import { Hero } from "@/components/Hero";
+import { MasonryGallery } from "@/components/MasonryGallery";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { ClientsSection } from "@/components/sections/ClientsSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
-import { GallerySkeleton } from "@/components/ui/GallerySkeleton";
 import { featuredPhotos, siteConfig } from "@/data/photos";
 import { homeJsonLd } from "@/lib/json-ld";
-import { sectionDivider, sectionShell, linkSubtle } from "@/lib/styles";
+import { linkSubtle, sectionDivider, sectionShell } from "@/lib/styles";
 import { homeMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = homeMetadata();
 
-const MasonryGallery = dynamic(
-  () =>
-    import("@/components/MasonryGallery").then((mod) => ({
-      default: mod.MasonryGallery,
-    })),
-  { loading: () => <GallerySkeleton /> },
-);
-
-const PhotographyTypesSection = dynamic(() =>
-  import("@/components/sections/PhotographyTypesSection").then((mod) => ({
+const PhotographyTypesSection = dynamic(() =>  import("@/components/sections/PhotographyTypesSection").then((mod) => ({
     default: mod.PhotographyTypesSection,
   })),
 );

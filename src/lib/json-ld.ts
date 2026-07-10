@@ -1,6 +1,6 @@
 import { siteConfig } from "@/data/photos";
 
-export const SITE_LAST_MODIFIED = "2026-07-09";
+export const SITE_LAST_MODIFIED = "2026-07-10";
 
 export function absoluteAssetUrl(path: string) {
   return path.startsWith("http") ? path : `${siteConfig.url}${path}`;
@@ -11,6 +11,7 @@ export const LOCAL_BUSINESS_ID = `${siteConfig.url}/#localbusiness`;
 export const mainNavigation = [
   { name: "Portefølje", path: "/portfolio" },
   { name: "Referencer", path: "/referencer" },
+  { name: "Ydelser", path: "/ydelser" },
   { name: "Om mig", path: "/om-mig" },
   { name: "Kontakt", path: "/kontakt" },
   { name: "Få et tilbud", path: "/#foresporgsel" },
@@ -96,6 +97,7 @@ export function primaryLocalBusinessJsonLd(options: LocalBusinessOptions = {}) {
     geo: geoCoordinates(),
     areaServed,
     founder: { "@id": `${siteConfig.url}/#person` },
+    parentOrganization: { "@id": `${siteConfig.url}/#organization` },
     contactPoint: contactPoint(),
     sameAs: [siteConfig.instagram],
     knowsAbout: siteConfig.services,
@@ -223,7 +225,7 @@ export function rootGraphJsonLd() {
         name: siteConfig.name,
         description: siteConfig.description,
         inLanguage: "da-DK",
-        publisher: { "@id": LOCAL_BUSINESS_ID },
+        publisher: { "@id": `${siteConfig.url}/#organization` },
       },
       {
         "@type": ["Person", "Photographer"],
@@ -237,7 +239,25 @@ export function rootGraphJsonLd() {
         telephone: siteConfig.phone,
         address: postalAddress(),
         sameAs: [siteConfig.instagram],
-        worksFor: { "@id": LOCAL_BUSINESS_ID },
+        worksFor: { "@id": `${siteConfig.url}/#organization` },
+      },
+      {
+        "@type": "Organization",
+        "@id": `${siteConfig.url}/#organization`,
+        name: siteConfig.name,
+        url: siteConfig.url,
+        logo: absoluteUrl("/icon"),
+        image: absoluteUrl(siteConfig.ogImage),
+        description: siteConfig.description,
+        email: siteConfig.email,
+        telephone: siteConfig.phone,
+        address: postalAddress(),
+        sameAs: [siteConfig.instagram],
+        contactPoint: contactPoint(),
+        areaServed: siteConfig.areaServed.map((city) => ({
+          "@type": "City" as const,
+          name: city,
+        })),
       },
       primaryLocalBusinessJsonLd(),
       {

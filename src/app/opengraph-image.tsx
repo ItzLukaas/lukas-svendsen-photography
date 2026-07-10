@@ -1,7 +1,6 @@
 import { ImageResponse } from "next/og";
-import { siteConfig } from "@/data/photos";
 
-export const alt = `${siteConfig.name} — fotograf og videoproducent`;
+export const alt = "Lukas Svendsen — Fotograf | Videograf | Dronepilot";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -14,7 +13,8 @@ export default function OpenGraphImage() {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "space-between",
+          alignItems: "center",
+          justifyContent: "center",
           background: "#0a0a0a",
           color: "#ffffff",
           padding: "72px",
@@ -23,28 +23,33 @@ export default function OpenGraphImage() {
         <div
           style={{
             display: "flex",
-            fontSize: 28,
-            letterSpacing: "0.35em",
+            fontSize: 32,
+            letterSpacing: "0.12em",
             textTransform: "uppercase",
-            opacity: 0.45,
+            opacity: 0.55,
+            marginBottom: 40,
           }}
         >
-          Fotograf · Videograf · Dronepilot
-        </div>
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ fontSize: 72, fontWeight: 300, lineHeight: 1.05, marginBottom: 24 }}>
-            {siteConfig.name}
-          </div>
-          <div style={{ fontSize: 30, lineHeight: 1.4, opacity: 0.72, maxWidth: 760 }}>
-            Eventfotografi, sportsfotografi, erhvervsfoto og visuel produktion i Midt- og Syddanmark.
-          </div>
+          Fotograf | Videograf | Dronepilot
         </div>
         <div
           style={{
             display: "flex",
-            fontSize: 24,
-            letterSpacing: "0.2em",
-            opacity: 0.4,
+            fontSize: 88,
+            fontWeight: 300,
+            lineHeight: 1.05,
+            letterSpacing: "-0.02em",
+          }}
+        >
+          Lukas Svendsen
+        </div>
+        <div
+          style={{
+            display: "flex",
+            fontSize: 28,
+            letterSpacing: "0.18em",
+            opacity: 0.45,
+            marginTop: 48,
           }}
         >
           lukassvendsen.dk

@@ -41,11 +41,12 @@ const securityHeaders = [
       "form-action 'self'",
       "frame-ancestors 'none'",
       "object-src 'none'",
-      "img-src 'self' data: blob: https://images.unsplash.com https://www.google-analytics.com https://www.googletagmanager.com",
+      "img-src 'self' data: blob: https://images.unsplash.com https://image.mux.com https://www.google-analytics.com https://www.googletagmanager.com",
       "font-src 'self' data:",
+      "media-src 'self' blob: https://stream.mux.com",
       "style-src 'self' 'unsafe-inline' https://consent.cookiebot.com",
       "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://consent.cookiebot.com https://consentcdn.cookiebot.com https://www.googletagmanager.com",
-      "connect-src 'self' https://consent.cookiebot.com https://consentcdn.cookiebot.com https://www.google-analytics.com https://region1.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com",
+      "connect-src 'self' https://consent.cookiebot.com https://consentcdn.cookiebot.com https://www.google-analytics.com https://region1.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://stream.mux.com https://*.mux.com",
       "frame-src 'self' https://consent.cookiebot.com https://consentcdn.cookiebot.com",
       "upgrade-insecure-requests",
     ].join("; "),
@@ -59,7 +60,7 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
     imageSizes: [256, 384, 640, 750, 828, 1080],
-    qualities: [75, 78, 82, 86, 90],
+    qualities: [75, 78, 80, 82, 86, 90],
     minimumCacheTTL: 31536000,
     remotePatterns: [
       {
@@ -91,6 +92,46 @@ const nextConfig: NextConfig = {
       {
         source: "/fotograf/:by",
         destination: "/fotograf-:by",
+        permanent: true,
+      },
+      {
+        source: "/ydelser/eventfotograf",
+        destination: "/ydelser/fotografering",
+        permanent: true,
+      },
+      {
+        source: "/ydelser/sportsfotograf",
+        destination: "/ydelser/fotografering",
+        permanent: true,
+      },
+      {
+        source: "/ydelser/koncertfotograf",
+        destination: "/ydelser/fotografering",
+        permanent: true,
+      },
+      {
+        source: "/ydelser/bryllupsfotograf",
+        destination: "/ydelser/fotografering",
+        permanent: true,
+      },
+      {
+        source: "/ydelser/erhvervsfotograf",
+        destination: "/ydelser/fotografering",
+        permanent: true,
+      },
+      {
+        source: "/ydelser/portraetfotograf",
+        destination: "/ydelser/fotografering",
+        permanent: true,
+      },
+      {
+        source: "/ydelser/videograf",
+        destination: "/ydelser/videoproduktion",
+        permanent: true,
+      },
+      {
+        source: "/ydelser/dronefoto",
+        destination: "/ydelser/drone",
         permanent: true,
       },
     ];

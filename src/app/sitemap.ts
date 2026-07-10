@@ -63,6 +63,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
       changeFrequency: "monthly",
     }),
+    entry("/privatlivspolitik", {
+      priority: 0.3,
+      changeFrequency: "yearly",
+      lastModified: "2026-07-10",
+    }),
     entry("/ydelser", {
       priority: 0.85,
       changeFrequency: "monthly",

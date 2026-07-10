@@ -18,7 +18,7 @@ const defaultOgImage = {
   url: "/opengraph-image",
   width: 1200,
   height: 630,
-  alt: `${siteConfig.name} — fotograf og videoproducent i Midt- og Syddanmark`,
+  alt: `${siteConfig.name} — fotograf, videograf og dronepilot i Grindsted og Billund`,
 };
 
 function buildOgImages(options?: Pick<PageMetaOptions, "ogImage" | "ogImageWidth" | "ogImageHeight">) {
@@ -92,12 +92,12 @@ export function homeMetadata(): Metadata {
     description: siteConfig.description,
     keywords: [
       "fotograf Grindsted",
+      "fotograf Billund",
       "fotograf Vejle",
       "fotograf Kolding",
-      "eventfotograf",
-      "sportsfotograf",
-      "videograf",
-      "dronefoto",
+      "fotografering",
+      "videoproduktion",
+      "drone",
       "Lukas Svendsen",
       "fotograf Midtjylland",
       "fotograf Syddanmark",

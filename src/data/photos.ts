@@ -10,8 +10,8 @@ export interface Photo {
 export const photos: Photo[] = [
   {
     id: "1",
-    src: "/images/portfolio/handbold/DSC01650.webp",
-    alt: "Håndboldspiller fra Team Esbjerg skyder mod forsvar i Sydbank Arena under kamp",
+    src: "/images/portfolio/andet/DSC02841.webp",
+    alt: "Instruktør hjælper danser med vertikal split i dansestudio med spejlvæg",
     width: 1800,
     height: 1200,
     featured: true,
@@ -55,6 +55,14 @@ export const photos: Photo[] = [
     width: 1800,
     height: 1200,
     featured: true,
+  },
+  {
+    id: "31",
+    src: "/images/references/fredericia-handboldklub/dsc07230-4.webp",
+    alt: "Fredericia Håndboldklub spiller i duel",
+    width: 1800,
+    height: 1200,
+    featured: false,
   },
   {
     id: "7",
@@ -121,17 +129,25 @@ export const photos: Photo[] = [
     featured: true,
   },
   {
+    id: "32",
+    src: "/images/references/fredericia-handboldklub/dsc07343-2.webp",
+    alt: "Fredericia Håndboldklub opvarmning før kamp",
+    width: 1800,
+    height: 1200,
+    featured: false,
+  },
+  {
     id: "15",
     src: "/images/portfolio/handbold/DSC02512-2.webp",
-    alt: "GOG håndboldhold fejrer FINAL4-sejr med pokal, medaljer og fyrværkeri",
+    alt: "Aalborg Håndbold fejrer FINAL4-sejr med pokal, medaljer og fyrværkeri",
     width: 1800,
     height: 1200,
     featured: true,
   },
   {
     id: "16",
-    src: "/images/portfolio/andet/DSC05387.webp",
-    alt: "Grønt neonskilt med teksten Royal Beergarden på mørk barvæg",
+    src: "/images/portfolio/handbold/DSC01650.webp",
+    alt: "Håndboldspiller fra Team Esbjerg skyder mod forsvar i Sydbank Arena under kamp",
     width: 1800,
     height: 1200,
     featured: false,
@@ -180,6 +196,14 @@ export const photos: Photo[] = [
     id: "22",
     src: "/images/portfolio/andet/DSC05627.webp",
     alt: "Musiker synger og spiller turkis elguitar med tablet på stativ til live optræden",
+    width: 1800,
+    height: 1200,
+    featured: false,
+  },
+  {
+    id: "33",
+    src: "/images/references/kif-kolding/dsc09742.webp",
+    alt: "KIF Kolding afslutning på mål",
     width: 1800,
     height: 1200,
     featured: false,
@@ -234,8 +258,8 @@ export const photos: Photo[] = [
   },
   {
     id: "29",
-    src: "/images/portfolio/handbold/DSC04314.webp",
-    alt: "Aalborg Håndbold-spiller med gul guldhat løfter pokal foran jublende publikum",
+    src: "/images/references/fredericia-handboldklub/dsc08253.webp",
+    alt: "Fredericia Håndboldklub stemning i arenaen",
     width: 1800,
     height: 1200,
     featured: false,
@@ -252,11 +276,18 @@ export const photos: Photo[] = [
 
 export const featuredPhotos = photos.filter((p) => p.featured);
 
+export function getPhotoAltBySrc(
+  src: string,
+  fallback = "Foto fra Lukas Svendsens portefølje",
+): string {
+  return photos.find((photo) => photo.src === src)?.alt ?? fallback;
+}
+
 export const siteConfig = {
   name: "Lukas Svendsen",
-  title: "Lukas Svendsen | Fotograf & videoproducent",
+  title: "Lukas Svendsen | Fotograf, Videograf & Dronepilot",
   description:
-    "Fotograf, videograf og dronepilot i Midt- og Syddanmark. Eventfotografi, sportsfotografi, erhvervsfoto, dronevideo og visuel produktion med fokus på stemning og ægte øjeblikke.",
+    "Fotograf, videograf og dronepilot i Grindsted og Billund. Eventfotografi, sportsfotografi, erhvervsfoto, dronevideo og visuel produktion i Midt- og Syddanmark.",
   jobTitle: "Fotograf, videograf og dronepilot",
   url: "https://lukassvendsen.dk",
   email: "kontakt@lukassvendsen.dk",

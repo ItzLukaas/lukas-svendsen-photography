@@ -36,7 +36,7 @@ function metaFor(name: string, preposition: "i" | "på") {
 }
 
 function titleFor(name: string, preposition: "i" | "på") {
-  return `Fotograf ${preposition} ${name} | Event, Sport, Video & Drone`;
+  return `Fotograf ${preposition} ${name}`;
 }
 
 function h1For(name: string, preposition: "i" | "på") {

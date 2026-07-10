@@ -3,6 +3,11 @@ import Script from "next/script";
 const COOKIEBOT_ID = "69a0d227-45e7-4a78-b03a-fcf886d1d45f";
 
 export function Cookiebot() {
+  // Undgå at Cookiebot blokerer Next.js scripts under lokal udvikling.
+  if (process.env.NODE_ENV !== "production") {
+    return null;
+  }
+
   return (
     // Cookiebot skal loades før andre scripts for auto-blocking (GDPR).
     // eslint-disable-next-line @next/next/no-before-interactive-script-outside-document

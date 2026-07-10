@@ -20,7 +20,7 @@ const MasonryGallery = dynamic(
 export const metadata: Metadata = pageMetadata({
   title: "Portefølje",
   description:
-    "Portefølje med sportsfotografi, eventfoto, koncertfoto og erhvervsfoto fra Lukas Svendsen — fotograf, videograf og dronepilot i Midt- og Syddanmark.",
+    "Portefølje med sportsfotografi, eventfoto og erhvervsfoto fra fotograf Lukas Svendsen i Grindsted, Billund og Midt- og Syddanmark.",
   path: "/portfolio",
   keywords: [
     "portefølje fotograf",

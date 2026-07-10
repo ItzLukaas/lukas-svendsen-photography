@@ -1,9 +1,8 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { Breadcrumbs, type BreadcrumbItem } from "@/components/seo/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { faqJsonLd, webPageJsonLd } from "@/lib/json-ld";
-import { btnPrimary, sectionBody, sectionLabel, sectionTitle } from "@/lib/styles";
+import { sectionBody, sectionLabel, sectionTitle } from "@/lib/styles";
 
 type RelatedLink = {
   href: string;
@@ -116,31 +115,6 @@ export function SeoLandingTemplate({
               </ul>
             </section>
           )}
-
-          <section className="mt-16 border-t border-white/[0.06] pt-14 text-center">
-            <h2 className="font-display text-2xl font-light text-white md:text-3xl">
-              Klar til at komme i gang?
-            </h2>
-            <p className={`mx-auto mt-4 max-w-lg ${sectionBody}`}>
-              Fortæl mig om dit projekt — jeg vender tilbage hurtigst muligt.
-            </p>
-            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Link href="/#foresporgsel" className={btnPrimary}>
-                Få et tilbud
-                <ArrowRight
-                  size={14}
-                  strokeWidth={1.5}
-                  className="transition-transform duration-500 ease-premium group-hover:translate-x-1"
-                />
-              </Link>
-              <Link
-                href="/kontakt"
-                className="text-xs tracking-[0.2em] text-white/50 uppercase transition-colors duration-500 ease-premium hover:text-white"
-              >
-                Kontakt mig
-              </Link>
-            </div>
-          </section>
         </div>
       </div>
     </>

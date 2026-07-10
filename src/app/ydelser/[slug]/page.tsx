@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { SeoLandingTemplate } from "@/components/seo/SeoLandingTemplate";
+import { DronePage } from "@/components/seo/DronePage";
+import { FotograferingPage } from "@/components/seo/FotograferingPage";
+import { VideoproduktionPage } from "@/components/seo/VideoproduktionPage";
 import { getSeoServiceBySlug, seoServices } from "@/data/seo-services";
 import { pageMetadata } from "@/lib/seo";
 
@@ -38,31 +40,23 @@ export default async function YdelsePage({ params }: PageProps) {
     notFound();
   }
 
-  const relatedLinks = seoServices
-    .filter((item) => item.slug !== service.slug)
-    .slice(0, 4)
-    .map((item) => ({
-      href: `/ydelser/${item.slug}`,
-      label: item.name,
-    }));
+  const breadcrumbs = [
+    { name: "Forside", path: "/" },
+    { name: "Ydelser", path: "/ydelser" },
+    { name: service.name, path: `/ydelser/${service.slug}` },
+  ];
 
-  return (
-    <SeoLandingTemplate
-      breadcrumbs={[
-        { name: "Forside", path: "/" },
-        { name: "Ydelser", path: "/ydelser" },
-        { name: service.name, path: `/ydelser/${service.slug}` },
-      ]}
-      label="Ydelser"
-      h1={service.h1}
-      intro={service.intro}
-      paragraphs={service.paragraphs}
-      highlights={service.benefits}
-      faqs={service.faqs}
-      relatedLinks={relatedLinks}
-      path={`/ydelser/${service.slug}`}
-      metaDescription={service.metaDescription}
-      pageTitle={service.title}
-    />
-  );
+  if (service.slug === "fotografering") {
+    return <FotograferingPage service={service} breadcrumbs={breadcrumbs} />;
+  }
+
+  if (service.slug === "videoproduktion") {
+    return <VideoproduktionPage service={service} breadcrumbs={breadcrumbs} />;
+  }
+
+  if (service.slug === "drone") {
+    return <DronePage service={service} breadcrumbs={breadcrumbs} />;
+  }
+
+  notFound();
 }

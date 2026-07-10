@@ -12,8 +12,8 @@ import { pageMetadata } from "@/lib/seo";
 
 const referenceOrder = [
   "kif-kolding",
-  "esbjerg-streetfood",
   "fredericia-handboldklub",
+  "esbjerg-streetfood",
 ] as const;
 
 const referenceOrderMap = new Map(referenceOrder.map((slug, index) => [slug, index]));
@@ -81,7 +81,7 @@ export default function ReferencerPage() {
               ]}
             />
             <ScrollReveal>
-              <p className={sectionLabel}>Referencer</p>
+              <p className={sectionLabel}>Projekter</p>
               <AnimatedHeading
                 as="h1"
                 className="font-display text-4xl font-light leading-tight text-white md:text-5xl lg:text-6xl"

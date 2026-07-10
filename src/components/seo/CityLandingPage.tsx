@@ -350,6 +350,29 @@ export function CityLandingPage({ city }: CityLandingPageProps) {
           </CityReveal>
         </div>
       </section>
+
+      <nav aria-label="Relaterede sider" className="sr-only">
+        <ul>
+          <li>
+            <Link href="/ydelser/fotografering">Fotografering</Link>
+          </li>
+          <li>
+            <Link href="/ydelser/videoproduktion">Videoproduktion</Link>
+          </li>
+          <li>
+            <Link href="/ydelser/drone">Droneflyvning</Link>
+          </li>
+          <li>
+            <Link href="/portfolio">Portefølje</Link>
+          </li>
+          <li>
+            <Link href="/referencer">Referencer</Link>
+          </li>
+          <li>
+            <Link href="/kontakt">Kontakt</Link>
+          </li>
+        </ul>
+      </nav>
     </div>
   );
 }

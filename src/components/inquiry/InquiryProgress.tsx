@@ -1,4 +1,9 @@
+"use client";
+
+import { m } from "framer-motion";
+import { Check } from "lucide-react";
 import { inquiryStepLabels } from "@/data/inquiry-form";
+import { EASE } from "@/lib/motion";
 
 interface InquiryProgressProps {
   currentStep: number;
@@ -9,44 +14,52 @@ export function InquiryProgress({
   currentStep,
   totalSteps = inquiryStepLabels.length,
 }: InquiryProgressProps) {
+  const progress = ((currentStep - 1) / (totalSteps - 1)) * 100;
+
   return (
     <div className="mb-12">
-      <div className="flex items-center justify-between gap-2">
+      <div className="mb-3 flex items-center justify-between text-[10px] tracking-[0.25em] text-white/35 uppercase">
+        <span>Trin {currentStep}</span>
+        <span>af {totalSteps}</span>
+      </div>
+
+      <div className="relative mb-8 h-px bg-white/[0.08]">
+        <m.div
+          className="absolute inset-y-0 left-0 bg-gradient-to-r from-white/20 via-white/50 to-white/30"
+          initial={false}
+          animate={{ width: `${progress}%` }}
+          transition={{ duration: 0.6, ease: EASE }}
+        />
+      </div>
+
+      <div className="flex items-start justify-between gap-1 sm:gap-2">
         {inquiryStepLabels.map((label, index) => {
           const step = index + 1;
           const isActive = step === currentStep;
           const isComplete = step < currentStep;
 
           return (
-            <div key={label} className="flex flex-1 flex-col items-center gap-2">
-              <div className="flex w-full items-center">
-                {index > 0 && (
-                  <div
-                    className={`h-px flex-1 transition-colors duration-500 ease-premium ${
-                      isComplete || isActive ? "bg-white/40" : "bg-white/10"
-                    }`}
-                  />
+            <div key={label} className="flex min-w-0 flex-1 flex-col items-center gap-3">
+              <m.div
+                className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border text-[10px] tracking-wider transition-colors duration-500 ease-premium ${
+                  isActive
+                    ? "border-white/40 bg-white/10 text-white"
+                    : isComplete
+                      ? "border-white/25 bg-white/[0.06] text-white/80"
+                      : "border-white/10 bg-transparent text-white/30"
+                }`}
+                animate={isActive ? { scale: 1.08 } : { scale: 1 }}
+                transition={{ duration: 0.4, ease: EASE }}
+              >
+                {isComplete ? (
+                  <Check size={12} strokeWidth={2} aria-hidden="true" />
+                ) : (
+                  step
                 )}
-                <div
-                  className={`flex h-2 w-2 shrink-0 rounded-full transition-all duration-500 ease-premium ${
-                    isActive
-                      ? "scale-125 bg-white"
-                      : isComplete
-                        ? "bg-white/60"
-                        : "bg-white/15"
-                  }`}
-                />
-                {index < totalSteps - 1 && (
-                  <div
-                    className={`h-px flex-1 transition-colors duration-500 ease-premium ${
-                      isComplete ? "bg-white/40" : "bg-white/10"
-                    }`}
-                  />
-                )}
-              </div>
+              </m.div>
               <span
-                className={`hidden text-[9px] tracking-[0.2em] uppercase sm:block ${
-                  isActive ? "text-white/70" : "text-white/25"
+                className={`hidden text-center text-[9px] leading-tight tracking-[0.18em] uppercase sm:block ${
+                  isActive ? "text-white/70" : isComplete ? "text-white/40" : "text-white/25"
                 }`}
               >
                 {label}

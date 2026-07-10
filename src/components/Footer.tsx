@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
+import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 import { InstagramIcon } from "@/components/icons/Instagram";
 import { siteConfig } from "@/data/photos";
 import { btnPrimary } from "@/lib/styles";
@@ -8,14 +9,15 @@ const navLinks = [
   { href: "/", label: "Forside" },
   { href: "/portfolio", label: "Portefølje" },
   { href: "/referencer", label: "Referencer" },
+  { href: "/ydelser", label: "Ydelser" },
   { href: "/om-mig", label: "Om mig" },
   { href: "/kontakt", label: "Kontakt" },
 ];
 
 const serviceLinks = [
-  { href: "/#ydelser", label: "Fotografering", key: "fotografering" },
-  { href: "/#ydelser", label: "Videoproduktion", key: "videoproduktion" },
-  { href: "/#ydelser", label: "Droneflyvning", key: "droneflyvning" },
+  { href: "/ydelser/fotografering", label: "Fotografering", key: "fotografering" },
+  { href: "/ydelser/videoproduktion", label: "Videoproduktion", key: "videoproduktion" },
+  { href: "/ydelser/drone", label: "Droneflyvning", key: "droneflyvning" },
 ];
 
 export function Footer() {
@@ -27,7 +29,7 @@ export function Footer() {
             <p className="font-display text-lg tracking-widest text-white uppercase">
               {siteConfig.name}
             </p>
-            <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/45">
+            <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/50">
               Ung, 16-årig ambitiøs
               <br />
               fotograf og videoproducent.
@@ -35,17 +37,15 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-3">
-            <p className="text-xs tracking-[0.25em] text-white/40 uppercase">Kontakt</p>
+            <p className="text-xs tracking-[0.25em] text-white/50 uppercase">Kontakt</p>
             <ul className="mt-5 space-y-3 text-sm text-white/55">
               <li>{siteConfig.name}</li>
               <li>
-                <a
-                  href={`mailto:${siteConfig.email}`}
+                <ObfuscatedEmail
                   className="inline-flex items-center gap-2 transition-colors duration-500 ease-premium hover:text-white"
-                >
-                  <Mail size={14} strokeWidth={1.5} className="text-white/35" />
-                  {siteConfig.email}
-                </a>
+                  showIcon
+                  icon={<Mail size={14} strokeWidth={1.5} className="text-white/35" />}
+                />
               </li>
               <li>
                 <a
@@ -64,7 +64,7 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-2">
-            <p className="text-xs tracking-[0.25em] text-white/40 uppercase">Navigation</p>
+            <p className="text-xs tracking-[0.25em] text-white/50 uppercase">Navigation</p>
             <ul className="mt-5 space-y-3">
               {navLinks.map((link) => (
                 <li key={link.href}>
@@ -80,7 +80,7 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-3">
-            <p className="text-xs tracking-[0.25em] text-white/40 uppercase">Ydelser</p>
+            <p className="text-xs tracking-[0.25em] text-white/50 uppercase">Ydelser</p>
             <ul className="mt-5 space-y-3">
               {serviceLinks.map((link) => (
                 <li key={link.key}>
@@ -118,7 +118,7 @@ export function Footer() {
           <p className="font-display text-lg font-light whitespace-nowrap text-white sm:text-2xl md:text-3xl">
             Skal vi skabe noget sammen?
           </p>
-          <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-white/45">
+          <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-white/50">
             Fortæl mig om dit projekt — jeg vender tilbage hurtigst muligt.
           </p>
           <Link href="/#foresporgsel" className={`mt-8 ${btnPrimary}`}>
@@ -131,10 +131,16 @@ export function Footer() {
           </Link>
         </div>
 
-        <div className="mt-12 border-t border-white/5 pt-8 text-center">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 sm:flex-row">
           <p className="text-xs text-white/30">
             &copy; {new Date().getFullYear()} {siteConfig.name}. Alle rettigheder forbeholdes.
           </p>
+          <Link
+            href="/privatlivspolitik"
+            className="text-xs text-white/40 transition-colors duration-500 ease-premium hover:text-white/70"
+          >
+            Privatlivspolitik
+          </Link>
         </div>
       </div>
     </footer>

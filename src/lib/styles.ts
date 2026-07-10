@@ -8,15 +8,24 @@ export const linkSubtle =
   "group inline-flex items-center gap-2.5 text-xs tracking-[0.2em] text-white/50 uppercase transition-colors duration-500 ease-premium hover:text-white";
 
 export const sectionShell =
-  "bg-[#0a0a0a] px-6 py-28 lg:px-8 lg:py-36";
+  "bg-[#0a0a0a] px-6 py-32 lg:px-8 lg:py-40";
+
+export const sectionShellTight =
+  "bg-[#0a0a0a] px-6 py-24 lg:px-8 lg:py-32";
 
 export const sectionDivider = "border-t border-white/[0.06]";
 
 export const sectionLabel =
-  "mb-5 text-xs tracking-[0.3em] text-white/40 uppercase";
+  "mb-5 text-[10px] tracking-[0.35em] text-white/50 uppercase";
 
 export const sectionTitle =
-  "font-display text-3xl font-light leading-tight text-white md:text-4xl lg:text-5xl";
+  "font-display text-[2rem] font-light leading-[1.08] text-white sm:text-4xl md:text-[2.75rem] lg:text-5xl xl:text-[3.25rem]";
 
 export const sectionBody =
-  "text-base leading-relaxed text-white/50 md:text-[1.05rem] md:leading-relaxed";
+  "text-base leading-relaxed text-white/55 md:text-[1.05rem] md:leading-[1.75]";
+
+export const heroTitle =
+  "font-display text-[2rem] font-light leading-[1.08] text-white sm:text-5xl sm:leading-[1.06] lg:text-6xl xl:text-[4.25rem]";
+
+export const glassPanel =
+  "border border-white/10 bg-white/[0.03] backdrop-blur-md";

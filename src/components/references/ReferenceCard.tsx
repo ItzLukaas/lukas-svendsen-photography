@@ -30,8 +30,11 @@ export function ReferenceCard({ reference, index }: ReferenceCardProps) {
             <h2 className="font-display text-2xl font-light text-white md:text-3xl">
               {reference.title}
             </h2>
+            <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-white/45">
+              {reference.cardDescription}
+            </p>
             <span className="mt-auto inline-flex items-center gap-2.5 pt-6 text-xs tracking-[0.2em] text-white/60 uppercase transition-all duration-500 ease-premium group-hover:translate-x-1 group-hover:text-white">
-              Se projekt
+              Læs om projektet
               <ArrowRight size={14} strokeWidth={1.5} />
             </span>
           </div>

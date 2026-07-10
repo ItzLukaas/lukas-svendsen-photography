@@ -13,7 +13,9 @@ import { ScrollReveal } from "../ScrollReveal";
 import { AnimatedHeading } from "../AnimatedHeading";
 import { sectionBody, sectionLabel } from "@/lib/styles";
 
-const iconMap: Record<(typeof approachPoints)[number]["icon"], LucideIcon> = {
+type ApproachIcon = "message" | "sparkles" | "sliders" | "heart";
+
+const iconMap: Record<ApproachIcon, LucideIcon> = {
   message: MessageCircle,
   sparkles: Sparkles,
   sliders: SlidersHorizontal,
@@ -33,8 +35,8 @@ export function ApproachSection() {
           </ScrollReveal>
           <ScrollReveal delay={0.15}>
             <p className={`mt-8 max-w-lg ${sectionBody}`}>
-              Et stærkt resultat handler ikke kun om udstyr. Det handler om stemning, timing og de små
-              detaljer — uanset om det er foto, video eller drone.
+              Foto, video og drone. Vi aftaler hvad du skal bruge — jeg optager, redigerer og
+              leverer materialet klar til brug.
             </p>
           </ScrollReveal>
         </div>

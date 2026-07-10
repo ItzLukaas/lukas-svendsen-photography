@@ -34,10 +34,10 @@ export interface Reference {
 export const referencesPageMeta = {
   title: "Referencer",
   description:
-    "Et udvalg af virksomheder, klubber og organisationer, jeg har haft fornøjelsen af at skabe visuelt indhold for.",
-  heroTitle: "Udvalgte referencer",
+    "Udvalgte projekter og samarbejder — gå i dybden med opgave, proces og resultat.",
+  heroTitle: "Udvalgte projekter",
   heroDescription:
-    "Et udvalg af virksomheder, klubber og organisationer, jeg har haft fornøjelsen af at skabe visuelt indhold for.",
+    "Et udsnit af samarbejder, du kan gå i dybden med. Klik på et projekt for at læse om opgaven, samarbejdet og resultatet.",
 };
 
 export const references: Reference[] = [

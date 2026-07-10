@@ -22,7 +22,7 @@ export const seoServices: SeoService[] = [
     name: "Fotografering",
     title: "Fotografering",
     metaDescription:
-      "Professionel fotografering til portrætter, events, sport, koncerter og virksomheder. Lukas Svendsen — fotograf med passion for at fange øjeblikke og historier.",
+      "Fotografering til portrætter, events, sport, koncerter og virksomheder. Lukas Svendsen — fotograf i Grindsted og Billund.",
     h1: "Fotografering",
     intro:
       "Den ydelse, som jeg er mest kendt for, er fotografering. Det er her, hele min karriere begyndte.",
@@ -57,7 +57,7 @@ export const seoServices: SeoService[] = [
       {
         question: "Hvilke typer fotografering tilbyder du?",
         answer:
-          "Portrætter, events, koncerter, sport, virksomheder, kreative projekter og andre opgaver, hvor stemning og historie skal fanges.",
+          "Portrætter, events, koncerter, sport, virksomheder, kreative projekter og andre opgaver, hvor det handler om at fange det rigtige øjeblik.",
       },
       {
         question: "Kan fotografering kombineres med video eller drone?",
@@ -75,7 +75,7 @@ export const seoServices: SeoService[] = [
       "Professionel videoproduktion til virksomheder, events og private. Reklamefilm, virksomhedsfilm, sociale medier og visuel storytelling fra Lukas Svendsen.",
     h1: "Videoproduktion",
     intro:
-      "Levende billeder, der fanger opmærksomhed — fra idé og optagelse til færdigt produkt.",
+      "Jeg tilbyder videoproduktion til sociale medier, reklame, events og virksomheder.",
     paragraphs: [],
     sections: [
       {
@@ -98,7 +98,7 @@ export const seoServices: SeoService[] = [
         ],
       },
       {
-        heading: "Fra idé til færdigt produkt",
+        heading: "Sådan foregår det",
         paragraphs: [
           "En god videoproduktion starter med en god idé. Derfor arbejder jeg tæt sammen med kunden for at forstå ønskerne, budskabet og den følelse, videoen skal efterlade. Fra planlægning og optagelse til redigering og det færdige resultat sørger jeg for at skabe en sammenhængende produktion, der fungerer både visuelt og kommunikativt.",
           "Min erfaring med både fotografering og video giver mig en bred forståelse for visuel formidling. Jeg ved, hvordan man finder de rigtige vinkler, fanger de afgørende øjeblikke og skaber indhold, der ikke bare ser godt ud, men som også har et formål.",
@@ -143,7 +143,7 @@ export const seoServices: SeoService[] = [
       "Professionelle droneoptagelser til virksomheder, events, ejendomme og kreative projekter. Luftfoto og dronevideo fra Lukas Svendsen.",
     h1: "Droneproduktion",
     intro:
-      "Unikke perspektiver fra luften — professionelle droneoptagelser med fokus på formål, sikkerhed og visuel fortælling.",
+      "Jeg tilbyder dronefoto og dronevideo — perspektiv fra luften til virksomheder, events og projekter.",
     paragraphs: [],
     sections: [
       {
@@ -166,7 +166,7 @@ export const seoServices: SeoService[] = [
         ],
       },
       {
-        heading: "Fra idé til færdige luftoptagelser",
+        heading: "Planlægning til levering",
         paragraphs: [
           "En god droneproduktion starter med at forstå formålet med optagelserne. Derfor arbejder jeg altid ud fra kundens behov og ønsker, så resultatet ikke kun bliver flotte billeder fra luften, men materiale der faktisk kan bruges og skabe værdi.",
           "Med erfaring inden for både fotografering, videoproduktion og droneflyvning kan jeg hjælpe med hele processen – fra idé og planlægning til optagelse og det færdige materiale. Kombinationen af jordbaserede billeder, professionel video og luftoptagelser giver mulighed for at skabe en stærkere visuel historie.",

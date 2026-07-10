@@ -32,11 +32,11 @@ export function PhotographyTypesSection() {
           <ScrollReveal>
             <p className={sectionLabel}>Eksempler</p>
             <AnimatedHeading className="font-display text-[2rem] font-light leading-[1.08] text-white sm:text-4xl lg:text-5xl">
-              Hvad jeg laver
+              Hvad jeg tilbyder
             </AnimatedHeading>
             <p className={`mt-7 max-w-lg ${sectionBody}`}>
-              Jeg laver foto, video og drone til mange forskellige projekter. Klik på en kategori
-              for at se eksempler — og skriv endelig, hvis dit projekt ikke står på listen.
+              Fotografering, video og drone til mange forskellige opgaver. Klik på en kategori for
+              at se eksempler — og skriv endelig, hvis dit ikke står på listen.
             </p>
           </ScrollReveal>
 

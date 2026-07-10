@@ -2,21 +2,21 @@ export const coreServices = [
   {
     title: "Fotografering",
     description:
-      "Portrætter, sport, events og erhverv — billeder til hjemmeside, sociale medier eller print.",
+      "Jeg tilbyder fotografering til portrætter, sport, events og erhverv — til web, sociale medier og print.",
     icon: "camera" as const,
     href: "/ydelser/fotografering",
   },
   {
     title: "Videoproduktion",
     description:
-      "Video til sociale medier, reklame, events og virksomheder — fra idé til færdig fil.",
+      "Jeg tilbyder videoproduktion til sociale medier, reklame, events og virksomheder — optagelse, klip og færdig video.",
     icon: "video" as const,
     href: "/ydelser/videoproduktion",
   },
   {
     title: "Droneflyvning",
     description:
-      "Luftfoto og dronevideo til ejendomme, events, sport og projekter, hvor man skal se det fra oven.",
+      "Jeg tilbyder droneflyvning med luftfoto og video — til ejendomme, events, sport og det, der ser bedst ud fra oven.",
     icon: "drone" as const,
     href: "/ydelser/drone",
   },
@@ -25,7 +25,7 @@ export const coreServices = [
 export const approachPoints = [
   {
     title: "Aftale",
-    description: "Du fortæller hvad du skal bruge. Vi aftaler format og indhold.",
+    description: "Du fortæller hvad du skal bruge. Så aftaler vi format og indhold.",
     icon: "message" as const,
   },
   {
@@ -35,12 +35,12 @@ export const approachPoints = [
   },
   {
     title: "Redigering",
-    description: "Materialet klippes og farvejusteres, før det sendes.",
+    description: "Materialet klippes og justeres, før du får det.",
     icon: "sliders" as const,
   },
   {
     title: "Overdragelse",
-    description: "Du modtager filer klar til web, sociale medier eller print.",
+    description: "Du får filer klar til web, sociale medier eller print.",
     icon: "heart" as const,
   },
 ];
@@ -48,7 +48,7 @@ export const approachPoints = [
 export const photographyTypes = [
   {
     title: "Virksomheder",
-    description: "Visuelt indhold til erhverv — foto, video og drone.",
+    description: "Foto, video og drone til erhverv — profilbilleder, kampagner og SoMe.",
     examples: [
       "Profilbilleder og teamfotos",
       "Kampagner og reklame",
@@ -58,7 +58,7 @@ export const photographyTypes = [
   },
   {
     title: "Koncerter & events",
-    description: "Stemning og øjeblikke fra arrangementer og begivenheder.",
+    description: "Koncerter, fester og events — billeder og video fra dagen.",
     examples: [
       "Koncerter og festivaler",
       "Firmafester og receptioner",
@@ -68,9 +68,9 @@ export const photographyTypes = [
   },
   {
     title: "Sport & action",
-    description: "Dynamisk indhold med fokus på bevægelse og intensitet.",
+    description: "Sport og action — kampbilleder, highlights og recap-video.",
     examples: [
-      "Kampbilleder og stemning",
+      "Kampbilleder og publikum",
       "Træning og bag kulisserne",
       "Highlights og recap-video",
       "Action og bevægelse",
@@ -78,7 +78,7 @@ export const photographyTypes = [
   },
   {
     title: "Private",
-    description: "Personlige projekter og minder til dig og din familie.",
+    description: "Portrætter, bryllup, konfirmation og andre personlige opgaver.",
     examples: [
       "Portrætter og familiefotos",
       "Bryllup og konfirmation",
@@ -88,7 +88,7 @@ export const photographyTypes = [
   },
   {
     title: "Organisationer",
-    description: "Indhold til foreninger, klubber og offentlige aktører.",
+    description: "Foreninger, klubber og institutioner — foto og video til jeres behov.",
     examples: [
       "Klubber og sportshaller",
       "Foreninger og NGO'er",
@@ -117,14 +117,14 @@ export const processSteps = [
   {
     step: "04",
     title: "Levering",
-    description: "Professionelt materiale leveret.",
+    description: "Du får færdigt materiale klar til brug.",
   },
 ];
 
 export const testimonials = [
   {
     quote:
-      "Lukas fangede præcis den stemning, vi havde håbet på. Billederne føles naturlige og ægte.",
+      "Lukas fangede præcis den følelse, vi havde håbet på. Billederne føles naturlige og ægte.",
     author: "Eksempel — Kunde",
   },
   {

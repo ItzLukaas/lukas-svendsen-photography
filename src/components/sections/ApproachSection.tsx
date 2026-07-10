@@ -35,8 +35,8 @@ export function ApproachSection() {
           </ScrollReveal>
           <ScrollReveal delay={0.15}>
             <p className={`mt-8 max-w-lg ${sectionBody}`}>
-              Foto, video og drone. Vi aftaler hvad du skal bruge — jeg optager, redigerer og
-              leverer materialet klar til brug.
+              Fotografering, videoproduktion og droneflyvning. Vi aftaler hvad du skal bruge — jeg
+              optager, klipper og sender det klar til brug.
             </p>
           </ScrollReveal>
         </div>

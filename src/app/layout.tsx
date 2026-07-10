@@ -14,9 +14,22 @@ import "./globals.css";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  display: "swap",
+  display: "block",
   preload: true,
+  adjustFontFallback: true,
 });
+
+/** Inline in <head> — globals.css loads too late to prevent first-paint FOUC. */
+const antiFoucCss = [
+  "html{background-color:#0a0a0a;color-scheme:dark}",
+  "html:not(.app-ready){visibility:hidden}",
+  "html.app-ready{visibility:visible}",
+  "html.app-ready body{animation:app-reveal .2s ease-out}",
+  "@keyframes app-reveal{from{opacity:.98}to{opacity:1}}",
+  "@media (prefers-reduced-motion:reduce){html.app-ready body{animation:none}}",
+].join("");
+
+const antiFoucScript = `(function(){var d=document.documentElement;if(d.classList.contains("app-ready"))return;function r(){d.classList.add("app-ready")}var f=document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve();Promise.race([Promise.all([new Promise(function(e){if(document.readyState==="complete")e();else window.addEventListener("load",e,{once:true})}),f]),new Promise(function(e){setTimeout(e,3e3)})]).then(r,r)})();`;
 
 export const viewport: Viewport = {
   themeColor: "#0a0a0a",
@@ -92,10 +105,17 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        <style dangerouslySetInnerHTML={{ __html: antiFoucCss }} />
+        <script dangerouslySetInnerHTML={{ __html: antiFoucScript }} />
+        <noscript>
+          <style dangerouslySetInnerHTML={{ __html: "html{visibility:visible!important}" }} />
+        </noscript>
         <Cookiebot />
         <GoogleAnalytics />
       </head>
-      <body className="bg-[#0a0a0a] text-white antialiased">
+      <body
+        className={`${inter.className} bg-[#0a0a0a] text-white antialiased`}
+      >
         <JsonLd data={rootGraphJsonLd()} />
         <MotionProvider>
           <a href="#main-content" className="skip-link">

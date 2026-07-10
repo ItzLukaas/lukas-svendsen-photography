@@ -72,7 +72,7 @@ export function ProcessSection() {
         </ScrollReveal>
         <ScrollReveal delay={0.08} className="mt-7 max-w-md lg:mt-0 lg:text-right">
           <p className={sectionBody}>
-            En enkel og gennemsigtig proces — fra første kontakt til færdigt visuelt materiale.
+            En enkel proces — fra første besked til du modtager dine filer.
           </p>
         </ScrollReveal>
       </div>

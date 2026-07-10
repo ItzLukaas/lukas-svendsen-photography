@@ -35,8 +35,8 @@ export function PhotographyTypesSection() {
               Hvad jeg tilbyder
             </AnimatedHeading>
             <p className={`mt-7 max-w-lg ${sectionBody}`}>
-              Fotografering, video og drone til mange forskellige opgaver. Klik på en kategori for
-              at se eksempler — og skriv endelig, hvis dit ikke står på listen.
+              Jeg tilbyder fotografering, video og drone til mange forskellige opgaver. Klik på en
+              kategori for at se eksempler — og skriv endelig, hvis dit ikke står på listen.
             </p>
           </ScrollReveal>
 

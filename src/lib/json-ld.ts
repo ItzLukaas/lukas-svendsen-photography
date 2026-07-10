@@ -344,7 +344,7 @@ export function portfolioGalleryJsonLd(
     "@type": "ImageGallery",
     name: "Portefølje — Lukas Svendsen",
     description:
-      "Sportsfotografi, eventfoto og visuelt indhold fra fotograf Lukas Svendsen i Midt- og Syddanmark.",
+      "Sportsfotografi, eventfoto og fotografering fra fotograf Lukas Svendsen i Midt- og Syddanmark.",
     url: absoluteAssetUrl("/portfolio"),
     author: { "@id": `${siteConfig.url}/#person` },
     image: images.map((image) => ({

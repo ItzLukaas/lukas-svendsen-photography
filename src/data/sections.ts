@@ -35,7 +35,7 @@ export const approachPoints = [
   },
   {
     title: "Redigering",
-    description: "Materialet klippes og justeres, før du får det.",
+    description: "Jeg klipper og justerer, før du får filerne.",
     icon: "sliders" as const,
   },
   {

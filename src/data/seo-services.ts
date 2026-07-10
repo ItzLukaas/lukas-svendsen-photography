@@ -72,10 +72,10 @@ export const seoServices: SeoService[] = [
     name: "Videoproduktion",
     title: "Videoproduktion",
     metaDescription:
-      "Professionel videoproduktion til virksomheder, events og private. Reklamefilm, virksomhedsfilm, sociale medier og visuel storytelling fra Lukas Svendsen.",
+      "Videoproduktion til virksomheder, events og private. Reklamefilm, virksomhedsfilm og indhold til sociale medier fra Lukas Svendsen.",
     h1: "Videoproduktion",
     intro:
-      "Jeg tilbyder videoproduktion til sociale medier, reklame, events og virksomheder.",
+      "Jeg tilbyder videoproduktion til sociale medier, reklame, events og virksomheder — planlægning, optagelse og redigering.",
     paragraphs: [],
     sections: [
       {

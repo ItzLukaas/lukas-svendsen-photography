@@ -78,21 +78,20 @@ export default function OmMigPage() {
             <ScrollReveal delay={0.15}>
               <div className="mt-8 space-y-6">
                 <p className={`${sectionBody} text-white/60`}>
-                  Jeg er en 16-årig fotograf med passion for at skabe visuelt indhold, der fortæller
-                  en historie. Jeg elsker at fange de små detaljer og de ægte øjeblikke, som gør hvert
-                  billede unikt — og mit mål er at skabe materiale, folk har lyst til at gemme og se
-                  tilbage på i mange år.
+                  Jeg er 16 år og brænder for at tage billeder og lave video. Jeg elsker at fange de
+                  små detaljer og de ægte øjeblikke, der gør hvert billede unikt — og mit mål er at
+                  lave materiale, du har lyst til at gemme og se igen om mange år.
                 </p>
                 <p className={`${sectionBody} text-white/60`}>
-                  Jeg arbejder med fotografering, videoproduktion og droneflyvning — til private
-                  fester, sport, events, koncerter og virksomheder. Uanset om det er stillbilleder,
-                  levende video eller unikke luftperspektiver, går jeg altid efter det samme: kvalitet,
-                  kreativitet og historier, der mærkes.
+                  Jeg tilbyder fotografering, videoproduktion og droneflyvning — til private fester,
+                  sport, events, koncerter og virksomheder. Uanset om det er billeder, video eller
+                  luftoptagelser, går jeg altid efter det samme: god kvalitet og billeder, der føles
+                  rigtige.
                 </p>
                 <p className={`${sectionBody} text-white/60`}>
-                  Med drone kan jeg levere både foto og video fra luften — perfekt til events, sport,
-                  erhverv og locations, hvor perspektivet gør en forskel. Alt samles under ét tag, så du
-                  får et sammenhængende visuelt udtryk fra første brief til færdigt materiale.
+                  Med drone kan jeg levere både foto og video fra luften — godt til events, sport,
+                  erhverv og locations, hvor perspektivet gør en forskel. Det hele kan samles i én
+                  produktion, så du får et ensartet resultat.
                 </p>
               </div>
             </ScrollReveal>

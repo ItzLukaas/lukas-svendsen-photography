@@ -1,14 +1,12 @@
-/** Primære interne by-links til footer og SEO-navigation */
-export const primaryCityLinks = [
+/** Byer vist i footer — nærmeste kerneområder */
+export const footerCityLinks = [
   { href: "/fotograf-grindsted", label: "Fotograf i Grindsted" },
   { href: "/fotograf-billund", label: "Fotograf i Billund" },
   { href: "/fotograf-vejle", label: "Fotograf i Vejle" },
   { href: "/fotograf-kolding", label: "Fotograf i Kolding" },
-  { href: "/fotograf-fredericia", label: "Fotograf i Fredericia" },
-  { href: "/fotograf-esbjerg", label: "Fotograf i Esbjerg" },
-  { href: "/fotograf-aarhus", label: "Fotograf i Aarhus" },
-  { href: "/fotograf-odense", label: "Fotograf i Odense" },
 ] as const;
+
+export const areasHubPath = "/omraader" as const;
 
 export const primaryServiceLinks = [
   { href: "/ydelser/fotografering", label: "Fotografering" },

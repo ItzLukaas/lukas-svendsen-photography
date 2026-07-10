@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 import { InstagramIcon } from "@/components/icons/Instagram";
-import { primaryCityLinks } from "@/data/internal-links";
+import { areasHubPath, footerCityLinks } from "@/data/internal-links";
 import { siteConfig } from "@/data/photos";
 import { btnPrimary } from "@/lib/styles";
 
@@ -84,7 +84,7 @@ export function Footer() {
           <div className="min-w-0 sm:pr-4 lg:pr-6">
             <p className="text-xs tracking-[0.25em] text-white/50 uppercase">Områder</p>
             <ul className="mt-5 space-y-3">
-              {primaryCityLinks.map((link) => (
+              {footerCityLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -94,6 +94,19 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  href={areasHubPath}
+                  className="group inline-flex min-h-11 items-center gap-2 text-sm text-white/55 transition-colors duration-500 ease-premium hover:text-white"
+                >
+                  Se alle områder
+                  <ArrowRight
+                    size={14}
+                    strokeWidth={1.5}
+                    className="transition-transform duration-500 ease-premium group-hover:translate-x-0.5"
+                  />
+                </Link>
+              </li>
             </ul>
           </div>
 

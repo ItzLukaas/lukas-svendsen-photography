@@ -71,6 +71,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
       changeFrequency: "monthly",
     }),
+    entry("/omraader", {
+      priority: 0.75,
+      changeFrequency: "monthly",
+    }),
     entry("/privatlivspolitik", {
       priority: 0.3,
       changeFrequency: "yearly",

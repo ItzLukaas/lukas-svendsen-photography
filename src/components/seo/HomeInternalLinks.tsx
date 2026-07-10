@@ -1,9 +1,10 @@
 import Link from "next/link";
 import {
-  primaryCityLinks,
+  areasHubPath,
   primaryReferenceLinks,
   primaryServiceLinks,
 } from "@/data/internal-links";
+import { cityPath, seoCities } from "@/data/seo-cities";
 
 /** Skjult crawl-navigation — styrker intern linkstruktur uden visuelle ændringer */
 export function HomeInternalLinks() {
@@ -20,9 +21,12 @@ export function HomeInternalLinks() {
             <Link href={link.href}>{link.label}</Link>
           </li>
         ))}
-        {primaryCityLinks.map((link) => (
-          <li key={link.href}>
-            <Link href={link.href}>{link.label}</Link>
+        <li>
+          <Link href={areasHubPath}>Områder</Link>
+        </li>
+        {seoCities.map((city) => (
+          <li key={city.slug}>
+            <Link href={cityPath(city)}>{city.h1}</Link>
           </li>
         ))}
         <li>

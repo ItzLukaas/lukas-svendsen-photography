@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { AboutStats } from "@/components/sections/AboutStats";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -96,28 +97,7 @@ export default function OmMigPage() {
               </div>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.25}>
-              <div className="mt-14 flex flex-wrap gap-10 sm:gap-12">
-                <div>
-                  <p className="font-display text-2xl font-light text-white">16</p>
-                  <p className="mt-1.5 text-xs tracking-widest text-white/40 uppercase">
-                    År gammel
-                  </p>
-                </div>
-                <div>
-                  <p className="font-display text-2xl font-light text-white">500+</p>
-                  <p className="mt-1.5 text-xs tracking-widest text-white/40 uppercase">
-                    Billeder hver måned
-                  </p>
-                </div>
-                <div>
-                  <p className="font-display text-2xl font-light text-white">Hjerte</p>
-                  <p className="mt-1.5 text-xs tracking-widest text-white/40 uppercase">
-                    I hvert billede
-                  </p>
-                </div>
-              </div>
-            </ScrollReveal>
+            <AboutStats />
 
             <ScrollReveal delay={0.35}>
               <Link href="/kontakt" className={`mt-14 ${btnPrimary}`}>

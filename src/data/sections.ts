@@ -2,21 +2,21 @@ export const coreServices = [
   {
     title: "Fotografering",
     description:
-      "Billeder med fokus på mennesker, virksomheder, sport og events — naturlige, skarpe og stemningsfulde.",
+      "Portrætter, sport, events og erhverv — billeder til hjemmeside, sociale medier eller print.",
     icon: "camera" as const,
     href: "/ydelser/fotografering",
   },
   {
     title: "Videoproduktion",
     description:
-      "Professionelle videoer, der skaber stemning, fortæller en historie og giver dit projekt liv.",
+      "Video til sociale medier, reklame, events og virksomheder — fra idé til færdig fil.",
     icon: "video" as const,
     href: "/ydelser/videoproduktion",
   },
   {
     title: "Droneflyvning",
     description:
-      "Unikke perspektiver og professionelle luftoptagelser, der løfter fortællingen fra en ny vinkel.",
+      "Luftfoto og dronevideo til ejendomme, events, sport og projekter, hvor man skal se det fra oven.",
     icon: "drone" as const,
     href: "/ydelser/drone",
   },

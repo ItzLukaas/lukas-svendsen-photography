@@ -41,9 +41,10 @@ export function Footer() {
             <p className="text-xs tracking-[0.25em] text-white/50 uppercase">Kontakt</p>
             <ul className="mt-5 space-y-3 text-sm text-white/55">
               <li>{siteConfig.name}</li>
-              <li className="min-w-0 break-words">
+              <li>
                 <ObfuscatedEmail
-                  className="inline-flex max-w-full flex-wrap items-center gap-2 break-all transition-colors duration-500 ease-premium hover:text-white sm:break-normal"
+                  label="Send en mail"
+                  className="inline-flex items-center gap-2 transition-colors duration-500 ease-premium hover:text-white"
                   showIcon
                   icon={<Mail size={14} strokeWidth={1.5} className="shrink-0 text-white/35" />}
                 />
@@ -96,7 +97,7 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="lg:col-span-2">
+          <div className="min-w-0">
             <p className="text-xs tracking-[0.25em] text-white/50 uppercase">Ydelser</p>
             <ul className="mt-5 space-y-3">
               {serviceLinks.map((link) => (

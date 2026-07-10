@@ -52,8 +52,12 @@ export function InquirySection() {
 
         <ScrollReveal delay={0.15}>
           <p className="mt-8 text-center text-sm text-white/50">
-            Eller skriv direkte til{" "}
-            <ObfuscatedEmail className="text-white/60 underline decoration-white/20 underline-offset-4 transition-colors duration-500 ease-premium hover:text-white" />
+            Eller{" "}
+            <ObfuscatedEmail
+              label="send en mail"
+              className="text-white/60 underline decoration-white/20 underline-offset-4 transition-colors duration-500 ease-premium hover:text-white"
+            />{" "}
+            direkte
           </p>
         </ScrollReveal>
       </div>

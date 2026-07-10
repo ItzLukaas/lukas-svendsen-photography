@@ -26,7 +26,7 @@ export function Footer() {
     <footer className="border-t border-white/8 bg-[#070707]">
       <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-24">
         <div className="grid gap-14 sm:grid-cols-2 lg:grid-cols-12 lg:gap-10">
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-3">
             <p className="font-display text-lg tracking-widest text-white uppercase">
               {siteConfig.name}
             </p>
@@ -37,7 +37,7 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-2">
             <p className="text-xs tracking-[0.25em] text-white/50 uppercase">Kontakt</p>
             <ul className="mt-5 space-y-3 text-sm text-white/55">
               <li>{siteConfig.name}</li>
@@ -81,6 +81,22 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-3">
+            <p className="text-xs tracking-[0.25em] text-white/50 uppercase">Områder</p>
+            <ul className="mt-5 space-y-3">
+              {primaryCityLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-white/55 transition-colors duration-500 ease-premium hover:text-white"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="lg:col-span-2 order-5 sm:order-5 lg:order-5">
             <p className="text-xs tracking-[0.25em] text-white/50 uppercase">Ydelser</p>
             <ul className="mt-5 space-y-3">
               {serviceLinks.map((link) => (
@@ -94,20 +110,8 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-            <p className="mt-8 text-xs tracking-[0.25em] text-white/50 uppercase">Områder</p>
-            <ul className="mt-5 space-y-3">
-              {primaryCityLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-white/55 transition-colors duration-500 ease-premium hover:text-white"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-8 flex items-center gap-4">
+            <p className="mt-8 text-xs tracking-[0.25em] text-white/50 uppercase">Sociale medier</p>
+            <div className="mt-5 flex items-center gap-4">
               <a
                 href={siteConfig.instagram}
                 target="_blank"

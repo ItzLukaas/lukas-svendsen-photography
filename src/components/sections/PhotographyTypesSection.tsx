@@ -23,7 +23,7 @@ export function PhotographyTypesSection() {
               fill
               className="object-cover object-[50%_15%]"
               sizes="(max-width: 1024px) 100vw, 50vw"
-              priority
+              loading="lazy"
             />
           </div>
         </ScrollReveal>

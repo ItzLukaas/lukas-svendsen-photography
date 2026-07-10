@@ -1,5 +1,7 @@
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { clientLogos } from "@/data/clients";
-import { sectionDivider } from "@/lib/styles";
+import { linkSubtle, sectionDivider } from "@/lib/styles";
 import { ClientLogoSlider } from "./ClientLogoSlider";
 
 export function ClientsSection() {
@@ -15,8 +17,19 @@ export function ClientsSection() {
         >
           Betroet af førende brands
         </h2>
+        <p className="mx-auto mt-5 max-w-lg text-sm leading-relaxed text-white/50">
+          Samarbejder med kommuner, sportsklubber, events og virksomheder i hele Danmark.
+        </p>
+        <Link href="/referencer" className={`mt-6 ${linkSubtle}`}>
+          Se referencer og cases
+          <ArrowRight
+            size={14}
+            strokeWidth={1.5}
+            className="transition-transform duration-500 ease-premium group-hover:translate-x-1"
+          />
+        </Link>
 
-        <div className="mt-14 w-full">
+        <div className="mt-10 w-full">
           <ClientLogoSlider logos={clientLogos} />
         </div>
       </div>

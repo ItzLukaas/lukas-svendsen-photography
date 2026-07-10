@@ -7,12 +7,16 @@ import { MasonryGallery } from "@/components/MasonryGallery";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { ClientsSection } from "@/components/sections/ClientsSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
+import { HomeInternalLinks } from "@/components/seo/HomeInternalLinks";
 import { featuredPhotos, siteConfig } from "@/data/photos";
 import { homeJsonLd } from "@/lib/json-ld";
 import { linkSubtle, sectionDivider, sectionShell } from "@/lib/styles";
 import { homeMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = homeMetadata();
+
+/** Færre billeder på forsiden = færre HTTP-requests ved første load */
+const HOME_FEATURED_COUNT = 9;
 
 const PhotographyTypesSection = dynamic(() =>  import("@/components/sections/PhotographyTypesSection").then((mod) => ({
     default: mod.PhotographyTypesSection,
@@ -57,7 +61,7 @@ export default function HomePage() {
 
       <section className={`${sectionShell} ${sectionDivider}`}>
         <div className="mx-auto max-w-7xl">
-          <MasonryGallery photos={featuredPhotos} showTitle />
+          <MasonryGallery photos={featuredPhotos.slice(0, HOME_FEATURED_COUNT)} showTitle />
           <div className="mt-16 text-center">
             <Link href="/portfolio" className={linkSubtle}>
               Se hele porteføljen
@@ -76,6 +80,7 @@ export default function HomePage() {
       <ProcessSection />
       {siteConfig.showTestimonials && <TestimonialsSection />}
       <InquirySection />
+      <HomeInternalLinks />
     </>
   );
 }

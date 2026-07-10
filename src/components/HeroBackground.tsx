@@ -32,10 +32,9 @@ function wrapIndex(value: number) {
 export function HeroBackground() {
   const [index, setIndex] = useState(0);
   const prefersReducedMotion = useReducedMotion();
-  const [loadedSlides, setLoadedSlides] = useState<Set<number>>(() => new Set([0, 1]));
+  const [loadedSlides, setLoadedSlides] = useState<Set<number>>(() => new Set([0]));
 
   const nextIndex = useMemo(() => wrapIndex(index + 1), [index]);
-  const prevIndex = useMemo(() => wrapIndex(index - 1), [index]);
 
   useEffect(() => {
     const id = window.setInterval(() => {
@@ -50,17 +49,15 @@ export function HeroBackground() {
       const next = new Set(current);
       next.add(index);
       next.add(nextIndex);
-      next.add(prevIndex);
       return next;
     });
-  }, [index, nextIndex, prevIndex]);
+  }, [index, nextIndex]);
 
   return (
     <div className="absolute inset-0 bg-[#070707]" aria-hidden="true">
       {HERO_IMAGES.map((src, imageIndex) => {
         const isActive = imageIndex === index;
-        const isVisible =
-          isActive || imageIndex === prevIndex || imageIndex === nextIndex;
+        const isVisible = isActive || imageIndex === nextIndex;
 
         if (!loadedSlides.has(imageIndex) && !isVisible) {
           return null;

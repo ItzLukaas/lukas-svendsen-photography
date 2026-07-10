@@ -11,6 +11,7 @@ const navLinks = [
   { href: "/", label: "Forside" },
   { href: "/portfolio", label: "Portefølje" },
   { href: "/referencer", label: "Referencer" },
+  { href: "/ydelser", label: "Ydelser" },
   { href: "/om-mig", label: "Om mig" },
 ];
 

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 import { InstagramIcon } from "@/components/icons/Instagram";
+import { primaryCityLinks } from "@/data/internal-links";
 import { siteConfig } from "@/data/photos";
 import { btnPrimary } from "@/lib/styles";
 
@@ -84,6 +85,19 @@ export function Footer() {
             <ul className="mt-5 space-y-3">
               {serviceLinks.map((link) => (
                 <li key={link.key}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-white/55 transition-colors duration-500 ease-premium hover:text-white"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-8 text-xs tracking-[0.25em] text-white/50 uppercase">Områder</p>
+            <ul className="mt-5 space-y-3">
+              {primaryCityLinks.map((link) => (
+                <li key={link.href}>
                   <Link
                     href={link.href}
                     className="text-sm text-white/55 transition-colors duration-500 ease-premium hover:text-white"

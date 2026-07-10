@@ -6,7 +6,7 @@ import { processSteps } from "@/data/sections";
 import { Section } from "../Section";
 import { ScrollReveal } from "../ScrollReveal";
 import { AnimatedHeading } from "../AnimatedHeading";
-import { sectionBody, sectionLabel } from "@/lib/styles";
+import { sectionLabel } from "@/lib/styles";
 import { EASE } from "@/lib/motion";
 
 function ProcessStep({
@@ -47,8 +47,8 @@ function ProcessStep({
         )}
       </m.span>
 
-      <h3 className="font-display text-lg font-light text-white lg:mt-8">{step.title}</h3>
-      <p className="mt-2 text-sm leading-relaxed text-white/50 lg:mx-auto lg:max-w-[13rem]">
+      <h3 className="font-display text-base font-light text-white lg:mt-6">{step.title}</h3>
+      <p className="mt-1.5 text-xs leading-relaxed text-white/50 lg:mx-auto lg:max-w-[13rem]">
         {step.description}
       </p>
     </m.div>
@@ -63,15 +63,15 @@ export function ProcessSection() {
 
   return (
     <Section>
-      <div className="mb-16 md:mb-24 lg:flex lg:items-end lg:justify-between lg:gap-16">
+      <div className="mb-12 md:mb-16 lg:flex lg:items-end lg:justify-between lg:gap-16">
         <ScrollReveal className="max-w-2xl">
           <p className={sectionLabel}>Proces</p>
-          <AnimatedHeading className="font-display text-[2rem] font-light leading-[1.08] text-white sm:text-4xl lg:text-5xl">
+          <AnimatedHeading className="font-display text-[1.65rem] font-light leading-[1.08] text-white sm:text-3xl lg:text-4xl">
             Sådan foregår det
           </AnimatedHeading>
         </ScrollReveal>
-        <ScrollReveal delay={0.08} className="mt-7 max-w-md lg:mt-0 lg:text-right">
-          <p className={sectionBody}>
+        <ScrollReveal delay={0.08} className="mt-5 max-w-md lg:mt-0 lg:text-right">
+          <p className="text-sm leading-relaxed text-white/55 md:text-[0.95rem] md:leading-[1.7]">
             En enkel proces — fra første besked til det færdige resultat.
           </p>
         </ScrollReveal>
@@ -116,7 +116,7 @@ export function ProcessSection() {
           />
         </div>
 
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {processSteps.map((step, index) => (
             <ProcessStep key={step.step} step={step} index={index} />
           ))}

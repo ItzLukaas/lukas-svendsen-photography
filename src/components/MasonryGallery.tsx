@@ -6,7 +6,7 @@ import { Expand } from "lucide-react";
 import type { Photo } from "@/data/photos";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
 import { ScrollReveal } from "./ScrollReveal";
-import { sectionLabel, sectionTitle } from "@/lib/styles";
+import { sectionLabel } from "@/lib/styles";
 import { IMAGE_QUALITY, IMAGE_SIZES } from "@/lib/image";
 
 const Lightbox = dynamic(
@@ -40,10 +40,12 @@ export function MasonryGallery({ photos, showTitle = false }: MasonryGalleryProp
   return (
     <>
       {showTitle && (
-        <ScrollReveal className="mb-20 text-center">
+        <ScrollReveal className="mb-12 text-center">
           <p className={sectionLabel}>Udvalgte øjeblikke</p>
-          <h2 className={sectionTitle}>Et kig på mit arbejde</h2>
-          <p className="mx-auto mt-6 max-w-lg text-base leading-relaxed text-white/50">
+          <h2 className="font-display text-[1.65rem] font-light leading-[1.08] text-white sm:text-3xl md:text-[2.25rem] lg:text-4xl xl:text-[2.75rem]">
+            Et kig på mit arbejde
+          </h2>
+          <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-white/50">
             Et udvalg af øjeblikke fra min portefølje som fotograf og videoproducent — fra sport og
             events til portrætter og kreative projekter. Se eksempler på min stil, kvalitet og tilgang
             til visuel fortælling.

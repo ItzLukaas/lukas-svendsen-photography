@@ -32,16 +32,28 @@ function DroneIcon({ size = 20 }: { size?: number }) {
   );
 }
 
-export function ServicesSection() {
+export function ServicesSection({ compact = false }: { compact?: boolean }) {
+  const titleClass = compact
+    ? "font-display text-[1.65rem] font-light leading-[1.08] text-white sm:text-3xl md:text-[2.25rem] lg:text-4xl xl:text-[2.75rem]"
+    : sectionTitle;
+  const bodyClass = compact
+    ? "text-sm leading-relaxed text-white/55 md:text-[0.95rem] md:leading-[1.7]"
+    : sectionBody;
+  const shellClass = compact
+    ? "bg-[#0a0a0a] px-6 py-16 sm:py-20 lg:px-8 lg:py-28"
+    : sectionShell;
+
   return (
-    <section id="ydelser" className={`${sectionShell} ${sectionDivider}`}>
+    <section id="ydelser" className={`${shellClass} ${sectionDivider}`}>
       <div className="mx-auto max-w-7xl">
-        <div className="mb-16 md:mb-24 lg:flex lg:items-end lg:justify-between lg:gap-16">
+        <div
+          className={`${compact ? "mb-12 md:mb-16" : "mb-16 md:mb-24"} lg:flex lg:items-end lg:justify-between lg:gap-16`}
+        >
           <div className="max-w-2xl">
             <p className={sectionLabel}>Produktioner</p>
-            <h2 className={sectionTitle}>Fotografering, videoproduktion og droneflyvning</h2>
+            <h2 className={titleClass}>Fotografering, videoproduktion og droneflyvning</h2>
           </div>
-          <p className={`mt-7 max-w-md lg:mt-0 lg:text-right ${sectionBody}`}>
+          <p className={`${compact ? "mt-5" : "mt-7"} max-w-md lg:mt-0 lg:text-right ${bodyClass}`}>
             Jeg tilbyder fotografering, videoproduktion og droneflyvning — til private, sport,
             events og erhverv.
           </p>
@@ -56,25 +68,47 @@ export function ServicesSection() {
               <Link
                 key={service.title}
                 href={service.href}
-                className="group flex flex-col border border-white/10 bg-white/[0.02] p-8 transition-all duration-500 ease-premium hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.04] lg:p-10"
+                className={`group flex flex-col border border-white/10 bg-white/[0.02] transition-all duration-500 ease-premium hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.04] ${
+                  compact ? "p-6 lg:p-8" : "p-8 lg:p-10"
+                }`}
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <span className="mb-5 flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-white/45 transition-all duration-500 ease-premium group-hover:border-white/25 group-hover:text-white/80">
-                      {Icon ? <Icon size={20} strokeWidth={1.5} /> : <DroneIcon size={20} />}
+                    <span
+                      className={`mb-4 flex items-center justify-center rounded-full border border-white/10 text-white/45 transition-all duration-500 ease-premium group-hover:border-white/25 group-hover:text-white/80 ${
+                        compact ? "h-9 w-9" : "h-11 w-11"
+                      }`}
+                    >
+                      {Icon ? (
+                        <Icon size={compact ? 18 : 20} strokeWidth={1.5} />
+                      ) : (
+                        <DroneIcon size={compact ? 18 : 20} />
+                      )}
                     </span>
                     <p className="text-[10px] tracking-[0.3em] text-white/45 uppercase">
                       Ydelse
                     </p>
-                    <h3 className="mt-3 font-display text-2xl font-light text-white lg:text-[1.65rem]">
+                    <h3
+                      className={`mt-2 font-display font-light text-white ${
+                        compact ? "text-xl lg:text-[1.35rem]" : "text-2xl lg:text-[1.65rem]"
+                      }`}
+                    >
                       {service.title}
                     </h3>
-                    <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/55">
+                    <p
+                      className={`mt-2 max-w-xs leading-relaxed text-white/55 ${
+                        compact ? "text-xs" : "text-sm"
+                      }`}
+                    >
                       {service.description}
                     </p>
                   </div>
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/15 text-white/60 transition-all duration-500 ease-premium group-hover:border-white/35 group-hover:text-white">
-                    <ArrowUpRight size={16} strokeWidth={1.5} />
+                  <span
+                    className={`flex shrink-0 items-center justify-center rounded-full border border-white/15 text-white/60 transition-all duration-500 ease-premium group-hover:border-white/35 group-hover:text-white ${
+                      compact ? "h-8 w-8" : "h-10 w-10"
+                    }`}
+                  >
+                    <ArrowUpRight size={compact ? 14 : 16} strokeWidth={1.5} />
                   </span>
                 </div>
               </Link>

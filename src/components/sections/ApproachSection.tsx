@@ -11,7 +11,7 @@ import { approachPoints } from "@/data/sections";
 import { Section } from "../Section";
 import { ScrollReveal } from "../ScrollReveal";
 import { AnimatedHeading } from "../AnimatedHeading";
-import { sectionBody, sectionLabel } from "@/lib/styles";
+import { sectionLabel } from "@/lib/styles";
 
 type ApproachIcon = "message" | "sparkles" | "sliders" | "heart";
 
@@ -25,16 +25,16 @@ const iconMap: Record<ApproachIcon, LucideIcon> = {
 export function ApproachSection() {
   return (
     <Section>
-      <div className="grid items-start gap-16 lg:grid-cols-2 lg:gap-24">
+      <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
         <div>
           <ScrollReveal>
             <p className={sectionLabel}>Min tilgang</p>
-            <AnimatedHeading className="font-display text-3xl font-light leading-tight text-white md:text-4xl lg:text-5xl">
+            <AnimatedHeading className="font-display text-2xl font-light leading-tight text-white md:text-3xl lg:text-4xl">
               Sådan arbejder jeg
             </AnimatedHeading>
           </ScrollReveal>
           <ScrollReveal delay={0.15}>
-            <p className={`mt-8 max-w-lg ${sectionBody}`}>
+            <p className="mt-6 max-w-lg text-sm leading-relaxed text-white/55 md:text-[0.95rem] md:leading-[1.7]">
               Du fortæller blot, hvad du har brug for. Jeg hjælper med at omsætte dine idéer til det
               færdige resultat, står for processen og sørger for, at alt bliver håndteret fra start til
               slut.
@@ -42,17 +42,17 @@ export function ApproachSection() {
           </ScrollReveal>
         </div>
 
-        <div className="grid gap-8 sm:grid-cols-2">
+        <div className="grid gap-6 sm:grid-cols-2">
           {approachPoints.map((point, index) => {
             const Icon = iconMap[point.icon];
             return (
               <ScrollReveal key={point.title} delay={index * 0.08}>
                 <div className="group">
-                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/50 transition-all duration-500 ease-premium group-hover:border-white/25 group-hover:text-white">
-                    <Icon size={16} strokeWidth={1.5} />
+                  <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-white/50 transition-all duration-500 ease-premium group-hover:border-white/25 group-hover:text-white">
+                    <Icon size={15} strokeWidth={1.5} />
                   </div>
-                  <h3 className="text-sm tracking-wide text-white">{point.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-white/45">
+                  <h3 className="text-xs tracking-wide text-white">{point.title}</h3>
+                  <p className="mt-1.5 text-xs leading-relaxed text-white/45">
                     {point.description}
                   </p>
                 </div>

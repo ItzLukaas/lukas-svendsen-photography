@@ -4,13 +4,16 @@ import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { AnimatedHeading } from "@/components/AnimatedHeading";
 import { InquiryWizard } from "@/components/inquiry/InquiryWizard";
-import { sectionBody, sectionLabel, sectionShell } from "@/lib/styles";
+import { sectionLabel } from "@/lib/styles";
+
+const homeSectionShell =
+  "bg-[#0a0a0a] px-6 py-16 sm:py-20 lg:px-8 lg:py-28";
 
 export function InquirySection() {
   return (
     <section
       id="foresporgsel"
-      className={`relative overflow-hidden ${sectionShell} scroll-mt-24 border-t border-white/[0.06] lg:scroll-mt-28`}
+      className={`relative overflow-hidden ${homeSectionShell} scroll-mt-24 border-t border-white/[0.06] lg:scroll-mt-28`}
     >
       <div
         className="pointer-events-none absolute inset-0"
@@ -21,15 +24,15 @@ export function InquirySection() {
       </div>
 
       <div className="relative mx-auto max-w-3xl">
-        <ScrollReveal className="mb-12 text-center md:mb-16">
+        <ScrollReveal className="mb-10 text-center md:mb-12">
           <p className={sectionLabel}>Forespørgsel</p>
           <AnimatedHeading
             as="h2"
-            className="font-display text-[2rem] font-light leading-[1.08] text-white sm:text-4xl lg:text-5xl"
+            className="font-display text-[1.65rem] font-light leading-[1.08] text-white sm:text-3xl lg:text-4xl"
           >
             Skal vi skabe noget sammen?
           </AnimatedHeading>
-          <p className={`mx-auto mt-7 max-w-xl ${sectionBody}`}>
+          <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-white/55 md:text-[0.95rem] md:leading-[1.7]">
             Fortæl mig om dit projekt — gratis og uforpligtende. Jeg guider dig trin for trin.
           </p>
         </ScrollReveal>
@@ -40,7 +43,7 @@ export function InquirySection() {
               className="pointer-events-none absolute -inset-px bg-gradient-to-b from-white/20 via-white/[0.06] to-white/[0.02]"
               aria-hidden="true"
             />
-            <div className="relative border border-white/10 bg-[#0c0c0c]/90 p-6 backdrop-blur-md sm:p-8 lg:p-10">
+            <div className="relative border border-white/10 bg-[#0c0c0c]/90 p-5 backdrop-blur-md sm:p-6 lg:p-8">
               <div
                 className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent"
                 aria-hidden="true"
@@ -51,7 +54,7 @@ export function InquirySection() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.15}>
-          <p className="mt-8 text-center text-sm text-white/50">
+          <p className="mt-6 text-center text-xs text-white/50 sm:text-sm">
             Eller{" "}
             <ObfuscatedEmail
               label="send en mail"

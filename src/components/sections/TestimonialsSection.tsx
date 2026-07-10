@@ -10,27 +10,27 @@ import { sectionLabel } from "@/lib/styles";
 export function TestimonialsSection() {
   return (
     <Section>
-      <ScrollReveal className="mb-16 text-center md:mb-24">
+      <ScrollReveal className="mb-12 text-center md:mb-16">
         <p className={sectionLabel}>Tillid</p>
-        <AnimatedHeading className="font-display text-[2rem] font-light leading-[1.08] text-white sm:text-4xl lg:text-5xl">
+        <AnimatedHeading className="font-display text-[1.65rem] font-light leading-[1.08] text-white sm:text-3xl lg:text-4xl">
           Ord fra samarbejdspartnere
         </AnimatedHeading>
       </ScrollReveal>
 
-      <div className="grid gap-8 lg:grid-cols-2 lg:gap-10">
+      <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
         {testimonials.map((item, index) => (
           <ScrollReveal key={index} delay={index * 0.1}>
-            <blockquote className="relative border border-white/5 bg-white/[0.02] p-10 transition-all duration-500 ease-premium hover:border-white/10 lg:p-12">
+            <blockquote className="relative border border-white/5 bg-white/[0.02] p-8 transition-all duration-500 ease-premium hover:border-white/10 lg:p-10">
               <Quote
-                size={24}
+                size={20}
                 strokeWidth={1}
                 className="text-white/15"
                 aria-hidden="true"
               />
-              <p className="mt-8 font-display text-2xl font-light leading-snug text-white/75 italic lg:text-[1.65rem]">
+              <p className="mt-6 font-display text-xl font-light leading-snug text-white/75 italic lg:text-2xl">
                 &ldquo;{item.quote}&rdquo;
               </p>
-              <footer className="mt-8 border-t border-white/[0.06] pt-6 text-xs tracking-[0.25em] text-white/35 uppercase">
+              <footer className="mt-6 border-t border-white/[0.06] pt-5 text-[10px] tracking-[0.25em] text-white/35 uppercase">
                 {item.author}
               </footer>
             </blockquote>

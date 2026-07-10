@@ -8,22 +8,24 @@ import { EASE } from "@/lib/motion";
 interface InquiryProgressProps {
   currentStep: number;
   totalSteps?: number;
+  compact?: boolean;
 }
 
 export function InquiryProgress({
   currentStep,
   totalSteps = inquiryStepLabels.length,
+  compact = false,
 }: InquiryProgressProps) {
   const progress = ((currentStep - 1) / (totalSteps - 1)) * 100;
 
   return (
-    <div className="mb-12">
-      <div className="mb-3 flex items-center justify-between text-[10px] tracking-[0.25em] text-white/35 uppercase">
+    <div className={compact ? "mb-8" : "mb-12"}>
+      <div className="mb-2.5 flex items-center justify-between text-[10px] tracking-[0.25em] text-white/35 uppercase">
         <span>Trin {currentStep}</span>
         <span>af {totalSteps}</span>
       </div>
 
-      <div className="relative mb-8 h-px bg-white/[0.08]">
+      <div className={`relative h-px bg-white/[0.08] ${compact ? "mb-6" : "mb-8"}`}>
         <m.div
           className="absolute inset-y-0 left-0 bg-gradient-to-r from-white/20 via-white/50 to-white/30"
           initial={false}
@@ -39,9 +41,11 @@ export function InquiryProgress({
           const isComplete = step < currentStep;
 
           return (
-            <div key={label} className="flex min-w-0 flex-1 flex-col items-center gap-3">
+            <div key={label} className={`flex min-w-0 flex-1 flex-col items-center ${compact ? "gap-2" : "gap-3"}`}>
               <m.div
-                className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border text-[10px] tracking-wider transition-colors duration-500 ease-premium ${
+                className={`flex shrink-0 items-center justify-center rounded-full border text-[10px] tracking-wider transition-colors duration-500 ease-premium ${
+                  compact ? "h-7 w-7" : "h-8 w-8"
+                } ${
                   isActive
                     ? "border-white/40 bg-white/10 text-white"
                     : isComplete

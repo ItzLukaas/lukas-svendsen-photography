@@ -10,7 +10,10 @@ import { ServicesSection } from "@/components/sections/ServicesSection";
 import { HomeInternalLinks } from "@/components/seo/HomeInternalLinks";
 import { featuredPhotos, siteConfig } from "@/data/photos";
 import { homeJsonLd } from "@/lib/json-ld";
-import { linkSubtle, sectionDivider, sectionShell } from "@/lib/styles";
+import { sectionDivider } from "@/lib/styles";
+
+const homeSectionShell =
+  "bg-[#0a0a0a] px-6 py-16 sm:py-20 lg:px-8 lg:py-28";
 import { homeMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = homeMetadata();
@@ -57,13 +60,16 @@ export default function HomePage() {
       <HomeJsonLd />
       <Hero />
       <ClientsSection />
-      <ServicesSection />
+      <ServicesSection compact />
 
-      <section className={`${sectionShell} ${sectionDivider}`}>
+      <section className={`${homeSectionShell} ${sectionDivider}`}>
         <div className="mx-auto max-w-7xl">
           <MasonryGallery photos={featuredPhotos.slice(0, HOME_FEATURED_COUNT)} showTitle />
-          <div className="mt-16 text-center">
-            <Link href="/portfolio" className={linkSubtle}>
+          <div className="mt-10 text-center">
+            <Link
+              href="/portfolio"
+              className="group inline-flex min-h-9 items-center gap-2 text-[10px] tracking-[0.2em] text-white/50 uppercase transition-colors duration-500 ease-premium hover:text-white"
+            >
               Se hele porteføljen
               <ArrowRight
                 size={14}

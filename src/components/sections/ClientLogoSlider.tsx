@@ -16,7 +16,7 @@ function LogoItem({
   const image = (
     <Image
       src={client.src}
-      alt={client.alt}
+      alt={interactive ? client.alt : ""}
       width={client.width}
       height={client.height}
       loading="lazy"
@@ -33,7 +33,7 @@ function LogoItem({
       aria-hidden={interactive ? undefined : true}
     >
       {interactive && client.href ? (
-        <Link href={client.href} className="logo-marquee-link" aria-label={client.name}>
+        <Link href={client.href} className="logo-marquee-link">
           {image}
         </Link>
       ) : (

@@ -47,7 +47,7 @@ export function FotograferingPage({ service, breadcrumbs }: FotograferingPagePro
         <section className="relative min-h-[50vh] overflow-hidden sm:min-h-[58vh] lg:min-h-[65vh]">
           <OptimizedImage
             src={HERO_IMAGE}
-            alt="Professionelt sportsfoto fra Lukas Svendsens portefølje"
+            alt={getPhotoAltBySrc(HERO_IMAGE, "Håndboldspillere fejrer sejr i klubtrøjer med pokal")}
             fill
             priority
             blur={false}

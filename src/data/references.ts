@@ -54,7 +54,7 @@ export const references: Reference[] = [
       "Reference: Fredericia Håndboldklub — fast fotograf, kampdækning, holdfotos og visuelt indhold til en af Danmarks førende håndboldklubber.",
     coverImage: {
       src: "/images/references/fredericia-handboldklub/dsc07398.webp",
-      alt: "Fredericia Håndboldklub kampaktion",
+      alt: "Fredericia Håndboldklub kampaktion med spillere i klubtrøjer",
       width: 1800,
       height: 1200,
     },
@@ -95,13 +95,13 @@ export const references: Reference[] = [
     gallery: [
       {
         src: "/images/references/fredericia-handboldklub/dsc07230-4.webp",
-        alt: "Fredericia Håndboldklub spiller i duel",
+        alt: "Fredericia Håndboldklub spiller i duel i klubtrøje",
         width: 1800,
         height: 1200,
       },
       {
         src: "/images/references/fredericia-handboldklub/dsc07343-2.webp",
-        alt: "Fredericia Håndboldklub opvarmning før kamp",
+        alt: "Fredericia Håndboldklub opvarmning i klubtrøjer før kamp",
         width: 1800,
         height: 1200,
       },
@@ -113,7 +113,7 @@ export const references: Reference[] = [
       },
       {
         src: "/images/references/fredericia-handboldklub/dsc07471.webp",
-        alt: "Fredericia Håndboldklub spillerportræt i aktion",
+        alt: "Fredericia Håndboldklub spillerportræt i aktion med klublogo på trøjen",
         width: 1800,
         height: 1200,
       },
@@ -150,7 +150,7 @@ export const references: Reference[] = [
       "Reference: KIF Kolding — sportsfotografi fra den afgørende playoff-kamp mod Aarhus Håndbold om oprykning til Danmarks bedste håndboldliga.",
     coverImage: {
       src: "/images/references/kif-kolding/dsc09566-3.webp",
-      alt: "KIF Kolding kampaktion",
+      alt: "KIF Kolding kampaktion med spillere i klubtrøjer",
       width: 1800,
       height: 1200,
     },
@@ -195,7 +195,7 @@ export const references: Reference[] = [
     gallery: [
       {
         src: "/images/references/kif-kolding/dsc09393.webp",
-        alt: "KIF Kolding spiller i duel",
+        alt: "KIF Kolding spiller i duel i klubtrøje",
         width: 1800,
         height: 1200,
       },
@@ -219,7 +219,7 @@ export const references: Reference[] = [
       },
       {
         src: "/images/references/kif-kolding/dsc09613-9.webp",
-        alt: "KIF Kolding jubelscene",
+        alt: "KIF Kolding jubelscene med spillere i klubtrøjer",
         width: 1800,
         height: 1200,
       },
@@ -237,7 +237,7 @@ export const references: Reference[] = [
       },
       {
         src: "/images/references/kif-kolding/dsc09742.webp",
-        alt: "KIF Kolding afslutning på mål",
+        alt: "KIF Kolding afslutning på mål i klubtrøje",
         width: 1800,
         height: 1200,
       },

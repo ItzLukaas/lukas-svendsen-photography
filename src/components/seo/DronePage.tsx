@@ -2,6 +2,7 @@ import { Breadcrumbs, type BreadcrumbItem } from "@/components/seo/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
 import type { SeoService } from "@/data/seo-services";
+import { getPhotoAltBySrc } from "@/data/photos";
 import { webPageJsonLd } from "@/lib/json-ld";
 import { IMAGE_QUALITY } from "@/lib/image";
 import { sectionBody, sectionLabel } from "@/lib/styles";
@@ -37,7 +38,7 @@ export function DronePage({ service, breadcrumbs }: DronePageProps) {
         <section className="relative min-h-[50vh] overflow-hidden sm:min-h-[58vh] lg:min-h-[65vh]">
           <OptimizedImage
             src={DRONE_IMAGE}
-            alt="Droneoptagelse fra Lukas Svendsens portefølje"
+            alt={getPhotoAltBySrc("/images/portfolio/drone/Drone.webp")}
             fill
             priority
             blur={false}

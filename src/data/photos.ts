@@ -19,7 +19,7 @@ export const photos: Photo[] = [
   {
     id: "2",
     src: "/images/portfolio/andet/DSC04763.webp",
-    alt: "Lysskilt for SoHo Bar & Cocktails med grønne planter og nattelys",
+    alt: "Lysskilt med SoHo Bar & Cocktails-logo, grønne planter og nattelys",
     width: 1800,
     height: 1200,
     featured: true,
@@ -27,7 +27,7 @@ export const photos: Photo[] = [
   {
     id: "3",
     src: "/images/portfolio/handbold/DSC01659-5.webp",
-    alt: "Niklas Landin fra Aalborg Håndbold jubler med knyttede næver under kamp",
+    alt: "Niklas Landin i Aalborg Håndbold-trøje jubler med knyttede næver under kamp",
     width: 1800,
     height: 1200,
     featured: true,
@@ -43,7 +43,7 @@ export const photos: Photo[] = [
   {
     id: "5",
     src: "/images/portfolio/handbold/DSC01984.webp",
-    alt: "Nora Mørk i Team Esbjerg-trøje råber intens foran publikum i håndboldkamp",
+    alt: "Nora Mørk i Team Esbjerg-trøje med klublogo råber intens foran publikum i håndboldkamp",
     width: 1800,
     height: 1200,
     featured: true,
@@ -59,7 +59,7 @@ export const photos: Photo[] = [
   {
     id: "31",
     src: "/images/references/fredericia-handboldklub/dsc07230-4.webp",
-    alt: "Fredericia Håndboldklub spiller i duel",
+    alt: "Fredericia Håndboldklub spiller i duel i klubtrøje",
     width: 1800,
     height: 1200,
     featured: false,
@@ -67,7 +67,7 @@ export const photos: Photo[] = [
   {
     id: "7",
     src: "/images/portfolio/handbold/DSC01996.webp",
-    alt: "Håndboldspiller fra Odense Håndbold jubler med armene i vejret efter scoring",
+    alt: "Håndboldspiller fra Odense Håndbold jubler i klubtrøje efter scoring",
     width: 1800,
     height: 1200,
     featured: true,
@@ -83,7 +83,7 @@ export const photos: Photo[] = [
   {
     id: "9",
     src: "/images/portfolio/handbold/DSC02040.webp",
-    alt: "Håndboldspiller i lyseblå trøje jubler foran orangeklædt publikum i arena",
+    alt: "Håndboldspiller jubler i klubtrøje med logo på brystet foran publikum i arena",
     width: 1800,
     height: 1200,
     featured: true,
@@ -91,7 +91,7 @@ export const photos: Photo[] = [
   {
     id: "10",
     src: "/images/portfolio/andet/DSC05265.webp",
-    alt: "Sanger ved mikrofon og keyboard med Heineken-flaske på scenen til event",
+    alt: "Sanger ved mikrofon og keyboard med Heineken-sponslogo på scenen til live event",
     width: 1800,
     height: 1200,
     featured: true,
@@ -107,7 +107,7 @@ export const photos: Photo[] = [
   {
     id: "12",
     src: "/images/portfolio/andet/DSC05317.webp",
-    alt: "Neonudsmykket cykel som FOOD-vægskilt i moderne bar med rød stol",
+    alt: "Neonudsmykket cykel med FOOD-logo som vægskilt i moderne bar",
     width: 1800,
     height: 1200,
     featured: true,
@@ -131,7 +131,7 @@ export const photos: Photo[] = [
   {
     id: "32",
     src: "/images/references/fredericia-handboldklub/dsc07343-2.webp",
-    alt: "Fredericia Håndboldklub opvarmning før kamp",
+    alt: "Fredericia Håndboldklub opvarmning i klubtrøjer før kamp",
     width: 1800,
     height: 1200,
     featured: false,
@@ -139,7 +139,7 @@ export const photos: Photo[] = [
   {
     id: "15",
     src: "/images/portfolio/handbold/DSC02512-2.webp",
-    alt: "Aalborg Håndbold fejrer FINAL4-sejr med pokal, medaljer og fyrværkeri",
+    alt: "Aalborg Håndbold fejrer FINAL4-sejr med pokal, klubtrøjer og fyrværkeri",
     width: 1800,
     height: 1200,
     featured: true,
@@ -147,7 +147,7 @@ export const photos: Photo[] = [
   {
     id: "16",
     src: "/images/portfolio/handbold/DSC01650.webp",
-    alt: "Håndboldspiller fra Team Esbjerg skyder mod forsvar i Sydbank Arena under kamp",
+    alt: "Håndboldspiller fra Team Esbjerg skyder mod forsvar i Sydbank Arena med klublogo på trøjen",
     width: 1800,
     height: 1200,
     featured: false,
@@ -155,7 +155,7 @@ export const photos: Photo[] = [
   {
     id: "17",
     src: "/images/portfolio/handbold/DSC02513-2.webp",
-    alt: "Aalborg Håndbold-spiller råber og fejrer under kamp foran publikum",
+    alt: "Aalborg Håndbold-spiller fejrer i klubtrøje under kamp foran publikum",
     width: 1800,
     height: 1200,
     featured: false,
@@ -163,7 +163,7 @@ export const photos: Photo[] = [
   {
     id: "18",
     src: "/images/portfolio/andet/DSC05489.webp",
-    alt: "Pink neonskilt med Cocktails & Dreams over bar med murstensvæg",
+    alt: "Pink neonskilt med Cocktails & Dreams-logo over bar med murstensvæg",
     width: 1800,
     height: 1200,
     featured: false,
@@ -171,7 +171,7 @@ export const photos: Photo[] = [
   {
     id: "19",
     src: "/images/portfolio/handbold/DSC02547.webp",
-    alt: "Herrelandsholdet tager selfie under sejrsfejring med pokal og guldmedaljer",
+    alt: "Herrelandsholdet tager selfie i landsholdstrøjer med pokal og guldmedaljer",
     width: 1800,
     height: 1200,
     featured: false,
@@ -187,7 +187,7 @@ export const photos: Photo[] = [
   {
     id: "21",
     src: "/images/portfolio/handbold/DSC03176.webp",
-    alt: "Kvinde i navy håndboldtrøje i aktion med bold på håndboldbane",
+    alt: "Håndboldspiller i klubtrøje med logo på brystet i aktion med bold på håndboldbane",
     width: 1800,
     height: 1200,
     featured: false,
@@ -203,7 +203,7 @@ export const photos: Photo[] = [
   {
     id: "33",
     src: "/images/references/kif-kolding/dsc09742.webp",
-    alt: "KIF Kolding afslutning på mål",
+    alt: "KIF Kolding afslutning på mål i klubtrøje",
     width: 1800,
     height: 1200,
     featured: false,
@@ -211,7 +211,7 @@ export const photos: Photo[] = [
   {
     id: "23",
     src: "/images/portfolio/handbold/DSC03531.webp",
-    alt: "Team Esbjerg fejrer danske mesterskab 2025/26 med guldmedaljer og konfetti",
+    alt: "Team Esbjerg fejrer dansk mesterskab 2025/26 i klubtrøjer med guldmedaljer og konfetti",
     width: 1800,
     height: 1200,
     featured: false,
@@ -227,7 +227,7 @@ export const photos: Photo[] = [
   {
     id: "25",
     src: "/images/portfolio/handbold/DSC04153.webp",
-    alt: "Håndboldhold sprøjter champagne og fejrer Bambusa Herreligaen med pokal",
+    alt: "Håndboldhold sprøjter champagne og fejrer Bambuni Herreligaen med pokal",
     width: 1800,
     height: 1200,
     featured: false,
@@ -243,7 +243,7 @@ export const photos: Photo[] = [
   {
     id: "27",
     src: "/images/portfolio/handbold/DSC04213.webp",
-    alt: "GOG håndboldhold fejrer sejr med pokal, guldhatte og spillers trøje",
+    alt: "GOG Håndbold fejrer sejr i klubtrøjer med pokal og guldhatte",
     width: 1800,
     height: 1200,
     featured: false,
@@ -268,6 +268,22 @@ export const photos: Photo[] = [
     id: "30",
     src: "/images/portfolio/andet/DSC05783.webp",
     alt: "Gæster danser og fejrer på udendørs street food-terrasse med lyskæder",
+    width: 1800,
+    height: 1200,
+    featured: false,
+  },
+  {
+    id: "34",
+    src: "/images/portfolio/handbold/DSC02502.webp",
+    alt: "Håndboldspillere fejrer sejr i klubtrøjer med pokal og jubel",
+    width: 1800,
+    height: 1200,
+    featured: false,
+  },
+  {
+    id: "35",
+    src: "/images/portfolio/drone/Drone.webp",
+    alt: "DJI-drone med kamera til luftfoto og dronevideo — Lukas Svendsens udstyr",
     width: 1800,
     height: 1200,
     featured: false,

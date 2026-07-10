@@ -35,12 +35,12 @@ export const approachPoints = [
   },
   {
     title: "Redigering",
-    description: "Jeg klipper og justerer, før du får filerne.",
+    description: "Jeg klipper og justerer det hele.",
     icon: "sliders" as const,
   },
   {
     title: "Overdragelse",
-    description: "Du får filer klar til web, sociale medier eller print.",
+    description: "Så får du det færdige resultat.",
     icon: "heart" as const,
   },
 ];

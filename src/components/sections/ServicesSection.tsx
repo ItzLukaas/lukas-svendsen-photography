@@ -42,8 +42,8 @@ export function ServicesSection() {
             <h2 className={sectionTitle}>Foto, video og drone</h2>
           </div>
           <p className={`mt-7 max-w-md lg:mt-0 lg:text-right ${sectionBody}`}>
-            Jeg tilbyder fotografering, videoproduktion og droneflyvning. Vi aftaler hvad du har
-            brug for — og du får filerne klar til brug.
+            Jeg tilbyder fotografering, videoproduktion og droneflyvning — til private, sport,
+            events og erhverv.
           </p>
         </div>
 

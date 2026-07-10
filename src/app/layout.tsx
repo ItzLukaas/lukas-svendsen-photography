@@ -74,6 +74,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: siteConfig.url,
+    types: {
+      "application/xml": "/sitemap.xml",
+    },
   },
 };
 

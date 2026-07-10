@@ -289,7 +289,7 @@ export const siteConfig = {
   description:
     "Fotograf, videograf og dronepilot i Grindsted og Billund. Fotografering, sportsfoto, erhvervsfoto, videoproduktion og dronevideo i Midt- og Syddanmark.",
   jobTitle: "Fotograf, videograf og dronepilot",
-  url: "https://lukassvendsen.dk",
+  url: "https://www.lukassvendsen.dk",
   email: "kontakt@lukassvendsen.dk",
   phone: "+45 24 46 35 50",
   instagram: "https://www.instagram.com/lukassvendsen.dk/",

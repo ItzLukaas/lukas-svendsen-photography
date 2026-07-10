@@ -22,19 +22,20 @@ Grindsted, Billund, Vejle, Kolding, Fredericia, Esbjerg, Horsens, Aarhus, Odense
 
 ## Kontakt
 
-- Website: https://lukassvendsen.dk
-- Kontaktformular: https://lukassvendsen.dk/kontakt
+- Website: https://www.lukassvendsen.dk
+- Sitemap: https://www.lukassvendsen.dk/sitemap.xml
+- Kontaktformular: https://www.lukassvendsen.dk/kontakt
 - Telefon: +45 24 46 35 50
 - Instagram: https://www.instagram.com/lukassvendsen.dk/
 
 ## Vigtige sider
 
-- https://lukassvendsen.dk/
-- https://lukassvendsen.dk/portfolio
-- https://lukassvendsen.dk/referencer
-- https://lukassvendsen.dk/ydelser
-- https://lukassvendsen.dk/ydelser/fotografering
-- https://lukassvendsen.dk/ydelser/videoproduktion
-- https://lukassvendsen.dk/ydelser/drone
-- https://lukassvendsen.dk/kontakt
-- https://lukassvendsen.dk/om-mig
+- https://www.lukassvendsen.dk/
+- https://www.lukassvendsen.dk/portfolio
+- https://www.lukassvendsen.dk/referencer
+- https://www.lukassvendsen.dk/ydelser
+- https://www.lukassvendsen.dk/ydelser/fotografering
+- https://www.lukassvendsen.dk/ydelser/videoproduktion
+- https://www.lukassvendsen.dk/ydelser/drone
+- https://www.lukassvendsen.dk/kontakt
+- https://www.lukassvendsen.dk/om-mig

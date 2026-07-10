@@ -3,7 +3,9 @@ import { photos, siteConfig } from "@/data/photos";
 import { seoCities } from "@/data/seo-cities";
 import { seoServices } from "@/data/seo-services";
 import { references } from "@/data/references";
-import { SITE_LAST_MODIFIED } from "@/lib/json-ld";
+import { SITE_LAST_MODIFIED, absoluteAssetUrl } from "@/lib/json-ld";
+
+export const revalidate = 86_400;
 
 type SitemapEntry = MetadataRoute.Sitemap[number];
 
@@ -17,7 +19,7 @@ function entry(
   },
 ): SitemapEntry {
   return {
-    url: `${siteConfig.url}${path}`,
+    url: absoluteAssetUrl(path),
     lastModified: options.lastModified ?? SITE_LAST_MODIFIED,
     changeFrequency: options.changeFrequency,
     priority: options.priority,
@@ -26,38 +28,44 @@ function entry(
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const portfolioImages = photos.slice(0, 12).map((photo) => `${siteConfig.url}${photo.src}`);
+  const featuredPortfolioImages = photos
+    .filter((photo) => photo.featured)
+    .slice(0, 12)
+    .map((photo) => absoluteAssetUrl(photo.src));
+
+  const homepageImages = [absoluteAssetUrl(siteConfig.ogImage), ...featuredPortfolioImages];
 
   return [
     entry("/", {
       priority: 1,
       changeFrequency: "weekly",
-      images: [`${siteConfig.url}${siteConfig.ogImage}`, ...portfolioImages],
+      images: homepageImages,
     }),
     entry("/portfolio", {
       priority: 0.9,
       changeFrequency: "weekly",
-      images: portfolioImages,
+      images: featuredPortfolioImages,
     }),
     entry("/referencer", {
       priority: 0.85,
       changeFrequency: "monthly",
+      images: references.map((reference) => absoluteAssetUrl(reference.coverImage.src)),
     }),
     ...references.map((reference) =>
       entry(`/referencer/${reference.slug}`, {
         priority: 0.8,
         changeFrequency: "monthly",
+        lastModified: SITE_LAST_MODIFIED,
         images: [
-          reference.coverImage.src.startsWith("http")
-            ? reference.coverImage.src
-            : `${siteConfig.url}${reference.coverImage.src}`,
+          absoluteAssetUrl(reference.coverImage.src),
+          ...reference.gallery.slice(0, 6).map((galleryImage) => absoluteAssetUrl(galleryImage.src)),
         ],
       }),
     ),
     entry("/om-mig", {
       priority: 0.8,
       changeFrequency: "monthly",
-      images: [`${siteConfig.url}${siteConfig.ogImage}`],
+      images: [absoluteAssetUrl(siteConfig.ogImage)],
     }),
     entry("/kontakt", {
       priority: 0.85,
@@ -77,6 +85,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.75,
         changeFrequency: "monthly",
         lastModified: service.lastModified,
+        images: [absoluteAssetUrl(siteConfig.ogImage)],
       }),
     ),
     ...seoCities.map((city) =>
@@ -84,7 +93,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.7,
         changeFrequency: "monthly",
         lastModified: city.lastModified,
-        images: [`${siteConfig.url}${siteConfig.ogImage}`],
+        images: [absoluteAssetUrl(siteConfig.ogImage)],
       }),
     ),
   ];

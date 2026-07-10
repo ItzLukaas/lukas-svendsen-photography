@@ -25,8 +25,8 @@ export function Footer() {
   return (
     <footer className="border-t border-white/8 bg-[#070707]">
       <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-24">
-        <div className="grid gap-14 sm:grid-cols-2 lg:grid-cols-12 lg:gap-10">
-          <div className="lg:col-span-3">
+        <div className="grid grid-cols-1 gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 xl:gap-x-12">
+          <div className="sm:col-span-2 lg:col-span-1 xl:col-span-1">
             <p className="font-display text-lg tracking-widest text-white uppercase">
               {siteConfig.name}
             </p>
@@ -37,15 +37,15 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="lg:col-span-2">
+          <div className="min-w-0 sm:pr-4 lg:pr-6">
             <p className="text-xs tracking-[0.25em] text-white/50 uppercase">Kontakt</p>
             <ul className="mt-5 space-y-3 text-sm text-white/55">
               <li>{siteConfig.name}</li>
-              <li>
+              <li className="min-w-0 break-words">
                 <ObfuscatedEmail
-                  className="inline-flex items-center gap-2 transition-colors duration-500 ease-premium hover:text-white"
+                  className="inline-flex max-w-full flex-wrap items-center gap-2 break-all transition-colors duration-500 ease-premium hover:text-white sm:break-normal"
                   showIcon
-                  icon={<Mail size={14} strokeWidth={1.5} className="text-white/35" />}
+                  icon={<Mail size={14} strokeWidth={1.5} className="shrink-0 text-white/35" />}
                 />
               </li>
               <li>
@@ -53,18 +53,18 @@ export function Footer() {
                   href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
                   className="inline-flex items-center gap-2 transition-colors duration-500 ease-premium hover:text-white"
                 >
-                  <Phone size={14} strokeWidth={1.5} className="text-white/35" />
+                  <Phone size={14} strokeWidth={1.5} className="shrink-0 text-white/35" />
                   {siteConfig.phone}
                 </a>
               </li>
-              <li className="inline-flex items-center gap-2">
-                <MapPin size={14} strokeWidth={1.5} className="text-white/35" />
+              <li className="inline-flex items-start gap-2">
+                <MapPin size={14} strokeWidth={1.5} className="mt-0.5 shrink-0 text-white/35" />
                 {siteConfig.location}
               </li>
             </ul>
           </div>
 
-          <div className="lg:col-span-2">
+          <div className="min-w-0 sm:pr-4 lg:pr-6">
             <p className="text-xs tracking-[0.25em] text-white/50 uppercase">Navigation</p>
             <ul className="mt-5 space-y-3">
               {navLinks.map((link) => (
@@ -80,7 +80,7 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="lg:col-span-3">
+          <div className="min-w-0 sm:pr-4 lg:pr-6">
             <p className="text-xs tracking-[0.25em] text-white/50 uppercase">Områder</p>
             <ul className="mt-5 space-y-3">
               {primaryCityLinks.map((link) => (
@@ -96,7 +96,7 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="lg:col-span-2 order-5 sm:order-5 lg:order-5">
+          <div className="lg:col-span-2">
             <p className="text-xs tracking-[0.25em] text-white/50 uppercase">Ydelser</p>
             <ul className="mt-5 space-y-3">
               {serviceLinks.map((link) => (

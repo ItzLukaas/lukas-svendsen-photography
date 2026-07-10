@@ -26,12 +26,8 @@ export function Hero() {
             <span className="block">Ung, 16-årig fotograf</span>
             <span className="block">og videoproducent</span>
           </h1>
-          <p className="mt-5 max-w-xl text-sm leading-relaxed text-white/65 sm:text-base">
-            Jeg hedder Lukas Svendsen og er fotograf, videograf og dronepilot i Grindsted. Jeg
-            skaber visuelt indhold for private og virksomheder gennem foto, video og droneoptagelser.
-          </p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:items-center">
             <Link href="/portfolio" className={btnPrimaryCompact}>
               Se portefølje
               <ArrowRight

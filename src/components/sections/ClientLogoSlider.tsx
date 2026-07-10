@@ -16,13 +16,12 @@ function LogoItem({
   const image = (
     <Image
       src={client.src}
-      alt={interactive ? client.alt : ""}
+      alt={client.alt}
       width={client.width}
       height={client.height}
       loading="lazy"
       sizes="(max-width: 640px) 120px, 160px"
       quality={75}
-      aria-hidden={interactive ? undefined : true}
       className="logo-marquee-img"
     />
   );

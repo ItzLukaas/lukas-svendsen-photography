@@ -2,12 +2,16 @@
 
 import { useEffect, useRef, useState } from "react";
 
+import { getPhotoAltBySrc } from "@/data/photos";
+
 type HeroVideoBackgroundProps = {
   src: string;
   poster: string;
+  posterAlt?: string;
 };
 
-export function HeroVideoBackground({ src, poster }: HeroVideoBackgroundProps) {
+export function HeroVideoBackground({ src, poster, posterAlt }: HeroVideoBackgroundProps) {
+  const alt = posterAlt ?? getPhotoAltBySrc(poster, "Video baggrund fra Lukas Svendsens portefølje");
   const videoRef = useRef<HTMLVideoElement>(null);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
@@ -65,7 +69,7 @@ export function HeroVideoBackground({ src, poster }: HeroVideoBackgroundProps) {
       // eslint-disable-next-line @next/next/no-img-element
       <img
         src={poster}
-        alt=""
+        alt={alt}
         className="absolute inset-0 h-full w-full object-cover object-center"
       />
     );
@@ -76,7 +80,7 @@ export function HeroVideoBackground({ src, poster }: HeroVideoBackgroundProps) {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={poster}
-        alt=""
+        alt={alt}
         className="absolute inset-0 h-full w-full object-cover object-center"
       />
       <video

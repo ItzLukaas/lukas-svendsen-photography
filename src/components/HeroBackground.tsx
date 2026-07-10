@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useReducedMotion } from "framer-motion";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
+import { getPhotoAltBySrc } from "@/data/photos";
 import {
   IMAGE_QUALITY,
   IMAGE_SIZES,
@@ -75,7 +76,7 @@ export function HeroBackground() {
             <OptimizedImage
               key={isActive ? `active-${index}` : src}
               src={src}
-              alt=""
+              alt={getPhotoAltBySrc(src, "Hero-baggrund fra Lukas Svendsens portefølje")}
               fill
               blur={false}
               priority={imageIndex === 0}

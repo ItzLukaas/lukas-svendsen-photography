@@ -107,7 +107,7 @@ export function StreamVideoPlayer({ src, poster, title }: StreamVideoPlayerProps
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={poster}
-            alt=""
+            alt={title}
             className="pointer-events-none absolute inset-0 h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-[#0a0a0a]/20 to-[#0a0a0a]/30" />

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 import { InstagramIcon } from "@/components/icons/Instagram";
-import { areasHubPath, footerCityLinks } from "@/data/internal-links";
+import { LinkedInIcon } from "@/components/icons/LinkedIn";
 import { siteConfig } from "@/data/photos";
 import { btnPrimary } from "@/lib/styles";
 
@@ -25,8 +25,8 @@ export function Footer() {
   return (
     <footer className="border-t border-white/8 bg-[#070707]">
       <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-24">
-        <div className="grid grid-cols-1 gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 xl:gap-x-12">
-          <div className="sm:col-span-2 lg:col-span-1 xl:col-span-1">
+        <div className="grid grid-cols-1 gap-x-10 gap-y-12 sm:grid-cols-2 xl:grid-cols-4 xl:gap-x-12">
+          <div className="min-w-0 sm:col-span-2 xl:col-span-1">
             <p className="font-display text-lg tracking-widest text-white uppercase">
               {siteConfig.name}
             </p>
@@ -63,6 +63,34 @@ export function Footer() {
                 {siteConfig.location}
               </li>
             </ul>
+            <p className="mt-8 text-xs tracking-[0.25em] text-white/50 uppercase">Sociale medier</p>
+            <div className="mt-5 flex items-center gap-4">
+              <a
+                href={siteConfig.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="flex h-11 w-11 items-center justify-center text-white/40 transition-all duration-500 ease-premium hover:scale-110 hover:text-white"
+              >
+                <InstagramIcon size={18} />
+              </a>
+              <a
+                href={siteConfig.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn — Lukas Guldager Svendsen"
+                className="flex h-11 w-11 items-center justify-center text-white/40 transition-all duration-500 ease-premium hover:scale-110 hover:text-white"
+              >
+                <LinkedInIcon size={18} />
+              </a>
+              <a
+                href={`mailto:${siteConfig.email}`}
+                aria-label="E-mail"
+                className="flex h-11 w-11 items-center justify-center text-white/40 transition-all duration-500 ease-premium hover:scale-110 hover:text-white"
+              >
+                <Mail size={18} strokeWidth={1.5} />
+              </a>
+            </div>
           </div>
 
           <div className="min-w-0 sm:pr-4 lg:pr-6">
@@ -81,36 +109,7 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="min-w-0 sm:pr-4 lg:pr-6">
-            <p className="text-xs tracking-[0.25em] text-white/50 uppercase">Områder</p>
-            <ul className="mt-5 space-y-3">
-              {footerCityLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="inline-flex min-h-11 items-center text-sm text-white/55 transition-colors duration-500 ease-premium hover:text-white"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-              <li>
-                <Link
-                  href={areasHubPath}
-                  className="group inline-flex min-h-11 items-center gap-2 text-sm text-white/55 transition-colors duration-500 ease-premium hover:text-white"
-                >
-                  Se alle områder
-                  <ArrowRight
-                    size={14}
-                    strokeWidth={1.5}
-                    className="transition-transform duration-500 ease-premium group-hover:translate-x-0.5"
-                  />
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div className="min-w-0">
+          <div className="min-w-0 sm:col-span-2 xl:col-span-1">
             <p className="text-xs tracking-[0.25em] text-white/50 uppercase">Ydelser</p>
             <ul className="mt-5 space-y-3">
               {serviceLinks.map((link) => (
@@ -124,25 +123,6 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-            <p className="mt-8 text-xs tracking-[0.25em] text-white/50 uppercase">Sociale medier</p>
-            <div className="mt-5 flex items-center gap-4">
-              <a
-                href={siteConfig.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="flex h-11 w-11 items-center justify-center text-white/40 transition-all duration-500 ease-premium hover:scale-110 hover:text-white"
-              >
-                <InstagramIcon size={18} />
-              </a>
-              <a
-                href={`mailto:${siteConfig.email}`}
-                aria-label="E-mail"
-                className="flex h-11 w-11 items-center justify-center text-white/40 transition-all duration-500 ease-premium hover:scale-110 hover:text-white"
-              >
-                <Mail size={18} strokeWidth={1.5} />
-              </a>
-            </div>
           </div>
         </div>
 

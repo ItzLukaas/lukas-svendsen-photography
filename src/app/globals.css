@@ -130,7 +130,10 @@ html {
   width: max-content;
   align-items: center;
   gap: var(--marquee-gap);
+  margin: 0;
   padding-block: 0.5rem;
+  padding-inline: 0;
+  list-style: none;
   animation: logo-marquee 52s linear infinite;
   will-change: transform;
 }

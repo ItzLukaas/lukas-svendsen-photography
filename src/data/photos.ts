@@ -310,6 +310,8 @@ export const siteConfig = {
   phone: "+45 24 46 35 50",
   instagram: "https://www.instagram.com/lukassvendsen.dk/",
   instagramHandle: "@lukassvendsen.dk",
+  linkedin:
+    "https://www.linkedin.com/in/lukas-guldager-svendsen-a4a777290/?skipRedirect=true",
   location: "Grindsted, Danmark",
   ogImage: "/images/IMG_3454.webp",
   ogImageWidth: 1200,

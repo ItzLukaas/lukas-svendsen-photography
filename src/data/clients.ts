@@ -5,7 +5,7 @@ export interface ClientLogo {
   src: string;
   width: number;
   height: number;
-  /** Valgfri intern side — logoer linker ikke til eksterne domæner */
+  /** Officiel hjemmeside for kunden */
   href?: string;
 }
 
@@ -21,6 +21,7 @@ export const clientLogos: ClientLogo[] = [
     src: "/images/clients/billund-kommune.webp",
     width: 288,
     height: 112,
+    href: "https://www.billund.dk",
   },
   {
     id: "vejle-kommune",
@@ -29,6 +30,7 @@ export const clientLogos: ClientLogo[] = [
     src: "/images/clients/vejle-kommune.webp",
     width: 280,
     height: 112,
+    href: "https://www.vejle.dk",
   },
   {
     id: "dansk-handbold",
@@ -37,6 +39,7 @@ export const clientLogos: ClientLogo[] = [
     src: "/images/clients/dansk-handbold.webp",
     width: 440,
     height: 96,
+    href: "https://danskhaandbold.dk",
   },
   {
     id: "bambuni-herreligaen",
@@ -45,6 +48,7 @@ export const clientLogos: ClientLogo[] = [
     src: "/images/clients/bambuni-herreligaen.webp",
     width: 440,
     height: 97,
+    href: "https://tophaandbold.dk",
   },
   {
     id: "kif-kolding",
@@ -53,7 +57,7 @@ export const clientLogos: ClientLogo[] = [
     src: "/images/clients/kif-kolding.webp",
     width: 268,
     height: 112,
-    href: "/referencer/kif-kolding",
+    href: "https://kif.dk",
   },
   {
     id: "ggif-handbold",
@@ -62,6 +66,7 @@ export const clientLogos: ClientLogo[] = [
     src: "/images/clients/ggif-handbold.webp",
     width: 268,
     height: 112,
+    href: "https://www.ggif-handbold.dk",
   },
   {
     id: "dgi",
@@ -70,6 +75,7 @@ export const clientLogos: ClientLogo[] = [
     src: "/images/clients/dgi.webp",
     width: 204,
     height: 112,
+    href: "https://www.dgi.dk",
   },
   {
     id: "magion",
@@ -78,6 +84,7 @@ export const clientLogos: ClientLogo[] = [
     src: "/images/clients/magion.webp",
     width: 296,
     height: 112,
+    href: "https://www.magion.dk",
   },
   {
     id: "bygningen",
@@ -86,6 +93,7 @@ export const clientLogos: ClientLogo[] = [
     src: "/images/clients/bygningen.webp",
     width: 248,
     height: 112,
+    href: "https://www.bygningen.dk",
   },
   {
     id: "esbjerg-street-food",
@@ -94,7 +102,7 @@ export const clientLogos: ClientLogo[] = [
     src: "/images/clients/esbjerg-street-food.webp",
     width: 138,
     height: 112,
-    href: "/referencer/esbjerg-streetfood",
+    href: "https://esbjergstreetfood.com",
   },
   {
     id: "frisko",
@@ -103,6 +111,7 @@ export const clientLogos: ClientLogo[] = [
     src: "/images/clients/frisko.webp",
     width: 150,
     height: 112,
+    href: "https://www.frisko.dk",
   },
   {
     id: "3p-group",
@@ -111,6 +120,7 @@ export const clientLogos: ClientLogo[] = [
     src: "/images/clients/3p-group.webp",
     width: 203,
     height: 112,
+    href: "https://www.3pl.dk",
   },
   {
     id: "royal-fireworks",
@@ -119,6 +129,7 @@ export const clientLogos: ClientLogo[] = [
     src: "/images/clients/royal-fireworks-2026.webp",
     width: 164,
     height: 112,
+    href: "https://royalfireworks.dk",
   },
   {
     id: "stay-and-sleep",
@@ -127,6 +138,7 @@ export const clientLogos: ClientLogo[] = [
     src: "/images/clients/stay-and-sleep.webp",
     width: 440,
     height: 97,
+    href: "https://stayandsleep.dk",
   },
   {
     id: "ung-billund-ungdomsskolen",
@@ -135,6 +147,7 @@ export const clientLogos: ClientLogo[] = [
     src: "/images/clients/ung-billund-ungdomsskolen.webp",
     width: 280,
     height: 112,
+    href: "https://www.ungbillund.dk",
   },
   {
     id: "venstre",
@@ -143,5 +156,6 @@ export const clientLogos: ClientLogo[] = [
     src: "/images/clients/venstre.webp",
     width: 440,
     height: 112,
+    href: "https://www.venstre.dk",
   },
 ];

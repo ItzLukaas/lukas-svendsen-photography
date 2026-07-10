@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import type { ClientLogo } from "@/data/clients";
 
 interface ClientLogoSliderProps {
@@ -33,9 +32,15 @@ function LogoItem({
       aria-hidden={interactive ? undefined : true}
     >
       {interactive && client.href ? (
-        <Link href={client.href} className="logo-marquee-link">
+        <a
+          href={client.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Besøg ${client.name}`}
+          className="logo-marquee-link"
+        >
           {image}
-        </Link>
+        </a>
       ) : (
         <span className="logo-marquee-link pointer-events-none">{image}</span>
       )}

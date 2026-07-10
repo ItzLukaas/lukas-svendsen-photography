@@ -22,8 +22,8 @@ export const inquiryServices: {
   },
   {
     id: "droneproduktion",
-    label: "Droneproduktion",
-    description: "Luftoptagelser og dronevideo",
+    label: "Droneflyvning",
+    description: "Luftfoto og luftvideo",
     icon: Plane,
   },
 ];
@@ -62,7 +62,7 @@ export const inquiryCategories: Record<ServiceType, string[]> = {
 export const serviceLabels: Record<ServiceType, string> = {
   fotografering: "Fotografering",
   videoproduktion: "Videoproduktion",
-  droneproduktion: "Droneproduktion",
+  droneproduktion: "Droneflyvning",
 };
 
 export const inquiryStepLabels = [

@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-07-08T14:03:45.188Z",
+  "generatedAt": "2026-07-10T21:05:10.771Z",
   "input": {
     "handbold": "image-import\\handbold",
     "andet": "image-import\\andet"
   },
   "outputRoot": "/images/portfolio",
   "options": {
-    "maxInputMB": 120,
+    "maxInputMB": 30,
     "targetMaxBytes": 900000,
     "maxWidth": 1800,
     "maxHeight": 2400,
@@ -14,18 +14,68 @@
     "maxQuality": 92,
     "featuredCount": 6,
     "mixStrategy": "grouped",
-    "skipExisting": true
+    "skipExisting": false
   },
   "photos": [
     {
       "id": "1",
-      "src": "/images/portfolio/handbold/DSC02502.webp",
-      "alt": "Håndbold — DSC02502",
+      "src": "/images/portfolio/handbold/DSC02045.webp",
+      "alt": "Håndbold — DSC02045",
       "width": 1800,
       "height": 1200,
       "featured": true,
       "targetQuality": 92,
-      "outputBytes": 708790
+      "outputBytes": 172346
+    },
+    {
+      "id": "2",
+      "src": "/images/portfolio/handbold/DSC02841.webp",
+      "alt": "Håndbold — DSC02841",
+      "width": 1800,
+      "height": 1200,
+      "featured": true,
+      "targetQuality": 92,
+      "outputBytes": 193770
+    },
+    {
+      "id": "3",
+      "src": "/images/portfolio/andet/DSC02845.webp",
+      "alt": "Andet — DSC02845",
+      "width": 1800,
+      "height": 1200,
+      "featured": true,
+      "targetQuality": 92,
+      "outputBytes": 183340
+    },
+    {
+      "id": "4",
+      "src": "/images/portfolio/andet/DSC04367.webp",
+      "alt": "Andet — DSC04367",
+      "width": 1800,
+      "height": 1200,
+      "featured": true,
+      "targetQuality": 92,
+      "outputBytes": 361202
+    },
+    {
+      "id": "5",
+      "src": "/images/portfolio/andet/DSC04380.webp",
+      "alt": "Andet — DSC04380",
+      "width": 1800,
+      "height": 1200,
+      "featured": true,
+      "targetQuality": 92,
+      "outputBytes": 138836
+    },
+    {
+      "id": "6",
+      "src": "/images/portfolio/andet/DSC05775.webp",
+      "alt": "Andet — DSC05775",
+      "width": 1800,
+      "height": 1200,
+      "featured": true,
+      "targetQuality": 92,
+      "outputBytes": 487574
     }
   ]
 }

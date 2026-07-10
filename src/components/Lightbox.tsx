@@ -55,7 +55,7 @@ export function Lightbox({ photo, photos, onClose, onNavigate }: LightboxProps) 
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5, ease: EASE }}
-          className="fixed inset-0 z-[100] flex flex-col bg-black/96 backdrop-blur-md"
+          className="fixed inset-0 z-[100] flex flex-col overflow-hidden bg-black/96 backdrop-blur-md pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]"
           onClick={onClose}
           role="dialog"
           aria-modal="true"
@@ -63,7 +63,7 @@ export function Lightbox({ photo, photos, onClose, onNavigate }: LightboxProps) 
           style={{ willChange: "opacity" }}
         >
           <div
-            className="flex shrink-0 items-center justify-between px-5 py-4 sm:px-8"
+            className="flex shrink-0 items-center justify-between px-4 py-3 sm:px-8 sm:py-4"
             onClick={(e) => e.stopPropagation()}
           >
             <p className="text-xs tracking-[0.25em] text-white/35 uppercase">
@@ -78,7 +78,7 @@ export function Lightbox({ photo, photos, onClose, onNavigate }: LightboxProps) 
             </button>
           </div>
 
-          <div className="relative flex min-h-0 flex-1 items-center justify-center px-14 sm:px-20">
+          <div className="relative flex min-h-0 flex-1 items-center justify-center overflow-hidden px-4 sm:px-20">
             {currentIndex > 0 && (
               <button
                 onClick={(e) => {
@@ -86,7 +86,7 @@ export function Lightbox({ photo, photos, onClose, onNavigate }: LightboxProps) 
                   goPrev();
                 }}
                 aria-label="Forrige billede"
-                className="absolute left-3 z-10 flex h-12 w-12 items-center justify-center rounded-full border border-white/10 text-white/40 transition-all duration-500 ease-premium hover:border-white/25 hover:text-white sm:left-6"
+                className="absolute left-2 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-black/40 text-white/40 backdrop-blur-sm transition-all duration-500 ease-premium hover:border-white/25 hover:text-white sm:left-6 sm:h-12 sm:w-12"
               >
                 <ChevronLeft size={24} strokeWidth={1.5} />
               </button>
@@ -99,7 +99,7 @@ export function Lightbox({ photo, photos, onClose, onNavigate }: LightboxProps) 
                   goNext();
                 }}
                 aria-label="Næste billede"
-                className="absolute right-3 z-10 flex h-12 w-12 items-center justify-center rounded-full border border-white/10 text-white/40 transition-all duration-500 ease-premium hover:border-white/25 hover:text-white sm:right-6"
+                className="absolute right-2 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-black/40 text-white/40 backdrop-blur-sm transition-all duration-500 ease-premium hover:border-white/25 hover:text-white sm:right-6 sm:h-12 sm:w-12"
               >
                 <ChevronRight size={24} strokeWidth={1.5} />
               </button>
@@ -111,7 +111,7 @@ export function Lightbox({ photo, photos, onClose, onNavigate }: LightboxProps) 
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 12 }}
               transition={{ duration: 0.6, ease: EASE }}
-              className="max-h-full max-w-full"
+              className="flex max-h-full w-full max-w-full items-center justify-center"
               onClick={(e) => e.stopPropagation()}
               style={{ willChange: "transform, opacity" }}
             >
@@ -120,8 +120,8 @@ export function Lightbox({ photo, photos, onClose, onNavigate }: LightboxProps) 
                 alt={photo.alt}
                 width={photo.width}
                 height={photo.height}
-                className="max-h-[calc(100vh-11rem)] w-auto max-w-[min(90vw,1200px)] object-contain"
-                sizes="90vw"
+                className="mx-auto block max-h-[min(calc(100dvh-12rem),calc(100vh-12rem))] w-auto max-w-full object-contain"
+                sizes="100vw"
                 quality={IMAGE_QUALITY.hero}
                 priority
                 blur={false}
@@ -130,7 +130,7 @@ export function Lightbox({ photo, photos, onClose, onNavigate }: LightboxProps) 
           </div>
 
           <div
-            className="shrink-0 border-t border-white/[0.08] px-5 py-5 sm:px-8"
+            className="shrink-0 border-t border-white/[0.08] px-4 py-4 sm:px-8 sm:py-5"
             onClick={(e) => e.stopPropagation()}
           >
             <p className="mx-auto max-w-2xl text-center text-sm leading-relaxed text-white/55">

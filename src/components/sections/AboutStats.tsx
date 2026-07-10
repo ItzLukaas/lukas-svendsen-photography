@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from "react";
 const stats = [
   { value: 100, suffix: "+", label: "Portrætbilleder", duration: 1800 },
   { value: 999, suffix: "+", label: "Håndboldbilleder", duration: 2600 },
-  { value: 5, suffix: "/5", label: "Anmeldelser", duration: 1400 },
 ] as const;
 
 function useInViewOnce<T extends Element>(ref: React.RefObject<T | null>) {

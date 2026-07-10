@@ -35,34 +35,6 @@ export function Footer() {
               <br />
               fotograf og videoproducent.
             </p>
-          </div>
-
-          <div className="min-w-0 sm:pr-4 lg:pr-6">
-            <p className="text-xs tracking-[0.25em] text-white/50 uppercase">Kontakt</p>
-            <ul className="mt-5 space-y-3 text-sm text-white/55">
-              <li>{siteConfig.name}</li>
-              <li>
-                <ObfuscatedEmail
-                  label="Send en mail"
-                  className="inline-flex min-h-11 items-center gap-2 transition-colors duration-500 ease-premium hover:text-white"
-                  showIcon
-                  icon={<Mail size={14} strokeWidth={1.5} className="shrink-0 text-white/35" />}
-                />
-              </li>
-              <li>
-                <a
-                  href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
-                  className="inline-flex min-h-11 items-center gap-2 transition-colors duration-500 ease-premium hover:text-white"
-                >
-                  <Phone size={14} strokeWidth={1.5} className="shrink-0 text-white/35" />
-                  {siteConfig.phone}
-                </a>
-              </li>
-              <li className="inline-flex items-start gap-2">
-                <MapPin size={14} strokeWidth={1.5} className="mt-0.5 shrink-0 text-white/35" />
-                {siteConfig.location}
-              </li>
-            </ul>
             <p className="mt-8 text-xs tracking-[0.25em] text-white/50 uppercase">Sociale medier</p>
             <div className="mt-5 flex items-center gap-4">
               <a
@@ -91,6 +63,34 @@ export function Footer() {
                 <Mail size={18} strokeWidth={1.5} />
               </a>
             </div>
+          </div>
+
+          <div className="min-w-0 sm:pr-4 lg:pr-6">
+            <p className="text-xs tracking-[0.25em] text-white/50 uppercase">Kontakt</p>
+            <ul className="mt-5 space-y-3 text-sm text-white/55">
+              <li>{siteConfig.name}</li>
+              <li>
+                <ObfuscatedEmail
+                  label="Send en mail"
+                  className="inline-flex min-h-11 items-center gap-2 transition-colors duration-500 ease-premium hover:text-white"
+                  showIcon
+                  icon={<Mail size={14} strokeWidth={1.5} className="shrink-0 text-white/35" />}
+                />
+              </li>
+              <li>
+                <a
+                  href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
+                  className="inline-flex min-h-11 items-center gap-2 transition-colors duration-500 ease-premium hover:text-white"
+                >
+                  <Phone size={14} strokeWidth={1.5} className="shrink-0 text-white/35" />
+                  {siteConfig.phone}
+                </a>
+              </li>
+              <li className="inline-flex items-start gap-2">
+                <MapPin size={14} strokeWidth={1.5} className="mt-0.5 shrink-0 text-white/35" />
+                {siteConfig.location}
+              </li>
+            </ul>
           </div>
 
           <div className="min-w-0 sm:pr-4 lg:pr-6">

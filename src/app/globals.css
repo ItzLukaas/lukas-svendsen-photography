@@ -22,6 +22,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -330,8 +331,10 @@ body {
   transition: transform 1.1s var(--ease-premium);
 }
 
-.editorial-item:hover img {
-  transform: scale3d(1.04, 1.04, 1);
+@media (hover: hover) {
+  .editorial-item:hover img {
+    transform: scale3d(1.04, 1.04, 1);
+  }
 }
 
 .editorial-overlay {

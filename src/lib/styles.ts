@@ -1,17 +1,17 @@
 export const btnPrimary =
-  "group inline-flex items-center justify-center gap-2.5 border border-white px-10 py-4 text-xs tracking-[0.2em] text-white uppercase transition-all duration-500 ease-premium hover:bg-white hover:text-black active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50";
+  "group inline-flex min-h-12 items-center justify-center gap-2.5 border border-white px-10 py-4 text-xs tracking-[0.2em] text-white uppercase transition-all duration-500 ease-premium hover:bg-white hover:text-black active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50";
 
 export const btnGhost =
-  "group inline-flex items-center justify-center gap-2.5 px-8 py-3.5 text-xs tracking-[0.2em] text-white/70 uppercase transition-all duration-500 ease-premium hover:text-white";
+  "group inline-flex min-h-11 items-center justify-center gap-2.5 px-8 py-3.5 text-xs tracking-[0.2em] text-white/70 uppercase transition-all duration-500 ease-premium hover:text-white";
 
 export const linkSubtle =
-  "group inline-flex items-center gap-2.5 text-xs tracking-[0.2em] text-white/50 uppercase transition-colors duration-500 ease-premium hover:text-white";
+  "group inline-flex min-h-11 items-center gap-2.5 text-xs tracking-[0.2em] text-white/50 uppercase transition-colors duration-500 ease-premium hover:text-white";
 
 export const sectionShell =
-  "bg-[#0a0a0a] px-6 py-32 lg:px-8 lg:py-40";
+  "bg-[#0a0a0a] px-6 py-24 sm:py-28 lg:px-8 lg:py-40";
 
 export const sectionShellTight =
-  "bg-[#0a0a0a] px-6 py-24 lg:px-8 lg:py-32";
+  "bg-[#0a0a0a] px-6 py-20 sm:py-24 lg:px-8 lg:py-32";
 
 export const sectionDivider = "border-t border-white/[0.06]";
 

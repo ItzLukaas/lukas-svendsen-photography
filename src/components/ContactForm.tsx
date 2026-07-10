@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState, type FormEvent, type ReactNode } from "react";
-import { m, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Check, Loader2, Send } from "lucide-react";
 import { ScrollReveal } from "./ScrollReveal";
 import { btnPrimary } from "@/lib/styles";
@@ -44,6 +44,7 @@ const textareaClass =
   "w-full resize-none border-0 bg-transparent px-0 py-3.5 text-white placeholder-white/20 transition-colors duration-500 ease-premium focus:outline-none";
 
 export function ContactForm() {
+  const prefersReducedMotion = useReducedMotion();
   const formStartedAt = useMemo(() => Date.now(), []);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -95,14 +96,14 @@ export function ContactForm() {
       {submitted ? (
         <m.div
           key="success"
-          initial={{ opacity: 1, y: 20 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: EASE }}
           className="flex flex-col items-center justify-center py-20 text-center"
           style={{ willChange: "transform" }}
         >
           <m.div
-            initial={{ scale: 0.8, opacity: 1 }}
+            initial={prefersReducedMotion ? false : { scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.1, duration: 0.5, ease: EASE }}
             className="mb-7 flex h-16 w-16 items-center justify-center rounded-full border border-white/20 bg-white/5"

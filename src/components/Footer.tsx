@@ -44,7 +44,7 @@ export function Footer() {
               <li>
                 <ObfuscatedEmail
                   label="Send en mail"
-                  className="inline-flex items-center gap-2 transition-colors duration-500 ease-premium hover:text-white"
+                  className="inline-flex min-h-11 items-center gap-2 transition-colors duration-500 ease-premium hover:text-white"
                   showIcon
                   icon={<Mail size={14} strokeWidth={1.5} className="shrink-0 text-white/35" />}
                 />
@@ -52,7 +52,7 @@ export function Footer() {
               <li>
                 <a
                   href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
-                  className="inline-flex items-center gap-2 transition-colors duration-500 ease-premium hover:text-white"
+                  className="inline-flex min-h-11 items-center gap-2 transition-colors duration-500 ease-premium hover:text-white"
                 >
                   <Phone size={14} strokeWidth={1.5} className="shrink-0 text-white/35" />
                   {siteConfig.phone}
@@ -72,7 +72,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/55 transition-colors duration-500 ease-premium hover:text-white"
+                    className="inline-flex min-h-11 items-center text-sm text-white/55 transition-colors duration-500 ease-premium hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -88,7 +88,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/55 transition-colors duration-500 ease-premium hover:text-white"
+                    className="inline-flex min-h-11 items-center text-sm text-white/55 transition-colors duration-500 ease-premium hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -104,7 +104,7 @@ export function Footer() {
                 <li key={link.key}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/55 transition-colors duration-500 ease-premium hover:text-white"
+                    className="inline-flex min-h-11 items-center text-sm text-white/55 transition-colors duration-500 ease-premium hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -118,14 +118,14 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="text-white/40 transition-all duration-500 ease-premium hover:scale-110 hover:text-white"
+                className="flex h-11 w-11 items-center justify-center text-white/40 transition-all duration-500 ease-premium hover:scale-110 hover:text-white"
               >
                 <InstagramIcon size={18} />
               </a>
               <a
                 href={`mailto:${siteConfig.email}`}
                 aria-label="E-mail"
-                className="text-white/40 transition-all duration-500 ease-premium hover:scale-110 hover:text-white"
+                className="flex h-11 w-11 items-center justify-center text-white/40 transition-all duration-500 ease-premium hover:scale-110 hover:text-white"
               >
                 <Mail size={18} strokeWidth={1.5} />
               </a>
@@ -134,7 +134,7 @@ export function Footer() {
         </div>
 
         <div className="mt-16 border-t border-white/5 pt-12 text-center">
-          <p className="font-display text-lg font-light whitespace-nowrap text-white sm:text-2xl md:text-3xl">
+          <p className="font-display text-lg font-light text-white sm:text-2xl md:text-3xl">
             Fortæl mig om dit projekt
           </p>
           <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-white/50">
@@ -156,7 +156,7 @@ export function Footer() {
           </p>
           <Link
             href="/privatlivspolitik"
-            className="text-xs text-white/40 transition-colors duration-500 ease-premium hover:text-white/70"
+            className="inline-flex min-h-11 items-center text-xs text-white/40 transition-colors duration-500 ease-premium hover:text-white/70"
           >
             Privatlivspolitik
           </Link>

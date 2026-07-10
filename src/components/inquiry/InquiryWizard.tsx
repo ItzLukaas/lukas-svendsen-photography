@@ -295,6 +295,7 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
                         update("category", "");
                         update("categoryOther", "");
                       }}
+                      aria-pressed={selected}
                       className={`group flex flex-col items-start border p-6 text-left transition-all duration-500 ease-premium hover:-translate-y-0.5 ${
                         selected
                           ? "border-white/35 bg-white/[0.06] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]"
@@ -340,7 +341,8 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
                     key={cat}
                     type="button"
                     onClick={() => update("category", cat)}
-                    className={`rounded-full border px-5 py-2.5 text-xs tracking-[0.15em] uppercase transition-all duration-500 ease-premium hover:-translate-y-px ${
+                    aria-pressed={form.category === cat}
+                    className={`min-h-11 rounded-full border px-5 py-2.5 text-xs tracking-[0.15em] uppercase transition-all duration-500 ease-premium hover:-translate-y-px ${
                       form.category === cat
                         ? "border-white/40 bg-white/10 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]"
                         : "border-white/10 bg-white/[0.02] text-white/50 hover:border-white/25 hover:text-white/80"
@@ -380,7 +382,7 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
                 Vælg ønskede datoer og tidspunkter — eller marker fleksibel.
               </p>
 
-              <label className="mt-8 flex cursor-pointer items-center gap-3">
+              <label className="mt-8 flex min-h-11 cursor-pointer items-center gap-3">
                 <input
                   type="checkbox"
                   checked={form.flexibleSchedule}
@@ -448,7 +450,7 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
                               form.schedule.filter((_, i) => i !== index),
                             )
                           }
-                          className="self-end pb-3 text-white/30 transition-colors hover:text-white/60"
+                          className="flex h-11 w-11 self-end items-center justify-center text-white/30 transition-colors hover:text-white/60"
                           aria-label="Fjern dato"
                         >
                           <Trash2 size={16} strokeWidth={1.5} />
@@ -464,7 +466,7 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
                         { date: "", startTime: "17:00", endTime: "23:00" },
                       ])
                     }
-                    className="inline-flex items-center gap-2 text-xs tracking-[0.2em] text-white/50 uppercase transition-colors hover:text-white"
+                    className="inline-flex min-h-11 items-center gap-2 text-xs tracking-[0.2em] text-white/50 uppercase transition-colors hover:text-white"
                   >
                     <Plus size={14} strokeWidth={1.5} />
                     Tilføj dato
@@ -634,7 +636,7 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
           <button
             type="button"
             onClick={goBack}
-            className="inline-flex items-center gap-2 text-xs tracking-[0.2em] text-white/45 uppercase transition-colors hover:text-white"
+            className="inline-flex min-h-11 items-center gap-2 text-xs tracking-[0.2em] text-white/45 uppercase transition-colors hover:text-white"
           >
             <ArrowLeft size={14} strokeWidth={1.5} />
             Tilbage

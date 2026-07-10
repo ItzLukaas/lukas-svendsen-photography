@@ -34,7 +34,7 @@ export function ScrollReveal({
 
   const variants: Variants = {
     hidden: {
-      opacity: 1,
+      opacity: 0,
       x: offset.x,
       y: offset.y,
     },
@@ -43,7 +43,7 @@ export function ScrollReveal({
       x: 0,
       y: 0,
       transition: {
-        duration: 0.8,
+        duration: 0.65,
         delay,
         ease: EASE,
       },
@@ -57,7 +57,6 @@ export function ScrollReveal({
       whileInView="visible"
       viewport={{ once: true, margin: "-40px" }}
       variants={variants}
-      style={{ willChange: "transform" }}
     >
       {children}
     </m.div>

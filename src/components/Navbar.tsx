@@ -16,7 +16,7 @@ const navLinks = [
 ];
 
 const navCtaClass =
-  "inline-flex items-center justify-center border border-white/25 px-6 py-2.5 text-[10px] tracking-[0.28em] text-white uppercase transition-all duration-500 ease-premium hover:border-white hover:bg-white hover:text-[#0a0a0a]";
+  "inline-flex min-h-11 items-center justify-center border border-white/25 px-6 py-2.5 text-[10px] tracking-[0.28em] text-white uppercase transition-all duration-500 ease-premium hover:border-white hover:bg-white hover:text-[#0a0a0a]";
 
 function MenuToggle({
   open,
@@ -129,7 +129,7 @@ export function Navbar() {
         >
           <Link
             href="/"
-            className="font-display text-[15px] tracking-[0.18em] text-white uppercase transition-opacity duration-500 ease-premium hover:opacity-65 lg:text-base lg:tracking-[0.22em]"
+            className="inline-flex min-h-11 items-center font-display text-[15px] tracking-[0.18em] text-white uppercase transition-opacity duration-500 ease-premium hover:opacity-65 lg:text-base lg:tracking-[0.22em]"
           >
             {siteConfig.name}
           </Link>
@@ -184,7 +184,7 @@ export function Navbar() {
                 return (
                   <m.div
                     key={link.href}
-                    initial={prefersReducedMotion ? false : { opacity: 1, y: 20 }}
+                    initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{
                       delay: prefersReducedMotion ? 0 : 0.06 + i * 0.05,
@@ -195,7 +195,7 @@ export function Navbar() {
                   >
                     <Link
                       href={link.href}
-                      className={`block font-display text-3xl font-light tracking-[0.12em] uppercase transition-colors duration-500 ease-premium ${
+                      className={`flex min-h-11 items-center font-display text-3xl font-light tracking-[0.12em] uppercase transition-colors duration-500 ease-premium ${
                         isActive ? "text-white" : "text-white/35 hover:text-white/75"
                       }`}
                       aria-current={isActive ? "page" : undefined}
@@ -207,7 +207,7 @@ export function Navbar() {
               })}
 
               <m.div
-                initial={prefersReducedMotion ? false : { opacity: 1, y: 20 }}
+                initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                   delay: prefersReducedMotion ? 0 : 0.3,

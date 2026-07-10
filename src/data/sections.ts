@@ -117,14 +117,14 @@ export const processSteps = [
   {
     step: "04",
     title: "Levering",
-    description: "Du får færdigt materiale klar til brug.",
+    description: "Så får du det færdige resultat.",
   },
 ];
 
 export const testimonials = [
   {
     quote:
-      "Lukas fangede præcis den følelse, vi havde håbet på. Billederne føles naturlige og ægte.",
+      "Lukas fangede præcis den stemning, vi havde håbet på. Billederne føles naturlige og ægte.",
     author: "Eksempel — Kunde",
   },
   {

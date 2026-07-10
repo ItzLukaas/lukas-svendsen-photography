@@ -90,9 +90,9 @@ export default function RootLayout({
     >
       <head>
         <Cookiebot />
+        <GoogleAnalytics />
       </head>
       <body className="bg-[#0a0a0a] text-white antialiased">
-        <GoogleAnalytics />
         <JsonLd data={rootGraphJsonLd()} />
         <MotionProvider>
           <a href="#main-content" className="skip-link">

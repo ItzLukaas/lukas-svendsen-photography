@@ -4,7 +4,9 @@ declare global {
   }
 }
 
-export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+/** GA4 measurement ID — env var overrides for staging/preview if needed. */
+export const GA_MEASUREMENT_ID =
+  process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "G-X4FWNJX12B";
 
 export function trackEvent(
   name: string,

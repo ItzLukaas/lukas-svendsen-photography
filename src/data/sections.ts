@@ -16,7 +16,7 @@ export const coreServices = [
   {
     title: "Droneflyvning",
     description:
-      "Jeg tilbyder droneflyvning med luftfoto og video — til ejendomme, events, sport og det, der ser bedst ud fra oven.",
+      "Jeg tilbyder droneflyvning med luftfoto og luftvideo — til ejendomme, events, sport og det, der ser bedst ud fra oven.",
     icon: "drone" as const,
     href: "/ydelser/drone",
   },
@@ -48,7 +48,7 @@ export const approachPoints = [
 export const photographyTypes = [
   {
     title: "Virksomheder",
-    description: "Foto, video og drone til erhverv — profilbilleder, kampagner og SoMe.",
+    description: "Fotografering, videoproduktion og droneflyvning til erhverv — profilbilleder, kampagner og SoMe.",
     examples: [
       "Profilbilleder og teamfotos",
       "Kampagner og reklame",
@@ -58,7 +58,7 @@ export const photographyTypes = [
   },
   {
     title: "Koncerter & events",
-    description: "Koncerter, fester og events — billeder og video fra dagen.",
+    description: "Koncerter, fester og events — fotografering og videoproduktion fra dagen.",
     examples: [
       "Koncerter og festivaler",
       "Firmafester og receptioner",
@@ -88,7 +88,7 @@ export const photographyTypes = [
   },
   {
     title: "Organisationer",
-    description: "Foreninger, klubber og institutioner — foto og video til jeres behov.",
+    description: "Foreninger, klubber og institutioner — fotografering og videoproduktion til jeres behov.",
     examples: [
       "Klubber og sportshaller",
       "Foreninger og NGO'er",

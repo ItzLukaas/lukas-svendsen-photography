@@ -27,8 +27,6 @@ function LogoItem({
     />
   );
 
-  const isExternal = client.href?.startsWith("http");
-
   return (
     <li
       className={`logo-marquee-item${interactive ? "" : " logo-marquee-item-duplicate"}`}

@@ -39,7 +39,7 @@ export function ServicesSection() {
         <div className="mb-16 md:mb-24 lg:flex lg:items-end lg:justify-between lg:gap-16">
           <div className="max-w-2xl">
             <p className={sectionLabel}>Produktioner</p>
-            <h2 className={sectionTitle}>Foto, video og drone</h2>
+            <h2 className={sectionTitle}>Fotografering, videoproduktion og droneflyvning</h2>
           </div>
           <p className={`mt-7 max-w-md lg:mt-0 lg:text-right ${sectionBody}`}>
             Jeg tilbyder fotografering, videoproduktion og droneflyvning — til private, sport,

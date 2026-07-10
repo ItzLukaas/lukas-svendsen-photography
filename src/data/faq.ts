@@ -6,9 +6,9 @@ export const contactFaqs = [
       "Jeg er baseret i Grindsted og dækker Midt- og Syddanmark — blandt andet Vejle, Kolding, Fredericia, Billund, Esbjerg, Horsens, Aarhus, Odense, Herning og Silkeborg. Kontakt mig gerne, hvis dit projekt ligger i eller omkring disse områder.",
   },
   {
-    question: "Tilbyder du både foto, video og drone?",
+    question: "Tilbyder du både fotografering, videoproduktion og droneflyvning?",
     answer:
-      "Ja. Jeg tilbyder fotografering, videoproduktion og droneflyvning (foto og video fra luften) til private, sport, events, koncerter og erhverv — ofte samlet fra én kontakt.",
+      "Ja. Jeg tilbyder fotografering, videoproduktion og droneflyvning (luftfoto og luftvideo) til private, sport, events, koncerter og erhverv — ofte samlet fra én kontakt.",
   },
   {
     question: "Hvordan får jeg et tilbud?",

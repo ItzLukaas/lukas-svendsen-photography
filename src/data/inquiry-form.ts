@@ -17,7 +17,7 @@ export const inquiryServices: {
   {
     id: "videoproduktion",
     label: "Videoproduktion",
-    description: "Film, content og professionel video",
+    description: "Film, content og professionel videoproduktion",
     icon: Video,
   },
   {

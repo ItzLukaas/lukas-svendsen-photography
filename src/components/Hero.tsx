@@ -21,7 +21,7 @@ export function Hero() {
           </h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-white/65 sm:text-lg sm:leading-relaxed">
             Jeg hedder Lukas Svendsen og arbejder som fotograf, videograf og dronepilot i Grindsted
-            og Billund — med foto, video og drone til sport, events og erhverv.
+            og Billund — med fotografering, videoproduktion og droneflyvning til sport, events og erhverv.
           </p>
 
           <div className="mt-11 flex flex-col gap-4 sm:flex-row sm:items-center">

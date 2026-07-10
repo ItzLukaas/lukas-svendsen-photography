@@ -78,18 +78,18 @@ export default function OmMigPage() {
             <ScrollReveal delay={0.15}>
               <div className="mt-8 space-y-6">
                 <p className={`${sectionBody} text-white/60`}>
-                  Jeg er 16 år og brænder for at tage billeder og lave video. Jeg elsker at fange de
+                  Jeg er 16 år og brænder for fotografering og videoproduktion. Jeg elsker at fange de
                   små detaljer og de ægte øjeblikke, der gør hvert billede unikt — og mit mål er at
                   lave materiale, du har lyst til at gemme og se igen om mange år.
                 </p>
                 <p className={`${sectionBody} text-white/60`}>
                   Jeg tilbyder fotografering, videoproduktion og droneflyvning — til private fester,
-                  sport, events, koncerter og virksomheder. Uanset om det er billeder, video eller
-                  luftoptagelser, går jeg altid efter det samme: god kvalitet og billeder, der føles
+                  sport, events, koncerter og virksomheder. Uanset om det er fotografering, videoproduktion eller
+                  droneflyvning, går jeg altid efter det samme: god kvalitet og billeder, der føles
                   rigtige.
                 </p>
                 <p className={`${sectionBody} text-white/60`}>
-                  Med drone kan jeg levere både foto og video fra luften — godt til events, sport,
+                  Med droneflyvning kan jeg levere både luftfoto og luftvideo — godt til events, sport,
                   erhverv og locations, hvor perspektivet gør en forskel. Det hele kan samles i én
                   produktion, så du får et ensartet resultat.
                 </p>

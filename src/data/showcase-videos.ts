@@ -15,5 +15,5 @@ export function muxPosterUrl(playbackId: string, time = 1) {
 export const videoproduktionShowcase: ShowcaseVideo = {
   playbackId: "P02DhMvXfXYetWG4nG02DVfj2DgmKPzUYOthHAS83OxCc",
   title: "Aftermovie",
-  description: "Et udpluk fra foto-, video- og droneproduktion.",
+  description: "Et udpluk fra fotografering, videoproduktion og droneflyvning.",
 };

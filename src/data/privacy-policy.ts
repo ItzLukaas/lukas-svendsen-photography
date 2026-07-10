@@ -1,7 +1,7 @@
 export const privacyPolicyMeta = {
   title: "Privatlivspolitik",
   description:
-    "Læs hvordan Lukas Svendsen behandler personoplysninger ved forespørgsler, booking og levering af foto-, video- og droneydelser.",
+    "Læs hvordan Lukas Svendsen behandler personoplysninger ved forespørgsler, booking og levering af fotografering, videoproduktion og droneflyvning.",
   lastUpdated: "10/07/2026",
 };
 
@@ -29,7 +29,7 @@ export const privacyPolicySections: PrivacySection[] = [
     blocks: [
       {
         type: "paragraph",
-        text: "Denne privatlivspolitik beskriver, hvordan jeg behandler dine personoplysninger, når du kontakter mig, sender en forespørgsel eller bestiller foto-, video- eller droneydelser.",
+        text: "Denne privatlivspolitik beskriver, hvordan jeg behandler dine personoplysninger, når du kontakter mig, sender en forespørgsel eller bestiller fotografering, videoproduktion eller droneflyvning.",
       },
       { type: "contact" },
       {
@@ -55,7 +55,7 @@ export const privacyPolicySections: PrivacySection[] = [
           "Telefonnummer",
           "Lokation/adresse for opgaven",
           "Oplysninger om projektet og dine ønsker",
-          "Valg af ydelse (foto, video eller drone)",
+          "Valg af ydelse (fotografering, videoproduktion eller droneflyvning)",
           "Ønsket tidspunkt for opgaven",
           "Andre oplysninger, du selv vælger at give",
         ],
@@ -78,7 +78,7 @@ export const privacyPolicySections: PrivacySection[] = [
         type: "list",
         items: [
           "besvare forespørgsler",
-          "planlægge og gennemføre foto-, video- og droneopgaver",
+          "planlægge og gennemføre opgaver med fotografering, videoproduktion og droneflyvning",
           "udarbejde tilbud og aftaler",
           "kommunikere med dig før, under og efter en opgave",
           "sende bekræftelser og relevant information",

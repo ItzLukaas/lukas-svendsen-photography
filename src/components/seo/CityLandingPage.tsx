@@ -280,7 +280,7 @@ export function CityLandingPage({ city }: CityLandingPageProps) {
             </h2>
             <p className={`mx-auto mt-7 max-w-xl ${sectionBody}`}>
               Jeg arbejder med private, virksomheder, sport og events — og gør det nemt at få
-              professionelt foto, video og drone fra én kontakt.
+              professionel fotografering, videoproduktion og droneflyvning fra én kontakt.
             </p>
           </CityReveal>
 

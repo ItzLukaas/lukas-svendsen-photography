@@ -108,7 +108,7 @@ export function getCityWhyChoose(
   return [
     {
       title: "Alt under ét tag",
-      description: `Foto, video og drone fra én kontakt — til private fester, sport, events, koncerter og virksomheder ${inCity}.`,
+      description: `Fotografering, videoproduktion og droneflyvning fra én kontakt — til private fester, sport, events, koncerter og virksomheder ${inCity}.`,
       icon: "layers",
     },
     {

@@ -60,9 +60,9 @@ export const seoServices: SeoService[] = [
           "Portrætter, events, koncerter, sport, virksomheder, kreative projekter og andre opgaver, hvor det handler om at fange det rigtige øjeblik.",
       },
       {
-        question: "Kan fotografering kombineres med video eller drone?",
+        question: "Kan fotografering kombineres med videoproduktion eller droneflyvning?",
         answer:
-          "Ja. Mange projekter dækkes bedst med foto, video og drone fra samme produktion — det kan vi planlægge sammen.",
+          "Ja. Mange projekter dækkes bedst med fotografering, videoproduktion og droneflyvning fra samme produktion — det kan vi planlægge sammen.",
       },
     ],
     lastModified: "2026-07-09",
@@ -169,7 +169,7 @@ export const seoServices: SeoService[] = [
         heading: "Planlægning til levering",
         paragraphs: [
           "En god droneproduktion starter med at forstå formålet med optagelserne. Derfor arbejder jeg altid ud fra kundens behov og ønsker, så resultatet ikke kun bliver flotte billeder fra luften, men materiale der faktisk kan bruges og skabe værdi.",
-          "Med erfaring inden for både fotografering, videoproduktion og droneflyvning kan jeg hjælpe med hele processen – fra idé og planlægning til optagelse og det færdige materiale. Kombinationen af jordbaserede billeder, professionel video og luftoptagelser giver mulighed for at skabe en stærkere visuel historie.",
+          "Med erfaring inden for både fotografering, videoproduktion og droneflyvning kan jeg hjælpe med hele processen – fra idé og planlægning til optagelse og det færdige materiale. Kombinationen af jordbaserede billeder, professionel videoproduktion og luftoptagelser giver mulighed for at skabe en stærkere visuel historie.",
           "Mit mål er at levere droneoptagelser, der ikke bare imponerer ved første øjekast, men som hjælper med at formidle en oplevelse, et budskab eller en historie på en professionel og effektiv måde.",
         ],
       },

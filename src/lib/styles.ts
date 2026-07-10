@@ -25,7 +25,7 @@ export const sectionBody =
   "text-base leading-relaxed text-white/55 md:text-[1.05rem] md:leading-[1.75]";
 
 export const heroTitle =
-  "font-display text-[2rem] font-light leading-[1.08] text-white sm:text-5xl sm:leading-[1.06] lg:text-6xl xl:text-[4.25rem]";
+  "font-display text-[1.75rem] font-light leading-[1.1] text-white sm:text-5xl sm:leading-[1.06] lg:text-6xl xl:text-[4.25rem]";
 
 export const glassPanel =
   "border border-white/10 bg-white/[0.03] backdrop-blur-md";

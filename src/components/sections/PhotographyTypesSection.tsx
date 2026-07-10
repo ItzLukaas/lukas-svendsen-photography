@@ -35,8 +35,10 @@ export function PhotographyTypesSection() {
               Hvad jeg tilbyder
             </AnimatedHeading>
             <p className={`mt-7 max-w-lg ${sectionBody}`}>
-              Jeg tilbyder fotografering, videoproduktion og droneflyvning til mange forskellige opgaver. Klik på en
-              kategori for at se eksempler — og skriv endelig, hvis dit ikke står på listen.
+              Jeg hjælper med at skabe stærkt visuelt indhold gennem fotografering, videoproduktion og
+              droneoptagelser til mange forskellige formål. Se eksemplerne i kategorierne herunder, og
+              kontakt mig gerne, hvis din opgave ikke står på listen — jeg tager gerne imod nye idéer og
+              udfordringer.
             </p>
           </ScrollReveal>
 

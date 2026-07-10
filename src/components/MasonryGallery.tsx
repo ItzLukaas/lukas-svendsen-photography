@@ -44,8 +44,9 @@ export function MasonryGallery({ photos, showTitle = false }: MasonryGalleryProp
           <p className={sectionLabel}>Udvalgte øjeblikke</p>
           <h2 className={sectionTitle}>Et kig på mit arbejde</h2>
           <p className="mx-auto mt-6 max-w-lg text-base leading-relaxed text-white/50">
-            Et udvalg af øjeblikke fra min portefølje som fotograf og videoproducent — sport, events
-            og portrætter, der viser stilen og kvaliteten, du kan forvente.
+            Et udvalg af øjeblikke fra min portefølje som fotograf og videoproducent — fra sport og
+            events til portrætter og kreative projekter. Se eksempler på min stil, kvalitet og tilgang
+            til visuel fortælling.
           </p>
         </ScrollReveal>
       )}

@@ -20,8 +20,9 @@ export function Hero() {
             <span className="block">og videoproducent</span>
           </h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-white/65 sm:text-lg sm:leading-relaxed">
-            Jeg hedder Lukas Svendsen og arbejder som fotograf, videograf og dronepilot i Grindsted
-            og Billund — med fotografering, videoproduktion og droneflyvning til sport, events og erhverv.
+            Jeg hedder Lukas Svendsen og arbejder som fotograf, videograf og dronepilot i Grindsted.
+            Jeg hjælper både private og virksomheder med at skabe stærkt visuelt indhold gennem foto,
+            video og droneoptagelser til sport, events og erhverv.
           </p>
 
           <div className="mt-11 flex flex-col gap-4 sm:flex-row sm:items-center">

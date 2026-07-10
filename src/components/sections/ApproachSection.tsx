@@ -35,7 +35,9 @@ export function ApproachSection() {
           </ScrollReveal>
           <ScrollReveal delay={0.15}>
             <p className={`mt-8 max-w-lg ${sectionBody}`}>
-              Du fortæller hvad du skal bruge. Jeg optager og sørger for resten.
+              Du fortæller blot, hvad du har brug for. Jeg hjælper med at omsætte dine idéer til det
+              færdige resultat, står for processen og sørger for, at alt bliver håndteret fra start til
+              slut.
             </p>
           </ScrollReveal>
         </div>

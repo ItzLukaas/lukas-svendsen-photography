@@ -44,7 +44,9 @@ export function FeaturedGallery({ photos }: FeaturedGalleryProps) {
         <p className={sectionLabel}>Udvalgte øjeblikke</p>
         <h2 className={sectionTitle}>Et kig på mit arbejde</h2>
         <p className="mx-auto mt-6 max-w-lg text-base leading-relaxed text-white/55">
-          Kurateret udvalg fra sport, events og virksomheder — et smugkig på stil og kvalitet.
+          Et udvalg af øjeblikke fra min portefølje som fotograf og videoproducent — fra sport og
+          events til portrætter og kreative projekter. Se eksempler på min stil, kvalitet og tilgang til
+          visuel fortælling.
         </p>
       </ScrollReveal>
 

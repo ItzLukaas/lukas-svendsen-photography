@@ -3,7 +3,7 @@ export const contactFaqs = [
   {
     question: "Hvilke områder dækker du som fotograf?",
     answer:
-      "Jeg er baseret i Grindsted og dækker Midt- og Syddanmark — blandt andet Vejle, Kolding, Fredericia, Billund, Esbjerg, Horsens, Aarhus, Odense, Herning og Silkeborg. Kontakt mig gerne, hvis dit projekt ligger i eller omkring disse områder.",
+      "Jeg er baseret i Grindsted og tager opgaver i hele Danmark — blandt andet Vejle, Kolding, Fredericia, Billund, Esbjerg, Horsens, Aarhus, Odense, Herning og Silkeborg. Kontakt mig gerne, uanset hvor dit projekt ligger.",
   },
   {
     question: "Tilbyder du både fotografering, videoproduktion og droneflyvning?",

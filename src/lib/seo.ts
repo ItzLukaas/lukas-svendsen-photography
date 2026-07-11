@@ -86,7 +86,7 @@ export function homeMetadata(): Metadata {
   const images = buildOgImages();
   const homeTitle = "Fotograf i Grindsted | Foto, video og droneflyvning";
   const homeDescription =
-    "Fotograf i Grindsted og Billund. Fotografering, videoproduktion og droneflyvning for private og virksomheder i Midt- og Syddanmark.";
+    "Fotograf i Grindsted og Billund. Fotografering, videoproduktion og droneflyvning for private og virksomheder i hele Danmark.";
 
   return {
     title: {
@@ -94,6 +94,7 @@ export function homeMetadata(): Metadata {
     },
     description: homeDescription,
     keywords: [
+      "fotograf Danmark",
       "fotograf Grindsted",
       "fotograf Billund",
       "fotograf Vejle",

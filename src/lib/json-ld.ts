@@ -106,10 +106,13 @@ export function standaloneLocalBusinessJsonLd() {
 
 /** Primary LocalBusiness entity — used site-wide in layout */
 export function primaryLocalBusinessJsonLd(options: LocalBusinessOptions = {}) {
-  const areaServed = siteConfig.areaServed.map((city) => ({
-    "@type": "City" as const,
-    name: city,
-  }));
+  const areaServed = [
+    { "@type": "Country" as const, name: "Danmark" },
+    ...siteConfig.areaServed.map((city) => ({
+      "@type": "City" as const,
+      name: city,
+    })),
+  ];
 
   return {
     "@type": ["LocalBusiness", "ProfessionalService"],
@@ -189,7 +192,7 @@ export function contactPageJsonLd() {
     url: `${siteConfig.url}/kontakt`,
     name: `Kontakt | ${siteConfig.name}`,
     description:
-      "Kontakt Lukas Svendsen for fotografering, videoproduktion og droneflyvning i Midt- og Syddanmark.",
+      "Kontakt Lukas Svendsen for fotografering, videoproduktion og droneflyvning i hele Danmark.",
     inLanguage: "da-DK",
     isPartOf: { "@id": `${siteConfig.url}/#website` },
     about: { "@id": LOCAL_BUSINESS_ID },
@@ -376,7 +379,7 @@ export function portfolioGalleryJsonLd(
     "@type": "ImageGallery",
     name: "Portefølje — Lukas Svendsen",
     description:
-      "Sportsfotografi, eventfoto og fotografering fra fotograf Lukas Svendsen i Midt- og Syddanmark.",
+      "Sportsfotografi, eventfoto og fotografering fra fotograf Lukas Svendsen i hele Danmark.",
     url: absoluteAssetUrl("/portfolio"),
     author: { "@id": `${siteConfig.url}/#person` },
     image: images.map((image) => ({

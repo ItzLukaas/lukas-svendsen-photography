@@ -19,7 +19,7 @@ export function ClientsSection() {
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-xs leading-relaxed text-white/50 sm:text-sm">
           Jeg samarbejder med foreninger, kommuner, virksomheder og kulturaktører i hele Danmark.
-          Fra lokale projekter i Grindsted og Billund til større opgaver i Midt- og Syddanmark — med
+          Fra lokale projekter i Grindsted og Billund til større opgaver i hele Danmark — med
           fokus på kvalitet, tydelig dialog og visuelt stærke resultater.
         </p>
         <Link

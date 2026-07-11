@@ -353,7 +353,7 @@ const cityDefinitions = [
     region: "Jylland",
     preposition: "i",
     intro:
-      "Fotograf i Jylland — baseret i Grindsted dækker jeg Midt- og Syddanmark med fotografering, videoproduktion og droneflyvning til private, sport, events og erhverv.",
+      "Fotograf i Jylland — baseret i Grindsted tager jeg opgaver i hele Danmark med fotografering, videoproduktion og droneflyvning til private, sport, events og erhverv.",
     servicesIntro:
       "Fra Vestkysten til Østjylland — konfirmationer, bryllup, sportsdækning, koncertfoto, virksomhedsindhold og droneflyvning i hele Jylland.",
   }),

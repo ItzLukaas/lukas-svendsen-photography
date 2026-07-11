@@ -55,8 +55,8 @@ export function ServicesSection({ compact = false }: { compact?: boolean }) {
           </div>
           <p className={`${compact ? "mt-5" : "mt-7"} max-w-lg lg:mt-0 lg:text-right ${bodyClass}`}>
             Som fotograf og videoproducent i Grindsted tilbyder jeg fotografering, videoproduktion og
-            droneflyvning til private, sport, koncerter, events og erhverv. Jeg arbejder i Grindsted,
-            Billund og resten af Midt- og Syddanmark.
+            droneflyvning til private, sport, koncerter, events og erhverv. Jeg er baseret i Grindsted
+            og Billund og tager opgaver i hele Danmark.
           </p>
         </div>
 

@@ -9,13 +9,14 @@ import { btnPrimary, sectionBody, sectionLabel, sectionTitle } from "@/lib/style
 import { pageMetadata } from "@/lib/seo";
 
 const pageDescription =
-  "Oversigt over områder, hvor Lukas Svendsen tilbyder fotografering, videoproduktion og droneflyvning — baseret i Grindsted og Billund, dækker Midt- og Syddanmark.";
+  "Oversigt over områder, hvor Lukas Svendsen tilbyder fotografering, videoproduktion og droneflyvning — baseret i Grindsted og Billund, med opgaver i hele Danmark.";
 
 export const metadata: Metadata = pageMetadata({
   title: "Områder",
   description: pageDescription,
   path: "/omraader",
   keywords: [
+    "fotograf Danmark",
     "fotograf Grindsted",
     "fotograf Billund",
     "fotograf Midtjylland",
@@ -68,9 +69,9 @@ export default function OmraaderPage() {
             <p className={sectionLabel}>Områder</p>
             <h1 className={sectionTitle}>Hvor jeg tager opgaver</h1>
             <p className={`mt-8 ${sectionBody}`}>
-              Jeg er baseret i Grindsted og dækker Midt- og Syddanmark med fotografering,
+              Jeg er baseret i Grindsted og tager opgaver i hele Danmark med fotografering,
               videoproduktion og droneflyvning. Her finder du et overblik over byer og områder,
-              jeg tager opgaver i.
+              jeg ofte arbejder i.
             </p>
           </div>
 

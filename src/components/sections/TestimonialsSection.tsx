@@ -5,14 +5,14 @@ import { testimonials } from "@/data/sections";
 import { Section } from "../Section";
 import { ScrollReveal } from "../ScrollReveal";
 import { AnimatedHeading } from "../AnimatedHeading";
-import { sectionLabel } from "@/lib/styles";
+import { sectionHeading, sectionLabel } from "@/lib/styles";
 
 export function TestimonialsSection() {
   return (
     <Section>
       <ScrollReveal className="mb-12 text-center md:mb-16">
         <p className={sectionLabel}>Tillid</p>
-        <AnimatedHeading className="font-display text-[1.65rem] font-light leading-[1.08] text-white sm:text-3xl lg:text-4xl">
+        <AnimatedHeading className={sectionHeading}>
           Ord fra samarbejdspartnere
         </AnimatedHeading>
       </ScrollReveal>

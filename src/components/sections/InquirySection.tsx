@@ -4,7 +4,7 @@ import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { AnimatedHeading } from "@/components/AnimatedHeading";
 import { InquiryWizard } from "@/components/inquiry/InquiryWizard";
-import { sectionLabel } from "@/lib/styles";
+import { sectionHeading, sectionLabel } from "@/lib/styles";
 
 const homeSectionShell =
   "bg-[#0a0a0a] px-6 py-16 sm:py-20 lg:px-8 lg:py-28";
@@ -26,10 +26,7 @@ export function InquirySection() {
       <div className="relative mx-auto max-w-3xl">
         <ScrollReveal className="mb-10 text-center md:mb-12">
           <p className={sectionLabel}>Forespørgsel</p>
-          <AnimatedHeading
-            as="h2"
-            className="font-display text-[1.65rem] font-light leading-[1.08] text-white sm:text-3xl lg:text-4xl"
-          >
+          <AnimatedHeading as="h2" className={sectionHeading}>
             Skal vi skabe noget sammen?
           </AnimatedHeading>
           <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-white/55 md:text-[0.95rem] md:leading-[1.7]">

@@ -11,7 +11,7 @@ import { approachPoints } from "@/data/sections";
 import { Section } from "../Section";
 import { ScrollReveal } from "../ScrollReveal";
 import { AnimatedHeading } from "../AnimatedHeading";
-import { sectionLabel } from "@/lib/styles";
+import { sectionHeading, sectionLabel } from "@/lib/styles";
 
 type ApproachIcon = "message" | "sparkles" | "sliders" | "heart";
 
@@ -29,7 +29,7 @@ export function ApproachSection() {
         <div>
           <ScrollReveal>
             <p className={sectionLabel}>Min tilgang</p>
-            <AnimatedHeading className="font-display text-2xl font-light leading-tight text-white md:text-3xl lg:text-4xl">
+            <AnimatedHeading className={sectionHeading}>
               Sådan arbejder jeg som fotograf
             </AnimatedHeading>
           </ScrollReveal>

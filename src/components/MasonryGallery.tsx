@@ -6,7 +6,7 @@ import { Expand } from "lucide-react";
 import type { Photo } from "@/data/photos";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
 import { ScrollReveal } from "./ScrollReveal";
-import { sectionLabel } from "@/lib/styles";
+import { sectionHeading, sectionLabel } from "@/lib/styles";
 import { IMAGE_QUALITY, IMAGE_SIZES } from "@/lib/image";
 
 const Lightbox = dynamic(
@@ -42,12 +42,12 @@ export function MasonryGallery({ photos, showTitle = false }: MasonryGalleryProp
       {showTitle && (
         <ScrollReveal className="mb-12 text-center">
           <p className={sectionLabel}>Udvalgte øjeblikke</p>
-          <h2 className="font-display text-[1.65rem] font-light leading-[1.08] text-white sm:text-3xl md:text-[2.25rem] lg:text-4xl xl:text-[2.75rem]">
-            Portefølje — fotograf til events og sport
+          <h2 className={sectionHeading}>
+            Mit portefølje som fotograf.
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-white/50">
-            Et udvalg af øjeblikke fra min portefølje som fotograf — fotografering, videoproduktion og
-            events fra sport og koncerter til portrætter og erhvervsprojekter.
+            Et udvalg fra min portefølje som fotograf — fotografering, videoproduktion og projekter
+            for private og virksomheder.
           </p>
         </ScrollReveal>
       )}

@@ -6,7 +6,7 @@ import { processSteps } from "@/data/sections";
 import { Section } from "../Section";
 import { ScrollReveal } from "../ScrollReveal";
 import { AnimatedHeading } from "../AnimatedHeading";
-import { sectionHeadingLong, sectionLabel } from "@/lib/styles";
+import { sectionHeading, sectionLabel } from "@/lib/styles";
 import { EASE } from "@/lib/motion";
 
 const processTimelineArrowClass = [
@@ -72,7 +72,7 @@ export function ProcessSection() {
       <div className="mb-12 md:mb-16 lg:flex lg:items-end lg:justify-between lg:gap-16">
         <ScrollReveal className="max-w-2xl">
           <p className={sectionLabel}>Proces</p>
-          <AnimatedHeading className={sectionHeadingLong}>
+          <AnimatedHeading className={sectionHeading}>
             Fra dit projekt til det færdige resultat
           </AnimatedHeading>
         </ScrollReveal>

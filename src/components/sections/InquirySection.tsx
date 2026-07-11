@@ -1,6 +1,5 @@
 "use client";
 
-import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { AnimatedHeading } from "@/components/AnimatedHeading";
 import { InquiryWizard } from "@/components/inquiry/InquiryWizard";
@@ -48,17 +47,6 @@ export function InquirySection() {
               <InquiryWizard embedded />
             </div>
           </div>
-        </ScrollReveal>
-
-        <ScrollReveal delay={0.15}>
-          <p className="mt-6 text-center text-xs text-white/50 sm:text-sm">
-            Eller{" "}
-            <ObfuscatedEmail
-              label="send en mail"
-              className="text-white/60 underline decoration-white/20 underline-offset-4 transition-colors duration-500 ease-premium hover:text-white"
-            />{" "}
-            direkte
-          </p>
         </ScrollReveal>
       </div>
     </section>

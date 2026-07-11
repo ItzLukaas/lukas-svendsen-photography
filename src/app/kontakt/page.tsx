@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
+import { ContactLocationMap } from "@/components/ContactLocationMap";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -53,6 +54,12 @@ const contactInfo = [
     icon: "phone" as const,
   },
   {
+    label: "Adresse",
+    value: `${siteConfig.address.streetAddress}, ${siteConfig.address.postalCode} ${siteConfig.address.addressLocality}`,
+    href: siteConfig.googleMapsUrl,
+    icon: "location" as const,
+  },
+  {
     label: "Instagram",
     value: siteConfig.instagramHandle,
     href: siteConfig.instagram,
@@ -104,6 +111,8 @@ export default function KontaktPage() {
                   />
                 ))}
               </div>
+
+              <ContactLocationMap />
             </ScrollReveal>
           </div>
 

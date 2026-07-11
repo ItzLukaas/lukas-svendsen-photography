@@ -1,12 +1,13 @@
 "use client";
 
-import { Mail, Phone } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { InstagramIcon } from "@/components/icons/Instagram";
 import { trackEmailClick, trackPhoneClick } from "@/lib/analytics";
 
 const icons = {
   mail: Mail,
   phone: Phone,
+  location: MapPin,
   instagram: InstagramIcon,
 } as const;
 
@@ -28,8 +29,8 @@ export function TrackedContactLink({
   return (
     <a
       href={href}
-      target={icon === "instagram" ? "_blank" : undefined}
-      rel={icon === "instagram" ? "noopener noreferrer" : undefined}
+      target={icon === "instagram" || icon === "location" ? "_blank" : undefined}
+      rel={icon === "instagram" || icon === "location" ? "noopener noreferrer" : undefined}
       onClick={
         icon === "phone"
           ? trackPhoneClick

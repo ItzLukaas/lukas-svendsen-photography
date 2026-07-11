@@ -47,7 +47,7 @@ const securityHeaders = [
       "style-src 'self' 'unsafe-inline' https://consent.cookiebot.com",
       "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://consent.cookiebot.com https://consentcdn.cookiebot.com https://www.googletagmanager.com",
       "connect-src 'self' https://consent.cookiebot.com https://consentcdn.cookiebot.com https://www.google-analytics.com https://region1.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://stream.mux.com https://*.mux.com",
-      "frame-src 'self' https://consent.cookiebot.com https://consentcdn.cookiebot.com",
+      "frame-src 'self' https://consent.cookiebot.com https://consentcdn.cookiebot.com https://www.google.com",
       "upgrade-insecure-requests",
     ].join("; "),
   },

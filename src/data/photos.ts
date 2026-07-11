@@ -344,20 +344,22 @@ export const siteConfig = {
   instagramHandle: "@lukassvendsen.dk",
   linkedin: "https://www.linkedin.com/in/lukas-guldager-svendsen-a4a777290/",
   location: "Grindsted, Danmark",
+  googleMapsUrl: "https://maps.app.goo.gl/iM52xsjg2YYEcbVN9",
+  googleMapsEmbedUrl:
+    "https://www.google.com/maps?q=55.7616737,8.9531321&hl=da&z=15&output=embed",
   ogImage: "/images/IMG_3454.webp",
   ogImageWidth: 1200,
   ogImageHeight: 1500,
   address: {
-    /** Valgfri — tilføj gadeadresse hvis SEO-værktøj kræver streetAddress */
-    streetAddress: undefined as string | undefined,
+    streetAddress: "Ribersvej 90",
     addressLocality: "Grindsted",
     addressRegion: "Syddanmark",
     postalCode: "7200",
     addressCountry: "DK",
   },
   geo: {
-    latitude: 55.756,
-    longitude: 9.012,
+    latitude: 55.7616737,
+    longitude: 8.9531321,
   },
   areaServed: [
     "Grindsted",

@@ -16,7 +16,7 @@ const navLinks = [
 ];
 
 const navCtaClass =
-  "inline-flex min-h-11 items-center justify-center border border-white/25 px-6 py-2.5 text-[10px] tracking-[0.28em] text-white uppercase transition-all duration-500 ease-premium hover:border-white hover:bg-white hover:text-[#0a0a0a]";
+  "inline-flex min-h-11 items-center justify-center border border-white/25 px-6 py-2.5 text-[10px] tracking-[0.28em] text-white uppercase transition-[color,background-color,transform,box-shadow,border-color] duration-500 ease-premium hover:-translate-y-px hover:border-white hover:bg-white hover:text-[#0a0a0a] hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]";
 
 function MenuToggle({
   open,
@@ -119,7 +119,7 @@ export function Navbar() {
       <header
         className={`fixed top-0 right-0 left-0 z-50 transition-[background-color,box-shadow,border-color,backdrop-filter] duration-700 ease-premium ${
           isSolid
-            ? "border-b border-white/[0.06] bg-[#0a0a0a]/72 shadow-[0_8px_40px_rgba(0,0,0,0.28)] backdrop-blur-xl backdrop-saturate-150"
+            ? "border-b border-white/[0.08] bg-[#0a0a0a]/82 shadow-[0_1px_0_rgba(255,255,255,0.04)_inset,0_12px_48px_rgba(0,0,0,0.38)] backdrop-blur-2xl backdrop-saturate-150"
             : "border-b border-transparent bg-transparent"
         }`}
       >

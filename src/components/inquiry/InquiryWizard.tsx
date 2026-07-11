@@ -22,13 +22,13 @@ import { EASE } from "@/lib/motion";
 import type { ScheduleSlot, ServiceType } from "@/types/inquiry";
 
 const btnPrimaryCompact =
-  "group inline-flex min-h-10 items-center justify-center gap-2 border border-white px-7 py-2.5 text-[10px] tracking-[0.2em] text-white uppercase transition-all duration-500 ease-premium hover:bg-white hover:text-black active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50";
+  "group inline-flex min-h-10 items-center justify-center gap-2 border border-white px-7 py-2.5 text-[10px] tracking-[0.2em] text-white uppercase transition-[color,background-color,transform,box-shadow,border-color] duration-500 ease-premium hover:-translate-y-px hover:bg-white hover:text-black hover:shadow-[0_0_24px_rgba(255,255,255,0.12)] active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50";
 
 const sectionBodyCompact =
   "text-sm leading-relaxed text-white/55 md:text-[0.95rem] md:leading-[1.7]";
 
 const inputClass =
-  "peer w-full border-b border-white/10 bg-transparent px-0 py-3.5 text-white placeholder-white/20 transition-colors duration-500 ease-premium focus:border-transparent focus:outline-none";
+  "peer w-full border-b border-white/10 bg-transparent px-0 py-3.5 text-white placeholder-white/20 transition-[color,border-color] duration-500 ease-premium focus:border-white/20 focus:outline-none";
 
 const TOTAL_STEPS = 5;
 

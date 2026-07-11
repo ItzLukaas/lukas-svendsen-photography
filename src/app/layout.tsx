@@ -106,7 +106,7 @@ export default function RootLayout({
         <JsonLd data={rootGraphJsonLd()} />
       </head>
       <body
-        className={`${inter.className} bg-[#0a0a0a] text-white antialiased`}
+        className={`${inter.className} grain-overlay bg-[#0a0a0a] text-white antialiased`}
       >
         <MotionProvider>
           <a href="#main-content" className="skip-link">

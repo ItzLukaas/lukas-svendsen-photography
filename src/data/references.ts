@@ -150,7 +150,7 @@ export const references: Reference[] = [
       "Reference: KIF Kolding — sportsfotografi fra den afgørende playoff-kamp mod Aarhus Håndbold om oprykning til Danmarks bedste håndboldliga.",
     coverImage: {
       src: "/images/references/kif-kolding/dsc09566-3.webp",
-      alt: "KIF Kolding kampaktion med spillere i klubtrøjer",
+      alt: "Fans og publikum jubler til KIF Kolding kamp",
       width: 1800,
       height: 1200,
     },
@@ -256,7 +256,7 @@ export const references: Reference[] = [
       "Reference: Esbjerg Street Food — event- og livsstilsfotografi fra en travl sommerdag under Esbjerg Festuge med koncerter, gæster og stemning i gårdhaven.",
     coverImage: {
       src: "/images/references/esbjerg-streetfood/dsc05265.webp",
-      alt: "Stemning og gæster hos Esbjerg Street Food",
+      alt: "Artist fra Alley-Cats peger mod kameraet ved Esbjerg Street Food",
       width: 1800,
       height: 1200,
     },

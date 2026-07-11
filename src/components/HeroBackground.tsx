@@ -115,8 +115,9 @@ export function HeroBackground() {
           </div>
         );
       })}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/55 to-[#0a0a0a]/25" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/80 via-transparent to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/60 to-[#0a0a0a]/20" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/85 via-[#0a0a0a]/15 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_50%_35%,transparent_0%,rgba(10,10,10,0.4)_100%)]" />
       <div className="pointer-events-none absolute inset-0 hero-vignette" />
 
       {carouselEnabled && (
@@ -128,7 +129,9 @@ export function HeroBackground() {
             <span
               key={src}
               className={`h-1 rounded-full transition-all duration-500 ease-premium ${
-                imageIndex === index ? "w-6 bg-white/70" : "w-1 bg-white/25"
+                imageIndex === index
+                  ? "w-6 bg-white/75 shadow-[0_0_8px_rgba(255,255,255,0.35)]"
+                  : "w-1 bg-white/25"
               }`}
             />
           ))}

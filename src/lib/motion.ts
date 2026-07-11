@@ -1,4 +1,5 @@
 export const EASE = [0.25, 0.4, 0.25, 1] as const;
+export const EASE_REVEAL = [0.22, 0.61, 0.36, 1] as const;
 export const EASE_CSS = "cubic-bezier(0.25, 0.4, 0.25, 1)";
 
 export const transition = {

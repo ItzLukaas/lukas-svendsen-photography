@@ -69,7 +69,7 @@ export function ServicesSection({ compact = false }: { compact?: boolean }) {
               <Link
                 key={service.title}
                 href={service.href}
-                className={`group flex flex-col border border-white/10 bg-white/[0.02] transition-all duration-500 ease-premium hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.04] ${
+                className={`group flex flex-col border border-white/10 bg-white/[0.02] transition-[transform,box-shadow,border-color,background-color] duration-500 ease-premium hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.04] hover:shadow-[0_12px_40px_rgba(0,0,0,0.35)] ${
                   compact ? "p-6 lg:p-8" : "p-8 lg:p-10"
                 }`}
               >

@@ -2,7 +2,7 @@
 
 import { m, useReducedMotion, type Variants } from "framer-motion";
 import { type ReactNode } from "react";
-import { EASE } from "@/lib/motion";
+import { EASE_REVEAL } from "@/lib/motion";
 
 interface ScrollRevealProps {
   children: ReactNode;
@@ -12,10 +12,10 @@ interface ScrollRevealProps {
 }
 
 const directionOffset = {
-  up: { y: 24, x: 0 },
-  down: { y: -24, x: 0 },
-  left: { x: 24, y: 0 },
-  right: { x: -24, y: 0 },
+  up: { y: 18, x: 0 },
+  down: { y: -18, x: 0 },
+  left: { x: 18, y: 0 },
+  right: { x: -18, y: 0 },
   none: { x: 0, y: 0 },
 };
 
@@ -43,19 +43,19 @@ export function ScrollReveal({
       x: 0,
       y: 0,
       transition: {
-        duration: 0.65,
+        duration: 0.72,
         delay,
-        ease: EASE,
+        ease: EASE_REVEAL,
       },
     },
   };
 
   return (
     <m.div
-      className={className}
+      className={`will-change-transform ${className}`}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-40px" }}
+      viewport={{ once: true, margin: "-48px" }}
       variants={variants}
     >
       {children}

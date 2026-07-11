@@ -38,10 +38,10 @@ function FormField({
 }
 
 const inputClass =
-  "peer w-full border-b border-white/10 bg-transparent px-0 py-3.5 text-white placeholder-white/20 transition-colors duration-500 ease-premium focus:border-transparent focus:outline-none";
+  "peer w-full border-b border-white/10 bg-transparent px-0 py-3.5 text-white placeholder-white/20 transition-[color,border-color] duration-500 ease-premium focus:border-white/20 focus:outline-none";
 
 const textareaClass =
-  "w-full resize-none border-0 bg-transparent px-0 py-3.5 text-white placeholder-white/20 transition-colors duration-500 ease-premium focus:outline-none";
+  "w-full resize-none border-0 bg-transparent px-0 py-3.5 text-white placeholder-white/20 transition-[color] duration-500 ease-premium focus:outline-none";
 
 export function ContactForm() {
   const prefersReducedMotion = useReducedMotion();

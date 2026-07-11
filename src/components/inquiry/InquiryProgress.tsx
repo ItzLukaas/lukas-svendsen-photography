@@ -20,12 +20,12 @@ export function InquiryProgress({
 
   return (
     <div className={compact ? "mb-8" : "mb-12"}>
-      <div className="mb-2.5 flex items-center justify-between text-[10px] tracking-[0.25em] text-white/35 uppercase">
+      <div className="mb-2.5 flex items-center justify-between text-[10px] tracking-[0.25em] text-muted uppercase">
         <span>Trin {currentStep}</span>
         <span>af {totalSteps}</span>
       </div>
 
-      <div className={`relative h-px bg-white/[0.08] ${compact ? "mb-6" : "mb-8"}`}>
+      <div className={`relative h-px bg-primary/[0.08] ${compact ? "mb-6" : "mb-8"}`}>
         <m.div
           className="absolute inset-y-0 left-0 bg-gradient-to-r from-white/20 via-white/50 to-white/30"
           initial={false}
@@ -47,10 +47,10 @@ export function InquiryProgress({
                   compact ? "h-7 w-7" : "h-8 w-8"
                 } ${
                   isActive
-                    ? "border-white/40 bg-white/10 text-white"
+                    ? "border-foreground/40 bg-accent-strong text-foreground"
                     : isComplete
-                      ? "border-white/25 bg-white/[0.06] text-white/80"
-                      : "border-white/10 bg-transparent text-white/30"
+                      ? "border-foreground/20 bg-primary/[0.06] text-foreground/80"
+                      : "border-border bg-transparent text-muted-subtle"
                 }`}
                 animate={isActive ? { scale: 1.08 } : { scale: 1 }}
                 transition={{ duration: 0.4, ease: EASE }}
@@ -63,7 +63,7 @@ export function InquiryProgress({
               </m.div>
               <span
                 className={`hidden text-center text-[9px] leading-tight tracking-[0.18em] uppercase sm:block ${
-                  isActive ? "text-white/70" : isComplete ? "text-white/40" : "text-white/25"
+                  isActive ? "text-foreground/70" : isComplete ? "text-muted" : "text-muted-subtle"
                 }`}
               >
                 {label}

@@ -12,7 +12,7 @@ import { sectionDivider } from "@/lib/styles";
 import { GallerySkeleton } from "@/components/ui/GallerySkeleton";
 
 const homeSectionShell =
-  "bg-[#0a0a0a] px-6 py-16 sm:py-20 lg:px-8 lg:py-28";
+  "bg-background px-6 py-16 sm:py-20 lg:px-8 lg:py-28";
 import { homeMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = homeMetadata();
@@ -82,7 +82,7 @@ export default function HomePage() {
           <div className="mt-10 text-center">
             <Link
               href="/portfolio"
-              className="group inline-flex min-h-9 items-center gap-2 text-[10px] tracking-[0.2em] text-white/50 uppercase transition-colors duration-500 ease-premium hover:text-white"
+              className="group inline-flex min-h-9 items-center gap-2 text-[10px] tracking-[0.2em] text-muted uppercase transition-colors duration-500 ease-premium hover:text-foreground"
             >
               Se hele porteføljen
               <ArrowRight

@@ -8,13 +8,13 @@ export const metadata: Metadata = notFoundMetadata();
 
 export default function NotFound() {
   return (
-    <div className="flex min-h-[70vh] items-center justify-center bg-[#0a0a0a] px-6 pt-28">
+    <div className="flex min-h-[70vh] items-center justify-center bg-background px-6 pt-28">
       <div className="max-w-lg text-center">
-        <p className="text-xs tracking-[0.3em] text-white/35 uppercase">404</p>
-        <h1 className="mt-5 font-display text-3xl font-light text-white md:text-4xl">
+        <p className="text-xs tracking-[0.3em] text-muted uppercase">404</p>
+        <h1 className="mt-5 font-display text-3xl font-light text-foreground md:text-4xl">
           Siden blev ikke fundet
         </h1>
-        <p className="mt-5 text-sm leading-relaxed text-white/50">
+        <p className="mt-5 text-sm leading-relaxed text-muted">
           Den side, du leder efter, findes ikke eller er blevet flyttet.
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:items-center">

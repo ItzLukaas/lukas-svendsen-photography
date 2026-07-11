@@ -88,7 +88,7 @@ export function StreamVideoPlayer({ src, poster, title }: StreamVideoPlayerProps
   }, [hasStarted, isLoading]);
 
   return (
-    <div className="group relative aspect-video overflow-hidden border border-white/10 bg-[#070707]">
+    <div className="group relative aspect-video overflow-hidden border border-border bg-surface">
       <video
         ref={videoRef}
         className="h-full w-full object-cover"
@@ -121,9 +121,9 @@ export function StreamVideoPlayer({ src, poster, title }: StreamVideoPlayerProps
           className="absolute inset-0 flex items-center justify-center"
           aria-label={hasStarted ? "Afspil video" : `Afspil ${title}`}
         >
-          <span className="flex h-16 w-16 items-center justify-center rounded-full border border-white/25 bg-[#0a0a0a]/55 text-white backdrop-blur-sm transition-all duration-500 ease-premium group-hover:scale-105 group-hover:border-white/40">
+          <span className="flex h-16 w-16 items-center justify-center rounded-full border border-foreground/20 bg-background/55 text-foreground backdrop-blur-sm transition-all duration-500 ease-premium group-hover:scale-105 group-hover:border-foreground/40">
             {isLoading ? (
-              <span className="h-5 w-5 animate-pulse rounded-full bg-white/70" />
+              <span className="h-5 w-5 animate-pulse rounded-full bg-primary/70" />
             ) : isPlaying ? (
               <Pause size={22} strokeWidth={1.5} />
             ) : (

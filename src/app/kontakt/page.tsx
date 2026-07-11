@@ -19,7 +19,7 @@ const ContactForm = dynamic(
   {
     loading: () => (
       <div
-        className="min-h-[420px] w-full animate-pulse bg-white/[0.03]"
+        className="min-h-[420px] w-full animate-pulse bg-accent"
         aria-hidden="true"
       />
     ),
@@ -60,7 +60,7 @@ export default function KontaktPage() {
     <>
       <JsonLd data={contactPageJsonLd()} />
       <JsonLd data={faqJsonLd([...contactFaqs])} />
-      <div className="min-h-screen bg-[#0a0a0a] pt-28">
+      <div className="min-h-screen bg-background pt-28">
       <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-24">
         <Breadcrumbs
           items={[
@@ -80,7 +80,7 @@ export default function KontaktPage() {
         <div className="grid gap-20 lg:grid-cols-5 lg:gap-28">
           <div className="lg:col-span-2">
             <ScrollReveal>
-              <h2 className="font-display text-xl text-white">
+              <h2 className="font-display text-xl text-foreground">
                 Kontaktinformation
               </h2>
               <p className={`mt-4 text-sm ${sectionBody}`}>

@@ -38,7 +38,7 @@ export function FotograferingPage({ service, breadcrumbs }: FotograferingPagePro
         })}
       />
 
-      <div className="bg-[#0a0a0a]">
+      <div className="bg-background">
         <div className="mx-auto max-w-7xl px-6 pt-28 lg:px-10 lg:pt-32">
           <Breadcrumbs items={breadcrumbs} />
         </div>
@@ -61,10 +61,10 @@ export function FotograferingPage({ service, breadcrumbs }: FotograferingPagePro
 
           <div className="relative z-10 mx-auto flex min-h-[50vh] w-full max-w-7xl flex-col justify-end px-6 pb-14 sm:min-h-[58vh] lg:min-h-[65vh] lg:px-10 lg:pb-20">
             <p className={sectionLabel}>Ydelser</p>
-            <h1 className="mt-4 max-w-3xl font-display text-[2.5rem] font-light leading-[1.06] text-white sm:text-5xl lg:text-6xl">
+            <h1 className="mt-4 max-w-3xl font-display text-[2.5rem] font-light leading-[1.06] text-foreground sm:text-5xl lg:text-6xl">
               {service.h1}
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/75 md:text-xl md:leading-[1.65]">
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-foreground/75 md:text-xl md:leading-[1.65]">
               {service.intro}
             </p>
           </div>
@@ -73,7 +73,7 @@ export function FotograferingPage({ service, breadcrumbs }: FotograferingPagePro
         {/* Editorial body */}
         <section className="mx-auto max-w-3xl px-6 py-16 lg:px-8 lg:py-24">
           {opening && (
-            <p className="text-lg leading-[1.8] text-white/70 md:text-[1.125rem]">{opening}</p>
+            <p className="text-lg leading-[1.8] text-foreground/70 md:text-[1.125rem]">{opening}</p>
           )}
 
           <div className="relative my-14 aspect-[16/10] overflow-hidden sm:my-16">
@@ -97,8 +97,8 @@ export function FotograferingPage({ service, breadcrumbs }: FotograferingPagePro
             ))}
           </div>
 
-          <blockquote className="my-14 border-l border-white/20 py-1 pl-6 sm:my-16 sm:pl-8">
-            <p className="font-display text-2xl font-light leading-snug text-white/90 sm:text-3xl sm:leading-[1.25]">
+          <blockquote className="my-14 border-l border-foreground/20 py-1 pl-6 sm:my-16 sm:pl-8">
+            <p className="font-display text-2xl font-light leading-snug text-foreground/90 sm:text-3xl sm:leading-[1.25]">
               {PULL_QUOTE}
             </p>
           </blockquote>
@@ -112,18 +112,18 @@ export function FotograferingPage({ service, breadcrumbs }: FotograferingPagePro
           </div>
 
           {closing && (
-            <p className="mt-10 text-lg leading-[1.8] text-white/70 md:text-[1.125rem]">{closing}</p>
+            <p className="mt-10 text-lg leading-[1.8] text-foreground/70 md:text-[1.125rem]">{closing}</p>
           )}
         </section>
 
         {service.sections?.map((section) => (
           <section
             key={section.heading}
-            className="border-t border-white/[0.06] px-6 py-16 lg:px-8 lg:py-24"
+            className="border-t border-foreground/[0.06] px-6 py-16 lg:px-8 lg:py-24"
           >
             <div className="mx-auto max-w-3xl">
               {section.label && <p className={sectionLabel}>{section.label}</p>}
-              <h2 className="mt-4 font-display text-2xl font-light text-white sm:text-3xl lg:text-[2rem]">
+              <h2 className="mt-4 font-display text-2xl font-light text-foreground sm:text-3xl lg:text-[2rem]">
                 {section.heading}
               </h2>
               <div className="mt-8 space-y-6">
@@ -138,7 +138,7 @@ export function FotograferingPage({ service, breadcrumbs }: FotograferingPagePro
         ))}
 
         {/* Image strip */}
-        <section className="border-t border-white/[0.06] px-6 py-14 lg:px-8 lg:py-20">
+        <section className="border-t border-foreground/[0.06] px-6 py-14 lg:px-8 lg:py-20">
           <div className="mx-auto grid max-w-7xl gap-3 sm:grid-cols-3 sm:gap-4">
             {GALLERY_IMAGES.map((src) => (
               <div key={src} className="relative aspect-[4/5] overflow-hidden">

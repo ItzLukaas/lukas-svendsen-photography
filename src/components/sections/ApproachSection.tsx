@@ -34,7 +34,7 @@ export function ApproachSection() {
             </AnimatedHeading>
           </ScrollReveal>
           <ScrollReveal delay={0.15}>
-            <p className="mt-6 max-w-lg text-sm leading-relaxed text-white/55 md:text-[0.95rem] md:leading-[1.7]">
+            <p className="mt-6 max-w-lg text-sm leading-relaxed text-muted md:text-[0.95rem] md:leading-[1.7]">
               Du fortæller blot, hvad du har brug for. Jeg hjælper med at omsætte dine idéer til det
               færdige resultat, står for processen og sørger for, at alt bliver håndteret fra start til
               slut. Som fotograf i Grindsted lægger jeg vægt på tydelig kommunikation, god planlægning
@@ -49,11 +49,11 @@ export function ApproachSection() {
             return (
               <ScrollReveal key={point.title} delay={index * 0.08}>
                 <div className="group">
-                  <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-white/50 transition-all duration-500 ease-premium group-hover:border-white/25 group-hover:text-white">
+                  <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted transition-all duration-500 ease-premium group-hover:border-foreground/20 group-hover:text-foreground">
                     <Icon size={15} strokeWidth={1.5} />
                   </div>
-                  <h3 className="text-xs tracking-wide text-white">{point.title}</h3>
-                  <p className="mt-1.5 text-xs leading-relaxed text-white/45">
+                  <h3 className="text-xs tracking-wide text-foreground">{point.title}</h3>
+                  <p className="mt-1.5 text-xs leading-relaxed text-muted">
                     {point.description}
                   </p>
                 </div>

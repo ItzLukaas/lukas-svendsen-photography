@@ -47,7 +47,7 @@ export function SeoLandingTemplate({
       />
       {faqs.length > 0 && <JsonLd data={faqJsonLd(faqs)} />}
 
-      <div className="min-h-screen bg-[#0a0a0a] pt-28">
+      <div className="min-h-screen bg-background pt-28">
         <div className="mx-auto max-w-4xl px-6 py-20 lg:px-8 lg:py-24">
           <Breadcrumbs items={breadcrumbs} />
 
@@ -66,13 +66,13 @@ export function SeoLandingTemplate({
           </article>
 
           {highlights.length > 0 && (
-            <section aria-labelledby="highlights-heading" className="mt-14 border-t border-white/[0.06] pt-14">
-              <h2 id="highlights-heading" className="font-display text-2xl font-light text-white">
+            <section aria-labelledby="highlights-heading" className="mt-14 border-t border-foreground/[0.06] pt-14">
+              <h2 id="highlights-heading" className="font-display text-2xl font-light text-foreground">
                 Det får du
               </h2>
               <ul className="mt-6 space-y-3">
                 {highlights.map((item) => (
-                  <li key={item} className="text-sm leading-relaxed text-white/55">
+                  <li key={item} className="text-sm leading-relaxed text-muted">
                     {item}
                   </li>
                 ))}
@@ -81,14 +81,14 @@ export function SeoLandingTemplate({
           )}
 
           {faqs.length > 0 && (
-            <section aria-labelledby="faq-heading" className="mt-14 border-t border-white/[0.06] pt-14">
-              <h2 id="faq-heading" className="font-display text-2xl font-light text-white">
+            <section aria-labelledby="faq-heading" className="mt-14 border-t border-foreground/[0.06] pt-14">
+              <h2 id="faq-heading" className="font-display text-2xl font-light text-foreground">
                 Ofte stillede spørgsmål
               </h2>
               <div className="mt-8 space-y-8">
                 {faqs.map((faq) => (
                   <div key={faq.question}>
-                    <h3 className="text-base text-white/85">{faq.question}</h3>
+                    <h3 className="text-base text-foreground/85">{faq.question}</h3>
                     <p className={`mt-3 ${sectionBody}`}>{faq.answer}</p>
                   </div>
                 ))}
@@ -97,8 +97,8 @@ export function SeoLandingTemplate({
           )}
 
           {relatedLinks.length > 0 && (
-            <section aria-labelledby="related-heading" className="mt-14 border-t border-white/[0.06] pt-14">
-              <h2 id="related-heading" className="font-display text-2xl font-light text-white">
+            <section aria-labelledby="related-heading" className="mt-14 border-t border-foreground/[0.06] pt-14">
+              <h2 id="related-heading" className="font-display text-2xl font-light text-foreground">
                 Relaterede sider
               </h2>
               <ul className="mt-6 space-y-3">
@@ -106,7 +106,7 @@ export function SeoLandingTemplate({
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-white/55 transition-colors duration-500 ease-premium hover:text-white"
+                      className="text-sm text-muted transition-colors duration-500 ease-premium hover:text-foreground"
                     >
                       {link.label}
                     </Link>

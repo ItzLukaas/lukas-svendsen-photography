@@ -36,7 +36,7 @@ export function FeaturedGallery({ photos }: FeaturedGalleryProps) {
       <ScrollReveal className="mb-16 text-center md:mb-24">
         <p className={sectionLabel}>Udvalgte øjeblikke</p>
         <h2 className={sectionTitle}>Et kig på mit arbejde</h2>
-        <p className="mx-auto mt-6 max-w-lg text-base leading-relaxed text-white/55">
+        <p className="mx-auto mt-6 max-w-lg text-base leading-relaxed text-muted">
           Et udvalg af øjeblikke fra min portefølje som fotograf og videoproducent — fra sport og
           events til portrætter og kreative projekter. Se eksempler på min stil, kvalitet og tilgang til
           visuel fortælling.
@@ -67,7 +67,7 @@ export function FeaturedGallery({ photos }: FeaturedGalleryProps) {
               />
               <div className="editorial-overlay absolute inset-0 opacity-80 transition-opacity duration-700 ease-premium group-hover:opacity-100" />
               <div className="absolute inset-0 flex items-end justify-end p-5 sm:p-6">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white/70 transition-all duration-500 ease-premium group-hover:border-white/40 group-hover:bg-white/10 group-hover:text-white">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-foreground/20 bg-accent text-foreground/70 transition-all duration-500 ease-premium group-hover:border-foreground/40 group-hover:bg-accent-strong group-hover:text-foreground">
                   <ArrowUpRight size={16} strokeWidth={1.5} />
                 </span>
               </div>

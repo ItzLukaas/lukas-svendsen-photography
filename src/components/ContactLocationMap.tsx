@@ -7,7 +7,7 @@ export function ContactLocationMap() {
         href={siteConfig.googleMapsUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="group block overflow-hidden border border-white/10 transition-colors duration-500 ease-premium hover:border-white/20"
+        className="group block overflow-hidden border border-border transition-colors duration-500 ease-premium hover:border-foreground/20"
         aria-label="Åbn lokation i Google Maps"
       >
         <div className="relative h-44 overflow-hidden sm:h-48">

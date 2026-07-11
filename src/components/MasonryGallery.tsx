@@ -45,7 +45,7 @@ export function MasonryGallery({ photos, showTitle = false }: MasonryGalleryProp
           <h2 className={sectionHeading}>
             Mit portefølje som fotograf
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-white/50">
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted">
             Et udvalg fra min portefølje som fotograf — fotografering, videoproduktion og projekter
             for private og virksomheder. Billederne viser min tilgang til lys, komposition og
             fortælling — uanset om opgaven er portræt, event, sport eller erhverv.
@@ -66,8 +66,8 @@ export function MasonryGallery({ photos, showTitle = false }: MasonryGalleryProp
                 <GalleryImage photo={photo} />
                 <div className="absolute inset-0 bg-black/0 transition-all duration-700 ease-premium group-hover:bg-black/25" />
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-all duration-500 ease-premium group-hover:opacity-100">
-                  <div className="flex h-11 w-11 scale-90 items-center justify-center rounded-full border border-white/25 bg-white/10 backdrop-blur-md transition-transform duration-500 ease-premium group-hover:scale-100">
-                    <Expand size={16} strokeWidth={1.5} className="text-white" />
+                  <div className="flex h-11 w-11 scale-90 items-center justify-center rounded-full border border-foreground/20 bg-accent-strong backdrop-blur-md transition-transform duration-500 ease-premium group-hover:scale-100">
+                    <Expand size={16} strokeWidth={1.5} className="text-foreground" />
                   </div>
                 </div>
               </div>

@@ -33,8 +33,8 @@ import { ClientLogoSlider } from "@/components/sections/ClientLogoSlider";
 import { clientLogos } from "@/data/clients";
 import { btnGhost, btnPrimary, sectionBody, sectionLabel, sectionTitle } from "@/lib/styles";
 
-const citySection = "bg-[#0a0a0a] px-6 py-32 lg:px-8 lg:py-40";
-const cityDivider = "border-t border-white/[0.06]";
+const citySection = "bg-background px-6 py-32 lg:px-8 lg:py-40";
+const cityDivider = "border-t border-foreground/[0.06]";
 
 const serviceIcons: Record<
   Exclude<CityServiceCategory["icon"], "drone">,
@@ -78,7 +78,7 @@ const InquiryWizard = dynamic(
     })),
   {
     loading: () => (
-      <div className="min-h-[320px] w-full animate-pulse bg-white/[0.03]" aria-hidden="true" />
+      <div className="min-h-[320px] w-full animate-pulse bg-accent" aria-hidden="true" />
     ),
   },
 );
@@ -117,7 +117,7 @@ export function CityLandingPage({ city }: CityLandingPageProps) {
       />
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-[#070707] pt-[72px] lg:pt-[80px]">
+      <section className="relative overflow-hidden bg-surface pt-[72px] lg:pt-[80px]">
         <div
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.04),transparent_55%)]"
           aria-hidden="true"
@@ -135,7 +135,7 @@ export function CityLandingPage({ city }: CityLandingPageProps) {
           <div className="mt-10 grid items-center gap-14 lg:grid-cols-2 lg:gap-24">
             <CityReveal delay={0.08} className="flex flex-col items-center text-center lg:items-start lg:text-left">
               <p className={sectionLabel}>Fotograf · {city.region}</p>
-              <h1 className="font-display text-[1.68rem] leading-[1.12] font-light text-white sm:text-4xl sm:leading-[1.1] lg:text-[2.5rem] xl:text-5xl">
+              <h1 className="font-display text-[1.68rem] leading-[1.12] font-light text-foreground sm:text-4xl sm:leading-[1.1] lg:text-[2.5rem] xl:text-5xl">
                 {city.h1}
               </h1>
               <p className={`mt-7 max-w-lg text-base leading-relaxed sm:text-lg ${sectionBody}`}>
@@ -157,8 +157,8 @@ export function CityLandingPage({ city }: CityLandingPageProps) {
             </CityReveal>
 
             <CityReveal delay={0.14} className="group mx-auto w-full max-w-sm lg:max-w-md lg:justify-self-end">
-              <div className="border border-white/15 p-2.5 transition-all duration-700 ease-premium sm:p-3 group-hover:border-white/25">
-                <div className="relative aspect-[3/4] overflow-hidden bg-[#0a0a0a]">
+              <div className="border border-foreground/15 p-2.5 transition-all duration-700 ease-premium sm:p-3 group-hover:border-foreground/20">
+                <div className="relative aspect-[3/4] overflow-hidden bg-background">
                   <OptimizedImage
                     src={siteConfig.ogImage}
                     alt={`${siteConfig.name} — fotograf ${city.preposition} ${city.name}`}
@@ -176,8 +176,8 @@ export function CityLandingPage({ city }: CityLandingPageProps) {
             </CityReveal>
           </div>
 
-          <CityReveal delay={0.18} className="mt-20 border-t border-white/[0.06] pt-14 lg:mt-24 lg:pt-16">
-            <p className="text-center text-xs tracking-[0.3em] text-white/40 uppercase">
+          <CityReveal delay={0.18} className="mt-20 border-t border-foreground/[0.06] pt-14 lg:mt-24 lg:pt-16">
+            <p className="text-center text-xs tracking-[0.3em] text-muted uppercase">
               Betroet af stærke brands
             </p>
             <div className="mt-10 w-full">
@@ -191,7 +191,7 @@ export function CityLandingPage({ city }: CityLandingPageProps) {
       <section className={`${citySection} ${cityDivider}`} aria-labelledby="portfolio-heading">
         <div className="mx-auto max-w-7xl">
           <CityReveal>
-            <h2 id="portfolio-heading" className="font-display text-2xl font-light text-white md:text-3xl lg:text-4xl">
+            <h2 id="portfolio-heading" className="font-display text-2xl font-light text-foreground md:text-3xl lg:text-4xl">
               Udvalgte billeder
             </h2>
             <p className={`mt-5 max-w-2xl ${sectionBody}`}>
@@ -201,7 +201,7 @@ export function CityLandingPage({ city }: CityLandingPageProps) {
           <ul className="mt-14 grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3">
             {portfolioPhotos.map((photo, index) => (
               <CityReveal key={photo.id} delay={index * 0.05}>
-                <li className="relative aspect-[4/3] overflow-hidden bg-[#0a0a0a]">
+                <li className="relative aspect-[4/3] overflow-hidden bg-background">
                   <OptimizedImage
                     src={photo.src}
                     alt={`${photo.alt} — fotograf ${city.preposition} ${city.name}`}
@@ -219,7 +219,7 @@ export function CityLandingPage({ city }: CityLandingPageProps) {
             <div className="mt-12 text-center">
               <Link
                 href="/portfolio"
-                className="text-xs tracking-[0.2em] text-white/50 uppercase transition-colors duration-500 ease-premium hover:text-white"
+                className="text-xs tracking-[0.2em] text-muted uppercase transition-colors duration-500 ease-premium hover:text-foreground"
               >
                 Se hele porteføljen
               </Link>
@@ -244,19 +244,19 @@ export function CityLandingPage({ city }: CityLandingPageProps) {
               const Icon = category.icon !== "drone" ? serviceIcons[category.icon] : null;
               return (
                 <CityReveal key={category.title} delay={index * 0.06}>
-                  <article className="group h-full border border-white/5 p-8 transition-all duration-500 ease-premium hover:-translate-y-0.5 hover:border-white/15 hover:bg-white/[0.02] lg:p-10">
-                    <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/50 transition-all duration-500 ease-premium group-hover:border-white/25 group-hover:text-white">
+                  <article className="group h-full border border-foreground/5 p-8 transition-all duration-500 ease-premium hover:-translate-y-0.5 hover:border-foreground/15 hover:bg-accent lg:p-10">
+                    <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted transition-all duration-500 ease-premium group-hover:border-foreground/20 group-hover:text-foreground">
                       {Icon ? <Icon size={16} strokeWidth={1.5} /> : <DroneIcon />}
                     </div>
-                    <h3 className="font-display text-xl font-light text-white">{category.title}</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-white/45">
+                    <h3 className="font-display text-xl font-light text-foreground">{category.title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-muted">
                       {applyCityName(category.description, city.name)}
                     </p>
                     <ul className="mt-6 flex flex-wrap gap-2">
                       {category.items.map((item) => (
                         <li
                           key={item}
-                          className="border border-white/10 px-3 py-1.5 text-xs tracking-wide text-white/55 transition-colors duration-500 group-hover:border-white/15"
+                          className="border border-border px-3 py-1.5 text-xs tracking-wide text-muted transition-colors duration-500 group-hover:border-foreground/15"
                         >
                           {item}
                         </li>
@@ -289,12 +289,12 @@ export function CityLandingPage({ city }: CityLandingPageProps) {
               const Icon = whyIcons[point.icon];
               return (
                 <CityReveal key={point.title} delay={index * 0.08}>
-                  <article className="group h-full border border-white/5 p-8 transition-all duration-500 ease-premium hover:-translate-y-0.5 hover:border-white/15 hover:bg-white/[0.02] lg:p-10">
-                    <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/50 transition-all duration-500 ease-premium group-hover:border-white/25 group-hover:text-white">
+                  <article className="group h-full border border-foreground/5 p-8 transition-all duration-500 ease-premium hover:-translate-y-0.5 hover:border-foreground/15 hover:bg-accent lg:p-10">
+                    <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted transition-all duration-500 ease-premium group-hover:border-foreground/20 group-hover:text-foreground">
                       <Icon size={16} strokeWidth={1.5} />
                     </div>
-                    <h3 className="font-display text-xl font-light text-white">{point.title}</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-white/45">{point.description}</p>
+                    <h3 className="font-display text-xl font-light text-foreground">{point.title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-muted">{point.description}</p>
                   </article>
                 </CityReveal>
               );
@@ -310,7 +310,7 @@ export function CityLandingPage({ city }: CityLandingPageProps) {
             <CityReveal>
               <h2
                 id="references-heading"
-                className="font-display text-2xl font-light text-white md:text-3xl lg:text-4xl"
+                className="font-display text-2xl font-light text-foreground md:text-3xl lg:text-4xl"
               >
                 Referencer i området
               </h2>
@@ -337,7 +337,7 @@ export function CityLandingPage({ city }: CityLandingPageProps) {
             <p className={sectionLabel}>Forespørgsel</p>
             <h2
               id="inquiry-heading"
-              className="font-display text-3xl font-light leading-tight text-white md:text-4xl lg:text-5xl"
+              className="font-display text-3xl font-light leading-tight text-foreground md:text-4xl lg:text-5xl"
             >
               Få et uforpligtende tilbud
             </h2>

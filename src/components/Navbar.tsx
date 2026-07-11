@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { m, AnimatePresence, useReducedMotion } from "framer-motion";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { siteConfig } from "@/data/photos";
 import { EASE } from "@/lib/motion";
 
@@ -16,7 +17,7 @@ const navLinks = [
 ];
 
 const navCtaClass =
-  "inline-flex min-h-11 items-center justify-center border border-white/25 px-6 py-2.5 text-[10px] tracking-[0.28em] text-white uppercase transition-[color,background-color,transform,box-shadow,border-color] duration-500 ease-premium hover:-translate-y-px hover:border-white hover:bg-white hover:text-[#0a0a0a] hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]";
+  "inline-flex min-h-11 items-center justify-center rounded-sm border border-foreground/20 px-6 py-2.5 text-[10px] tracking-[0.28em] text-foreground uppercase transition-[color,background-color,transform,box-shadow,border-color] duration-300 ease-premium hover:-translate-y-px hover:border-foreground hover:bg-primary hover:text-primary-foreground hover:shadow-[var(--shadow-sm)]";
 
 function MenuToggle({
   open,
@@ -35,17 +36,17 @@ function MenuToggle({
     >
       <span className="relative block h-3.5 w-7" aria-hidden="true">
         <span
-          className={`absolute left-0 block h-[2px] w-7 rounded-full bg-white transition-all duration-500 ease-premium ${
+          className={`absolute left-0 block h-[2px] w-7 rounded-full bg-foreground transition-all duration-300 ease-premium ${
             open ? "top-[7px] rotate-45" : "top-0"
           }`}
         />
         <span
-          className={`absolute left-0 top-[7px] block h-[2px] rounded-full bg-white transition-all duration-500 ease-premium ${
+          className={`absolute left-0 top-[7px] block h-[2px] rounded-full bg-foreground transition-all duration-300 ease-premium ${
             open ? "w-0 opacity-0" : "w-7"
           }`}
         />
         <span
-          className={`absolute left-0 block h-[2px] w-7 rounded-full bg-white transition-all duration-500 ease-premium ${
+          className={`absolute left-0 block h-[2px] w-7 rounded-full bg-foreground transition-all duration-300 ease-premium ${
             open ? "top-[7px] -rotate-45" : "top-[14px]"
           }`}
         />
@@ -66,20 +67,20 @@ function NavLink({
   return (
     <Link
       href={href}
-      className={`group relative py-1 text-[11px] tracking-[0.22em] uppercase transition-all duration-500 ease-premium hover:-translate-y-px ${
-        isActive ? "text-white" : "text-white/45 hover:text-white/85"
+      className={`group relative py-1 text-[11px] tracking-[0.22em] uppercase transition-all duration-300 ease-premium hover:-translate-y-px ${
+        isActive ? "text-foreground" : "text-muted hover:text-foreground/85"
       }`}
       aria-current={isActive ? "page" : undefined}
     >
       {label}
       {!isActive && (
-        <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-white/40 transition-all duration-500 ease-premium group-hover:w-full group-hover:opacity-60" />
+        <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-foreground/30 transition-all duration-300 ease-premium group-hover:w-full group-hover:opacity-60" />
       )}
       {isActive && (
         <m.span
           layoutId="nav-active"
-          className="absolute -bottom-1.5 left-0 h-px w-full bg-white/80"
-          transition={{ duration: 0.5, ease: EASE }}
+          className="absolute -bottom-1.5 left-0 h-px w-full bg-foreground/70"
+          transition={{ duration: 0.4, ease: EASE }}
         />
       )}
     </Link>
@@ -117,9 +118,9 @@ export function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 right-0 left-0 z-50 transition-[background-color,box-shadow,border-color,backdrop-filter] duration-700 ease-premium ${
+        className={`fixed top-0 right-0 left-0 z-50 transition-[background-color,box-shadow,border-color,backdrop-filter] duration-500 ease-premium ${
           isSolid
-            ? "border-b border-white/[0.08] bg-[#0a0a0a]/82 shadow-[0_1px_0_rgba(255,255,255,0.04)_inset,0_12px_48px_rgba(0,0,0,0.38)] backdrop-blur-2xl backdrop-saturate-150"
+            ? "border-b border-[var(--navbar-border)] bg-[var(--navbar-bg)] shadow-[var(--shadow-md)] backdrop-blur-2xl backdrop-saturate-150"
             : "border-b border-transparent bg-transparent"
         }`}
       >
@@ -129,7 +130,7 @@ export function Navbar() {
         >
           <Link
             href="/"
-            className="inline-flex min-h-11 items-center font-display text-[15px] tracking-[0.18em] text-white uppercase transition-opacity duration-500 ease-premium hover:opacity-65 lg:text-base lg:tracking-[0.22em]"
+            className="inline-flex min-h-11 items-center font-display text-[15px] tracking-[0.18em] text-foreground uppercase transition-opacity duration-300 ease-premium hover:opacity-65 lg:text-base lg:tracking-[0.22em]"
           >
             {siteConfig.name}
           </Link>
@@ -146,18 +147,23 @@ export function Navbar() {
               ))}
             </div>
 
-            <span className="mx-8 h-4 w-px bg-white/10" aria-hidden="true" />
+            <span className="mx-6 h-4 w-px bg-border" aria-hidden="true" />
+
+            <ThemeToggle className="mr-4" />
 
             <Link
               href="/kontakt"
-              className={`${navCtaClass} ${isKontaktActive ? "border-white bg-white text-[#0a0a0a]" : ""}`}
+              className={`${navCtaClass} ${isKontaktActive ? "border-foreground bg-primary text-primary-foreground" : ""}`}
               aria-current={isKontaktActive ? "page" : undefined}
             >
               Kontakt mig
             </Link>
           </div>
 
-          <MenuToggle open={mobileOpen} onClick={() => setMobileOpen(!mobileOpen)} />
+          <div className="flex items-center gap-2 md:hidden">
+            <ThemeToggle />
+            <MenuToggle open={mobileOpen} onClick={() => setMobileOpen(!mobileOpen)} />
+          </div>
         </nav>
       </header>
 
@@ -167,10 +173,11 @@ export function Navbar() {
             initial={prefersReducedMotion ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={prefersReducedMotion ? undefined : { opacity: 0 }}
-            transition={{ duration: 0.45, ease: EASE }}
-            className="fixed inset-0 z-40 flex flex-col bg-[#0a0a0a]/97 backdrop-blur-2xl will-change-opacity md:hidden"
+            transition={{ duration: 0.35, ease: EASE }}
+            className="fixed inset-0 z-40 flex flex-col bg-[var(--overlay)] backdrop-blur-2xl will-change-opacity md:hidden"
           >
-            <div className="flex h-[72px] items-center justify-end px-6">
+            <div className="flex h-[72px] items-center justify-end gap-2 px-6">
+              <ThemeToggle />
               <MenuToggle open={mobileOpen} onClick={() => setMobileOpen(false)} />
             </div>
 
@@ -187,15 +194,15 @@ export function Navbar() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{
                       delay: prefersReducedMotion ? 0 : 0.06 + i * 0.05,
-                      duration: 0.55,
+                      duration: 0.45,
                       ease: EASE,
                     }}
                     className="will-change-transform"
                   >
                     <Link
                       href={link.href}
-                      className={`flex min-h-11 items-center font-display text-3xl font-light tracking-[0.12em] uppercase transition-colors duration-500 ease-premium ${
-                        isActive ? "text-white" : "text-white/35 hover:text-white/75"
+                      className={`flex min-h-11 items-center font-display text-3xl font-light tracking-[0.12em] uppercase transition-colors duration-300 ease-premium ${
+                        isActive ? "text-foreground" : "text-muted hover:text-foreground/75"
                       }`}
                       aria-current={isActive ? "page" : undefined}
                     >
@@ -210,7 +217,7 @@ export function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                   delay: prefersReducedMotion ? 0 : 0.3,
-                  duration: 0.55,
+                  duration: 0.45,
                   ease: EASE,
                 }}
                 className="mt-6"
@@ -218,7 +225,7 @@ export function Navbar() {
                 <Link
                   href="/kontakt"
                   className={`${navCtaClass} px-10 py-3.5 text-[11px] tracking-[0.3em] ${
-                    isKontaktActive ? "border-white bg-white text-[#0a0a0a]" : ""
+                    isKontaktActive ? "border-foreground bg-primary text-primary-foreground" : ""
                   }`}
                   aria-current={isKontaktActive ? "page" : undefined}
                 >

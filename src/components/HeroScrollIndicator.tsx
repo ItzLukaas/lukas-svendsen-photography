@@ -9,10 +9,10 @@ export function HeroScrollIndicator() {
       aria-hidden="true"
     >
       <div className="flex flex-col items-center gap-2.5">
-        <span className="text-[10px] tracking-[0.3em] text-white/40 uppercase">
+        <span className="text-[10px] tracking-[0.3em] text-muted uppercase">
           Scroll
         </span>
-        <ChevronDown size={14} strokeWidth={1.5} className="text-white/30" />
+        <ChevronDown size={14} strokeWidth={1.5} className="text-muted-subtle" />
       </div>
     </div>
   );

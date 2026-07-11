@@ -76,7 +76,7 @@ export default async function ReferencePage({ params }: PageProps) {
           coverImage: reference.coverImage,
         })}
       />
-      <div className="min-h-screen bg-[#0a0a0a]">
+      <div className="min-h-screen bg-background">
         <ReferenceTemplate reference={reference} />
       </div>
     </>

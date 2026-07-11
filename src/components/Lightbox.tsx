@@ -65,13 +65,13 @@ export function Lightbox({ photo, photos, onClose, onNavigate }: LightboxProps) 
             className="flex shrink-0 items-center justify-between px-4 py-3 sm:px-8 sm:py-4"
             onClick={(e) => e.stopPropagation()}
           >
-            <p className="text-xs tracking-[0.25em] text-white/35 uppercase">
+            <p className="text-xs tracking-[0.25em] text-muted uppercase">
               {currentIndex + 1} / {photos.length}
             </p>
             <button
               onClick={onClose}
               aria-label="Luk"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-white/50 transition-all duration-500 ease-premium hover:border-white/25 hover:text-white"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-muted transition-all duration-500 ease-premium hover:border-foreground/20 hover:text-foreground"
             >
               <X size={20} strokeWidth={1.5} />
             </button>
@@ -85,7 +85,7 @@ export function Lightbox({ photo, photos, onClose, onNavigate }: LightboxProps) 
                   goPrev();
                 }}
                 aria-label="Forrige billede"
-                className="absolute left-2 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-black/40 text-white/40 backdrop-blur-sm transition-all duration-500 ease-premium hover:border-white/25 hover:text-white sm:left-6 sm:h-12 sm:w-12"
+                className="absolute left-2 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-border bg-black/40 text-muted backdrop-blur-sm transition-all duration-500 ease-premium hover:border-foreground/20 hover:text-foreground sm:left-6 sm:h-12 sm:w-12"
               >
                 <ChevronLeft size={24} strokeWidth={1.5} />
               </button>
@@ -98,7 +98,7 @@ export function Lightbox({ photo, photos, onClose, onNavigate }: LightboxProps) 
                   goNext();
                 }}
                 aria-label="Næste billede"
-                className="absolute right-2 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-black/40 text-white/40 backdrop-blur-sm transition-all duration-500 ease-premium hover:border-white/25 hover:text-white sm:right-6 sm:h-12 sm:w-12"
+                className="absolute right-2 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-border bg-black/40 text-muted backdrop-blur-sm transition-all duration-500 ease-premium hover:border-foreground/20 hover:text-foreground sm:right-6 sm:h-12 sm:w-12"
               >
                 <ChevronRight size={24} strokeWidth={1.5} />
               </button>

@@ -24,7 +24,7 @@ export default function YdelserIndexPage() {
           path: "/ydelser",
         })}
       />
-      <div className="min-h-screen bg-[#0a0a0a] pt-28">
+      <div className="min-h-screen bg-background pt-28">
         <ServicesSection />
       </div>
     </>

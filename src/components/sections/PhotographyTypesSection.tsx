@@ -16,7 +16,7 @@ export function PhotographyTypesSection() {
     <Section>
       <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
         <ScrollReveal className="relative order-2 lg:order-1 lg:sticky lg:top-32">
-          <div className="relative aspect-[4/5] overflow-hidden bg-[#111] sm:aspect-[5/6]">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-md bg-[var(--image-placeholder)] sm:aspect-[5/6]">
             <Image
               src="/images/IMG_3454.webp"
               alt="Lukas Svendsen — ung fotograf og videoproducent ved kamera"
@@ -34,7 +34,7 @@ export function PhotographyTypesSection() {
             <AnimatedHeading className={sectionHeading}>
               Hvad jeg tilbyder som fotograf
             </AnimatedHeading>
-            <p className="mt-5 max-w-lg text-sm leading-relaxed text-white/55 md:text-[0.95rem] md:leading-[1.7]">
+            <p className="mt-5 max-w-lg text-sm leading-relaxed text-muted md:text-[0.95rem] md:leading-[1.7]">
               Jeg hjælper med at skabe stærkt visuelt indhold gennem fotografering, videoproduktion og
               droneflyvning til mange forskellige formål. Se eksemplerne i kategorierne herunder, og
               kontakt mig gerne, hvis din opgave ikke står på listen — jeg tager gerne imod nye idéer og
@@ -42,7 +42,7 @@ export function PhotographyTypesSection() {
             </p>
           </ScrollReveal>
 
-          <div className="mt-8 divide-y divide-white/[0.06] border-y border-white/[0.06]">
+          <div className="mt-8 divide-y divide-white/[0.06] border-y border-foreground/[0.06]">
             {photographyTypes.map((type, index) => {
               const isOpen = openIndex === index;
 
@@ -58,20 +58,20 @@ export function PhotographyTypesSection() {
                       <div>
                         <h3
                           className={`font-display text-lg font-light transition-colors duration-500 ease-premium sm:text-xl ${
-                            isOpen ? "text-white" : "text-white/80 group-hover:text-white"
+                            isOpen ? "text-foreground" : "text-foreground/80 group-hover:text-foreground"
                           }`}
                         >
                           {type.title}
                         </h3>
-                        <p className="mt-1.5 max-w-md text-xs leading-relaxed text-white/50">
+                        <p className="mt-1.5 max-w-md text-xs leading-relaxed text-muted">
                           {type.description}
                         </p>
                       </div>
                       <ChevronDown
                         size={16}
                         strokeWidth={1.5}
-                        className={`mt-1 shrink-0 text-white/40 transition-transform duration-500 ease-premium ${
-                          isOpen ? "rotate-180 text-white/70" : "group-hover:text-white/60"
+                        className={`mt-1 shrink-0 text-muted transition-transform duration-500 ease-premium ${
+                          isOpen ? "rotate-180 text-foreground/70" : "group-hover:text-foreground/60"
                         }`}
                         aria-hidden="true"
                       />
@@ -87,9 +87,9 @@ export function PhotographyTypesSection() {
                           {type.examples.map((example) => (
                             <li
                               key={example}
-                              className="flex items-center gap-3 text-xs text-white/50"
+                              className="flex items-center gap-3 text-xs text-muted"
                             >
-                              <span className="h-px w-4 shrink-0 bg-white/20" aria-hidden="true" />
+                              <span className="h-px w-4 shrink-0 bg-primary/20" aria-hidden="true" />
                               {example}
                             </li>
                           ))}

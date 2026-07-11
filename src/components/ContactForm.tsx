@@ -23,7 +23,7 @@ function FormField({
     <div>
       <label
         htmlFor={id}
-        className="mb-2.5 block text-xs tracking-widest text-white/40 uppercase transition-colors duration-500 ease-premium peer-focus:text-white/60"
+        className="mb-2.5 block text-xs tracking-widest text-muted uppercase transition-colors duration-500 ease-premium peer-focus:text-foreground/60"
       >
         {label}
       </label>
@@ -38,10 +38,10 @@ function FormField({
 }
 
 const inputClass =
-  "peer w-full border-b border-white/10 bg-transparent px-0 py-3.5 text-white placeholder-white/20 transition-[color,border-color] duration-500 ease-premium focus:border-white/20 focus:outline-none";
+  "peer w-full border-b border-border bg-transparent px-0 py-3.5 text-foreground placeholder-white/20 transition-[color,border-color] duration-500 ease-premium focus:border-foreground/20 focus:outline-none";
 
 const textareaClass =
-  "w-full resize-none border-0 bg-transparent px-0 py-3.5 text-white placeholder-white/20 transition-[color] duration-500 ease-premium focus:outline-none";
+  "w-full resize-none border-0 bg-transparent px-0 py-3.5 text-foreground placeholder-white/20 transition-[color] duration-500 ease-premium focus:outline-none";
 
 export function ContactForm() {
   const prefersReducedMotion = useReducedMotion();
@@ -105,12 +105,12 @@ export function ContactForm() {
             initial={prefersReducedMotion ? false : { scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.1, duration: 0.5, ease: EASE }}
-            className="mb-7 flex h-16 w-16 items-center justify-center rounded-full border border-white/20 bg-white/5 will-change-transform"
+            className="mb-7 flex h-16 w-16 items-center justify-center rounded-full border border-foreground/20 bg-accent will-change-transform"
           >
-            <Check size={24} strokeWidth={1.5} className="text-white" />
+            <Check size={24} strokeWidth={1.5} className="text-foreground" />
           </m.div>
-          <h3 className="font-display text-2xl text-white">Tak for din besked!</h3>
-          <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/50">
+          <h3 className="font-display text-2xl text-foreground">Tak for din besked!</h3>
+          <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
             Jeg vender tilbage til dig hurtigst muligt. Glæder mig til at høre fra dig.
           </p>
         </m.div>

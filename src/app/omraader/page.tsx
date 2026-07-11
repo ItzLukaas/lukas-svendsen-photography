@@ -56,7 +56,7 @@ export default function OmraaderPage() {
           path: "/omraader",
         })}
       />
-      <div className="min-h-screen bg-[#0a0a0a] pt-28">
+      <div className="min-h-screen bg-background pt-28">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-24">
           <Breadcrumbs
             items={[
@@ -80,7 +80,7 @@ export default function OmraaderPage() {
               <section key={region} aria-labelledby={`region-${region}`}>
                 <h2
                   id={`region-${region}`}
-                  className="text-xs tracking-[0.25em] text-white/50 uppercase"
+                  className="text-xs tracking-[0.25em] text-muted uppercase"
                 >
                   {region}
                 </h2>
@@ -89,7 +89,7 @@ export default function OmraaderPage() {
                     <li key={city.slug}>
                       <Link
                         href={cityPath(city)}
-                        className="inline-flex min-h-11 items-center text-sm text-white/55 transition-colors duration-500 ease-premium hover:text-white"
+                        className="inline-flex min-h-11 items-center text-sm text-muted transition-colors duration-500 ease-premium hover:text-foreground"
                       >
                         {city.h1}
                       </Link>
@@ -100,8 +100,8 @@ export default function OmraaderPage() {
             ))}
           </div>
 
-          <div className="mt-20 border-t border-white/[0.06] pt-14 text-center">
-            <p className="font-display text-xl font-light text-white sm:text-2xl">
+          <div className="mt-20 border-t border-foreground/[0.06] pt-14 text-center">
+            <p className="font-display text-xl font-light text-foreground sm:text-2xl">
               Dit område står ikke på listen?
             </p>
             <p className={`mx-auto mt-4 max-w-md ${sectionBody}`}>

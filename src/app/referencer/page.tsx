@@ -71,7 +71,7 @@ export default function ReferencerPage() {
   return (
     <>
       <ReferencesJsonLd />
-      <div className="min-h-screen bg-[#0a0a0a]">
+      <div className="min-h-screen bg-background">
         <section className="px-6 pt-36 pb-20 lg:px-8 lg:pt-44 lg:pb-28">
           <div className="mx-auto max-w-4xl text-center">
             <Breadcrumbs
@@ -84,7 +84,7 @@ export default function ReferencerPage() {
               <p className={sectionLabel}>Projekter</p>
               <AnimatedHeading
                 as="h1"
-                className="font-display text-4xl font-light leading-tight text-white md:text-5xl lg:text-6xl"
+                className="font-display text-4xl font-light leading-tight text-foreground md:text-5xl lg:text-6xl"
               >
                 {referencesPageMeta.heroTitle}
               </AnimatedHeading>
@@ -95,7 +95,7 @@ export default function ReferencerPage() {
           </div>
         </section>
 
-        <section className="border-t border-white/5 px-6 py-20 lg:px-8 lg:py-28">
+        <section className="border-t border-foreground/5 px-6 py-20 lg:px-8 lg:py-28">
           <div className="mx-auto grid max-w-7xl items-stretch gap-8 lg:grid-cols-3 lg:gap-10">
             {orderedReferences.map((reference, index) => (
               <ReferenceCard

@@ -16,25 +16,25 @@ export function Breadcrumbs({ items }: BreadcrumbsProps) {
     <>
       <JsonLd data={breadcrumbJsonLd(items)} />
       <nav aria-label="Brødkrummesti" className="mb-10">
-        <ol className="flex flex-wrap items-center gap-2 text-xs tracking-wide text-white/35">
+        <ol className="flex flex-wrap items-center gap-2 text-xs tracking-wide text-muted">
           {items.map((item, index) => {
             const isLast = index === items.length - 1;
 
             return (
               <li key={item.path} className="flex items-center gap-2">
                 {index > 0 && (
-                  <span aria-hidden="true" className="text-white/20">
+                  <span aria-hidden="true" className="text-muted-subtle">
                     /
                   </span>
                 )}
                 {isLast ? (
-                  <span aria-current="page" className="text-white/55">
+                  <span aria-current="page" className="text-muted">
                     {item.name}
                   </span>
                 ) : (
                   <Link
                     href={item.path}
-                    className="transition-colors duration-500 ease-premium hover:text-white/70"
+                    className="transition-colors duration-500 ease-premium hover:text-foreground/70"
                   >
                     {item.name}
                   </Link>

@@ -12,7 +12,7 @@ export function FinalCtaSection() {
         <p className={sectionLabel}>Lad os tale sammen</p>
         <AnimatedHeading
           as="h2"
-          className="font-display text-3xl font-light leading-tight text-white md:text-4xl lg:text-5xl"
+          className="font-display text-3xl font-light leading-tight text-foreground md:text-4xl lg:text-5xl"
         >
           Har du et projekt i tankerne?
         </AnimatedHeading>

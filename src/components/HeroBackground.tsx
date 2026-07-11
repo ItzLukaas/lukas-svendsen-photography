@@ -79,7 +79,7 @@ export function HeroBackground() {
     : [{ src: HERO_IMAGES[0], imageIndex: 0 }];
 
   return (
-    <div className="absolute inset-0 bg-[#070707]" aria-hidden="true">
+    <div className="absolute inset-0 bg-surface" aria-hidden="true">
       {visibleImages.map(({ src, imageIndex }) => {
         const isActive = carouselEnabled ? imageIndex === index : true;
         const isVisible = carouselEnabled
@@ -115,8 +115,8 @@ export function HeroBackground() {
           </div>
         );
       })}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/55 to-[#0a0a0a]/15" />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_50%,transparent_0%,rgba(10,10,10,0.35)_100%)]" />
+      <div className="pointer-events-none absolute inset-0 hero-overlay-gradient" />
+      <div className="pointer-events-none absolute inset-0 hero-overlay-radial" />
       <div className="pointer-events-none absolute inset-0 hero-vignette" />
 
       {carouselEnabled && (
@@ -129,8 +129,8 @@ export function HeroBackground() {
               key={src}
               className={`h-1 rounded-full transition-all duration-500 ease-premium ${
                 imageIndex === index
-                  ? "w-6 bg-white/75 shadow-[0_0_8px_rgba(255,255,255,0.35)]"
-                  : "w-1 bg-white/25"
+                  ? "w-6 bg-primary/75 shadow-[0_0_8px_rgba(255,255,255,0.35)]"
+                  : "w-1 bg-primary/25"
               }`}
             />
           ))}

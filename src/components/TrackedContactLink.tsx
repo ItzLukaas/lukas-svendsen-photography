@@ -40,7 +40,7 @@ export function TrackedContactLink({
       }
       className="group flex items-center gap-5 transition-colors"
     >
-      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/10 text-white/40 transition-all duration-500 ease-premium group-hover:border-white/25 group-hover:bg-white/5 group-hover:text-white">
+      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-border text-muted transition-all duration-500 ease-premium group-hover:border-foreground/20 group-hover:bg-accent group-hover:text-foreground">
         {icon === "instagram" ? (
           <InstagramIcon size={18} />
         ) : (
@@ -48,8 +48,8 @@ export function TrackedContactLink({
         )}
       </div>
       <div>
-        <p className="text-xs tracking-widest text-white/40 uppercase">{label}</p>
-        <p className="mt-1 text-sm text-white/70 transition-colors duration-500 ease-premium group-hover:text-white">
+        <p className="text-xs tracking-widest text-muted uppercase">{label}</p>
+        <p className="mt-1 text-sm text-foreground/70 transition-colors duration-500 ease-premium group-hover:text-foreground">
           {value}
         </p>
       </div>

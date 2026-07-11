@@ -84,11 +84,11 @@ function StatCounter({
 
   return (
     <div>
-      <p className="font-display text-2xl font-light tabular-nums text-white">
+      <p className="font-display text-2xl font-light tabular-nums text-foreground">
         {count}
         {suffix}
       </p>
-      <p className="mt-1.5 text-xs tracking-widest text-white/40 uppercase">{label}</p>
+      <p className="mt-1.5 text-xs tracking-widest text-muted uppercase">{label}</p>
     </div>
   );
 }

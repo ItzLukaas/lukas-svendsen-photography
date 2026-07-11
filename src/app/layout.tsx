@@ -6,9 +6,11 @@ import { Cookiebot } from "@/components/seo/Cookiebot";
 import { GoogleAnalytics } from "@/components/seo/GoogleAnalytics";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { MotionProvider } from "@/components/providers/MotionProvider";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { siteConfig } from "@/data/photos";
 import { rootGraphJsonLd, standaloneLocalBusinessJsonLd } from "@/lib/json-ld";
 import { defaultIcons } from "@/lib/seo";
+import { themeInitScript } from "@/lib/theme";
 import "./globals.css";
 
 const inter = Inter({
@@ -23,8 +25,11 @@ const inter = Inter({
 const antiFoucScript = `(function(){var d=document.documentElement;if(d.classList.contains("app-ready"))return;function r(){d.classList.add("app-ready")}Promise.race([new Promise(function(e){if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",e,{once:true});else e()}),new Promise(function(e){setTimeout(e,500)})]).then(function(){if(document.fonts&&document.fonts.ready)return document.fonts.ready.then(r,r);r()})})();`;
 
 export const viewport: Viewport = {
-  themeColor: "#0a0a0a",
-  colorScheme: "dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fafafa" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+  ],
+  colorScheme: "light dark",
   width: "device-width",
   initialScale: 1,
 };
@@ -96,6 +101,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <script dangerouslySetInnerHTML={{ __html: antiFoucScript }} />
         <noscript>
           <style dangerouslySetInnerHTML={{ __html: "html{visibility:visible!important}" }} />
@@ -106,16 +112,18 @@ export default function RootLayout({
         <JsonLd data={rootGraphJsonLd()} />
       </head>
       <body
-        className={`${inter.className} grain-overlay bg-[#0a0a0a] text-white antialiased`}
+        className={`${inter.className} grain-overlay bg-background text-foreground antialiased`}
       >
-        <MotionProvider>
-          <a href="#main-content" className="skip-link">
-            Spring til indhold
-          </a>
-          <Navbar />
-          <main id="main-content">{children}</main>
-          <Footer />
-        </MotionProvider>
+        <ThemeProvider>
+          <MotionProvider>
+            <a href="#main-content" className="skip-link">
+              Spring til indhold
+            </a>
+            <Navbar />
+            <main id="main-content">{children}</main>
+            <Footer />
+          </MotionProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

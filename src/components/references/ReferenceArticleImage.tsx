@@ -27,7 +27,7 @@ export function ReferenceArticleImage({
         />
       </div>
       {(caption) && (
-        <figcaption className="mx-auto mt-5 max-w-2xl text-center text-xs tracking-wide text-white/35">
+        <figcaption className="mx-auto mt-5 max-w-2xl text-center text-xs tracking-wide text-muted">
           {caption}
         </figcaption>
       )}

@@ -34,13 +34,13 @@ function DroneIcon({ size = 20 }: { size?: number }) {
 
 export function ServicesSection({ compact = false }: { compact?: boolean }) {
   const titleClass = compact
-    ? "font-display text-[1.65rem] font-light leading-[1.08] text-white sm:text-3xl md:text-[2.25rem] lg:text-4xl xl:text-[2.75rem]"
+    ? "font-display text-[1.65rem] font-light leading-[1.08] text-foreground sm:text-3xl md:text-[2.25rem] lg:text-4xl xl:text-[2.75rem]"
     : sectionTitle;
   const bodyClass = compact
-    ? "text-sm leading-relaxed text-white/55 md:text-[0.95rem] md:leading-[1.7]"
+    ? "text-sm leading-relaxed text-muted md:text-[0.95rem] md:leading-[1.7]"
     : sectionBody;
   const shellClass = compact
-    ? "bg-[#0a0a0a] px-6 py-16 sm:py-20 lg:px-8 lg:py-28"
+    ? "bg-background px-6 py-16 sm:py-20 lg:px-8 lg:py-28"
     : sectionShell;
 
   return (
@@ -69,14 +69,14 @@ export function ServicesSection({ compact = false }: { compact?: boolean }) {
               <Link
                 key={service.title}
                 href={service.href}
-                className={`group flex flex-col border border-white/10 bg-white/[0.02] transition-[transform,box-shadow,border-color,background-color] duration-500 ease-premium hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.04] hover:shadow-[0_12px_40px_rgba(0,0,0,0.35)] ${
+                className={`group flex flex-col rounded-md border border-border bg-card shadow-[var(--shadow-sm)] transition-[transform,box-shadow,border-color,background-color] duration-300 ease-premium hover:-translate-y-1 hover:border-foreground/15 hover:shadow-[var(--shadow-card)] ${
                   compact ? "p-6 lg:p-8" : "p-8 lg:p-10"
                 }`}
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <span
-                      className={`mb-4 flex items-center justify-center rounded-full border border-white/10 text-white/45 transition-all duration-500 ease-premium group-hover:border-white/25 group-hover:text-white/80 ${
+                      className={`mb-4 flex items-center justify-center rounded-full border border-border text-muted transition-all duration-500 ease-premium group-hover:border-foreground/20 group-hover:text-foreground/80 ${
                         compact ? "h-9 w-9" : "h-11 w-11"
                       }`}
                     >
@@ -86,18 +86,18 @@ export function ServicesSection({ compact = false }: { compact?: boolean }) {
                         <DroneIcon size={compact ? 18 : 20} />
                       )}
                     </span>
-                    <p className="text-[10px] tracking-[0.3em] text-white/45 uppercase">
+                    <p className="text-[10px] tracking-[0.3em] text-muted uppercase">
                       Ydelse
                     </p>
                     <h3
-                      className={`mt-2 font-display font-light text-white ${
+                      className={`mt-2 font-display font-light text-foreground ${
                         compact ? "text-xl lg:text-[1.35rem]" : "text-2xl lg:text-[1.65rem]"
                       }`}
                     >
                       {service.title}
                     </h3>
                     <p
-                      className={`mt-2 max-w-xs leading-relaxed text-white/55 ${
+                      className={`mt-2 max-w-xs leading-relaxed text-muted ${
                         compact ? "text-xs" : "text-sm"
                       }`}
                     >
@@ -105,7 +105,7 @@ export function ServicesSection({ compact = false }: { compact?: boolean }) {
                     </p>
                   </div>
                   <span
-                    className={`flex shrink-0 items-center justify-center rounded-full border border-white/15 text-white/60 transition-all duration-500 ease-premium group-hover:border-white/35 group-hover:text-white ${
+                    className={`flex shrink-0 items-center justify-center rounded-full border border-foreground/15 text-foreground/60 transition-all duration-500 ease-premium group-hover:border-foreground/35 group-hover:text-foreground ${
                       compact ? "h-8 w-8" : "h-10 w-10"
                     }`}
                   >

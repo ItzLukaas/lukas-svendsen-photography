@@ -22,13 +22,13 @@ import { EASE } from "@/lib/motion";
 import type { ScheduleSlot, ServiceType } from "@/types/inquiry";
 
 const btnPrimaryCompact =
-  "group inline-flex min-h-10 items-center justify-center gap-2 border border-white px-7 py-2.5 text-[10px] tracking-[0.2em] text-white uppercase transition-[color,background-color,transform,box-shadow,border-color] duration-500 ease-premium hover:-translate-y-px hover:bg-white hover:text-black hover:shadow-[0_0_24px_rgba(255,255,255,0.12)] active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50";
+  "group inline-flex min-h-10 items-center justify-center gap-2 rounded-sm border border-foreground/20 px-7 py-2.5 text-[10px] tracking-[0.2em] text-foreground uppercase transition-[color,background-color,transform,box-shadow,border-color] duration-300 ease-premium hover:-translate-y-px hover:border-foreground hover:bg-primary hover:text-primary-foreground hover:shadow-[var(--shadow-sm)] active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50";
 
 const sectionBodyCompact =
-  "text-sm leading-relaxed text-white/55 md:text-[0.95rem] md:leading-[1.7]";
+  "text-sm leading-relaxed text-muted md:text-[0.95rem] md:leading-[1.7]";
 
 const inputClass =
-  "peer w-full border-b border-white/10 bg-transparent px-0 py-3.5 text-white placeholder-white/20 transition-[color,border-color] duration-500 ease-premium focus:border-white/20 focus:outline-none";
+  "peer w-full border-b border-border bg-transparent px-0 py-3.5 text-foreground placeholder-white/20 transition-[color,border-color] duration-500 ease-premium focus:border-foreground/20 focus:outline-none";
 
 const TOTAL_STEPS = 5;
 
@@ -84,11 +84,11 @@ function FormField({
     <div>
       <label
         htmlFor={id}
-        className="mb-2.5 block text-xs tracking-widest text-white/40 uppercase"
+        className="mb-2.5 block text-xs tracking-widest text-muted uppercase"
       >
         {label}
         {optional && (
-          <span className="ml-2 normal-case tracking-normal text-white/25">
+          <span className="ml-2 normal-case tracking-normal text-muted-subtle">
             (valgfri)
           </span>
         )}
@@ -99,15 +99,15 @@ function FormField({
 }
 
 const textareaClass =
-  "w-full resize-none border-0 bg-transparent px-0 py-3.5 text-white placeholder-white/20 transition-colors duration-500 ease-premium focus:outline-none";
+  "w-full resize-none border-0 bg-transparent px-0 py-3.5 text-foreground placeholder-white/20 transition-colors duration-500 ease-premium focus:outline-none";
 
 export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
   const prefersReducedMotion = useReducedMotion();
   const bodyClass = embedded ? sectionBodyCompact : sectionBody;
   const primaryBtnClass = embedded ? btnPrimaryCompact : btnPrimary;
   const stepHeadingClass = embedded
-    ? "font-display text-xl font-light text-white md:text-2xl"
-    : "font-display text-2xl font-light text-white md:text-3xl";
+    ? "font-display text-xl font-light text-foreground md:text-2xl"
+    : "font-display text-2xl font-light text-foreground md:text-3xl";
   const [step, setStep] = useState(1);
   const [form, setForm] = useState<FormState>(initialState);
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -257,14 +257,14 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
         className={`flex flex-col items-center text-center ${embedded ? "py-12" : "py-16"}`}
       >
         <div
-          className={`mb-5 flex items-center justify-center rounded-full border border-white/25 bg-white/[0.06] shadow-[0_0_40px_rgba(255,255,255,0.06)] ${
+          className={`mb-5 flex items-center justify-center rounded-full border border-foreground/20 bg-primary/[0.06] shadow-[0_0_40px_rgba(255,255,255,0.06)] ${
             embedded ? "h-14 w-14" : "h-16 w-16"
           }`}
         >
-          <Check size={embedded ? 20 : 24} strokeWidth={1.5} className="text-white" />
+          <Check size={embedded ? 20 : 24} strokeWidth={1.5} className="text-foreground" />
         </div>
         <h3
-          className={`font-display font-light text-white ${embedded ? "text-xl" : "text-2xl"}`}
+          className={`font-display font-light text-foreground ${embedded ? "text-xl" : "text-2xl"}`}
         >
           Tak for din forespørgsel
         </h3>
@@ -278,7 +278,7 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
   return (
     <div
       className={
-        embedded ? "p-0" : "border border-white/8 bg-white/[0.02] p-8 lg:p-12"
+        embedded ? "p-0" : "border border-border bg-accent p-8 lg:p-12"
       }
     >
       <InquiryProgress currentStep={step} compact={embedded} />
@@ -317,8 +317,8 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
                         embedded ? "p-4" : "p-6"
                       } ${
                         selected
-                          ? "border-white/35 bg-white/[0.06] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]"
-                          : "border-white/10 bg-white/[0.01] hover:border-white/20 hover:bg-white/[0.03]"
+                          ? "border-foreground/35 bg-primary/[0.06] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]"
+                          : "border-border bg-primary/[0.01] hover:border-foreground/20 hover:bg-accent"
                       }`}
                     >
                       <span
@@ -326,16 +326,16 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
                           embedded ? "mb-3 h-9 w-9" : "mb-5 h-11 w-11"
                         } ${
                           selected
-                            ? "border-white/30 bg-white/[0.08] text-white"
-                            : "border-white/10 text-white/40 group-hover:border-white/20 group-hover:text-white/70"
+                            ? "border-foreground/30 bg-primary/[0.08] text-foreground"
+                            : "border-border text-muted group-hover:border-foreground/20 group-hover:text-foreground/70"
                         }`}
                       >
                         <Icon size={embedded ? 16 : 18} strokeWidth={1.5} />
                       </span>
-                      <span className={`tracking-wide text-white ${embedded ? "text-xs" : "text-sm"}`}>
+                      <span className={`tracking-wide text-foreground ${embedded ? "text-xs" : "text-sm"}`}>
                         {service.label}
                       </span>
-                      <span className={`mt-1.5 leading-relaxed text-white/40 ${embedded ? "text-[11px]" : "text-xs"}`}>
+                      <span className={`mt-1.5 leading-relaxed text-muted ${embedded ? "text-[11px]" : "text-xs"}`}>
                         {service.description}
                       </span>
                     </button>
@@ -369,8 +369,8 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
                         : "min-h-11 px-5 py-2.5 text-xs tracking-[0.15em]"
                     } ${
                       form.category === cat
-                        ? "border-white/40 bg-white/10 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]"
-                        : "border-white/10 bg-white/[0.02] text-white/50 hover:border-white/25 hover:text-white/80"
+                        ? "border-foreground/40 bg-accent-strong text-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]"
+                        : "border-border bg-accent text-muted hover:border-foreground/20 hover:text-foreground/80"
                     }`}
                   >
                     {cat}
@@ -416,7 +416,7 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
                   onChange={(e) => update("flexibleSchedule", e.target.checked)}
                   className="h-4 w-4 accent-white"
                 />
-                <span className={`text-white/60 ${embedded ? "text-xs" : "text-sm"}`}>
+                <span className={`text-foreground/60 ${embedded ? "text-xs" : "text-sm"}`}>
                   Jeg er fleksibel med dato og tidspunkt
                 </span>
               </label>
@@ -426,7 +426,7 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
                   {form.schedule.map((slot, index) => (
                     <div
                       key={index}
-                      className="grid gap-4 rounded-sm border border-white/10 bg-white/[0.02] p-5 sm:grid-cols-[1fr_auto_auto_auto]"
+                      className="grid gap-4 rounded-sm border border-border bg-accent p-5 sm:grid-cols-[1fr_auto_auto_auto]"
                     >
                       <FormField id={`date-${index}`} label="Dato">
                         <input
@@ -477,7 +477,7 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
                               form.schedule.filter((_, i) => i !== index),
                             )
                           }
-                          className="flex h-11 w-11 self-end items-center justify-center text-white/30 transition-colors hover:text-white/60"
+                          className="flex h-11 w-11 self-end items-center justify-center text-muted-subtle transition-colors hover:text-foreground/60"
                           aria-label="Fjern dato"
                         >
                           <Trash2 size={16} strokeWidth={1.5} />
@@ -493,7 +493,7 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
                         { date: "", startTime: "17:00", endTime: "23:00" },
                       ])
                     }
-                    className="inline-flex min-h-11 items-center gap-2 text-xs tracking-[0.2em] text-white/50 uppercase transition-colors hover:text-white"
+                    className="inline-flex min-h-11 items-center gap-2 text-xs tracking-[0.2em] text-muted uppercase transition-colors hover:text-foreground"
                   >
                     <Plus size={14} strokeWidth={1.5} />
                     Tilføj dato
@@ -602,7 +602,7 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
                 Gennemgå dine oplysninger inden afsendelse.
               </p>
               <dl
-                className={`space-y-4 rounded-sm border border-white/10 bg-white/[0.02] ${
+                className={`space-y-4 rounded-sm border border-border bg-accent ${
                   embedded ? "mt-7 p-5 sm:p-6" : "mt-10 p-6 sm:p-8"
                 }`}
               >
@@ -639,17 +639,17 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
                   ],
                 ].map(([label, value]) => (
                   <div key={label} className="grid gap-1 sm:grid-cols-[140px_1fr]">
-                    <dt className="text-[10px] tracking-[0.25em] text-white/35 uppercase">
+                    <dt className="text-[10px] tracking-[0.25em] text-muted uppercase">
                       {label}
                     </dt>
-                    <dd className={`whitespace-pre-line text-white/70 ${embedded ? "text-xs" : "text-sm"}`}>{value}</dd>
+                    <dd className={`whitespace-pre-line text-foreground/70 ${embedded ? "text-xs" : "text-sm"}`}>{value}</dd>
                   </div>
                 ))}
                 <div className="grid gap-1 sm:grid-cols-[140px_1fr]">
-                  <dt className="text-[10px] tracking-[0.25em] text-white/35 uppercase">
+                  <dt className="text-[10px] tracking-[0.25em] text-muted uppercase">
                     Beskrivelse
                   </dt>
-                  <dd className={`leading-relaxed text-white/70 ${embedded ? "text-xs" : "text-sm"}`}>
+                  <dd className={`leading-relaxed text-foreground/70 ${embedded ? "text-xs" : "text-sm"}`}>
                     {form.description}
                   </dd>
                 </div>
@@ -663,7 +663,7 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
       </AnimatePresence>
 
       <div
-        className={`flex items-center justify-between gap-4 border-t border-white/[0.08] ${
+        className={`flex items-center justify-between gap-4 border-t border-foreground/[0.08] ${
           embedded ? "mt-8 pt-6" : "mt-12 pt-8"
         }`}
       >
@@ -671,10 +671,10 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
           <button
             type="button"
             onClick={goBack}
-            className={`inline-flex items-center gap-2 uppercase transition-colors hover:text-white ${
+            className={`inline-flex items-center gap-2 uppercase transition-colors hover:text-foreground ${
               embedded
-                ? "min-h-9 text-[10px] tracking-[0.2em] text-white/45"
-                : "min-h-11 text-xs tracking-[0.2em] text-white/45"
+                ? "min-h-9 text-[10px] tracking-[0.2em] text-muted"
+                : "min-h-11 text-xs tracking-[0.2em] text-muted"
             }`}
           >
             <ArrowLeft size={14} strokeWidth={1.5} />

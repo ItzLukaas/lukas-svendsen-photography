@@ -25,7 +25,7 @@ export function VideoproduktionPage({ service, breadcrumbs }: VideoproduktionPag
         })}
       />
 
-      <div className="min-h-screen bg-[#0a0a0a] pt-28">
+      <div className="min-h-screen bg-background pt-28">
         <div className="mx-auto max-w-3xl px-6 py-20 lg:px-8 lg:py-24">
           <Breadcrumbs items={breadcrumbs} />
 
@@ -38,11 +38,11 @@ export function VideoproduktionPage({ service, breadcrumbs }: VideoproduktionPag
           {sections.map((section, index) => (
             <article
               key={section.heading}
-              className={index > 0 ? "mt-16 border-t border-white/[0.06] pt-16 sm:mt-20 sm:pt-20" : undefined}
+              className={index > 0 ? "mt-16 border-t border-foreground/[0.06] pt-16 sm:mt-20 sm:pt-20" : undefined}
             >
               {section.label && <p className={sectionLabel}>{section.label}</p>}
               <h2
-                className={`font-display text-2xl font-light text-white sm:text-3xl${
+                className={`font-display text-2xl font-light text-foreground sm:text-3xl${
                   section.label ? " mt-4" : ""
                 }`}
               >
@@ -55,7 +55,7 @@ export function VideoproduktionPage({ service, breadcrumbs }: VideoproduktionPag
                     key={paragraph}
                     className={
                       index === 0 && paragraphIndex === 0
-                        ? "text-lg leading-[1.8] text-white/70 md:text-[1.125rem]"
+                        ? "text-lg leading-[1.8] text-foreground/70 md:text-[1.125rem]"
                         : sectionBody
                     }
                   >
@@ -65,8 +65,8 @@ export function VideoproduktionPage({ service, breadcrumbs }: VideoproduktionPag
               </div>
 
               {index === 1 && (
-                <blockquote className="my-14 border-l border-white/20 py-1 pl-6 sm:my-16 sm:pl-8">
-                  <p className="font-display text-2xl font-light leading-snug text-white/90 sm:text-3xl sm:leading-[1.25]">
+                <blockquote className="my-14 border-l border-foreground/20 py-1 pl-6 sm:my-16 sm:pl-8">
+                  <p className="font-display text-2xl font-light leading-snug text-foreground/90 sm:text-3xl sm:leading-[1.25]">
                     {PULL_QUOTE}
                   </p>
                 </blockquote>

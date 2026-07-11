@@ -346,7 +346,7 @@ export const siteConfig = {
   location: "Grindsted, Danmark",
   googleMapsUrl: "https://maps.app.goo.gl/iM52xsjg2YYEcbVN9",
   googleMapsEmbedUrl:
-    "https://www.google.com/maps?q=55.7616737,8.9531321&hl=da&z=15&output=embed",
+    "https://www.google.com/maps?q=55.7616737,8.9531321&hl=da&z=16&t=k&output=embed",
   ogImage: "/images/IMG_3454.webp",
   ogImageWidth: 1200,
   ogImageHeight: 1500,

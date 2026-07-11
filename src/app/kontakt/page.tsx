@@ -53,18 +53,6 @@ const contactInfo = [
     href: `tel:${siteConfig.phone.replace(/\s/g, "")}`,
     icon: "phone" as const,
   },
-  {
-    label: "Adresse",
-    value: `${siteConfig.address.streetAddress}, ${siteConfig.address.postalCode} ${siteConfig.address.addressLocality}`,
-    href: siteConfig.googleMapsUrl,
-    icon: "location" as const,
-  },
-  {
-    label: "Instagram",
-    value: siteConfig.instagramHandle,
-    href: siteConfig.instagram,
-    icon: "instagram" as const,
-  },
 ];
 
 export default function KontaktPage() {

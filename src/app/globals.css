@@ -202,13 +202,22 @@ html.app-ready body {
   display: flex;
   width: max-content;
   align-items: center;
+  margin: 0;
+  padding: 0;
+  animation: logo-marquee 52s linear infinite;
+  will-change: transform;
+}
+
+.logo-marquee-segment {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
   gap: var(--marquee-gap);
   margin: 0;
   padding-block: 0.5rem;
   padding-inline: 0;
+  padding-right: var(--marquee-gap);
   list-style: none;
-  animation: logo-marquee 52s linear infinite;
-  will-change: transform;
 }
 
 @media (hover: hover) {
@@ -269,10 +278,18 @@ html.app-ready body {
     flex-wrap: wrap;
     width: 100%;
     justify-content: center;
-    gap: 2rem 2.5rem;
     will-change: auto;
   }
 
+  .logo-marquee-segment {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    gap: 2rem 2.5rem;
+    padding-right: 0;
+  }
+
+  .logo-marquee-segment-duplicate,
   .logo-marquee-item-duplicate {
     display: none;
   }

@@ -18,8 +18,7 @@ function LogoItem({
       alt={client.alt}
       width={client.width}
       height={client.height}
-      loading="lazy"
-      fetchPriority="low"
+      loading="eager"
       sizes="(max-width: 640px) 120px, 160px"
       quality={75}
       className="logo-marquee-img"
@@ -49,19 +48,27 @@ function LogoItem({
 }
 
 export function ClientLogoSlider({ logos }: ClientLogoSliderProps) {
-  const trackLogos = [...logos, ...logos];
-
   return (
     <div className="logo-marquee" aria-label="Kundelogoer">
-      <ul className="logo-marquee-track motion-reduce:animate-none">
-        {trackLogos.map((client, index) => (
-          <LogoItem
-            key={`${client.id}-${index}`}
-            client={client}
-            interactive={index < logos.length}
-          />
+      <div className="logo-marquee-track motion-reduce:animate-none">
+        {[0, 1].map((segment) => (
+          <ul
+            key={segment}
+            className={`logo-marquee-segment${
+              segment > 0 ? " logo-marquee-segment-duplicate" : ""
+            }`}
+            aria-hidden={segment > 0 ? true : undefined}
+          >
+            {logos.map((client) => (
+              <LogoItem
+                key={`${client.id}-${segment}`}
+                client={client}
+                interactive={segment === 0}
+              />
+            ))}
+          </ul>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

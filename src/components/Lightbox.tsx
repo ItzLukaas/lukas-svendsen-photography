@@ -55,12 +55,11 @@ export function Lightbox({ photo, photos, onClose, onNavigate }: LightboxProps) 
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5, ease: EASE }}
-          className="fixed inset-0 z-[100] flex flex-col overflow-hidden bg-black/96 backdrop-blur-md pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]"
+          className="fixed inset-0 z-[100] flex flex-col overflow-hidden bg-black/96 backdrop-blur-md pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] will-change-opacity"
           onClick={onClose}
           role="dialog"
           aria-modal="true"
           aria-label="Billedvisning"
-          style={{ willChange: "opacity" }}
         >
           <div
             className="flex shrink-0 items-center justify-between px-4 py-3 sm:px-8 sm:py-4"
@@ -111,9 +110,8 @@ export function Lightbox({ photo, photos, onClose, onNavigate }: LightboxProps) 
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 12 }}
               transition={{ duration: 0.6, ease: EASE }}
-              className="flex max-h-full w-full max-w-full items-center justify-center"
+              className="flex max-h-full w-full max-w-full items-center justify-center will-change-[transform,opacity]"
               onClick={(e) => e.stopPropagation()}
-              style={{ willChange: "transform, opacity" }}
             >
               <OptimizedImage
                 src={photo.src}

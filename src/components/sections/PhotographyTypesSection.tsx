@@ -32,11 +32,11 @@ export function PhotographyTypesSection() {
           <ScrollReveal>
             <p className={sectionLabel}>Eksempler</p>
             <AnimatedHeading className="font-display text-[1.65rem] font-light leading-[1.08] text-white sm:text-3xl lg:text-4xl">
-              Hvad jeg tilbyder
+              Hvad jeg tilbyder som fotograf
             </AnimatedHeading>
             <p className="mt-5 max-w-lg text-sm leading-relaxed text-white/55 md:text-[0.95rem] md:leading-[1.7]">
               Jeg hjælper med at skabe stærkt visuelt indhold gennem fotografering, videoproduktion og
-              droneoptagelser til mange forskellige formål. Se eksemplerne i kategorierne herunder, og
+              droneflyvning til mange forskellige formål. Se eksemplerne i kategorierne herunder, og
               kontakt mig gerne, hvis din opgave ikke står på listen — jeg tager gerne imod nye idéer og
               udfordringer.
             </p>

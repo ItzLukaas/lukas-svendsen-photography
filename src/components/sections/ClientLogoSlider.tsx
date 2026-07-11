@@ -15,7 +15,7 @@ function LogoItem({
   const image = (
     <Image
       src={client.src}
-      alt={interactive ? client.alt : ""}
+      alt={client.alt}
       width={client.width}
       height={client.height}
       loading="lazy"

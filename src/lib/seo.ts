@@ -84,13 +84,16 @@ export function pageMetadata({
 
 export function homeMetadata(): Metadata {
   const images = buildOgImages();
-  const homeTitle = "Lukas Svendsen | Ung fotograf og videoproducent i Grindsted";
+  const homeTitle =
+    "Fotograf i Grindsted | Fotografering, videoproduktion og droneflyvning";
+  const homeDescription =
+    "Lukas Svendsen er fotograf i Grindsted og Billund. Jeg tilbyder fotografering, videoproduktion og droneflyvning til private, events og virksomheder i Midt- og Syddanmark.";
 
   return {
     title: {
       absolute: homeTitle,
     },
-    description: siteConfig.description,
+    description: homeDescription,
     keywords: [
       "fotograf Grindsted",
       "fotograf Billund",
@@ -105,7 +108,7 @@ export function homeMetadata(): Metadata {
     ],
     openGraph: {
       title: homeTitle,
-      description: siteConfig.description,
+      description: homeDescription,
       url: siteConfig.url,
       type: "website",
       siteName: siteConfig.name,
@@ -115,7 +118,7 @@ export function homeMetadata(): Metadata {
     twitter: {
       card: "summary_large_image",
       title: homeTitle,
-      description: siteConfig.description,
+      description: homeDescription,
       images: images.map((image) => image.url),
     },
     alternates: {

@@ -43,12 +43,11 @@ export function MasonryGallery({ photos, showTitle = false }: MasonryGalleryProp
         <ScrollReveal className="mb-12 text-center">
           <p className={sectionLabel}>Udvalgte øjeblikke</p>
           <h2 className="font-display text-[1.65rem] font-light leading-[1.08] text-white sm:text-3xl md:text-[2.25rem] lg:text-4xl xl:text-[2.75rem]">
-            Et kig på mit arbejde
+            Portefølje — fotograf til events og sport
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-white/50">
-            Et udvalg af øjeblikke fra min portefølje som fotograf og videoproducent — fra sport og
-            events til portrætter og kreative projekter. Se eksempler på min stil, kvalitet og tilgang
-            til visuel fortælling.
+            Et udvalg af øjeblikke fra min portefølje som fotograf — fotografering, videoproduktion og
+            events fra sport og koncerter til portrætter og erhvervsprojekter.
           </p>
         </ScrollReveal>
       )}

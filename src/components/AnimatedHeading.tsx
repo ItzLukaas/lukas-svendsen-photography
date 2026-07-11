@@ -35,7 +35,7 @@ export function AnimatedHeading({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.8, delay, ease: EASE }}
-      style={{ willChange: "transform" }}
+      className="will-change-transform"
     >
       <Tag id={id} className={className}>
         {children}

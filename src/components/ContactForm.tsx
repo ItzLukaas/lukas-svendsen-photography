@@ -99,15 +99,13 @@ export function ContactForm() {
           initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: EASE }}
-          className="flex flex-col items-center justify-center py-20 text-center"
-          style={{ willChange: "transform" }}
+          className="flex flex-col items-center justify-center py-20 text-center will-change-transform"
         >
           <m.div
             initial={prefersReducedMotion ? false : { scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.1, duration: 0.5, ease: EASE }}
-            className="mb-7 flex h-16 w-16 items-center justify-center rounded-full border border-white/20 bg-white/5"
-            style={{ willChange: "transform" }}
+            className="mb-7 flex h-16 w-16 items-center justify-center rounded-full border border-white/20 bg-white/5 will-change-transform"
           >
             <Check size={24} strokeWidth={1.5} className="text-white" />
           </m.div>

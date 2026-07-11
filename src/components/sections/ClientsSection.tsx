@@ -15,7 +15,7 @@ export function ClientsSection() {
           id="clients-heading"
           className="font-display max-w-2xl text-xl font-light leading-tight text-white sm:text-2xl md:text-3xl"
         >
-          Betroet af førende brands
+          Betroet fotograf for førende brands
         </h2>
         <p className="mx-auto mt-4 max-w-lg text-xs leading-relaxed text-white/50 sm:text-sm">
           Samarbejder med private og erhverv i hele Danmark.

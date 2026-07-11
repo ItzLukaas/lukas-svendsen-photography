@@ -9,6 +9,12 @@ import { AnimatedHeading } from "../AnimatedHeading";
 import { sectionLabel } from "@/lib/styles";
 import { EASE } from "@/lib/motion";
 
+const processTimelineArrowClass = [
+  "process-timeline-arrow-0",
+  "process-timeline-arrow-1",
+  "process-timeline-arrow-2",
+] as const;
+
 function ProcessStep({
   step,
   index,
@@ -67,7 +73,7 @@ export function ProcessSection() {
         <ScrollReveal className="max-w-2xl">
           <p className={sectionLabel}>Proces</p>
           <AnimatedHeading className="font-display text-[1.65rem] font-light leading-[1.08] text-white sm:text-3xl lg:text-4xl">
-            Sådan foregår det
+            Fra dit projekt til det færdige resultat
           </AnimatedHeading>
         </ScrollReveal>
         <ScrollReveal delay={0.08} className="mt-5 max-w-md lg:mt-0 lg:text-right">
@@ -92,8 +98,7 @@ export function ProcessSection() {
           {processSteps.slice(0, -1).map((step, index) => (
             <m.span
               key={step.step}
-              className="absolute top-[0.72rem] text-[10px] text-white/25"
-              style={{ left: `${22 + index * 19}%` }}
+              className={`absolute top-[0.72rem] text-[10px] text-white/25 ${processTimelineArrowClass[index]}`}
               initial={{ opacity: 0, x: -4 }}
               animate={animate ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.4, delay: 0.5 + index * 0.15, ease: EASE }}

@@ -168,8 +168,7 @@ export function Navbar() {
             animate={{ opacity: 1 }}
             exit={prefersReducedMotion ? undefined : { opacity: 0 }}
             transition={{ duration: 0.45, ease: EASE }}
-            className="fixed inset-0 z-40 flex flex-col bg-[#0a0a0a]/97 backdrop-blur-2xl md:hidden"
-            style={{ willChange: "opacity" }}
+            className="fixed inset-0 z-40 flex flex-col bg-[#0a0a0a]/97 backdrop-blur-2xl will-change-opacity md:hidden"
           >
             <div className="flex h-[72px] items-center justify-end px-6">
               <MenuToggle open={mobileOpen} onClick={() => setMobileOpen(false)} />
@@ -191,7 +190,7 @@ export function Navbar() {
                       duration: 0.55,
                       ease: EASE,
                     }}
-                    style={{ willChange: "transform" }}
+                    className="will-change-transform"
                   >
                     <Link
                       href={link.href}

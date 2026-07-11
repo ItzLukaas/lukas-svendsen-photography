@@ -23,8 +23,8 @@ export function Hero() {
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-20 pt-28 lg:px-10 lg:pb-24 lg:pt-36">
         <div className="hero-content-rise max-w-3xl">
           <h1 className={`${heroTitleCompact} text-balance`}>
-            <span className="block">Ung, 16-årig fotograf</span>
-            <span className="block">og videoproducent</span>
+            <span className="block">Ung fotograf i Grindsted</span>
+            <span className="block">Fotografering, videoproduktion og droneflyvning</span>
           </h1>
 
           <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:items-center">

@@ -3,14 +3,13 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { ArrowRight } from "lucide-react";
 import { Hero } from "@/components/Hero";
-import { MasonryGallery } from "@/components/MasonryGallery";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { ClientsSection } from "@/components/sections/ClientsSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { HomeInternalLinks } from "@/components/seo/HomeInternalLinks";
 import { featuredPhotos, siteConfig } from "@/data/photos";
 import { homeJsonLd } from "@/lib/json-ld";
 import { sectionDivider } from "@/lib/styles";
+import { GallerySkeleton } from "@/components/ui/GallerySkeleton";
 
 const homeSectionShell =
   "bg-[#0a0a0a] px-6 py-16 sm:py-20 lg:px-8 lg:py-28";
@@ -20,6 +19,21 @@ export const metadata: Metadata = homeMetadata();
 
 /** Færre billeder på forsiden = færre HTTP-requests ved første load */
 const HOME_FEATURED_COUNT = 9;
+
+const ClientsSection = dynamic(
+  () =>
+    import("@/components/sections/ClientsSection").then((mod) => ({
+      default: mod.ClientsSection,
+    })),
+);
+
+const MasonryGallery = dynamic(
+  () =>
+    import("@/components/MasonryGallery").then((mod) => ({
+      default: mod.MasonryGallery,
+    })),
+  { loading: () => <GallerySkeleton /> },
+);
 
 const PhotographyTypesSection = dynamic(() =>  import("@/components/sections/PhotographyTypesSection").then((mod) => ({
     default: mod.PhotographyTypesSection,

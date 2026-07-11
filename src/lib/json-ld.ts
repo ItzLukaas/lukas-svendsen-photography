@@ -24,10 +24,27 @@ function absoluteUrl(path: string) {
 function postalAddress() {
   return {
     "@type": "PostalAddress" as const,
+    ...(siteConfig.address.streetAddress
+      ? { streetAddress: siteConfig.address.streetAddress }
+      : {}),
     addressLocality: siteConfig.address.addressLocality,
     addressRegion: siteConfig.address.addressRegion,
     postalCode: siteConfig.address.postalCode,
     addressCountry: siteConfig.address.addressCountry,
+  };
+}
+
+function sameAsProfiles() {
+  return [siteConfig.instagram, siteConfig.linkedin].filter(Boolean);
+}
+
+function businessLogo() {
+  return {
+    "@type": "ImageObject" as const,
+    url: absoluteUrl("/icon"),
+    width: 32,
+    height: 32,
+    caption: `${siteConfig.name} logo`,
   };
 }
 
@@ -72,6 +89,21 @@ type LocalBusinessOptions = {
   description?: string;
 };
 
+/** Standalone LocalBusiness — detected by SEO audit tools that expect top-level @type */
+export function standaloneLocalBusinessJsonLd() {
+  const business = primaryLocalBusinessJsonLd();
+
+  return {
+    "@context": "https://schema.org",
+    ...business,
+    "@type": "LocalBusiness",
+    additionalType: [
+      "https://schema.org/ProfessionalService",
+      "https://schema.org/Photographer",
+    ],
+  };
+}
+
 /** Primary LocalBusiness entity — used site-wide in layout */
 export function primaryLocalBusinessJsonLd(options: LocalBusinessOptions = {}) {
   const areaServed = siteConfig.areaServed.map((city) => ({
@@ -86,7 +118,7 @@ export function primaryLocalBusinessJsonLd(options: LocalBusinessOptions = {}) {
     alternateName: siteConfig.name,
     url: options.url ?? siteConfig.url,
     image: [absoluteUrl(siteConfig.ogImage)],
-    logo: absoluteUrl("/icon"),
+    logo: businessLogo(),
     description: options.description ?? siteConfig.description,
     telephone: siteConfig.phone,
     email: siteConfig.email,
@@ -99,7 +131,7 @@ export function primaryLocalBusinessJsonLd(options: LocalBusinessOptions = {}) {
     founder: { "@id": `${siteConfig.url}/#person` },
     parentOrganization: { "@id": `${siteConfig.url}/#organization` },
     contactPoint: contactPoint(),
-    sameAs: [siteConfig.instagram],
+    sameAs: sameAsProfiles(),
     knowsAbout: siteConfig.services,
     hasOfferCatalog: offerCatalog(),
     inLanguage: "da-DK",
@@ -126,7 +158,7 @@ export function localBusinessJsonLd({
     alternateName: `Fotograf ${cityName}`,
     url: pageUrl,
     image: [absoluteUrl(siteConfig.ogImage)],
-    logo: absoluteUrl("/icon"),
+    logo: businessLogo(),
     description,
     telephone: siteConfig.phone,
     email: siteConfig.email,
@@ -139,7 +171,7 @@ export function localBusinessJsonLd({
       name: cityName,
     },
     contactPoint: contactPoint(cityName),
-    sameAs: [siteConfig.instagram],
+    sameAs: sameAsProfiles(),
     knowsAbout: siteConfig.services,
     hasOfferCatalog: offerCatalog(),
     founder: { "@id": `${siteConfig.url}/#person` },
@@ -238,7 +270,7 @@ export function rootGraphJsonLd() {
         email: siteConfig.email,
         telephone: siteConfig.phone,
         address: postalAddress(),
-        sameAs: [siteConfig.instagram],
+        sameAs: sameAsProfiles(),
         worksFor: { "@id": `${siteConfig.url}/#organization` },
       },
       {
@@ -246,13 +278,13 @@ export function rootGraphJsonLd() {
         "@id": `${siteConfig.url}/#organization`,
         name: siteConfig.name,
         url: siteConfig.url,
-        logo: absoluteUrl("/icon"),
+        logo: businessLogo(),
         image: absoluteUrl(siteConfig.ogImage),
         description: siteConfig.description,
         email: siteConfig.email,
         telephone: siteConfig.phone,
         address: postalAddress(),
-        sameAs: [siteConfig.instagram],
+        sameAs: sameAsProfiles(),
         contactPoint: contactPoint(),
         areaServed: siteConfig.areaServed.map((city) => ({
           "@type": "City" as const,
@@ -283,7 +315,7 @@ export function homeJsonLd() {
         "@type": "ProfilePage",
         "@id": `${siteConfig.url}/#webpage`,
         url: siteConfig.url,
-        name: "Lukas Svendsen | Ung fotograf og videoproducent i Grindsted",
+        name: "Fotograf i Grindsted | Fotografering, videoproduktion og droneflyvning",
         description: siteConfig.description,
         inLanguage: "da-DK",
         isPartOf: { "@id": `${siteConfig.url}/#website` },

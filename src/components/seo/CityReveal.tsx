@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
-import { EASE_CSS } from "@/lib/motion";
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 
 type CityRevealProps = {
   children: ReactNode;
@@ -42,13 +41,12 @@ export function CityReveal({ children, className = "", delay = 0 }: CityRevealPr
   return (
     <div
       ref={ref}
-      className={className}
-      style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(22px)",
-        transition: `opacity 0.75s ${EASE_CSS} ${delayMs}ms, transform 0.75s ${EASE_CSS} ${delayMs}ms`,
-        willChange: visible ? "auto" : "transform, opacity",
-      }}
+      className={`city-reveal ${visible ? "is-visible" : ""} ${className}`}
+      style={
+        delayMs > 0
+          ? ({ "--city-reveal-delay": `${delayMs}ms` } as CSSProperties)
+          : undefined
+      }
     >
       {children}
     </div>

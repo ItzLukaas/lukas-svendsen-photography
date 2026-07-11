@@ -335,7 +335,7 @@ export const siteConfig = {
   name: "Lukas Svendsen",
   title: "Lukas Svendsen | Fotograf, Videograf & Dronepilot",
   description:
-    "Fotograf, videograf og dronepilot i Grindsted og Billund. Fotografering, sportsfoto, erhvervsfoto, videoproduktion og dronevideo i Midt- og Syddanmark.",
+    "Fotograf i Grindsted og Billund. Fotografering, sportsfoto, erhvervsfoto, videoproduktion og droneflyvning i Midt- og Syddanmark.",
   jobTitle: "Fotograf, videograf og dronepilot",
   url: "https://www.lukassvendsen.dk",
   email: "kontakt@lukassvendsen.dk",
@@ -349,6 +349,8 @@ export const siteConfig = {
   ogImageWidth: 1200,
   ogImageHeight: 1500,
   address: {
+    /** Valgfri — tilføj gadeadresse hvis SEO-værktøj kræver streetAddress */
+    streetAddress: undefined as string | undefined,
     addressLocality: "Grindsted",
     addressRegion: "Syddanmark",
     postalCode: "7200",

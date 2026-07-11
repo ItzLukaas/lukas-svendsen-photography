@@ -8,7 +8,7 @@ export function GoogleAnalytics() {
 
   return (
     <>
-      <Script id="google-consent-default" strategy="beforeInteractive">
+      <Script id="google-consent-default" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}

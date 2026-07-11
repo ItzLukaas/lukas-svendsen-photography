@@ -186,15 +186,6 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: "/email-signature/:path*",
-        headers: [
-          {
-            key: "Cross-Origin-Resource-Policy",
-            value: "cross-origin",
-          },
-        ],
-      },
-      {
         source: "/:path*\\.(svg|jpg|jpeg|png|webp|avif|ico|woff|woff2)",
         headers: [
           {

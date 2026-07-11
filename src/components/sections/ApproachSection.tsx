@@ -37,7 +37,8 @@ export function ApproachSection() {
             <p className="mt-6 max-w-lg text-sm leading-relaxed text-white/55 md:text-[0.95rem] md:leading-[1.7]">
               Du fortæller blot, hvad du har brug for. Jeg hjælper med at omsætte dine idéer til det
               færdige resultat, står for processen og sørger for, at alt bliver håndteret fra start til
-              slut.
+              slut. Som fotograf i Grindsted lægger jeg vægt på tydelig kommunikation, god planlægning
+              og levering af materiale, der er klar til web, sociale medier og tryk.
             </p>
           </ScrollReveal>
         </div>

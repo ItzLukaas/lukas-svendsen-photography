@@ -5,6 +5,21 @@
       "has": [{ "type": "host", "value": "lukassvendsen.dk" }],
       "destination": "https://www.lukassvendsen.dk/:path*",
       "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/index.php",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/index.htm",
+      "destination": "/",
+      "permanent": true
     }
   ]
 }

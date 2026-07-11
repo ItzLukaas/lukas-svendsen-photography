@@ -17,8 +17,10 @@ export function ClientsSection() {
         >
           Betroet fotograf for førende brands
         </h2>
-        <p className="mx-auto mt-4 max-w-lg text-xs leading-relaxed text-white/50 sm:text-sm">
-          Samarbejder med private og erhverv i hele Danmark.
+        <p className="mx-auto mt-4 max-w-2xl text-xs leading-relaxed text-white/50 sm:text-sm">
+          Jeg samarbejder med foreninger, kommuner, virksomheder og kulturaktører i hele Danmark.
+          Fra lokale projekter i Grindsted og Billund til større opgaver i Midt- og Syddanmark — med
+          fokus på kvalitet, tydelig dialog og visuelt stærke resultater.
         </p>
         <Link
           href="/referencer"

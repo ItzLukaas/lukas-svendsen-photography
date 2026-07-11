@@ -24,6 +24,7 @@ const HERO_IMAGES = [
 
 const ROTATE_MS = 5000;
 const SLIDE_COUNT = HERO_IMAGES.length;
+const MOBILE_CAROUSEL_QUERY = "(max-width: 767px)";
 
 function wrapIndex(value: number) {
   return ((value % SLIDE_COUNT) + SLIDE_COUNT) % SLIDE_COUNT;
@@ -31,35 +32,61 @@ function wrapIndex(value: number) {
 
 export function HeroBackground() {
   const [index, setIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const prefersReducedMotion = useReducedMotion();
   const [loadedSlides, setLoadedSlides] = useState<Set<number>>(() => new Set([0]));
 
+  const carouselEnabled = !isMobile && !prefersReducedMotion;
   const nextIndex = useMemo(() => wrapIndex(index + 1), [index]);
 
   useEffect(() => {
+    const media = window.matchMedia(MOBILE_CAROUSEL_QUERY);
+    const update = () => setIsMobile(media.matches);
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
+
+  useEffect(() => {
+    if (!carouselEnabled) {
+      setIndex(0);
+      return;
+    }
+
     const id = window.setInterval(() => {
       setIndex((current) => wrapIndex(current + 1));
     }, ROTATE_MS);
 
     return () => window.clearInterval(id);
-  }, []);
+  }, [carouselEnabled]);
 
   useEffect(() => {
+    if (!carouselEnabled) {
+      setLoadedSlides(new Set([0]));
+      return;
+    }
+
     setLoadedSlides((current) => {
       const next = new Set(current);
       next.add(index);
       next.add(nextIndex);
       return next;
     });
-  }, [index, nextIndex]);
+  }, [carouselEnabled, index, nextIndex]);
+
+  const visibleImages = carouselEnabled
+    ? HERO_IMAGES.map((src, imageIndex) => ({ src, imageIndex }))
+    : [{ src: HERO_IMAGES[0], imageIndex: 0 }];
 
   return (
     <div className="absolute inset-0 bg-[#070707]" aria-hidden="true">
-      {HERO_IMAGES.map((src, imageIndex) => {
-        const isActive = imageIndex === index;
-        const isVisible = isActive || imageIndex === nextIndex;
+      {visibleImages.map(({ src, imageIndex }) => {
+        const isActive = carouselEnabled ? imageIndex === index : true;
+        const isVisible = carouselEnabled
+          ? isActive || imageIndex === nextIndex
+          : true;
 
-        if (!loadedSlides.has(imageIndex) && !isVisible) {
+        if (carouselEnabled && !loadedSlides.has(imageIndex) && !isVisible) {
           return null;
         }
 
@@ -81,7 +108,7 @@ export function HeroBackground() {
               fetchPriority={imageIndex === 0 ? "high" : "low"}
               quality={IMAGE_QUALITY.heroCarousel}
               className={`object-cover object-center ${
-                isActive && !prefersReducedMotion ? "hero-slide-zoom" : "scale-100"
+                isActive && carouselEnabled ? "hero-slide-zoom" : "scale-100"
               }`}
               sizes={IMAGE_SIZES.heroCarousel}
             />
@@ -92,19 +119,21 @@ export function HeroBackground() {
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/80 via-transparent to-transparent" />
       <div className="pointer-events-none absolute inset-0 hero-vignette" />
 
-      <div
-        className="pointer-events-none absolute right-6 bottom-8 left-6 flex justify-center gap-1.5 lg:right-10 lg:bottom-10 lg:left-10"
-        aria-hidden="true"
-      >
-        {HERO_IMAGES.map((src, imageIndex) => (
-          <span
-            key={src}
-            className={`h-1 rounded-full transition-all duration-500 ease-premium ${
-              imageIndex === index ? "w-6 bg-white/70" : "w-1 bg-white/25"
-            }`}
-          />
-        ))}
-      </div>
+      {carouselEnabled && (
+        <div
+          className="pointer-events-none absolute right-6 bottom-8 left-6 flex justify-center gap-1.5 lg:right-10 lg:bottom-10 lg:left-10"
+          aria-hidden="true"
+        >
+          {HERO_IMAGES.map((src, imageIndex) => (
+            <span
+              key={src}
+              className={`h-1 rounded-full transition-all duration-500 ease-premium ${
+                imageIndex === index ? "w-6 bg-white/70" : "w-1 bg-white/25"
+              }`}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

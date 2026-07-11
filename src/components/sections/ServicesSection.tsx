@@ -53,9 +53,10 @@ export function ServicesSection({ compact = false }: { compact?: boolean }) {
             <p className={sectionLabel}>Produktioner</p>
             <h2 className={titleClass}>Fotografering, videoproduktion og droneflyvning</h2>
           </div>
-          <p className={`${compact ? "mt-5" : "mt-7"} max-w-md lg:mt-0 lg:text-right ${bodyClass}`}>
-            Jeg tilbyder fotografering, videoproduktion og droneflyvning — til private, sport,
-            events og erhverv.
+          <p className={`${compact ? "mt-5" : "mt-7"} max-w-lg lg:mt-0 lg:text-right ${bodyClass}`}>
+            Som fotograf og videoproducent i Grindsted tilbyder jeg fotografering, videoproduktion og
+            droneflyvning til private, sport, koncerter, events og erhverv. Jeg arbejder i Grindsted,
+            Billund og resten af Midt- og Syddanmark.
           </p>
         </div>
 

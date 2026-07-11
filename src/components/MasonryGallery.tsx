@@ -45,9 +45,10 @@ export function MasonryGallery({ photos, showTitle = false }: MasonryGalleryProp
           <h2 className={sectionHeading}>
             Mit portefølje som fotograf
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-white/50">
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-white/50">
             Et udvalg fra min portefølje som fotograf — fotografering, videoproduktion og projekter
-            for private og virksomheder.
+            for private og virksomheder. Billederne viser min tilgang til lys, komposition og
+            fortælling — uanset om opgaven er portræt, event, sport eller erhverv.
           </p>
         </ScrollReveal>
       )}

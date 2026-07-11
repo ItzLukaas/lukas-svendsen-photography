@@ -134,6 +134,21 @@ const nextConfig: NextConfig = {
         destination: "/ydelser/drone",
         permanent: true,
       },
+      {
+        source: "/index.html",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/index.php",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/index.htm",
+        destination: "/",
+        permanent: true,
+      },
     ];
   },
   async headers() {

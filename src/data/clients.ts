@@ -21,7 +21,7 @@ export const clientLogos: ClientLogo[] = [
     src: "/images/clients/billund-kommune.webp",
     width: 288,
     height: 112,
-    href: "https://www.billund.dk",
+    href: "https://www.billund.dk/borger/",
   },
   {
     id: "vejle-kommune",
@@ -30,7 +30,7 @@ export const clientLogos: ClientLogo[] = [
     src: "/images/clients/vejle-kommune.webp",
     width: 280,
     height: 112,
-    href: "https://www.vejle.dk",
+    href: "https://www.vejle.dk/da/",
   },
   {
     id: "dansk-handbold",

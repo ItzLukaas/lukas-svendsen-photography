@@ -22,10 +22,10 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-20 pt-28 lg:px-10 lg:pb-24 lg:pt-36">
         <div className="hero-content-rise max-w-3xl">
-          <h1 className={`${heroTitleCompact} text-balance`}>
-            <span className="block">Ung fotograf i Grindsted</span>
-            <span className="block">Fotografering, videoproduktion og droneflyvning</span>
-          </h1>
+          <h1 className={heroTitleCompact}>Fotograf i Grindsted</h1>
+          <p className="mt-3 max-w-xl text-xs leading-snug tracking-[0.08em] text-white/45 max-sm:whitespace-nowrap sm:mt-4 sm:text-sm sm:tracking-[0.06em] sm:text-white/50">
+            Fotografering · videoproduktion · droneflyvning
+          </p>
 
           <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:items-center">
             <Link href="/portfolio" className={btnPrimaryCompact}>

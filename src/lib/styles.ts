@@ -21,6 +21,10 @@ export const sectionLabel =
 export const sectionTitle =
   "font-display text-[2rem] font-light leading-[1.08] text-white sm:text-4xl md:text-[2.75rem] lg:text-5xl xl:text-[3.25rem]";
 
+/** Long section H2 — stays on one line on small phones */
+export const sectionHeadingLong =
+  "font-display font-light leading-[1.08] text-white max-sm:whitespace-nowrap max-sm:text-[0.78rem] max-sm:tracking-[-0.02em] text-[1.65rem] sm:whitespace-normal sm:text-3xl lg:text-4xl";
+
 export const sectionBody =
   "text-base leading-relaxed text-white/55 md:text-[1.05rem] md:leading-[1.75]";
 

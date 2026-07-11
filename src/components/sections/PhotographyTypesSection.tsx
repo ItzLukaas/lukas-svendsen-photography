@@ -7,7 +7,7 @@ import { photographyTypes } from "@/data/sections";
 import { Section } from "../Section";
 import { ScrollReveal } from "../ScrollReveal";
 import { AnimatedHeading } from "../AnimatedHeading";
-import { sectionLabel } from "@/lib/styles";
+import { sectionHeadingLong, sectionLabel } from "@/lib/styles";
 
 export function PhotographyTypesSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -31,7 +31,7 @@ export function PhotographyTypesSection() {
         <div className="order-1 lg:order-2">
           <ScrollReveal>
             <p className={sectionLabel}>Eksempler</p>
-            <AnimatedHeading className="font-display text-[1.65rem] font-light leading-[1.08] text-white sm:text-3xl lg:text-4xl">
+            <AnimatedHeading className={sectionHeadingLong}>
               Hvad jeg tilbyder som fotograf
             </AnimatedHeading>
             <p className="mt-5 max-w-lg text-sm leading-relaxed text-white/55 md:text-[0.95rem] md:leading-[1.7]">

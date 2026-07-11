@@ -173,6 +173,28 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        source: "/brand/:path*",
+        headers: [
+          {
+            key: "Cross-Origin-Resource-Policy",
+            value: "cross-origin",
+          },
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/email-signature/:path*",
+        headers: [
+          {
+            key: "Cross-Origin-Resource-Policy",
+            value: "cross-origin",
+          },
+        ],
+      },
+      {
         source: "/:path*\\.(svg|jpg|jpeg|png|webp|avif|ico|woff|woff2)",
         headers: [
           {

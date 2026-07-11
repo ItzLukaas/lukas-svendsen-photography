@@ -315,7 +315,7 @@ export function homeJsonLd() {
         "@type": "ProfilePage",
         "@id": `${siteConfig.url}/#webpage`,
         url: siteConfig.url,
-        name: "Fotograf i Grindsted | Fotografering, videoproduktion og droneflyvning",
+        name: "Fotograf i Grindsted | Foto, video og droneflyvning",
         description: siteConfig.description,
         inLanguage: "da-DK",
         isPartOf: { "@id": `${siteConfig.url}/#website` },

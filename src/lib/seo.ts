@@ -84,10 +84,9 @@ export function pageMetadata({
 
 export function homeMetadata(): Metadata {
   const images = buildOgImages();
-  const homeTitle =
-    "Fotograf i Grindsted | Fotografering, videoproduktion og droneflyvning";
+  const homeTitle = "Fotograf i Grindsted | Foto, video og droneflyvning";
   const homeDescription =
-    "Lukas Svendsen er fotograf i Grindsted og Billund. Jeg tilbyder fotografering, videoproduktion og droneflyvning til private, events og virksomheder i Midt- og Syddanmark.";
+    "Fotograf i Grindsted og Billund. Fotografering, videoproduktion og droneflyvning for private og virksomheder i Midt- og Syddanmark.";
 
   return {
     title: {

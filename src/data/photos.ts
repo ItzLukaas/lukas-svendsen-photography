@@ -335,7 +335,7 @@ export const siteConfig = {
   name: "Lukas Svendsen",
   title: "Lukas Svendsen | Fotograf, Videograf & Dronepilot",
   description:
-    "Fotograf i Grindsted og Billund. Fotografering, sportsfoto, erhvervsfoto, videoproduktion og droneflyvning i Midt- og Syddanmark.",
+    "Fotograf i Grindsted og Billund. Fotografering, videoproduktion og droneflyvning for private og virksomheder i Midt- og Syddanmark.",
   jobTitle: "Fotograf, videograf og dronepilot",
   url: "https://www.lukassvendsen.dk",
   email: "kontakt@lukassvendsen.dk",

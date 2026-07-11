@@ -123,7 +123,7 @@ export const photos: Photo[] = [
   {
     id: "14",
     src: "/images/portfolio/andet/DSC05363.webp",
-    alt: "Gæster bestiller drikke ved bar på Aarhus Street Food med neonlys",
+    alt: "Gæster bestiller drikke ved bar på Esbjerg Street Food med neonlys",
     width: 1800,
     height: 1200,
     featured: true,

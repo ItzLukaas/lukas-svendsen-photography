@@ -26,9 +26,9 @@ export function ReferenceArticleImage({
           sizes={IMAGE_SIZES.full}
         />
       </div>
-      {(caption || image.alt) && (
+      {(caption) && (
         <figcaption className="mx-auto mt-5 max-w-2xl text-center text-xs tracking-wide text-white/35">
-          {caption ?? image.alt}
+          {caption}
         </figcaption>
       )}
     </figure>

@@ -126,15 +126,6 @@ export function Lightbox({ photo, photos, onClose, onNavigate }: LightboxProps) 
               />
             </m.div>
           </div>
-
-          <div
-            className="shrink-0 border-t border-white/[0.08] px-4 py-4 sm:px-8 sm:py-5"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <p className="mx-auto max-w-2xl text-center text-sm leading-relaxed text-white/55">
-              {photo.alt}
-            </p>
-          </div>
         </m.div>
       )}
     </AnimatePresence>

@@ -60,7 +60,7 @@ export function MasonryGallery({ photos, showTitle = false }: MasonryGalleryProp
               type="button"
               onClick={() => setSelectedPhoto(photo)}
               className="group relative block w-full cursor-pointer overflow-hidden rounded-sm transition-[transform,box-shadow] duration-500 ease-premium hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(0,0,0,0.45)]"
-              aria-label={`Åbn billede: ${photo.alt}`}
+              aria-label="Åbn billede"
             >
               <div className="relative overflow-hidden">
                 <GalleryImage photo={photo} />

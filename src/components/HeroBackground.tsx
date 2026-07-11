@@ -115,9 +115,8 @@ export function HeroBackground() {
           </div>
         );
       })}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/60 to-[#0a0a0a]/20" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/85 via-[#0a0a0a]/15 to-transparent" />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_50%_35%,transparent_0%,rgba(10,10,10,0.4)_100%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/55 to-[#0a0a0a]/15" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_50%,transparent_0%,rgba(10,10,10,0.35)_100%)]" />
       <div className="pointer-events-none absolute inset-0 hero-vignette" />
 
       {carouselEnabled && (

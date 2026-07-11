@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { m, AnimatePresence, useReducedMotion } from "framer-motion";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { siteConfig } from "@/data/photos";
 import { EASE } from "@/lib/motion";
 
@@ -147,9 +146,7 @@ export function Navbar() {
               ))}
             </div>
 
-            <span className="mx-6 h-4 w-px bg-border" aria-hidden="true" />
-
-            <ThemeToggle className="mr-4" />
+            <span className="mx-8 h-4 w-px bg-border" aria-hidden="true" />
 
             <Link
               href="/kontakt"
@@ -160,10 +157,7 @@ export function Navbar() {
             </Link>
           </div>
 
-          <div className="flex items-center gap-2 md:hidden">
-            <ThemeToggle />
-            <MenuToggle open={mobileOpen} onClick={() => setMobileOpen(!mobileOpen)} />
-          </div>
+          <MenuToggle open={mobileOpen} onClick={() => setMobileOpen(!mobileOpen)} />
         </nav>
       </header>
 
@@ -176,8 +170,7 @@ export function Navbar() {
             transition={{ duration: 0.35, ease: EASE }}
             className="fixed inset-0 z-40 flex flex-col bg-[var(--overlay)] backdrop-blur-2xl will-change-opacity md:hidden"
           >
-            <div className="flex h-[72px] items-center justify-end gap-2 px-6">
-              <ThemeToggle />
+            <div className="flex h-[72px] items-center justify-end px-6">
               <MenuToggle open={mobileOpen} onClick={() => setMobileOpen(false)} />
             </div>
 

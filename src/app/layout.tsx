@@ -6,7 +6,6 @@ import { Cookiebot } from "@/components/seo/Cookiebot";
 import { GoogleAnalytics } from "@/components/seo/GoogleAnalytics";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { MotionProvider } from "@/components/providers/MotionProvider";
-import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { siteConfig } from "@/data/photos";
 import { rootGraphJsonLd, standaloneLocalBusinessJsonLd } from "@/lib/json-ld";
 import { defaultIcons } from "@/lib/seo";
@@ -25,11 +24,8 @@ const inter = Inter({
 const antiFoucScript = `(function(){var d=document.documentElement;if(d.classList.contains("app-ready"))return;function r(){d.classList.add("app-ready")}setTimeout(r,1200);Promise.race([new Promise(function(e){if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",e,{once:true});else e()}),new Promise(function(e){setTimeout(e,400)})]).then(function(){if(document.fonts&&document.fonts.ready){Promise.race([document.fonts.ready,new Promise(function(e){setTimeout(e,500)})]).then(r,r)}else r()})})();`;
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fafafa" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
-  ],
-  colorScheme: "light dark",
+  themeColor: "#0a0a0a",
+  colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
 };
@@ -114,16 +110,14 @@ export default function RootLayout({
       <body
         className={`${inter.className} grain-overlay bg-background text-foreground antialiased`}
       >
-        <ThemeProvider>
-          <MotionProvider>
-            <a href="#main-content" className="skip-link">
-              Spring til indhold
-            </a>
-            <Navbar />
-            <main id="main-content">{children}</main>
-            <Footer />
-          </MotionProvider>
-        </ThemeProvider>
+        <MotionProvider>
+          <a href="#main-content" className="skip-link">
+            Spring til indhold
+          </a>
+          <Navbar />
+          <main id="main-content">{children}</main>
+          <Footer />
+        </MotionProvider>
       </body>
     </html>
   );

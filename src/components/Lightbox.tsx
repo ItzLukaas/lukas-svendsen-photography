@@ -115,10 +115,10 @@ export function Lightbox({ photo, photos, onClose, onNavigate }: LightboxProps) 
             >
               <OptimizedImage
                 src={photo.src}
-                alt={photo.alt}
+                alt=""
                 width={photo.width}
                 height={photo.height}
-                className="mx-auto block max-h-[min(calc(100dvh-12rem),calc(100vh-12rem))] w-auto max-w-full object-contain"
+                className="mx-auto block max-h-[min(calc(100dvh-6rem),calc(100vh-6rem))] w-auto max-w-full object-contain"
                 sizes="100vw"
                 quality={IMAGE_QUALITY.hero}
                 priority

@@ -21,8 +21,8 @@ const inter = Inter({
   adjustFontFallback: true,
 });
 
-/** Reveal after DOM ready — rules live in globals.css */
-const antiFoucScript = `(function(){var d=document.documentElement;if(d.classList.contains("app-ready"))return;function r(){d.classList.add("app-ready")}Promise.race([new Promise(function(e){if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",e,{once:true});else e()}),new Promise(function(e){setTimeout(e,500)})]).then(function(){if(document.fonts&&document.fonts.ready)return document.fonts.ready.then(r,r);r()})})();`;
+/** Reveal after DOM ready — rules live in globals.css; fonts.ready is capped so the page never stays hidden */
+const antiFoucScript = `(function(){var d=document.documentElement;if(d.classList.contains("app-ready"))return;function r(){d.classList.add("app-ready")}setTimeout(r,1200);Promise.race([new Promise(function(e){if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",e,{once:true});else e()}),new Promise(function(e){setTimeout(e,400)})]).then(function(){if(document.fonts&&document.fonts.ready){Promise.race([document.fonts.ready,new Promise(function(e){setTimeout(e,500)})]).then(r,r)}else r()})})();`;
 
 export const viewport: Viewport = {
   themeColor: [

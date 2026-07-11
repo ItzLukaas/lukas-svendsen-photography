@@ -144,6 +144,79 @@ html.app-ready body {
   will-change: transform;
 }
 
+.hero-content-frame {
+  position: relative;
+  padding-top: 1.75rem;
+}
+
+.hero-content-frame::before {
+  content: "";
+  position: absolute;
+  inset: -2.5rem -1.5rem -1.5rem;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 72% 68% at 50% 52%,
+    rgba(10, 10, 10, 0.58) 0%,
+    rgba(10, 10, 10, 0.18) 48%,
+    transparent 78%
+  );
+}
+
+.hero-content-accent {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 3.5rem;
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.42) 50%,
+    transparent 100%
+  );
+}
+
+.hero-title-shadow {
+  text-shadow: 0 2px 28px rgba(0, 0, 0, 0.42);
+}
+
+.hero-tagline {
+  position: relative;
+  padding-bottom: 1.25rem;
+}
+
+.hero-tagline::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 2.5rem;
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 100%
+  );
+}
+
+@media (min-width: 640px) {
+  .hero-content-frame {
+    padding-top: 2.25rem;
+  }
+
+  .hero-content-accent {
+    width: 4.5rem;
+  }
+
+  .hero-tagline::after {
+    width: 3rem;
+  }
+}
+
 .motion-safe\:animate-hero-bounce,
 .animate-hero-bounce {
   animation: hero-bounce 2.5s var(--ease-premium) infinite;

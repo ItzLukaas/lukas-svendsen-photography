@@ -21,13 +21,14 @@ export function Hero() {
       <HeroBackground />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-28 text-center lg:px-10 lg:py-36">
-        <div className="hero-content-rise mx-auto max-w-3xl">
-          <h1 className={heroTitleCompact}>Fotograf i Grindsted</h1>
-          <p className="mx-auto mt-3 max-w-xl text-xs leading-snug tracking-[0.08em] text-white/45 sm:mt-4 sm:text-sm sm:tracking-[0.06em] sm:text-white/50">
+        <div className="hero-content-rise hero-content-frame mx-auto max-w-3xl -translate-y-5 sm:-translate-y-7 lg:-translate-y-9">
+          <div className="hero-content-accent" aria-hidden="true" />
+          <h1 className={`hero-title-shadow ${heroTitleCompact}`}>Fotograf i Grindsted</h1>
+          <p className="hero-tagline mx-auto mt-3 max-w-xl text-xs leading-snug tracking-[0.1em] text-white/45 sm:mt-4 sm:text-sm sm:tracking-[0.08em] sm:text-white/50">
             Fotografering | videoproduktion | droneflyvning
           </p>
 
-          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:mt-8 sm:flex-row sm:gap-4">
+          <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:mt-8 sm:flex-row sm:gap-4">
             <Link href="/portfolio" className={btnPrimaryCompact}>
               Se portefølje
               <ArrowRight

@@ -2,14 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import { m, useReducedMotion } from "framer-motion";
-import { ScrollReveal } from "@/components/ScrollReveal";
 import { EASE_REVEAL } from "@/lib/motion";
 import { sectionDivider } from "@/lib/styles";
 
 const stats = [
-  { value: 30, suffix: "+", label: "Virksomheder hjulpet", duration: 2000 },
-  { value: 30000, suffix: "+", label: "Billeder taget", duration: 2800 },
-  { value: 500, suffix: "+", label: "Timer brugt på redigering", duration: 2400 },
+  { value: 30, suffix: "+", label: "Virksomheder hjulpet", duration: 1800 },
+  { value: 30000, suffix: "+", label: "Billeder taget", duration: 2400 },
+  { value: 500, suffix: "+", label: "Timer brugt på redigering", duration: 2000 },
 ] as const;
 
 function formatDaNumber(value: number): string {
@@ -32,7 +31,7 @@ function useInViewOnce<T extends Element>(ref: React.RefObject<T | null>) {
           observer.disconnect();
         }
       },
-      { threshold: 0.2, rootMargin: "0px" },
+      { threshold: 0.25, rootMargin: "0px" },
     );
 
     observer.observe(node);
@@ -93,14 +92,14 @@ function StatItem({
 
   return (
     <m.div
-      initial={{ opacity: 0, y: 14 }}
+      initial={{ opacity: 0, y: 8 }}
       animate={active ? { opacity: 1, y: 0 } : {}}
       transition={{
-        duration: 0.72,
-        delay: index * 0.1,
+        duration: 0.55,
+        delay: index * 0.08,
         ease: EASE_REVEAL,
       }}
-      className="flex flex-col items-center text-center"
+      className="flex flex-col items-center text-center sm:items-start sm:text-left"
     >
       <p className="stat-value tabular-nums">
         {formatDaNumber(count)}
@@ -117,31 +116,16 @@ export function HomeStatsSection() {
 
   return (
     <section
-      className={`relative overflow-hidden bg-background px-6 py-20 sm:py-24 lg:px-8 lg:py-32 ${sectionDivider}`}
+      className={`bg-background px-6 py-14 sm:py-16 lg:px-8 lg:py-20 ${sectionDivider}`}
       aria-label="Nøgletal"
     >
       <div
-        className="pointer-events-none absolute inset-0"
-        aria-hidden="true"
+        ref={ref}
+        className="mx-auto grid max-w-3xl gap-10 sm:grid-cols-3 sm:gap-8"
       >
-        <div className="absolute top-1/2 left-1/2 h-[28rem] w-[36rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/[0.02] blur-3xl" />
-      </div>
-
-      <div className="relative mx-auto max-w-5xl">
-        <ScrollReveal className="mb-14 text-center md:mb-20">
-          <p className="text-[10px] tracking-[0.35em] text-muted uppercase">
-            Erfaring
-          </p>
-        </ScrollReveal>
-
-        <div
-          ref={ref}
-          className="grid gap-14 sm:grid-cols-3 sm:gap-8 md:gap-12"
-        >
-          {stats.map((stat, index) => (
-            <StatItem key={stat.label} {...stat} active={isInView} index={index} />
-          ))}
-        </div>
+        {stats.map((stat, index) => (
+          <StatItem key={stat.label} {...stat} active={isInView} index={index} />
+        ))}
       </div>
     </section>
   );

@@ -776,16 +776,16 @@ body {
 
 .stat-value {
   font-family: var(--font-inter), system-ui, sans-serif;
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
   font-weight: 300;
   line-height: 1;
   color: var(--foreground);
 }
 
 .stat-label {
-  margin-top: 0.5rem;
-  font-size: 0.65rem;
-  letter-spacing: 0.22em;
+  margin-top: 0.4rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--muted-subtle);
 }

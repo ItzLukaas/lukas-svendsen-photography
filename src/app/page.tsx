@@ -82,7 +82,6 @@ export default function HomePage() {
     <>
       <HomeJsonLd />
       <Hero />
-      <HomeStatsSection />
       <ClientsSection />
       <ServicesSection compact />
 
@@ -111,6 +110,7 @@ export default function HomePage() {
       {siteConfig.showTestimonials && <TestimonialsSection />}
       <InquirySection />
       <HomeInternalLinks />
+      <HomeStatsSection />
     </>
   );
 }

@@ -16,20 +16,16 @@ export interface InquiryDraft {
   taskTypeOther: string;
   date: string;
   startTime: string;
-  endTime: string;
   flexibleSchedule: boolean;
-  address: string;
-  city: string;
-  eventName: string;
+  location: string;
   description: string;
-  referenceImageName: string;
   name: string;
   company: string;
   phone: string;
   email: string;
 }
 
-export const INQUIRY_DRAFT_KEY = "lukas-inquiry-draft-v2";
+export const INQUIRY_DRAFT_KEY = "lukas-inquiry-draft-v3";
 
 export const initialInquiryDraft: InquiryDraft = {
   step: 1,
@@ -37,13 +33,9 @@ export const initialInquiryDraft: InquiryDraft = {
   taskTypeOther: "",
   date: "",
   startTime: "10:00",
-  endTime: "",
   flexibleSchedule: false,
-  address: "",
-  city: "",
-  eventName: "",
+  location: "",
   description: "",
-  referenceImageName: "",
   name: "",
   company: "",
   phone: "",
@@ -83,17 +75,8 @@ export function mapTaskTypeToService(taskType: TaskType): ServiceType {
   return "fotografering";
 }
 
-export function buildLocation(draft: InquiryDraft): string {
-  const parts = [draft.address.trim(), draft.city.trim()].filter(Boolean);
-  const base = parts.join(", ");
-  const event = draft.eventName.trim();
-  if (event) return base ? `${base} (${event})` : event;
-  return base;
-}
-
-export function buildEndTime(startTime: string, endTime: string): string {
-  if (endTime) return endTime;
+export function buildEndTime(startTime: string): string {
   const [h, m] = startTime.split(":").map(Number);
-  const endHour = Math.min(h + 4, 23);
-  return `${String(endHour).padStart(2, "0")}:${String(m).padStart(2, "0")}`;
+  const endHour = Math.min((h || 10) + 4, 23);
+  return `${String(endHour).padStart(2, "0")}:${String(m || 0).padStart(2, "0")}`;
 }

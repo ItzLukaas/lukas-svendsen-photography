@@ -26,23 +26,13 @@ export function InquirySection() {
             Skal vi skabe noget sammen?
           </AnimatedHeading>
           <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-muted md:text-[0.95rem] md:leading-[1.7]">
-            Fortæl mig om dit projekt — gratis og uforpligtende. Jeg guider dig trin for trin.
+            Gratis og uforpligtende — bare et par korte spørgsmål.
           </p>
         </ScrollReveal>
 
         <ScrollReveal delay={0.08}>
-          <div className="relative">
-            <div
-              className="pointer-events-none absolute -inset-px rounded-md bg-gradient-to-b from-white/15 via-white/[0.05] to-transparent"
-              aria-hidden="true"
-            />
-            <div className="relative rounded-md border border-border/90 bg-card/75 p-5 shadow-[var(--shadow-sm)] backdrop-blur-xl sm:p-7 lg:p-9">
-              <div
-                className="pointer-events-none absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                aria-hidden="true"
-              />
-              <InquiryWizard embedded />
-            </div>
+          <div className="relative rounded-md border border-border/80 bg-card/60 p-5 backdrop-blur-md sm:p-7 lg:p-8">
+            <InquiryWizard embedded />
           </div>
         </ScrollReveal>
       </div>

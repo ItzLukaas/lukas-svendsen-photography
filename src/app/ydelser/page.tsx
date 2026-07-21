@@ -5,13 +5,23 @@ import { webPageJsonLd } from "@/lib/json-ld";
 import { pageMetadata } from "@/lib/seo";
 
 const pageDescription =
-  "Fotografering, videoproduktion og droneflyvning fra Lukas Svendsen — fotograf i Grindsted og Billund. Se ydelser og book et uforpligtende tilbud.";
+  "Eventfotograf, sportfotograf, koncertfotograf og erhvervsfotograf — plus videoproduktion og droneflyvning fra Lukas Svendsen i Grindsted og Billund.";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Ydelser",
+  title: "Ydelser — foto, video og drone",
   description: pageDescription,
   path: "/ydelser",
-  keywords: ["fotografering", "videoproduktion", "drone", "fotograf", "Lukas Svendsen"],
+  keywords: [
+    "fotograf ydelser",
+    "eventfotograf",
+    "sportfotograf",
+    "koncertfotograf",
+    "festivalfotograf",
+    "erhvervsfotograf",
+    "videoproduktion",
+    "droneflyvning",
+    "Lukas Svendsen",
+  ],
 });
 
 export default function YdelserIndexPage() {

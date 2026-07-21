@@ -3,7 +3,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
 import type { SeoService } from "@/data/seo-services";
 import { getPhotoAltBySrc } from "@/data/photos";
-import { webPageJsonLd } from "@/lib/json-ld";
+import { faqJsonLd, webPageJsonLd } from "@/lib/json-ld";
 import { IMAGE_QUALITY } from "@/lib/image";
 import { sectionBody, sectionLabel } from "@/lib/styles";
 
@@ -37,6 +37,7 @@ export function FotograferingPage({ service, breadcrumbs }: FotograferingPagePro
           path: `/ydelser/${service.slug}`,
         })}
       />
+      {service.faqs.length > 0 && <JsonLd data={faqJsonLd(service.faqs)} />}
 
       <div className="bg-background">
         <div className="mx-auto max-w-7xl px-6 pt-28 lg:px-10 lg:pt-32">
@@ -136,6 +137,27 @@ export function FotograferingPage({ service, breadcrumbs }: FotograferingPagePro
             </div>
           </section>
         ))}
+
+        {service.faqs.length > 0 && (
+          <section className="border-t border-foreground/[0.06] px-6 py-16 lg:px-8 lg:py-24">
+            <div className="mx-auto max-w-3xl">
+              <p className={sectionLabel}>FAQ</p>
+              <h2 className="mt-4 font-display text-2xl font-light text-foreground sm:text-3xl lg:text-[2rem]">
+                Ofte stillede spørgsmål
+              </h2>
+              <dl className="mt-10 space-y-8">
+                {service.faqs.map((faq) => (
+                  <div key={faq.question}>
+                    <dt className="font-display text-lg font-light text-foreground">
+                      {faq.question}
+                    </dt>
+                    <dd className={`mt-3 ${sectionBody}`}>{faq.answer}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </section>
+        )}
 
         {/* Image strip */}
         <section className="border-t border-foreground/[0.06] px-6 py-14 lg:px-8 lg:py-20">

@@ -11,6 +11,7 @@ const navLinks = [
   { href: "/portfolio", label: "Portefølje" },
   { href: "/referencer", label: "Referencer" },
   { href: "/ydelser", label: "Ydelser" },
+  { href: "/omraader", label: "Områder" },
   { href: "/om-mig", label: "Om mig" },
   { href: "/kontakt", label: "Kontakt" },
 ];
@@ -19,6 +20,8 @@ const serviceLinks = [
   { href: "/ydelser/fotografering", label: "Fotografering", key: "fotografering" },
   { href: "/ydelser/videoproduktion", label: "Videoproduktion", key: "videoproduktion" },
   { href: "/ydelser/drone", label: "Droneflyvning", key: "droneflyvning" },
+  { href: "/ydelser/fotografering", label: "Eventfotograf", key: "eventfotograf" },
+  { href: "/ydelser/fotografering", label: "Sportfotograf", key: "sportfotograf" },
 ];
 
 export function Footer() {

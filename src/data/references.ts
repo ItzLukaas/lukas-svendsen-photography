@@ -32,9 +32,9 @@ export interface Reference {
 }
 
 export const referencesPageMeta = {
-  title: "Referencer",
+  title: "Referencer — fotografprojekter",
   description:
-    "Udvalgte projekter og samarbejder — gå i dybden med opgave, proces og resultat.",
+    "Referencer fra event-, sport- og erhvervsfotografi — se udvalgte projekter fra fotograf Lukas Svendsen.",
   heroTitle: "Udvalgte projekter",
   heroDescription:
     "Et udsnit af samarbejder, du kan gå i dybden med. Klik på et projekt for at læse om opgaven, samarbejdet og resultatet.",

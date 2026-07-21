@@ -20,9 +20,9 @@ export const seoServices: SeoService[] = [
   {
     slug: "fotografering",
     name: "Fotografering",
-    title: "Fotografering",
+    title: "Event-, sport- og erhvervsfotograf",
     metaDescription:
-      "Fotografering til portrætter, events, sport, koncerter og virksomheder. Lukas Svendsen — fotograf i Grindsted og Billund.",
+      "Eventfotograf, sportfotograf, koncertfotograf, festivalfotograf og erhvervsfotograf i Grindsted og Billund. Professionel fotografering til private og virksomheder.",
     h1: "Fotografering",
     intro:
       "Den ydelse, som jeg er mest kendt for, er fotografering. Det er her, hele min karriere begyndte.",
@@ -46,6 +46,35 @@ export const seoServices: SeoService[] = [
           "Mit udstyr vedligeholdes løbende og opdateres efter behov, så jeg altid kan levere den kvalitet og pålidelighed, mine kunder forventer. Mit fokus er enkelt: At skabe professionelle billeder, der holder – både visuelt og teknisk.",
         ],
       },
+      {
+        label: "Specialer",
+        heading: "Eventfotograf",
+        paragraphs: [
+          "Som eventfotograf dokumenterer jeg arrangementer, messer, receptioner og firmaevents med fokus på stemning, mennesker og de afgørende øjeblikke. Billederne kan bruges til web, sociale medier og intern kommunikation.",
+          "Jeg arbejder diskret og effektivt, så du får et stærkt visuelt udtryk uden at forstyrre oplevelsen for gæsterne.",
+        ],
+      },
+      {
+        heading: "Sportfotograf",
+        paragraphs: [
+          "Som sportfotograf fanger jeg tempo, følelser og afgørende øjeblikke — fra kampbilleder og publikumsenergi til bag kulisserne. Jeg har erfaring med håndbold og andre sportsgrene, hvor timing og lys skifter hurtigt.",
+          "Du får skarpe actionbilleder og stemningsfulde billeder, der fungerer til klubmedier, sponsorer og SoMe.",
+        ],
+      },
+      {
+        heading: "Koncertfotograf og festivalfotograf",
+        paragraphs: [
+          "Som koncertfotograf og festivalfotograf arbejder jeg med scenelys, bevægelse og energi. Målet er billeder, der både fanger artisten tæt på og den store stemning blandt publikum.",
+          "Jeg leverer materiale til presse, sociale medier og dokumentation af koncerter, festivalsæt og live-oplevelser.",
+        ],
+      },
+      {
+        heading: "Erhvervsfotograf",
+        paragraphs: [
+          "Som erhvervsfotograf hjælper jeg virksomheder med portrætter, teamfotos, lokationsbilleder og visuelt indhold til branding. Fokus er autentiske billeder, der styrker jeres visuelle identitet.",
+          "Jeg tilpasser stil og leverance til jeres kanaler — hjemmeside, LinkedIn, kampagner og interne platforme.",
+        ],
+      },
     ],
     benefits: [
       "Portrætter, familier og personlige øjeblikke",
@@ -57,15 +86,20 @@ export const seoServices: SeoService[] = [
       {
         question: "Hvilke typer fotografering tilbyder du?",
         answer:
-          "Portrætter, events, koncerter, sport, virksomheder, kreative projekter og andre opgaver, hvor det handler om at fange det rigtige øjeblik.",
+          "Jeg arbejder som eventfotograf, sportfotograf, koncertfotograf, festivalfotograf og erhvervsfotograf — samt med portrætter og andre opgaver, hvor det handler om at fange det rigtige øjeblik.",
       },
       {
         question: "Kan fotografering kombineres med videoproduktion eller droneflyvning?",
         answer:
           "Ja. Mange projekter dækkes bedst med fotografering, videoproduktion og droneflyvning fra samme produktion — det kan vi planlægge sammen.",
       },
+      {
+        question: "Dækker du som fotograf også uden for Grindsted og Billund?",
+        answer:
+          "Ja. Jeg er baseret i Grindsted og Billund og tager opgaver i hele Danmark — blandt andet Vejle, Kolding, Fredericia og øvrige områder efter aftale.",
+      },
     ],
-    lastModified: "2026-07-09",
+    lastModified: "2026-07-21",
   },
   {
     slug: "videoproduktion",

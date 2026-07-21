@@ -48,7 +48,8 @@ export const approachPoints = [
 export const photographyTypes = [
   {
     title: "Virksomheder",
-    description: "Fotografering, videoproduktion og droneflyvning til erhverv — profilbilleder, kampagner og SoMe.",
+    description:
+      "Erhvervsfotograf til profilbilleder, kampagner og SoMe — fotografering, video og drone til virksomheder.",
     examples: [
       "Profilbilleder og teamfotos",
       "Kampagner og reklame",
@@ -58,7 +59,8 @@ export const photographyTypes = [
   },
   {
     title: "Koncerter & events",
-    description: "Koncerter, fester og events — fotografering og videoproduktion fra dagen.",
+    description:
+      "Koncertfotograf, festivalfotograf og eventfotograf — live-stemning fra scenen til publikum.",
     examples: [
       "Koncerter og festivaler",
       "Firmafester og receptioner",
@@ -68,7 +70,8 @@ export const photographyTypes = [
   },
   {
     title: "Sport & action",
-    description: "Sport og action — kampbilleder, highlights og recap-video.",
+    description:
+      "Sportfotograf til kampbilleder, highlights og action — tempo, følelser og afgørende øjeblikke.",
     examples: [
       "Kampbilleder og publikum",
       "Træning og bag kulisserne",

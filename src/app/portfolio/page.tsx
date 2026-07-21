@@ -24,8 +24,12 @@ export const metadata: Metadata = pageMetadata({
   path: "/portfolio",
   keywords: [
     "portefølje fotograf",
-    "sportsfotograf Danmark",
     "eventfotograf",
+    "sportfotograf",
+    "sportsfotograf Danmark",
+    "koncertfotograf",
+    "festivalfotograf",
+    "erhvervsfotograf",
     "håndboldfoto",
     "Lukas Svendsen",
     "fotograf Grindsted",

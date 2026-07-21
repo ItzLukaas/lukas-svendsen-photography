@@ -30,8 +30,10 @@ export const metadata: Metadata = {
     path: "/referencer",
     keywords: [
       "fotograf referencer",
+      "eventfotograf",
+      "sportfotograf",
+      "erhvervsfotograf",
       "sportsfotografi",
-      "content creation",
       "virksomhedsfotografi",
       "Lukas Svendsen",
     ],

@@ -51,7 +51,15 @@ export function ServicesSection({ compact = false }: { compact?: boolean }) {
         >
           <div className="max-w-2xl">
             <p className={sectionLabel}>Produktioner</p>
-            <h2 className={titleClass}>Fotografering, videoproduktion og droneflyvning</h2>
+            {compact ? (
+              <h2 className={titleClass}>
+                Fotografering, videoproduktion og droneflyvning
+              </h2>
+            ) : (
+              <h1 className={titleClass}>
+                Fotografering, videoproduktion og droneflyvning
+              </h1>
+            )}
           </div>
           <p className={`${compact ? "mt-5" : "mt-7"} max-w-lg lg:mt-0 lg:text-right ${bodyClass}`}>
             Som fotograf og videoproducent i Grindsted tilbyder jeg fotografering, videoproduktion og

@@ -28,7 +28,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: service.title,
     description: service.metaDescription,
     path: `/ydelser/${service.slug}`,
-    keywords: [service.name, "fotograf", "videograf", "Lukas Svendsen"],
+    keywords:
+      service.slug === "fotografering"
+        ? [
+            "fotograf",
+            "eventfotograf",
+            "sportfotograf",
+            "sportsfotograf",
+            "koncertfotograf",
+            "festivalfotograf",
+            "erhvervsfotograf",
+            "fotografering",
+            "Lukas Svendsen",
+          ]
+        : [service.name, "fotograf", "videograf", "Lukas Svendsen"],
   });
 }
 

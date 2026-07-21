@@ -31,8 +31,13 @@ function portfolioPhotoIdsForIndex(index: number): string[] {
   );
 }
 
-function metaFor(name: string, preposition: "i" | "på") {
-  return `Leder du efter en fotograf ${preposition} ${name}? Fotografering, videoproduktion og droneflyvning til konfirmationer, bryllup, sport, events, koncerter og virksomheder. Kontakt mig for et uforpligtende tilbud.`;
+function metaFor(name: string, preposition: "i" | "på", intro: string) {
+  const prefix = `Fotograf ${preposition} ${name}. `;
+  const cleaned = intro.replace(/\s+/g, " ").trim();
+  const max = 158;
+  const combined = `${prefix}${cleaned}`;
+  if (combined.length <= max) return combined;
+  return `${combined.slice(0, max - 1).replace(/\s+\S*$/, "")}…`;
 }
 
 function titleFor(name: string, preposition: "i" | "på") {
@@ -72,7 +77,7 @@ function buildCity({
     region,
     preposition,
     title: titleFor(name, preposition),
-    metaDescription: metaFor(name, preposition),
+    metaDescription: metaFor(name, preposition, intro),
     h1: h1For(name, preposition),
     intro,
     servicesIntro,

@@ -35,9 +35,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     keywords: [
       `fotograf ${city.preposition} ${city.name}`,
       `eventfotograf ${city.name}`,
+      `sportfotograf ${city.name}`,
+      `sportsfotograf ${city.name}`,
+      `koncertfotograf ${city.name}`,
+      `festivalfotograf ${city.name}`,
+      `erhvervsfotograf ${city.name}`,
       `videograf ${city.name}`,
       `dronefoto ${city.name}`,
-      `bryllupsfotograf ${city.name}`,
     ],
   });
 }

@@ -12,25 +12,25 @@ import { IMAGE_QUALITY } from "@/lib/image";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Om mig",
+  title: "Om mig — fotograf Lukas Svendsen",
   description:
-    "Lær Lukas Svendsen at kende — 16-årig fotograf, videograf og dronepilot. Fotografering, videoproduktion og droneflyvning til private, sport, events og erhverv.",
+    "Mød fotograf Lukas Svendsen — event-, sport- og erhvervsfotograf i Grindsted og Billund. Fotografering, videoproduktion og droneflyvning.",
   path: "/om-mig",
   keywords: [
     "om mig",
-    "fotograf",
+    "fotograf Lukas Svendsen",
+    "eventfotograf",
+    "sportfotograf",
+    "erhvervsfotograf",
     "videograf",
     "dronepilot",
-    "Lukas Svendsen",
     "fotografering",
-    "videoproduktion",
-    "droneflyvning",
   ],
 });
 
 export default function OmMigPage() {
   const description =
-    "Lær Lukas Svendsen at kende — 16-årig fotograf, videograf og dronepilot. Fotografering, videoproduktion og droneflyvning til private, sport, events og erhverv.";
+    "Mød fotograf Lukas Svendsen — event-, sport- og erhvervsfotograf i Grindsted og Billund. Fotografering, videoproduktion og droneflyvning.";
 
   return (
     <>

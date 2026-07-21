@@ -12,15 +12,18 @@ const pageDescription =
   "Oversigt over områder, hvor Lukas Svendsen tilbyder fotografering, videoproduktion og droneflyvning — baseret i Grindsted og Billund, med opgaver i hele Danmark.";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Områder",
+  title: "Fotograf i Danmark — områder",
   description: pageDescription,
   path: "/omraader",
   keywords: [
     "fotograf Danmark",
     "fotograf Grindsted",
     "fotograf Billund",
+    "fotograf Vejle",
+    "fotograf Kolding",
     "fotograf Midtjylland",
     "fotograf Syddanmark",
+    "eventfotograf",
     "Lukas Svendsen",
   ],
 });

@@ -358,9 +358,13 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
   }
 
   const slideVariants = {
-    enter: prefersReducedMotion ? {} : { opacity: 0, y: 10 },
-    center: { opacity: 1, y: 0 },
-    exit: prefersReducedMotion ? {} : { opacity: 0, y: -8 },
+    enter: prefersReducedMotion
+      ? {}
+      : { opacity: 0, y: 14, filter: "blur(3px)" },
+    center: { opacity: 1, y: 0, filter: "blur(0px)" },
+    exit: prefersReducedMotion
+      ? {}
+      : { opacity: 0, y: -10, filter: "blur(3px)" },
   };
 
   return (
@@ -381,13 +385,14 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
             initial="enter"
             animate="center"
             exit="exit"
-            transition={{ duration: 0.32, ease: EASE }}
+            transition={{ duration: 0.38, ease: EASE }}
           >
             {step === 1 && (
               <div>
                 <h3 className={stepHeadingClass}>Hvad drejer det sig om?</h3>
+                <p className={`mt-2 ${bodyClass}`}>Vælg det der passer bedst.</p>
                 <div
-                  className={`flex flex-wrap gap-2 ${embedded ? "mt-6" : "mt-8"}`}
+                  className={`flex flex-wrap gap-2.5 ${embedded ? "mt-7" : "mt-9"}`}
                 >
                   {inquiryTaskTypes.map((task) => {
                     const selected = form.taskType === task.id;
@@ -397,13 +402,17 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
                         type="button"
                         onClick={() => {
                           update("taskType", task.id);
-                          if (task.id !== "Andet") update("taskTypeOther", "");
+                          if (task.id !== "Andet") {
+                            update("taskTypeOther", "");
+                            setErrors({});
+                            setStep(2);
+                          }
                         }}
                         aria-pressed={selected}
-                        className={`min-h-10 rounded-sm border px-4 text-xs tracking-wide transition-all duration-300 ease-premium ${
+                        className={`min-h-11 rounded-sm border px-5 text-xs tracking-[0.08em] transition-all duration-300 ease-premium hover:-translate-y-px ${
                           selected
-                            ? "border-foreground/40 bg-primary/[0.08] text-foreground"
-                            : "border-border text-muted hover:border-foreground/20 hover:text-foreground/80"
+                            ? "border-foreground/35 bg-primary/[0.1] text-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]"
+                            : "border-border/90 bg-primary/[0.02] text-muted hover:border-foreground/25 hover:bg-accent hover:text-foreground/85"
                         }`}
                       >
                         {task.label}
@@ -412,7 +421,7 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
                   })}
                 </div>
                 {form.taskType === "Andet" && (
-                  <div className="mt-6">
+                  <div className="mt-7">
                     <FormField
                       id="taskTypeOther"
                       label="Kort beskrivelse"
@@ -440,8 +449,13 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
             {step === 2 && (
               <div>
                 <h3 className={stepHeadingClass}>Hvornår og hvor?</h3>
+                <p className={`mt-2 ${bodyClass}`}>
+                  Bare det vigtigste — resten finder vi ud af.
+                </p>
                 <label
-                  className={`flex cursor-pointer items-center gap-3 ${embedded ? "mt-5" : "mt-6"}`}
+                  className={`flex cursor-pointer items-center gap-3 rounded-sm border border-border/70 bg-accent/40 px-4 transition-colors hover:border-foreground/15 ${
+                    embedded ? "mt-6 min-h-11 py-3" : "mt-7 min-h-12 py-3.5"
+                  }`}
                 >
                   <input
                     type="checkbox"
@@ -452,15 +466,15 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
                     className="h-4 w-4 accent-white"
                   />
                   <span
-                    className={`text-foreground/65 ${embedded ? "text-xs" : "text-sm"}`}
+                    className={`text-foreground/70 ${embedded ? "text-xs" : "text-sm"}`}
                   >
                     Jeg er fleksibel med dato og tid
                   </span>
                 </label>
 
-                <div className={`space-y-5 ${embedded ? "mt-6" : "mt-8"}`}>
+                <div className={`space-y-6 ${embedded ? "mt-7" : "mt-9"}`}>
                   {!form.flexibleSchedule && (
-                    <div className="grid gap-5 sm:grid-cols-2">
+                    <div className="grid gap-6 sm:grid-cols-2">
                       <FormField id="date" label="Dato" error={errors.date}>
                         <input
                           id="date"
@@ -510,7 +524,10 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
             {step === 3 && (
               <div>
                 <h3 className={stepHeadingClass}>Fortæl kort om opgaven</h3>
-                <div className={embedded ? "mt-6" : "mt-8"}>
+                <p className={`mt-2 ${bodyClass}`}>
+                  Et par sætninger er nok.
+                </p>
+                <div className={embedded ? "mt-7" : "mt-9"}>
                   <FormField
                     id="description"
                     label="Beskrivelse"
@@ -533,7 +550,10 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
             {step === 4 && (
               <div>
                 <h3 className={stepHeadingClass}>Dine kontaktoplysninger</h3>
-                <div className={`space-y-5 ${embedded ? "mt-6" : "mt-8"}`}>
+                <p className={`mt-2 ${bodyClass}`}>
+                  Så jeg kan vende tilbage til dig.
+                </p>
+                <div className={`space-y-6 ${embedded ? "mt-7" : "mt-9"}`}>
                   <FormField id="name" label="Navn" error={errors.name}>
                     <input
                       id="name"
@@ -555,7 +575,7 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
                       placeholder="Valgfrit"
                     />
                   </FormField>
-                  <div className="grid gap-5 sm:grid-cols-2">
+                  <div className="grid gap-6 sm:grid-cols-2">
                     <FormField id="email" label="E-mail" error={errors.email}>
                       <input
                         id="email"
@@ -594,8 +614,8 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
       </div>
 
       <div
-        className={`flex items-center justify-between gap-4 border-t border-foreground/[0.06] ${
-          embedded ? "mt-7 pt-5" : "mt-10 pt-7"
+        className={`flex items-center justify-between gap-4 border-t border-foreground/[0.08] ${
+          embedded ? "mt-8 pt-6" : "mt-11 pt-8"
         }`}
       >
         {step > 1 ? (

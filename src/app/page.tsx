@@ -21,13 +21,6 @@ export const metadata: Metadata = homeMetadata();
 /** Færre billeder på forsiden = færre HTTP-requests ved første load */
 const HOME_FEATURED_COUNT = 9;
 
-const HomeStatsSection = dynamic(
-  () =>
-    import("@/components/sections/HomeStatsSection").then((mod) => ({
-      default: mod.HomeStatsSection,
-    })),
-);
-
 const ClientsSection = dynamic(
   () =>
     import("@/components/sections/ClientsSection").then((mod) => ({
@@ -110,7 +103,6 @@ export default function HomePage() {
       {siteConfig.showTestimonials && <TestimonialsSection />}
       <InquirySection />
       <HomeInternalLinks />
-      <HomeStatsSection />
     </>
   );
 }

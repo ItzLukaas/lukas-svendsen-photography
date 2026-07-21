@@ -1,0 +1,22 @@
+---
+description: Auto commit and push to GitHub/Vercel after completed changes
+alwaysApply: true
+---
+
+# Auto GitHub / Vercel deploy
+
+After finishing a set of code changes the user asked for, **always** commit and push to `origin/main` (or the current tracked branch) without waiting for an explicit "push" request.
+
+## Process
+
+1. Follow the normal git safety protocol (status, diff, log; no secrets; no force push; no amend unless rules allow).
+2. Stage only the relevant source/config files for the change (skip `image-import/`, local dumps, credentials).
+3. Commit with a concise message matching repo style.
+4. `git push` so Vercel deploys.
+5. Briefly confirm commit hash and that deploy is triggered.
+
+## Exceptions
+
+- Do **not** auto-push if the user explicitly says not to commit/push yet.
+- Do **not** push unrelated untracked assets unless the user asked to include them.
+- If push fails (auth/network), report the error and what remains unpushed.

@@ -1,3 +1,14 @@
+import type { LucideIcon } from "lucide-react";
+import {
+  Briefcase,
+  Camera,
+  Clapperboard,
+  Music2,
+  Plane,
+  Sparkles,
+  Trophy,
+  Video,
+} from "lucide-react";
 import type { TaskType } from "@/lib/inquiry-draft";
 import type { ServiceType } from "@/types/inquiry";
 
@@ -6,15 +17,16 @@ export type { TaskType };
 export const inquiryTaskTypes: {
   id: TaskType;
   label: string;
+  icon: LucideIcon;
 }[] = [
-  { id: "Event", label: "Event" },
-  { id: "Sport", label: "Sport" },
-  { id: "Festival", label: "Festival" },
-  { id: "Erhverv", label: "Erhverv" },
-  { id: "Portræt", label: "Portræt" },
-  { id: "Video", label: "Video" },
-  { id: "Drone", label: "Drone" },
-  { id: "Andet", label: "Andet" },
+  { id: "Event", label: "Event", icon: Sparkles },
+  { id: "Sport", label: "Sport", icon: Trophy },
+  { id: "Festival", label: "Festival", icon: Music2 },
+  { id: "Erhverv", label: "Erhverv", icon: Briefcase },
+  { id: "Portræt", label: "Portræt", icon: Camera },
+  { id: "Video", label: "Video", icon: Video },
+  { id: "Drone", label: "Drone", icon: Plane },
+  { id: "Andet", label: "Andet", icon: Clapperboard },
 ];
 
 /** @deprecated kept for email labels */

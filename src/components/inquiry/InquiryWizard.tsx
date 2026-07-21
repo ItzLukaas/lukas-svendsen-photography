@@ -392,9 +392,12 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
                 <h3 className={stepHeadingClass}>Hvad drejer det sig om?</h3>
                 <p className={`mt-2 ${bodyClass}`}>Vælg det der passer bedst.</p>
                 <div
-                  className={`flex flex-wrap gap-2.5 ${embedded ? "mt-7" : "mt-9"}`}
+                  className={`grid gap-3 sm:grid-cols-2 lg:grid-cols-4 ${
+                    embedded ? "mt-7" : "mt-9"
+                  }`}
                 >
                   {inquiryTaskTypes.map((task) => {
+                    const Icon = task.icon;
                     const selected = form.taskType === task.id;
                     return (
                       <button
@@ -409,13 +412,32 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
                           }
                         }}
                         aria-pressed={selected}
-                        className={`min-h-11 rounded-sm border px-5 text-xs tracking-[0.08em] transition-all duration-300 ease-premium hover:-translate-y-px ${
+                        className={`group flex flex-col items-start border text-left transition-all duration-500 ease-premium hover:-translate-y-0.5 ${
+                          embedded ? "p-4" : "p-5"
+                        } ${
                           selected
-                            ? "border-foreground/35 bg-primary/[0.1] text-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]"
-                            : "border-border/90 bg-primary/[0.02] text-muted hover:border-foreground/25 hover:bg-accent hover:text-foreground/85"
+                            ? "border-foreground/35 bg-primary/[0.08] shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]"
+                            : "border-border bg-primary/[0.02] hover:border-foreground/20 hover:bg-accent"
                         }`}
                       >
-                        {task.label}
+                        <span
+                          className={`mb-3 flex items-center justify-center rounded-full border transition-all duration-500 ease-premium ${
+                            embedded ? "h-9 w-9" : "h-10 w-10"
+                          } ${
+                            selected
+                              ? "border-foreground/30 bg-primary/[0.1] text-foreground"
+                              : "border-border text-muted group-hover:border-foreground/20 group-hover:text-foreground/70"
+                          }`}
+                        >
+                          <Icon size={embedded ? 16 : 17} strokeWidth={1.5} />
+                        </span>
+                        <span
+                          className={`tracking-wide text-foreground ${
+                            embedded ? "text-xs" : "text-sm"
+                          }`}
+                        >
+                          {task.label}
+                        </span>
                       </button>
                     );
                   })}

@@ -432,22 +432,22 @@ html.app-ready body {
 }
 
 .logo-marquee {
-  --marquee-gap: 3.5rem;
+  --marquee-gap: 3rem;
   position: relative;
   overflow: hidden;
   width: 100%;
   mask-image: linear-gradient(
     to right,
     transparent,
-    black 10%,
-    black 90%,
+    black 8%,
+    black 92%,
     transparent
   );
 }
 
 @media (min-width: 640px) {
   .logo-marquee {
-    --marquee-gap: 5rem;
+    --marquee-gap: 4.25rem;
   }
 }
 
@@ -457,7 +457,7 @@ html.app-ready body {
   align-items: center;
   margin: 0;
   padding: 0;
-  animation: logo-marquee 52s linear infinite;
+  animation: logo-marquee 58s linear infinite;
   will-change: transform;
 }
 
@@ -467,7 +467,7 @@ html.app-ready body {
   align-items: center;
   gap: var(--marquee-gap);
   margin: 0;
-  padding-block: 0.5rem;
+  padding-block: 0.25rem;
   padding-inline: 0;
   padding-right: var(--marquee-gap);
   list-style: none;
@@ -484,8 +484,8 @@ html.app-ready body {
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  width: 8.5rem;
-  height: 3.5rem;
+  width: 8rem;
+  height: 3.25rem;
 }
 
 .logo-marquee-link {
@@ -494,30 +494,44 @@ html.app-ready body {
   justify-content: center;
   width: 100%;
   height: 100%;
-  opacity: 0.42;
-  transition: opacity 0.5s var(--ease-premium);
+  opacity: 0.36;
+  transition:
+    opacity 0.35s var(--ease-premium),
+    transform 0.35s var(--ease-premium);
 }
 
 .logo-marquee-link:hover {
-  opacity: 0.9;
+  opacity: 0.78;
+  transform: translateY(-1px);
 }
 
 .logo-marquee-img {
-  max-height: 2.75rem;
+  max-height: 2.5rem;
   max-width: 100%;
   width: auto;
   height: auto;
   object-fit: contain;
+  object-position: center;
+}
+
+.logo-marquee-img-wide {
+  max-height: 2.25rem;
+  max-width: 88%;
 }
 
 @media (min-width: 640px) {
   .logo-marquee-item {
-    width: 10rem;
-    height: 4rem;
+    width: 9.25rem;
+    height: 3.5rem;
   }
 
   .logo-marquee-img {
-    max-height: 3rem;
+    max-height: 2.65rem;
+  }
+
+  .logo-marquee-img-wide {
+    max-height: 2.38rem;
+    max-width: 86%;
   }
 }
 

@@ -34,7 +34,7 @@ export function ClientsSection() {
           />
         </Link>
 
-        <div className="mt-8 w-full">
+        <div className="mt-10 w-full pt-2">
           <ClientLogoSlider logos={clientLogos} />
         </div>
       </div>

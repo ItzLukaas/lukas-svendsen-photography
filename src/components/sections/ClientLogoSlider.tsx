@@ -5,6 +5,9 @@ interface ClientLogoSliderProps {
   logos: ClientLogo[];
 }
 
+/** Wide source assets read larger in a fixed slot — scale them down for visual parity */
+const WIDE_LOGO_MIN_WIDTH = 380;
+
 function LogoItem({
   client,
   interactive,
@@ -12,6 +15,8 @@ function LogoItem({
   client: ClientLogo;
   interactive: boolean;
 }) {
+  const isWide = client.width >= WIDE_LOGO_MIN_WIDTH;
+
   const image = (
     <Image
       src={client.src}
@@ -19,9 +24,9 @@ function LogoItem({
       width={client.width}
       height={client.height}
       loading="eager"
-      sizes="(max-width: 640px) 120px, 160px"
+      sizes="(max-width: 640px) 108px, 144px"
       quality={75}
-      className="logo-marquee-img"
+      className={`logo-marquee-img${isWide ? " logo-marquee-img-wide" : ""}`}
     />
   );
 

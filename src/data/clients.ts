@@ -141,15 +141,6 @@ export const clientLogos: ClientLogo[] = [
     href: "https://stayandsleep.dk",
   },
   {
-    id: "ung-billund-ungdomsskolen",
-    name: "Ung Billund Ungdomsskolen",
-    alt: clientAlt("Ung Billund Ungdomsskolen", "ungdomsskole i Billund"),
-    src: "/images/clients/ung-billund-ungdomsskolen.webp",
-    width: 280,
-    height: 112,
-    href: "https://www.ungbillund.dk",
-  },
-  {
     id: "venstre",
     name: "Venstre",
     alt: clientAlt("Venstre", "politisk parti"),

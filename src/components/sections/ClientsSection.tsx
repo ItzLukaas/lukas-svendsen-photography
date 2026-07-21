@@ -7,7 +7,7 @@ import { ClientLogoSlider } from "./ClientLogoSlider";
 export function ClientsSection() {
   return (
     <section
-      className={`overflow-x-hidden ${sectionDivider} bg-background px-6 py-16 lg:px-8 lg:py-24`}
+      className={`overflow-x-hidden ${sectionDivider} bg-background px-6 py-20 lg:px-8 lg:py-28`}
       aria-labelledby="clients-heading"
     >
       <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-center text-center">
@@ -34,7 +34,7 @@ export function ClientsSection() {
           />
         </Link>
 
-        <div className="mt-10 w-full pt-2">
+        <div className="mt-12 w-full pt-2">
           <ClientLogoSlider logos={clientLogos} />
         </div>
       </div>

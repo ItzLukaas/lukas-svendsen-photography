@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 import { sectionDivider } from "@/lib/styles";
 
 const homeSectionShell =
-  "bg-background px-6 py-16 sm:py-20 lg:px-8 lg:py-28";
+  "bg-background px-6 py-20 sm:py-24 lg:px-8 lg:py-32";
 
 interface SectionProps {
   children: ReactNode;

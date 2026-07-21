@@ -40,7 +40,7 @@ export function ServicesSection({ compact = false }: { compact?: boolean }) {
     ? "text-sm leading-relaxed text-muted md:text-[0.95rem] md:leading-[1.7]"
     : sectionBody;
   const shellClass = compact
-    ? "bg-background px-6 py-16 sm:py-20 lg:px-8 lg:py-28"
+    ? "bg-background px-6 py-20 sm:py-24 lg:px-8 lg:py-32"
     : sectionShell;
 
   return (

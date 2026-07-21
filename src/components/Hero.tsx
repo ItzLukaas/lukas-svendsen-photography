@@ -20,7 +20,7 @@ export function Hero() {
     <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden bg-surface">
       <HeroBackground />
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-28 text-center lg:px-10 lg:py-36">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-32 text-center lg:px-10 lg:py-40">
         <div className="hero-content-rise hero-content-frame mx-auto max-w-3xl -translate-y-5 sm:-translate-y-7 lg:-translate-y-9">
           <div className="hero-content-accent" aria-hidden="true" />
           <h1 className={`hero-title-shadow ${heroTitleCompact}`}>Fotograf i Grindsted</h1>
@@ -28,7 +28,7 @@ export function Hero() {
             Fotografering | videoproduktion | droneflyvning
           </p>
 
-          <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:mt-8 sm:flex-row sm:gap-4">
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:mt-10 sm:flex-row sm:gap-4">
             <Link href="/portfolio" className={btnPrimaryCompact}>
               Se portefølje
               <ArrowRight

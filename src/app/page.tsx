@@ -11,14 +11,22 @@ import { homeJsonLd } from "@/lib/json-ld";
 import { sectionDivider } from "@/lib/styles";
 import { GallerySkeleton } from "@/components/ui/GallerySkeleton";
 
-const homeSectionShell =
-  "bg-background px-6 py-16 sm:py-20 lg:px-8 lg:py-28";
 import { homeMetadata } from "@/lib/seo";
+
+const homeSectionShell =
+  "bg-background px-6 py-20 sm:py-24 lg:px-8 lg:py-32";
 
 export const metadata: Metadata = homeMetadata();
 
 /** Færre billeder på forsiden = færre HTTP-requests ved første load */
 const HOME_FEATURED_COUNT = 9;
+
+const HomeStatsSection = dynamic(
+  () =>
+    import("@/components/sections/HomeStatsSection").then((mod) => ({
+      default: mod.HomeStatsSection,
+    })),
+);
 
 const ClientsSection = dynamic(
   () =>
@@ -35,7 +43,8 @@ const MasonryGallery = dynamic(
   { loading: () => <GallerySkeleton /> },
 );
 
-const PhotographyTypesSection = dynamic(() =>  import("@/components/sections/PhotographyTypesSection").then((mod) => ({
+const PhotographyTypesSection = dynamic(() =>
+  import("@/components/sections/PhotographyTypesSection").then((mod) => ({
     default: mod.PhotographyTypesSection,
   })),
 );
@@ -73,13 +82,14 @@ export default function HomePage() {
     <>
       <HomeJsonLd />
       <Hero />
+      <HomeStatsSection />
       <ClientsSection />
       <ServicesSection compact />
 
       <section className={`${homeSectionShell} ${sectionDivider}`}>
         <div className="mx-auto max-w-7xl">
           <MasonryGallery photos={featuredPhotos.slice(0, HOME_FEATURED_COUNT)} showTitle />
-          <div className="mt-10 text-center">
+          <div className="mt-12 text-center">
             <Link
               href="/portfolio"
               className="group inline-flex min-h-9 items-center gap-2 text-[10px] tracking-[0.2em] text-muted uppercase transition-colors duration-500 ease-premium hover:text-foreground"

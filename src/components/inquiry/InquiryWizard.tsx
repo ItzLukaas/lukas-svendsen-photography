@@ -1,25 +1,38 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type ChangeEvent,
+  type ReactNode,
+} from "react";
 import { m, AnimatePresence, useReducedMotion } from "framer-motion";
 import {
   ArrowLeft,
   ArrowRight,
-  Check,
+  ImagePlus,
   Loader2,
-  Plus,
-  Trash2,
+  X,
 } from "lucide-react";
-import {
-  inquiryCategories,
-  inquiryServices,
-  serviceLabels,
-} from "@/data/inquiry-form";
+import { inquiryTaskTypes, TOTAL_INQUIRY_STEPS } from "@/data/inquiry-form";
 import { InquiryProgress } from "./InquiryProgress";
-import { btnPrimary, sectionBody } from "@/lib/styles";
+import { SuccessCheckmark } from "./SuccessCheckmark";
+import { btnPrimary } from "@/lib/styles";
 import { trackInquirySubmit } from "@/lib/analytics";
 import { EASE } from "@/lib/motion";
-import type { ScheduleSlot, ServiceType } from "@/types/inquiry";
+import {
+  buildEndTime,
+  buildLocation,
+  clearInquiryDraft,
+  initialInquiryDraft,
+  loadInquiryDraft,
+  mapTaskTypeToService,
+  saveInquiryDraft,
+  type InquiryDraft,
+  type TaskType,
+} from "@/lib/inquiry-draft";
 
 const btnPrimaryCompact =
   "group inline-flex min-h-10 items-center justify-center gap-2 rounded-sm border border-foreground/20 px-7 py-2.5 text-[10px] tracking-[0.2em] text-foreground uppercase transition-[color,background-color,transform,box-shadow,border-color] duration-300 ease-premium hover:-translate-y-px hover:border-foreground hover:bg-primary hover:text-primary-foreground hover:shadow-[var(--shadow-sm)] active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50";
@@ -30,35 +43,10 @@ const sectionBodyCompact =
 const inputClass =
   "peer w-full border-b border-border bg-transparent px-0 py-3.5 text-foreground placeholder-white/20 transition-[color,border-color] duration-500 ease-premium focus:border-foreground/20 focus:outline-none";
 
-const TOTAL_STEPS = 5;
+const textareaClass =
+  "w-full resize-none border-0 bg-transparent px-0 py-3.5 text-foreground placeholder-white/20 transition-colors duration-500 ease-premium focus:outline-none";
 
-interface FormState {
-  service: ServiceType | null;
-  category: string;
-  categoryOther: string;
-  schedule: ScheduleSlot[];
-  flexibleSchedule: boolean;
-  name: string;
-  company: string;
-  email: string;
-  phone: string;
-  location: string;
-  description: string;
-}
-
-const initialState: FormState = {
-  service: null,
-  category: "",
-  categoryOther: "",
-  schedule: [{ date: "", startTime: "17:00", endTime: "23:00" }],
-  flexibleSchedule: false,
-  name: "",
-  company: "",
-  email: "",
-  phone: "",
-  location: "",
-  description: "",
-};
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function formatDateDa(date: string) {
   if (!date) return "—";
@@ -73,12 +61,14 @@ function FormField({
   id,
   label,
   optional,
+  error,
   children,
 }: {
   id: string;
   label: string;
   optional?: boolean;
-  children: React.ReactNode;
+  error?: string;
+  children: ReactNode;
 }) {
   return (
     <div>
@@ -94,95 +84,237 @@ function FormField({
         )}
       </label>
       <div className="field-underline">{children}</div>
+      {error && (
+        <p className="mt-2 text-xs text-red-400/85" role="alert">
+          {error}
+        </p>
+      )}
     </div>
   );
 }
 
-const textareaClass =
-  "w-full resize-none border-0 bg-transparent px-0 py-3.5 text-foreground placeholder-white/20 transition-colors duration-500 ease-premium focus:outline-none";
+function validateField(
+  key: keyof InquiryDraft,
+  draft: InquiryDraft,
+): string | undefined {
+  switch (key) {
+    case "taskType":
+      return draft.taskType ? undefined : "Vælg en opgavetype";
+    case "taskTypeOther":
+      return draft.taskType === "Andet" && !draft.taskTypeOther.trim()
+        ? "Beskriv din opgave"
+        : undefined;
+    case "date":
+      if (draft.flexibleSchedule) return undefined;
+      return draft.date ? undefined : "Vælg en dato";
+    case "startTime":
+      if (draft.flexibleSchedule) return undefined;
+      return draft.startTime ? undefined : "Vælg starttidspunkt";
+    case "endTime":
+      if (draft.flexibleSchedule || !draft.endTime) return undefined;
+      return draft.endTime > draft.startTime
+        ? undefined
+        : "Sluttidspunkt skal være efter start";
+    case "address":
+      return draft.address.trim().length >= 2
+        ? undefined
+        : "Adresse skal udfyldes";
+    case "city":
+      return draft.city.trim().length >= 2 ? undefined : "By skal udfyldes";
+    case "description":
+      return draft.description.trim().length >= 20
+        ? undefined
+        : "Beskriv projektet med mindst 20 tegn";
+    case "name":
+      return draft.name.trim().length >= 2 ? undefined : "Navn skal udfyldes";
+    case "email":
+      if (!draft.email.trim()) return "E-mail skal udfyldes";
+      return emailPattern.test(draft.email.trim())
+        ? undefined
+        : "Ugyldig e-mail";
+    case "phone":
+      return draft.phone.trim().length >= 6
+        ? undefined
+        : "Telefon skal udfyldes";
+    default:
+      return undefined;
+  }
+}
+
+function validateStep(step: number, draft: InquiryDraft): Record<string, string> {
+  const errors: Record<string, string> = {};
+
+  if (step === 1) {
+    const taskError = validateField("taskType", draft);
+    if (taskError) errors.taskType = taskError;
+    const otherError = validateField("taskTypeOther", draft);
+    if (otherError) errors.taskTypeOther = otherError;
+  }
+
+  if (step === 2 && !draft.flexibleSchedule) {
+    for (const key of ["date", "startTime", "endTime"] as const) {
+      const err = validateField(key, draft);
+      if (err) errors[key] = err;
+    }
+  }
+
+  if (step === 3) {
+    for (const key of ["address", "city"] as const) {
+      const err = validateField(key, draft);
+      if (err) errors[key] = err;
+    }
+  }
+
+  if (step === 4) {
+    const err = validateField("description", draft);
+    if (err) errors.description = err;
+  }
+
+  if (step === 5) {
+    for (const key of ["name", "email", "phone"] as const) {
+      const err = validateField(key, draft);
+      if (err) errors[key] = err;
+    }
+  }
+
+  return errors;
+}
 
 export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
   const prefersReducedMotion = useReducedMotion();
-  const bodyClass = embedded ? sectionBodyCompact : sectionBody;
+  const stepRef = useRef<HTMLDivElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [hydrated, setHydrated] = useState(false);
+  const [step, setStep] = useState(1);
+  const [form, setForm] = useState<InquiryDraft>(initialInquiryDraft);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [referencePreview, setReferencePreview] = useState<string | null>(null);
+  const [formStartedAt] = useState(() => Date.now());
+
   const primaryBtnClass = embedded ? btnPrimaryCompact : btnPrimary;
   const stepHeadingClass = embedded
     ? "font-display text-xl font-light text-foreground md:text-2xl"
     : "font-display text-2xl font-light text-foreground md:text-3xl";
-  const [step, setStep] = useState(1);
-  const [form, setForm] = useState<FormState>(initialState);
-  const [errors, setErrors] = useState<Record<string, string>>({});
-  const [loading, setLoading] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-  const [formStartedAt] = useState(() => Date.now());
+  const bodyClass = embedded ? sectionBodyCompact : "text-base leading-relaxed text-muted md:text-[1.05rem] md:leading-[1.75]";
 
-  const categories = useMemo(
-    () => (form.service ? inquiryCategories[form.service] : []),
-    [form.service],
-  );
+  useEffect(() => {
+    const saved = loadInquiryDraft();
+    if (saved) {
+      setForm(saved);
+      setStep(Math.min(saved.step, TOTAL_INQUIRY_STEPS));
+    }
+    setHydrated(true);
+  }, []);
+
+  useEffect(() => {
+    if (!hydrated) return;
+    saveInquiryDraft({ ...form, step });
+  }, [form, step, hydrated]);
+
+  useEffect(() => {
+    if (!hydrated) return;
+    const focusTarget = stepRef.current?.querySelector<HTMLElement>(
+      "input:not([type=hidden]):not([type=checkbox]), textarea, button[aria-pressed]",
+    );
+    focusTarget?.focus({ preventScroll: true });
+  }, [step, hydrated]);
 
   const update = useCallback(
-    <K extends keyof FormState>(key: K, value: FormState[K]) => {
-      setForm((prev) => ({ ...prev, [key]: value }));
-      setErrors((prev) => {
-        const next = { ...prev };
-        delete next[key as string];
+    <K extends keyof InquiryDraft>(key: K, value: InquiryDraft[K]) => {
+      setForm((prev) => {
+        const next = { ...prev, [key]: value };
+        if (touched[key as string]) {
+          const err = validateField(key, next);
+          setErrors((prevErrors) => {
+            const updated = { ...prevErrors };
+            if (err) updated[key as string] = err;
+            else delete updated[key as string];
+            return updated;
+          });
+        }
         return next;
       });
     },
-    [],
+    [touched],
   );
 
-  const validateStep = (current: number): boolean => {
-    const nextErrors: Record<string, string> = {};
-
-    if (current === 1 && !form.service) {
-      nextErrors.service = "Vælg en ydelse";
-    }
-
-    if (current === 2) {
-      if (!form.category) nextErrors.category = "Vælg en kategori";
-      if (form.category === "Andet" && !form.categoryOther.trim()) {
-        nextErrors.categoryOther = "Beskriv din kategori";
+  const touch = (key: string) => {
+    setTouched((prev) => ({ ...prev, [key]: true }));
+    setErrors((prev) => {
+      const err = validateField(key as keyof InquiryDraft, form);
+      if (!err) {
+        const next = { ...prev };
+        delete next[key];
+        return next;
       }
-    }
-
-    if (current === 3 && !form.flexibleSchedule) {
-      const validSlots = form.schedule.filter((s) => s.date);
-      if (validSlots.length === 0) {
-        nextErrors.schedule = "Vælg mindst én dato";
-      }
-      for (const slot of validSlots) {
-        if (slot.startTime >= slot.endTime) {
-          nextErrors.schedule = "Sluttidspunkt skal være efter start";
-          break;
-        }
-      }
-    }
-
-    if (current === 4) {
-      if (!form.name.trim()) nextErrors.name = "Navn skal udfyldes";
-      if (!form.email.trim()) nextErrors.email = "E-mail skal udfyldes";
-      if (!form.phone.trim()) nextErrors.phone = "Telefon skal udfyldes";
-      if (!form.location.trim()) nextErrors.location = "Lokation skal udfyldes";
-      if (form.description.trim().length < 20) {
-        nextErrors.description = "Beskriv projektet med mindst 20 tegn";
-      }
-    }
-
-    setErrors(nextErrors);
-    return Object.keys(nextErrors).length === 0;
+      return { ...prev, [key]: err };
+    });
   };
 
   const goNext = () => {
-    if (!validateStep(step)) return;
-    setStep((s) => Math.min(s + 1, TOTAL_STEPS));
+    const stepErrors = validateStep(step, form);
+    if (Object.keys(stepErrors).length > 0) {
+      setErrors(stepErrors);
+      setTouched((prev) => ({
+        ...prev,
+        ...Object.fromEntries(Object.keys(stepErrors).map((k) => [k, true])),
+      }));
+      return;
+    }
+    setErrors({});
+    setStep((s) => Math.min(s + 1, TOTAL_INQUIRY_STEPS));
   };
 
-  const goBack = () => setStep((s) => Math.max(s - 1, 1));
+  const goBack = () => {
+    setErrors({});
+    setStep((s) => Math.max(s - 1, 1));
+  };
+
+  const handleReferenceChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    if (!file.type.startsWith("image/")) {
+      setErrors((prev) => ({
+        ...prev,
+        referenceImage: "Kun billedfiler er tilladt",
+      }));
+      return;
+    }
+
+    if (file.size > 5 * 1024 * 1024) {
+      setErrors((prev) => ({
+        ...prev,
+        referenceImage: "Billedet må max være 5 MB",
+      }));
+      return;
+    }
+
+    if (referencePreview) URL.revokeObjectURL(referencePreview);
+    setReferencePreview(URL.createObjectURL(file));
+    update("referenceImageName", file.name);
+    setErrors((prev) => {
+      const next = { ...prev };
+      delete next.referenceImage;
+      return next;
+    });
+  };
+
+  const clearReference = () => {
+    if (referencePreview) URL.revokeObjectURL(referencePreview);
+    setReferencePreview(null);
+    update("referenceImageName", "");
+    if (fileInputRef.current) fileInputRef.current.value = "";
+  };
 
   const handleSubmit = async () => {
-    if (!validateStep(4)) {
-      setStep(4);
+    const contactErrors = validateStep(5, form);
+    if (Object.keys(contactErrors).length > 0) {
+      setErrors(contactErrors);
+      setStep(5);
       return;
     }
 
@@ -190,20 +322,35 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
     setErrors({});
 
     try {
+      const service = mapTaskTypeToService(form.taskType!);
+      const location = buildLocation(form);
+      let description = form.description.trim();
+
+      if (form.referenceImageName) {
+        description += `\n\nReferencebillede: ${form.referenceImageName} (sendes gerne separat på mail ved behov)`;
+      }
+
       const payload = {
-        service: form.service!,
-        category: form.category,
-        categoryOther: form.categoryOther || undefined,
+        service,
+        category: form.taskType!,
+        categoryOther:
+          form.taskType === "Andet" ? form.taskTypeOther.trim() : undefined,
         schedule: form.flexibleSchedule
           ? []
-          : form.schedule.filter((s) => s.date),
+          : [
+              {
+                date: form.date,
+                startTime: form.startTime,
+                endTime: buildEndTime(form.startTime, form.endTime),
+              },
+            ],
         flexibleSchedule: form.flexibleSchedule,
         name: form.name.trim(),
         company: form.company.trim() || undefined,
         email: form.email.trim(),
         phone: form.phone.trim(),
-        location: form.location.trim(),
-        description: form.description.trim(),
+        location,
+        description,
         _honeypot: "",
         _formStartedAt: formStartedAt,
       };
@@ -239,6 +386,8 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
         return;
       }
 
+      clearInquiryDraft();
+      clearReference();
       setSubmitted(true);
       trackInquirySubmit();
     } catch {
@@ -248,6 +397,17 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
     }
   };
 
+  if (!hydrated) {
+    return (
+      <div
+        className={`flex items-center justify-center ${embedded ? "min-h-[320px]" : "min-h-[420px]"}`}
+        aria-hidden="true"
+      >
+        <Loader2 className="h-5 w-5 animate-spin text-muted" strokeWidth={1.5} />
+      </div>
+    );
+  }
+
   if (submitted) {
     return (
       <m.div
@@ -256,411 +416,427 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
         transition={{ duration: 0.6, ease: EASE }}
         className={`flex flex-col items-center text-center ${embedded ? "py-12" : "py-16"}`}
       >
-        <div
-          className={`mb-5 flex items-center justify-center rounded-full border border-foreground/20 bg-primary/[0.06] shadow-[0_0_40px_rgba(255,255,255,0.06)] ${
-            embedded ? "h-14 w-14" : "h-16 w-16"
-          }`}
-        >
-          <Check size={embedded ? 20 : 24} strokeWidth={1.5} className="text-foreground" />
-        </div>
+        <SuccessCheckmark size={embedded ? "sm" : "md"} />
         <h3
-          className={`font-display font-light text-foreground ${embedded ? "text-xl" : "text-2xl"}`}
+          className={`mt-6 font-display font-light text-foreground ${embedded ? "text-xl" : "text-2xl"}`}
         >
-          Tak for din forespørgsel
+          Tak for din bookingforespørgsel
         </h3>
         <p className={`mt-3 max-w-md ${bodyClass}`}>
-          Jeg har modtaget dine informationer og vender tilbage hurtigst muligt.
+          Jeg har modtaget dine informationer og vender tilbage hurtigst muligt —
+          typisk inden for 24 timer på hverdage.
         </p>
       </m.div>
     );
   }
 
+  const slideVariants = {
+    enter: prefersReducedMotion ? {} : { opacity: 0, x: 24, filter: "blur(4px)" },
+    center: { opacity: 1, x: 0, filter: "blur(0px)" },
+    exit: prefersReducedMotion ? {} : { opacity: 0, x: -24, filter: "blur(4px)" },
+  };
+
   return (
-    <div
-      className={
-        embedded ? "p-0" : "border border-border bg-accent p-8 lg:p-12"
-      }
-    >
+    <div className={embedded ? "p-0" : "border border-border bg-accent/80 p-8 backdrop-blur-sm lg:p-12"}>
       <InquiryProgress currentStep={step} compact={embedded} />
 
-      <AnimatePresence mode="wait">
-        <m.div
-          key={step}
-          initial={prefersReducedMotion ? false : { opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={prefersReducedMotion ? undefined : { opacity: 0, x: -20 }}
-          transition={{ duration: 0.45, ease: EASE }}
-        >
-          {step === 1 && (
-            <div>
-              <h3 className={stepHeadingClass}>
-                Hvad kan jeg hjælpe dig med?
-              </h3>
-              <p className={`mt-2 ${bodyClass}`}>
-                Vælg den ydelse der passer bedst til dit projekt.
-              </p>
-              <div className={`grid gap-3 sm:grid-cols-3 ${embedded ? "mt-7" : "mt-10"}`}>
-                {inquiryServices.map((service) => {
-                  const Icon = service.icon;
-                  const selected = form.service === service.id;
-                  return (
-                    <button
-                      key={service.id}
-                      type="button"
-                      onClick={() => {
-                        update("service", service.id);
-                        update("category", "");
-                        update("categoryOther", "");
-                      }}
-                      aria-pressed={selected}
-                      className={`group flex flex-col items-start border text-left transition-all duration-500 ease-premium hover:-translate-y-0.5 ${
-                        embedded ? "p-4" : "p-6"
-                      } ${
-                        selected
-                          ? "border-foreground/35 bg-primary/[0.06] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]"
-                          : "border-border bg-primary/[0.01] hover:border-foreground/20 hover:bg-accent"
-                      }`}
-                    >
-                      <span
-                        className={`flex items-center justify-center rounded-full border transition-all duration-500 ease-premium ${
-                          embedded ? "mb-3 h-9 w-9" : "mb-5 h-11 w-11"
+      <div ref={stepRef}>
+        <AnimatePresence mode="wait">
+          <m.div
+            key={step}
+            variants={slideVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.42, ease: EASE }}
+          >
+            {step === 1 && (
+              <div>
+                <h3 className={stepHeadingClass}>Hvilken type opgave drejer det sig om?</h3>
+                <p className={`mt-2 ${bodyClass}`}>
+                  Vælg den kategori der bedst matcher dit projekt.
+                </p>
+                <div
+                  className={`grid gap-3 sm:grid-cols-2 lg:grid-cols-4 ${embedded ? "mt-7" : "mt-10"}`}
+                >
+                  {inquiryTaskTypes.map((task) => {
+                    const Icon = task.icon;
+                    const selected = form.taskType === task.id;
+                    return (
+                      <button
+                        key={task.id}
+                        type="button"
+                        onClick={() => {
+                          update("taskType", task.id);
+                          if (task.id !== "Andet") update("taskTypeOther", "");
+                        }}
+                        aria-pressed={selected}
+                        className={`group flex flex-col items-start border text-left transition-all duration-500 ease-premium hover:-translate-y-0.5 ${
+                          embedded ? "p-4" : "p-5"
                         } ${
                           selected
-                            ? "border-foreground/30 bg-primary/[0.08] text-foreground"
-                            : "border-border text-muted group-hover:border-foreground/20 group-hover:text-foreground/70"
+                            ? "border-foreground/35 bg-primary/[0.08] shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]"
+                            : "border-border bg-primary/[0.02] hover:border-foreground/20 hover:bg-accent"
                         }`}
                       >
-                        <Icon size={embedded ? 16 : 18} strokeWidth={1.5} />
-                      </span>
-                      <span className={`tracking-wide text-foreground ${embedded ? "text-xs" : "text-sm"}`}>
-                        {service.label}
-                      </span>
-                      <span className={`mt-1.5 leading-relaxed text-muted ${embedded ? "text-[11px]" : "text-xs"}`}>
-                        {service.description}
-                      </span>
-                    </button>
-                  );
-                })}
+                        <span
+                          className={`mb-3 flex items-center justify-center rounded-full border transition-all duration-500 ease-premium ${
+                            embedded ? "h-9 w-9" : "h-10 w-10"
+                          } ${
+                            selected
+                              ? "border-foreground/30 bg-primary/[0.1] text-foreground"
+                              : "border-border text-muted group-hover:border-foreground/20 group-hover:text-foreground/70"
+                          }`}
+                        >
+                          <Icon size={embedded ? 16 : 17} strokeWidth={1.5} />
+                        </span>
+                        <span className={`tracking-wide text-foreground ${embedded ? "text-xs" : "text-sm"}`}>
+                          {task.label}
+                        </span>
+                        <span className={`mt-1 leading-relaxed text-muted ${embedded ? "text-[11px]" : "text-xs"}`}>
+                          {task.description}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+                {form.taskType === "Andet" && (
+                  <div className="mt-8">
+                    <FormField
+                      id="taskTypeOther"
+                      label="Beskriv opgaven"
+                      error={errors.taskTypeOther}
+                    >
+                      <input
+                        id="taskTypeOther"
+                        value={form.taskTypeOther}
+                        onChange={(e) => update("taskTypeOther", e.target.value)}
+                        onBlur={() => touch("taskTypeOther")}
+                        className={inputClass}
+                        placeholder="Fortæl kort hvad du har brug for"
+                      />
+                    </FormField>
+                  </div>
+                )}
+                {errors.taskType && (
+                  <p className="mt-4 text-xs text-red-400/85" role="alert">
+                    {errors.taskType}
+                  </p>
+                )}
               </div>
-              {errors.service && (
-                <p className="mt-4 text-xs text-red-400/80">{errors.service}</p>
-              )}
-            </div>
-          )}
+            )}
 
-          {step === 2 && form.service && (
-            <div>
-              <h3 className={stepHeadingClass}>
-                Vælg kategori
-              </h3>
-              <p className={`mt-2 ${bodyClass}`}>
-                Hvilken type {serviceLabels[form.service].toLowerCase()} drejer det sig om?
-              </p>
-              <div className={`flex flex-wrap gap-2.5 ${embedded ? "mt-7" : "mt-10"}`}>
-                {categories.map((cat) => (
-                  <button
-                    key={cat}
-                    type="button"
-                    onClick={() => update("category", cat)}
-                    aria-pressed={form.category === cat}
-                    className={`rounded-full border uppercase transition-all duration-500 ease-premium hover:-translate-y-px ${
-                      embedded
-                        ? "min-h-9 px-4 py-2 text-[10px] tracking-[0.15em]"
-                        : "min-h-11 px-5 py-2.5 text-xs tracking-[0.15em]"
-                    } ${
-                      form.category === cat
-                        ? "border-foreground/40 bg-accent-strong text-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]"
-                        : "border-border bg-accent text-muted hover:border-foreground/20 hover:text-foreground/80"
-                    }`}
-                  >
-                    {cat}
-                  </button>
-                ))}
+            {step === 2 && (
+              <div>
+                <h3 className={stepHeadingClass}>Hvornår skal det ske?</h3>
+                <p className={`mt-2 ${bodyClass}`}>
+                  Vælg dato og tidspunkter — eller marker at du er fleksibel.
+                </p>
+
+                <label
+                  className={`flex cursor-pointer items-center gap-3 rounded-sm border border-border/80 bg-accent/50 px-4 transition-colors hover:border-foreground/15 ${embedded ? "mt-6 min-h-10 py-3" : "mt-8 min-h-11 py-3.5"}`}
+                >
+                  <input
+                    type="checkbox"
+                    checked={form.flexibleSchedule}
+                    onChange={(e) => update("flexibleSchedule", e.target.checked)}
+                    className="h-4 w-4 accent-white"
+                  />
+                  <span className={`text-foreground/70 ${embedded ? "text-xs" : "text-sm"}`}>
+                    Jeg er fleksibel med dato og tidspunkt
+                  </span>
+                </label>
+
+                {!form.flexibleSchedule && (
+                  <div className={`grid gap-6 sm:grid-cols-2 ${embedded ? "mt-7" : "mt-10"}`}>
+                    <FormField id="date" label="Dato" error={errors.date}>
+                      <input
+                        id="date"
+                        type="date"
+                        value={form.date}
+                        min={new Date().toISOString().split("T")[0]}
+                        onChange={(e) => update("date", e.target.value)}
+                        onBlur={() => touch("date")}
+                        className={`${inputClass} [color-scheme:dark]`}
+                      />
+                    </FormField>
+                    <FormField id="startTime" label="Starttidspunkt" error={errors.startTime}>
+                      <input
+                        id="startTime"
+                        type="time"
+                        value={form.startTime}
+                        onChange={(e) => update("startTime", e.target.value)}
+                        onBlur={() => touch("startTime")}
+                        className={`${inputClass} [color-scheme:dark]`}
+                      />
+                    </FormField>
+                    <FormField
+                      id="endTime"
+                      label="Sluttidspunkt"
+                      optional
+                      error={errors.endTime}
+                    >
+                      <input
+                        id="endTime"
+                        type="time"
+                        value={form.endTime}
+                        onChange={(e) => update("endTime", e.target.value)}
+                        onBlur={() => touch("endTime")}
+                        className={`${inputClass} [color-scheme:dark]`}
+                      />
+                    </FormField>
+                  </div>
+                )}
               </div>
-              {form.category === "Andet" && (
-                <div className="mt-8">
-                  <FormField id="categoryOther" label="Beskriv kategori">
+            )}
+
+            {step === 3 && (
+              <div>
+                <h3 className={stepHeadingClass}>Hvor finder det sted?</h3>
+                <p className={`mt-2 ${bodyClass}`}>
+                  Angiv adresse og by — tilføj eventuelt navnet på arrangementet.
+                </p>
+                <div className={`space-y-6 ${embedded ? "mt-7" : "mt-10"}`}>
+                  <FormField id="address" label="Adresse" error={errors.address}>
                     <input
-                      id="categoryOther"
-                      value={form.categoryOther}
-                      onChange={(e) => update("categoryOther", e.target.value)}
+                      id="address"
+                      value={form.address}
+                      onChange={(e) => update("address", e.target.value)}
+                      onBlur={() => touch("address")}
+                      autoComplete="street-address"
                       className={inputClass}
-                      placeholder="Fortæl kort hvad du har brug for"
+                      placeholder="Gade og nummer"
+                    />
+                  </FormField>
+                  <FormField id="city" label="By" error={errors.city}>
+                    <input
+                      id="city"
+                      value={form.city}
+                      onChange={(e) => update("city", e.target.value)}
+                      onBlur={() => touch("city")}
+                      autoComplete="address-level2"
+                      className={inputClass}
+                      placeholder="Fx Grindsted, Billund, København"
+                    />
+                  </FormField>
+                  <FormField id="eventName" label="Arrangement / event" optional>
+                    <input
+                      id="eventName"
+                      value={form.eventName}
+                      onChange={(e) => update("eventName", e.target.value)}
+                      className={inputClass}
+                      placeholder="Fx DM i håndbold, firmaevent, koncert"
                     />
                   </FormField>
                 </div>
-              )}
-              {(errors.category || errors.categoryOther) && (
-                <p className="mt-4 text-xs text-red-400/80">
-                  {errors.category ?? errors.categoryOther}
+              </div>
+            )}
+
+            {step === 4 && (
+              <div>
+                <h3 className={stepHeadingClass}>Beskriv dit projekt</h3>
+                <p className={`mt-2 ${bodyClass}`}>
+                  Fortæl hvad du ønsker — jo mere detaljer, desto bedre kan jeg forberede mig.
                 </p>
-              )}
-            </div>
-          )}
+                <div className={`space-y-6 ${embedded ? "mt-7" : "mt-10"}`}>
+                  <FormField id="description" label="Beskrivelse" error={errors.description}>
+                    <textarea
+                      id="description"
+                      value={form.description}
+                      onChange={(e) => update("description", e.target.value)}
+                      onBlur={() => touch("description")}
+                      rows={embedded ? 6 : 8}
+                      className={textareaClass}
+                      placeholder="Hvad skal der fotograferes/filmes? Hvem er målgruppen? Er der særlige ønsker til stil, leverance eller deadline?"
+                    />
+                  </FormField>
 
-          {step === 3 && (
-            <div>
-              <h3 className={stepHeadingClass}>
-                Hvornår?
-              </h3>
-              <p className={`mt-2 ${bodyClass}`}>
-                Vælg ønskede datoer og tidspunkter — eller marker fleksibel.
-              </p>
-
-              <label
-                className={`flex cursor-pointer items-center gap-3 ${embedded ? "mt-6 min-h-9" : "mt-8 min-h-11"}`}
-              >
-                <input
-                  type="checkbox"
-                  checked={form.flexibleSchedule}
-                  onChange={(e) => update("flexibleSchedule", e.target.checked)}
-                  className="h-4 w-4 accent-white"
-                />
-                <span className={`text-foreground/60 ${embedded ? "text-xs" : "text-sm"}`}>
-                  Jeg er fleksibel med dato og tidspunkt
-                </span>
-              </label>
-
-              {!form.flexibleSchedule && (
-                <div className="mt-8 space-y-6">
-                  {form.schedule.map((slot, index) => (
-                    <div
-                      key={index}
-                      className="grid gap-4 rounded-sm border border-border bg-accent p-5 sm:grid-cols-[1fr_auto_auto_auto]"
-                    >
-                      <FormField id={`date-${index}`} label="Dato">
-                        <input
-                          id={`date-${index}`}
-                          type="date"
-                          value={slot.date}
-                          min={new Date().toISOString().split("T")[0]}
-                          onChange={(e) => {
-                            const next = [...form.schedule];
-                            next[index] = { ...slot, date: e.target.value };
-                            update("schedule", next);
-                          }}
-                          className={`${inputClass} [color-scheme:dark]`}
+                  <div>
+                    <p className="mb-2.5 text-xs tracking-widest text-muted uppercase">
+                      Referencebillede
+                      <span className="ml-2 normal-case tracking-normal text-muted-subtle">
+                        (valgfri)
+                      </span>
+                    </p>
+                    {referencePreview ? (
+                      <div className="relative inline-block overflow-hidden rounded-sm border border-border">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={referencePreview}
+                          alt="Referencebillede preview"
+                          className="max-h-40 w-auto object-cover"
                         />
-                      </FormField>
-                      <FormField id={`start-${index}`} label="Fra">
-                        <input
-                          id={`start-${index}`}
-                          type="time"
-                          value={slot.startTime}
-                          onChange={(e) => {
-                            const next = [...form.schedule];
-                            next[index] = { ...slot, startTime: e.target.value };
-                            update("schedule", next);
-                          }}
-                          className={`${inputClass} [color-scheme:dark]`}
-                        />
-                      </FormField>
-                      <FormField id={`end-${index}`} label="Til">
-                        <input
-                          id={`end-${index}`}
-                          type="time"
-                          value={slot.endTime}
-                          onChange={(e) => {
-                            const next = [...form.schedule];
-                            next[index] = { ...slot, endTime: e.target.value };
-                            update("schedule", next);
-                          }}
-                          className={`${inputClass} [color-scheme:dark]`}
-                        />
-                      </FormField>
-                      {form.schedule.length > 1 && (
                         <button
                           type="button"
-                          onClick={() =>
-                            update(
-                              "schedule",
-                              form.schedule.filter((_, i) => i !== index),
-                            )
-                          }
-                          className="flex h-11 w-11 self-end items-center justify-center text-muted-subtle transition-colors hover:text-foreground/60"
-                          aria-label="Fjern dato"
+                          onClick={clearReference}
+                          className="absolute top-2 right-2 flex h-7 w-7 items-center justify-center rounded-full border border-border bg-background/80 text-muted backdrop-blur-sm transition-colors hover:text-foreground"
+                          aria-label="Fjern referencebillede"
                         >
-                          <Trash2 size={16} strokeWidth={1.5} />
+                          <X size={14} strokeWidth={1.5} />
                         </button>
-                      )}
+                      </div>
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() => fileInputRef.current?.click()}
+                        className="group flex min-h-24 w-full flex-col items-center justify-center gap-2 rounded-sm border border-dashed border-border bg-accent/40 px-4 py-6 transition-all duration-500 ease-premium hover:border-foreground/20 hover:bg-accent/70"
+                      >
+                        <ImagePlus
+                          size={20}
+                          strokeWidth={1.5}
+                          className="text-muted transition-colors group-hover:text-foreground/70"
+                        />
+                        <span className="text-xs text-muted transition-colors group-hover:text-foreground/70">
+                          Upload referencebillede
+                        </span>
+                      </button>
+                    )}
+                    <input
+                      ref={fileInputRef}
+                      type="file"
+                      accept="image/*"
+                      onChange={handleReferenceChange}
+                      className="sr-only"
+                      aria-label="Upload referencebillede"
+                    />
+                    {errors.referenceImage && (
+                      <p className="mt-2 text-xs text-red-400/85" role="alert">
+                        {errors.referenceImage}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {step === 5 && (
+              <div>
+                <h3 className={stepHeadingClass}>Hvordan kan jeg kontakte dig?</h3>
+                <p className={`mt-2 ${bodyClass}`}>
+                  Dine oplysninger deles kun med mig og bruges til at vende tilbage på din forespørgsel.
+                </p>
+                <div className={`space-y-6 ${embedded ? "mt-7" : "mt-10"}`}>
+                  <div className={`grid gap-6 sm:grid-cols-2 ${embedded ? "gap-5" : "gap-8"}`}>
+                    <FormField id="name" label="Navn" error={errors.name}>
+                      <input
+                        id="name"
+                        value={form.name}
+                        onChange={(e) => update("name", e.target.value)}
+                        onBlur={() => touch("name")}
+                        autoComplete="name"
+                        className={inputClass}
+                        placeholder="Dit navn"
+                      />
+                    </FormField>
+                    <FormField id="company" label="Virksomhed" optional>
+                      <input
+                        id="company"
+                        value={form.company}
+                        onChange={(e) => update("company", e.target.value)}
+                        autoComplete="organization"
+                        className={inputClass}
+                        placeholder="Valgfrit"
+                      />
+                    </FormField>
+                  </div>
+                  <div className={`grid sm:grid-cols-2 ${embedded ? "gap-5" : "gap-8"}`}>
+                    <FormField id="email" label="E-mail" error={errors.email}>
+                      <input
+                        id="email"
+                        type="email"
+                        value={form.email}
+                        onChange={(e) => update("email", e.target.value)}
+                        onBlur={() => touch("email")}
+                        autoComplete="email"
+                        className={inputClass}
+                        placeholder="din@email.dk"
+                      />
+                    </FormField>
+                    <FormField id="phone" label="Telefon" error={errors.phone}>
+                      <input
+                        id="phone"
+                        type="tel"
+                        value={form.phone}
+                        onChange={(e) => update("phone", e.target.value)}
+                        onBlur={() => touch("phone")}
+                        autoComplete="tel"
+                        className={inputClass}
+                        placeholder="+45 24 46 35 50"
+                      />
+                    </FormField>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {step === 6 && form.taskType && (
+              <div>
+                <h3 className={stepHeadingClass}>Opsummering</h3>
+                <p className={`mt-2 ${bodyClass}`}>
+                  Gennemgå dine oplysninger inden du sender bookingforespørgslen.
+                </p>
+                <dl
+                  className={`space-y-5 rounded-sm border border-border bg-accent/60 backdrop-blur-sm ${
+                    embedded ? "mt-7 p-5 sm:p-6" : "mt-10 p-6 sm:p-8"
+                  }`}
+                >
+                  {[
+                    ["Type", form.taskType === "Andet" ? `Andet — ${form.taskTypeOther}` : form.taskType],
+                    [
+                      "Hvornår",
+                      form.flexibleSchedule
+                        ? "Fleksibel"
+                        : `${formatDateDa(form.date)} · ${form.startTime}${form.endTime ? `–${form.endTime}` : ""}`,
+                    ],
+                    [
+                      "Hvor",
+                      buildLocation(form) || "—",
+                    ],
+                    [
+                      "Kontakt",
+                      `${form.name}${form.company ? ` · ${form.company}` : ""}\n${form.email} · ${form.phone}`,
+                    ],
+                  ].map(([label, value]) => (
+                    <div key={label} className="grid gap-1 sm:grid-cols-[120px_1fr]">
+                      <dt className="text-[10px] tracking-[0.25em] text-muted uppercase">
+                        {label}
+                      </dt>
+                      <dd
+                        className={`whitespace-pre-line text-foreground/75 ${embedded ? "text-xs" : "text-sm"}`}
+                      >
+                        {value}
+                      </dd>
                     </div>
                   ))}
-                  <button
-                    type="button"
-                    onClick={() =>
-                      update("schedule", [
-                        ...form.schedule,
-                        { date: "", startTime: "17:00", endTime: "23:00" },
-                      ])
-                    }
-                    className="inline-flex min-h-11 items-center gap-2 text-xs tracking-[0.2em] text-muted uppercase transition-colors hover:text-foreground"
-                  >
-                    <Plus size={14} strokeWidth={1.5} />
-                    Tilføj dato
-                  </button>
-                </div>
-              )}
-              {errors.schedule && (
-                <p className="mt-4 text-xs text-red-400/80">{errors.schedule}</p>
-              )}
-            </div>
-          )}
-
-          {step === 4 && (
-            <div>
-              <h3 className={stepHeadingClass}>
-                Projektinformation
-              </h3>
-              <p className={`mt-2 ${bodyClass}`}>
-                Fortæl mig lidt om dig og dit projekt.
-              </p>
-              <div className={`space-y-6 ${embedded ? "mt-7" : "mt-10"}`}>
-                <div className={`grid gap-6 sm:grid-cols-2 ${embedded ? "gap-5" : "gap-8"}`}>
-                  <FormField id="name" label="Navn">
-                    <input
-                      id="name"
-                      value={form.name}
-                      onChange={(e) => update("name", e.target.value)}
-                      autoComplete="name"
-                      className={inputClass}
-                      placeholder="Dit navn"
-                    />
-                  </FormField>
-                  <FormField id="company" label="Virksomhed" optional>
-                    <input
-                      id="company"
-                      value={form.company}
-                      onChange={(e) => update("company", e.target.value)}
-                      autoComplete="organization"
-                      className={inputClass}
-                      placeholder="Valgfrit"
-                    />
-                  </FormField>
-                </div>
-                <div className={`grid sm:grid-cols-2 ${embedded ? "gap-5" : "gap-8"}`}>
-                  <FormField id="email" label="E-mail">
-                    <input
-                      id="email"
-                      type="email"
-                      value={form.email}
-                      onChange={(e) => update("email", e.target.value)}
-                      autoComplete="email"
-                      className={inputClass}
-                      placeholder="din@email.dk"
-                    />
-                  </FormField>
-                  <FormField id="phone" label="Telefon">
-                    <input
-                      id="phone"
-                      type="tel"
-                      value={form.phone}
-                      onChange={(e) => update("phone", e.target.value)}
-                      autoComplete="tel"
-                      className={inputClass}
-                      placeholder="+45 24 46 35 50"
-                    />
-                  </FormField>
-                </div>
-                <FormField id="location" label="Lokation">
-                  <input
-                    id="location"
-                    value={form.location}
-                    onChange={(e) => update("location", e.target.value)}
-                    className={inputClass}
-                    placeholder="By, adresse eller område"
-                  />
-                </FormField>
-                <FormField id="description" label="Fortæl lidt om dit projekt">
-                  <textarea
-                    id="description"
-                    value={form.description}
-                    onChange={(e) => update("description", e.target.value)}
-                    rows={5}
-                    className={textareaClass}
-                    placeholder="Beskriv hvad du ønsker billeder/video til, størrelse på projektet og andre relevante detaljer."
-                  />
-                </FormField>
-                {Object.entries(errors)
-                  .filter(([key]) =>
-                    ["name", "email", "phone", "location", "description"].includes(key),
-                  )
-                  .map(([, msg]) => (
-                    <p key={msg} className="text-xs text-red-400/80">
-                      {msg}
-                    </p>
-                  ))}
-              </div>
-            </div>
-          )}
-
-          {step === 5 && form.service && (
-            <div>
-              <h3 className={stepHeadingClass}>
-                Din forespørgsel
-              </h3>
-              <p className={`mt-2 ${bodyClass}`}>
-                Gennemgå dine oplysninger inden afsendelse.
-              </p>
-              <dl
-                className={`space-y-4 rounded-sm border border-border bg-accent ${
-                  embedded ? "mt-7 p-5 sm:p-6" : "mt-10 p-6 sm:p-8"
-                }`}
-              >
-                {[
-                  ["Ydelse", serviceLabels[form.service]],
-                  [
-                    "Kategori",
-                    form.category === "Andet"
-                      ? `Andet — ${form.categoryOther}`
-                      : form.category,
-                  ],
-                  [
-                    "Dato",
-                    form.flexibleSchedule
-                      ? "Fleksibel"
-                      : form.schedule
-                          .filter((s) => s.date)
-                          .map((s) => formatDateDa(s.date))
-                          .join(", ") || "—",
-                  ],
-                  [
-                    "Tid",
-                    form.flexibleSchedule
-                      ? "Fleksibel"
-                      : form.schedule
-                          .filter((s) => s.date)
-                          .map((s) => `${s.startTime}–${s.endTime}`)
-                          .join(", ") || "—",
-                  ],
-                  ["Lokation", form.location || "—"],
-                  [
-                    "Kontakt",
-                    `${form.name}${form.company ? ` · ${form.company}` : ""}\n${form.email} · ${form.phone}`,
-                  ],
-                ].map(([label, value]) => (
-                  <div key={label} className="grid gap-1 sm:grid-cols-[140px_1fr]">
+                  <div className="grid gap-1 sm:grid-cols-[120px_1fr]">
                     <dt className="text-[10px] tracking-[0.25em] text-muted uppercase">
-                      {label}
+                      Beskrivelse
                     </dt>
-                    <dd className={`whitespace-pre-line text-foreground/70 ${embedded ? "text-xs" : "text-sm"}`}>{value}</dd>
+                    <dd className={`leading-relaxed text-foreground/75 ${embedded ? "text-xs" : "text-sm"}`}>
+                      {form.description}
+                    </dd>
                   </div>
-                ))}
-                <div className="grid gap-1 sm:grid-cols-[140px_1fr]">
-                  <dt className="text-[10px] tracking-[0.25em] text-muted uppercase">
-                    Beskrivelse
-                  </dt>
-                  <dd className={`leading-relaxed text-foreground/70 ${embedded ? "text-xs" : "text-sm"}`}>
-                    {form.description}
-                  </dd>
-                </div>
-              </dl>
-              {errors.submit && (
-                <p className="mt-6 text-xs text-red-400/80">{errors.submit}</p>
-              )}
-            </div>
-          )}
-        </m.div>
-      </AnimatePresence>
+                  {form.referenceImageName && (
+                    <div className="grid gap-1 sm:grid-cols-[120px_1fr]">
+                      <dt className="text-[10px] tracking-[0.25em] text-muted uppercase">
+                        Reference
+                      </dt>
+                      <dd className={`text-foreground/75 ${embedded ? "text-xs" : "text-sm"}`}>
+                        {form.referenceImageName}
+                      </dd>
+                    </div>
+                  )}
+                </dl>
+                {errors.submit && (
+                  <p className="mt-6 text-xs text-red-400/85" role="alert">
+                    {errors.submit}
+                  </p>
+                )}
+              </div>
+            )}
+          </m.div>
+        </AnimatePresence>
+      </div>
 
       <div
         className={`flex items-center justify-between gap-4 border-t border-foreground/[0.08] ${
@@ -684,7 +860,7 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
           <span />
         )}
 
-        {step < TOTAL_STEPS ? (
+        {step < TOTAL_INQUIRY_STEPS ? (
           <button type="button" onClick={goNext} className={primaryBtnClass}>
             Næste
             <ArrowRight size={13} strokeWidth={1.5} />
@@ -694,7 +870,7 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
             type="button"
             onClick={handleSubmit}
             disabled={loading}
-            className={primaryBtnClass}
+            className={`${primaryBtnClass} ${embedded ? "" : "min-h-14 px-12 text-sm"}`}
           >
             {loading ? (
               <>
@@ -702,13 +878,12 @@ export function InquiryWizard({ embedded = false }: { embedded?: boolean }) {
                 Sender...
               </>
             ) : (
-              "Send forespørgsel"
+              "Send bookingforespørgsel"
             )}
           </button>
         )}
       </div>
 
-      {/* Honeypot — hidden from users */}
       <input
         type="text"
         name="_honeypot"

@@ -39,8 +39,8 @@ const POSTER_OUT = path.join(ROOT, "public", "images", "hero-poster.jpg");
 
 const VIDEO_EXT = new Set([".mp4", ".mov", ".mkv", ".webm"]);
 const MAX_INPUT_BYTES = 500 * 1024 * 1024;
-/** Short loop keeps hero payload under ~8 MB while preserving presence */
-const LOOP_SECONDS = 12;
+/** Short loop keeps payload reasonable while preserving presence */
+const LOOP_SECONDS = 16;
 
 function ffmpegCmd() {
   const result = spawnSync("ffmpeg", ["-version"], { encoding: "utf8" });
@@ -100,11 +100,11 @@ function moveToDone(filePath) {
 }
 
 function encodeWebVideos(ffmpeg, input) {
-  // 1280p / 24fps / short loop — background presence without killing LCP
-  const vf = "scale=1280:-2:flags=lanczos,fps=24";
+  // 1080p / 30fps / high quality — desktop hero only (mobile uses still)
+  const vf = "scale=1920:-2:flags=lanczos,fps=30";
 
   console.log(
-    `  HEVC 1280p24 (crf 26, ${LOOP_SECONDS}s) — primær, web-optimeret…`
+    `  HEVC 1080p30 (crf 19, ${LOOP_SECONDS}s) — primær, høj kvalitet…`
   );
   runFfmpeg(ffmpeg, [
     "-y",
@@ -120,9 +120,9 @@ function encodeWebVideos(ffmpeg, input) {
     "-c:v",
     "libx265",
     "-crf",
-    "26",
+    "19",
     "-preset",
-    "medium",
+    "slow",
     "-tag:v",
     "hvc1",
     "-movflags",
@@ -133,7 +133,7 @@ function encodeWebVideos(ffmpeg, input) {
   ]);
 
   console.log(
-    `  H.264 1280p24 (crf 28, ${LOOP_SECONDS}s) — fallback til alle browsere…`
+    `  H.264 1080p30 (crf 20, ${LOOP_SECONDS}s) — fallback til alle browsere…`
   );
   runFfmpeg(ffmpeg, [
     "-y",
@@ -149,9 +149,9 @@ function encodeWebVideos(ffmpeg, input) {
     "-c:v",
     "libx264",
     "-crf",
-    "28",
+    "20",
     "-preset",
-    "medium",
+    "slow",
     "-profile:v",
     "high",
     "-movflags",
@@ -159,7 +159,7 @@ function encodeWebVideos(ffmpeg, input) {
     "-pix_fmt",
     "yuv420p",
     "-g",
-    "48",
+    "60",
     VIDEO_H264,
   ]);
 }

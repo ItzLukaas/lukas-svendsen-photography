@@ -1,0 +1,11 @@
+# Keep Vercel uploads small — deploy only what the build needs
+.next
+node_modules
+inbox
+.git
+.cursor
+.env
+.env.*
+!.env.example
+*.md
+!README.md

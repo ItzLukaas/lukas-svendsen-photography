@@ -1,0 +1,62 @@
+{
+  "slug": "varde-open-air",
+  "updatedAt": "2026-08-06T20:40:27.825Z",
+  "cover": {
+    "src": "/images/projects/varde-open-air/00-dsc08572-cover.jpg",
+    "alt": "Festivalfotograf fanger stemningen til Varde Open Air i Jylland",
+    "width": 2200,
+    "height": 1467,
+    "orientation": "landscape"
+  },
+  "images": [
+    {
+      "src": "/images/projects/varde-open-air/01-dsc00062.jpg",
+      "alt": "Sanger i spotlys på Varde Open Air",
+      "width": 1467,
+      "height": 2200,
+      "orientation": "portrait"
+    },
+    {
+      "src": "/images/projects/varde-open-air/02-dsc08235.jpg",
+      "alt": "Sangerinde med lilla mikrofonstativ",
+      "width": 1467,
+      "height": 2200,
+      "orientation": "portrait"
+    },
+    {
+      "src": "/images/projects/varde-open-air/03-dsc08653.jpg",
+      "alt": "Artist i orange på scenen til Varde Open Air",
+      "width": 1467,
+      "height": 2200,
+      "orientation": "portrait"
+    },
+    {
+      "src": "/images/projects/varde-open-air/04-dsc08717.jpg",
+      "alt": "Sangerinde i pink scenelys",
+      "width": 1467,
+      "height": 2200,
+      "orientation": "portrait"
+    },
+    {
+      "src": "/images/projects/varde-open-air/05-dsc08738.jpg",
+      "alt": "Gæst med hænderne i vejret",
+      "width": 1467,
+      "height": 2200,
+      "orientation": "portrait"
+    },
+    {
+      "src": "/images/projects/varde-open-air/06-dsc08779.jpg",
+      "alt": "Venner i festivalstemning",
+      "width": 1467,
+      "height": 2200,
+      "orientation": "portrait"
+    },
+    {
+      "src": "/images/projects/varde-open-air/07-dsc08787.jpg",
+      "alt": "Gæst midt i publikum",
+      "width": 1467,
+      "height": 2200,
+      "orientation": "portrait"
+    }
+  ]
+}

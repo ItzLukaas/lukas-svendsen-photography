@@ -1,0 +1,141 @@
+import Link from "next/link";
+
+import { FadeIn } from "@/components/motion/fade-in";
+import { Photo } from "@/components/photography/photo";
+import { ProjectGallery } from "@/components/work/galleries/project-gallery";
+import type { Project } from "@/lib/data/projects";
+
+type ProjectViewProps = {
+  project: Project;
+  previous: Project | null;
+  next: Project | null;
+};
+
+export function ProjectView({ project, previous, next }: ProjectViewProps) {
+  return (
+    <article className="pt-24 md:pt-28">
+      {/* Exhibition intro — quiet, then the work */}
+      <header className="mx-auto max-w-[1600px] px-5 md:px-8 lg:px-12">
+        <FadeIn>
+          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 text-[0.75rem] tracking-[0.02em] text-muted-ink">
+            <Link
+              href="/arbejde"
+              className="transition-opacity duration-300 hover:opacity-55"
+            >
+              Arbejde
+            </Link>
+            <span aria-hidden className="opacity-25">
+              /
+            </span>
+            <span>{project.category}</span>
+            <span aria-hidden className="opacity-25">
+              ·
+            </span>
+            <span>
+              {project.location}, {project.year}
+            </span>
+          </div>
+
+          <h1 className="mt-5 max-w-[16ch] font-display text-[clamp(2.65rem,6.5vw,5rem)] leading-[0.92] tracking-[-0.03em]">
+            {project.title}
+          </h1>
+
+          <p className="text-body mt-6 max-w-md md:mt-7">
+            {project.excerpt}
+          </p>
+        </FadeIn>
+      </header>
+
+      <div className="mt-4 md:mt-6">
+        <ProjectGallery project={project} />
+      </div>
+
+      {/* Adjacent projects — clear path through the portfolio */}
+      {(previous || next) && (
+        <nav
+          aria-label="Flere projekter"
+          className="mt-24 border-t border-foreground/10 md:mt-32"
+        >
+          <div className="mx-auto grid max-w-[1600px] grid-cols-1 md:grid-cols-2">
+            {previous ? (
+              <Link
+                href={`/arbejde/${previous.slug}`}
+                className="group/project group border-b border-foreground/10 px-5 py-12 md:border-b-0 md:border-r md:px-8 md:py-16 lg:px-12"
+              >
+                <p className="project-meta">Forrige</p>
+                <div className="mt-5 flex items-end gap-6">
+                  <div className="relative hidden w-28 shrink-0 overflow-hidden sm:block md:w-36">
+                    <Photo
+                      src={previous.cover.src}
+                      alt=""
+                      width={previous.cover.width}
+                      height={previous.cover.height}
+                      sizes="144px"
+                      className={
+                        previous.cover.orientation === "portrait"
+                          ? "aspect-[3/4] w-full"
+                          : "aspect-[4/3] w-full"
+                      }
+                      interactive
+                    />
+                  </div>
+                  <div className="min-w-0 pb-0.5">
+                    <p className="project-meta">{previous.category}</p>
+                    <h2 className="project-title mt-1.5 font-display text-xl leading-tight tracking-[-0.02em] md:text-2xl">
+                      {previous.title}
+                    </h2>
+                  </div>
+                </div>
+              </Link>
+            ) : (
+              <div className="hidden md:block" />
+            )}
+
+            {next ? (
+              <Link
+                href={`/arbejde/${next.slug}`}
+                className="group/project group px-5 py-12 text-right md:px-8 md:py-16 lg:px-12"
+              >
+                <p className="project-meta">Næste</p>
+                <div className="mt-5 flex flex-row-reverse items-end gap-6">
+                  <div className="relative hidden w-28 shrink-0 overflow-hidden sm:block md:w-36">
+                    <Photo
+                      src={next.cover.src}
+                      alt=""
+                      width={next.cover.width}
+                      height={next.cover.height}
+                      sizes="144px"
+                      className={
+                        next.cover.orientation === "portrait"
+                          ? "aspect-[3/4] w-full"
+                          : "aspect-[4/3] w-full"
+                      }
+                      interactive
+                    />
+                  </div>
+                  <div className="min-w-0 pb-0.5">
+                    <p className="project-meta">{next.category}</p>
+                    <h2 className="project-title mt-1.5 font-display text-xl leading-tight tracking-[-0.02em] md:text-2xl">
+                      {next.title}
+                    </h2>
+                  </div>
+                </div>
+              </Link>
+            ) : null}
+          </div>
+        </nav>
+      )}
+
+      <section className="border-t border-foreground/10">
+        <div className="mx-auto flex max-w-[1600px] flex-col gap-6 px-5 py-14 md:flex-row md:items-center md:justify-between md:px-8 md:py-16 lg:px-12">
+          <p className="text-body max-w-md">
+            Skal jeg med på noget lignende?
+          </p>
+          <Link href="/booking" className="btn-solid bg-ink text-paper">
+            Booking
+          </Link>
+        </div>
+      </section>
+    </article>
+  );
+}

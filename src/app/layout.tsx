@@ -117,8 +117,7 @@ const jsonLd = {
       name: siteConfig.name,
       url: siteConfig.url,
       email: siteConfig.email,
-      jobTitle: "Fotograf, Videograf & Dronepilot",
-      description: siteConfig.description,
+      telephone: siteConfig.phone,
       image: `${siteConfig.url}/images/about.jpg`,
       homeLocation: {
         "@type": "Place",
@@ -155,6 +154,7 @@ const jsonLd = {
         height: 180,
       },
       email: siteConfig.email,
+      telephone: siteConfig.phone,
       founder: { "@id": `${siteConfig.url}/#person` },
       address: {
         "@type": "PostalAddress",
@@ -171,6 +171,7 @@ const jsonLd = {
       alternateName: "Lukas Svendsen Photography",
       url: siteConfig.url,
       email: siteConfig.email,
+      telephone: siteConfig.phone,
       image: `${siteConfig.url}/images/about.jpg`,
       description: siteConfig.description,
       priceRange: "$$",

@@ -30,7 +30,7 @@ export async function POST(request: Request) {
 
     const resend = new Resend(apiKey);
     await resend.emails.send({
-      from: process.env.BOOKING_FROM_EMAIL ?? "book@lukassvendsen.dk",
+      from: process.env.BOOKING_FROM_EMAIL ?? "kontakt@lukassvendsen.dk",
       to,
       replyTo: data.email,
       subject: `Kontakt: ${data.name}`,

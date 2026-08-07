@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Lukas Svendsen",
   domain: "lukassvendsen.dk",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://lukassvendsen.dk",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.lukassvendsen.dk",
   email: "hej@lukassvendsen.dk",
   /** Set when a real number is ready — omit from UI while empty */
   phone: "",

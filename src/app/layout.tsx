@@ -118,6 +118,8 @@ const jsonLd = {
       url: siteConfig.url,
       email: siteConfig.email,
       telephone: siteConfig.phone,
+      jobTitle: "Fotograf, Videograf & Dronepilot",
+      description: siteConfig.description,
       image: `${siteConfig.url}/images/about.jpg`,
       homeLocation: {
         "@type": "Place",

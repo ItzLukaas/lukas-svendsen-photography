@@ -10,6 +10,6 @@ export default function robots(): MetadataRoute.Robots {
       disallow: ["/studio", "/api"],
     },
     sitemap: `${siteConfig.url}/sitemap.xml`,
-    host: siteConfig.domain,
+    host: siteConfig.url.replace(/^https?:\/\//, ""),
   };
 }

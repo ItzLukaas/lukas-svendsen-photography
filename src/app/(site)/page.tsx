@@ -3,12 +3,12 @@ import type { Metadata } from "next";
 import { HomePage } from "@/components/home/home-page";
 import { siteConfig } from "@/lib/site";
 
-const title = "Lukas Svendsen | Fotograf, Videograf & Dronepilot";
+const title = "Lukas Svendsen | Fotograf i Grindsted — Video & Drone";
 const ogImage = {
   url: "/images/hero-poster.jpg",
   width: 1920,
   height: 1080,
-  alt: "Droneoptagelse over landskab i Jylland — fotograf og dronepilot Lukas Svendsen",
+  alt: "Droneoptagelse af fotograf Lukas Svendsen fra Grindsted",
 };
 
 export const metadata: Metadata = {

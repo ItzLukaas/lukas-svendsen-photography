@@ -6,13 +6,13 @@ import { fetchProjects } from "@/lib/content";
 import { collectionPageJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Portfolio",
+  title: "Portfolio — Fotograf i Grindsted",
   description:
-    "Se portfolio med festival-, koncert-, sport- og eventfotografi fra Lukas Svendsen — fotograf fra Grindsted med opgaver i Esbjerg, Vejle, Billund, Kolding og hele Jylland.",
+    "Se portfolio med festival-, koncert-, sport- og eventfotografi fra Lukas Svendsen i Grindsted — også opgaver i Billund, Esbjerg, Vejle og hele Jylland.",
   path: "/arbejde",
   image: "/images/festival.jpg",
   imageAlt:
-    "Publikum og scenelys på festival i Jylland — portfolio af fotograf Lukas Svendsen",
+    "Festivalfotografi af fotograf Lukas Svendsen fra Grindsted",
 });
 
 export default async function ArbejdePage() {

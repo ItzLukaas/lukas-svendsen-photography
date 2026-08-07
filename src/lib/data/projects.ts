@@ -470,7 +470,7 @@ export const heroVideoHevcSrc = "/videos/hero-hevc.mp4";
 
 export const heroImage: ProjectImage = L(
   "/images/hero-poster.jpg",
-  "Droneoptagelse over landskab i Jylland — fotograf og dronepilot Lukas Svendsen",
+  "Droneoptagelse af fotograf og dronepilot Lukas Svendsen fra Grindsted",
   1920,
   1080
 );

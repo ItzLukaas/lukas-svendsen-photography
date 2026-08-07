@@ -7,9 +7,9 @@ import { aboutPortrait } from "@/lib/data/projects";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Om mig",
+  title: "Om mig — Fotograf i Grindsted",
   description:
-    "Lukas Svendsen er fotograf, videograf og dronepilot fra Grindsted. Professionel koncert-, festival-, sport- og eventfotografi i Esbjerg, Vejle, Billund, Kolding og hele Jylland.",
+    "Mød Lukas Svendsen — fotograf, videograf og dronepilot fra Grindsted. Professionelt arbejde med koncerter, festivaler, sport, events og virksomheder i Jylland.",
   path: "/om",
   image: aboutPortrait.src,
   imageAlt: aboutPortrait.alt,
@@ -54,13 +54,13 @@ export default function OmPage() {
                 mærke til, når man ser billedet bagefter.
               </p>
               <p>
-                I dag arbejder jeg som fotograf, videograf og dronepilot med
-                koncerter, festivaler, sport, events og virksomheder — primært
-                i Esbjerg, Vejle, Billund, Kolding og Herning, men også resten
-                af Jylland. For mig handler fotografering ikke kun om at tage
-                flotte billeder, men om at skabe billeder, der fortæller en
-                historie og formidler den stemning, der gjorde øjeblikket
-                særligt.
+                Fra Grindsted arbejder jeg som fotograf, videograf og
+                dronepilot med koncerter, festivaler, sport, events og
+                virksomheder — også i Billund, Esbjerg, Vejle, Kolding og
+                resten af Jylland. For mig handler fotografering ikke kun om
+                at tage flotte billeder, men om at skabe billeder, der
+                fortæller en historie og formidler den stemning, der gjorde
+                øjeblikket særligt.
               </p>
               <p>
                 Jeg går op i at være nærværende, nem at arbejde sammen med og
@@ -105,9 +105,14 @@ export default function OmPage() {
           </FadeIn>
 
           <FadeIn delay={0.1}>
-            <Link href="/booking" className="btn-solid mt-14 bg-ink text-paper">
-              Booking
-            </Link>
+            <div className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-4">
+              <Link href="/booking" className="btn-solid bg-ink text-paper">
+                Booking
+              </Link>
+              <Link href="/kontakt" className="btn-ghost">
+                Kontakt mig
+              </Link>
+            </div>
           </FadeIn>
         </div>
       </section>

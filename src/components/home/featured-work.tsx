@@ -131,6 +131,12 @@ export function FeaturedWork() {
             </FeaturedLink>
           </FadeIn>
         </div>
+
+        <FadeIn delay={0.08} className="mt-12 flex justify-center md:mt-16">
+          <Link href="/arbejde" className="btn-ghost">
+            Se alt arbejde
+          </Link>
+        </FadeIn>
       </div>
     </section>
   );

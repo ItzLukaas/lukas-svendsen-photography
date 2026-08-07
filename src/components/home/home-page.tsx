@@ -79,10 +79,10 @@ export function HomePage() {
               Jeg hedder Lukas Svendsen, er 16 år og kommer fra Grindsted.
             </p>
             <p>
-              Jeg arbejder med fotografering af koncerter, festivaler, sport,
-              virksomheder, events og portrætter — blandt andet i Esbjerg,
-              Vejle, Billund og Kolding. Mit mål er altid at fange de øjeblikke,
-              der føles ægte, og skabe billeder, der fortæller en historie.
+              Herfra arbejder jeg med koncerter, festivaler, sport,
+              virksomheder, events og portrætter — også i Billund, Esbjerg,
+              Vejle og Kolding. Mit mål er at fange øjeblikke, der føles ægte,
+              og skabe billeder, der fortæller en historie.
             </p>
             <p>
               Uanset om opgaven er stor eller lille, går jeg op i at levere
@@ -90,9 +90,17 @@ export function HomePage() {
               netop den oplevelse, der skal huskes.
             </p>
           </div>
-          <Link href="/om" className="btn-ghost mt-9">
-            Mere om mig
-          </Link>
+          <div className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-3">
+            <Link href="/om" className="btn-ghost">
+              Mere om mig
+            </Link>
+            <Link
+              href="/booking"
+              className="text-[0.8125rem] font-medium tracking-[0.03em] text-muted-ink transition-opacity duration-300 hover:opacity-70"
+            >
+              Book en produktion →
+            </Link>
+          </div>
         </FadeIn>
         <FadeIn
           delay={0.05}
@@ -120,12 +128,12 @@ export function HomePage() {
         <div className="relative mx-auto flex max-w-[1600px] flex-col items-center px-5 py-24 text-center md:px-8 md:py-32 lg:px-12 lg:py-36">
           <FadeIn y={8} className="flex w-full max-w-xl flex-col items-center">
             <p className="label-meta text-white/45">Næste skridt</p>
-            <h2 className="mt-3 max-w-[12ch] font-display text-[clamp(2.15rem,5.4vw,3.6rem)] leading-[0.98] tracking-[-0.032em]">
-              Har du et projekt?
+            <h2 className="mt-3 max-w-[14ch] font-display text-[clamp(2.15rem,5.4vw,3.6rem)] leading-[0.98] tracking-[-0.032em]">
+              Klar til at skabe noget?
             </h2>
             <p className="mt-6 max-w-sm text-[0.9375rem] leading-[1.7] text-paper/65 md:text-[1rem]">
-              Klar til at skabe noget sammen? Send en bookingforespørgsel — eller
-              skriv først, hvis du hellere vil starte en samtale.
+              Book fotografi, video eller drone fra Grindsted — eller skriv
+              først, hvis du hellere vil starte en samtale.
             </p>
             <div className="mt-11 flex flex-wrap items-center justify-center gap-x-9 gap-y-4">
               <Link href="/booking" className="btn-solid bg-paper text-ink">

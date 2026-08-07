@@ -18,7 +18,7 @@ export function pageMetadata({
   description,
   path,
   image = "/images/hero-poster.jpg",
-  imageAlt = "Fotografi af Lukas Svendsen",
+  imageAlt = "Fotografi af Lukas Svendsen — fotograf i Grindsted",
   imageWidth = 1920,
   imageHeight = 1080,
 }: PageMetaOptions): Metadata {
@@ -85,7 +85,7 @@ export function collectionPageJsonLd(
     "@id": `${siteConfig.url}/arbejde#collection`,
     name: "Portfolio — Lukas Svendsen",
     description:
-      "Portfolio med festival-, koncert-, sport-, event- og virksomhedsfotografi fra Jylland.",
+      "Portfolio med festival-, koncert-, sport- og eventfotografi fra fotograf Lukas Svendsen i Grindsted — også opgaver i Billund, Esbjerg, Vejle og hele Jylland.",
     url: `${siteConfig.url}/arbejde`,
     isPartOf: { "@id": `${siteConfig.url}/#website` },
     about: { "@id": `${siteConfig.url}/#person` },

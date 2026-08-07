@@ -7,9 +7,9 @@ import { siteConfig } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Kontakt",
+  title: "Kontakt — Fotograf i Grindsted",
   description:
-    "Kontakt fotograf Lukas Svendsen i Grindsted. Spørgsmål om koncert-, event- eller virksomhedsfotografi i Esbjerg, Vejle, Billund, Kolding og hele Jylland.",
+    "Kontakt fotograf Lukas Svendsen i Grindsted. Spørgsmål om fotografi, video eller drone til koncerter, events og virksomheder i Jylland.",
   path: "/kontakt",
   image: "/images/about.jpg",
   imageAlt: "Portræt af fotograf Lukas Svendsen fra Grindsted",
@@ -27,8 +27,8 @@ export default function KontaktPage() {
         </h1>
         <p className="text-body mt-6 max-w-md">
           Har du et spørgsmål, en idé eller bare lyst til at høre, om jeg kan
-          hjælpe — uanset om opgaven er i Esbjerg, Vejle eller resten af
-          Jylland? Skriv kort — jeg vender tilbage.
+          hjælpe? Jeg er baseret i Grindsted og tager gerne opgaver i Billund,
+          Esbjerg, Vejle og resten af Jylland. Skriv kort — jeg vender tilbage.
         </p>
         <p className="text-body mt-4 max-w-md">
           Er du klar til at booke en produktion? Gå til{" "}
@@ -57,7 +57,7 @@ export default function KontaktPage() {
             </p>
           ) : null}
           <p className="text-[0.8125rem] font-normal text-muted-ink">
-            Grindsted · Jylland
+            Grindsted · Jylland · Danmark
           </p>
         </div>
       </FadeIn>

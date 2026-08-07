@@ -188,7 +188,7 @@ export function getCollaborationsJsonLd(siteUrl: string) {
     "@id": `${siteUrl}/#collaborations`,
     name: "Samarbejder & opgaver",
     description:
-      "Udvalgte samarbejder inden for koncert-, festival-, sports-, event- og virksomhedsfotografi i Jylland — blandt andet Vejle Kommune, Billund Kommune, DanskHåndbold, Varde Open Air og Bork Festival.",
+      "Udvalgte samarbejder inden for koncert-, festival-, sports-, event- og virksomhedsfotografi — blandt andet MAGION Grindsted, Vejle Kommune, Billund Kommune, DanskHåndbold, Varde Open Air og Bork Festival.",
     numberOfItems: clientLogos.length,
     itemListElement: clientLogos.map((logo, index) => ({
       "@type": "ListItem",

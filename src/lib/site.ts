@@ -8,7 +8,7 @@ export const siteConfig = {
   phoneDisplay: "",
   locale: "da_DK",
   description:
-    "Fotograf, videograf og dronepilot fra Grindsted. Professionel koncert-, festival-, sport- og eventfotografi i Esbjerg, Vejle, Billund, Kolding og hele Jylland.",
+    "Fotograf i Grindsted — Lukas Svendsen. Professionel koncert-, festival-, sport- og eventfotografi samt video og drone. Også Billund, Esbjerg, Vejle, Kolding og hele Jylland.",
   nav: [
     { href: "/arbejde", label: "Arbejde" },
     { href: "/om", label: "Om mig" },

@@ -7,12 +7,12 @@ import { FadeIn } from "@/components/motion/fade-in";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Booking",
+  title: "Booking — Fotograf i Grindsted",
   description:
-    "Book professionel fotografi, videoproduktion eller droneproduktion med Lukas Svendsen — fotograf fra Grindsted med opgaver i Esbjerg, Vejle, Billund og hele Jylland.",
+    "Book fotografi, videoproduktion eller droneproduktion med Lukas Svendsen i Grindsted. Professionelle produktioner til koncerter, events og virksomheder i Jylland.",
   path: "/booking",
   image: "/images/festival.jpg",
-  imageAlt: "Festivalfotografi — book fotograf Lukas Svendsen",
+  imageAlt: "Festivalfotografi — book fotograf Lukas Svendsen i Grindsted",
 });
 
 export default function BookingPage() {
@@ -24,8 +24,9 @@ export default function BookingPage() {
           Book en produktion.
         </h1>
         <p className="text-body mt-6 max-w-md">
-          Klar til fotografi, video eller drone i Jylland? Udfyld formularen
-          med det vigtigste — jeg vender tilbage med afklaring og næste skridt.
+          Klar til fotografi, video eller drone? Jeg er baseret i Grindsted og
+          arbejder i hele Jylland. Udfyld formularen med det vigtigste — jeg
+          vender tilbage med afklaring og næste skridt.
         </p>
 
         <ol className="mt-10 max-w-md space-y-5 text-[0.9375rem] leading-[1.6] text-muted-ink">

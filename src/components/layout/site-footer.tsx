@@ -13,9 +13,9 @@ export function SiteFooter() {
             {siteConfig.name}
           </p>
           <p className="text-body mt-3.5">
-            Fotograf, videograf og dronepilot fra Grindsted. Jeg fotograferer
-            koncerter, festivaler, sport, events og virksomheder i Esbjerg,
-            Vejle, Billund, Kolding, Herning og hele Jylland.
+            Fotograf, videograf og dronepilot i Grindsted. Koncerter,
+            festivaler, sport, events og virksomheder — også i Billund,
+            Esbjerg, Vejle, Kolding og hele Jylland.
           </p>
         </div>
 

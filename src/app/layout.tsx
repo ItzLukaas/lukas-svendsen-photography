@@ -17,7 +17,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 
 const syne = Syne({
   subsets: ["latin"],
-  weight: ["700", "800"],
+  weight: ["700"],
   variable: "--font-display",
   display: "swap",
   preload: true,
@@ -27,7 +27,7 @@ const syne = Syne({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Lukas Svendsen | Fotograf, Videograf & Dronepilot",
+    default: "Lukas Svendsen | Fotograf i Grindsted — Video & Drone",
     template: `%s · ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -36,55 +36,50 @@ export const metadata: Metadata = {
   creator: siteConfig.name,
   keywords: [
     "Lukas Svendsen",
-    "fotograf",
     "fotograf Grindsted",
+    "fotograf",
     "fotograf Billund",
-    "fotograf Vejle",
     "fotograf Esbjerg",
+    "fotograf Vejle",
     "fotograf Kolding",
-    "fotograf Jylland",
-    "eventfotograf",
     "eventfotograf Jylland",
-    "festivalfotograf",
-    "koncertfotograf",
     "koncertfotograf Danmark",
-    "sportfotograf",
     "virksomhedsfotograf",
+    "festivalfotograf",
+    "sportfotograf",
     "videograf",
     "dronepilot",
-    "dronefoto",
-    "dronevideo",
     "Grindsted",
     "Billund",
-    "Vejle",
     "Esbjerg",
+    "Vejle",
     "Kolding",
-    "Herning",
+    "Jylland",
   ],
   openGraph: {
     type: "website",
     locale: siteConfig.locale,
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: "Lukas Svendsen | Fotograf, Videograf & Dronepilot",
+    title: "Lukas Svendsen | Fotograf i Grindsted — Video & Drone",
     description: siteConfig.description,
     images: [
       {
         url: "/images/hero-poster.jpg",
         width: 1920,
         height: 1080,
-        alt: "Droneoptagelse over landskab — fotografi af Lukas Svendsen",
+        alt: "Droneoptagelse af fotograf Lukas Svendsen fra Grindsted",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lukas Svendsen | Fotograf, Videograf & Dronepilot",
+    title: "Lukas Svendsen | Fotograf i Grindsted — Video & Drone",
     description: siteConfig.description,
     images: [
       {
         url: "/images/hero-poster.jpg",
-        alt: "Droneoptagelse over landskab — fotografi af Lukas Svendsen",
+        alt: "Droneoptagelse af fotograf Lukas Svendsen fra Grindsted",
       },
     ],
   },
@@ -172,7 +167,7 @@ const jsonLd = {
     {
       "@type": ["ProfessionalService", "LocalBusiness"],
       "@id": `${siteConfig.url}/#service`,
-      name: `${siteConfig.name} — Fotograf`,
+      name: `${siteConfig.name} — Fotograf i Grindsted`,
       alternateName: "Lukas Svendsen Photography",
       url: siteConfig.url,
       email: siteConfig.email,
@@ -199,7 +194,7 @@ const jsonLd = {
       ],
       hasOfferCatalog: {
         "@type": "OfferCatalog",
-        name: "Fotografi- og videoydelser",
+        name: "Fotografi- og videoydelser fra Grindsted",
         itemListElement: [
           {
             "@type": "Offer",
@@ -207,7 +202,8 @@ const jsonLd = {
               "@type": "Service",
               name: "Fotografering",
               description:
-                "Koncert-, festival-, sport-, event- og virksomhedsfotografi i Jylland.",
+                "Koncert-, festival-, sport-, event- og virksomhedsfotografi fra Grindsted — også i Billund, Esbjerg, Vejle, Kolding og resten af Jylland.",
+              areaServed: { "@type": "City", name: "Grindsted" },
             },
           },
           {
@@ -215,7 +211,8 @@ const jsonLd = {
             itemOffered: {
               "@type": "Service",
               name: "Videoproduktion",
-              description: "Aftermovies, eventfilm og branded content.",
+              description:
+                "Aftermovies, eventfilm og branded content fra Grindsted til hele Jylland.",
             },
           },
           {
@@ -223,7 +220,8 @@ const jsonLd = {
             itemOffered: {
               "@type": "Service",
               name: "Droneproduktion",
-              description: "Luftfoto og dronevideo til events og brands.",
+              description:
+                "Luftfoto og dronevideo til events og brands — baseret i Grindsted.",
             },
           },
         ],

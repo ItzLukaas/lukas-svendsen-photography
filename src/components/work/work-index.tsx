@@ -63,9 +63,19 @@ export function WorkIndex({ projects }: WorkIndexProps) {
         <h1 className="font-display text-[clamp(2.85rem,7.5vw,5.75rem)] leading-[0.92] tracking-[-0.03em]">
           Arbejde
         </h1>
-        <p className="text-body mt-5 max-w-md">
-          Et udvalg af det, jeg har fotograferet. Åbn et projekt, og se
-          billederne.
+        <p className="text-body mt-5 max-w-lg">
+          Udvalgte produktioner fra Grindsted og resten af Jylland — festival,
+          sport, events og mere. Åbn et projekt, og se billederne.
+        </p>
+        <p className="mt-4 text-[0.875rem] text-muted-ink">
+          Klar til en produktion?{" "}
+          <Link
+            href="/booking"
+            className="font-medium text-foreground underline underline-offset-4 transition-opacity hover:opacity-70"
+          >
+            Book her
+          </Link>
+          .
         </p>
       </FadeIn>
 

@@ -22,12 +22,12 @@ export const creativeServices: CreativeService[] = [
     index: "01",
     title: "Fotografering",
     description:
-      "Sport, events, koncerter og brands — professionel fotografering i Esbjerg, Vejle, Billund og hele Jylland.",
+      "Sport, events, koncerter og brands — professionel fotografering fra Grindsted til hele Jylland.",
     bookingType: "Fotografering",
     icon: Camera,
     image: {
       src: "/images/festival.jpg",
-      alt: "Festivalfotograf fanger publikum og scenelys i Jylland — Lukas Svendsen",
+      alt: "Festivalfotograf fra Grindsted fanger publikum og scenelys",
       width: 2400,
       height: 1600,
       orientation: "landscape",
@@ -38,12 +38,12 @@ export const creativeServices: CreativeService[] = [
     index: "02",
     title: "Videoproduktion",
     description:
-      "Aftermovies, eventfilm og branded content til virksomheder og events i Jylland.",
+      "Aftermovies, eventfilm og branded content til virksomheder og events.",
     bookingType: "Videoproduktion",
     icon: Video,
     image: {
       src: "/images/event-1.jpg",
-      alt: "Eventfotografi og videoproduktion med publikum — Lukas Svendsen",
+      alt: "Eventfotograf fra Grindsted dokumenterer publikum og stemning",
       width: 2400,
       height: 1600,
       orientation: "landscape",
@@ -59,7 +59,7 @@ export const creativeServices: CreativeService[] = [
     icon: Drone,
     image: {
       src: "/images/hero-poster.jpg",
-      alt: "Dronefoto over landskab i Jylland — dronepilot Lukas Svendsen",
+      alt: "Dronefoto af fotograf og dronepilot Lukas Svendsen fra Grindsted",
       width: 1920,
       height: 1080,
       orientation: "landscape",

@@ -475,6 +475,14 @@ export const heroImage: ProjectImage = L(
   1080
 );
 
+/** Dedicated portrait concert frame for mobile hero — not a crop of the desktop poster */
+export const heroMobileImage: ProjectImage = P(
+  "/images/hero-mobile.jpg",
+  "Koncertfotograf fra Grindsted fanger artist live på scenen",
+  1200,
+  1800
+);
+
 export function getProject(slug: string) {
   const project = projectsResolved.find((item) => item.slug === slug);
   if (!project || project.images.length === 0) return undefined;

@@ -3,11 +3,14 @@
 import { useReducedMotion } from "motion/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-import { Photo } from "@/components/photography/photo";
 import type { ProjectImage } from "@/lib/data/projects";
+import { cn } from "@/lib/utils";
 
 type HeroBackgroundProps = {
+  /** Landscape / video poster — desktop */
   poster: ProjectImage;
+  /** Dedicated portrait composition — mobile */
+  mobilePoster: ProjectImage;
   videoSrc: string;
   videoSrcHevc?: string;
 };
@@ -30,10 +33,12 @@ function prefersVideoPlayback() {
 }
 
 /**
- * Hero media — poster everywhere; muted looping video on desktop only.
+ * Hero media — dedicated portrait still on mobile; muted video on desktop.
+ * Uses <picture> art direction so mobile never downloads the landscape poster.
  */
 export function HeroBackground({
   poster,
+  mobilePoster,
   videoSrc,
   videoSrcHevc,
 }: HeroBackgroundProps) {
@@ -138,26 +143,38 @@ export function HeroBackground({
 
   return (
     <>
-      <Photo
-        src={poster.src}
-        alt={poster.alt}
-        fill
-        priority
-        quality={88}
-        sizes="100vw"
-        className="absolute inset-0 z-0"
-        imageClassName={`object-cover object-center transition-opacity duration-1000 ${
+      <picture
+        className={cn(
+          "absolute inset-0 z-0 block h-full w-full transition-opacity duration-1000",
           isPlaying ? "opacity-0" : "opacity-100"
-        }`}
-      />
+        )}
+      >
+        <source
+          media="(min-width: 768px)"
+          srcSet={poster.src}
+          width={poster.width}
+          height={poster.height}
+        />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={mobilePoster.src}
+          alt={mobilePoster.alt}
+          width={mobilePoster.width}
+          height={mobilePoster.height}
+          fetchPriority="high"
+          decoding="async"
+          className="h-full w-full object-cover object-[center_22%] md:object-center"
+        />
+      </picture>
 
       {showVideo ? (
         <video
           ref={videoRef}
           src={src}
-          className={`absolute inset-0 z-0 h-full w-full object-cover object-center transition-opacity duration-1000 ${
+          className={cn(
+            "absolute inset-0 z-0 hidden h-full w-full object-cover object-center transition-opacity duration-1000 md:block",
             isPlaying ? "opacity-100" : "opacity-0"
-          }`}
+          )}
           autoPlay
           muted
           loop

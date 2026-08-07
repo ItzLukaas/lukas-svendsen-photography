@@ -92,26 +92,26 @@ export function LogoMarquee({ className }: LogoMarqueeProps) {
         </h2>
         <p className="sr-only">{collaborationsSummary}</p>
 
-        <div className="relative mt-7 overflow-hidden md:mt-9">
+        <div className="relative mt-7 max-w-full overflow-x-clip md:mt-9">
           {/* Soft paper fades — logos dissolve into the frame, not the viewport edge */}
           <div
-            className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-paper via-paper/80 to-transparent md:w-24 lg:w-28"
+            className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-paper via-paper/80 to-transparent sm:w-16 md:w-24 lg:w-28"
             aria-hidden
           />
           <div
-            className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-paper via-paper/80 to-transparent md:w-24 lg:w-28"
+            className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-paper via-paper/80 to-transparent sm:w-16 md:w-24 lg:w-28"
             aria-hidden
           />
 
-          <div className="py-2 md:py-3">
+          <div className="overflow-hidden py-2 md:py-3">
             {reduceMotion ? (
-              <ul className="m-0 flex list-none flex-wrap items-center justify-center gap-x-12 gap-y-8 p-0 px-4 md:gap-x-16">
+              <ul className="m-0 flex list-none flex-wrap items-center justify-center gap-x-10 gap-y-8 p-0 px-4 md:gap-x-16">
                 {clientLogos.map((logo) => (
                   <LogoItem key={logo.name} logo={logo} />
                 ))}
               </ul>
             ) : (
-              <div className="flex w-max animate-logo-marquee hover:[animation-play-state:paused]">
+              <div className="flex w-max max-w-none animate-logo-marquee hover:[animation-play-state:paused]">
                 <LogoSet />
                 <LogoSet decorative />
               </div>

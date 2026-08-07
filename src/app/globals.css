@@ -448,12 +448,32 @@
   -ms-overflow-style: none;
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header-h) + 0.75rem);
+  overflow-x: clip;
+  overscroll-behavior-x: none;
 }
 
 #site-scroll::-webkit-scrollbar {
   width: 0;
   height: 0;
   display: none;
+}
+
+/* Kill sideways scroll on small screens — marquee/full-bleed stay clipped */
+html,
+body {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+@media (max-width: 767px) {
+  #site-scroll {
+    overflow-x: hidden;
+  }
+
+  /* Native scrollbar only on mobile — no custom track eating width */
+  #site-scroll {
+    scrollbar-width: thin;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

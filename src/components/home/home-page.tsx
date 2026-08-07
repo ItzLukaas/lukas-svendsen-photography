@@ -7,7 +7,7 @@ import { ServicesShowcase } from "@/components/home/services-showcase";
 import { FadeIn } from "@/components/motion/fade-in";
 import { Photo } from "@/components/photography/photo";
 import { getCollaborationsJsonLd } from "@/lib/data/clients";
-import { aboutPortrait, heroImage, heroVideoHevcSrc, heroVideoSrc } from "@/lib/data/projects";
+import { aboutPortrait, heroImage, heroMobileImage, heroVideoHevcSrc, heroVideoSrc } from "@/lib/data/projects";
 import { siteConfig } from "@/lib/site";
 
 export function HomePage() {
@@ -26,6 +26,7 @@ export function HomePage() {
       <section className="relative flex min-h-[100svh] items-end overflow-hidden bg-ink">
         <HeroBackground
           poster={heroImage}
+          mobilePoster={heroMobileImage}
           videoSrc={heroVideoSrc}
           videoSrcHevc={heroVideoHevcSrc}
         />
@@ -33,14 +34,14 @@ export function HomePage() {
           className="absolute inset-0 bg-[linear-gradient(to_top,rgb(0_0_0_/_0.78)_0%,rgb(0_0_0_/_0.32)_40%,rgb(0_0_0_/_0.1)_70%,transparent_100%)]"
           aria-hidden
         />
-        <div className="relative z-10 mx-auto w-full max-w-[1600px] px-5 pb-16 pt-28 md:px-8 md:pb-24 md:pt-32 lg:px-12 lg:pb-28">
+        <div className="relative z-10 mx-auto w-full max-w-[1600px] px-5 pb-14 pt-28 sm:pb-16 md:px-8 md:pb-24 md:pt-32 lg:px-12 lg:pb-28">
           <FadeIn y={10}>
-            <h1 className="font-display max-w-[11ch] text-[clamp(3.25rem,10vw,7rem)] leading-[0.88] tracking-[-0.038em] text-white">
+            <h1 className="font-display max-w-[11ch] text-[clamp(2.85rem,12vw,7rem)] leading-[0.88] tracking-[-0.038em] text-white">
               {siteConfig.name}
             </h1>
           </FadeIn>
           <FadeIn delay={0.08} y={6}>
-            <p className="mt-6 max-w-[26rem] text-[0.9375rem] leading-[1.7] text-white/70 md:mt-7 md:text-[1.0625rem]">
+            <p className="mt-6 max-w-[20rem] text-[0.9375rem] leading-[1.7] text-white/70 sm:max-w-[26rem] md:mt-7 md:text-[1.0625rem]">
               Fotograf, videograf og dronepilot fra Grindsted — koncerter,
               events og brands i hele Jylland.
             </p>

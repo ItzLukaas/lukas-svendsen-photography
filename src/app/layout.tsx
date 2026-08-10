@@ -1,5 +1,5 @@
-import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans, Syne } from "next/font/google";
+﻿import type { Metadata, Viewport } from "next";
+import { Instrument_Sans } from "next/font/google";
 
 import { CustomScrollbar } from "@/components/layout/custom-scrollbar";
 import { serviceAreaPlaces } from "@/lib/seo";
@@ -7,18 +7,13 @@ import { siteConfig } from "@/lib/site";
 
 import "./globals.css";
 
-const plusJakarta = Plus_Jakarta_Sans({
+/**
+ * Single refined sans for UI + headings — editorial, calm, modern.
+ * Headings use medium/semibold via .font-display (not ultra-bold).
+ */
+const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
-  display: "swap",
-  preload: true,
-  adjustFontFallback: true,
-});
-
-const syne = Syne({
-  subsets: ["latin"],
-  weight: ["700"],
-  variable: "--font-display",
   display: "swap",
   preload: true,
   adjustFontFallback: true,
@@ -27,7 +22,7 @@ const syne = Syne({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Lukas Svendsen | Fotograf i Grindsted — Video & Drone",
+    default: "Lukas Svendsen | Fotograf i Grindsted",
     template: `%s · ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -36,50 +31,40 @@ export const metadata: Metadata = {
   creator: siteConfig.name,
   keywords: [
     "Lukas Svendsen",
+    "Lukas Guldager Svendsen",
     "fotograf Grindsted",
-    "fotograf",
     "fotograf Billund",
-    "fotograf Esbjerg",
-    "fotograf Vejle",
-    "fotograf Kolding",
-    "eventfotograf Jylland",
-    "koncertfotograf Danmark",
-    "virksomhedsfotograf",
+    "koncertfotograf",
     "festivalfotograf",
-    "sportfotograf",
-    "videograf",
-    "dronepilot",
-    "Grindsted",
-    "Billund",
-    "Esbjerg",
-    "Vejle",
-    "Kolding",
-    "Jylland",
+    "eventfotograf",
+    "sportsfotograf",
+    "videoproduktion",
+    "dronefotograf",
   ],
   openGraph: {
     type: "website",
     locale: siteConfig.locale,
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: "Lukas Svendsen | Fotograf i Grindsted — Video & Drone",
+    title: "Lukas Svendsen | Fotograf i Grindsted",
     description: siteConfig.description,
     images: [
       {
-        url: "/images/hero-poster.jpg",
-        width: 1920,
-        height: 1080,
-        alt: "Droneoptagelse af fotograf Lukas Svendsen fra Grindsted",
+        url: "/images/projects/varde-open-air/00-dsc08572-cover.jpg",
+        width: 3600,
+        height: 2400,
+        alt: "Publikum til Varde Open Air — fotografi af Lukas Svendsen",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lukas Svendsen | Fotograf i Grindsted — Video & Drone",
+    title: "Lukas Svendsen | Fotograf i Grindsted",
     description: siteConfig.description,
     images: [
       {
-        url: "/images/hero-poster.jpg",
-        alt: "Droneoptagelse af fotograf Lukas Svendsen fra Grindsted",
+        url: "/images/projects/varde-open-air/00-dsc08572-cover.jpg",
+        alt: "Publikum til Varde Open Air — fotografi af Lukas Svendsen",
       },
     ],
   },
@@ -97,7 +82,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f4f4f2",
+  themeColor: "#f5f4f1",
   colorScheme: "light",
   width: "device-width",
   initialScale: 1,
@@ -115,10 +100,11 @@ const jsonLd = {
       "@type": "Person",
       "@id": `${siteConfig.url}/#person`,
       name: siteConfig.name,
+      alternateName: ["Lukas Guldager Svendsen", "Lukas Svendsen Photography"],
       url: siteConfig.url,
       email: siteConfig.email,
       telephone: siteConfig.phone,
-      jobTitle: "Fotograf, Videograf & Dronepilot",
+      jobTitle: "Fotograf",
       description: siteConfig.description,
       image: `${siteConfig.url}/images/about.jpg`,
       homeLocation: {
@@ -126,23 +112,31 @@ const jsonLd = {
         name: "Grindsted",
         address: {
           "@type": "PostalAddress",
-          addressLocality: "Grindsted",
+          streetAddress: siteConfig.location.street,
+          postalCode: siteConfig.location.postalCode,
+          addressLocality: siteConfig.location.city,
           addressRegion: "Syddanmark",
           addressCountry: "DK",
         },
       },
       knowsAbout: [
         "Fotografering",
+        "Content creation",
         "Videoproduktion",
         "Droneproduktion",
-        "Eventfotografi",
-        "Festivalfotografi",
         "Koncertfotografi",
+        "Festivalfotografi",
+        "Eventfotografi",
         "Sportsfotografi",
         "Virksomhedsfotografi",
+        "Brand content",
         ...siteConfig.disciplines.map((item) => item.label),
       ],
       worksFor: { "@id": `${siteConfig.url}/#organization` },
+      sameAs: [
+        siteConfig.social.instagram,
+        siteConfig.social.linkedin,
+      ],
     },
     {
       "@type": "Organization",
@@ -160,11 +154,17 @@ const jsonLd = {
       founder: { "@id": `${siteConfig.url}/#person` },
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Grindsted",
+        streetAddress: siteConfig.location.street,
+        postalCode: siteConfig.location.postalCode,
+        addressLocality: siteConfig.location.city,
         addressRegion: "Syddanmark",
         addressCountry: "DK",
       },
       areaServed,
+      sameAs: [
+        siteConfig.social.instagram,
+        siteConfig.social.linkedin,
+      ],
     },
     {
       "@type": ["ProfessionalService", "LocalBusiness"],
@@ -176,36 +176,61 @@ const jsonLd = {
       telephone: siteConfig.phone,
       image: `${siteConfig.url}/images/about.jpg`,
       description: siteConfig.description,
-      priceRange: "$$",
       provider: { "@id": `${siteConfig.url}/#person` },
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Grindsted",
+        streetAddress: siteConfig.location.street,
+        postalCode: siteConfig.location.postalCode,
+        addressLocality: siteConfig.location.city,
         addressRegion: "Syddanmark",
         addressCountry: "DK",
       },
       areaServed,
+      sameAs: [
+        siteConfig.social.instagram,
+        siteConfig.social.linkedin,
+      ],
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday"],
+          opens: "08:00",
+          closes: "22:00",
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Friday", "Saturday"],
+          opens: "08:00",
+          closes: "00:00",
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: "Sunday",
+          opens: "08:00",
+          closes: "22:00",
+        },
+      ],
       serviceType: [
+        "Koncert- og festivalfotografi",
+        "Event- og erhvervsfotografi",
+        "Sportsfotografi",
+        "Business & brand content",
+        "Video & content",
         "Fotografering",
         "Videoproduktion",
         "Droneproduktion",
-        "Eventfotografi",
-        "Festivalfotografi",
-        "Koncertfotografi",
-        "Sportsfotografi",
-        "Virksomhedsfotografi",
       ],
       hasOfferCatalog: {
         "@type": "OfferCatalog",
-        name: "Fotografi- og videoydelser fra Grindsted",
+        name: "Foto, video, drone og content fra Grindsted",
         itemListElement: [
           {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
-              name: "Fotografering",
+              name: "Koncert & festival",
               description:
-                "Koncert-, festival-, sport-, event- og virksomhedsfotografi fra Grindsted — også i Billund, Esbjerg, Vejle, Kolding og resten af Jylland.",
+                "Koncert- og festivalfotografi fra Grindsted — artister, publikum og stemning.",
               areaServed: { "@type": "City", name: "Grindsted" },
             },
           },
@@ -213,18 +238,36 @@ const jsonLd = {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
-              name: "Videoproduktion",
+              name: "Event & erhverv",
               description:
-                "Aftermovies, eventfilm og branded content fra Grindsted til hele Jylland.",
+                "Eventfotografi til virksomheder og arrangementer i Jylland.",
             },
           },
           {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
-              name: "Droneproduktion",
+              name: "Sport",
               description:
-                "Luftfoto og dronevideo til events og brands — baseret i Grindsted.",
+                "Sportsfotografi med fokus på action, jubel og afgørende øjeblikke.",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Business & brand",
+              description:
+                "Brand-content og erhvervsfotografi til virksomheder.",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Video & content",
+              description:
+                "Aftermovies, branded video og drone-content fra Grindsted.",
             },
           },
         ],
@@ -247,7 +290,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="da"
-      className={`${plusJakarta.variable} ${syne.variable} h-full overflow-hidden`}
+      className={`${instrumentSans.variable} h-full overflow-hidden`}
     >
       <body className="h-full overflow-hidden bg-paper text-ink antialiased">
         <script
@@ -261,7 +304,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           Spring til indhold
         </a>
         {/* Element scrollport — custom scrollbar CSS applies reliably here */}
-        <div id="site-scroll" className="h-full overflow-x-hidden overflow-y-scroll">
+        <div
+          id="site-scroll"
+          className="h-full overflow-x-hidden overflow-y-scroll"
+        >
           {children}
         </div>
         <CustomScrollbar />

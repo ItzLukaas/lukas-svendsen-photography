@@ -11,32 +11,57 @@ type FadeInProps = {
   delay?: number;
   y?: number;
   once?: boolean;
+  /** Animate on mount — use for above-the-fold hero content */
+  immediate?: boolean;
 };
 
 export function FadeIn({
   children,
   className,
   delay = 0,
-  y = 5,
+  y = 12,
   once = true,
+  immediate = false,
 }: FadeInProps) {
   const reduceMotion = useReducedMotion();
+  const skip = !!reduceMotion;
 
-  if (reduceMotion) {
-    return <div className={className}>{children}</div>;
+  if (immediate) {
+    return (
+      <motion.div
+        className={cn(className)}
+        initial={skip ? false : { opacity: 0, y }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={
+          skip
+            ? { duration: 0 }
+            : {
+                duration: 0.55,
+                delay,
+                ease: [0.22, 1, 0.36, 1],
+              }
+        }
+      >
+        {children}
+      </motion.div>
+    );
   }
 
   return (
     <motion.div
       className={cn(className)}
-      initial={{ opacity: 0, y }}
+      initial={skip ? false : { opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once, margin: "-6% 0px", amount: 0.1 }}
-      transition={{
-        duration: 0.55,
-        delay,
-        ease: [0.22, 1, 0.36, 1],
-      }}
+      viewport={{ once, margin: "0px 0px -6% 0px", amount: 0.12 }}
+      transition={
+        skip
+          ? { duration: 0 }
+          : {
+              duration: 0.55,
+              delay,
+              ease: [0.22, 1, 0.36, 1],
+            }
+      }
     >
       {children}
     </motion.div>

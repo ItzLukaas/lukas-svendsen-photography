@@ -10,8 +10,15 @@
   --color-paper: var(--paper);
   --color-ink: var(--ink);
   --color-muted-ink: var(--muted-ink);
+  --color-brand: var(--brand);
+  --color-brand-deep: var(--brand-deep);
+  --color-brand-muted: var(--brand-muted);
+  --color-stone: var(--stone);
+  --color-mist: var(--mist);
+
+  --color-available: var(--available);
   --font-sans: var(--font-sans);
-  --font-display: var(--font-display);
+  --font-display: var(--font-sans);
   --font-heading: var(--font-display);
   --font-mono: var(--font-geist-mono);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -56,12 +63,25 @@
 }
 
 :root {
-  --paper: #f4f4f2;
-  --ink: #0e0e0e;
-  --muted-ink: #5c5c5c;
-  --header-h: 4.25rem;
-  --space-section: clamp(4rem, 8vw, 6.5rem);
-  --space-section-sm: clamp(2.75rem, 5.5vw, 4.25rem);
+  /*
+   * Monochrome photography system.
+   * Warm paper · charcoal ink · soft stone. Photos carry color.
+   * --brand aliases ink so CTAs stay coherent without a hue theme.
+   */
+  --paper: #f5f4f1;
+  --ink: #171716;
+  --muted-ink: #5e5c58;
+  --stone: #ebe9e4;
+  --mist: #f0efeb;
+  --brand: var(--ink);
+  --brand-deep: #0e0e0d;
+  --brand-muted: rgb(245 244 241 / 58%);
+  --available: #3d8f5f;
+  --header-h: 4rem;
+  --announcement-h: 2.25rem;
+  --chrome-h: calc(var(--announcement-h) + var(--header-h));
+  --space-section: clamp(3.75rem, 7.5vw, 6.5rem);
+  --space-section-sm: clamp(2.5rem, 5vw, 4rem);
   --background: var(--paper);
   --foreground: var(--ink);
   --card: var(--paper);
@@ -70,16 +90,16 @@
   --popover-foreground: var(--ink);
   --primary: var(--ink);
   --primary-foreground: var(--paper);
-  --secondary: #e8e8e6;
+  --secondary: var(--stone);
   --secondary-foreground: var(--ink);
-  --muted: #e8e8e6;
+  --muted: var(--stone);
   --muted-foreground: var(--muted-ink);
-  --accent: #e8e8e6;
+  --accent: var(--mist);
   --accent-foreground: var(--ink);
   --destructive: oklch(0.5 0.16 25);
-  --border: rgb(14 14 14 / 10%);
-  --input: rgb(14 14 14 / 14%);
-  --ring: rgb(14 14 14 / 35%);
+  --border: rgb(23 23 22 / 10%);
+  --input: rgb(23 23 22 / 14%);
+  --ring: rgb(23 23 22 / 35%);
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
@@ -90,15 +110,16 @@
   --sidebar-foreground: var(--ink);
   --sidebar-primary: var(--ink);
   --sidebar-primary-foreground: var(--paper);
-  --sidebar-accent: #e8e8e6;
+  --sidebar-accent: var(--mist);
   --sidebar-accent-foreground: var(--ink);
-  --sidebar-border: rgb(14 14 14 / 12%);
-  --sidebar-ring: rgb(14 14 14 / 35%);
+  --sidebar-border: rgb(23 23 22 / 12%);
+  --sidebar-ring: rgb(23 23 22 / 35%);
 }
 
 @media (min-width: 768px) {
   :root {
-    --header-h: 5rem;
+    --header-h: 4.5rem;
+    --announcement-h: 2.375rem;
   }
 }
 
@@ -109,7 +130,7 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: calc(var(--header-h) + 0.75rem);
+    scroll-padding-top: calc(var(--chrome-h) + 0.75rem);
     text-rendering: optimizeLegibility;
     -webkit-text-size-adjust: 100%;
   }
@@ -155,8 +176,9 @@
 @layer utilities {
   .font-display {
     font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
-    font-weight: 700;
-    letter-spacing: -0.03em;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    font-optical-sizing: auto;
   }
 
   .text-balance {
@@ -164,9 +186,9 @@
   }
 
   .label-meta {
-    font-size: 0.75rem;
+    font-size: 0.6875rem;
     font-weight: 500;
-    letter-spacing: 0.045em;
+    letter-spacing: 0.12em;
     color: var(--muted-ink);
     text-transform: uppercase;
   }
@@ -288,6 +310,76 @@
     opacity: 1;
   }
 
+  /* Outlined secondary CTA — fills on hover */
+  .btn-outline {
+    display: inline-flex;
+    height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding-inline: 1.35rem;
+    border: 1px solid var(--ink);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.055em;
+    color: var(--ink);
+    background-color: transparent;
+    transition:
+      background-color 420ms cubic-bezier(0.22, 1, 0.36, 1),
+      color 420ms cubic-bezier(0.22, 1, 0.36, 1),
+      gap 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .btn-outline::after {
+    content: "→";
+    display: inline-block;
+    max-width: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateX(-0.3em);
+    font-weight: 500;
+    letter-spacing: 0;
+    transition:
+      max-width 420ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 360ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .btn-outline:hover,
+  .btn-outline:focus-visible {
+    gap: 0.5em;
+    background-color: var(--ink);
+    color: var(--paper);
+  }
+
+  .btn-outline:hover::after,
+  .btn-outline:focus-visible::after {
+    max-width: 1.1em;
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Header / text nav links */
+  .link-nav {
+    position: relative;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0 1px;
+    transition:
+      color 320ms cubic-bezier(0.22, 1, 0.36, 1),
+      background-size 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .link-nav:hover,
+  .link-nav:focus-visible {
+    background-size: 100% 1px;
+  }
+
+  .link-nav[aria-current="page"] {
+    background-size: 100% 1px;
+  }
+
   /* Ghost CTA on ink / photography backgrounds */
   .btn-ghost-on-dark {
     display: inline-flex;
@@ -315,19 +407,18 @@
   /* Compact primary CTA in the header nav */
   .btn-nav-cta {
     display: inline-flex;
-    height: 2.25rem;
+    height: 2.125rem;
     align-items: center;
     justify-content: center;
     gap: 0;
-    padding-inline: 1.05rem;
+    padding-inline: 1rem;
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.045em;
     transition:
       opacity 420ms cubic-bezier(0.22, 1, 0.36, 1),
       gap 420ms cubic-bezier(0.22, 1, 0.36, 1),
-      background-color 420ms cubic-bezier(0.22, 1, 0.36, 1),
-      color 420ms cubic-bezier(0.22, 1, 0.36, 1);
+      filter 420ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .btn-nav-cta::after {
@@ -359,7 +450,9 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .btn-solid::after {
+    .btn-solid::after,
+    .btn-outline::after,
+    .btn-nav-cta::after {
       transition: none;
     }
 
@@ -369,14 +462,17 @@
     }
 
     .btn-solid:hover::after,
-    .btn-solid:focus-visible::after {
+    .btn-solid:focus-visible::after,
+    .btn-outline:hover::after,
+    .btn-outline:focus-visible::after {
       max-width: 1.1em;
       opacity: 1;
       transform: none;
     }
 
-    .btn-nav-cta::after {
-      transition: none;
+    .btn-outline:hover,
+    .btn-outline:focus-visible {
+      gap: 0.5em;
     }
 
     .btn-nav-cta:hover,
@@ -409,14 +505,17 @@
     transition: opacity 480ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  .animate-logo-marquee {
-    animation: logo-marquee 60s linear infinite;
-    will-change: transform;
+  .status-dot-live {
+    box-shadow:
+      0 0 0 0 color-mix(in srgb, var(--available) 55%, transparent),
+      0 0 6px 1px color-mix(in srgb, var(--available) 28%, transparent);
+    animation: status-dot-pulse 3.2s ease-in-out infinite;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .animate-logo-marquee {
+    .status-dot-live {
       animation: none;
+      box-shadow: none;
     }
   }
 }
@@ -430,12 +529,31 @@
   }
 }
 
-@keyframes logo-marquee {
-  from {
-    transform: translateX(0);
+@keyframes status-dot-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 0 color-mix(in srgb, var(--available) 50%, transparent),
+      0 0 5px 1px color-mix(in srgb, var(--available) 22%, transparent);
   }
-  to {
-    transform: translateX(-50%);
+  50% {
+    box-shadow:
+      0 0 0 5px color-mix(in srgb, var(--available) 0%, transparent),
+      0 0 10px 2px color-mix(in srgb, var(--available) 35%, transparent);
+  }
+}
+
+@keyframes hero-scroll-hint {
+  0%,
+  100% {
+    opacity: 0.28;
+    transform: scaleY(0.85);
+    transform-origin: top;
+  }
+  50% {
+    opacity: 0.55;
+    transform: scaleY(1);
+    transform-origin: top;
   }
 }
 
@@ -447,7 +565,7 @@
   scrollbar-width: none;
   -ms-overflow-style: none;
   scroll-behavior: smooth;
-  scroll-padding-top: calc(var(--header-h) + 0.75rem);
+  scroll-padding-top: calc(var(--chrome-h) + 0.75rem);
   overflow-x: clip;
   overscroll-behavior-x: none;
 }

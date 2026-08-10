@@ -1,191 +1,47 @@
-"use client";
+﻿"use client";
 
-import { useReducedMotion } from "motion/react";
-import { useCallback, useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 import type { ProjectImage } from "@/lib/data/projects";
 import { cn } from "@/lib/utils";
 
 type HeroBackgroundProps = {
-  /** Landscape / video poster — desktop */
-  poster: ProjectImage;
-  /** Dedicated portrait composition — mobile */
-  mobilePoster: ProjectImage;
-  videoSrc: string;
-  videoSrcHevc?: string;
+  /** Wide landscape — desktop */
+  image: ProjectImage;
+  /** Portrait — mobile */
+  mobileImage: ProjectImage;
+  className?: string;
 };
 
-function pickVideoSrc(h264: string, hevc?: string) {
-  if (!hevc || typeof document === "undefined") return h264;
-
-  const probe = document.createElement("video");
-  const support = probe.canPlayType('video/mp4; codecs="hvc1"');
-  return support === "probably" || support === "maybe" ? hevc : h264;
-}
-
-function prefersVideoPlayback() {
-  if (typeof window === "undefined") return false;
-
-  const desktop = window.matchMedia("(min-width: 768px)").matches;
-  const nav = navigator as Navigator & { connection?: { saveData?: boolean } };
-  const saveData = nav.connection?.saveData === true;
-  return desktop && !saveData;
-}
-
 /**
- * Hero media — dedicated portrait still on mobile; muted video on desktop.
- * Uses <picture> art direction so mobile never downloads the landscape poster.
+ * Art-directed hero stills via next/image (WebP, responsive sizes, LCP priority).
+ * Desktop: landscape. Mobile: dedicated portrait crop.
  */
 export function HeroBackground({
-  poster,
-  mobilePoster,
-  videoSrc,
-  videoSrcHevc,
+  image,
+  mobileImage,
+  className,
 }: HeroBackgroundProps) {
-  const reduceMotion = useReducedMotion();
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const triedFallback = useRef(false);
-  const [src, setSrc] = useState(() =>
-    pickVideoSrc(videoSrc, videoSrcHevc)
-  );
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [canPlayVideo, setCanPlayVideo] = useState(false);
-
-  useEffect(() => {
-    const mq = window.matchMedia("(min-width: 768px)");
-    const update = () => setCanPlayVideo(prefersVideoPlayback());
-
-    update();
-    mq.addEventListener("change", update);
-    return () => mq.removeEventListener("change", update);
-  }, []);
-
-  const showVideo = reduceMotion !== true && canPlayVideo;
-
-  const syncPlaying = useCallback((video: HTMLVideoElement) => {
-    if (!video.paused && video.readyState >= 2) {
-      setIsPlaying(true);
-    }
-  }, []);
-
-  const tryPlay = useCallback(
-    async (video: HTMLVideoElement) => {
-      video.muted = true;
-      try {
-        await video.play();
-        syncPlaying(video);
-      } catch {
-        /* Poster forbliver synlig indtil afspilning lykkes */
-      }
-    },
-    [syncPlaying]
-  );
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!showVideo || !video) {
-      setIsPlaying(false);
-      return;
-    }
-
-    let active = true;
-    setIsPlaying(false);
-    triedFallback.current = false;
-
-    const play = () => {
-      if (active) void tryPlay(video);
-    };
-
-    const onPlaying = () => {
-      if (active) setIsPlaying(true);
-    };
-
-    video.load();
-    play();
-
-    video.addEventListener("loadeddata", play);
-    video.addEventListener("canplay", play);
-    video.addEventListener("playing", onPlaying);
-    video.addEventListener("timeupdate", onPlaying, { once: true });
-
-    const onPageShow = (event: PageTransitionEvent) => {
-      if (!active) return;
-      setIsPlaying(false);
-      if (event.persisted) video.load();
-      play();
-    };
-
-    const onVisibility = () => {
-      if (!active || document.hidden) return;
-      if (video.paused) play();
-    };
-
-    window.addEventListener("pageshow", onPageShow);
-    document.addEventListener("visibilitychange", onVisibility);
-
-    return () => {
-      active = false;
-      video.removeEventListener("loadeddata", play);
-      video.removeEventListener("canplay", play);
-      video.removeEventListener("playing", onPlaying);
-      window.removeEventListener("pageshow", onPageShow);
-      document.removeEventListener("visibilitychange", onVisibility);
-    };
-  }, [showVideo, src, tryPlay]);
-
-  function handleError() {
-    if (!triedFallback.current && src !== videoSrc) {
-      triedFallback.current = true;
-      setSrc(videoSrc);
-      setIsPlaying(false);
-    }
-  }
-
   return (
-    <>
-      <picture
-        className={cn(
-          "absolute inset-0 z-0 block h-full w-full transition-opacity duration-1000",
-          isPlaying ? "opacity-0" : "opacity-100"
-        )}
-      >
-        <source
-          media="(min-width: 768px)"
-          srcSet={poster.src}
-          width={poster.width}
-          height={poster.height}
-        />
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={mobilePoster.src}
-          alt={mobilePoster.alt}
-          width={mobilePoster.width}
-          height={mobilePoster.height}
-          fetchPriority="high"
-          decoding="async"
-          className="h-full w-full object-cover object-[center_22%] md:object-center"
-        />
-      </picture>
-
-      {showVideo ? (
-        <video
-          ref={videoRef}
-          src={src}
-          className={cn(
-            "absolute inset-0 z-0 hidden h-full w-full object-cover object-center transition-opacity duration-1000 md:block",
-            isPlaying ? "opacity-100" : "opacity-0"
-          )}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster={poster.src}
-          aria-hidden
-          onPlaying={() => setIsPlaying(true)}
-          onError={handleError}
-        />
-      ) : null}
-    </>
+    <div className={cn("absolute inset-0", className)}>
+      <Image
+        src={mobileImage.src}
+        alt={mobileImage.alt}
+        fill
+        priority
+        quality={90}
+        sizes="100vw"
+        className="object-cover object-[50%_18%] md:hidden"
+      />
+      <Image
+        src={image.src}
+        alt={image.alt}
+        fill
+        priority
+        quality={90}
+        sizes="(min-width: 1600px) 1600px, 100vw"
+        className="hidden object-cover object-[50%_40%] md:block"
+      />
+    </div>
   );
 }

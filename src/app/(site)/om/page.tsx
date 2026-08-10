@@ -4,12 +4,12 @@ import Link from "next/link";
 import { FadeIn } from "@/components/motion/fade-in";
 import { Photo } from "@/components/photography/photo";
 import { aboutPortrait } from "@/lib/data/projects";
-import { pageMetadata } from "@/lib/seo";
+import { pageMetadata, simplePageJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Om mig — Fotograf i Grindsted",
+  title: "Om mig",
   description:
-    "Mød Lukas Svendsen — fotograf, videograf og dronepilot fra Grindsted. Professionelt arbejde med koncerter, festivaler, sport, events og virksomheder i Jylland.",
+    "Mød Lukas Svendsen — 16-årig fotograf fra Grindsted. Foto, video og drone til koncerter, festivaler, sport, events og brands.",
   path: "/om",
   image: aboutPortrait.src,
   imageAlt: aboutPortrait.alt,
@@ -18,10 +18,23 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function OmPage() {
+  const jsonLd = simplePageJsonLd({
+    path: "/om",
+    name: "Om Lukas Svendsen",
+    description:
+      "Lukas Svendsen er fotograf fra Grindsted. Foto, video og drone til koncerter, festivaler, sport, events og brands.",
+    type: "AboutPage",
+  });
+
   return (
-    <div className="pt-24 md:pt-28">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+    <div className="pt-[calc(var(--chrome-h)+2.5rem)]">
       <section className="mx-auto grid max-w-[1600px] items-start gap-10 px-5 pb-16 md:grid-cols-12 md:gap-14 md:px-8 md:pb-24 lg:px-12">
-        <FadeIn className="md:col-span-5 md:sticky md:top-28">
+        <FadeIn className="md:col-span-5 md:sticky md:top-[calc(var(--chrome-h)+1.25rem)]">
           <Photo
             src={aboutPortrait.src}
             alt={aboutPortrait.alt}
@@ -40,64 +53,48 @@ export default function OmPage() {
             <h1 className="mt-3 max-w-[12ch] font-display text-[clamp(2.65rem,5.8vw,4.5rem)] leading-[0.92] tracking-[-0.03em]">
               Lukas Svendsen
             </h1>
+            <p className="mt-4 text-[0.9375rem] text-muted-ink">
+              Fotograf · Grindsted
+            </p>
           </FadeIn>
 
           <FadeIn delay={0.05}>
             <div className="mt-9 space-y-5 text-body">
               <p>
-                Jeg hedder Lukas Svendsen, er 16 år og kommer fra Grindsted.
+                Jeg hedder Lukas Svendsen — fulde navn Lukas Guldager Svendsen.
+                Jeg er 16 år og kommer fra Grindsted. Jeg laver foto, video,
+                drone og content — mest til koncerter, festivaler, sport,
+                events og brands.
               </p>
               <p>
-                Jeg har altid haft en passion for at fange de øjeblikke, der
-                kun sker én gang. Det er alt fra energien foran scenen og
-                intensiteten på banen til de små øjeblikke, man først lægger
-                mærke til, når man ser billedet bagefter.
+                Jeg møder op klar, holder hovedet koldt under presset og
+                leverer billeder, der kan bruges med det samme. Også i Billund,
+                Esbjerg, Vejle, Kolding og resten af Jylland.
               </p>
               <p>
-                Fra Grindsted arbejder jeg som fotograf, videograf og
-                dronepilot med koncerter, festivaler, sport, events og
-                virksomheder — også i Billund, Esbjerg, Vejle, Kolding og
-                resten af Jylland. For mig handler fotografering ikke kun om
-                at tage flotte billeder, men om at skabe billeder, der
-                fortæller en historie og formidler den stemning, der gjorde
-                øjeblikket særligt.
-              </p>
-              <p>
-                Jeg går op i at være nærværende, nem at arbejde sammen med og
-                levere et resultat, som både jeg og kunden kan være stolte af.
-                Uanset om jeg fotograferer for en virksomhed, en festival, en
-                sportsbegivenhed eller en privat kunde, er mit mål altid det
-                samme: at skabe billeder, der føles ægte, og som gør indtryk.
+                Book mig, hvis du har et job. Så snakker vi om det.
               </p>
             </div>
           </FadeIn>
 
           <FadeIn delay={0.08}>
             <div className="mt-16 border-t border-foreground/10 pt-11">
-              <h2 className="label-meta">Hvad jeg tilbyder</h2>
+              <h2 className="label-meta">Mere</h2>
               <ul className="mt-6 space-y-3.5">
+                <li>
+                  <Link
+                    href="/#services"
+                    className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
+                  >
+                    Hvad jeg laver
+                  </Link>
+                </li>
                 <li>
                   <Link
                     href="/arbejde"
                     className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
                   >
-                    Fotografi
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/booking"
-                    className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
-                  >
-                    Videoproduktion
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/booking"
-                    className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
-                  >
-                    Droneproduktion
+                    Arbejde
                   </Link>
                 </li>
               </ul>
@@ -107,7 +104,7 @@ export default function OmPage() {
           <FadeIn delay={0.1}>
             <div className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-4">
               <Link href="/booking" className="btn-solid bg-ink text-paper">
-                Booking
+                Book mig
               </Link>
               <Link href="/kontakt" className="btn-ghost">
                 Kontakt mig
@@ -117,5 +114,6 @@ export default function OmPage() {
         </div>
       </section>
     </div>
+    </>
   );
 }

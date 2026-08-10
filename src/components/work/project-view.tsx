@@ -12,41 +12,79 @@ type ProjectViewProps = {
 };
 
 export function ProjectView({ project, previous, next }: ProjectViewProps) {
+  const metaParts = [
+    project.client,
+    project.role,
+    `${project.location}, ${project.year}`,
+  ].filter(Boolean);
+
   return (
-    <article className="pt-24 md:pt-28">
+    <article className="pt-[calc(var(--chrome-h)+2.5rem)]">
       {/* Exhibition intro — quiet, then the work */}
       <header className="mx-auto max-w-[1600px] px-5 md:px-8 lg:px-12">
         <FadeIn>
-          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 text-[0.75rem] tracking-[0.02em] text-muted-ink">
-            <Link
-              href="/arbejde"
-              className="transition-opacity duration-300 hover:opacity-55"
-            >
-              Arbejde
-            </Link>
-            <span aria-hidden className="opacity-25">
-              /
-            </span>
-            <span>{project.category}</span>
-            <span aria-hidden className="opacity-25">
-              ·
-            </span>
-            <span>
-              {project.location}, {project.year}
-            </span>
-          </div>
+          <nav aria-label="Brødkrumme" className="text-[0.75rem] tracking-[0.02em] text-muted-ink">
+            <ol className="m-0 flex list-none flex-wrap items-baseline gap-x-0 gap-y-1 p-0">
+              <li className="after:mx-3 after:opacity-25 after:content-['/']">
+                <Link
+                  href="/"
+                  className="transition-opacity duration-300 hover:opacity-55"
+                >
+                  Forside
+                </Link>
+              </li>
+              <li className="after:mx-3 after:opacity-25 after:content-['/']">
+                <Link
+                  href="/arbejde"
+                  className="transition-opacity duration-300 hover:opacity-55"
+                >
+                  Arbejde
+                </Link>
+              </li>
+              <li className="after:mx-3 after:opacity-25 after:content-['/']">
+                <Link
+                  href={`/arbejde?kategori=${project.discipline}`}
+                  className="transition-opacity duration-300 hover:opacity-55"
+                >
+                  {project.category}
+                </Link>
+              </li>
+              <li className="text-ink/70" aria-current="page">
+                {project.title}
+              </li>
+            </ol>
+          </nav>
 
           <h1 className="mt-5 max-w-[16ch] font-display text-[clamp(2.65rem,6.5vw,5rem)] leading-[0.92] tracking-[-0.03em]">
             {project.title}
           </h1>
 
-          <p className="text-body mt-6 max-w-md md:mt-7">
-            {project.excerpt}
-          </p>
+          {metaParts.length > 0 ? (
+            <p className="mt-5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.75rem] tracking-[0.02em] text-muted-ink">
+              {metaParts.map((part, index) => (
+                <span key={part} className="inline-flex items-center gap-x-2">
+                  {index > 0 ? (
+                    <span aria-hidden className="opacity-25">
+                      ·
+                    </span>
+                  ) : null}
+                  {part}
+                </span>
+              ))}
+            </p>
+          ) : null}
+
+          <p className="text-body mt-6 max-w-md md:mt-7">{project.excerpt}</p>
+
+          {project.outcome ? (
+            <p className="mt-4 max-w-lg text-[0.9375rem] leading-[1.65] text-muted-ink">
+              {project.outcome}
+            </p>
+          ) : null}
         </FadeIn>
       </header>
 
-      <div className="mt-4 md:mt-6">
+      <div className="mt-10 md:mt-12">
         <ProjectGallery project={project} />
       </div>
 
@@ -129,10 +167,10 @@ export function ProjectView({ project, previous, next }: ProjectViewProps) {
       <section className="border-t border-foreground/10">
         <div className="mx-auto flex max-w-[1600px] flex-col gap-6 px-5 py-14 md:flex-row md:items-center md:justify-between md:px-8 md:py-16 lg:px-12">
           <p className="text-body max-w-md">
-            Skal jeg med på noget lignende? Book en produktion fra Grindsted.
+            Skal jeg med på noget lignende? Book mig fra Grindsted.
           </p>
           <Link href="/booking" className="btn-solid bg-ink text-paper">
-            Booking
+            Book mig
           </Link>
         </div>
       </section>

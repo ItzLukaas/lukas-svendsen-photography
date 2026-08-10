@@ -6,13 +6,34 @@ export const siteConfig = {
   phone: "+4524463550",
   phoneDisplay: "+45 24 46 35 50",
   locale: "da_DK",
+  timezone: "Europe/Copenhagen",
+  location: {
+    street: "Ribersvej 90",
+    postalCode: "7200",
+    city: "Grindsted",
+    country: "Danmark",
+  },
+  social: {
+    instagram: "https://www.instagram.com/lukassvendsen.dk/",
+    linkedin: "https://www.linkedin.com/in/lukas-guldager-svendsen-a4a777290/",
+  },
+  /**
+   * Local opening hours (Europe/Copenhagen).
+   * endHour 24 = open until midnight.
+   */
+  openingHours: [
+    { days: [1, 2, 3, 4], open: 8, close: 22 }, // Mon–Thu
+    { days: [5, 6], open: 8, close: 24 }, // Fri–Sat
+    { days: [0], open: 8, close: 22 }, // Sun
+  ] as const,
+  tagline: "Fotograf",
   description:
-    "Fotograf i Grindsted — Lukas Svendsen. Professionel koncert-, festival-, sport- og eventfotografi samt video og drone. Også Billund, Esbjerg, Vejle, Kolding og hele Jylland.",
+    "Fotograf i Grindsted — Lukas Svendsen. Foto, video og drone til koncerter, festivaler, sport, events og brands. Også Billund, Esbjerg, Vejle, Kolding og Jylland.",
   nav: [
     { href: "/arbejde", label: "Arbejde" },
     { href: "/om", label: "Om mig" },
-    { href: "/kontakt", label: "Kontakt mig" },
-    { href: "/booking", label: "Booking" },
+    { href: "/kontakt", label: "Kontakt" },
+    { href: "/booking", label: "Book mig" },
   ],
   disciplines: [
     { slug: "koncerter", label: "Festival" },

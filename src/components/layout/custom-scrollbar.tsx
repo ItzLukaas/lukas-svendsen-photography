@@ -39,7 +39,7 @@ export function CustomScrollbar() {
     const root = document.getElementById("site-scroll");
     if (!root) return;
 
-    update();
+    const frame = window.requestAnimationFrame(() => update());
     root.addEventListener("scroll", update, { passive: true });
     window.addEventListener("resize", update);
 
@@ -48,6 +48,7 @@ export function CustomScrollbar() {
     if (root.firstElementChild) ro.observe(root.firstElementChild);
 
     return () => {
+      window.cancelAnimationFrame(frame);
       root.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
       ro.disconnect();

@@ -10,6 +10,7 @@ Smid dine rå billeder ind i den rigtige projektmappe (op til **40 MB** pr. fil)
 | `about/` | Om mig-portræt (`public/images/about.jpg`) |
 | `bork-festival/` | Bork Festival |
 | `varde-open-air/` | Varde Open Air |
+| `thor-farlov-smukfest/` | Thor Farlov — Smukfest (9 højformat) |
 | `gron-koncert/` | Sivas — Grøn Koncert (9 portrætter) |
 | `esbjerg-streetfood/` | Esbjerg Streetfood |
 | `dm-finalen-herrer/` | DM-finalen – Herrer |
@@ -29,6 +30,12 @@ npm run images:process
    - lægger filerne i `public/images/projects/<projekt>/`
    - opdaterer galleriet på siden
    - flytter originalerne til `inbox/_done/<projekt>/`
+
+## Tip til Thor Farlov — Smukfest
+
+- Kun **højformat** (lodrette) billeder — 9 stk.
+- Navngiv gerne `01-….jpg` … `09-….jpg`, så rækkefølgen matcher galleriet.
+- Første billede bliver cover.
 
 ## Tip til Bork Festival
 

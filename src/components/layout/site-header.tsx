@@ -4,21 +4,44 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
+import { AnnouncementBar } from "@/components/layout/announcement-bar";
 import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 const navLinks = siteConfig.nav.filter((item) => item.href !== "/booking");
 
+function isNavActive(pathname: string, href: string, hash: string) {
+  if (href.startsWith("/#")) {
+    return pathname === "/" && hash === href.slice(1);
+  }
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
 export function SiteHeader() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [hash, setHash] = useState("");
+  const [navPath, setNavPath] = useState(pathname);
+
+  if (pathname !== navPath) {
+    setNavPath(pathname);
+    setOpen(false);
+  }
+
+  useEffect(() => {
+    const syncHash = () => setHash(window.location.hash);
+    syncHash();
+    window.addEventListener("hashchange", syncHash);
+    return () => window.removeEventListener("hashchange", syncHash);
+  }, [pathname]);
 
   useEffect(() => {
     const root = document.getElementById("site-scroll");
     const onScroll = () => {
       const y = root?.scrollTop ?? window.scrollY;
-      setScrolled(y > 48);
+      setScrolled(y > 36);
     };
     onScroll();
     root?.addEventListener("scroll", onScroll, { passive: true });
@@ -30,16 +53,48 @@ export function SiteHeader() {
   }, []);
 
   useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
-
-  useEffect(() => {
     if (!open) return;
+
+    const menu = document.getElementById("mobil-menu");
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+    const focusables = () =>
+      menu
+        ? Array.from(
+            menu.querySelectorAll<HTMLElement>(
+              'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+            )
+          )
+        : [];
+
+    focusables()[0]?.focus();
+
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(false);
+      if (event.key === "Escape") {
+        setOpen(false);
+        return;
+      }
+      if (event.key !== "Tab" || !menu) return;
+      const list = focusables();
+      if (list.length === 0) return;
+      const first = list[0];
+      const last = list[list.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
+
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      const button = document.querySelector<HTMLElement>(
+        'button[aria-controls="mobil-menu"]'
+      );
+      (previouslyFocused ?? button)?.focus?.();
+    };
   }, [open]);
 
   useEffect(() => {
@@ -54,109 +109,95 @@ export function SiteHeader() {
     };
   }, [open]);
 
-  const isHome = pathname === "/";
-  const overHero = isHome && !scrolled && !open;
-  const solid = scrolled || open || !isHome;
   const bookingActive =
     pathname === "/booking" || pathname.startsWith("/booking/");
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-[background-color,color,border-color] duration-500 ease-out",
-        solid
-          ? "border-b border-foreground/10 bg-paper text-foreground"
-          : "border-b border-transparent bg-transparent text-white"
-      )}
-    >
-      {overHero ? (
-        <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/45 via-black/15 to-transparent"
-          aria-hidden
-        />
-      ) : null}
+    <header className="fixed inset-x-0 top-0 z-50">
+      <AnnouncementBar />
 
-      <div className="relative mx-auto flex h-[4.25rem] max-w-[1600px] items-center justify-between px-5 md:h-[5rem] md:px-8 lg:px-12">
-        <Link
-          href="/"
-          className="font-display shrink-0 text-[1.15rem] leading-none tracking-[-0.025em] transition-opacity duration-[400ms] hover:opacity-70 md:text-[1.35rem]"
-          aria-label={`${siteConfig.name} — forsiden`}
-        >
-          {siteConfig.name}
-        </Link>
-
-        <nav
-          className="hidden items-center gap-8 md:flex lg:gap-10"
-          aria-label="Primær navigation"
-        >
-          {navLinks.map((item) => {
-            const active =
-              pathname === item.href || pathname.startsWith(`${item.href}/`);
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                aria-current={active ? "page" : undefined}
-                className={cn(
-                  "text-[0.8125rem] tracking-[0.03em] transition-opacity duration-[400ms]",
-                  active
-                    ? "font-semibold opacity-100"
-                    : "font-medium opacity-50 hover:opacity-100"
-                )}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
-
+      <div
+        className={cn(
+          "relative border-b border-foreground/8 text-foreground transition-[background-color,backdrop-filter] duration-500 ease-out",
+          scrolled
+            ? "bg-paper/92 backdrop-blur-md"
+            : "bg-paper"
+        )}
+      >
+        <div className="relative mx-auto flex h-[var(--header-h)] max-w-[1600px] items-center justify-between px-5 md:px-8 lg:px-12">
           <Link
-            href="/booking"
-            className={cn(
-              "btn-nav-cta ml-1",
-              overHero
-                ? "bg-paper text-ink"
-                : "bg-ink text-paper"
-            )}
-            aria-current={bookingActive ? "page" : undefined}
+            href="/"
+            className="font-display relative z-10 shrink-0 text-[1.05rem] leading-none tracking-[-0.025em] transition-opacity duration-300 hover:opacity-65 md:text-[1.15rem]"
+            aria-label={`${siteConfig.name} — forsiden`}
           >
-            Booking
+            {siteConfig.name}
           </Link>
-        </nav>
 
-        <button
-          type="button"
-          className={cn(
-            "relative z-50 -mr-1 flex h-11 w-11 items-center justify-center md:hidden",
-            overHero ? "text-white" : "text-foreground"
-          )}
-          aria-expanded={open}
-          aria-controls="mobil-menu"
-          aria-label={open ? "Luk menu" : "Åbn menu"}
-          onClick={() => setOpen((value) => !value)}
-        >
-          <span className="sr-only">{open ? "Luk" : "Menu"}</span>
-          <span className="relative flex h-3 w-[18px] flex-col justify-between">
-            <span
-              className={cn(
-                "block h-[1.5px] w-full bg-current transition-transform duration-300 ease-out",
-                open && "translate-y-[5.5px] rotate-45"
-              )}
-            />
-            <span
-              className={cn(
-                "block h-[1.5px] w-full bg-current transition-transform duration-300 ease-out",
-                open && "-translate-y-[5.5px] -rotate-45"
-              )}
-            />
-          </span>
-        </button>
+          <nav
+            className="relative z-10 hidden items-center gap-7 md:flex lg:gap-9"
+            aria-label="Primær navigation"
+          >
+            {navLinks.map((item) => {
+              const active = isNavActive(pathname, item.href, hash);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={active ? "page" : undefined}
+                  className={cn(
+                    "link-nav text-[0.8125rem] tracking-[0.02em]",
+                    active
+                      ? "font-semibold text-ink"
+                      : "font-medium text-muted-ink hover:text-ink"
+                  )}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+
+            <Link
+              href="/booking"
+              className="btn-nav-cta ml-0.5 bg-ink text-paper"
+              aria-current={bookingActive ? "page" : undefined}
+            >
+              Book mig
+            </Link>
+          </nav>
+
+          <button
+            type="button"
+            className="relative z-50 -mr-1 flex h-11 w-11 items-center justify-center text-foreground md:hidden"
+            aria-expanded={open}
+            aria-controls="mobil-menu"
+            aria-label={open ? "Luk menu" : "Åbn menu"}
+            onClick={() => setOpen((value) => !value)}
+          >
+            <span className="sr-only">{open ? "Luk" : "Menu"}</span>
+            <span className="relative flex h-3 w-[18px] flex-col justify-between">
+              <span
+                className={cn(
+                  "block h-[1.5px] w-full bg-current transition-transform duration-300 ease-out",
+                  open && "translate-y-[5.5px] rotate-45"
+                )}
+              />
+              <span
+                className={cn(
+                  "block h-[1.5px] w-full bg-current transition-transform duration-300 ease-out",
+                  open && "-translate-y-[5.5px] -rotate-45"
+                )}
+              />
+            </span>
+          </button>
+        </div>
       </div>
 
       <div
         id="mobil-menu"
-        role="dialog"
-        aria-modal="true"
-        aria-label="Menu"
+        role={open ? "dialog" : undefined}
+        aria-modal={open ? true : undefined}
+        aria-label={open ? "Menu" : undefined}
+        hidden={!open}
         className={cn(
           "fixed inset-0 z-40 bg-paper transition-[opacity,visibility] duration-300 md:hidden",
           open
@@ -164,31 +205,18 @@ export function SiteHeader() {
             : "invisible pointer-events-none opacity-0"
         )}
       >
-        <div className="flex h-[4.25rem] items-center px-5">
-          <Link
-            href="/"
-            className="font-display text-[1.15rem] tracking-[-0.02em] text-foreground transition-opacity hover:opacity-70"
-            aria-label={`${siteConfig.name} — forsiden`}
-            onClick={() => setOpen(false)}
-          >
-            {siteConfig.name}
-          </Link>
-        </div>
-        <nav
-          className="flex flex-col px-5 pt-10"
-          aria-label="Mobil navigation"
-        >
+        <div className="h-[var(--chrome-h)]" />
+        <nav className="flex flex-col px-5 pt-2" aria-label="Mobil navigation">
           {navLinks.map((item) => {
-            const active =
-              pathname === item.href || pathname.startsWith(`${item.href}/`);
+            const active = isNavActive(pathname, item.href, hash);
             return (
               <Link
                 key={item.href}
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "font-display border-b border-foreground/10 py-6 text-[clamp(2.1rem,9vw,2.75rem)] leading-none tracking-[-0.03em] text-foreground transition-opacity duration-300",
-                  active ? "opacity-100" : "opacity-40 hover:opacity-100"
+                  "font-display border-b border-foreground/10 py-5 text-[clamp(1.85rem,8vw,2.5rem)] leading-none tracking-[-0.03em] text-foreground transition-opacity duration-300",
+                  active ? "opacity-100" : "opacity-35 hover:opacity-100"
                 )}
                 onClick={() => setOpen(false)}
               >
@@ -204,7 +232,7 @@ export function SiteHeader() {
             aria-current={bookingActive ? "page" : undefined}
             onClick={() => setOpen(false)}
           >
-            Booking
+            Book mig
           </Link>
           <p className="mt-5 text-center text-sm text-muted-ink">
             {siteConfig.email}

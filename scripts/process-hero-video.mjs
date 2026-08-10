@@ -7,7 +7,7 @@
  * Kræver ffmpeg (winget install Gyan.FFmpeg).
  *
  * Output (web-optimized for LCP/bandwidth):
- *   public/videos/hero-hevc.mp4 — HEVC ~1280p, kort loop
+ *   public/videos/hero-hevc.mp4 — HEVC 1080p, fuld længde
  *   public/videos/hero.mp4       — H.264 fallback
  *   public/images/hero-poster.jpg
  */
@@ -39,8 +39,6 @@ const POSTER_OUT = path.join(ROOT, "public", "images", "hero-poster.jpg");
 
 const VIDEO_EXT = new Set([".mp4", ".mov", ".mkv", ".webm"]);
 const MAX_INPUT_BYTES = 500 * 1024 * 1024;
-/** Short loop keeps payload reasonable while preserving presence */
-const LOOP_SECONDS = 16;
 
 function ffmpegCmd() {
   const result = spawnSync("ffmpeg", ["-version"], { encoding: "utf8" });
@@ -100,18 +98,17 @@ function moveToDone(filePath) {
 }
 
 function encodeWebVideos(ffmpeg, input) {
-  // 1080p / 30fps / high quality — desktop hero only (mobile uses still)
+  // 1080p / 30fps / high quality — full clip from 2s, desktop hero only (mobile uses still)
   const vf = "scale=1920:-2:flags=lanczos,fps=30";
+  const startAt = "2";
 
   console.log(
-    `  HEVC 1080p30 (crf 19, ${LOOP_SECONDS}s) — primær, høj kvalitet…`
+    "  HEVC 1080p30 (crf 19, fra 2s, fuld længde) — primær, høj kvalitet…"
   );
   runFfmpeg(ffmpeg, [
     "-y",
     "-ss",
-    "2",
-    "-t",
-    String(LOOP_SECONDS),
+    startAt,
     "-i",
     input,
     "-an",
@@ -133,14 +130,12 @@ function encodeWebVideos(ffmpeg, input) {
   ]);
 
   console.log(
-    `  H.264 1080p30 (crf 20, ${LOOP_SECONDS}s) — fallback til alle browsere…`
+    "  H.264 1080p30 (crf 20, fra 2s, fuld længde) — fallback til alle browsere…"
   );
   runFfmpeg(ffmpeg, [
     "-y",
     "-ss",
-    "2",
-    "-t",
-    String(LOOP_SECONDS),
+    startAt,
     "-i",
     input,
     "-an",

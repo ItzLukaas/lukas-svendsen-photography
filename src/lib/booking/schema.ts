@@ -4,6 +4,7 @@ export const productionTypes = [
   "Fotografering",
   "Videoproduktion",
   "Droneproduktion",
+  "Content",
   "Andet",
 ] as const;
 

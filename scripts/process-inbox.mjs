@@ -38,6 +38,7 @@ const JPEG_QUALITY = 82;
 const PROJECT_TITLES = {
   "bork-festival": "Bork Festival",
   "varde-open-air": "Varde Open Air",
+  "thor-farlov-smukfest": "Thor Farlov — Smukfest",
   "gron-koncert": "Sivas — Grøn Koncert",
   "esbjerg-streetfood": "Esbjerg Streetfood",
   "dm-finalen-herrer": "DM-finalen – Herrer",
@@ -96,6 +97,9 @@ function defaultAlt(slug, index, orientation) {
   const title = PROJECT_TITLES[slug] ?? slug;
   if (slug === "gron-koncert" && orientation === "portrait") {
     return `Sivas på Grøn Koncert — øjeblik ${index + 1}`;
+  }
+  if (slug === "thor-farlov-smukfest" && orientation === "portrait") {
+    return `Thor Farlov på Smukfest — øjeblik ${index + 1}`;
   }
   if (orientation === "portrait") {
     return `${title} — koncertøjeblik ${index + 1}`;

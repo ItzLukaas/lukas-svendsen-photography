@@ -1,22 +1,31 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
 
 import { WorkIndex } from "@/components/work/work-index";
 import { fetchProjects } from "@/lib/content";
+import { sortProjectsPortraitFirst } from "@/lib/data/projects";
 import { collectionPageJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Portfolio — Fotograf i Grindsted",
+  title: "Portfolio — Festival, sport & events",
   description:
-    "Se portfolio med festival-, koncert-, sport- og eventfotografi fra Lukas Svendsen i Grindsted — også opgaver i Billund, Esbjerg, Vejle og hele Jylland.",
+    "Portfolio fra Lukas Svendsen — festival, koncert, sport og event. Fra Grindsted og ud i Jylland.",
   path: "/arbejde",
   image: "/images/festival.jpg",
-  imageAlt:
-    "Festivalfotografi af fotograf Lukas Svendsen fra Grindsted",
+  imageAlt: "Festivalfotografi af Lukas Svendsen",
+  imageWidth: 2400,
+  imageHeight: 1600,
 });
 
-export default async function ArbejdePage() {
-  const projects = await fetchProjects();
+type Props = PageProps<"/arbejde">;
+
+export default async function ArbejdePage({ searchParams }: Props) {
+  const params = await searchParams;
+  const kategori =
+    typeof params.kategori === "string" && params.kategori
+      ? params.kategori
+      : "alle";
+
+  const projects = sortProjectsPortraitFirst(await fetchProjects());
   const jsonLd = collectionPageJsonLd(projects);
 
   return (
@@ -25,15 +34,7 @@ export default async function ArbejdePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <Suspense
-        fallback={
-          <div className="mx-auto max-w-[1600px] px-5 pt-36 text-muted-ink md:px-8 lg:px-12">
-            Henter arbejde…
-          </div>
-        }
-      >
-        <WorkIndex projects={projects} />
-      </Suspense>
+      <WorkIndex projects={projects} initialKategori={kategori} />
     </>
   );
 }

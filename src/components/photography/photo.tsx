@@ -15,6 +15,8 @@ type PhotoProps = {
   priority?: boolean;
   className?: string;
   imageClassName?: string;
+  /** CSS object-position for cropped covers */
+  objectPosition?: string;
   sizes?: string;
   fill?: boolean;
   width?: number;
@@ -31,7 +33,7 @@ type PhotoProps = {
 
 /**
  * Photography-first image primitive.
- * Reserves space, fades in on load, optional hover scale.
+ * Reserves space, fades in on load, optional hover scale, graceful error fallback.
  */
 export function Photo({
   src,
@@ -40,6 +42,7 @@ export function Photo({
   priority = false,
   className,
   imageClassName,
+  objectPosition,
   sizes = "(min-width: 1024px) 50vw, 100vw",
   fill,
   width,
@@ -49,40 +52,47 @@ export function Photo({
   interactive = false,
 }: PhotoProps) {
   const [loaded, setLoaded] = useState(priority);
+  const [failed, setFailed] = useState(false);
+  const [activeSrc, setActiveSrc] = useState(src);
   const imgRef = useRef<HTMLImageElement | null>(null);
   const useCloudinary = Boolean(cloudName && cloudinaryId);
+  const resolvedAlt = alt || "";
+
+  if (src !== activeSrc) {
+    setActiveSrc(src);
+    setFailed(false);
+    setLoaded(priority);
+  }
 
   const handleLoad = useCallback(() => {
+    setLoaded(true);
+    setFailed(false);
+  }, []);
+
+  const handleError = useCallback(() => {
+    setFailed(true);
     setLoaded(true);
   }, []);
 
   useEffect(() => {
     const node = imgRef.current;
-    if (node?.complete && node.naturalWidth > 0) {
-      setLoaded(true);
+    if (!node) return;
+    if (node.complete && node.naturalWidth > 0) {
+      // Cached images may not fire onLoad — sync after mount/src change.
+      queueMicrotask(() => setLoaded(true));
     }
   }, [src, cloudinaryId]);
 
   const imageClasses = cn(
     "object-cover transition-[opacity,transform] duration-[750ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
-    loaded ? "opacity-100" : "opacity-0",
+    loaded && !failed ? "opacity-100" : "opacity-0",
     interactive &&
       "group-hover:scale-[1.012] motion-reduce:group-hover:scale-100",
     !fill && "h-full w-full",
     imageClassName
   );
 
-  const shared = {
-    alt,
-    sizes,
-    priority,
-    quality,
-    unoptimized,
-    className: imageClasses,
-    onLoad: handleLoad,
-    decoding: "async" as const,
-    ref: imgRef,
-  };
+  const imageStyle = objectPosition ? { objectPosition } : undefined;
 
   return (
     <div
@@ -95,27 +105,88 @@ export function Photo({
         aria-hidden
         className={cn(
           "pointer-events-none absolute inset-0 bg-[linear-gradient(110deg,transparent_30%,rgb(14_14_14/0.04)_50%,transparent_70%)] bg-[length:200%_100%]",
-          loaded
+          loaded || failed
             ? "opacity-0"
             : "animate-[photo-shimmer_1.4s_ease_infinite] opacity-100"
         )}
       />
 
-      {useCloudinary && cloudinaryId ? (
+      {failed ? (
+        <div
+          className="absolute inset-0 flex items-center justify-center bg-[color-mix(in_srgb,var(--ink)_6%,var(--paper))]"
+          role="img"
+          aria-label={resolvedAlt || "Billede kunne ikke indlæses"}
+        >
+          <span className="px-3 text-center text-[0.6875rem] tracking-[0.04em] text-muted-ink uppercase">
+            Billede mangler
+          </span>
+        </div>
+      ) : useCloudinary && cloudinaryId ? (
         fill ? (
-          <CldImage src={cloudinaryId} fill {...shared} />
+          <CldImage
+            src={cloudinaryId}
+            alt={resolvedAlt}
+            fill
+            sizes={sizes}
+            priority={priority}
+            quality={quality}
+            unoptimized={unoptimized}
+            className={imageClasses}
+            onLoad={handleLoad}
+            onError={handleError}
+            decoding="async"
+            style={imageStyle}
+          />
         ) : (
           <CldImage
             src={cloudinaryId}
+            alt={resolvedAlt}
             width={width}
             height={height}
-            {...shared}
+            sizes={sizes}
+            priority={priority}
+            quality={quality}
+            unoptimized={unoptimized}
+            className={imageClasses}
+            onLoad={handleLoad}
+            onError={handleError}
+            decoding="async"
+            style={imageStyle}
           />
         )
       ) : fill ? (
-        <Image src={src} fill {...shared} />
+        <Image
+          ref={imgRef}
+          src={src}
+          alt={resolvedAlt}
+          fill
+          sizes={sizes}
+          priority={priority}
+          quality={quality}
+          unoptimized={unoptimized}
+          className={imageClasses}
+          onLoad={handleLoad}
+          onError={handleError}
+          decoding="async"
+          style={imageStyle}
+        />
       ) : (
-        <Image src={src} width={width} height={height} {...shared} />
+        <Image
+          ref={imgRef}
+          src={src}
+          alt={resolvedAlt}
+          width={width}
+          height={height}
+          sizes={sizes}
+          priority={priority}
+          quality={quality}
+          unoptimized={unoptimized}
+          className={imageClasses}
+          onLoad={handleLoad}
+          onError={handleError}
+          decoding="async"
+          style={imageStyle}
+        />
       )}
     </div>
   );

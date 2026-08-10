@@ -1,4 +1,5 @@
-import type { ReactNode } from "react";
+import type { ReactElement, ReactNode } from "react";
+import { Children, cloneElement, isValidElement } from "react";
 
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
@@ -26,6 +27,32 @@ export function FormField({
   optional?: boolean;
   children: ReactNode;
 }) {
+  const errorId = `${id}-error`;
+  const child = Children.only(children);
+  const enhanced = isValidElement(child)
+    ? cloneElement(
+        child as ReactElement<Record<string, unknown>>,
+        {
+          "aria-invalid": error
+            ? true
+            : ((child.props as { "aria-invalid"?: boolean })["aria-invalid"] ??
+              undefined),
+          "aria-describedby": error
+            ? [
+                (child.props as { "aria-describedby"?: string })[
+                  "aria-describedby"
+                ],
+                errorId,
+              ]
+                .filter(Boolean)
+                .join(" ")
+            : (child.props as { "aria-describedby"?: string })[
+                "aria-describedby"
+              ],
+        }
+      )
+    : children;
+
   return (
     <div className="space-y-2">
       <Label htmlFor={id} className="label-meta">
@@ -36,9 +63,9 @@ export function FormField({
           </span>
         ) : null}
       </Label>
-      {children}
+      {enhanced}
       {error ? (
-        <p className="text-sm text-destructive" role="alert">
+        <p id={errorId} className="text-sm text-destructive" role="alert">
           {error}
         </p>
       ) : null}

@@ -11,6 +11,14 @@ type FeaturedEntry = {
   image: ProjectImage;
 };
 
+function projectBySlug(slug: string): Project {
+  const project = projects.find((item) => item.slug === slug);
+  if (!project) {
+    throw new Error(`Featured work missing project: ${slug}`);
+  }
+  return project;
+}
+
 function pickPortrait(project: Project): ProjectImage {
   return (
     project.images.find((image) => image.orientation === "portrait") ??
@@ -19,45 +27,60 @@ function pickPortrait(project: Project): ProjectImage {
 }
 
 /**
- * Editorial showcase — photography leads; captions stay quiet.
- * Opening pair → full-bleed → closing diptych.
+ * Selected work — editorial rhythm on neutral paper.
+ * Photography carries color; UI stays quiet (90/10).
+ * Large slots stay landscape so portrait cases don’t get stretched.
  */
 export function FeaturedWork() {
+  const varde = projectBySlug("varde-open-air");
+  const thor = projectBySlug("thor-farlov-smukfest");
+  const esbjerg = projectBySlug("esbjerg-streetfood");
+  const sportMenProject = projectBySlug("dm-finalen-herrer");
+  const sportWomenProject = projectBySlug("dm-finalen-kvinder");
+
   const concert: FeaturedEntry = {
-    project: projects[0],
-    image: projects[0].cover,
+    project: varde,
+    image: varde.cover,
   };
   const concertPortrait: FeaturedEntry = {
-    project: projects[1],
-    image: pickPortrait(projects[1]),
+    project: thor,
+    image: pickPortrait(thor),
   };
   const event: FeaturedEntry = {
-    project: projects[2],
-    image: projects[2].cover,
+    project: esbjerg,
+    image: esbjerg.cover,
   };
   const sportMen: FeaturedEntry = {
-    project: projects[3],
-    image: projects[3].cover,
+    project: sportMenProject,
+    image: sportMenProject.cover,
   };
   const sportWomen: FeaturedEntry = {
-    project: projects[4],
-    image: projects[4].cover,
+    project: sportWomenProject,
+    image: sportWomenProject.cover,
   };
 
   return (
-    <section aria-labelledby="selected-work-heading">
-      <div className="mx-auto max-w-[1600px] px-5 md:px-8 lg:px-12">
-        <FadeIn>
-          <p className="label-meta">Udvalgt arbejde</p>
-          <h2
-            id="selected-work-heading"
-            className="mt-2.5 max-w-[14ch] font-display text-[clamp(1.85rem,3.6vw,2.55rem)] leading-[1.05] tracking-[-0.028em]"
-          >
-            Seneste produktioner
-          </h2>
+    <section
+      aria-labelledby="selected-work-heading"
+      className="bg-transparent"
+    >
+      <div className="mx-auto max-w-[1600px] px-5 py-[var(--space-section)] md:px-8 lg:px-12">
+        <FadeIn className="flex items-end justify-between gap-6">
+          <div>
+            <p className="label-meta">Arbejde</p>
+            <h2
+              id="selected-work-heading"
+              className="mt-3 font-display text-[clamp(1.65rem,3vw,2.25rem)] leading-[1.08] tracking-[-0.03em]"
+            >
+              Udvalgte jobs
+            </h2>
+          </div>
+          <Link href="/arbejde" className="btn-ghost hidden shrink-0 sm:inline-flex">
+            Se alt
+          </Link>
         </FadeIn>
 
-        <div className="mt-10 grid gap-6 md:mt-14 md:grid-cols-12 md:gap-7 lg:gap-9">
+        <div className="mt-8 grid gap-4 md:mt-10 md:grid-cols-12 md:gap-5 lg:gap-6">
           <FadeIn className="md:col-span-8">
             <FeaturedLink entry={concert}>
               <Photo
@@ -72,7 +95,7 @@ export function FeaturedWork() {
             </FeaturedLink>
           </FadeIn>
 
-          <FadeIn delay={0.05} className="md:col-span-4 md:pt-12 lg:pt-16">
+          <FadeIn delay={0.05} className="md:col-span-4 md:pt-16 lg:pt-24">
             <FeaturedLink entry={concertPortrait}>
               <Photo
                 src={concertPortrait.image.src}
@@ -88,7 +111,7 @@ export function FeaturedWork() {
         </div>
       </div>
 
-      <FadeIn className="mt-12 md:mt-16 lg:mt-20">
+      <FadeIn className="mt-4 md:mt-5 lg:mt-6">
         <FeaturedLink entry={event} fullBleed>
           <Photo
             src={event.image.src}
@@ -102,8 +125,8 @@ export function FeaturedWork() {
         </FeaturedLink>
       </FadeIn>
 
-      <div className="mx-auto mt-12 max-w-[1600px] px-5 pb-16 md:mt-16 md:px-8 md:pb-24 lg:mt-20 lg:px-12 lg:pb-28">
-        <div className="grid gap-6 md:grid-cols-2 md:gap-7 lg:gap-9">
+      <div className="mx-auto mt-4 max-w-[1600px] px-5 pb-[var(--space-section)] md:mt-5 md:px-8 lg:mt-6 lg:px-12">
+        <div className="grid gap-4 md:grid-cols-2 md:gap-5 lg:gap-6">
           <FadeIn>
             <FeaturedLink entry={sportMen}>
               <Photo
@@ -117,7 +140,7 @@ export function FeaturedWork() {
               />
             </FeaturedLink>
           </FadeIn>
-          <FadeIn delay={0.05} className="md:pt-10 lg:pt-14">
+          <FadeIn delay={0.05} className="md:pt-14 lg:pt-20">
             <FeaturedLink entry={sportWomen}>
               <Photo
                 src={sportWomen.image.src}
@@ -132,7 +155,7 @@ export function FeaturedWork() {
           </FadeIn>
         </div>
 
-        <FadeIn delay={0.08} className="mt-12 flex justify-center md:mt-16">
+        <FadeIn delay={0.06} className="mt-9 flex justify-center sm:hidden">
           <Link href="/arbejde" className="btn-ghost">
             Se alt arbejde
           </Link>

@@ -30,6 +30,11 @@ const nextConfig: NextConfig = {
         destination: "/booking",
         permanent: true,
       },
+      {
+        source: "/ydelser",
+        destination: "/",
+        permanent: true,
+      },
     ];
   },
   async headers() {
@@ -55,6 +60,7 @@ const nextConfig: NextConfig = {
             key: "Permissions-Policy",
             value: "camera=(), microphone=(), geolocation=()",
           },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
         ],
       },
     ];

@@ -2,16 +2,21 @@
 
 import Link from "next/link";
 import { useMemo } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 import { FadeIn } from "@/components/motion/fade-in";
 import { Photo } from "@/components/photography/photo";
+import { ProjectHoverBrandOverlay } from "@/components/work/project-hover-brand";
+import { getProjectHoverBrand } from "@/lib/data/project-branding";
 import type { Project } from "@/lib/data/projects";
+import { sortProjectsPortraitFirst } from "@/lib/data/projects";
 import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 type WorkIndexProps = {
   projects: Project[];
+  /** Server-provided category so H1 + grid SSR without useSearchParams */
+  initialKategori?: string;
 };
 
 function coverAspect(project: Project, index: number) {
@@ -20,7 +25,6 @@ function coverAspect(project: Project, index: number) {
       ? "aspect-[3/4] w-full sm:aspect-[2/3]"
       : "aspect-[3/4] w-full";
   }
-  // Landscape rhythm — featured / every few gets taller presence
   if (project.featured || index % 4 === 0) {
     return "aspect-[16/10] w-full md:aspect-[5/3]";
   }
@@ -30,20 +34,24 @@ function coverAspect(project: Project, index: number) {
   return "aspect-[3/2] w-full";
 }
 
-export function WorkIndex({ projects }: WorkIndexProps) {
+export function WorkIndex({
+  projects,
+  initialKategori = "alle",
+}: WorkIndexProps) {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const kategori = searchParams.get("kategori") ?? "alle";
+  const kategori = initialKategori || "alle";
 
   const filtered = useMemo(() => {
-    if (kategori === "alle") return projects;
-    return projects.filter((project) => project.discipline === kategori);
+    const list =
+      kategori === "alle"
+        ? projects
+        : projects.filter((project) => project.discipline === kategori);
+    return sortProjectsPortraitFirst(list);
   }, [kategori, projects]);
 
   function setKategori(next: string) {
-    const params = new URLSearchParams(searchParams.toString());
-    if (next === "alle") params.delete("kategori");
-    else params.set("kategori", next);
+    const params = new URLSearchParams();
+    if (next !== "alle") params.set("kategori", next);
     const query = params.toString();
     router.replace(query ? `/arbejde?${query}` : "/arbejde", { scroll: false });
   }
@@ -58,28 +66,28 @@ export function WorkIndex({ projects }: WorkIndexProps) {
   ] as const;
 
   return (
-    <div className="mx-auto max-w-[1600px] px-5 pt-24 pb-20 md:px-8 md:pt-28 md:pb-28 lg:px-12">
-      <FadeIn>
+    <div className="mx-auto max-w-[1600px] px-5 pt-[calc(var(--chrome-h)+2.5rem)] pb-20 md:px-8 md:pb-28 lg:px-12">
+      <FadeIn immediate>
         <h1 className="font-display text-[clamp(2.85rem,7.5vw,5.75rem)] leading-[0.92] tracking-[-0.03em]">
           Arbejde
         </h1>
         <p className="text-body mt-5 max-w-lg">
-          Udvalgte produktioner fra Grindsted og resten af Jylland — festival,
-          sport, events og mere. Åbn et projekt, og se billederne.
+          Festival, sport, events og mere — fra Grindsted og ud i Jylland. Åbn
+          et projekt for at se billederne.
         </p>
         <p className="mt-4 text-[0.875rem] text-muted-ink">
-          Klar til en produktion?{" "}
+          Har du et job?{" "}
           <Link
             href="/booking"
             className="font-medium text-foreground underline underline-offset-4 transition-opacity hover:opacity-70"
           >
-            Book her
+            Book mig
           </Link>
           .
         </p>
       </FadeIn>
 
-      <FadeIn delay={0.05}>
+      <FadeIn delay={0.05} immediate>
         <div
           className="mt-12 flex flex-wrap gap-x-8 gap-y-3 border-b border-foreground/10 pb-5"
           role="group"
@@ -107,41 +115,49 @@ export function WorkIndex({ projects }: WorkIndexProps) {
         </div>
       </FadeIn>
 
-      {/* Editorial masonry — uneven rhythm, not a card grid */}
       <div className="mt-14 columns-1 gap-x-8 gap-y-0 sm:columns-2 sm:gap-x-10 xl:columns-3 xl:gap-x-12">
-        {filtered.map((project, index) => (
-          <FadeIn
-            key={project.slug}
-            delay={Math.min(index * 0.03, 0.12)}
-            className={cn(
-              "mb-14 break-inside-avoid sm:mb-16",
-              index % 5 === 2 && "sm:mt-10",
-              index % 5 === 4 && "xl:mt-20"
-            )}
-          >
-            <Link
-              href={`/arbejde/${project.slug}`}
-              className="group/project group block"
+        {filtered.map((project, index) => {
+          const hoverBrand = getProjectHoverBrand(project.slug);
+
+          return (
+            <FadeIn
+              key={project.slug}
+              delay={Math.min(index * 0.03, 0.12)}
+              className={cn(
+                "mb-14 break-inside-avoid sm:mb-16",
+                index % 5 === 2 && "sm:mt-10",
+                index % 5 === 4 && "xl:mt-20"
+              )}
             >
-              <Photo
-                src={project.cover.src}
-                alt={project.cover.alt}
-                width={project.cover.width}
-                height={project.cover.height}
-                sizes="(min-width: 1280px) 30vw, (min-width: 640px) 45vw, 100vw"
-                className={coverAspect(project, index)}
-                priority={index < 1}
-                interactive
-              />
-              <div className="project-caption">
-                <h2 className="project-title font-display text-[0.975rem] leading-tight tracking-[-0.018em] md:text-[1.1rem]">
-                  {project.title}
-                </h2>
-                <p className="project-meta">{project.category}</p>
-              </div>
-            </Link>
-          </FadeIn>
-        ))}
+              <Link
+                href={`/arbejde/${project.slug}`}
+                className="group/project group block"
+              >
+                <div className="relative">
+                  <Photo
+                    src={project.cover.src}
+                    alt={project.cover.alt}
+                    width={project.cover.width}
+                    height={project.cover.height}
+                    sizes="(min-width: 1280px) 30vw, (min-width: 640px) 45vw, 100vw"
+                    className={coverAspect(project, index)}
+                    priority={index < 1}
+                    interactive
+                  />
+                  {hoverBrand ? (
+                    <ProjectHoverBrandOverlay brand={hoverBrand} />
+                  ) : null}
+                </div>
+                <div className="project-caption">
+                  <h2 className="project-title font-display text-[0.975rem] leading-tight tracking-[-0.018em] md:text-[1.1rem]">
+                    {project.title}
+                  </h2>
+                  <p className="project-meta">{project.category}</p>
+                </div>
+              </Link>
+            </FadeIn>
+          );
+        })}
       </div>
 
       {filtered.length === 0 ? (

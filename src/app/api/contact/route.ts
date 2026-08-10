@@ -21,11 +21,15 @@ export async function POST(request: Request) {
     const to = process.env.BOOKING_TO_EMAIL ?? siteConfig.email;
 
     if (!apiKey) {
-      console.info("[contact]", data);
-      return NextResponse.json({
-        ok: true,
-        mode: "logged",
-      });
+      if (process.env.NODE_ENV === "production") {
+        console.error("[contact] RESEND_API_KEY is not configured");
+        return NextResponse.json(
+          { error: "Kontaktformularen er midlertidigt utilgængelig" },
+          { status: 503 }
+        );
+      }
+      console.info("[contact] RESEND_API_KEY missing — accepted in development");
+      return NextResponse.json({ ok: true, mode: "dev" });
     }
 
     const resend = new Resend(apiKey);
@@ -37,6 +41,7 @@ export async function POST(request: Request) {
       text: [
         `Navn: ${data.name}`,
         `Email: ${data.email}`,
+        `Telefon: ${data.phone || "—"}`,
         `Virksomhed: ${data.company || "—"}`,
         "",
         data.message,
@@ -44,8 +49,8 @@ export async function POST(request: Request) {
     });
 
     return NextResponse.json({ ok: true });
-  } catch (error) {
-    console.error("[contact]", error);
+  } catch {
+    console.error("[contact] send failed");
     return NextResponse.json(
       { error: "Kunne ikke sende beskeden" },
       { status: 500 }

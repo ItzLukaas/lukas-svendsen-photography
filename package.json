@@ -2,11 +2,16 @@
   "name": "lukassvendsen",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "seo:check": "node scripts/seo-check.mjs",
     "images:process": "node scripts/process-inbox.mjs",
     "hero:process": "node scripts/process-hero-video.mjs"
   },

@@ -1,68 +1,41 @@
-import { Camera, Drone, Video, type LucideIcon } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import { Camera, Plane, Video } from "lucide-react";
 
 import { productionTypes } from "@/lib/booking/schema";
-import type { ProjectImage } from "@/lib/data/projects";
 
 export type ProductionType = (typeof productionTypes)[number];
 
-export type CreativeService = {
+export type HomeService = {
   id: string;
-  index: string;
   title: string;
-  description: string;
   bookingType: ProductionType;
+  description: string;
   icon: LucideIcon;
-  image: ProjectImage;
 };
 
-/** Three capabilities — photo-led panels with booking. */
-export const creativeServices: CreativeService[] = [
+/**
+ * Three clear offers — each links straight to booking.
+ */
+export const homeServices: HomeService[] = [
   {
-    id: "fotografering",
-    index: "01",
+    id: "foto",
     title: "Fotografering",
-    description:
-      "Sport, events, koncerter og brands — professionel fotografering fra Grindsted til hele Jylland.",
     bookingType: "Fotografering",
+    description: "Koncert, event, sport og brand.",
     icon: Camera,
-    image: {
-      src: "/images/festival.jpg",
-      alt: "Festivalfotograf fra Grindsted fanger publikum og scenelys",
-      width: 2400,
-      height: 1600,
-      orientation: "landscape",
-    },
   },
   {
     id: "video",
-    index: "02",
     title: "Videoproduktion",
-    description:
-      "Aftermovies, eventfilm og branded content til virksomheder og events.",
     bookingType: "Videoproduktion",
+    description: "Aftermovies, eventfilm og korte klip.",
     icon: Video,
-    image: {
-      src: "/images/event-1.jpg",
-      alt: "Eventfotograf fra Grindsted dokumenterer publikum og stemning",
-      width: 2400,
-      height: 1600,
-      orientation: "landscape",
-    },
   },
   {
     id: "drone",
-    index: "03",
-    title: "Droneproduktion",
-    description:
-      "Luftfoto og dronevideo fra oven — perspektiv til events, festivals og brands.",
+    title: "Droneflyvning",
     bookingType: "Droneproduktion",
-    icon: Drone,
-    image: {
-      src: "/images/hero-poster.jpg",
-      alt: "Dronefoto af fotograf og dronepilot Lukas Svendsen fra Grindsted",
-      width: 1920,
-      height: 1080,
-      orientation: "landscape",
-    },
+    description: "Luftfoto og video med klart overblik.",
+    icon: Plane,
   },
 ];

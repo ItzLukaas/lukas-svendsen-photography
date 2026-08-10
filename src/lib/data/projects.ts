@@ -25,6 +25,12 @@ export type Project = {
   year: string;
   location: string;
   excerpt: string;
+  /** Client / organizer when known */
+  client?: string;
+  /** Role on the job, e.g. "Fotograf" */
+  role?: string;
+  /** Short delivery outcome — no invented KPIs */
+  outcome?: string;
   cover: ProjectImage;
   images: ProjectImage[];
   featured?: boolean;
@@ -78,10 +84,14 @@ const projectSeed: Project[] = [
     discipline: "koncerter",
     category: "Festival",
     galleryFormat: "festival",
-    year: "2025",
+    year: "2026",
     location: "Varde",
     excerpt:
       "Støv, sol og en festival, der fylder hele byen. Scenen, publikum og det derimellem.",
+    client: "Varde Open Air",
+    role: "Fotograf",
+    outcome:
+      "Leverede et festivalgalleri med fokus på scenen, publikum og stemningen mellem sets — klar til web og sociale medier.",
     featured: true,
     cover: L(
       "/images/projects/varde-open-air/00-dsc08572-cover.jpg",
@@ -140,10 +150,14 @@ const projectSeed: Project[] = [
     discipline: "koncerter",
     category: "Festival",
     galleryFormat: "festival",
-    year: "2025",
+    year: "2026",
     location: "Bork",
     excerpt:
       "Artister, publikum og det, der sker mellem scenerne.",
+    client: "Bork Festival",
+    role: "Fotograf",
+    outcome:
+      "Dokumenterede artister og live-energi på tværs af scener — skarpe portrætter og scenefotos til festivalens kommunikation.",
     featured: true,
     cover: P(
       "/images/projects/bork-festival/04-sangerinde.jpg",
@@ -209,12 +223,90 @@ const projectSeed: Project[] = [
     ],
   },
   {
+    slug: "thor-farlov-smukfest",
+    title: "Thor Farlov — Smukfest",
+    discipline: "koncerter",
+    category: "Festival",
+    galleryFormat: "festival",
+    year: "2026",
+    location: "Skanderborg",
+    excerpt:
+      "Thor Farlov live på Smukfest — scenelys, energi og øjeblikke i højformat.",
+    client: "Smukfest",
+    role: "Fotograf",
+    outcome:
+      "Ni lodrette koncertbilleder fra Thor Farlov på Smukfest — klar til web og sociale medier.",
+    featured: true,
+    cover: P(
+      "/images/projects/thor-farlov-smukfest/01-dsc05949.jpg",
+      "Thor Farlov synger på scenen til Smukfest under spotlys",
+      1467,
+      2200
+    ),
+    images: [
+      P(
+        "/images/projects/thor-farlov-smukfest/01-dsc05949.jpg",
+        "Thor Farlov synger på scenen til Smukfest under spotlys",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/thor-farlov-smukfest/02-dsc06232.jpg",
+        "Thor Farlov live på Smukfest — sceneportræt",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/thor-farlov-smukfest/03-dsc06274.jpg",
+        "Thor Farlov med mikrofonen højt på Smukfest under grønt scenelys",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/thor-farlov-smukfest/04-dsc06570.jpg",
+        "Thor Farlov på scenen til Smukfest",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/thor-farlov-smukfest/05-dsc06584.jpg",
+        "Thor Farlov i live-øjeblik på Smukfest",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/thor-farlov-smukfest/06-dsc06719.jpg",
+        "Thor Farlov i blå hættetrøje peger op under lilla scenelys på Smukfest",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/thor-farlov-smukfest/07-dsc06739.jpg",
+        "Thor Farlov foran publikum på Smukfest",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/thor-farlov-smukfest/08-dsc06775.jpg",
+        "Thor Farlov i pink scenelys på Smukfest",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/thor-farlov-smukfest/09-dsc06863.jpg",
+        "Thor Farlov med gæst på scenen til Smukfest",
+        1467,
+        2200
+      ),
+    ],
+  },
+  {
     slug: "gron-koncert",
     title: "Sivas — Grøn Koncert",
     discipline: "koncerter",
     category: "Koncert",
     galleryFormat: "festival",
-    year: "2025",
+    year: "2026",
     location: "Danmark",
     excerpt:
       "Sivas live til Grøn Koncert — energi, publikum og øjeblikke foran scenen.",
@@ -233,14 +325,18 @@ const projectSeed: Project[] = [
     discipline: "events",
     category: "Event",
     galleryFormat: "wide",
-    year: "2025",
+    year: "2026",
     location: "Esbjerg",
     excerpt:
       "Mad, mennesker og den løse stemning på Esbjerg Streetfood — eventfotografi fra Vestjylland.",
+    client: "Esbjerg Streetfood",
+    role: "Eventfotograf",
+    outcome:
+      "Fangede gæster, madboder og live-musik i én sammenhængende eventfortælling — klar til branding og sociale kanaler.",
     featured: true,
     cover: L(
-      "/images/projects/esbjerg-streetfood/02-dsc04915.jpg",
-      "Gæster ved langborde på Esbjerg Streetfood",
+      "/images/projects/esbjerg-streetfood/09-dsc05783.jpg",
+      "Fejring under lygterne på Esbjerg Streetfood",
       3600,
       2400
     ),
@@ -307,14 +403,18 @@ const projectSeed: Project[] = [
     discipline: "sport",
     category: "Sport",
     galleryFormat: "wide",
-    year: "2025",
+    year: "2026",
     location: "Jylland",
     excerpt:
-      "Tempo, dueller og de sekunder, hvor finalen afgøres.",
+      "Håndbold-DM for herrer — tempo, dueller og de sekunder, hvor finalen afgøres.",
+    client: "DanskHåndbold",
+    role: "Sportsfotograf",
+    outcome:
+      "Leverede action- og jubelbilleder fra finalen — fra dueller på banen til pokaløjeblikket.",
     featured: true,
     cover: L(
       "/images/projects/dm-finalen-herrer/09-dsc04227.jpg",
-      "Sportsfotograf fanger mestre med pokalen til DM-finalen herrer i Jylland",
+      "Mestre med pokalen — DM-finalen herrer",
       3600,
       2400
     ),
@@ -381,14 +481,18 @@ const projectSeed: Project[] = [
     discipline: "sport",
     category: "Sport",
     galleryFormat: "wide",
-    year: "2025",
+    year: "2026",
     location: "Jylland",
     excerpt:
-      "Koncentration, kampevne og følelserne, når det gælder mest.",
+      "Håndbold-DM for kvinder — koncentration, kampevne og følelserne, når det gælder mest.",
+    client: "DanskHåndbold",
+    role: "Sportsfotograf",
+    outcome:
+      "Dokumenterede finalens intensitet og mesterskabsøjeblikket — billeder til presse, klub og sociale medier.",
     featured: true,
     cover: L(
       "/images/projects/dm-finalen-kvinder/09-dsc03531.jpg",
-      "Sportsfotograf fanger danske mestre til DM-finalen kvinder i Jylland",
+      "Danske mestre — DM-finalen kvinder",
       3600,
       2400
     ),
@@ -468,19 +572,20 @@ export const aboutPortrait: ProjectImage = P(
 export const heroVideoSrc = "/videos/hero.mp4";
 export const heroVideoHevcSrc = "/videos/hero-hevc.mp4";
 
+/** Desktop hero — wide Varde Open Air crowd frame */
 export const heroImage: ProjectImage = L(
-  "/images/hero-poster.jpg",
-  "Droneoptagelse af fotograf og dronepilot Lukas Svendsen fra Grindsted",
-  1920,
-  1080
+  "/images/projects/varde-open-air/00-dsc08572-cover.jpg",
+  "Publikum til Varde Open Air — fotografi af Lukas Svendsen",
+  3600,
+  2400
 );
 
-/** Dedicated portrait concert frame for mobile hero — not a crop of the desktop poster */
+/** Mobile hero — portrait stage frame from the same project */
 export const heroMobileImage: ProjectImage = P(
-  "/images/hero-mobile.jpg",
-  "Koncertfotograf fra Grindsted fanger artist live på scenen",
-  1200,
-  1800
+  "/images/projects/varde-open-air/03-dsc08653.jpg",
+  "Artist på scenen til Varde Open Air — fotografi af Lukas Svendsen",
+  2400,
+  3600
 );
 
 export function getProject(slug: string) {
@@ -493,11 +598,30 @@ export function getFeaturedProjects() {
   return projects.filter((project) => project.featured);
 }
 
-export function getProjectsByDiscipline(discipline?: DisciplineSlug | "alle") {
-  if (!discipline || discipline === "alle") return projects;
-  return projects.filter((project) => project.discipline === discipline);
-}
-
 export function isPortrait(image: ProjectImage) {
   return image.orientation === "portrait" || image.height > image.width;
+}
+
+/** Case format from the cover — used for category list ordering. */
+export function isPortraitCase(project: Project) {
+  return isPortrait(project.cover);
+}
+
+/**
+ * Portrait/high-format cases first, then landscape.
+ * Stable within each group so curated order is preserved.
+ */
+export function sortProjectsPortraitFirst(list: Project[]): Project[] {
+  return [...list].sort((a, b) => {
+    const aRank = isPortraitCase(a) ? 0 : 1;
+    const bRank = isPortraitCase(b) ? 0 : 1;
+    return aRank - bRank;
+  });
+}
+
+export function getProjectsByDiscipline(discipline?: DisciplineSlug | "alle") {
+  if (!discipline || discipline === "alle") return projects;
+  return sortProjectsPortraitFirst(
+    projects.filter((project) => project.discipline === discipline)
+  );
 }

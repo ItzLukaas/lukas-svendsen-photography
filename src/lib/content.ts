@@ -3,6 +3,7 @@ import {
   getProject,
   getProjectsByDiscipline,
   projects as seedProjects,
+  sortProjectsPortraitFirst,
   type Project,
 } from "@/lib/data/projects";
 import { hasSanity, sanityClient } from "@/lib/sanity/client";
@@ -16,12 +17,12 @@ export async function fetchProjects(): Promise<Project[]> {
   const published = (items: Project[]) =>
     items.filter((project) => project.images.length > 0);
 
-  if (!hasSanity || !sanityClient) return seedProjects;
+  if (!hasSanity || !sanityClient) return published(seedProjects);
   try {
     const data = await sanityClient.fetch<Project[]>(projectsQuery);
     return published(data?.length ? data : seedProjects);
   } catch {
-    return seedProjects;
+    return published(seedProjects);
   }
 }
 
@@ -49,5 +50,9 @@ export async function fetchProjectsByDiscipline(
   const all = await fetchProjects();
   if (!discipline || discipline === "alle") return all;
   const filtered = all.filter((project) => project.discipline === discipline);
-  return filtered.length ? filtered : getProjectsByDiscipline(discipline);
+  const list = filtered.length
+    ? filtered
+    : getProjectsByDiscipline(discipline);
+  // getProjectsByDiscipline already sorts; ensure Sanity-backed lists do too
+  return sortProjectsPortraitFirst(list);
 }

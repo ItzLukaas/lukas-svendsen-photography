@@ -26,6 +26,7 @@ export function ContactForm() {
     defaultValues: {
       name: "",
       email: "",
+      phone: "",
       company: "",
       message: "",
     },
@@ -45,6 +46,46 @@ export function ContactForm() {
     } catch {
       setStatus("error");
     }
+  }
+
+  if (status === "success") {
+    return (
+      <div
+        className="border border-foreground/10 bg-paper px-6 py-10 md:px-8 md:py-12"
+        role="status"
+        aria-live="polite"
+      >
+        <p className="label-meta">Sendt</p>
+        <h2 className="mt-3 font-display text-[1.5rem] leading-tight tracking-[-0.025em] md:text-[1.75rem]">
+          Tak for din besked
+        </h2>
+        <p className="text-body mt-4 max-w-md">
+          Jeg vender tilbage snart. Har du travlt, kan du ringe eller skrive
+          direkte.
+        </p>
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
+          <a
+            href={`mailto:${siteConfig.email}`}
+            className="link-quiet text-[0.9375rem] font-medium underline underline-offset-4"
+          >
+            {siteConfig.email}
+          </a>
+          <a
+            href={`tel:${siteConfig.phone}`}
+            className="text-[0.9375rem] font-medium text-ink transition-opacity duration-300 hover:opacity-65"
+          >
+            {siteConfig.phoneDisplay}
+          </a>
+        </div>
+        <button
+          type="button"
+          className="btn-ghost mt-10"
+          onClick={() => setStatus("idle")}
+        >
+          Send en ny besked
+        </button>
+      </div>
+    );
   }
 
   return (
@@ -67,6 +108,22 @@ export function ContactForm() {
           aria-invalid={Boolean(errors.email)}
           className={fieldClass}
           {...register("email")}
+        />
+      </FormField>
+
+      <FormField
+        id="phone"
+        label="Telefon"
+        optional
+        error={errors.phone?.message}
+      >
+        <Input
+          id="phone"
+          type="tel"
+          autoComplete="tel"
+          aria-invalid={Boolean(errors.phone)}
+          className={fieldClass}
+          {...register("phone")}
         />
       </FormField>
 
@@ -116,11 +173,8 @@ export function ContactForm() {
       </div>
 
       <div aria-live="polite" className="min-h-6 text-[0.95rem]">
-        {status === "success" ? (
-          <p>Tak for din besked — jeg vender tilbage snart.</p>
-        ) : null}
         {status === "error" ? (
-          <p className="text-destructive">
+          <p className="text-destructive" role="alert">
             Noget gik galt. Prøv igen, eller send mig en mail.
           </p>
         ) : null}

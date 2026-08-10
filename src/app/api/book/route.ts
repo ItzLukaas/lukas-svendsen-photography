@@ -21,11 +21,15 @@ export async function POST(request: Request) {
     const to = process.env.BOOKING_TO_EMAIL ?? siteConfig.email;
 
     if (!apiKey) {
-      console.info("[booking]", data);
-      return NextResponse.json({
-        ok: true,
-        mode: "logged",
-      });
+      if (process.env.NODE_ENV === "production") {
+        console.error("[booking] RESEND_API_KEY is not configured");
+        return NextResponse.json(
+          { error: "Booking er midlertidigt utilgængelig" },
+          { status: 503 }
+        );
+      }
+      console.info("[booking] RESEND_API_KEY missing — accepted in development");
+      return NextResponse.json({ ok: true, mode: "dev" });
     }
 
     const resend = new Resend(apiKey);
@@ -49,8 +53,8 @@ export async function POST(request: Request) {
     });
 
     return NextResponse.json({ ok: true });
-  } catch (error) {
-    console.error("[booking]", error);
+  } catch {
+    console.error("[booking] send failed");
     return NextResponse.json(
       { error: "Kunne ikke sende forespørgslen" },
       { status: 500 }

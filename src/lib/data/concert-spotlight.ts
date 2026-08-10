@@ -13,17 +13,18 @@ export type ConcertSpotlightShot = {
 
 /**
  * Three concert frames from real jobs.
+ * Green + pink portraits are Thor Farlov — Smukfest.
  */
 export const concertSpotlightShots: ConcertSpotlightShot[] = [
   {
     id: "portrait",
-    title: "Koncertfotografi — artistportræt",
-    href: "/arbejde/bork-festival",
+    title: "Thor Farlov — Smukfest",
+    href: "/arbejde/thor-farlov-smukfest",
     placement: "primary",
     objectPosition: "50% 48%",
     image: {
-      src: "/images/concert-spotlight/01-performer-green.jpg",
-      alt: "Artist på scenen under grønt scenelys — koncertfotografi af Lukas Svendsen",
+      src: "/images/projects/thor-farlov-smukfest/01-dsc05949.jpg",
+      alt: "Thor Farlov synger på scenen til Smukfest under grønt scenelys",
       width: 1467,
       height: 2200,
       orientation: "portrait",
@@ -45,14 +46,14 @@ export const concertSpotlightShots: ConcertSpotlightShot[] = [
   },
   {
     id: "stage",
-    title: "Koncertfotografi — live energi",
-    href: "/arbejde/varde-open-air",
+    title: "Thor Farlov — Smukfest",
+    href: "/arbejde/thor-farlov-smukfest",
     placement: "secondary",
     /** Keep face + cap in frame when the cell crops the portrait */
     objectPosition: "50% 32%",
     image: {
-      src: "/images/concert-spotlight/02-performer-pink.jpg",
-      alt: "Artist på scenen under pink scenelys — koncertfotografi af Lukas Svendsen",
+      src: "/images/projects/thor-farlov-smukfest/08-dsc06775.jpg",
+      alt: "Thor Farlov i pink scenelys på Smukfest",
       width: 1467,
       height: 2200,
       orientation: "portrait",

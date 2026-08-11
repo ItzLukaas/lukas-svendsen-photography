@@ -70,22 +70,22 @@ export function ServicesStrip() {
         </ul>
 
         <div className="mt-10 border-t border-foreground/8 pt-10 sm:mt-12 sm:pt-12">
-          {/* Center the block as one unit — internal layout unchanged */}
-          <div className="mx-auto w-fit max-w-full">
-            <FadeIn>
+          {/* Whole block centered in the page; feature rows keep left-aligned internals */}
+          <div className="mx-auto flex w-fit max-w-full flex-col items-center">
+            <FadeIn className="w-full text-center">
               <h3
                 id="video-drone-heading"
                 className="font-display text-[clamp(1.55rem,2.8vw,2.1rem)] leading-[1.08] tracking-[-0.03em] text-ink"
               >
                 Video & drone
               </h3>
-              <p className="mt-3 max-w-[42ch] text-[0.9375rem] leading-[1.65] text-muted-ink">
+              <p className="mx-auto mt-3 max-w-[42ch] text-[0.9375rem] leading-[1.65] text-muted-ink">
                 Aftermovies, branded video og luftoptagelser — klar til SoMe,
                 YouTube og kampagner.
               </p>
             </FadeIn>
 
-            <ul className="mt-8 m-0 grid list-none grid-cols-1 gap-8 p-0 sm:mt-10 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-9 lg:gap-x-14">
+            <ul className="mt-8 m-0 grid w-full list-none grid-cols-1 gap-8 p-0 text-left sm:mt-10 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-9 lg:gap-x-14">
               {videoServiceFeatures.map((feature, index) => {
                 const Icon = feature.icon;
                 return (
@@ -114,7 +114,7 @@ export function ServicesStrip() {
               })}
             </ul>
 
-            <FadeIn delay={0.12}>
+            <FadeIn delay={0.12} className="w-full text-center">
               <div className="mt-9 sm:mt-10">
                 <Link
                   href="/booking?type=Videoproduktion"

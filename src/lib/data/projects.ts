@@ -569,23 +569,20 @@ export const aboutPortrait: ProjectImage = P(
   2200
 );
 
-export const heroVideoSrc = "/videos/hero.mp4";
-export const heroVideoHevcSrc = "/videos/hero-hevc.mp4";
-
-/** Desktop hero — wide Varde Open Air crowd frame */
+/** Desktop hero — DSC06190 */
 export const heroImage: ProjectImage = L(
-  "/images/projects/varde-open-air/00-dsc08572-cover.jpg",
-  "Publikum til Varde Open Air — fotografi af Lukas Svendsen",
-  3600,
-  2400
+  "/images/hero.jpg",
+  "Hvid kirke under blå himmel — fotografi af Lukas Svendsen",
+  2400,
+  1600
 );
 
-/** Mobile hero — portrait stage frame from the same project */
+/** Mobile hero — portrait crop of DSC06190 */
 export const heroMobileImage: ProjectImage = P(
-  "/images/projects/varde-open-air/03-dsc08653.jpg",
-  "Artist på scenen til Varde Open Air — fotografi af Lukas Svendsen",
-  2400,
-  3600
+  "/images/hero-mobile.jpg",
+  "Hvid kirke under blå himmel — fotografi af Lukas Svendsen",
+  1200,
+  1800
 );
 
 export function getProject(slug: string) {

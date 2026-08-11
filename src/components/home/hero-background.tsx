@@ -31,7 +31,7 @@ export function HeroBackground({
         priority
         quality={90}
         sizes="100vw"
-        className="object-cover object-[50%_18%] md:hidden"
+        className="object-cover object-[50%_40%] md:hidden"
       />
       <Image
         src={image.src}
@@ -40,7 +40,7 @@ export function HeroBackground({
         priority
         quality={90}
         sizes="(min-width: 1600px) 1600px, 100vw"
-        className="hidden object-cover object-[50%_40%] md:block"
+        className="hidden object-cover object-[50%_45%] md:block"
       />
     </div>
   );

@@ -70,7 +70,7 @@ export function ServicesStrip() {
         </ul>
 
         <div className="mt-10 border-t border-foreground/8 pt-10 sm:mt-12 sm:pt-12">
-          <FadeIn>
+          <FadeIn className="text-center">
             <p className="label-meta">Video & drone</p>
           </FadeIn>
 

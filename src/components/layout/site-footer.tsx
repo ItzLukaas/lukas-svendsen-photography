@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { SignatureMark } from "@/components/layout/signature-mark";
 import {
   IconInstagram,
   IconLinkedin,
@@ -138,6 +139,13 @@ export function SiteFooter() {
               </span>
             </address>
           </div>
+        </div>
+
+        <div className="mt-14 flex justify-center pt-2 md:mt-16 lg:mt-20">
+          <SignatureMark
+            className="h-11 w-auto opacity-[0.38] md:h-12"
+            title={`${siteConfig.name} — signatur`}
+          />
         </div>
       </div>
 

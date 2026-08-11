@@ -97,7 +97,7 @@ export function AnnouncementBar() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
-            className="inline-flex size-9 items-center justify-center text-muted-ink transition-colors duration-300 hover:text-ink"
+            className="inline-flex size-9 items-center justify-center text-muted-ink transition-colors duration-300 hover:text-ink focus-visible:text-ink"
           >
             <IconInstagram className="size-3.5" />
           </a>
@@ -106,7 +106,7 @@ export function AnnouncementBar() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            className="inline-flex size-9 items-center justify-center text-muted-ink transition-colors duration-300 hover:text-ink"
+            className="inline-flex size-9 items-center justify-center text-muted-ink transition-colors duration-300 hover:text-ink focus-visible:text-ink"
           >
             <IconLinkedin className="size-3.5" />
           </a>

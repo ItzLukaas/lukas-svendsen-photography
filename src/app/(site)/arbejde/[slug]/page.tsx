@@ -11,6 +11,7 @@ import {
   pageMetadata,
   projectBreadcrumbJsonLd,
   projectCreativeWorkJsonLd,
+  shareImageFromCover,
 } from "@/lib/seo";
 
 type Props = PageProps<"/arbejde/[slug]">;
@@ -40,10 +41,7 @@ export async function generateMetadata({
     title: project.title,
     description: projectDescription(project),
     path: `/arbejde/${project.slug}`,
-    image: project.cover.src,
-    imageAlt: project.cover.alt,
-    imageWidth: project.cover.width,
-    imageHeight: project.cover.height,
+    ...shareImageFromCover(project.cover),
     ogType: "article",
   });
 }

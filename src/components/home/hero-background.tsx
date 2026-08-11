@@ -15,7 +15,9 @@ type HeroBackgroundProps = {
 
 /**
  * Art-directed hero stills — one <picture>, one fetch per viewport.
- * Mobile is the default (preload); desktop swaps via media query.
+ * Avoid next/image `priority` preload (it targets the fallback <img> src and
+ * can download the wrong crop). `fetchPriority="high"` lets the browser
+ * prioritize whichever <source> matches.
  */
 export function HeroBackground({
   image,
@@ -42,7 +44,6 @@ export function HeroBackground({
     quality: 90,
     sizes: "100vw",
     src: mobileImage.src,
-    priority: true,
   });
 
   return (

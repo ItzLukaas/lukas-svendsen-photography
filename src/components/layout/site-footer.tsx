@@ -73,7 +73,7 @@ export function SiteFooter() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="inline-flex size-9 items-center justify-center text-paper/70 transition-colors duration-300 hover:text-paper"
+                className="inline-flex size-11 items-center justify-center text-paper/70 transition-colors duration-300 hover:text-paper focus-visible:text-paper"
               >
                 <IconInstagram className="size-4" />
               </a>
@@ -82,7 +82,7 @@ export function SiteFooter() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="inline-flex size-9 items-center justify-center text-paper/70 transition-colors duration-300 hover:text-paper"
+                className="inline-flex size-11 items-center justify-center text-paper/70 transition-colors duration-300 hover:text-paper focus-visible:text-paper"
               >
                 <IconLinkedin className="size-4" />
               </a>
@@ -98,7 +98,7 @@ export function SiteFooter() {
                 <li key={service.id}>
                   <Link
                     href={`/booking?type=${encodeURIComponent(service.bookingType)}`}
-                    className="text-[0.9375rem] text-paper/75 transition-colors duration-300 hover:text-paper"
+                    className="text-[0.9375rem] text-paper/75 transition-colors duration-300 hover:text-paper focus-visible:text-paper"
                   >
                     {service.title}
                   </Link>
@@ -116,7 +116,7 @@ export function SiteFooter() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-[0.9375rem] text-paper/75 transition-colors duration-300 hover:text-paper"
+                    className="text-[0.9375rem] text-paper/75 transition-colors duration-300 hover:text-paper focus-visible:text-paper"
                   >
                     {item.label}
                   </Link>

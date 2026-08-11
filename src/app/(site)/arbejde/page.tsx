@@ -10,10 +10,6 @@ export const metadata: Metadata = pageMetadata({
   description:
     "Portfolio fra Lukas Svendsen — festival, koncert, sport og event. Fra Grindsted og ud i Jylland.",
   path: "/arbejde",
-  image: "/images/festival.jpg",
-  imageAlt: "Festivalfotografi af Lukas Svendsen",
-  imageWidth: 2400,
-  imageHeight: 1600,
 });
 
 type Props = PageProps<"/arbejde">;

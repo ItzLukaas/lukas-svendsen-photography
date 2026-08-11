@@ -45,7 +45,7 @@ export default function KontaktPage() {
                 href="/booking"
                 className="link-quiet font-medium text-foreground underline underline-offset-4"
               >
-                Book mig her
+                Book mig
               </Link>
               .
             </p>

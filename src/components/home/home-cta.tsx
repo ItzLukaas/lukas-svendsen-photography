@@ -14,7 +14,7 @@ import { siteConfig } from "@/lib/site";
 export function HomeCta() {
   return (
     <section
-      id="booking"
+      id="foresporgsel"
       aria-labelledby="booking-heading"
       className="scroll-mt-[var(--chrome-h)] bg-transparent"
     >

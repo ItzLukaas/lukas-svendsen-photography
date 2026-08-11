@@ -40,10 +40,6 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        source: "/videos/:path*",
-        headers: [{ key: "Cache-Control", value: longCache }],
-      },
-      {
         source: "/images/:path*",
         headers: [{ key: "Cache-Control", value: longCache }],
       },

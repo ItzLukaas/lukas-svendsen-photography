@@ -23,6 +23,33 @@ export const defaultShareImage = {
   alt: "Hvid kirke under blå himmel — fotografi af Lukas Svendsen",
 } as const;
 
+/**
+ * Prefer landscape covers for social cards; fall back to the shared OG image
+ * when the project cover is portrait (poor crop in messengers).
+ */
+export function shareImageFromCover(cover: {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+}) {
+  if (cover.width >= cover.height) {
+    return {
+      image: cover.src,
+      imageAlt: cover.alt,
+      imageWidth: cover.width,
+      imageHeight: cover.height,
+    };
+  }
+
+  return {
+    image: defaultShareImage.url,
+    imageAlt: defaultShareImage.alt,
+    imageWidth: defaultShareImage.width,
+    imageHeight: defaultShareImage.height,
+  };
+}
+
 /** Shared page metadata — titles use root template `%s · Lukas Svendsen`. */
 export function pageMetadata({
   title,

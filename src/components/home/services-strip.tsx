@@ -70,43 +70,49 @@ export function ServicesStrip() {
         </ul>
 
         <div className="mt-10 border-t border-foreground/8 pt-10 sm:mt-12 sm:pt-12">
-          <FadeIn className="text-center">
-            <h3
-              id="video-drone-heading"
-              className="font-display text-[clamp(1.55rem,2.8vw,2.1rem)] leading-[1.08] tracking-[-0.03em] text-ink"
-            >
-              Video & drone
-            </h3>
-          </FadeIn>
+          {/*
+            Center the whole content group in the page container.
+            max-w-7xl keeps generous width — not a narrow compressed block.
+          */}
+          <div className="mx-auto w-full max-w-7xl">
+            <FadeIn className="text-center">
+              <h3
+                id="video-drone-heading"
+                className="font-display text-[clamp(1.55rem,2.8vw,2.1rem)] leading-[1.08] tracking-[-0.03em] text-ink"
+              >
+                Video & drone
+              </h3>
+            </FadeIn>
 
-          <ul className="mx-auto mt-8 m-0 grid w-full list-none grid-cols-1 gap-8 p-0 sm:mt-10 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-9 lg:gap-x-14">
-            {videoServiceFeatures.map((feature, index) => {
-              const Icon = feature.icon;
-              return (
-                <li key={feature.id}>
-                  <FadeIn delay={Math.min(0.04 + index * 0.05, 0.18)}>
-                    <div className="flex items-start gap-3.5">
-                      <span className="mt-0.5 flex size-9 shrink-0 items-center justify-center border border-foreground/12">
-                        <Icon
-                          aria-hidden
-                          className="size-3.5 text-ink"
-                          strokeWidth={1.4}
-                        />
-                      </span>
-                      <div className="min-w-0">
-                        <h4 className="font-display text-[1.0625rem] leading-[1.2] tracking-[-0.02em] text-ink md:text-[1.125rem]">
-                          {feature.title}
-                        </h4>
-                        <p className="mt-2.5 max-w-[42ch] text-[0.875rem] leading-[1.65] text-muted-ink md:text-[0.9375rem]">
-                          {feature.body}
-                        </p>
+            <ul className="mt-8 m-0 grid list-none grid-cols-1 gap-8 p-0 sm:mt-10 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-9 lg:gap-x-14">
+              {videoServiceFeatures.map((feature, index) => {
+                const Icon = feature.icon;
+                return (
+                  <li key={feature.id}>
+                    <FadeIn delay={Math.min(0.04 + index * 0.05, 0.18)}>
+                      <div className="flex items-start gap-3.5">
+                        <span className="mt-0.5 flex size-9 shrink-0 items-center justify-center border border-foreground/12">
+                          <Icon
+                            aria-hidden
+                            className="size-3.5 text-ink"
+                            strokeWidth={1.4}
+                          />
+                        </span>
+                        <div className="min-w-0 flex-1">
+                          <h4 className="font-display text-[1.0625rem] leading-[1.2] tracking-[-0.02em] text-ink md:text-[1.125rem]">
+                            {feature.title}
+                          </h4>
+                          <p className="mt-2.5 text-[0.875rem] leading-[1.65] text-muted-ink md:text-[0.9375rem]">
+                            {feature.body}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  </FadeIn>
-                </li>
-              );
-            })}
-          </ul>
+                    </FadeIn>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </div>
 
       </div>

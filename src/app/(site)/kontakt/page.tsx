@@ -55,7 +55,7 @@ export default function KontaktPage() {
             </p>
           </FadeIn>
 
-          <FadeIn delay={0.06} className="mt-10 max-w-md md:mt-12">
+          <FadeIn delay={0.06} className="mt-8 md:mt-10">
             <ContactCard />
           </FadeIn>
         </div>

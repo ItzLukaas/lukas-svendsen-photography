@@ -173,7 +173,6 @@ export function SiteHeader() {
             aria-label={open ? "Luk menu" : "Åbn menu"}
             onClick={() => setOpen((value) => !value)}
           >
-            <span className="sr-only">{open ? "Luk" : "Menu"}</span>
             <span className="relative flex h-3 w-[18px] flex-col justify-between">
               <span
                 className={cn(

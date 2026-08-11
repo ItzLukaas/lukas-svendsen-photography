@@ -76,7 +76,7 @@ export function FeaturedWork() {
             </h2>
           </div>
           <Link href="/arbejde" className="btn-ghost hidden shrink-0 sm:inline-flex">
-            Se alt
+            Se alt arbejde
           </Link>
         </FadeIn>
 

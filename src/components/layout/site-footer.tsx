@@ -143,7 +143,7 @@ export function SiteFooter() {
 
         <div className="mt-14 flex justify-center pt-2 md:mt-16 lg:mt-20">
           <SignatureMark
-            className="h-11 w-auto opacity-[0.38] md:h-12"
+            className="h-10 w-auto opacity-[0.32] md:h-11"
             title={`${siteConfig.name} — signatur`}
           />
         </div>
@@ -157,7 +157,7 @@ export function SiteFooter() {
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
             <Link
               href="/privatliv"
-              className="transition-colors duration-300 hover:text-paper/70"
+              className="transition-colors duration-300 hover:text-paper/70 focus-visible:text-paper/70"
             >
               Privatliv
             </Link>

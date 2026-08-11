@@ -127,7 +127,7 @@ export function Lightbox({
               type="button"
               data-lightbox-control
               onClick={goPrev}
-              className="absolute left-3 z-20 hidden items-center justify-center text-paper/40 transition-colors hover:text-paper md:flex"
+              className="absolute left-3 z-20 hidden size-11 items-center justify-center text-paper/40 transition-colors hover:text-paper focus-visible:text-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-paper md:flex"
               aria-label="Forrige billede"
             >
               <span aria-hidden className="text-[1.75rem] font-light leading-none">
@@ -159,7 +159,7 @@ export function Lightbox({
               type="button"
               data-lightbox-control
               onClick={goNext}
-              className="absolute right-3 z-20 hidden items-center justify-center text-paper/40 transition-colors hover:text-paper md:flex"
+              className="absolute right-3 z-20 hidden size-11 items-center justify-center text-paper/40 transition-colors hover:text-paper focus-visible:text-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-paper md:flex"
               aria-label="Næste billede"
             >
               <span aria-hidden className="text-[1.75rem] font-light leading-none">

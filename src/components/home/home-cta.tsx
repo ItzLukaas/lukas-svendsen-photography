@@ -73,7 +73,7 @@ export function HomeCta() {
                     >
                       <Phone
                         className="size-3.5 shrink-0 text-paper/55 transition-transform duration-300 group-hover:translate-x-0.5"
-                        strokeWidth={1.5}
+                        strokeWidth={1.4}
                         aria-hidden
                       />
                       <span>{siteConfig.phoneDisplay}</span>
@@ -85,7 +85,7 @@ export function HomeCta() {
                       <span>Fuld bookingformular</span>
                       <ArrowUpRight
                         className="size-3.5 text-paper/55 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                        strokeWidth={1.5}
+                        strokeWidth={1.4}
                         aria-hidden
                       />
                     </Link>

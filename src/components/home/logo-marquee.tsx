@@ -164,7 +164,7 @@ function LogoStepper() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={logo.src}
-                alt={logo.alt}
+                alt=""
                 title={logo.title ?? logo.name}
                 width={logo.width}
                 height={logo.height}

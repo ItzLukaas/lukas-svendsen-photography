@@ -235,7 +235,7 @@ export function BookingForm() {
                       })
                     }
                     className={cn(
-                      "flex min-h-14 flex-col items-start justify-center border px-4 py-3 text-left transition-[border-color,background-color] duration-300",
+                      "flex min-h-14 flex-col items-start justify-center border px-4 py-3 text-left transition-[border-color,background-color] duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink",
                       selected
                         ? "border-ink bg-ink text-paper"
                         : "border-foreground/15 bg-transparent hover:border-foreground/30"
@@ -349,7 +349,7 @@ export function BookingForm() {
             <div className="grid gap-7 sm:grid-cols-2 sm:gap-6">
               <FormField
                 id={`${formId}-email`}
-                label="Email"
+                label="E-mail"
                 error={errors.email?.message}
               >
                 <Input

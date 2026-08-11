@@ -96,7 +96,7 @@ export function CustomScrollbar() {
     >
       <div
         ref={thumbRef}
-        className="pointer-events-auto absolute right-1 w-2 cursor-pointer rounded-full bg-[rgba(14,14,14,0.7)] transition-[background-color] duration-200 hover:bg-[rgba(14,14,14,0.88)] active:bg-[rgba(14,14,14,0.96)]"
+        className="pointer-events-auto absolute right-1 w-1.5 cursor-pointer rounded-none bg-[rgba(14,14,14,0.7)] transition-[background-color] duration-200 hover:bg-[rgba(14,14,14,0.88)] active:bg-[rgba(14,14,14,0.96)]"
         style={{ top: metrics.top, height: metrics.height }}
         onPointerDown={(event) => {
           event.preventDefault();

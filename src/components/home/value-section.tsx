@@ -8,7 +8,7 @@ export function ValueSection() {
   return (
     <section
       aria-labelledby="value-heading"
-      className="border-y border-foreground/8 bg-transparent"
+      className="border-t border-foreground/8 bg-transparent"
     >
       <div className="mx-auto max-w-[1600px] px-5 py-[var(--space-section)] md:px-8 lg:px-12">
         <div className="grid gap-5 md:grid-cols-12 md:items-end md:gap-12 lg:gap-16">

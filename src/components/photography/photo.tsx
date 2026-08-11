@@ -107,7 +107,7 @@ export function Photo({
           "pointer-events-none absolute inset-0 bg-[linear-gradient(110deg,transparent_30%,rgb(14_14_14/0.04)_50%,transparent_70%)] bg-[length:200%_100%]",
           loaded || failed
             ? "opacity-0"
-            : "animate-[photo-shimmer_1.4s_ease_infinite] opacity-100"
+            : "animate-[photo-shimmer_1.4s_ease_infinite] opacity-100 motion-reduce:animate-none"
         )}
       />
 

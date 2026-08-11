@@ -10,15 +10,17 @@ export function ContactCard() {
 
   return (
     <div className="flex items-start gap-4">
-      <Photo
-        src={aboutPortrait.src}
-        alt={aboutPortrait.alt}
-        fill
-        sizes="96px"
-        className="relative size-20 shrink-0 sm:size-24"
-        objectPosition="50% 20%"
-        quality={85}
-      />
+      <div className="relative size-16 shrink-0 overflow-hidden rounded-full border border-foreground/12 sm:size-[4.5rem]">
+        <Photo
+          src={aboutPortrait.src}
+          alt={aboutPortrait.alt}
+          fill
+          sizes="72px"
+          className="absolute inset-0"
+          objectPosition="50% 18%"
+          quality={85}
+        />
+      </div>
 
       <div className="min-w-0 pt-0.5">
         <p className="font-display text-[1.05rem] leading-tight tracking-[-0.02em] text-ink">

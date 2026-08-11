@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 /** Shared underline field look — zero radius, editorial forms */
 export const fieldClass =
-  "h-12 w-full min-w-0 max-w-full rounded-none border-0 border-b border-foreground/20 bg-transparent px-0 text-base shadow-none transition-[border-color] duration-300 placeholder:text-muted-ink/45 focus-visible:border-foreground focus-visible:ring-0";
+  "h-12 w-full min-w-0 max-w-full rounded-none border-0 border-b border-foreground/20 bg-transparent px-0 text-base shadow-none transition-[border-color] duration-300 placeholder:text-muted-ink/45 focus-visible:border-foreground focus-visible:ring-0 md:text-base";
 
 export const selectClass = cn(
   fieldClass,

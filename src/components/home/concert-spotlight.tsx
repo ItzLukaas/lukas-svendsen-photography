@@ -16,7 +16,7 @@ export function ConcertSpotlight() {
   return (
     <section
       aria-labelledby="concert-spotlight-heading"
-      className="border-y border-foreground/8 bg-mist/30"
+      className="border-t border-foreground/8 bg-mist/30"
     >
       <div className="mx-auto max-w-[1600px] px-5 py-[var(--space-section)] md:px-8 lg:px-12">
         <div className="grid items-center gap-10 md:grid-cols-12 md:gap-12 lg:gap-16 xl:gap-20">
@@ -25,7 +25,7 @@ export function ConcertSpotlight() {
               <Link
                 href={primary.href}
                 aria-label={primary.title}
-                className="group relative row-span-2 border border-foreground/12 bg-paper p-2 outline-none transition-[border-color] duration-400 hover:border-foreground/22 focus-visible:border-foreground/30 sm:p-2.5 md:p-3"
+                className="group relative row-span-2 border border-foreground/12 bg-paper p-2 transition-[border-color] duration-400 hover:border-foreground/22 focus-visible:border-foreground/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink sm:p-2.5 md:p-3"
               >
                 <Photo
                   src={primary.image.src}
@@ -45,7 +45,7 @@ export function ConcertSpotlight() {
                   key={shot.id}
                   href={shot.href}
                   aria-label={shot.title}
-                  className="group relative border border-foreground/12 bg-paper p-2 outline-none transition-[border-color] duration-400 hover:border-foreground/22 focus-visible:border-foreground/30 sm:p-2.5 md:p-3"
+                  className="group relative border border-foreground/12 bg-paper p-2 transition-[border-color] duration-400 hover:border-foreground/22 focus-visible:border-foreground/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink sm:p-2.5 md:p-3"
                 >
                   <Photo
                     src={shot.image.src}
@@ -67,9 +67,10 @@ export function ConcertSpotlight() {
             delay={0.06}
             className="order-1 flex flex-col md:order-2 md:col-span-5 lg:col-span-4 lg:col-start-9"
           >
+            <p className="label-meta">Koncert</p>
             <h2
               id="concert-spotlight-heading"
-              className="max-w-[12ch] font-display text-[clamp(1.85rem,3.8vw,2.85rem)] leading-[1.05] tracking-[-0.03em]"
+              className="mt-3 max-w-[12ch] font-display text-[clamp(1.85rem,3.8vw,2.85rem)] leading-[1.05] tracking-[-0.03em]"
             >
               Professionel koncertfotografering
             </h2>

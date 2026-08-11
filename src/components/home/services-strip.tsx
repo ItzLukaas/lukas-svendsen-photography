@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 
 import { FadeIn } from "@/components/motion/fade-in";
 import { homeServices, videoServiceFeatures } from "@/lib/data/services";
@@ -13,7 +12,7 @@ export function ServicesStrip() {
     <section
       id="services"
       aria-labelledby="services-heading"
-      className="scroll-mt-[var(--chrome-h)] border-y border-foreground/8 bg-transparent"
+      className="scroll-mt-[var(--chrome-h)] border-t border-foreground/8 bg-transparent"
     >
       <div className="mx-auto max-w-[1600px] px-5 py-[var(--space-section-sm)] md:px-8 lg:px-12">
         <FadeIn>
@@ -37,7 +36,7 @@ export function ServicesStrip() {
                 >
                   <Link
                     href={`/booking?type=${encodeURIComponent(service.bookingType)}`}
-                    className="group flex h-full flex-col px-5 py-7 outline-none transition-[background-color] duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-mist/70 focus-visible:bg-mist/70 sm:px-6 sm:py-8 md:px-8 md:py-9"
+                    className="group flex h-full flex-col px-5 py-7 transition-[background-color] duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-mist/70 focus-visible:bg-mist/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-ink sm:px-6 sm:py-8 md:px-8 md:py-9"
                   >
                     <span className="flex size-9 items-center justify-center border border-foreground/12 transition-[border-color,background-color] duration-400 group-hover:border-foreground/28 group-hover:bg-paper">
                       <Icon
@@ -54,13 +53,14 @@ export function ServicesStrip() {
                       {service.description}
                     </p>
 
-                    <span className="mt-auto pt-7 inline-flex items-center gap-1.5 text-[0.75rem] font-semibold tracking-[0.055em] text-ink">
+                    <span className="mt-auto inline-flex items-center gap-0 pt-7 text-[0.75rem] font-semibold tracking-[0.055em] text-ink transition-[gap] duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:gap-[0.55em]">
                       Book mig
-                      <ArrowUpRight
+                      <span
                         aria-hidden
-                        className="size-3.5 text-muted-ink transition-transform duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                        strokeWidth={1.5}
-                      />
+                        className="inline-block max-w-0 overflow-hidden opacity-0 transition-[max-width,opacity,transform] duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:max-w-[1.1em] group-hover:translate-x-0 group-hover:opacity-100 -translate-x-[0.3em]"
+                      >
+                        →
+                      </span>
                     </span>
                   </Link>
                 </FadeIn>

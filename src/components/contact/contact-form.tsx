@@ -72,7 +72,7 @@ export function ContactForm() {
           </a>
           <a
             href={`tel:${siteConfig.phone}`}
-            className="text-[0.9375rem] font-medium text-ink transition-opacity duration-300 hover:opacity-65"
+            className="link-quiet text-[0.9375rem] font-medium underline underline-offset-4"
           >
             {siteConfig.phoneDisplay}
           </a>
@@ -100,7 +100,7 @@ export function ContactForm() {
         />
       </FormField>
 
-      <FormField id="email" label="Email" error={errors.email?.message}>
+      <FormField id="email" label="E-mail" error={errors.email?.message}>
         <Input
           id="email"
           type="email"

@@ -102,7 +102,7 @@ export function WorkIndex({
                 aria-pressed={active}
                 onClick={() => setKategori(filter.slug)}
                 className={cn(
-                  "border-b pb-1 text-[0.75rem] font-medium tracking-[0.04em] transition-[color,border-color] duration-300",
+                  "min-h-11 border-b pb-1 text-[0.75rem] font-medium tracking-[0.04em] transition-[color,border-color] duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink",
                   active
                     ? "border-foreground text-foreground"
                     : "border-transparent text-muted-ink hover:text-foreground"

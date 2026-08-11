@@ -69,7 +69,7 @@ export function AnnouncementBar() {
             className="inline-flex min-h-9 items-center gap-1.5 px-1.5 text-muted-ink transition-colors duration-300 hover:text-ink sm:px-2"
             aria-label={`Ring ${siteConfig.phoneDisplay}`}
           >
-            <Phone className="size-3.5 shrink-0" strokeWidth={1.6} aria-hidden />
+            <Phone className="size-3.5 shrink-0" strokeWidth={1.4} aria-hidden />
             <span className="hidden lg:inline">{siteConfig.phoneDisplay}</span>
           </a>
 
@@ -83,7 +83,7 @@ export function AnnouncementBar() {
             className="inline-flex min-h-9 items-center gap-1.5 px-1.5 text-muted-ink transition-colors duration-300 hover:text-ink sm:px-2"
             aria-label={`Skriv til ${siteConfig.email}`}
           >
-            <Mail className="size-3.5 shrink-0" strokeWidth={1.6} aria-hidden />
+            <Mail className="size-3.5 shrink-0" strokeWidth={1.4} aria-hidden />
             <span className="hidden xl:inline">{siteConfig.email}</span>
           </a>
 

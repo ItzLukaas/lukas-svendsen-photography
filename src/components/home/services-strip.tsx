@@ -70,9 +70,13 @@ export function ServicesStrip() {
         </ul>
 
         <div className="mt-10 border-t border-foreground/8 pt-10 sm:mt-12 sm:pt-12">
-          {/* Whole block centered in the page; feature rows keep left-aligned internals */}
-          <div className="mx-auto flex w-fit max-w-full flex-col items-center">
-            <FadeIn className="w-full text-center">
+          {/*
+            Center the whole Video & drone cluster in the viewport.
+            Children shrink to content width (no full-bleed grid), so
+            features + CTA sit in the middle — not left-weighted in a wide shell.
+          */}
+          <div className="mx-auto flex max-w-full flex-col items-center">
+            <FadeIn className="max-w-full text-center">
               <h3
                 id="video-drone-heading"
                 className="font-display text-[clamp(1.55rem,2.8vw,2.1rem)] leading-[1.08] tracking-[-0.03em] text-ink"
@@ -85,11 +89,11 @@ export function ServicesStrip() {
               </p>
             </FadeIn>
 
-            <ul className="mt-8 m-0 grid w-full list-none grid-cols-1 gap-8 p-0 text-left sm:mt-10 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-9 lg:gap-x-14">
+            <ul className="mt-8 m-0 grid w-fit max-w-full list-none grid-cols-1 gap-8 p-0 text-left sm:mt-10 sm:grid-cols-[auto_auto] sm:gap-x-10 sm:gap-y-9 lg:gap-x-14">
               {videoServiceFeatures.map((feature, index) => {
                 const Icon = feature.icon;
                 return (
-                  <li key={feature.id}>
+                  <li key={feature.id} className="max-w-[min(100%,calc(42ch+2.875rem))]">
                     <FadeIn delay={Math.min(0.04 + index * 0.05, 0.18)}>
                       <div className="flex items-start gap-3.5">
                         <span className="mt-0.5 flex size-9 shrink-0 items-center justify-center border border-foreground/12">
@@ -99,11 +103,11 @@ export function ServicesStrip() {
                             strokeWidth={1.4}
                           />
                         </span>
-                        <div className="min-w-0">
+                        <div className="min-w-0 max-w-[42ch]">
                           <h4 className="font-display text-[1.0625rem] leading-[1.2] tracking-[-0.02em] text-ink md:text-[1.125rem]">
                             {feature.title}
                           </h4>
-                          <p className="mt-2.5 max-w-[42ch] text-[0.875rem] leading-[1.65] text-muted-ink md:text-[0.9375rem]">
+                          <p className="mt-2.5 text-[0.875rem] leading-[1.65] text-muted-ink md:text-[0.9375rem]">
                             {feature.body}
                           </p>
                         </div>
@@ -114,7 +118,7 @@ export function ServicesStrip() {
               })}
             </ul>
 
-            <FadeIn delay={0.12} className="w-full text-center">
+            <FadeIn delay={0.12}>
               <div className="mt-9 sm:mt-10">
                 <Link
                   href="/booking?type=Videoproduktion"

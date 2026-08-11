@@ -32,7 +32,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/ydelser",
-        destination: "/",
+        destination: "/#services",
         permanent: true,
       },
     ];

@@ -33,7 +33,11 @@ export const metadata: Metadata = {
     "Lukas Svendsen",
     "Lukas Guldager Svendsen",
     "fotograf Grindsted",
+    "fotograf i Grindsted",
     "fotograf Billund",
+    "fotograf Vejle",
+    "fotograf Esbjerg",
+    "book fotograf Grindsted",
     "koncertfotograf",
     "festivalfotograf",
     "eventfotograf",
@@ -50,10 +54,10 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [
       {
-        url: "/images/projects/varde-open-air/00-dsc08572-cover.jpg",
-        width: 3600,
-        height: 2400,
-        alt: "Publikum til Varde Open Air — fotografi af Lukas Svendsen",
+        url: "/images/og-share.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Hvid kirke under blå himmel — fotografi af Lukas Svendsen",
       },
     ],
   },
@@ -63,8 +67,8 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [
       {
-        url: "/images/projects/varde-open-air/00-dsc08572-cover.jpg",
-        alt: "Publikum til Varde Open Air — fotografi af Lukas Svendsen",
+        url: "/images/og-share.jpg",
+        alt: "Hvid kirke under blå himmel — fotografi af Lukas Svendsen",
       },
     ],
   },
@@ -185,6 +189,11 @@ const jsonLd = {
         addressRegion: "Syddanmark",
         addressCountry: "DK",
       },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 55.761746,
+        longitude: 8.953157,
+      },
       areaServed,
       sameAs: [
         siteConfig.social.instagram,
@@ -201,7 +210,7 @@ const jsonLd = {
           "@type": "OpeningHoursSpecification",
           dayOfWeek: ["Friday", "Saturday"],
           opens: "08:00",
-          closes: "00:00",
+          closes: "24:00",
         },
         {
           "@type": "OpeningHoursSpecification",
@@ -241,6 +250,7 @@ const jsonLd = {
               name: "Event & erhverv",
               description:
                 "Eventfotografi til virksomheder og arrangementer i Jylland.",
+              areaServed: { "@type": "City", name: "Grindsted" },
             },
           },
           {
@@ -250,6 +260,7 @@ const jsonLd = {
               name: "Sport",
               description:
                 "Sportsfotografi med fokus på action, jubel og afgørende øjeblikke.",
+              areaServed: { "@type": "City", name: "Grindsted" },
             },
           },
           {
@@ -259,6 +270,7 @@ const jsonLd = {
               name: "Business & brand",
               description:
                 "Brand-content og erhvervsfotografi til virksomheder.",
+              areaServed: { "@type": "City", name: "Grindsted" },
             },
           },
           {
@@ -268,6 +280,7 @@ const jsonLd = {
               name: "Video & content",
               description:
                 "Aftermovies, branded video og drone-content fra Grindsted.",
+              areaServed: { "@type": "City", name: "Grindsted" },
             },
           },
         ],

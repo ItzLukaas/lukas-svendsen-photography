@@ -11,10 +11,6 @@ export const metadata: Metadata = pageMetadata({
   description:
     "Mød Lukas Svendsen — 16-årig fotograf fra Grindsted. Foto, video og drone til koncerter, festivaler, sport, events og brands.",
   path: "/om",
-  image: aboutPortrait.src,
-  imageAlt: aboutPortrait.alt,
-  imageWidth: aboutPortrait.width,
-  imageHeight: aboutPortrait.height,
 });
 
 export default function OmPage() {
@@ -86,7 +82,7 @@ export default function OmPage() {
                     href="/#services"
                     className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
                   >
-                    Hvad jeg laver
+                    Hvad jeg leverer
                   </Link>
                 </li>
                 <li>

@@ -1,4 +1,4 @@
-import { ArrowUpRight, Phone } from "lucide-react";
+import { ArrowUpRight, Mail, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -77,6 +77,17 @@ export function HomeCta() {
                         aria-hidden
                       />
                       <span>{siteConfig.phoneDisplay}</span>
+                    </a>
+                    <a
+                      href={`mailto:${siteConfig.email}`}
+                      className="group flex items-center gap-2.5 text-[0.875rem] font-medium text-paper transition-opacity duration-300 hover:opacity-70"
+                    >
+                      <Mail
+                        className="size-3.5 shrink-0 text-paper/55 transition-transform duration-300 group-hover:translate-x-0.5"
+                        strokeWidth={1.4}
+                        aria-hidden
+                      />
+                      <span>{siteConfig.email}</span>
                     </a>
                     <Link
                       href="/booking"

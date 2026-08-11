@@ -9,12 +9,8 @@ import { pageMetadata, simplePageJsonLd } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Kontakt",
   description:
-    "Skriv til Lukas Svendsen. Email, telefon og formular — hurtig respons på spørgsmål om foto, video og booking.",
+    "Kontakt fotograf Lukas Svendsen i Grindsted. Email, telefon og formular — hurtig respons om foto, video og booking.",
   path: "/kontakt",
-  image: "/images/about.jpg",
-  imageAlt: "Portræt af fotograf Lukas Svendsen fra Grindsted",
-  imageWidth: 1650,
-  imageHeight: 2200,
 });
 
 export default function KontaktPage() {

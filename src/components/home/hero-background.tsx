@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import Image from "next/image";
+import { getImageProps } from "next/image";
 
 import type { ProjectImage } from "@/lib/data/projects";
 import { cn } from "@/lib/utils";
@@ -14,34 +14,59 @@ type HeroBackgroundProps = {
 };
 
 /**
- * Art-directed hero stills via next/image (WebP, responsive sizes, LCP priority).
- * Desktop: landscape. Mobile: dedicated portrait crop.
+ * Art-directed hero stills — one <picture>, one fetch per viewport.
+ * Mobile is the default (preload); desktop swaps via media query.
  */
 export function HeroBackground({
   image,
   mobileImage,
   className,
 }: HeroBackgroundProps) {
+  const {
+    props: { srcSet: desktopSrcSet },
+  } = getImageProps({
+    alt: image.alt,
+    width: image.width,
+    height: image.height,
+    quality: 90,
+    sizes: "(min-width: 1600px) 1600px, 100vw",
+    src: image.src,
+  });
+
+  const {
+    props: { srcSet: mobileSrcSet, ...rest },
+  } = getImageProps({
+    alt: mobileImage.alt,
+    width: mobileImage.width,
+    height: mobileImage.height,
+    quality: 90,
+    sizes: "100vw",
+    src: mobileImage.src,
+    priority: true,
+  });
+
   return (
     <div className={cn("absolute inset-0", className)}>
-      <Image
-        src={mobileImage.src}
-        alt={mobileImage.alt}
-        fill
-        priority
-        quality={90}
-        sizes="100vw"
-        className="object-cover object-[50%_40%] md:hidden"
-      />
-      <Image
-        src={image.src}
-        alt={image.alt}
-        fill
-        priority
-        quality={90}
-        sizes="(min-width: 1600px) 1600px, 100vw"
-        className="hidden object-cover object-[50%_45%] md:block"
-      />
+      <picture>
+        <source
+          media="(min-width: 768px)"
+          srcSet={desktopSrcSet}
+          sizes="(min-width: 1600px) 1600px, 100vw"
+        />
+        <source
+          media="(max-width: 767px)"
+          srcSet={mobileSrcSet}
+          sizes="100vw"
+        />
+        {/* eslint-disable-next-line @next/next/no-img-element -- art-directed <picture> via getImageProps */}
+        <img
+          {...rest}
+          alt={mobileImage.alt}
+          className="absolute inset-0 h-full w-full object-cover object-[50%_40%] md:object-[50%_45%]"
+          fetchPriority="high"
+          decoding="async"
+        />
+      </picture>
     </div>
   );
 }

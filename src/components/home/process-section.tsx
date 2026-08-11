@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { FadeIn } from "@/components/motion/fade-in";
 import { processSteps } from "@/lib/data/process-steps";
 
@@ -21,7 +23,10 @@ export function ProcessSection() {
           </h2>
         </FadeIn>
 
-        <ol className="mt-10 m-0 grid list-none grid-cols-1 gap-10 p-0 sm:mt-12 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-12 lg:mt-14 lg:grid-cols-4 lg:gap-8">
+        <ol
+          role="list"
+          className="mt-10 m-0 grid list-none grid-cols-1 gap-10 p-0 sm:mt-12 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-12 lg:mt-14 lg:grid-cols-4 lg:gap-8"
+        >
           {processSteps.map((item, index) => (
             <li key={item.id}>
               <FadeIn delay={Math.min(0.04 + index * 0.05, 0.2)}>
@@ -38,6 +43,23 @@ export function ProcessSection() {
             </li>
           ))}
         </ol>
+
+        <FadeIn delay={0.14}>
+          <div className="mt-10 sm:mt-12">
+            <Link
+              href="/booking"
+              className="group inline-flex items-center gap-0 text-[0.75rem] font-semibold tracking-[0.055em] text-ink transition-[gap] duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] hover:gap-[0.55em]"
+            >
+              Book mig
+              <span
+                aria-hidden
+                className="inline-block max-w-0 overflow-hidden opacity-0 transition-[max-width,opacity,transform] duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:max-w-[1.1em] group-hover:translate-x-0 group-hover:opacity-100 -translate-x-[0.3em]"
+              >
+                →
+              </span>
+            </Link>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );

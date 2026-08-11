@@ -70,47 +70,65 @@ export function ServicesStrip() {
         </ul>
 
         <div className="mt-10 border-t border-foreground/8 pt-10 sm:mt-12 sm:pt-12">
-          <div className="mx-auto w-fit max-w-full">
-            <FadeIn className="text-center">
-              <h3
-                id="video-drone-heading"
-                className="font-display text-[clamp(1.55rem,2.8vw,2.1rem)] leading-[1.08] tracking-[-0.03em] text-ink"
-              >
-                Video & drone
-              </h3>
-            </FadeIn>
+          <FadeIn>
+            <h3
+              id="video-drone-heading"
+              className="font-display text-[clamp(1.55rem,2.8vw,2.1rem)] leading-[1.08] tracking-[-0.03em] text-ink"
+            >
+              Video & drone
+            </h3>
+            <p className="mt-3 max-w-[42ch] text-[0.9375rem] leading-[1.65] text-muted-ink">
+              Aftermovies, branded video og luftoptagelser — klar til SoMe,
+              YouTube og kampagner.
+            </p>
+          </FadeIn>
 
-            <ul className="mt-8 m-0 grid list-none grid-cols-1 gap-8 p-0 sm:mt-10 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-9 lg:gap-x-14">
-              {videoServiceFeatures.map((feature, index) => {
-                const Icon = feature.icon;
-                return (
-                  <li key={feature.id}>
-                    <FadeIn delay={Math.min(0.04 + index * 0.05, 0.18)}>
-                      <div className="flex items-start gap-3.5">
-                        <span className="mt-0.5 flex size-9 shrink-0 items-center justify-center border border-foreground/12">
-                          <Icon
-                            aria-hidden
-                            className="size-3.5 text-ink"
-                            strokeWidth={1.4}
-                          />
-                        </span>
-                        <div className="min-w-0">
-                          <h4 className="font-display text-[1.0625rem] leading-[1.2] tracking-[-0.02em] text-ink md:text-[1.125rem]">
-                            {feature.title}
-                          </h4>
-                          <p className="mt-2.5 max-w-[42ch] text-[0.875rem] leading-[1.65] text-muted-ink md:text-[0.9375rem]">
-                            {feature.body}
-                          </p>
-                        </div>
+          <ul className="mt-8 m-0 grid list-none grid-cols-1 gap-8 p-0 sm:mt-10 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-9 lg:gap-x-14">
+            {videoServiceFeatures.map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <li key={feature.id}>
+                  <FadeIn delay={Math.min(0.04 + index * 0.05, 0.18)}>
+                    <div className="flex items-start gap-3.5">
+                      <span className="mt-0.5 flex size-9 shrink-0 items-center justify-center border border-foreground/12">
+                        <Icon
+                          aria-hidden
+                          className="size-3.5 text-ink"
+                          strokeWidth={1.4}
+                        />
+                      </span>
+                      <div className="min-w-0">
+                        <h4 className="font-display text-[1.0625rem] leading-[1.2] tracking-[-0.02em] text-ink md:text-[1.125rem]">
+                          {feature.title}
+                        </h4>
+                        <p className="mt-2.5 max-w-[42ch] text-[0.875rem] leading-[1.65] text-muted-ink md:text-[0.9375rem]">
+                          {feature.body}
+                        </p>
                       </div>
-                    </FadeIn>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        </div>
+                    </div>
+                  </FadeIn>
+                </li>
+              );
+            })}
+          </ul>
 
+          <FadeIn delay={0.12}>
+            <div className="mt-9 sm:mt-10">
+              <Link
+                href="/booking?type=Videoproduktion"
+                className="group inline-flex items-center gap-0 text-[0.75rem] font-semibold tracking-[0.055em] text-ink transition-[gap] duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] hover:gap-[0.55em]"
+              >
+                Book video & drone
+                <span
+                  aria-hidden
+                  className="inline-block max-w-0 overflow-hidden opacity-0 transition-[max-width,opacity,transform] duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:max-w-[1.1em] group-hover:translate-x-0 group-hover:opacity-100 -translate-x-[0.3em]"
+                >
+                  →
+                </span>
+              </Link>
+            </div>
+          </FadeIn>
+        </div>
       </div>
     </section>
   );

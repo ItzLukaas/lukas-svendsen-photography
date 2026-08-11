@@ -108,10 +108,14 @@ export function TrustStats() {
         </FadeIn>
 
         <FadeIn delay={0.06}>
-          <div className="mt-10 grid grid-cols-1 divide-y divide-foreground/10 border-y border-foreground/10 sm:mt-12 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
-            {homeStats.map((stat, index) => (
+          <div
+            className="mt-10 grid grid-cols-1 divide-y divide-foreground/10 border-y border-foreground/10 sm:mt-12 sm:grid-cols-3 sm:divide-x sm:divide-y-0"
+            role="list"
+          >
+            {homeStats.map((stat) => (
               <div
                 key={stat.id}
+                role="listitem"
                 className="flex flex-col items-center px-4 py-8 text-center sm:px-8 sm:py-11 first:sm:pl-0 last:sm:pr-0"
               >
                 <StatValue
@@ -122,9 +126,6 @@ export function TrustStats() {
                 <p className="mt-3.5 max-w-[16ch] text-[0.6875rem] font-medium tracking-[0.12em] text-muted-ink uppercase">
                   {stat.label}
                 </p>
-                <span className="sr-only">
-                  {index + 1} af {homeStats.length}
-                </span>
               </div>
             ))}
           </div>

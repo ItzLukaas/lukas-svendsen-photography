@@ -59,7 +59,7 @@ export const homeServices: HomeService[] = [
 export const videoServiceFeatures: VideoServiceFeature[] = [
   {
     id: "drone",
-    title: "Droneoptagelser",
+    title: "Luftfoto & overblik",
     body: "Få et helt andet perspektiv på dit projekt. Jeg bruger droneoptagelser til at skabe stemning, overblik og dynamik – uanset om det er en virksomhed, et event, en lokation eller noget helt fjerde.",
     icon: Plane,
   },

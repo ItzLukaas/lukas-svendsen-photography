@@ -5,7 +5,7 @@ import { getGeneratedGallery } from "@/lib/data/generated-images";
 import { siteConfig } from "@/lib/site";
 
 /** Stable lastModified for mostly-static marketing routes */
-const SITE_REVISED = new Date("2026-08-10");
+const SITE_REVISED = new Date("2026-08-11");
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = siteConfig.url;

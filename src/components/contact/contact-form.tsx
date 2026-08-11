@@ -175,7 +175,14 @@ export function ContactForm() {
       <div aria-live="polite" className="min-h-6 text-[0.95rem]">
         {status === "error" ? (
           <p className="text-destructive" role="alert">
-            Noget gik galt. Prøv igen, eller send mig en mail.
+            Noget gik galt. Prøv igen, eller skriv til{" "}
+            <a
+              href={`mailto:${siteConfig.email}`}
+              className="underline underline-offset-2 transition-opacity hover:opacity-70"
+            >
+              {siteConfig.email}
+            </a>
+            .
           </p>
         ) : null}
       </div>

@@ -10,12 +10,8 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: "Book mig",
   description:
-    "Book foto, video, drone eller content. Fortæl kort hvad, hvornår og hvor — svar inden for 1–2 hverdage.",
+    "Book fotograf i Grindsted — foto, video, drone eller content. Fortæl kort hvad, hvornår og hvor. Svar inden for 1–2 hverdage.",
   path: "/booking",
-  image: "/images/festival.jpg",
-  imageAlt: "Festivalfotografi — book fotograf Lukas Svendsen i Grindsted",
-  imageWidth: 2400,
-  imageHeight: 1600,
 });
 
 export default function BookingPage() {

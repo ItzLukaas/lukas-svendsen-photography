@@ -15,12 +15,12 @@ type PageMetaOptions = {
   ogType?: "website" | "article";
 };
 
-/** Primary social / fallback share image — landscape, photography-first */
+/** Primary social / fallback share image — landscape, web-optimized */
 export const defaultShareImage = {
-  url: "/images/projects/varde-open-air/00-dsc08572-cover.jpg",
-  width: 3600,
-  height: 2400,
-  alt: "Publikum til Varde Open Air — fotografi af Lukas Svendsen",
+  url: "/images/og-share.jpg",
+  width: 1200,
+  height: 630,
+  alt: "Hvid kirke under blå himmel — fotografi af Lukas Svendsen",
 } as const;
 
 /** Shared page metadata — titles use root template `%s · Lukas Svendsen`. */
@@ -134,7 +134,8 @@ export function projectCreativeWorkJsonLd(project: Project) {
     headline: project.title,
     description: project.excerpt,
     url,
-    dateCreated: project.year,
+    dateCreated: `${project.year}-01-01`,
+    copyrightYear: Number(project.year),
     genre: project.category,
     creator: { "@id": `${siteConfig.url}/#person` },
     author: { "@id": `${siteConfig.url}/#person` },

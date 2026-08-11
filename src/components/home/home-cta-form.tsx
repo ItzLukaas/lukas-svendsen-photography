@@ -11,6 +11,7 @@ import {
   contactSchema,
   type ContactInput,
 } from "@/lib/contact/schema";
+import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 /**
@@ -152,7 +153,14 @@ export function HomeCtaForm() {
       <div aria-live="polite" className="min-h-5 text-[0.8125rem]">
         {status === "error" ? (
           <p className="text-destructive" role="alert">
-            Noget gik galt. Prøv igen, eller send mig en mail.
+            Noget gik galt. Prøv igen, eller skriv til{" "}
+            <a
+              href={`mailto:${siteConfig.email}`}
+              className="underline underline-offset-2 transition-opacity hover:opacity-70"
+            >
+              {siteConfig.email}
+            </a>
+            .
           </p>
         ) : null}
       </div>

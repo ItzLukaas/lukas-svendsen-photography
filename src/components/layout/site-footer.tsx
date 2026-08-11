@@ -13,7 +13,7 @@ const navLinks = [
   { href: "/arbejde", label: "Arbejde" },
   { href: "/om", label: "Om mig" },
   { href: "/kontakt", label: "Kontakt" },
-  { href: "/booking", label: "Booking" },
+  { href: "/booking", label: "Book mig" },
 ] as const;
 
 /**

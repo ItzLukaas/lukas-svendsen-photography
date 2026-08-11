@@ -70,11 +70,7 @@ export function ServicesStrip() {
         </ul>
 
         <div className="mt-10 border-t border-foreground/8 pt-10 sm:mt-12 sm:pt-12">
-          {/*
-            Center the whole content group in the page container.
-            max-w-7xl keeps generous width — not a narrow compressed block.
-          */}
-          <div className="mx-auto w-full max-w-7xl">
+          <div className="mx-auto w-fit max-w-full">
             <FadeIn className="text-center">
               <h3
                 id="video-drone-heading"
@@ -98,11 +94,11 @@ export function ServicesStrip() {
                             strokeWidth={1.4}
                           />
                         </span>
-                        <div className="min-w-0 flex-1">
+                        <div className="min-w-0">
                           <h4 className="font-display text-[1.0625rem] leading-[1.2] tracking-[-0.02em] text-ink md:text-[1.125rem]">
                             {feature.title}
                           </h4>
-                          <p className="mt-2.5 text-[0.875rem] leading-[1.65] text-muted-ink md:text-[0.9375rem]">
+                          <p className="mt-2.5 max-w-[42ch] text-[0.875rem] leading-[1.65] text-muted-ink md:text-[0.9375rem]">
                             {feature.body}
                           </p>
                         </div>

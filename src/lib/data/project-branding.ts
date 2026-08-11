@@ -30,6 +30,7 @@ export type ProjectHoverBrand = {
  * - Varde Open Air → #6b2d58 (official SVG fill)
  * - Bork Festival → #182848 (dominant ink from logo)
  * - Smukfest → #0a472f (smukfest.dk brand green)
+ * - Grøn Koncert → #04A64B (official logo fill)
  * - Esbjerg Streetfood → #d94a32 (logo vermilion)
  * - DanskHåndbold → #e61428 (official SVG fill)
  */
@@ -63,6 +64,16 @@ export const projectHoverBrands: Record<string, ProjectHoverBrand> = {
     overlayColor: "#0a472f",
     logoClassName: "h-14 w-auto max-w-[42%] md:h-[4.25rem]",
     invertLogo: true,
+  },
+  "gron-koncert": {
+    brandName: "Grøn Koncert",
+    logoSrc: "/logos/gron-koncert.svg",
+    logoAlt: "Grøn Koncert logo",
+    logoWidth: 60,
+    logoHeight: 92,
+    overlayColor: "#04A64B",
+    logoClassName: "h-16 w-auto max-w-[36%] md:h-[4.5rem]",
+    invertLogo: false,
   },
   "esbjerg-streetfood": {
     brandName: "Esbjerg Streetfood",

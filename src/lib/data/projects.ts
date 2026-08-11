@@ -309,15 +309,74 @@ const projectSeed: Project[] = [
     year: "2026",
     location: "Danmark",
     excerpt:
-      "Sivas live til Grøn Koncert — energi, publikum og øjeblikke foran scenen.",
-    featured: false,
+      "Sivas live til Grøn Koncert — scenelys, energi og øjeblikke i højformat.",
+    client: "Grøn Koncert",
+    role: "Fotograf",
+    outcome:
+      "Ni lodrette koncertbilleder fra Sivas på Grøn Koncert — klar til web og sociale medier.",
+    featured: true,
     cover: P(
-      "/images/projects/gron-koncert/cover.jpg",
-      "Sivas på scenen til Grøn Koncert",
+      "/images/projects/gron-koncert/01-dsc06798-2.jpg",
+      "Sivas synger på scenen til Grøn Koncert under spotlys",
       1467,
       2200
     ),
-    images: [],
+    images: [
+      P(
+        "/images/projects/gron-koncert/01-dsc06798-2.jpg",
+        "Sivas synger på scenen til Grøn Koncert under spotlys",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/gron-koncert/02-dsc06827-2.jpg",
+        "Sivas med armene udstrakt på scenen til Grøn Koncert",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/gron-koncert/03-dsc06862-2.jpg",
+        "Sivas peger op under lilla scenelys på Grøn Koncert",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/gron-koncert/04-dsc06869.jpg",
+        "Sivas live på Grøn Koncert — sceneportræt",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/gron-koncert/05-dsc06897.jpg",
+        "Sivas under blåt scenelys på Grøn Koncert",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/gron-koncert/06-dsc06913.jpg",
+        "Sivas smiler på scenen til Grøn Koncert",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/gron-koncert/07-dsc06963-2.jpg",
+        "Sivas i hvid skjorte foran scenetåge på Grøn Koncert",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/gron-koncert/08-dsc07053.jpg",
+        "Sivas med mikrofonen på Grøn Koncert",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/gron-koncert/09-dsc07223.jpg",
+        "Sivas foran publikum på Grøn Koncert",
+        1467,
+        2200
+      ),
+    ],
   },
   {
     slug: "esbjerg-streetfood",

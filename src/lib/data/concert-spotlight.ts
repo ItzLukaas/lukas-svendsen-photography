@@ -52,7 +52,7 @@ export const concertSpotlightShots: ConcertSpotlightShot[] = [
     /** Keep face + cap in frame when the cell crops the portrait */
     objectPosition: "50% 32%",
     image: {
-      src: "/images/projects/thor-farlov-smukfest/08-dsc06775.jpg",
+      src: "/images/projects/thor-farlov-smukfest/10-dsc06913.jpg",
       alt: "Thor Farlov i pink scenelys på Smukfest",
       width: 1467,
       height: 2200,

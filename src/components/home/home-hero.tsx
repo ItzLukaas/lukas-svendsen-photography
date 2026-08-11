@@ -59,7 +59,7 @@ export function HomeHero() {
             </motion.p>
 
             <motion.h1
-              className="mt-4 font-display text-[clamp(2.25rem,5.8vw,4.5rem)] leading-[1.05] tracking-[-0.035em] text-balance text-white sm:mt-5 lg:whitespace-nowrap"
+              className="mt-4 font-display text-[clamp(2rem,5.2vw,4rem)] leading-[1.05] tracking-[-0.035em] text-balance text-white sm:mt-5"
               initial={reduceMotion ? false : { opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={
@@ -68,7 +68,7 @@ export function HomeHero() {
                   : { duration: 0.75, delay: 0.38, ease }
               }
             >
-              Din personlige fotograf
+              Professionel foto- og videograf
             </motion.h1>
 
             <motion.p

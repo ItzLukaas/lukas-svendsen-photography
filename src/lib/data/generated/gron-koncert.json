@@ -1,75 +1,75 @@
 {
   "slug": "gron-koncert",
-  "updatedAt": "2026-08-11T18:48:45.232Z",
+  "updatedAt": "2026-08-11T19:02:03.393Z",
   "cover": {
-    "src": "/images/projects/gron-koncert/01-dsc06798-2.jpg",
-    "alt": "Sivas synger på scenen til Grøn Koncert under spotlys",
-    "width": 1467,
-    "height": 2200,
+    "src": "/images/projects/gron-koncert/01-dsc06913.jpg",
+    "alt": "Sivas smiler på scenen til Grøn Koncert",
+    "width": 1600,
+    "height": 2400,
     "orientation": "portrait"
   },
   "images": [
     {
-      "src": "/images/projects/gron-koncert/01-dsc06798-2.jpg",
-      "alt": "Sivas synger på scenen til Grøn Koncert under spotlys",
-      "width": 1467,
-      "height": 2200,
-      "orientation": "portrait"
-    },
-    {
-      "src": "/images/projects/gron-koncert/02-dsc06827-2.jpg",
-      "alt": "Sivas med armene udstrakt på scenen til Grøn Koncert",
-      "width": 1467,
-      "height": 2200,
-      "orientation": "portrait"
-    },
-    {
-      "src": "/images/projects/gron-koncert/03-dsc06862-2.jpg",
-      "alt": "Sivas peger op under lilla scenelys på Grøn Koncert",
-      "width": 1467,
-      "height": 2200,
-      "orientation": "portrait"
-    },
-    {
-      "src": "/images/projects/gron-koncert/04-dsc06869.jpg",
-      "alt": "Sivas live på Grøn Koncert — sceneportræt",
-      "width": 1467,
-      "height": 2200,
-      "orientation": "portrait"
-    },
-    {
-      "src": "/images/projects/gron-koncert/05-dsc06897.jpg",
-      "alt": "Sivas under blåt scenelys på Grøn Koncert",
-      "width": 1467,
-      "height": 2200,
-      "orientation": "portrait"
-    },
-    {
-      "src": "/images/projects/gron-koncert/06-dsc06913.jpg",
+      "src": "/images/projects/gron-koncert/01-dsc06913.jpg",
       "alt": "Sivas smiler på scenen til Grøn Koncert",
-      "width": 1467,
-      "height": 2200,
+      "width": 1600,
+      "height": 2400,
+      "orientation": "portrait"
+    },
+    {
+      "src": "/images/projects/gron-koncert/02-dsc06798-2.jpg",
+      "alt": "Sivas synger på scenen til Grøn Koncert under spotlys",
+      "width": 1600,
+      "height": 2400,
+      "orientation": "portrait"
+    },
+    {
+      "src": "/images/projects/gron-koncert/03-dsc06827-2.jpg",
+      "alt": "Sivas med armene udstrakt på scenen til Grøn Koncert",
+      "width": 1600,
+      "height": 2400,
+      "orientation": "portrait"
+    },
+    {
+      "src": "/images/projects/gron-koncert/04-dsc06862-2.jpg",
+      "alt": "Sivas peger op under lilla scenelys på Grøn Koncert",
+      "width": 1600,
+      "height": 2400,
+      "orientation": "portrait"
+    },
+    {
+      "src": "/images/projects/gron-koncert/05-dsc06869.jpg",
+      "alt": "Sivas live på Grøn Koncert — sceneportræt",
+      "width": 1600,
+      "height": 2400,
+      "orientation": "portrait"
+    },
+    {
+      "src": "/images/projects/gron-koncert/06-dsc06897.jpg",
+      "alt": "Sivas under blåt scenelys på Grøn Koncert",
+      "width": 1600,
+      "height": 2400,
       "orientation": "portrait"
     },
     {
       "src": "/images/projects/gron-koncert/07-dsc06963-2.jpg",
       "alt": "Sivas i hvid skjorte foran scenetåge på Grøn Koncert",
-      "width": 1467,
-      "height": 2200,
+      "width": 1600,
+      "height": 2400,
       "orientation": "portrait"
     },
     {
       "src": "/images/projects/gron-koncert/08-dsc07053.jpg",
       "alt": "Sivas med mikrofonen på Grøn Koncert",
-      "width": 1467,
-      "height": 2200,
+      "width": 1600,
+      "height": 2400,
       "orientation": "portrait"
     },
     {
       "src": "/images/projects/gron-koncert/09-dsc07223.jpg",
       "alt": "Sivas foran publikum på Grøn Koncert",
-      "width": 1467,
-      "height": 2200,
+      "width": 1600,
+      "height": 2400,
       "orientation": "portrait"
     }
   ]

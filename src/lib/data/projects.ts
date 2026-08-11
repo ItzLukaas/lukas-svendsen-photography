@@ -316,65 +316,65 @@ const projectSeed: Project[] = [
       "Ni lodrette koncertbilleder fra Sivas på Grøn Koncert — klar til web og sociale medier.",
     featured: true,
     cover: P(
-      "/images/projects/gron-koncert/01-dsc06798-2.jpg",
-      "Sivas synger på scenen til Grøn Koncert under spotlys",
-      1467,
-      2200
+      "/images/projects/gron-koncert/01-dsc06913.jpg",
+      "Sivas smiler på scenen til Grøn Koncert",
+      1600,
+      2400
     ),
     images: [
       P(
-        "/images/projects/gron-koncert/01-dsc06798-2.jpg",
-        "Sivas synger på scenen til Grøn Koncert under spotlys",
-        1467,
-        2200
-      ),
-      P(
-        "/images/projects/gron-koncert/02-dsc06827-2.jpg",
-        "Sivas med armene udstrakt på scenen til Grøn Koncert",
-        1467,
-        2200
-      ),
-      P(
-        "/images/projects/gron-koncert/03-dsc06862-2.jpg",
-        "Sivas peger op under lilla scenelys på Grøn Koncert",
-        1467,
-        2200
-      ),
-      P(
-        "/images/projects/gron-koncert/04-dsc06869.jpg",
-        "Sivas live på Grøn Koncert — sceneportræt",
-        1467,
-        2200
-      ),
-      P(
-        "/images/projects/gron-koncert/05-dsc06897.jpg",
-        "Sivas under blåt scenelys på Grøn Koncert",
-        1467,
-        2200
-      ),
-      P(
-        "/images/projects/gron-koncert/06-dsc06913.jpg",
+        "/images/projects/gron-koncert/01-dsc06913.jpg",
         "Sivas smiler på scenen til Grøn Koncert",
-        1467,
-        2200
+        1600,
+        2400
+      ),
+      P(
+        "/images/projects/gron-koncert/02-dsc06798-2.jpg",
+        "Sivas synger på scenen til Grøn Koncert under spotlys",
+        1600,
+        2400
+      ),
+      P(
+        "/images/projects/gron-koncert/03-dsc06827-2.jpg",
+        "Sivas med armene udstrakt på scenen til Grøn Koncert",
+        1600,
+        2400
+      ),
+      P(
+        "/images/projects/gron-koncert/04-dsc06862-2.jpg",
+        "Sivas peger op under lilla scenelys på Grøn Koncert",
+        1600,
+        2400
+      ),
+      P(
+        "/images/projects/gron-koncert/05-dsc06869.jpg",
+        "Sivas live på Grøn Koncert — sceneportræt",
+        1600,
+        2400
+      ),
+      P(
+        "/images/projects/gron-koncert/06-dsc06897.jpg",
+        "Sivas under blåt scenelys på Grøn Koncert",
+        1600,
+        2400
       ),
       P(
         "/images/projects/gron-koncert/07-dsc06963-2.jpg",
         "Sivas i hvid skjorte foran scenetåge på Grøn Koncert",
-        1467,
-        2200
+        1600,
+        2400
       ),
       P(
         "/images/projects/gron-koncert/08-dsc07053.jpg",
         "Sivas med mikrofonen på Grøn Koncert",
-        1467,
-        2200
+        1600,
+        2400
       ),
       P(
         "/images/projects/gron-koncert/09-dsc07223.jpg",
         "Sivas foran publikum på Grøn Koncert",
-        1467,
-        2200
+        1600,
+        2400
       ),
     ],
   },

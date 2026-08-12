@@ -2,7 +2,13 @@
 
 import { CldImage } from "next-cloudinary";
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+} from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -17,6 +23,8 @@ type PhotoProps = {
   imageClassName?: string;
   /** CSS object-position for cropped covers */
   objectPosition?: string;
+  /** Applied to the aspect/frame container */
+  style?: CSSProperties;
   sizes?: string;
   fill?: boolean;
   width?: number;
@@ -43,6 +51,7 @@ export function Photo({
   className,
   imageClassName,
   objectPosition,
+  style,
   sizes = "(min-width: 1024px) 50vw, 100vw",
   fill,
   width,
@@ -87,7 +96,7 @@ export function Photo({
     "object-cover transition-[opacity,transform] duration-[750ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
     loaded && !failed ? "opacity-100" : "opacity-0",
     interactive &&
-      "group-hover:scale-[1.012] motion-reduce:group-hover:scale-100",
+      "group-hover:scale-[1.02] motion-reduce:group-hover:scale-100",
     !fill && "h-full w-full",
     imageClassName
   );
@@ -100,6 +109,7 @@ export function Photo({
         "relative overflow-hidden bg-[color-mix(in_srgb,var(--ink)_5%,transparent)]",
         className
       )}
+      style={style}
     >
       <div
         aria-hidden

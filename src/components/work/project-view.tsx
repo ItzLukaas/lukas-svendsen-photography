@@ -4,6 +4,7 @@ import { FadeIn } from "@/components/motion/fade-in";
 import { Photo } from "@/components/photography/photo";
 import { ProjectGallery } from "@/components/work/galleries/project-gallery";
 import type { Project } from "@/lib/data/projects";
+import { aspectRatioStyle } from "@/lib/utils";
 
 type ProjectViewProps = {
   project: Project;
@@ -109,11 +110,11 @@ export function ProjectView({ project, previous, next }: ProjectViewProps) {
                       width={previous.cover.width}
                       height={previous.cover.height}
                       sizes="144px"
-                      className={
-                        previous.cover.orientation === "portrait"
-                          ? "aspect-[3/4] w-full"
-                          : "aspect-[4/3] w-full"
-                      }
+                      className="w-full"
+                      style={aspectRatioStyle(
+                        previous.cover.width,
+                        previous.cover.height
+                      )}
                       interactive
                     />
                   </div>
@@ -143,11 +144,11 @@ export function ProjectView({ project, previous, next }: ProjectViewProps) {
                       width={next.cover.width}
                       height={next.cover.height}
                       sizes="144px"
-                      className={
-                        next.cover.orientation === "portrait"
-                          ? "aspect-[3/4] w-full"
-                          : "aspect-[4/3] w-full"
-                      }
+                      className="w-full"
+                      style={aspectRatioStyle(
+                        next.cover.width,
+                        next.cover.height
+                      )}
                       interactive
                     />
                   </div>

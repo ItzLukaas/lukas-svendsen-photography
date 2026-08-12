@@ -1,7 +1,7 @@
 import { Photo } from "@/components/photography/photo";
 import { GalleryFrame } from "@/components/work/lightbox";
 import type { ProjectImage } from "@/lib/data/projects";
-import { cn } from "@/lib/utils";
+import { aspectRatioStyle, cn } from "@/lib/utils";
 
 type PortraitBlock =
   | { type: "hero"; image: ProjectImage; index: number }
@@ -123,7 +123,8 @@ export function FestivalGallery({
                     width={block.image.width}
                     height={block.image.height}
                     sizes="(min-width: 1024px) 48rem, 92vw"
-                    className="aspect-[2/3] w-full"
+                    className="w-full"
+                    style={aspectRatioStyle(block.image.width, block.image.height)}
                     priority
                     quality={95}
                     interactive
@@ -151,7 +152,8 @@ export function FestivalGallery({
                     width={block.left.width}
                     height={block.left.height}
                     sizes="(min-width: 640px) 42vw, 92vw"
-                    className="aspect-[2/3] w-full"
+                    className="w-full"
+                    style={aspectRatioStyle(block.left.width, block.left.height)}
                     quality={95}
                     interactive
                   />
@@ -169,7 +171,8 @@ export function FestivalGallery({
                     width={block.right.width}
                     height={block.right.height}
                     sizes="(min-width: 640px) 42vw, 92vw"
-                    className="aspect-[2/3] w-full"
+                    className="w-full"
+                    style={aspectRatioStyle(block.right.width, block.right.height)}
                     quality={95}
                     interactive
                   />
@@ -204,7 +207,8 @@ export function FestivalGallery({
                   width={block.image.width}
                   height={block.image.height}
                   sizes="(min-width: 768px) 44rem, 88vw"
-                  className="aspect-[2/3] w-full"
+                  className="w-full"
+                  style={aspectRatioStyle(block.image.width, block.image.height)}
                   quality={95}
                   interactive
                 />

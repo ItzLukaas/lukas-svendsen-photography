@@ -4,7 +4,7 @@ import {
   isPortrait,
   type ProjectImage,
 } from "@/lib/data/projects";
-import { cn } from "@/lib/utils";
+import { aspectRatioStyle, cn } from "@/lib/utils";
 
 type GalleryBlock =
   | { type: "cinematic"; image: ProjectImage; index: number }
@@ -87,7 +87,7 @@ export function MixedGallery({
 
   return (
     <div className="mt-12 space-y-8 md:mt-16 md:space-y-14 lg:space-y-20">
-      {blocks.map((block, blockIndex) => {
+      {blocks.map((block) => {
         if (block.type === "cinematic") {
           return (
             <div key={`${projectSlug}-c-${block.index}`}>
@@ -101,12 +101,8 @@ export function MixedGallery({
                   width={block.image.width}
                   height={block.image.height}
                   sizes="100vw"
-                  className={cn(
-                    "w-full",
-                    blockIndex === 0
-                      ? "aspect-[5/4] sm:aspect-[16/10] md:aspect-[21/9]"
-                      : "aspect-[4/3] sm:aspect-[16/10] md:aspect-[2/1]"
-                  )}
+                  className="w-full"
+                  style={aspectRatioStyle(block.image.width, block.image.height)}
                   priority={block.index === 0}
                   quality={block.index === 0 ? 88 : 82}
                   interactive
@@ -130,7 +126,8 @@ export function MixedGallery({
                     width={block.image.width}
                     height={block.image.height}
                     sizes="(min-width: 1100px) 1100px, 100vw"
-                    className="aspect-[16/10] w-full"
+                    className="w-full"
+                    style={aspectRatioStyle(block.image.width, block.image.height)}
                     interactive
                   />
                 </GalleryFrame>
@@ -161,7 +158,8 @@ export function MixedGallery({
                     width={block.image.width}
                     height={block.image.height}
                     sizes="(min-width: 1024px) 42rem, 90vw"
-                    className="aspect-[3/4] w-full"
+                    className="w-full"
+                    style={aspectRatioStyle(block.image.width, block.image.height)}
                     priority={block.index === 0}
                     interactive
                   />
@@ -187,7 +185,8 @@ export function MixedGallery({
                   width={block.left.width}
                   height={block.left.height}
                   sizes="(min-width: 640px) 40vw, 90vw"
-                  className="aspect-[3/4] w-full"
+                  className="w-full"
+                  style={aspectRatioStyle(block.left.width, block.left.height)}
                   interactive
                 />
               </GalleryFrame>
@@ -204,7 +203,8 @@ export function MixedGallery({
                   width={block.right.width}
                   height={block.right.height}
                   sizes="(min-width: 640px) 40vw, 90vw"
-                  className="aspect-[3/4] w-full"
+                  className="w-full"
+                  style={aspectRatioStyle(block.right.width, block.right.height)}
                   interactive
                 />
               </GalleryFrame>

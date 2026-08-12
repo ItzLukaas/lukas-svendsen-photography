@@ -1,7 +1,7 @@
 import { Photo } from "@/components/photography/photo";
 import { GalleryFrame } from "@/components/work/lightbox";
 import type { ProjectImage } from "@/lib/data/projects";
-import { cn } from "@/lib/utils";
+import { aspectRatioStyle } from "@/lib/utils";
 
 type WideBlock =
   | { type: "hero"; image: ProjectImage; index: number }
@@ -86,7 +86,8 @@ export function WideGallery({
                   width={block.image.width}
                   height={block.image.height}
                   sizes="100vw"
-                  className="aspect-[16/10] w-full md:min-h-[62vh] md:aspect-[2/1]"
+                  className="w-full"
+                  style={aspectRatioStyle(block.image.width, block.image.height)}
                   priority
                   quality={95}
                   interactive
@@ -110,7 +111,8 @@ export function WideGallery({
                     width={block.image.width}
                     height={block.image.height}
                     sizes="(min-width: 1280px) 1280px, 100vw"
-                    className="aspect-[16/10] w-full"
+                    className="w-full"
+                    style={aspectRatioStyle(block.image.width, block.image.height)}
                     quality={95}
                     interactive
                   />
@@ -134,7 +136,8 @@ export function WideGallery({
                     width={block.left.width}
                     height={block.left.height}
                     sizes="(min-width: 768px) 50vw, 100vw"
-                    className="aspect-[3/2] w-full"
+                    className="w-full"
+                    style={aspectRatioStyle(block.left.width, block.left.height)}
                     quality={95}
                     interactive
                   />
@@ -149,7 +152,8 @@ export function WideGallery({
                     width={block.right.width}
                     height={block.right.height}
                     sizes="(min-width: 768px) 50vw, 100vw"
-                    className="aspect-[3/2] w-full"
+                    className="w-full"
+                    style={aspectRatioStyle(block.right.width, block.right.height)}
                     quality={95}
                     interactive
                   />
@@ -171,12 +175,8 @@ export function WideGallery({
                 width={block.image.width}
                 height={block.image.height}
                 sizes="100vw"
-                className={cn(
-                  "w-full",
-                  block.index % 2 === 0
-                    ? "aspect-[16/9] md:aspect-[2/1]"
-                    : "aspect-[16/10] md:aspect-[21/10]"
-                )}
+                className="w-full"
+                style={aspectRatioStyle(block.image.width, block.image.height)}
                 quality={95}
                 interactive
               />

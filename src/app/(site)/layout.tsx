@@ -1,7 +1,6 @@
 import { BackgroundMotif } from "@/components/layout/background-motif";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
-import { SiteAssistant } from "@/components/assistant/site-assistant";
 
 export default function SiteLayout({
   children,
@@ -18,7 +17,6 @@ export default function SiteLayout({
         </main>
         <SiteFooter />
       </div>
-      <SiteAssistant />
     </div>
   );
 }

@@ -558,17 +558,6 @@
   }
 }
 
-@keyframes assistant-enter {
-  from {
-    opacity: 0;
-    transform: translateY(0.65rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /*
  * Hide native OS scrollbar on the scrollport — CustomScrollbar draws the brand bar.
  * Native ::-webkit-scrollbar is ignored by Windows overlay/Fluent scrollbars.

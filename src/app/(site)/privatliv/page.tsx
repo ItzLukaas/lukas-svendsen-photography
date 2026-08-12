@@ -49,15 +49,6 @@ export default function PrivatlivPage() {
             Siden bruger teknisk nødvendige cookies til at fungere. Der
             trackes ikke til reklame.
           </p>
-          <p>
-            Den valgfrie fotografi-assistent kan bruges uden konto eller
-            personoplysninger. Samtaler gemmes ikke permanent på sitet. Hvis
-            assistenten bruger en ekstern AI-tjeneste, sendes kun den aktuelle
-            besked og relevant offentlig sideviden — ikke din bookinghistorik
-            eller unødvendige persondata. Når du vil booke, bruger du den
-            almindelige formular, hvor personoplysninger behandles som beskrevet
-            ovenfor.
-          </p>
         </div>
         <p className="mt-10">
           <Link href="/kontakt" className="btn-ghost">

@@ -13,7 +13,8 @@ export type ConcertSpotlightShot = {
 
 /**
  * Three concert frames from real jobs.
- * Green + pink portraits are Thor Farlov — Smukfest.
+ * Green portrait: Thor Farlov — Smukfest.
+ * Pink portrait: Sivas — Grøn Koncert.
  */
 export const concertSpotlightShots: ConcertSpotlightShot[] = [
   {
@@ -46,16 +47,16 @@ export const concertSpotlightShots: ConcertSpotlightShot[] = [
   },
   {
     id: "stage",
-    title: "Thor Farlov — Smukfest",
-    href: "/arbejde/thor-farlov-smukfest",
+    title: "Sivas — Grøn Koncert",
+    href: "/arbejde/gron-koncert",
     placement: "secondary",
-    /** Keep face + cap in frame when the cell crops the portrait */
+    /** Keep face + pink light in frame when the cell crops the portrait */
     objectPosition: "50% 32%",
     image: {
-      src: "/images/projects/thor-farlov-smukfest/10-dsc06913.jpg",
-      alt: "Thor Farlov i pink scenelys på Smukfest",
-      width: 1467,
-      height: 2200,
+      src: "/images/projects/gron-koncert/01-dsc06913.jpg",
+      alt: "Sivas smiler på scenen til Grøn Koncert",
+      width: 1600,
+      height: 2400,
       orientation: "portrait",
     },
   },

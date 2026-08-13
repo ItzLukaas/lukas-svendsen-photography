@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
     formats: ["image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1600, 1920, 2400],
     imageSizes: [96, 128, 256, 384],
-    qualities: [70, 82, 90, 92, 95],
+    qualities: [70, 82, 88, 90, 92, 95],
     minimumCacheTTL: 60 * 60 * 24 * 31,
     remotePatterns: [
       {
@@ -32,7 +32,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/ydelser",
-        destination: "/#services",
+        destination: "/",
         permanent: true,
       },
     ];

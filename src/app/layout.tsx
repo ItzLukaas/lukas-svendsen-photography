@@ -1,7 +1,7 @@
 ﻿import type { Metadata, Viewport } from "next";
 import { Instrument_Sans } from "next/font/google";
 
-import { CustomScrollbar } from "@/components/layout/custom-scrollbar";
+import { CustomScrollbarLazy } from "@/components/layout/custom-scrollbar-lazy";
 import { openingHoursJsonLd, serviceAreaPlaces } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
@@ -280,14 +280,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="da"
       className={`${instrumentSans.variable} h-full overflow-hidden`}
     >
-      <body className="h-full overflow-hidden bg-paper text-ink antialiased">
+      <body className="h-full overflow-hidden bg-paper font-sans text-ink antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <a
           href="#main"
-          className="sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:inline-block focus:h-auto focus:w-auto focus:overflow-visible focus:bg-paper focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-ink focus:outline focus:outline-2 focus:outline-ink focus:outline-offset-2"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-paper focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-ink focus:outline focus:outline-2 focus:outline-ink focus:outline-offset-2"
         >
           Spring til indhold
         </a>
@@ -298,7 +298,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           {children}
         </div>
-        <CustomScrollbar />
+        <CustomScrollbarLazy />
       </body>
     </html>
   );

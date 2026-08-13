@@ -126,7 +126,7 @@ export function FestivalGallery({
                     className="w-full"
                     style={aspectRatioStyle(block.image.width, block.image.height)}
                     priority
-                    quality={95}
+                    quality={90}
                     interactive
                   />
                 </GalleryFrame>
@@ -154,7 +154,7 @@ export function FestivalGallery({
                     sizes="(min-width: 640px) 42vw, 92vw"
                     className="w-full"
                     style={aspectRatioStyle(block.left.width, block.left.height)}
-                    quality={95}
+                    quality={90}
                     interactive
                   />
                 </GalleryFrame>
@@ -173,7 +173,7 @@ export function FestivalGallery({
                     sizes="(min-width: 640px) 42vw, 92vw"
                     className="w-full"
                     style={aspectRatioStyle(block.right.width, block.right.height)}
-                    quality={95}
+                    quality={90}
                     interactive
                   />
                 </GalleryFrame>
@@ -209,7 +209,7 @@ export function FestivalGallery({
                   sizes="(min-width: 768px) 44rem, 88vw"
                   className="w-full"
                   style={aspectRatioStyle(block.image.width, block.image.height)}
-                  quality={95}
+                  quality={90}
                   interactive
                 />
               </GalleryFrame>

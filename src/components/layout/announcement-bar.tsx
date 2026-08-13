@@ -16,9 +16,8 @@ import { cn } from "@/lib/utils";
  * Soft neutral only. Green is reserved for the live status dot.
  */
 export function AnnouncementBar() {
-  const [status, setStatus] = useState<ReturnType<
-    typeof getAvailabilityStatus
-  > | null>(null);
+  // SSR + first paint use live status (Copenhagen TZ) — avoids "…" label CLS
+  const [status, setStatus] = useState(getAvailabilityStatus);
 
   useEffect(() => {
     const tick = () => setStatus(getAvailabilityStatus());
@@ -27,13 +26,7 @@ export function AnnouncementBar() {
     return () => window.clearInterval(id);
   }, []);
 
-  const display = status ?? {
-    available: false,
-    label: "…",
-    action: "Tjekker åbningstid",
-    detail: "Tjekker åbningstid",
-    href: "/booking",
-  };
+  const display = status;
 
   return (
     <div
@@ -56,11 +49,18 @@ export function AnnouncementBar() {
             )}
             aria-hidden
           />
-          <span className="text-ink">{display.label}</span>
+          <span className="text-ink" suppressHydrationWarning>
+            {display.label}
+          </span>
           <span className="hidden text-muted-ink sm:inline" aria-hidden>
             ·
           </span>
-          <span className="hidden text-muted-ink sm:inline">{display.action}</span>
+          <span
+            className="hidden text-muted-ink sm:inline"
+            suppressHydrationWarning
+          >
+            {display.action}
+          </span>
         </a>
 
         <div className="flex items-center gap-1 sm:gap-0.5 md:gap-1">

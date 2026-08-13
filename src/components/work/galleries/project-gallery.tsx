@@ -1,12 +1,18 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useState } from "react";
 
 import { FestivalGallery } from "@/components/work/galleries/festival-gallery";
 import { MixedGallery } from "@/components/work/galleries/mixed-gallery";
 import { WideGallery } from "@/components/work/galleries/wide-gallery";
-import { Lightbox } from "@/components/work/lightbox";
 import type { Project } from "@/lib/data/projects";
+
+const Lightbox = dynamic(
+  () =>
+    import("@/components/work/lightbox").then((mod) => mod.Lightbox),
+  { ssr: false }
+);
 
 type ProjectGalleryProps = {
   project: Project;
@@ -39,13 +45,15 @@ export function ProjectGallery({ project }: ProjectGalleryProps) {
   return (
     <>
       {gallery}
-      <Lightbox
-        images={project.images}
-        index={activeIndex}
-        onClose={() => setActiveIndex(null)}
-        onChange={setActiveIndex}
-        projectTitle={project.title}
-      />
+      {activeIndex !== null ? (
+        <Lightbox
+          images={project.images}
+          index={activeIndex}
+          onClose={() => setActiveIndex(null)}
+          onChange={setActiveIndex}
+          projectTitle={project.title}
+        />
+      ) : null}
     </>
   );
 }

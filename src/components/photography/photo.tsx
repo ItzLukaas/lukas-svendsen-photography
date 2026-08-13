@@ -1,7 +1,7 @@
 "use client";
 
-import { CldImage } from "next-cloudinary";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import {
   useCallback,
   useEffect,
@@ -13,6 +13,14 @@ import {
 import { cn } from "@/lib/utils";
 
 const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+
+const CloudinaryPhoto = dynamic(
+  () =>
+    import("@/components/photography/photo-cloudinary").then(
+      (mod) => mod.CloudinaryPhoto
+    ),
+  { ssr: false }
+);
 
 type PhotoProps = {
   src: string;
@@ -132,38 +140,21 @@ export function Photo({
           </span>
         </div>
       ) : useCloudinary && cloudinaryId ? (
-        fill ? (
-          <CldImage
-            src={cloudinaryId}
-            alt={resolvedAlt}
-            fill
-            sizes={sizes}
-            priority={priority}
-            quality={quality}
-            unoptimized={unoptimized}
-            className={imageClasses}
-            onLoad={handleLoad}
-            onError={handleError}
-            decoding="async"
-            style={imageStyle}
-          />
-        ) : (
-          <CldImage
-            src={cloudinaryId}
-            alt={resolvedAlt}
-            width={width}
-            height={height}
-            sizes={sizes}
-            priority={priority}
-            quality={quality}
-            unoptimized={unoptimized}
-            className={imageClasses}
-            onLoad={handleLoad}
-            onError={handleError}
-            decoding="async"
-            style={imageStyle}
-          />
-        )
+        <CloudinaryPhoto
+          cloudinaryId={cloudinaryId}
+          alt={resolvedAlt}
+          fill={fill}
+          width={width}
+          height={height}
+          sizes={sizes}
+          priority={priority}
+          quality={quality}
+          unoptimized={unoptimized}
+          className={imageClasses}
+          onLoad={handleLoad}
+          onError={handleError}
+          style={imageStyle}
+        />
       ) : fill ? (
         <Image
           ref={imgRef}

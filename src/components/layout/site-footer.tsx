@@ -43,7 +43,7 @@ export function SiteFooter() {
 
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-12">
           <div>
-            <p className="text-[0.6875rem] font-medium tracking-[0.12em] text-paper/40 uppercase">
+            <p className="text-[0.6875rem] font-medium tracking-[0.12em] text-paper/55 uppercase">
               Kontakt
             </p>
             <ul className="mt-5 space-y-2.5">
@@ -90,7 +90,7 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <p className="text-[0.6875rem] font-medium tracking-[0.12em] text-paper/40 uppercase">
+            <p className="text-[0.6875rem] font-medium tracking-[0.12em] text-paper/55 uppercase">
               Services
             </p>
             <ul className="mt-5 space-y-2.5">
@@ -108,7 +108,7 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <p className="text-[0.6875rem] font-medium tracking-[0.12em] text-paper/40 uppercase">
+            <p className="text-[0.6875rem] font-medium tracking-[0.12em] text-paper/55 uppercase">
               Navigation
             </p>
             <ul className="mt-5 space-y-2.5">
@@ -126,7 +126,7 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <p className="text-[0.6875rem] font-medium tracking-[0.12em] text-paper/40 uppercase">
+            <p className="text-[0.6875rem] font-medium tracking-[0.12em] text-paper/55 uppercase">
               Lokation
             </p>
             <address className="mt-5 not-italic text-[0.9375rem] leading-[1.7] text-paper/75">
@@ -134,7 +134,7 @@ export function SiteFooter() {
               <span className="block">
                 {location.postalCode} {location.city}
               </span>
-              <span className="mt-1 block text-paper/45">
+              <span className="mt-1 block text-paper/60">
                 {location.country}
               </span>
             </address>
@@ -150,7 +150,7 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-paper/10">
-        <div className="mx-auto flex max-w-[1600px] flex-col gap-3 px-5 py-5 text-[0.6875rem] font-medium tracking-[0.03em] text-paper/40 sm:flex-row sm:items-center sm:justify-between md:px-8 lg:px-12">
+        <div className="mx-auto flex max-w-[1600px] flex-col gap-3 px-5 py-5 text-[0.6875rem] font-medium tracking-[0.03em] text-paper/55 sm:flex-row sm:items-center sm:justify-between md:px-8 lg:px-12">
           <p>
             © {year} {siteConfig.name}
           </p>

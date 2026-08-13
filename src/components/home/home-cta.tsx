@@ -31,7 +31,7 @@ export function HomeCta() {
             </div>
 
             <div className="relative px-5 py-12 sm:px-8 sm:py-14 md:px-12 md:py-16 lg:px-16 lg:py-20">
-              <p className="text-[0.6875rem] font-medium tracking-[0.14em] text-paper/45 uppercase">
+              <p className="text-[0.6875rem] font-medium tracking-[0.14em] text-paper/60 uppercase">
                 Book mig
               </p>
 

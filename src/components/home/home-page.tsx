@@ -1,14 +1,21 @@
+import dynamic from "next/dynamic";
+
 import { ConcertSpotlight } from "@/components/home/concert-spotlight";
 import { FeaturedWork } from "@/components/home/featured-work";
 import { HomeCta } from "@/components/home/home-cta";
 import { HomeHero } from "@/components/home/home-hero";
-import { LogoMarquee } from "@/components/home/logo-marquee";
 import { ProcessSection } from "@/components/home/process-section";
 import { ServicesStrip } from "@/components/home/services-strip";
-import { TrustStats } from "@/components/home/trust-stats";
 import { ValueSection } from "@/components/home/value-section";
 import { getCollaborationsJsonLd } from "@/lib/data/clients";
 import { siteConfig } from "@/lib/site";
+
+const TrustStats = dynamic(() =>
+  import("@/components/home/trust-stats").then((mod) => mod.TrustStats)
+);
+const LogoMarquee = dynamic(() =>
+  import("@/components/home/logo-marquee").then((mod) => mod.LogoMarquee)
+);
 
 /**
  * Homepage story:

@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
@@ -388,7 +387,7 @@
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.055em;
-    color: rgb(244 244 242 / 78%);
+    color: rgb(244 244 242 / 88%);
     background-image: linear-gradient(currentColor, currentColor);
     background-position: 0 100%;
     background-repeat: no-repeat;

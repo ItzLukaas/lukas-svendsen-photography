@@ -1,6 +1,4 @@
-﻿"use client";
-
-import { getImageProps } from "next/image";
+﻿import { getImageProps } from "next/image";
 
 import type { ProjectImage } from "@/lib/data/projects";
 import { cn } from "@/lib/utils";
@@ -15,9 +13,8 @@ type HeroBackgroundProps = {
 
 /**
  * Art-directed hero stills — one <picture>, one fetch per viewport.
- * Avoid next/image `priority` preload (it targets the fallback <img> src and
- * can download the wrong crop). `fetchPriority="high"` lets the browser
- * prioritize whichever <source> matches.
+ * Server Component so the LCP image is in the initial HTML (no Motion opacity:0).
+ * Pair with preloadHeroImages() for early discovery.
  */
 export function HeroBackground({
   image,
@@ -30,21 +27,29 @@ export function HeroBackground({
     alt: image.alt,
     width: image.width,
     height: image.height,
-    quality: 90,
+    quality: 88,
     sizes: "(min-width: 1600px) 1600px, 100vw",
     src: image.src,
   });
 
   const {
-    props: { srcSet: mobileSrcSet, ...rest },
+    props: { srcSet: mobileSrcSet, src: mobileSrc, ...rest },
   } = getImageProps({
     alt: mobileImage.alt,
     width: mobileImage.width,
     height: mobileImage.height,
-    quality: 90,
+    quality: 82,
     sizes: "100vw",
     src: mobileImage.src,
   });
+
+  // Prefer a mid-size fallback src (picture <source> still drives modern browsers)
+  const fallbackSrc =
+    mobileSrcSet
+      ?.split(",")
+      .map((entry) => entry.trim())
+      .find((entry) => entry.endsWith("1200w"))
+      ?.split(/\s+/)[0] ?? mobileSrc;
 
   return (
     <div className={cn("absolute inset-0", className)}>
@@ -62,8 +67,11 @@ export function HeroBackground({
         {/* eslint-disable-next-line @next/next/no-img-element -- art-directed <picture> via getImageProps */}
         <img
           {...rest}
+          src={fallbackSrc}
           alt={mobileImage.alt}
           className="absolute inset-0 h-full w-full object-cover object-[50%_40%] md:object-[50%_45%]"
+          // Override getImageProps default loading="lazy" — this is the LCP image
+          loading="eager"
           fetchPriority="high"
           decoding="async"
         />

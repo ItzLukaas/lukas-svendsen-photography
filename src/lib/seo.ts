@@ -91,9 +91,10 @@ export function pageMetadata({
 export function projectBreadcrumbJsonLd(
   title: string,
   slug: string,
-  category?: string,
-  discipline?: string
+  _category?: string,
+  _discipline?: string
 ) {
+  // Canonical breadcrumb path only — no filter query URLs in schema
   const items = [
     {
       "@type": "ListItem",
@@ -107,29 +108,13 @@ export function projectBreadcrumbJsonLd(
       name: "Arbejde",
       item: `${siteConfig.url}/arbejde`,
     },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: title,
+      item: `${siteConfig.url}/arbejde/${slug}`,
+    },
   ];
-
-  if (category && discipline) {
-    items.push({
-      "@type": "ListItem",
-      position: 3,
-      name: category,
-      item: `${siteConfig.url}/arbejde?kategori=${discipline}`,
-    });
-    items.push({
-      "@type": "ListItem",
-      position: 4,
-      name: title,
-      item: `${siteConfig.url}/arbejde/${slug}`,
-    });
-  } else {
-    items.push({
-      "@type": "ListItem",
-      position: 3,
-      name: title,
-      item: `${siteConfig.url}/arbejde/${slug}`,
-    });
-  }
 
   return {
     "@context": "https://schema.org",
@@ -225,9 +210,12 @@ export function collectionPageJsonLd(
 export const serviceAreaPlaces = [
   { name: "Grindsted", type: "City" as const },
   { name: "Billund", type: "City" as const },
+  { name: "Give", type: "City" as const },
   { name: "Vejle", type: "City" as const },
+  { name: "Vejen", type: "City" as const },
   { name: "Esbjerg", type: "City" as const },
   { name: "Kolding", type: "City" as const },
+  { name: "Fredericia", type: "City" as const },
   { name: "Herning", type: "City" as const },
   { name: "Jylland", type: "AdministrativeArea" as const },
   { name: "Danmark", type: "Country" as const },
@@ -238,6 +226,8 @@ type SimplePageJsonLdOptions = {
   name: string;
   description: string;
   type: "WebPage" | "AboutPage" | "ContactPage";
+  /** Prefer LocalBusiness for contact/booking pages */
+  mainEntityId?: "person" | "service";
 };
 
 /** Page-level WebPage / AboutPage / ContactPage linked into the entity graph */
@@ -246,8 +236,14 @@ export function simplePageJsonLd({
   name,
   description,
   type,
+  mainEntityId = "person",
 }: SimplePageJsonLdOptions) {
   const url = `${siteConfig.url}${path}`;
+  const entity =
+    mainEntityId === "service"
+      ? { "@id": `${siteConfig.url}/#service` }
+      : { "@id": `${siteConfig.url}/#person` };
+
   return {
     "@context": "https://schema.org",
     "@type": type,
@@ -258,6 +254,48 @@ export function simplePageJsonLd({
     inLanguage: "da-DK",
     isPartOf: { "@id": `${siteConfig.url}/#website` },
     about: { "@id": `${siteConfig.url}/#person` },
-    mainEntity: { "@id": `${siteConfig.url}/#person` },
+    mainEntity: entity,
   };
+}
+
+/** Compact breadcrumb for marketing pages (no filter query URLs) */
+export function pageBreadcrumbJsonLd(
+  crumbs: { name: string; path: string }[]
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: crumbs.map((crumb, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: crumb.name,
+      item:
+        crumb.path === "/"
+          ? siteConfig.url
+          : `${siteConfig.url}${crumb.path}`,
+    })),
+  };
+}
+
+/** Schema.org hours from siteConfig — never emit closes: "24:00" */
+export function openingHoursJsonLd() {
+  const dayNames = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ] as const;
+
+  return siteConfig.openingHours.map((rule) => ({
+    "@type": "OpeningHoursSpecification" as const,
+    dayOfWeek: rule.days.map((day) => dayNames[day]),
+    opens: `${String(rule.open).padStart(2, "0")}:00`,
+    closes:
+      rule.close >= 24
+        ? "23:59"
+        : `${String(rule.close).padStart(2, "0")}:00`,
+  }));
 }

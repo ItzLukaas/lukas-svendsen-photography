@@ -4,7 +4,11 @@ import Link from "next/link";
 import { FadeIn } from "@/components/motion/fade-in";
 import { Photo } from "@/components/photography/photo";
 import { aboutPortrait } from "@/lib/data/projects";
-import { pageMetadata, simplePageJsonLd } from "@/lib/seo";
+import {
+  pageBreadcrumbJsonLd,
+  pageMetadata,
+  simplePageJsonLd,
+} from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "Om mig",
@@ -21,12 +25,20 @@ export default function OmPage() {
       "Lukas Svendsen er fotograf fra Grindsted. Foto, video og drone til koncerter, festivaler, sport, events og brands.",
     type: "AboutPage",
   });
+  const breadcrumbJsonLd = pageBreadcrumbJsonLd([
+    { name: "Forside", path: "/" },
+    { name: "Om mig", path: "/om" },
+  ]);
 
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
     <div className="pt-[calc(var(--chrome-h)+2.5rem)]">
       <section className="mx-auto grid max-w-[1600px] items-start gap-10 px-5 pb-16 md:grid-cols-12 md:gap-14 md:px-8 md:pb-24 lg:px-12">

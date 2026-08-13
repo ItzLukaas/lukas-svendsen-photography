@@ -23,6 +23,9 @@ export function ServicesStrip() {
           >
             Hvad jeg leverer
           </h2>
+          <p className="mt-3 max-w-[42ch] text-[0.9375rem] leading-[1.65] text-muted-ink">
+            Foto, video og drone fra Grindsted — klar til jobs i hele området.
+          </p>
         </FadeIn>
 
         <ul className="mt-8 m-0 grid list-none grid-cols-1 gap-px border border-foreground/10 bg-foreground/10 p-0 sm:mt-10 sm:grid-cols-3">
@@ -68,6 +71,23 @@ export function ServicesStrip() {
             );
           })}
         </ul>
+
+        <FadeIn delay={0.08}>
+          <p className="mt-6">
+            <Link
+              href="/arbejde"
+              className="group inline-flex items-center gap-0 text-[0.75rem] font-semibold tracking-[0.055em] text-ink transition-[gap] duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] hover:gap-[0.55em]"
+            >
+              Se mit arbejde
+              <span
+                aria-hidden
+                className="inline-block max-w-0 overflow-hidden opacity-0 transition-[max-width,opacity,transform] duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:max-w-[1.1em] group-hover:translate-x-0 group-hover:opacity-100 -translate-x-[0.3em]"
+              >
+                →
+              </span>
+            </Link>
+          </p>
+        </FadeIn>
 
         <div className="mt-10 border-t border-foreground/8 pt-10 sm:mt-12 sm:pt-12">
           {/*

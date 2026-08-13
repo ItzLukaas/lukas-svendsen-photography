@@ -68,7 +68,7 @@ export function HomeHero() {
                   : { duration: 0.75, delay: 0.38, ease }
               }
             >
-              Professionel foto- og videograf
+              Fotograf og videograf fra Grindsted
             </motion.h1>
 
             <motion.p
@@ -81,9 +81,9 @@ export function HomeHero() {
                   : { duration: 0.7, delay: 0.5, ease }
               }
             >
-              Jeg er {siteConfig.name} — fotograf fra{" "}
-              {siteConfig.location.city}. Jeg tager billeder og producerer
-              video for virksomheder, events og mennesker.
+              Jeg er {siteConfig.name}. Jeg laver foto, video og drone til
+              koncerter, sport, events og brands — fra{" "}
+              {siteConfig.location.city} og ud i Jylland.
             </motion.p>
 
             <motion.div

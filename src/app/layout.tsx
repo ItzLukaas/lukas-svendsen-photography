@@ -2,7 +2,7 @@
 import { Instrument_Sans } from "next/font/google";
 
 import { CustomScrollbar } from "@/components/layout/custom-scrollbar";
-import { serviceAreaPlaces } from "@/lib/seo";
+import { openingHoursJsonLd, serviceAreaPlaces } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
 import "./globals.css";
@@ -31,19 +31,13 @@ export const metadata: Metadata = {
   creator: siteConfig.name,
   keywords: [
     "Lukas Svendsen",
-    "Lukas Guldager Svendsen",
     "fotograf Grindsted",
-    "fotograf i Grindsted",
-    "fotograf Billund",
-    "fotograf Vejle",
-    "fotograf Esbjerg",
-    "book fotograf Grindsted",
     "koncertfotograf",
-    "festivalfotograf",
-    "eventfotograf",
     "sportsfotograf",
-    "videoproduktion",
+    "eventfotograf",
+    "videograf",
     "dronefotograf",
+    "videoproduktion",
   ],
   openGraph: {
     type: "website",
@@ -108,7 +102,7 @@ const jsonLd = {
       url: siteConfig.url,
       email: siteConfig.email,
       telephone: siteConfig.phone,
-      jobTitle: "Fotograf",
+      jobTitle: "Fotograf og videograf",
       description: siteConfig.description,
       image: `${siteConfig.url}/images/about.jpg`,
       homeLocation: {
@@ -199,26 +193,7 @@ const jsonLd = {
         siteConfig.social.instagram,
         siteConfig.social.linkedin,
       ],
-      openingHoursSpecification: [
-        {
-          "@type": "OpeningHoursSpecification",
-          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday"],
-          opens: "08:00",
-          closes: "22:00",
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          dayOfWeek: ["Friday", "Saturday"],
-          opens: "08:00",
-          closes: "23:59",
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          dayOfWeek: "Sunday",
-          opens: "08:00",
-          closes: "22:00",
-        },
-      ],
+      openingHoursSpecification: openingHoursJsonLd(),
       serviceType: [
         "Koncert- og festivalfotografi",
         "Event- og erhvervsfotografi",
@@ -239,8 +214,8 @@ const jsonLd = {
               "@type": "Service",
               name: "Koncert & festival",
               description:
-                "Koncert- og festivalfotografi fra Grindsted — artister, publikum og stemning.",
-              areaServed: { "@type": "City", name: "Grindsted" },
+                "Koncert- og festivalfotografi — artister, publikum og stemning.",
+              areaServed,
             },
           },
           {
@@ -250,7 +225,7 @@ const jsonLd = {
               name: "Event & erhverv",
               description:
                 "Eventfotografi til virksomheder og arrangementer i Jylland.",
-              areaServed: { "@type": "City", name: "Grindsted" },
+              areaServed,
             },
           },
           {
@@ -260,7 +235,7 @@ const jsonLd = {
               name: "Sport",
               description:
                 "Sportsfotografi med fokus på action, jubel og afgørende øjeblikke.",
-              areaServed: { "@type": "City", name: "Grindsted" },
+              areaServed,
             },
           },
           {
@@ -270,7 +245,7 @@ const jsonLd = {
               name: "Business & brand",
               description:
                 "Brand-content og erhvervsfotografi til virksomheder.",
-              areaServed: { "@type": "City", name: "Grindsted" },
+              areaServed,
             },
           },
           {
@@ -279,8 +254,8 @@ const jsonLd = {
               "@type": "Service",
               name: "Video & content",
               description:
-                "Aftermovies, branded video og drone-content fra Grindsted.",
-              areaServed: { "@type": "City", name: "Grindsted" },
+                "Aftermovies, branded video og drone-content.",
+              areaServed,
             },
           },
         ],

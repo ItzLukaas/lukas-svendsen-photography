@@ -4,7 +4,11 @@ import { Suspense } from "react";
 
 import { BookingForm } from "@/components/booking/booking-form";
 import { FadeIn } from "@/components/motion/fade-in";
-import { pageMetadata, simplePageJsonLd } from "@/lib/seo";
+import {
+  pageBreadcrumbJsonLd,
+  pageMetadata,
+  simplePageJsonLd,
+} from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
@@ -21,13 +25,22 @@ export default function BookingPage() {
     description:
       "Booking af fotograf Lukas Svendsen til foto, video, drone og content.",
     type: "WebPage",
+    mainEntityId: "service",
   });
+  const breadcrumbJsonLd = pageBreadcrumbJsonLd([
+    { name: "Forside", path: "/" },
+    { name: "Book mig", path: "/booking" },
+  ]);
 
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <div className="mx-auto max-w-[1600px] px-5 pt-[calc(var(--chrome-h)+2.5rem)] pb-20 md:px-8 md:pb-28 lg:px-12">
         <div className="grid gap-12 md:grid-cols-12 md:gap-14 lg:gap-16">

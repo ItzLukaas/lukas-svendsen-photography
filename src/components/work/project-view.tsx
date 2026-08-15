@@ -106,7 +106,7 @@ export function ProjectView({ project, previous, next }: ProjectViewProps) {
                   <div className="relative hidden w-28 shrink-0 overflow-hidden sm:block md:w-36">
                     <Photo
                       src={previous.cover.src}
-                      alt=""
+                      alt={previous.cover.alt}
                       width={previous.cover.width}
                       height={previous.cover.height}
                       sizes="144px"
@@ -140,7 +140,7 @@ export function ProjectView({ project, previous, next }: ProjectViewProps) {
                   <div className="relative hidden w-28 shrink-0 overflow-hidden sm:block md:w-36">
                     <Photo
                       src={next.cover.src}
-                      alt=""
+                      alt={next.cover.alt}
                       width={next.cover.width}
                       height={next.cover.height}
                       sizes="144px"

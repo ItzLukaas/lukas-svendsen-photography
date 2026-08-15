@@ -11,7 +11,7 @@ export function preloadHeroImages() {
   const {
     props: { srcSet: desktopSrcSet, src: desktopSrc },
   } = getImageProps({
-    alt: "",
+    alt: heroImage.alt,
     width: heroImage.width,
     height: heroImage.height,
     quality: 88,
@@ -22,7 +22,7 @@ export function preloadHeroImages() {
   const {
     props: { srcSet: mobileSrcSet, src: mobileSrc },
   } = getImageProps({
-    alt: "",
+    alt: heroMobileImage.alt,
     width: heroMobileImage.width,
     height: heroMobileImage.height,
     quality: 82,

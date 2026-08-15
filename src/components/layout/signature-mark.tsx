@@ -10,7 +10,7 @@ type SignatureMarkProps = {
  */
 export function SignatureMark({
   className,
-  title = "LS",
+  title = "Lukas Svendsen — LS-signatur",
 }: SignatureMarkProps) {
   return (
     <Image

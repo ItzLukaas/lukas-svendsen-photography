@@ -55,7 +55,7 @@ function LogoItem({
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={logo.src}
-          alt=""
+          alt={logo.alt}
           title={logo.title ?? logo.name}
           width={logo.width}
           height={logo.height}
@@ -164,7 +164,7 @@ function LogoStepper() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={logo.src}
-                alt=""
+                alt={logo.alt}
                 title={logo.title ?? logo.name}
                 width={logo.width}
                 height={logo.height}

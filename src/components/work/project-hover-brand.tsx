@@ -47,7 +47,7 @@ export function ProjectHoverBrandOverlay({
       >
         <Image
           src={brand.logoSrc}
-          alt=""
+          alt={brand.logoAlt}
           width={brand.logoWidth}
           height={brand.logoHeight}
           className={cn(

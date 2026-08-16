@@ -1,0 +1,90 @@
+{
+  "slug": "fredericia-haandboldklub",
+  "updatedAt": "2026-08-16T16:35:31.400Z",
+  "cover": {
+    "src": "/images/projects/fredericia-haandboldklub/01-00-1-div-kvinder.jpg",
+    "alt": "Fredericia Håndboldklub — 1. DIV Kvinder",
+    "width": 2200,
+    "height": 1237,
+    "orientation": "landscape"
+  },
+  "images": [
+    {
+      "src": "/images/projects/fredericia-haandboldklub/01-00-1-div-kvinder.jpg",
+      "alt": "Fredericia Håndboldklub — 1. DIV Kvinder",
+      "width": 2200,
+      "height": 1237,
+      "orientation": "landscape"
+    },
+    {
+      "src": "/images/projects/fredericia-haandboldklub/02-01-fhk-gruppe-06.jpg",
+      "alt": "Fredericia Håndboldklub — gruppefoto",
+      "width": 1467,
+      "height": 2200,
+      "orientation": "portrait"
+    },
+    {
+      "src": "/images/projects/fredericia-haandboldklub/03-02-fhk-gruppe-03.jpg",
+      "alt": "Fredericia Håndboldklub — gruppefoto",
+      "width": 1467,
+      "height": 2200,
+      "orientation": "portrait"
+    },
+    {
+      "src": "/images/projects/fredericia-haandboldklub/04-03-fhk-gruppe-03-hvid.jpg",
+      "alt": "Fredericia Håndboldklub — gruppefoto på hvid baggrund",
+      "width": 1467,
+      "height": 2200,
+      "orientation": "portrait"
+    },
+    {
+      "src": "/images/projects/fredericia-haandboldklub/05-04-fhk-03-pose.jpg",
+      "alt": "Fredericia Håndboldklub — spillerportræt",
+      "width": 1467,
+      "height": 2200,
+      "orientation": "portrait"
+    },
+    {
+      "src": "/images/projects/fredericia-haandboldklub/06-05-fhk-04-pose.jpg",
+      "alt": "Fredericia Håndboldklub — spillerportræt",
+      "width": 1467,
+      "height": 2200,
+      "orientation": "portrait"
+    },
+    {
+      "src": "/images/projects/fredericia-haandboldklub/07-06-fhk-19-pose.jpg",
+      "alt": "Fredericia Håndboldklub — spillerportræt",
+      "width": 1467,
+      "height": 2200,
+      "orientation": "portrait"
+    },
+    {
+      "src": "/images/projects/fredericia-haandboldklub/08-07-fhk-29-pose.jpg",
+      "alt": "Fredericia Håndboldklub — spillerportræt",
+      "width": 1467,
+      "height": 2200,
+      "orientation": "portrait"
+    },
+    {
+      "src": "/images/projects/fredericia-haandboldklub/09-08-fhk-27-pose.jpg",
+      "alt": "Fredericia Håndboldklub — spillerportræt",
+      "width": 1467,
+      "height": 2200,
+      "orientation": "portrait"
+    },
+    {
+      "src": "/images/projects/fredericia-haandboldklub/10-09-fhk-37-pose.jpg",
+      "alt": "Fredericia Håndboldklub — spillerportræt",
+      "width": 1467,
+      "height": 2200,
+      "orientation": "portrait"
+    },
+    {
+      "src": "/images/projects/fredericia-haandboldklub/11-10-fhk-82-pose.jpg",
+      "alt": "Fredericia Håndboldklub — spillerportræt",
+      "width": 1467,
+      "height": 2200,
+      "orientation": "portrait"
+    }
+  ]
+}

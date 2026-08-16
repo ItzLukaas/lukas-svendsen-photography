@@ -43,6 +43,7 @@ const PROJECT_TITLES = {
   "esbjerg-streetfood": "Esbjerg Streetfood",
   "dm-finalen-herrer": "DM-finalen – Herrer",
   "dm-finalen-kvinder": "DM-finalen – Kvinder",
+  "fredericia-haandboldklub": "Fredericia Håndboldklub",
 };
 
 const HERO_OUT = path.join(ROOT, "public", "images", "hero.jpg");
@@ -100,6 +101,12 @@ function defaultAlt(slug, index, orientation) {
   }
   if (slug === "thor-farlov-smukfest" && orientation === "portrait") {
     return `Thor Farlov på Smukfest — øjeblik ${index + 1}`;
+  }
+  if (slug === "fredericia-haandboldklub") {
+    if (orientation === "portrait") {
+      return `${title} — spillerportræt ${index + 1}`;
+    }
+    return `${title} — holdfoto ${index + 1}`;
   }
   if (orientation === "portrait") {
     return `${title} — koncertøjeblik ${index + 1}`;

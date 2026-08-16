@@ -612,6 +612,29 @@ const projectSeed: Project[] = [
       ),
     ],
   },
+  {
+    slug: "fredericia-haandboldklub",
+    title: "Fredericia Håndboldklub",
+    discipline: "portraetter",
+    category: "Portræt",
+    galleryFormat: "mixed",
+    year: "2026",
+    location: "Fredericia",
+    excerpt:
+      "Spillerportrætter og holdfotos for Fredericia Håndboldklubs 1. divisionskvinder — skarpt, enkelt og klar til klubbens kommunikation.",
+    client: "Fredericia Håndboldklub",
+    role: "Portrætfotograf",
+    outcome:
+      "Leverede hold- og spillerportrætter til web og sociale medier — fra gruppemotiver til individuelle poses.",
+    featured: true,
+    cover: L(
+      "/images/projects/fredericia-haandboldklub/01-00-1-div-kvinder.jpg",
+      "Fredericia Håndboldklub — 1. DIV Kvinder",
+      2200,
+      1237
+    ),
+    images: [],
+  },
 ];
 
 const projectsResolved: Project[] = projectSeed.map(withGeneratedGallery);

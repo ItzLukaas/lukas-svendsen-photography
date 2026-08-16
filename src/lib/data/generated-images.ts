@@ -22,9 +22,13 @@ const modules = import.meta.glob("./generated/*.json", {
  * Returns curated generated gallery for a project slug, if any.
  */
 export function getGeneratedGallery(slug: string): GeneratedGallery | null {
-  const entry = Object.entries(modules).find(([file]) =>
-    file.endsWith(`/${slug}.json`)
-  );
+  const entry = Object.entries(modules).find(([file]) => {
+    const normalized = file.replace(/\\/g, "/");
+    return (
+      normalized.endsWith(`/${slug}.json`) ||
+      normalized.endsWith(`${slug}.json`)
+    );
+  });
   if (!entry) return null;
 
   const data = entry[1];

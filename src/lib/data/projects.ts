@@ -633,7 +633,74 @@ const projectSeed: Project[] = [
       2200,
       1237
     ),
-    images: [],
+    images: [
+      L(
+        "/images/projects/fredericia-haandboldklub/01-00-1-div-kvinder.jpg",
+        "Fredericia Håndboldklub — 1. DIV Kvinder",
+        2200,
+        1237
+      ),
+      P(
+        "/images/projects/fredericia-haandboldklub/02-01-fhk-gruppe-06.jpg",
+        "Fredericia Håndboldklub — gruppefoto",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/fredericia-haandboldklub/03-02-fhk-gruppe-03.jpg",
+        "Fredericia Håndboldklub — gruppefoto",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/fredericia-haandboldklub/04-03-fhk-gruppe-03-hvid.jpg",
+        "Fredericia Håndboldklub — gruppefoto på hvid baggrund",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/fredericia-haandboldklub/05-04-fhk-03-pose.jpg",
+        "Fredericia Håndboldklub — spillerportræt",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/fredericia-haandboldklub/06-05-fhk-04-pose.jpg",
+        "Fredericia Håndboldklub — spillerportræt",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/fredericia-haandboldklub/07-06-fhk-19-pose.jpg",
+        "Fredericia Håndboldklub — spillerportræt",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/fredericia-haandboldklub/08-07-fhk-29-pose.jpg",
+        "Fredericia Håndboldklub — spillerportræt",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/fredericia-haandboldklub/09-08-fhk-27-pose.jpg",
+        "Fredericia Håndboldklub — spillerportræt",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/fredericia-haandboldklub/10-09-fhk-37-pose.jpg",
+        "Fredericia Håndboldklub — spillerportræt",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/fredericia-haandboldklub/11-10-fhk-82-pose.jpg",
+        "Fredericia Håndboldklub — spillerportræt",
+        1467,
+        2200
+      ),
+    ],
   },
 ];
 

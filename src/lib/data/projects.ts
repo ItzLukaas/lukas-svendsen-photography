@@ -653,8 +653,8 @@ const projectSeed: Project[] = [
         2200
       ),
       P(
-        "/images/projects/fredericia-haandboldklub/04-03-fhk-gruppe-03-hvid.jpg",
-        "Fredericia Håndboldklub — gruppefoto på hvid baggrund",
+        "/images/projects/fredericia-haandboldklub/04-fhk-gruppe-03.jpg",
+        "Fredericia Håndboldklub — gruppefoto",
         1467,
         2200
       ),

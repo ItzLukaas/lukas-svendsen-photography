@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import { ProjectView } from "@/components/work/project-view";
 import { fetchProject, fetchProjects } from "@/lib/content";
 import {
-  sortProjectsForMasonry,
   type Project,
 } from "@/lib/data/projects";
 import {
@@ -51,7 +50,7 @@ export default async function ProjectPage({ params }: Props) {
   const project = await fetchProject(slug);
   if (!project) notFound();
 
-  const all = sortProjectsForMasonry(await fetchProjects());
+  const all = await fetchProjects();
   const index = all.findIndex((item) => item.slug === project.slug);
   const previous =
     index > 0 ? all[index - 1] : all.length > 1 ? all[all.length - 1] : null;

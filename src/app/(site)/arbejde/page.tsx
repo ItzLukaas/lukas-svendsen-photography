@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 
 import { WorkIndex } from "@/components/work/work-index";
 import { fetchProjects } from "@/lib/content";
-import { sortProjectsForMasonry } from "@/lib/data/projects";
 import { collectionPageJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -21,7 +20,7 @@ export default async function ArbejdePage({ searchParams }: Props) {
       ? params.kategori
       : "alle";
 
-  const projects = sortProjectsForMasonry(await fetchProjects());
+  const projects = await fetchProjects();
   const jsonLd = collectionPageJsonLd(projects);
 
   return (

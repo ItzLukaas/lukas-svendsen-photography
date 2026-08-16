@@ -789,7 +789,5 @@ export function sortProjectsForMasonry(list: Project[]): Project[] {
 
 export function getProjectsByDiscipline(discipline?: DisciplineSlug | "alle") {
   if (!discipline || discipline === "alle") return projects;
-  return sortProjectsForMasonry(
-    projects.filter((project) => project.discipline === discipline)
-  );
+  return projects.filter((project) => project.discipline === discipline);
 }

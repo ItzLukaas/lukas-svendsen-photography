@@ -9,7 +9,6 @@ import { Photo } from "@/components/photography/photo";
 import { ProjectHoverBrandOverlay } from "@/components/work/project-hover-brand";
 import { getProjectHoverBrand } from "@/lib/data/project-branding";
 import type { Project } from "@/lib/data/projects";
-import { sortProjectsForMasonry } from "@/lib/data/projects";
 import { siteConfig } from "@/lib/site";
 import { aspectRatioStyle, cn } from "@/lib/utils";
 
@@ -20,8 +19,8 @@ type WorkIndexProps = {
 };
 
 /**
- * Portfolio index — true CSS-column masonry.
- * Each cover keeps its intrinsic aspect ratio (portrait / landscape / square).
+ * Portfolio index — natural-aspect cards in a responsive wrap.
+ * Incomplete final rows stay centered (e.g. DM Kvinder + Fredericia).
  */
 export function WorkIndex({
   projects,
@@ -31,11 +30,8 @@ export function WorkIndex({
   const kategori = initialKategori || "alle";
 
   const filtered = useMemo(() => {
-    const list =
-      kategori === "alle"
-        ? projects
-        : projects.filter((project) => project.discipline === kategori);
-    return sortProjectsForMasonry(list);
+    if (kategori === "alle") return projects;
+    return projects.filter((project) => project.discipline === kategori);
   }, [kategori, projects]);
 
   function setKategori(next: string) {
@@ -106,12 +102,10 @@ export function WorkIndex({
 
       <ul
         className={cn(
-          "mt-10 m-0 w-full list-none p-0 md:mt-12",
-          /* Masonry: 1 → 2 → 3 columns; natural heights create the rhythm */
-          "columns-1 gap-x-3",
-          "min-[480px]:columns-2 min-[480px]:gap-x-4",
-          "md:gap-x-5",
-          "lg:columns-3 lg:gap-x-5",
+          "mt-10 m-0 flex list-none flex-wrap justify-center p-0 md:mt-12",
+          "gap-x-3 gap-y-8",
+          "min-[480px]:gap-x-4 min-[480px]:gap-y-9",
+          "md:gap-x-5 md:gap-y-10",
           "xl:gap-x-6"
         )}
       >
@@ -122,7 +116,14 @@ export function WorkIndex({
           return (
             <li
               key={project.slug}
-              className="mb-8 break-inside-avoid min-[480px]:mb-9 md:mb-10"
+              className={cn(
+                "w-full",
+                /* 2 cols from 480px — last odd item centers via justify-center */
+                "min-[480px]:w-[calc((100%-1rem)/2)]",
+                /* 3 cols from lg — last 1–2 items center as a closing pair */
+                "lg:w-[calc((100%-2.5rem)/3)]",
+                "xl:w-[calc((100%-3rem)/3)]"
+              )}
             >
               <FadeIn delay={Math.min(index * 0.03, 0.12)}>
                 <Link

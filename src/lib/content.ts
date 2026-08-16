@@ -3,7 +3,6 @@ import {
   getProject,
   getProjectsByDiscipline,
   projects as seedProjects,
-  sortProjectsForMasonry,
   type Project,
 } from "@/lib/data/projects";
 import { hasSanity, sanityClient } from "@/lib/sanity/client";
@@ -50,9 +49,5 @@ export async function fetchProjectsByDiscipline(
   const all = await fetchProjects();
   if (!discipline || discipline === "alle") return all;
   const filtered = all.filter((project) => project.discipline === discipline);
-  const list = filtered.length
-    ? filtered
-    : getProjectsByDiscipline(discipline);
-  // getProjectsByDiscipline already sorts; ensure Sanity-backed lists do too
-  return sortProjectsForMasonry(list);
+  return filtered.length ? filtered : getProjectsByDiscipline(discipline);
 }

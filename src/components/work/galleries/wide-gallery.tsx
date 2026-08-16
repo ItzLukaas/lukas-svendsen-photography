@@ -181,7 +181,8 @@ export function WideGallery({
                 sizes="100vw"
                 className="w-full"
                 style={aspectRatioStyle(block.image.width, block.image.height)}
-                quality={90}
+                quality={92}
+                unoptimized
                 interactive
               />
             </GalleryFrame>

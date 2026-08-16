@@ -10,7 +10,7 @@ import { ProjectHoverBrandOverlay } from "@/components/work/project-hover-brand"
 import { getProjectHoverBrand } from "@/lib/data/project-branding";
 import type { Project } from "@/lib/data/projects";
 import { siteConfig } from "@/lib/site";
-import { aspectRatioStyle, cn } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 
 type WorkIndexProps = {
   projects: Project[];
@@ -19,8 +19,8 @@ type WorkIndexProps = {
 };
 
 /**
- * Portfolio index — natural-aspect cards in a responsive wrap.
- * Incomplete final rows stay centered (e.g. DM Kvinder + Fredericia).
+ * Portfolio index — calm, equal-frame grid.
+ * Shared cover crop keeps rows aligned; incomplete final rows stay centered.
  */
 export function WorkIndex({
   projects,
@@ -102,11 +102,10 @@ export function WorkIndex({
 
       <ul
         className={cn(
-          "mt-10 m-0 flex list-none flex-wrap justify-center p-0 md:mt-12",
-          "gap-x-3 gap-y-8",
-          "min-[480px]:gap-x-4 min-[480px]:gap-y-9",
-          "md:gap-x-5 md:gap-y-10",
-          "xl:gap-x-6"
+          "mt-12 m-0 flex list-none flex-wrap justify-center p-0 md:mt-14",
+          "gap-x-5 gap-y-10",
+          "md:gap-x-6 md:gap-y-12",
+          "lg:gap-x-8 lg:gap-y-14"
         )}
       >
         {filtered.map((project, index) => {
@@ -118,11 +117,8 @@ export function WorkIndex({
               key={project.slug}
               className={cn(
                 "w-full",
-                /* 2 cols from 480px — last odd item centers via justify-center */
-                "min-[480px]:w-[calc((100%-1rem)/2)]",
-                /* 3 cols from lg — last 1–2 items center as a closing pair */
-                "lg:w-[calc((100%-2.5rem)/3)]",
-                "xl:w-[calc((100%-3rem)/3)]"
+                "min-[560px]:w-[calc((100%-1.25rem)/2)]",
+                "lg:w-[calc((100%-4rem)/3)]"
               )}
             >
               <FadeIn delay={Math.min(index * 0.03, 0.12)}>
@@ -130,17 +126,16 @@ export function WorkIndex({
                   href={`/arbejde/${project.slug}`}
                   className="group/project group block"
                 >
-                  <div className="relative">
+                  <div className="relative overflow-hidden">
                     <Photo
                       src={cover.src}
                       alt={cover.alt}
                       width={cover.width}
                       height={cover.height}
-                      sizes="(min-width: 1024px) 30vw, (min-width: 480px) 45vw, 100vw"
-                      className="w-full"
-                      style={aspectRatioStyle(cover.width, cover.height)}
-                      imageClassName="object-cover"
-                      priority={index < 2}
+                      sizes="(min-width: 1024px) 30vw, (min-width: 560px) 45vw, 100vw"
+                      className="aspect-[4/5] w-full"
+                      imageClassName="object-cover object-center"
+                      priority={index < 3}
                       quality={index < 4 ? 88 : 82}
                       interactive
                     />

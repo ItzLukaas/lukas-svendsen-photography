@@ -10,7 +10,7 @@ import { ProjectHoverBrandOverlay } from "@/components/work/project-hover-brand"
 import { getProjectHoverBrand } from "@/lib/data/project-branding";
 import type { Project } from "@/lib/data/projects";
 import { siteConfig } from "@/lib/site";
-import { cn } from "@/lib/utils";
+import { aspectRatioStyle, cn } from "@/lib/utils";
 
 type WorkIndexProps = {
   projects: Project[];
@@ -19,8 +19,8 @@ type WorkIndexProps = {
 };
 
 /**
- * Portfolio index — calm, equal-frame grid.
- * Shared cover crop keeps rows aligned; incomplete final rows stay centered.
+ * Portfolio index — CSS-column masonry with each cover’s true aspect ratio.
+ * Landscape stays landscape; portrait stays portrait. No forced crop boxes.
  */
 export function WorkIndex({
   projects,
@@ -102,41 +102,39 @@ export function WorkIndex({
 
       <ul
         className={cn(
-          "mt-12 m-0 flex list-none flex-wrap justify-center p-0 md:mt-14",
-          "gap-x-5 gap-y-10",
-          "md:gap-x-6 md:gap-y-12",
-          "lg:gap-x-8 lg:gap-y-14"
+          "mt-12 m-0 w-full list-none p-0 md:mt-14",
+          "columns-1 gap-x-5",
+          "min-[560px]:columns-2 min-[560px]:gap-x-6",
+          "lg:columns-3 lg:gap-x-8"
         )}
       >
         {filtered.map((project, index) => {
           const hoverBrand = getProjectHoverBrand(project.slug);
           const { cover } = project;
+          const isWide = cover.width >= cover.height;
 
           return (
             <li
               key={project.slug}
-              className={cn(
-                "w-full",
-                "min-[560px]:w-[calc((100%-1.25rem)/2)]",
-                "lg:w-[calc((100%-4rem)/3)]"
-              )}
+              className="mb-10 break-inside-avoid md:mb-12"
             >
               <FadeIn delay={Math.min(index * 0.03, 0.12)}>
                 <Link
                   href={`/arbejde/${project.slug}`}
                   className="group/project group block"
                 >
-                  <div className="relative overflow-hidden">
+                  <div className="relative">
                     <Photo
                       src={cover.src}
                       alt={cover.alt}
                       width={cover.width}
                       height={cover.height}
                       sizes="(min-width: 1024px) 30vw, (min-width: 560px) 45vw, 100vw"
-                      className="aspect-[4/5] w-full"
+                      className="w-full"
+                      style={aspectRatioStyle(cover.width, cover.height)}
                       imageClassName="object-cover object-center"
                       priority={index < 3}
-                      quality={index < 4 ? 88 : 82}
+                      quality={isWide ? 90 : 88}
                       interactive
                     />
                     {hoverBrand ? (

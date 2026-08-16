@@ -89,7 +89,8 @@ export function WideGallery({
                   className="w-full"
                   style={aspectRatioStyle(block.image.width, block.image.height)}
                   priority
-                  quality={90}
+                  quality={92}
+                  unoptimized
                   interactive
                 />
               </GalleryFrame>
@@ -113,7 +114,8 @@ export function WideGallery({
                     sizes="(min-width: 1280px) 1280px, 100vw"
                     className="w-full"
                     style={aspectRatioStyle(block.image.width, block.image.height)}
-                    quality={90}
+                    quality={92}
+                    unoptimized
                     interactive
                   />
                 </GalleryFrame>
@@ -138,7 +140,8 @@ export function WideGallery({
                     sizes="(min-width: 768px) 50vw, 100vw"
                     className="w-full"
                     style={aspectRatioStyle(block.left.width, block.left.height)}
-                    quality={90}
+                    quality={92}
+                    unoptimized
                     interactive
                   />
                 </GalleryFrame>
@@ -154,7 +157,8 @@ export function WideGallery({
                     sizes="(min-width: 768px) 50vw, 100vw"
                     className="w-full"
                     style={aspectRatioStyle(block.right.width, block.right.height)}
-                    quality={90}
+                    quality={92}
+                    unoptimized
                     interactive
                   />
                 </GalleryFrame>

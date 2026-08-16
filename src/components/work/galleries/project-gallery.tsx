@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import { useState } from "react";
 
 import { FestivalGallery } from "@/components/work/galleries/festival-gallery";
-import { MixedGallery } from "@/components/work/galleries/mixed-gallery";
+import { MasonryGallery } from "@/components/work/galleries/masonry-gallery";
 import { WideGallery } from "@/components/work/galleries/wide-gallery";
 import type { Project } from "@/lib/data/projects";
 
@@ -35,7 +35,7 @@ export function ProjectGallery({ project }: ProjectGalleryProps) {
         onOpen={setActiveIndex}
       />
     ) : (
-      <MixedGallery
+      <MasonryGallery
         images={project.images}
         projectSlug={project.slug}
         onOpen={setActiveIndex}

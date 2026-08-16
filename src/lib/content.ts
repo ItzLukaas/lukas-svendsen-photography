@@ -3,7 +3,7 @@ import {
   getProject,
   getProjectsByDiscipline,
   projects as seedProjects,
-  sortProjectsPortraitFirst,
+  sortProjectsForMasonry,
   type Project,
 } from "@/lib/data/projects";
 import { hasSanity, sanityClient } from "@/lib/sanity/client";
@@ -54,5 +54,5 @@ export async function fetchProjectsByDiscipline(
     ? filtered
     : getProjectsByDiscipline(discipline);
   // getProjectsByDiscipline already sorts; ensure Sanity-backed lists do too
-  return sortProjectsPortraitFirst(list);
+  return sortProjectsForMasonry(list);
 }

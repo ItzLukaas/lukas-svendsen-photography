@@ -9,7 +9,7 @@ import { Photo } from "@/components/photography/photo";
 import { ProjectHoverBrandOverlay } from "@/components/work/project-hover-brand";
 import { getProjectHoverBrand } from "@/lib/data/project-branding";
 import type { Project } from "@/lib/data/projects";
-import { sortProjectsPortraitFirst } from "@/lib/data/projects";
+import { sortProjectsForMasonry } from "@/lib/data/projects";
 import { siteConfig } from "@/lib/site";
 import { aspectRatioStyle, cn } from "@/lib/utils";
 
@@ -20,8 +20,8 @@ type WorkIndexProps = {
 };
 
 /**
- * Portfolio index — CSS multi-column masonry using each cover’s
- * natural aspect ratio (portrait / landscape / square mixed).
+ * Portfolio index — true CSS-column masonry.
+ * Each cover keeps its intrinsic aspect ratio (portrait / landscape / square).
  */
 export function WorkIndex({
   projects,
@@ -35,7 +35,7 @@ export function WorkIndex({
       kategori === "alle"
         ? projects
         : projects.filter((project) => project.discipline === kategori);
-    return sortProjectsPortraitFirst(list);
+    return sortProjectsForMasonry(list);
   }, [kategori, projects]);
 
   function setKategori(next: string) {
@@ -106,13 +106,13 @@ export function WorkIndex({
 
       <ul
         className={cn(
-          "mt-12 m-0 list-none p-0",
+          "mt-10 m-0 w-full list-none p-0 md:mt-12",
           /* Masonry: 1 → 2 → 3 columns; natural heights create the rhythm */
-          "columns-1 gap-x-5",
-          "min-[480px]:columns-2 min-[480px]:gap-x-6",
-          "md:mt-14 md:gap-x-8",
-          "lg:columns-3 lg:gap-x-10",
-          "xl:gap-x-12"
+          "columns-1 gap-x-3",
+          "min-[480px]:columns-2 min-[480px]:gap-x-4",
+          "md:gap-x-5",
+          "lg:columns-3 lg:gap-x-5",
+          "xl:gap-x-6"
         )}
       >
         {filtered.map((project, index) => {
@@ -122,7 +122,7 @@ export function WorkIndex({
           return (
             <li
               key={project.slug}
-              className="mb-10 break-inside-avoid sm:mb-12 md:mb-14"
+              className="mb-8 break-inside-avoid min-[480px]:mb-9 md:mb-10"
             >
               <FadeIn delay={Math.min(index * 0.03, 0.12)}>
                 <Link
@@ -138,6 +138,7 @@ export function WorkIndex({
                       sizes="(min-width: 1024px) 30vw, (min-width: 480px) 45vw, 100vw"
                       className="w-full"
                       style={aspectRatioStyle(cover.width, cover.height)}
+                      imageClassName="object-cover"
                       priority={index < 2}
                       quality={index < 4 ? 88 : 82}
                       interactive

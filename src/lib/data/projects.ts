@@ -765,9 +765,31 @@ export function sortProjectsPortraitFirst(list: Project[]): Project[] {
   });
 }
 
+/**
+ * Interleave portrait and landscape covers for a balanced masonry rhythm.
+ * Keeps relative order within each orientation group.
+ */
+export function sortProjectsForMasonry(list: Project[]): Project[] {
+  const portraits: Project[] = [];
+  const landscapes: Project[] = [];
+
+  for (const project of list) {
+    if (isPortraitCase(project)) portraits.push(project);
+    else landscapes.push(project);
+  }
+
+  const mixed: Project[] = [];
+  const max = Math.max(portraits.length, landscapes.length);
+  for (let i = 0; i < max; i += 1) {
+    if (portraits[i]) mixed.push(portraits[i]);
+    if (landscapes[i]) mixed.push(landscapes[i]);
+  }
+  return mixed;
+}
+
 export function getProjectsByDiscipline(discipline?: DisciplineSlug | "alle") {
   if (!discipline || discipline === "alle") return projects;
-  return sortProjectsPortraitFirst(
+  return sortProjectsForMasonry(
     projects.filter((project) => project.discipline === discipline)
   );
 }

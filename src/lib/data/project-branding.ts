@@ -33,6 +33,7 @@ export type ProjectHoverBrand = {
  * - Grøn Koncert → #04A64B (official logo fill)
  * - Esbjerg Streetfood → #d94a32 (logo vermilion)
  * - DanskHåndbold → #e61428 (official SVG fill)
+ * - Fredericia Håndboldklub → #ff0033 (official SVG fill #f03)
  */
 export const projectHoverBrands: Record<string, ProjectHoverBrand> = {
   "varde-open-air": {
@@ -104,6 +105,16 @@ export const projectHoverBrands: Record<string, ProjectHoverBrand> = {
     overlayColor: "#e61428",
     logoClassName: "h-8 w-auto max-w-[78%] md:h-9",
     invertLogo: true,
+  },
+  "fredericia-haandboldklub": {
+    brandName: "Fredericia Håndboldklub",
+    logoSrc: "/logos/fredericia-haandboldklub.svg",
+    logoAlt: "Fredericia Håndboldklub logo",
+    logoWidth: 157,
+    logoHeight: 157,
+    overlayColor: "#ff0033",
+    logoClassName: "h-16 w-auto max-w-[48%] md:h-[4.5rem]",
+    invertLogo: false,
   },
 };
 

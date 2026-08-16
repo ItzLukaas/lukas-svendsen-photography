@@ -95,6 +95,16 @@ export const clientLogos: ClientLogo[] = [
     heightClass: "h-[2rem] md:h-[2.25rem]",
   },
   {
+    name: "Fredericia Håndboldklub",
+    src: "/logos/fredericia-haandboldklub.svg",
+    href: "https://fhk.dk/",
+    alt: "Fredericia Håndboldklub logo",
+    title: "Fredericia Håndboldklub",
+    width: 157,
+    height: 157,
+    heightClass: "h-[2.45rem] md:h-[2.75rem]",
+  },
+  {
     name: "Bork Festival",
     src: "/logos/bork-festival.png",
     href: "https://borkfestival.dk/",
@@ -218,7 +228,7 @@ export function getCollaborationsJsonLd(siteUrl: string) {
     "@id": `${siteUrl}/#collaborations`,
     name: "Samarbejder & opgaver",
     description:
-      "Udvalgte samarbejder og opgaver — blandt andet MAGION Grindsted, Vejle Kommune, Billund Kommune, DanskHåndbold, Varde Open Air, Bork Festival, Smukfest og SPORT 24.",
+      "Udvalgte samarbejder og opgaver — blandt andet MAGION Grindsted, Vejle Kommune, Billund Kommune, DanskHåndbold, Fredericia Håndboldklub, Varde Open Air, Bork Festival, Smukfest og SPORT 24.",
     numberOfItems: clientLogos.length,
     itemListElement: clientLogos.map((logo, index) => ({
       "@type": "ListItem",

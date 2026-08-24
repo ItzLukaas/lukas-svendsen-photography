@@ -50,5 +50,5 @@ export async function fetchProjectsByDiscipline(
   const all = await fetchProjects();
   if (!discipline || discipline === "alle") return all;
   const filtered = all.filter((project) => project.discipline === discipline);
-  return filtered.length ? filtered : getProjectsByDiscipline(discipline);
+  return filtered.length ? sortProjectsForMasonry(filtered) : getProjectsByDiscipline(discipline);
 }

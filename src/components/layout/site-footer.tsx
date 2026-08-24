@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { SignatureMark } from "@/components/layout/signature-mark";
 import {
+  IconFacebook,
   IconInstagram,
   IconLinkedin,
 } from "@/components/layout/social-icons";
@@ -76,6 +77,15 @@ export function SiteFooter() {
                 className="inline-flex size-11 items-center justify-center text-paper/70 transition-colors duration-300 hover:text-paper focus-visible:text-paper"
               >
                 <IconInstagram className="size-4" />
+              </a>
+              <a
+                href={siteConfig.social.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="inline-flex size-11 items-center justify-center text-paper/70 transition-colors duration-300 hover:text-paper focus-visible:text-paper"
+              >
+                <IconFacebook className="size-4" />
               </a>
               <a
                 href={siteConfig.social.linkedin}

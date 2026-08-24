@@ -15,6 +15,7 @@ export const siteConfig = {
   },
   social: {
     instagram: "https://www.instagram.com/lukassvendsen.dk/",
+    facebook: "https://www.facebook.com/profile.php?id=61593622893802",
     linkedin: "https://www.linkedin.com/in/lukas-guldager-svendsen-a4a777290/",
   },
   /**

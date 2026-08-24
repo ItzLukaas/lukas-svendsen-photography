@@ -4,6 +4,7 @@ import { Mail, Phone } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import {
+  IconFacebook,
   IconInstagram,
   IconLinkedin,
 } from "@/components/layout/social-icons";
@@ -100,6 +101,15 @@ export function AnnouncementBar() {
             className="inline-flex size-9 items-center justify-center text-muted-ink transition-colors duration-300 hover:text-ink focus-visible:text-ink"
           >
             <IconInstagram className="size-3.5" />
+          </a>
+          <a
+            href={siteConfig.social.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+            className="inline-flex size-9 items-center justify-center text-muted-ink transition-colors duration-300 hover:text-ink focus-visible:text-ink"
+          >
+            <IconFacebook className="size-3.5" />
           </a>
           <a
             href={siteConfig.social.linkedin}

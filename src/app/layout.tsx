@@ -133,6 +133,7 @@ const jsonLd = {
       worksFor: { "@id": `${siteConfig.url}/#organization` },
       sameAs: [
         siteConfig.social.instagram,
+        siteConfig.social.facebook,
         siteConfig.social.linkedin,
       ],
     },
@@ -161,6 +162,7 @@ const jsonLd = {
       areaServed,
       sameAs: [
         siteConfig.social.instagram,
+        siteConfig.social.facebook,
         siteConfig.social.linkedin,
       ],
     },
@@ -191,6 +193,7 @@ const jsonLd = {
       areaServed,
       sameAs: [
         siteConfig.social.instagram,
+        siteConfig.social.facebook,
         siteConfig.social.linkedin,
       ],
       openingHoursSpecification: openingHoursJsonLd(),

@@ -21,6 +21,15 @@ export function IconInstagram(props: IconProps) {
   );
 }
 
+export function IconFacebook(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" width="1em" height="1em" {...base} {...props}>
+      <rect x="3.5" y="3.5" width="17" height="17" rx="2" />
+      <path d="M14.75 12.5h2.25l.35-2h-2.6v-1.35c0-.55.05-1.15 1.15-1.15h1.35V5.85c-.25 0-.9-.1-1.75-.1-1.75 0-2.95 1.05-2.95 3.05V10.5H9.5v2h2.35v6h3v-6z" />
+    </svg>
+  );
+}
+
 export function IconLinkedin(props: IconProps) {
   return (
     <svg viewBox="0 0 24 24" width="1em" height="1em" {...base} {...props}>

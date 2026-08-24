@@ -84,6 +84,14 @@ function buildPortraitCase(images: ProjectImage[]): PortraitBlock[] {
       rightIndex: shots[8].index,
       stagger: "right",
     });
+  } else if (shots[7]) {
+    blocks.push({
+      type: "feature",
+      image: shots[7].image,
+      index: shots[7].index,
+      align: "end",
+      scale: "md",
+    });
   }
 
   return blocks;

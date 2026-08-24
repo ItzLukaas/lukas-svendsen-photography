@@ -379,6 +379,78 @@ const projectSeed: Project[] = [
     ],
   },
   {
+    slug: "rasmus-seebach-suset",
+    title: "Rasmus Seebach — Suset",
+    discipline: "koncerter",
+    category: "Koncert",
+    galleryFormat: "festival",
+    year: "2026",
+    location: "Esbjerg",
+    excerpt:
+      "Rasmus Seebach live på Suset i Esbjerg — scenelys, stemning og de store øjeblikke i højformat.",
+    client: "Suset",
+    role: "Fotograf",
+    outcome:
+      "Otte lodrette koncertbilleder fra Rasmus Seebach på Suset — klar til web og sociale medier.",
+    featured: true,
+    cover: P(
+      "/images/projects/rasmus-seebach-suset/01-01-dsc09692.jpg",
+      "Rasmus Seebach på scenen til Suset i Esbjerg",
+      1467,
+      2200
+    ),
+    images: [
+      P(
+        "/images/projects/rasmus-seebach-suset/01-01-dsc09692.jpg",
+        "Rasmus Seebach på scenen til Suset i Esbjerg",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/rasmus-seebach-suset/02-02-dsc09715.jpg",
+        "Rasmus Seebach synger live på Suset",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/rasmus-seebach-suset/03-03-dsc09787-2.jpg",
+        "Rasmus Seebach under scenelys på Suset",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/rasmus-seebach-suset/04-04-dsc09885.jpg",
+        "Rasmus Seebach med mikrofon på Suset",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/rasmus-seebach-suset/05-05-dsc00090.jpg",
+        "Rasmus Seebach live på Suset — sceneportræt",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/rasmus-seebach-suset/06-06-dsc00214.jpg",
+        "Rasmus Seebach foran publikum på Suset",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/rasmus-seebach-suset/07-07-dsc00352.jpg",
+        "Rasmus Seebach i spotlys på Suset",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/rasmus-seebach-suset/08-08-dsc00562.jpg",
+        "Rasmus Seebach på scenen til Suset i Esbjerg",
+        1467,
+        2200
+      ),
+    ],
+  },
+  {
     slug: "esbjerg-streetfood",
     title: "Esbjerg Streetfood",
     discipline: "events",

@@ -44,6 +44,7 @@ const PROJECT_TITLES = {
   "dm-finalen-herrer": "DM-finalen – Herrer",
   "dm-finalen-kvinder": "DM-finalen – Kvinder",
   "fredericia-haandboldklub": "Fredericia Håndboldklub",
+  "rasmus-seebach-suset": "Rasmus Seebach — Suset",
 };
 
 const HERO_OUT = path.join(ROOT, "public", "images", "hero.jpg");
@@ -101,6 +102,9 @@ function defaultAlt(slug, index, orientation) {
   }
   if (slug === "thor-farlov-smukfest" && orientation === "portrait") {
     return `Thor Farlov på Smukfest — øjeblik ${index + 1}`;
+  }
+  if (slug === "rasmus-seebach-suset" && orientation === "portrait") {
+    return `Rasmus Seebach på Suset — øjeblik ${index + 1}`;
   }
   if (slug === "fredericia-haandboldklub") {
     if (orientation === "portrait") {

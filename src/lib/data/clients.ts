@@ -115,6 +115,16 @@ export const clientLogos: ClientLogo[] = [
     heightClass: "h-[2.85rem] md:h-[3.2rem]",
   },
   {
+    name: "Suset",
+    src: "/logos/suset-esbjerg.svg",
+    href: "https://www.suset.dk/",
+    alt: "Suset Esbjerg logo",
+    title: "Suset",
+    width: 400,
+    height: 181,
+    heightClass: "h-[2.15rem] md:h-[2.4rem]",
+  },
+  {
     name: "Stay And Sleep",
     src: "/logos/stay-and-sleep.png",
     href: "https://stayandsleep.dk/",
@@ -228,7 +238,7 @@ export function getCollaborationsJsonLd(siteUrl: string) {
     "@id": `${siteUrl}/#collaborations`,
     name: "Samarbejder & opgaver",
     description:
-      "Udvalgte samarbejder og opgaver — blandt andet MAGION Grindsted, Vejle Kommune, Billund Kommune, DanskHåndbold, Fredericia Håndboldklub, Varde Open Air, Bork Festival, Smukfest og SPORT 24.",
+      "Udvalgte samarbejder og opgaver — blandt andet MAGION Grindsted, Vejle Kommune, Billund Kommune, DanskHåndbold, Fredericia Håndboldklub, Varde Open Air, Bork Festival, Suset, Smukfest og SPORT 24.",
     numberOfItems: clientLogos.length,
     itemListElement: clientLogos.map((logo, index) => ({
       "@type": "ListItem",

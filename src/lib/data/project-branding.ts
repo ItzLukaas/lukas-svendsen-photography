@@ -34,6 +34,7 @@ export type ProjectHoverBrand = {
  * - Esbjerg Streetfood → #d94a32 (logo vermilion)
  * - DanskHåndbold → #e61428 (official SVG fill)
  * - Fredericia Håndboldklub → #ff0033 (official SVG fill #f03)
+ * - Suset → #C44040 (sampled from official Suset visual identity / cover art)
  */
 export const projectHoverBrands: Record<string, ProjectHoverBrand> = {
   "varde-open-air": {
@@ -114,6 +115,16 @@ export const projectHoverBrands: Record<string, ProjectHoverBrand> = {
     logoHeight: 157,
     overlayColor: "#ff0033",
     logoClassName: "h-16 w-auto max-w-[48%] md:h-[4.5rem]",
+    invertLogo: false,
+  },
+  "rasmus-seebach-suset": {
+    brandName: "Suset",
+    logoSrc: "/logos/suset-esbjerg-light.svg",
+    logoAlt: "Suset logo",
+    logoWidth: 400,
+    logoHeight: 181,
+    overlayColor: "#C44040",
+    logoClassName: "h-12 w-auto max-w-[70%] md:h-14",
     invertLogo: false,
   },
 };

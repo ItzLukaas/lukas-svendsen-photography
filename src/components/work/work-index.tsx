@@ -9,6 +9,7 @@ import { Photo } from "@/components/photography/photo";
 import { ProjectHoverBrandOverlay } from "@/components/work/project-hover-brand";
 import { getProjectHoverBrand } from "@/lib/data/project-branding";
 import type { Project } from "@/lib/data/projects";
+import { sortProjectsForMasonry } from "@/lib/data/projects";
 import { siteConfig } from "@/lib/site";
 import { aspectRatioStyle, cn } from "@/lib/utils";
 
@@ -30,8 +31,11 @@ export function WorkIndex({
   const kategori = initialKategori || "alle";
 
   const filtered = useMemo(() => {
-    if (kategori === "alle") return projects;
-    return projects.filter((project) => project.discipline === kategori);
+    const list =
+      kategori === "alle"
+        ? projects
+        : projects.filter((project) => project.discipline === kategori);
+    return sortProjectsForMasonry(list);
   }, [kategori, projects]);
 
   function setKategori(next: string) {
@@ -103,9 +107,12 @@ export function WorkIndex({
       <ul
         className={cn(
           "mt-12 m-0 w-full list-none p-0 md:mt-14",
-          "columns-1 gap-x-5",
-          "min-[560px]:columns-2 min-[560px]:gap-x-6",
-          "lg:columns-3 lg:gap-x-8"
+          /* Masonry: 1 → 2 → 3 columns; natural cover heights create the rhythm */
+          "columns-1 gap-x-3",
+          "min-[480px]:columns-2 min-[480px]:gap-x-4",
+          "md:gap-x-5",
+          "lg:columns-3 lg:gap-x-6",
+          "xl:gap-x-8"
         )}
       >
         {filtered.map((project, index) => {
@@ -116,7 +123,7 @@ export function WorkIndex({
           return (
             <li
               key={project.slug}
-              className="mb-10 break-inside-avoid md:mb-12"
+              className="mb-8 break-inside-avoid min-[480px]:mb-9 md:mb-10"
             >
               <FadeIn delay={Math.min(index * 0.03, 0.12)}>
                 <Link
@@ -129,7 +136,7 @@ export function WorkIndex({
                       alt={cover.alt}
                       width={cover.width}
                       height={cover.height}
-                      sizes="(min-width: 1024px) 30vw, (min-width: 560px) 45vw, 100vw"
+                      sizes="(min-width: 1024px) 30vw, (min-width: 480px) 45vw, 100vw"
                       className="w-full"
                       style={aspectRatioStyle(cover.width, cover.height)}
                       imageClassName="object-cover object-center"

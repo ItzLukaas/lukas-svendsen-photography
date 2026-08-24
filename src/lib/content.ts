@@ -3,6 +3,7 @@ import {
   getProject,
   getProjectsByDiscipline,
   projects as seedProjects,
+  sortProjectsForMasonry,
   type Project,
 } from "@/lib/data/projects";
 import { hasSanity, sanityClient } from "@/lib/sanity/client";

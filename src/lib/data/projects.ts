@@ -964,17 +964,17 @@ export const aboutPortrait: ProjectImage = P(
   2200
 );
 
-/** Desktop hero — Super Cup 2026 herrer (DSC01990-2). New filename busts CDN cache. */
+/** Desktop hero — Super Cup 2026 kvinder (DSC01122). New filename busts CDN cache. */
 export const heroImage: ProjectImage = L(
-  "/images/hero-super-cup-2026.jpg",
+  "/images/hero-super-cup-kvinder-2026.jpg",
   "Håndbold action fra Super Cup 2026 — fotografi af Lukas Svendsen",
   2200,
   1467
 );
 
-/** Mobile hero — portrait crop of DSC01990-2 */
+/** Mobile hero — portrait crop of DSC01122 */
 export const heroMobileImage: ProjectImage = P(
-  "/images/hero-super-cup-2026-mobile.jpg",
+  "/images/hero-super-cup-kvinder-2026-mobile.jpg",
   "Håndbold action fra Super Cup 2026 — fotografi af Lukas Svendsen",
   978,
   1467

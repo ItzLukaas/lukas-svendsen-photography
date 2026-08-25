@@ -18,15 +18,15 @@ export function HomeHero() {
 
           {/* Dark veil — Super Cup action stays visible; white type stays sharp */}
           <div
-            className="absolute inset-0 bg-ink/50 md:bg-ink/42"
+            className="absolute inset-0 bg-ink/48 md:bg-ink/40"
             aria-hidden
           />
           <div
-            className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgb(14_14_13_/_0.32)_0%,rgb(14_14_13_/_0.14)_52%,transparent_76%)]"
+            className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgb(14_14_13_/_0.3)_0%,rgb(14_14_13_/_0.12)_52%,transparent_76%)]"
             aria-hidden
           />
           <div
-            className="absolute inset-0 bg-[linear-gradient(to_bottom,rgb(14_14_13_/_0.34)_0%,transparent_32%,transparent_64%,rgb(14_14_13_/_0.4)_100%)]"
+            className="absolute inset-0 bg-[linear-gradient(to_bottom,rgb(14_14_13_/_0.32)_0%,transparent_32%,transparent_64%,rgb(14_14_13_/_0.38)_100%)]"
             aria-hidden
           />
 

@@ -44,6 +44,7 @@ const PROJECT_TITLES = {
   "dm-finalen-herrer": "DM-finalen – Herrer",
   "dm-finalen-kvinder": "DM-finalen – Kvinder",
   "super-cup-kvinder": "Super Cup 2026 – Kvinder",
+  "super-cup-herrer": "Super Cup 2026 – Herrer",
   "fredericia-haandboldklub": "Fredericia Håndboldklub",
   "rasmus-seebach-suset": "Rasmus Seebach — Suset",
 };
@@ -113,7 +114,11 @@ function defaultAlt(slug, index, orientation) {
     }
     return `${title} — holdfoto ${index + 1}`;
   }
-  if (slug === "super-cup-kvinder" || slug.startsWith("dm-finalen-")) {
+  if (
+    slug === "super-cup-kvinder" ||
+    slug === "super-cup-herrer" ||
+    slug.startsWith("dm-finalen-")
+  ) {
     return `${title} — øjeblik ${index + 1}`;
   }
   if (orientation === "portrait") {

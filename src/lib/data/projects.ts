@@ -763,6 +763,102 @@ const projectSeed: Project[] = [
     ],
   },
   {
+    slug: "super-cup-herrer",
+    title: "Super Cup 2026 – Herrer",
+    discipline: "sport",
+    category: "Sport",
+    galleryFormat: "wide",
+    year: "2026",
+    location: "Jylland",
+    excerpt:
+      "Bambuni Super Cup for herrer — tempo, dueller og de afgørende øjeblikke under loftslamperne.",
+    client: "DanskHåndbold",
+    role: "Sportsfotograf",
+    outcome:
+      "Leverede action- og stemningsbilleder fra Super Cup — klar til presse, klub og sociale medier.",
+    featured: true,
+    cover: L(
+      "/images/projects/super-cup-herrer/01-01-dsc01426.jpg",
+      "Super Cup 2026 – Herrer — øjeblik 1",
+      2200,
+      1467
+    ),
+    images: [
+      L(
+        "/images/projects/super-cup-herrer/01-01-dsc01426.jpg",
+        "Super Cup 2026 – Herrer — øjeblik 1",
+        2200,
+        1467
+      ),
+      L(
+        "/images/projects/super-cup-herrer/02-02-dsc01475.jpg",
+        "Super Cup 2026 – Herrer — øjeblik 2",
+        2200,
+        1467
+      ),
+      L(
+        "/images/projects/super-cup-herrer/03-03-dsc01533.jpg",
+        "Super Cup 2026 – Herrer — øjeblik 3",
+        2200,
+        1467
+      ),
+      P(
+        "/images/projects/super-cup-herrer/04-04-dsc01546.jpg",
+        "Super Cup 2026 – Herrer — øjeblik 4",
+        1467,
+        2200
+      ),
+      L(
+        "/images/projects/super-cup-herrer/05-05-dsc01572.jpg",
+        "Super Cup 2026 – Herrer — øjeblik 5",
+        2200,
+        1467
+      ),
+      L(
+        "/images/projects/super-cup-herrer/06-06-dsc01624.jpg",
+        "Super Cup 2026 – Herrer — øjeblik 6",
+        2200,
+        1467
+      ),
+      L(
+        "/images/projects/super-cup-herrer/07-07-dsc01831.jpg",
+        "Super Cup 2026 – Herrer — øjeblik 7",
+        2200,
+        1467
+      ),
+      L(
+        "/images/projects/super-cup-herrer/08-08-dsc01859.jpg",
+        "Super Cup 2026 – Herrer — øjeblik 8",
+        2200,
+        1467
+      ),
+      L(
+        "/images/projects/super-cup-herrer/09-09-dsc01868.jpg",
+        "Super Cup 2026 – Herrer — øjeblik 9",
+        2200,
+        1467
+      ),
+      L(
+        "/images/projects/super-cup-herrer/10-10-dsc01914.jpg",
+        "Super Cup 2026 – Herrer — øjeblik 10",
+        2200,
+        1467
+      ),
+      L(
+        "/images/projects/super-cup-herrer/11-11-dsc01990-2.jpg",
+        "Super Cup 2026 – Herrer — øjeblik 11",
+        2200,
+        1467
+      ),
+      L(
+        "/images/projects/super-cup-herrer/12-12-dsc02010-2.jpg",
+        "Super Cup 2026 – Herrer — øjeblik 12",
+        2200,
+        1467
+      ),
+    ],
+  },
+  {
     slug: "fredericia-haandboldklub",
     title: "Fredericia Håndboldklub",
     discipline: "portraetter",

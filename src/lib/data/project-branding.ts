@@ -118,6 +118,16 @@ export const projectHoverBrands: Record<string, ProjectHoverBrand> = {
     logoClassName: "h-8 w-auto max-w-[78%] md:h-9",
     invertLogo: true,
   },
+  "super-cup-herrer": {
+    brandName: "DanskHåndbold",
+    logoSrc: "/logos/dansk-haandbold.svg",
+    logoAlt: "DanskHåndbold logo",
+    logoWidth: 655,
+    logoHeight: 150,
+    overlayColor: "#e61428",
+    logoClassName: "h-8 w-auto max-w-[78%] md:h-9",
+    invertLogo: true,
+  },
   "fredericia-haandboldklub": {
     brandName: "Fredericia Håndboldklub",
     logoSrc: "/logos/fredericia-haandboldklub.svg",

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -25,6 +25,11 @@ export function FadeIn({
 }: FadeInProps) {
   const reduceMotion = useReducedMotion();
   const skip = !!reduceMotion;
+  const [scrollRoot, setScrollRoot] = useState<Element | null>(null);
+
+  useEffect(() => {
+    setScrollRoot(document.getElementById("site-scroll"));
+  }, []);
 
   if (immediate) {
     return (
@@ -56,11 +61,7 @@ export function FadeIn({
         once,
         margin: "0px 0px -6% 0px",
         amount: 0.12,
-        // Site uses #site-scroll as the scrollport — not the window
-        root:
-          typeof document !== "undefined"
-            ? document.getElementById("site-scroll")
-            : null,
+        ...(scrollRoot ? { root: scrollRoot } : {}),
       }}
       transition={
         skip

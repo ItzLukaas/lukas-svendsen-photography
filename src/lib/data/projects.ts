@@ -964,9 +964,9 @@ export const aboutPortrait: ProjectImage = P(
   2200
 );
 
-/** Desktop hero — Super Cup 2026 herrer (DSC01990-2) */
+/** Desktop hero — Super Cup 2026 herrer (DSC01990-2). New filename busts CDN cache. */
 export const heroImage: ProjectImage = L(
-  "/images/hero.jpg",
+  "/images/hero-super-cup-2026.jpg",
   "Håndbold action fra Super Cup 2026 — fotografi af Lukas Svendsen",
   2200,
   1467
@@ -974,7 +974,7 @@ export const heroImage: ProjectImage = L(
 
 /** Mobile hero — portrait crop of DSC01990-2 */
 export const heroMobileImage: ProjectImage = P(
-  "/images/hero-mobile.jpg",
+  "/images/hero-super-cup-2026-mobile.jpg",
   "Håndbold action fra Super Cup 2026 — fotografi af Lukas Svendsen",
   978,
   1467
@@ -1014,31 +1014,36 @@ export function sortProjectsPortraitFirst(list: Project[]): Project[] {
 /**
  * Interleave portrait and landscape covers for a balanced masonry rhythm.
  * When landscapes dominate, spaces them so tall covers keep punctuating the grid.
+ * Priority slugs (e.g. Thor Farlov) are pinned near the front.
  */
 export function sortProjectsForMasonry(list: Project[]): Project[] {
+  const prioritySlugs = ["thor-farlov-smukfest"];
+  const priority = prioritySlugs
+    .map((slug) => list.find((project) => project.slug === slug))
+    .filter((project): project is Project => Boolean(project));
+  const rest = list.filter((project) => !prioritySlugs.includes(project.slug));
+
   const portraits: Project[] = [];
   const landscapes: Project[] = [];
 
-  for (const project of list) {
+  for (const project of rest) {
     if (isPortraitCase(project)) portraits.push(project);
     else landscapes.push(project);
   }
 
-  if (portraits.length === 0) return [...landscapes];
-  if (landscapes.length === 0) return [...portraits];
+  if (portraits.length === 0 && landscapes.length === 0) return [...priority];
 
-  const mixed: Project[] = [];
+  const mixed: Project[] = [...priority];
   let p = 0;
   let l = 0;
 
-  // Start with portrait when available — sets the tall/wide rhythm immediately
+  // After priority pins, keep tall/wide rhythm
   while (p < portraits.length || l < landscapes.length) {
     if (p < portraits.length) {
       mixed.push(portraits[p]);
       p += 1;
     }
 
-    // Between portraits: 1–2 landscapes so formats keep alternating
     const landscapesPerPortrait =
       Math.ceil(landscapes.length / Math.max(portraits.length, 1)) || 1;
     for (let n = 0; n < landscapesPerPortrait && l < landscapes.length; n += 1) {

@@ -16,17 +16,17 @@ export function HomeHero() {
         <div className="relative aspect-[3/4] overflow-hidden bg-ink sm:aspect-[4/5] md:aspect-[16/10] lg:aspect-[2.05/1]">
           <HeroBackground image={heroImage} mobileImage={heroMobileImage} />
 
-          {/* Dark veil — keeps Super Cup action readable under white type */}
+          {/* Dark veil — Super Cup action stays visible; white type stays sharp */}
           <div
-            className="absolute inset-0 bg-ink/45 md:bg-ink/40"
+            className="absolute inset-0 bg-ink/50 md:bg-ink/42"
             aria-hidden
           />
           <div
-            className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgb(14_14_13_/_0.28)_0%,rgb(14_14_13_/_0.12)_55%,transparent_78%)]"
+            className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgb(14_14_13_/_0.32)_0%,rgb(14_14_13_/_0.14)_52%,transparent_76%)]"
             aria-hidden
           />
           <div
-            className="absolute inset-0 bg-[linear-gradient(to_bottom,rgb(14_14_13_/_0.28)_0%,transparent_34%,transparent_66%,rgb(14_14_13_/_0.34)_100%)]"
+            className="absolute inset-0 bg-[linear-gradient(to_bottom,rgb(14_14_13_/_0.34)_0%,transparent_32%,transparent_64%,rgb(14_14_13_/_0.4)_100%)]"
             aria-hidden
           />
 

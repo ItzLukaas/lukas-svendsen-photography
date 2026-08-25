@@ -20,8 +20,8 @@ type WorkIndexProps = {
 };
 
 /**
- * Portfolio index — CSS-column masonry with each cover’s true aspect ratio.
- * Landscape stays landscape; portrait stays portrait. No forced crop boxes.
+ * Portfolio index — dense CSS-column masonry.
+ * Portrait covers stay taller than landscape for rhythm, without dominating the page.
  */
 export function WorkIndex({
   projects,
@@ -106,13 +106,13 @@ export function WorkIndex({
 
       <ul
         className={cn(
-          "mt-12 m-0 w-full list-none p-0 md:mt-14",
-          /* Masonry: 1 → 2 → 3 columns; natural cover heights create the rhythm */
-          "columns-1 gap-x-3",
-          "min-[480px]:columns-2 min-[480px]:gap-x-4",
-          "md:gap-x-5",
-          "lg:columns-3 lg:gap-x-6",
-          "xl:gap-x-8"
+          "mt-10 m-0 w-full list-none p-0 md:mt-12",
+          /* Dense masonry — tighter gaps so high/wide formats lock together */
+          "columns-1 gap-x-3 [column-fill:balance]",
+          "min-[480px]:columns-2 min-[480px]:gap-x-3.5",
+          "md:gap-x-4",
+          "lg:columns-3 lg:gap-x-5",
+          "xl:gap-x-6"
         )}
       >
         {filtered.map((project, index) => {
@@ -123,9 +123,12 @@ export function WorkIndex({
           return (
             <li
               key={project.slug}
-              className="mb-8 break-inside-avoid min-[480px]:mb-9 md:mb-10"
+              className="mb-5 break-inside-avoid min-[480px]:mb-5 md:mb-6"
             >
-              <FadeIn delay={Math.min(index * 0.03, 0.12)} immediate={index < 4}>
+              <FadeIn
+                delay={Math.min(index * 0.025, 0.1)}
+                immediate={index < 6}
+              >
                 <Link
                   href={`/arbejde/${project.slug}`}
                   className="group/project group block"
@@ -139,8 +142,12 @@ export function WorkIndex({
                       sizes="(min-width: 1024px) 30vw, (min-width: 480px) 45vw, 100vw"
                       className={cn(
                         "w-full",
-                        /* Cap portrait covers on desktop so they don’t tower over landscape */
-                        !isWide && "aspect-[4/5] md:aspect-[5/6]"
+                        /*
+                         * Landscape: natural ratio (~3:2).
+                         * Portrait: clearly taller (3:4) for masonry rhythm,
+                         * without full-height towers that blow up on desktop.
+                         */
+                        isWide ? undefined : "aspect-[3/4]"
                       )}
                       style={
                         isWide
@@ -156,7 +163,7 @@ export function WorkIndex({
                       <ProjectHoverBrandOverlay brand={hoverBrand} />
                     ) : null}
                   </div>
-                  <div className="project-caption">
+                  <div className="project-caption !mt-2.5 md:!mt-3">
                     <h2 className="project-title font-display text-[0.975rem] leading-tight tracking-[-0.018em] md:text-[1.1rem]">
                       {project.title}
                     </h2>

@@ -700,8 +700,8 @@ const projectSeed: Project[] = [
       "Leverede action- og stemningsbilleder fra Super Cup — klar til presse, klub og sociale medier.",
     featured: true,
     cover: L(
-      "/images/projects/super-cup-kvinder/09-09-dsc01396.jpg",
-      "Super Cup 2026 – Kvinder — øjeblik 9",
+      "/images/projects/super-cup-kvinder/01-01-dsc01122.jpg",
+      "Action under loftslamperne — Super Cup 2026 kvinder",
       2200,
       1467
     ),
@@ -1013,7 +1013,7 @@ export function sortProjectsPortraitFirst(list: Project[]): Project[] {
 
 /**
  * Interleave portrait and landscape covers for a balanced masonry rhythm.
- * Keeps relative order within each orientation group.
+ * When landscapes dominate, spaces them so tall covers keep punctuating the grid.
  */
 export function sortProjectsForMasonry(list: Project[]): Project[] {
   const portraits: Project[] = [];
@@ -1024,12 +1024,29 @@ export function sortProjectsForMasonry(list: Project[]): Project[] {
     else landscapes.push(project);
   }
 
+  if (portraits.length === 0) return [...landscapes];
+  if (landscapes.length === 0) return [...portraits];
+
   const mixed: Project[] = [];
-  const max = Math.max(portraits.length, landscapes.length);
-  for (let i = 0; i < max; i += 1) {
-    if (portraits[i]) mixed.push(portraits[i]);
-    if (landscapes[i]) mixed.push(landscapes[i]);
+  let p = 0;
+  let l = 0;
+
+  // Start with portrait when available — sets the tall/wide rhythm immediately
+  while (p < portraits.length || l < landscapes.length) {
+    if (p < portraits.length) {
+      mixed.push(portraits[p]);
+      p += 1;
+    }
+
+    // Between portraits: 1–2 landscapes so formats keep alternating
+    const landscapesPerPortrait =
+      Math.ceil(landscapes.length / Math.max(portraits.length, 1)) || 1;
+    for (let n = 0; n < landscapesPerPortrait && l < landscapes.length; n += 1) {
+      mixed.push(landscapes[l]);
+      l += 1;
+    }
   }
+
   return mixed;
 }
 

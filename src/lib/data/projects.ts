@@ -1012,47 +1012,58 @@ export function sortProjectsPortraitFirst(list: Project[]): Project[] {
 }
 
 /**
- * Interleave portrait and landscape covers for a balanced masonry rhythm.
- * When landscapes dominate, spaces them so tall covers keep punctuating the grid.
- * Priority slugs (e.g. Thor Farlov) are pinned near the front.
+ * Mix covers for Arbejde masonry — maximize variation between neighbours.
+ * Prefers alternating tall/wide and different disciplines side by side.
+ * Priority slugs (e.g. Thor Farlov) stay near the front.
  */
 export function sortProjectsForMasonry(list: Project[]): Project[] {
+  if (list.length <= 1) return [...list];
+
   const prioritySlugs = ["thor-farlov-smukfest"];
-  const priority = prioritySlugs
-    .map((slug) => list.find((project) => project.slug === slug))
-    .filter((project): project is Project => Boolean(project));
-  const rest = list.filter((project) => !prioritySlugs.includes(project.slug));
+  const ordered: Project[] = [];
+  const remaining = [...list];
 
-  const portraits: Project[] = [];
-  const landscapes: Project[] = [];
-
-  for (const project of rest) {
-    if (isPortraitCase(project)) portraits.push(project);
-    else landscapes.push(project);
+  for (const slug of prioritySlugs) {
+    const index = remaining.findIndex((project) => project.slug === slug);
+    if (index >= 0) ordered.push(remaining.splice(index, 1)[0]);
   }
 
-  if (portraits.length === 0 && landscapes.length === 0) return [...priority];
+  while (remaining.length > 0) {
+    const prev = ordered[ordered.length - 1];
+    let bestIndex = 0;
+    let bestScore = Number.NEGATIVE_INFINITY;
 
-  const mixed: Project[] = [...priority];
-  let p = 0;
-  let l = 0;
+    for (let i = 0; i < remaining.length; i += 1) {
+      const candidate = remaining[i];
+      let score = 0;
 
-  // After priority pins, keep tall/wide rhythm
-  while (p < portraits.length || l < landscapes.length) {
-    if (p < portraits.length) {
-      mixed.push(portraits[p]);
-      p += 1;
+      if (prev) {
+        const prevPortrait = isPortraitCase(prev);
+        const nextPortrait = isPortraitCase(candidate);
+        // Strong preference: don't put two same-format covers in a row
+        score += prevPortrait === nextPortrait ? -8 : 10;
+        // Prefer switching discipline (sport next to concert, etc.)
+        score += prev.discipline === candidate.discipline ? -6 : 7;
+        // Soft preference: avoid same category label back-to-back
+        score += prev.category === candidate.category ? -2 : 2;
+      } else {
+        // Without a previous pin, start with a tall cover when possible
+        score += isPortraitCase(candidate) ? 3 : 0;
+      }
+
+      // Slight stable bias toward original order when scores tie
+      score -= i * 0.01;
+
+      if (score > bestScore) {
+        bestScore = score;
+        bestIndex = i;
+      }
     }
 
-    const landscapesPerPortrait =
-      Math.ceil(landscapes.length / Math.max(portraits.length, 1)) || 1;
-    for (let n = 0; n < landscapesPerPortrait && l < landscapes.length; n += 1) {
-      mixed.push(landscapes[l]);
-      l += 1;
-    }
+    ordered.push(remaining.splice(bestIndex, 1)[0]);
   }
 
-  return mixed;
+  return ordered;
 }
 
 export function getProjectsByDiscipline(discipline?: DisciplineSlug | "alle") {

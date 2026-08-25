@@ -1015,11 +1015,19 @@ export function sortProjectsPortraitFirst(list: Project[]): Project[] {
  * Mix covers for Arbejde masonry — maximize variation between neighbours.
  * Prefers alternating tall/wide and different disciplines side by side.
  * Priority slugs (e.g. Thor Farlov) stay near the front.
+ * Super Cup kvinder/herrer are kept as a neighbouring pair.
  */
 export function sortProjectsForMasonry(list: Project[]): Project[] {
   if (list.length <= 1) return [...list];
 
   const prioritySlugs = ["thor-farlov-smukfest"];
+  /** Keep these project pairs adjacent (first slug first when both present). */
+  const pairMate: Record<string, string> = {
+    "super-cup-kvinder": "super-cup-herrer",
+    "super-cup-herrer": "super-cup-kvinder",
+  };
+  const pairLead = "super-cup-kvinder";
+
   const ordered: Project[] = [];
   const remaining = [...list];
 
@@ -1028,8 +1036,24 @@ export function sortProjectsForMasonry(list: Project[]): Project[] {
     if (index >= 0) ordered.push(remaining.splice(index, 1)[0]);
   }
 
+  const takeBySlug = (slug: string) => {
+    const index = remaining.findIndex((project) => project.slug === slug);
+    if (index < 0) return null;
+    return remaining.splice(index, 1)[0];
+  };
+
   while (remaining.length > 0) {
     const prev = ordered[ordered.length - 1];
+
+    // If the previous card is half of a Super Cup pair, place its mate next
+    if (prev && pairMate[prev.slug]) {
+      const mate = takeBySlug(pairMate[prev.slug]);
+      if (mate) {
+        ordered.push(mate);
+        continue;
+      }
+    }
+
     let bestIndex = 0;
     let bestScore = Number.NEGATIVE_INFINITY;
 
@@ -1037,21 +1061,22 @@ export function sortProjectsForMasonry(list: Project[]): Project[] {
       const candidate = remaining[i];
       let score = 0;
 
+      // Prefer starting the Super Cup pair with kvinder (herrer follows via mate rule)
+      if (candidate.slug === pairLead) score += 4;
+      if (candidate.slug === "super-cup-herrer" && remaining.some((p) => p.slug === pairLead)) {
+        score -= 12;
+      }
+
       if (prev) {
         const prevPortrait = isPortraitCase(prev);
         const nextPortrait = isPortraitCase(candidate);
-        // Strong preference: don't put two same-format covers in a row
         score += prevPortrait === nextPortrait ? -8 : 10;
-        // Prefer switching discipline (sport next to concert, etc.)
         score += prev.discipline === candidate.discipline ? -6 : 7;
-        // Soft preference: avoid same category label back-to-back
         score += prev.category === candidate.category ? -2 : 2;
       } else {
-        // Without a previous pin, start with a tall cover when possible
         score += isPortraitCase(candidate) ? 3 : 0;
       }
 
-      // Slight stable bias toward original order when scores tie
       score -= i * 0.01;
 
       if (score > bestScore) {

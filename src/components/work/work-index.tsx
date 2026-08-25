@@ -20,8 +20,8 @@ type WorkIndexProps = {
 };
 
 /**
- * Portfolio index — dense CSS-column masonry.
- * Portrait covers stay taller than landscape for rhythm, without dominating the page.
+ * Portfolio index — true CSS-column masonry.
+ * Landscape stays short; portrait stays tall. Uneven column rhythm = the wow.
  */
 export function WorkIndex({
   projects,
@@ -55,30 +55,32 @@ export function WorkIndex({
   ] as const;
 
   return (
-    <div className="mx-auto max-w-[1600px] px-5 pt-[calc(var(--chrome-h)+2.5rem)] pb-20 md:px-8 md:pb-28 lg:px-12">
+    <div className="mx-auto max-w-[1680px] px-4 pt-[calc(var(--chrome-h)+2rem)] pb-24 sm:px-6 md:px-8 md:pt-[calc(var(--chrome-h)+2.75rem)] md:pb-32 lg:px-12">
       <FadeIn immediate>
-        <h1 className="font-display text-[clamp(2.85rem,7.5vw,5.75rem)] leading-[0.92] tracking-[-0.03em]">
-          Arbejde
-        </h1>
-        <p className="text-body mt-5 max-w-lg">
-          Festival, sport, events og mere — fra Grindsted og ud i Jylland. Åbn
-          et projekt for at se billederne.
-        </p>
-        <p className="mt-4 text-[0.875rem] text-muted-ink">
-          Har du et job?{" "}
-          <Link
-            href="/booking"
-            className="font-medium text-foreground underline underline-offset-4 transition-opacity hover:opacity-70"
-          >
-            Book mig
-          </Link>
-          .
-        </p>
+        <div className="max-w-2xl">
+          <h1 className="font-display text-[clamp(3rem,8vw,6rem)] leading-[0.9] tracking-[-0.035em]">
+            Arbejde
+          </h1>
+          <p className="mt-5 max-w-md text-[0.9375rem] leading-[1.65] text-muted-ink md:mt-6 md:text-[1.0625rem]">
+            Festival, sport, events og mere — fra Grindsted og ud i Jylland.
+            Åbn et projekt for at se billederne.
+          </p>
+          <p className="mt-3 text-[0.875rem] text-muted-ink">
+            Har du et job?{" "}
+            <Link
+              href="/booking"
+              className="font-medium text-foreground underline underline-offset-4 transition-opacity hover:opacity-70"
+            >
+              Book mig
+            </Link>
+            .
+          </p>
+        </div>
       </FadeIn>
 
-      <FadeIn delay={0.05} immediate>
+      <FadeIn delay={0.04} immediate>
         <div
-          className="mt-12 flex flex-wrap gap-x-8 gap-y-3 border-b border-foreground/10 pb-5"
+          className="mt-10 flex flex-wrap gap-x-7 gap-y-3 border-b border-foreground/10 pb-4 md:mt-14 md:gap-x-9"
           role="group"
           aria-label="Filtrer efter kategori"
         >
@@ -106,13 +108,14 @@ export function WorkIndex({
 
       <ul
         className={cn(
-          "mt-10 m-0 w-full list-none p-0 md:mt-12",
-          /* Dense masonry — tighter gaps so high/wide formats lock together */
-          "columns-1 gap-x-3 [column-fill:balance]",
-          "min-[480px]:columns-2 min-[480px]:gap-x-3.5",
-          "md:gap-x-4",
+          "mt-8 m-0 w-full list-none p-0 md:mt-10",
+          /* True masonry: fill columns top→bottom, uneven heights create the rhythm */
+          "[column-fill:auto]",
+          "columns-1 gap-x-3",
+          "min-[520px]:columns-2 min-[520px]:gap-x-4",
           "lg:columns-3 lg:gap-x-5",
-          "xl:gap-x-6"
+          "xl:gap-x-6",
+          "2xl:gap-x-7"
         )}
       >
         {filtered.map((project, index) => {
@@ -123,51 +126,49 @@ export function WorkIndex({
           return (
             <li
               key={project.slug}
-              className="mb-5 break-inside-avoid min-[480px]:mb-5 md:mb-6"
+              className="mb-6 break-inside-avoid min-[520px]:mb-5 md:mb-6 lg:mb-7"
             >
+              {/* Opacity-only fade — transforms break CSS column fragmentation */}
               <FadeIn
-                delay={Math.min(index * 0.025, 0.1)}
+                delay={Math.min(index * 0.04, 0.2)}
                 immediate={index < 6}
+                y={0}
+                className="break-inside-avoid"
               >
                 <Link
                   href={`/arbejde/${project.slug}`}
                   className="group/project group block"
                 >
-                  <div className="relative">
+                  <div className="relative overflow-hidden">
                     <Photo
                       src={cover.src}
                       alt={cover.alt}
                       width={cover.width}
                       height={cover.height}
-                      sizes="(min-width: 1024px) 30vw, (min-width: 480px) 45vw, 100vw"
-                      className={cn(
-                        "w-full",
-                        /*
-                         * Landscape: natural ratio (~3:2).
-                         * Portrait: clearly taller (3:4) for masonry rhythm,
-                         * without full-height towers that blow up on desktop.
-                         */
-                        isWide ? undefined : "aspect-[3/4]"
-                      )}
+                      sizes="(min-width: 1024px) 32vw, (min-width: 520px) 46vw, 100vw"
+                      className="w-full"
                       style={
                         isWide
                           ? aspectRatioStyle(cover.width, cover.height)
-                          : undefined
+                          : {
+                              /* Tall enough to contrast landscape (~3:2), not a full tower */
+                              aspectRatio: "3 / 4",
+                            }
                       }
                       imageClassName="object-cover object-center"
-                      priority={index < 3}
-                      quality={isWide ? 90 : 88}
+                      priority={index < 4}
+                      quality={isWide ? 92 : 90}
                       interactive
                     />
                     {hoverBrand ? (
                       <ProjectHoverBrandOverlay brand={hoverBrand} />
                     ) : null}
                   </div>
-                  <div className="project-caption !mt-2.5 md:!mt-3">
-                    <h2 className="project-title font-display text-[0.975rem] leading-tight tracking-[-0.018em] md:text-[1.1rem]">
+                  <div className="mt-3 flex items-baseline justify-between gap-3 md:mt-3.5">
+                    <h2 className="project-title min-w-0 font-display text-[0.95rem] leading-snug tracking-[-0.02em] md:text-[1.05rem]">
                       {project.title}
                     </h2>
-                    <p className="project-meta">{project.category}</p>
+                    <p className="project-meta shrink-0">{project.category}</p>
                   </div>
                 </Link>
               </FadeIn>

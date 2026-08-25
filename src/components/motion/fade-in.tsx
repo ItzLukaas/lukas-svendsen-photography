@@ -52,7 +52,16 @@ export function FadeIn({
       className={cn(className)}
       initial={skip ? false : { opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once, margin: "0px 0px -6% 0px", amount: 0.12 }}
+      viewport={{
+        once,
+        margin: "0px 0px -6% 0px",
+        amount: 0.12,
+        // Site uses #site-scroll as the scrollport — not the window
+        root:
+          typeof document !== "undefined"
+            ? document.getElementById("site-scroll")
+            : null,
+      }}
       transition={
         skip
           ? { duration: 0 }

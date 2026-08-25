@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { FadeIn } from "@/components/motion/fade-in";
@@ -15,14 +15,133 @@ import { aspectRatioStyle, cn } from "@/lib/utils";
 
 type WorkIndexProps = {
   projects: Project[];
-  /** Server-provided category so H1 + grid SSR without useSearchParams */
   initialKategori?: string;
 };
 
+function useColumnCount() {
+  const [count, setCount] = useState(1);
+
+  useEffect(() => {
+    const update = () => {
+      const w = window.innerWidth;
+      if (w >= 1024) setCount(3);
+      else if (w >= 640) setCount(2);
+      else setCount(1);
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  return count;
+}
+
+function coverRatio(project: Project) {
+  const { cover } = project;
+  if (cover.width >= cover.height) {
+    return cover.height / cover.width;
+  }
+  // Portrait cards use 3/4 for rhythm without towering
+  return 4 / 3;
+}
+
 /**
- * Portfolio index — true CSS-column masonry.
- * Landscape stays short; portrait stays tall. Uneven column rhythm = the wow.
+ * Shortest-column masonry — packs by estimated cover height.
+ * Avoids CSS-column + FadeIn bugs that made the grid look empty/flat.
  */
+function MasonryBoard({ projects }: { projects: Project[] }) {
+  const columnCount = useColumnCount();
+
+  const columns = useMemo(() => {
+    const cols: { project: Project; index: number }[][] = Array.from(
+      { length: columnCount },
+      () => []
+    );
+    const colHeights = Array.from({ length: columnCount }, () => 0);
+
+    projects.forEach((project, index) => {
+      let target = 0;
+      for (let c = 1; c < columnCount; c += 1) {
+        if (colHeights[c] < colHeights[target]) target = c;
+      }
+      cols[target].push({ project, index });
+      // Relative units — only ratios matter for packing
+      colHeights[target] += coverRatio(project) + 0.12;
+    });
+
+    return cols;
+  }, [projects, columnCount]);
+
+  return (
+    <div
+      className={cn(
+        "grid items-start gap-x-4",
+        columnCount === 1 && "grid-cols-1",
+        columnCount === 2 && "grid-cols-2",
+        columnCount === 3 && "grid-cols-3",
+        "md:gap-x-5 lg:gap-x-6 xl:gap-x-7"
+      )}
+    >
+      {columns.map((col, colIndex) => (
+        <div
+          key={`col-${colIndex}`}
+          className="flex min-w-0 flex-col gap-5 md:gap-6 lg:gap-7"
+        >
+          {col.map(({ project, index }) => {
+            const hoverBrand = getProjectHoverBrand(project.slug);
+            const { cover } = project;
+            const isWide = cover.width >= cover.height;
+
+            return (
+              <article
+                key={project.slug}
+                className="motion-safe:animate-[arbejde-card-in_0.75s_cubic-bezier(0.22,1,0.36,1)_both]"
+                style={{
+                  animationDelay: `${Math.min(index * 60 + colIndex * 40, 360)}ms`,
+                }}
+              >
+                <Link
+                  href={`/arbejde/${project.slug}`}
+                  className="group/project group block"
+                >
+                  <div className="relative overflow-hidden">
+                    <Photo
+                      src={cover.src}
+                      alt={cover.alt}
+                      width={cover.width}
+                      height={cover.height}
+                      sizes="(min-width: 1024px) 32vw, (min-width: 640px) 46vw, 100vw"
+                      className="w-full"
+                      style={
+                        isWide
+                          ? aspectRatioStyle(cover.width, cover.height)
+                          : { aspectRatio: "3 / 4" }
+                      }
+                      imageClassName="object-cover object-center"
+                      priority={index < 5}
+                      quality={isWide ? 92 : 90}
+                      interactive
+                    />
+                    {hoverBrand ? (
+                      <ProjectHoverBrandOverlay brand={hoverBrand} />
+                    ) : null}
+                  </div>
+                  <div className="mt-3 flex items-baseline justify-between gap-3">
+                    <h2 className="project-title min-w-0 font-display text-[0.95rem] leading-snug tracking-[-0.02em] md:text-[1.05rem]">
+                      {project.title}
+                    </h2>
+                    <p className="project-meta shrink-0">{project.category}</p>
+                  </div>
+                </Link>
+              </article>
+            );
+          })}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export function WorkIndex({
   projects,
   initialKategori = "alle",
@@ -58,7 +177,7 @@ export function WorkIndex({
     <div className="mx-auto max-w-[1680px] px-4 pt-[calc(var(--chrome-h)+2rem)] pb-24 sm:px-6 md:px-8 md:pt-[calc(var(--chrome-h)+2.75rem)] md:pb-32 lg:px-12">
       <FadeIn immediate>
         <div className="max-w-2xl">
-          <h1 className="font-display text-[clamp(3rem,8vw,6rem)] leading-[0.9] tracking-[-0.035em]">
+          <h1 className="font-display text-[clamp(3rem,8vw,6.25rem)] leading-[0.9] tracking-[-0.035em]">
             Arbejde
           </h1>
           <p className="mt-5 max-w-md text-[0.9375rem] leading-[1.65] text-muted-ink md:mt-6 md:text-[1.0625rem]">
@@ -106,82 +225,15 @@ export function WorkIndex({
         </div>
       </FadeIn>
 
-      <ul
-        className={cn(
-          "mt-8 m-0 w-full list-none p-0 md:mt-10",
-          /* True masonry: fill columns top→bottom, uneven heights create the rhythm */
-          "[column-fill:auto]",
-          "columns-1 gap-x-3",
-          "min-[520px]:columns-2 min-[520px]:gap-x-4",
-          "lg:columns-3 lg:gap-x-5",
-          "xl:gap-x-6",
-          "2xl:gap-x-7"
+      <div className="mt-8 md:mt-10">
+        {filtered.length > 0 ? (
+          <MasonryBoard projects={filtered} />
+        ) : (
+          <p className="mt-12 text-muted-ink">
+            Ingen projekter i den kategori endnu.
+          </p>
         )}
-      >
-        {filtered.map((project, index) => {
-          const hoverBrand = getProjectHoverBrand(project.slug);
-          const { cover } = project;
-          const isWide = cover.width >= cover.height;
-
-          return (
-            <li
-              key={project.slug}
-              className="mb-6 break-inside-avoid min-[520px]:mb-5 md:mb-6 lg:mb-7"
-            >
-              {/* Opacity-only fade — transforms break CSS column fragmentation */}
-              <FadeIn
-                delay={Math.min(index * 0.04, 0.2)}
-                immediate={index < 6}
-                y={0}
-                className="break-inside-avoid"
-              >
-                <Link
-                  href={`/arbejde/${project.slug}`}
-                  className="group/project group block"
-                >
-                  <div className="relative overflow-hidden">
-                    <Photo
-                      src={cover.src}
-                      alt={cover.alt}
-                      width={cover.width}
-                      height={cover.height}
-                      sizes="(min-width: 1024px) 32vw, (min-width: 520px) 46vw, 100vw"
-                      className="w-full"
-                      style={
-                        isWide
-                          ? aspectRatioStyle(cover.width, cover.height)
-                          : {
-                              /* Tall enough to contrast landscape (~3:2), not a full tower */
-                              aspectRatio: "3 / 4",
-                            }
-                      }
-                      imageClassName="object-cover object-center"
-                      priority={index < 4}
-                      quality={isWide ? 92 : 90}
-                      interactive
-                    />
-                    {hoverBrand ? (
-                      <ProjectHoverBrandOverlay brand={hoverBrand} />
-                    ) : null}
-                  </div>
-                  <div className="mt-3 flex items-baseline justify-between gap-3 md:mt-3.5">
-                    <h2 className="project-title min-w-0 font-display text-[0.95rem] leading-snug tracking-[-0.02em] md:text-[1.05rem]">
-                      {project.title}
-                    </h2>
-                    <p className="project-meta shrink-0">{project.category}</p>
-                  </div>
-                </Link>
-              </FadeIn>
-            </li>
-          );
-        })}
-      </ul>
-
-      {filtered.length === 0 ? (
-        <p className="mt-12 text-muted-ink">
-          Ingen projekter i den kategori endnu.
-        </p>
-      ) : null}
+      </div>
     </div>
   );
 }

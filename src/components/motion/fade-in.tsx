@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -25,10 +25,11 @@ export function FadeIn({
 }: FadeInProps) {
   const reduceMotion = useReducedMotion();
   const skip = !!reduceMotion;
-  const [scrollRoot, setScrollRoot] = useState<Element | null>(null);
+  /** Motion viewport.root expects a RefObject, not an Element */
+  const scrollRootRef = useRef<Element | null>(null);
 
   useEffect(() => {
-    setScrollRoot(document.getElementById("site-scroll"));
+    scrollRootRef.current = document.getElementById("site-scroll");
   }, []);
 
   if (immediate) {
@@ -61,7 +62,7 @@ export function FadeIn({
         once,
         margin: "0px 0px -6% 0px",
         amount: 0.12,
-        ...(scrollRoot ? { root: scrollRoot } : {}),
+        root: scrollRootRef,
       }}
       transition={
         skip

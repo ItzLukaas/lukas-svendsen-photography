@@ -700,8 +700,8 @@ const projectSeed: Project[] = [
       "Leverede action- og stemningsbilleder fra Super Cup — klar til presse, klub og sociale medier.",
     featured: true,
     cover: L(
-      "/images/projects/super-cup-kvinder/01-01-dsc01122.jpg",
-      "Action under loftslamperne — Super Cup 2026 kvinder",
+      "/images/projects/super-cup-kvinder/09-09-dsc01396.jpg",
+      "Super Cup 2026 – Kvinder — øjeblik 9",
       2200,
       1467
     ),
@@ -778,8 +778,8 @@ const projectSeed: Project[] = [
       "Leverede action- og stemningsbilleder fra Super Cup — klar til presse, klub og sociale medier.",
     featured: true,
     cover: L(
-      "/images/projects/super-cup-herrer/01-01-dsc01426.jpg",
-      "Super Cup 2026 – Herrer — øjeblik 1",
+      "/images/projects/super-cup-herrer/11-11-dsc01990-2.jpg",
+      "Super Cup 2026 – Herrer — øjeblik 11",
       2200,
       1467
     ),
@@ -964,20 +964,20 @@ export const aboutPortrait: ProjectImage = P(
   2200
 );
 
-/** Desktop hero — DSC06190 */
+/** Desktop hero — Super Cup 2026 herrer (DSC01990-2) */
 export const heroImage: ProjectImage = L(
   "/images/hero.jpg",
-  "Hvid kirke under blå himmel — fotografi af Lukas Svendsen",
-  2400,
-  1600
+  "Håndbold action fra Super Cup 2026 — fotografi af Lukas Svendsen",
+  2200,
+  1467
 );
 
-/** Mobile hero — portrait crop of DSC06190 */
+/** Mobile hero — portrait crop of DSC01990-2 */
 export const heroMobileImage: ProjectImage = P(
   "/images/hero-mobile.jpg",
-  "Hvid kirke under blå himmel — fotografi af Lukas Svendsen",
-  1200,
-  1800
+  "Håndbold action fra Super Cup 2026 — fotografi af Lukas Svendsen",
+  978,
+  1467
 );
 
 export function getProject(slug: string) {

@@ -125,7 +125,7 @@ export function WorkIndex({
               key={project.slug}
               className="mb-8 break-inside-avoid min-[480px]:mb-9 md:mb-10"
             >
-              <FadeIn delay={Math.min(index * 0.03, 0.12)}>
+              <FadeIn delay={Math.min(index * 0.03, 0.12)} immediate={index < 4}>
                 <Link
                   href={`/arbejde/${project.slug}`}
                   className="group/project group block"
@@ -137,8 +137,16 @@ export function WorkIndex({
                       width={cover.width}
                       height={cover.height}
                       sizes="(min-width: 1024px) 30vw, (min-width: 480px) 45vw, 100vw"
-                      className="w-full"
-                      style={aspectRatioStyle(cover.width, cover.height)}
+                      className={cn(
+                        "w-full",
+                        /* Cap portrait covers on desktop so they don’t tower over landscape */
+                        !isWide && "aspect-[4/5] md:aspect-[5/6]"
+                      )}
+                      style={
+                        isWide
+                          ? aspectRatioStyle(cover.width, cover.height)
+                          : undefined
+                      }
                       imageClassName="object-cover object-center"
                       priority={index < 3}
                       quality={isWide ? 90 : 88}

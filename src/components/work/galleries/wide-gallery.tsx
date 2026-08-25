@@ -1,7 +1,7 @@
 import { Photo } from "@/components/photography/photo";
 import { GalleryFrame } from "@/components/work/lightbox";
-import type { ProjectImage } from "@/lib/data/projects";
-import { aspectRatioStyle } from "@/lib/utils";
+import { isPortrait, type ProjectImage } from "@/lib/data/projects";
+import { aspectRatioStyle, cn } from "@/lib/utils";
 
 type WideBlock =
   | { type: "hero"; image: ProjectImage; index: number }
@@ -74,26 +74,37 @@ export function WideGallery({
     <div className="mt-14 space-y-8 md:mt-20 md:space-y-12 lg:space-y-16">
       {blocks.map((block) => {
         if (block.type === "hero") {
+          const portrait = isPortrait(block.image);
           return (
             <div key={`${projectSlug}-hero`}>
-              <GalleryFrame
-                label={`Åbn billede: ${block.image.alt}`}
-                onOpen={() => onOpen(block.index)}
+              <div
+                className={cn(
+                  portrait && "mx-auto max-w-[min(100%,42rem)] px-5 md:px-8 lg:px-12"
+                )}
               >
-                <Photo
-                  src={block.image.src}
-                  alt={block.image.alt}
-                  width={block.image.width}
-                  height={block.image.height}
-                  sizes="100vw"
-                  className="w-full"
-                  style={aspectRatioStyle(block.image.width, block.image.height)}
-                  priority
-                  quality={92}
-                  unoptimized
-                  interactive
-                />
-              </GalleryFrame>
+                <GalleryFrame
+                  label={`Åbn billede: ${block.image.alt}`}
+                  onOpen={() => onOpen(block.index)}
+                >
+                  <Photo
+                    src={block.image.src}
+                    alt={block.image.alt}
+                    width={block.image.width}
+                    height={block.image.height}
+                    sizes={
+                      portrait
+                        ? "(min-width: 768px) 42rem, 100vw"
+                        : "100vw"
+                    }
+                    className="w-full"
+                    style={aspectRatioStyle(block.image.width, block.image.height)}
+                    priority
+                    quality={92}
+                    unoptimized
+                    interactive
+                  />
+                </GalleryFrame>
+              </div>
             </div>
           );
         }
@@ -169,23 +180,34 @@ export function WideGallery({
 
         return (
           <div key={`${projectSlug}-full-${block.index}`}>
-            <GalleryFrame
-              label={`Åbn billede: ${block.image.alt}`}
-              onOpen={() => onOpen(block.index)}
+            <div
+              className={cn(
+                isPortrait(block.image) &&
+                  "mx-auto max-w-[min(100%,42rem)] px-5 md:px-8 lg:px-12"
+              )}
             >
-              <Photo
-                src={block.image.src}
-                alt={block.image.alt}
-                width={block.image.width}
-                height={block.image.height}
-                sizes="100vw"
-                className="w-full"
-                style={aspectRatioStyle(block.image.width, block.image.height)}
-                quality={92}
-                unoptimized
-                interactive
-              />
-            </GalleryFrame>
+              <GalleryFrame
+                label={`Åbn billede: ${block.image.alt}`}
+                onOpen={() => onOpen(block.index)}
+              >
+                <Photo
+                  src={block.image.src}
+                  alt={block.image.alt}
+                  width={block.image.width}
+                  height={block.image.height}
+                  sizes={
+                    isPortrait(block.image)
+                      ? "(min-width: 768px) 42rem, 100vw"
+                      : "100vw"
+                  }
+                  className="w-full"
+                  style={aspectRatioStyle(block.image.width, block.image.height)}
+                  quality={92}
+                  unoptimized
+                  interactive
+                />
+              </GalleryFrame>
+            </div>
           </div>
         );
       })}

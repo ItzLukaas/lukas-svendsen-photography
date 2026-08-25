@@ -964,20 +964,20 @@ export const aboutPortrait: ProjectImage = P(
   2200
 );
 
-/** Desktop hero — Super Cup 2026 kvinder (DSC01122). New filename busts CDN cache. */
+/** Desktop hero — DSC06190 church still. Filename versioned for CDN cache bust. */
 export const heroImage: ProjectImage = L(
-  "/images/hero-super-cup-kvinder-2026.jpg",
-  "Håndbold action fra Super Cup 2026 — fotografi af Lukas Svendsen",
-  2200,
-  1467
+  "/images/hero-church-dsc06190.jpg",
+  "Hvid kirke under blå himmel — fotografi af Lukas Svendsen",
+  2400,
+  1600
 );
 
-/** Mobile hero — portrait crop of DSC01122 */
+/** Mobile hero — portrait crop of DSC06190 */
 export const heroMobileImage: ProjectImage = P(
-  "/images/hero-super-cup-kvinder-2026-mobile.jpg",
-  "Håndbold action fra Super Cup 2026 — fotografi af Lukas Svendsen",
-  978,
-  1467
+  "/images/hero-church-dsc06190-mobile.jpg",
+  "Hvid kirke under blå himmel — fotografi af Lukas Svendsen",
+  1200,
+  1800
 );
 
 export function getProject(slug: string) {

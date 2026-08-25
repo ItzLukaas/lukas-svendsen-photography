@@ -685,6 +685,84 @@ const projectSeed: Project[] = [
     ],
   },
   {
+    slug: "super-cup-kvinder",
+    title: "Super Cup 2026 – Kvinder",
+    discipline: "sport",
+    category: "Sport",
+    galleryFormat: "wide",
+    year: "2026",
+    location: "Jylland",
+    excerpt:
+      "Bambuni Super Cup for kvinder — tempo, dueller og de afgørende øjeblikke under loftslamperne.",
+    client: "DanskHåndbold",
+    role: "Sportsfotograf",
+    outcome:
+      "Leverede action- og stemningsbilleder fra Super Cup — klar til presse, klub og sociale medier.",
+    featured: true,
+    cover: L(
+      "/images/projects/super-cup-kvinder/01-01-dsc01122.jpg",
+      "Action under loftslamperne — Super Cup 2026 kvinder",
+      2200,
+      1467
+    ),
+    images: [
+      L(
+        "/images/projects/super-cup-kvinder/01-01-dsc01122.jpg",
+        "Action under loftslamperne — Super Cup 2026 kvinder",
+        2200,
+        1467
+      ),
+      P(
+        "/images/projects/super-cup-kvinder/02-02-dsc00672.jpg",
+        "Super Cup 2026 – Kvinder — øjeblik 2",
+        1467,
+        2200
+      ),
+      L(
+        "/images/projects/super-cup-kvinder/03-03-dsc00800.jpg",
+        "Super Cup 2026 – Kvinder — øjeblik 3",
+        2200,
+        1467
+      ),
+      L(
+        "/images/projects/super-cup-kvinder/04-04-dsc00820.jpg",
+        "Super Cup 2026 – Kvinder — øjeblik 4",
+        2200,
+        1467
+      ),
+      L(
+        "/images/projects/super-cup-kvinder/05-05-dsc01053.jpg",
+        "Super Cup 2026 – Kvinder — øjeblik 5",
+        2200,
+        1467
+      ),
+      L(
+        "/images/projects/super-cup-kvinder/06-06-dsc01104.jpg",
+        "Super Cup 2026 – Kvinder — øjeblik 6",
+        2200,
+        1467
+      ),
+      L(
+        "/images/projects/super-cup-kvinder/07-07-dsc01171.jpg",
+        "Super Cup 2026 – Kvinder — øjeblik 7",
+        2200,
+        1467
+      ),
+      P(
+        "/images/projects/super-cup-kvinder/08-08-dsc01210.jpg",
+        "Super Cup 2026 – Kvinder — øjeblik 8",
+        1467,
+        2200
+      ),
+      L(
+        "/images/projects/super-cup-kvinder/09-09-dsc01396.jpg",
+        "Super Cup 2026 – Kvinder — øjeblik 9",
+        2200,
+        1467
+      ),
+    ],
+  },
+  {
     slug: "fredericia-haandboldklub",
     title: "Fredericia Håndboldklub",
     discipline: "portraetter",

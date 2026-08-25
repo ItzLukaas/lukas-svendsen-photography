@@ -33,6 +33,7 @@ export type ProjectHoverBrand = {
  * - Grøn Koncert → #04A64B (official logo fill)
  * - Esbjerg Streetfood → #d94a32 (logo vermilion)
  * - DanskHåndbold → #e61428 (official SVG fill)
+ * - Super Cup Kvinder → same DanskHåndbold red
  * - Fredericia Håndboldklub → #ff0033 (official SVG fill #f03)
  * - Suset → #C44040 (sampled from official Suset visual identity / cover art)
  */
@@ -98,6 +99,16 @@ export const projectHoverBrands: Record<string, ProjectHoverBrand> = {
     invertLogo: true,
   },
   "dm-finalen-kvinder": {
+    brandName: "DanskHåndbold",
+    logoSrc: "/logos/dansk-haandbold.svg",
+    logoAlt: "DanskHåndbold logo",
+    logoWidth: 655,
+    logoHeight: 150,
+    overlayColor: "#e61428",
+    logoClassName: "h-8 w-auto max-w-[78%] md:h-9",
+    invertLogo: true,
+  },
+  "super-cup-kvinder": {
     brandName: "DanskHåndbold",
     logoSrc: "/logos/dansk-haandbold.svg",
     logoAlt: "DanskHåndbold logo",

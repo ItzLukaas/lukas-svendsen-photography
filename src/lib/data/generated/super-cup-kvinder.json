@@ -1,0 +1,76 @@
+{
+  "slug": "super-cup-kvinder",
+  "updatedAt": "2026-08-25T17:43:34.637Z",
+  "cover": {
+    "src": "/images/projects/super-cup-kvinder/01-01-dsc01122.jpg",
+    "alt": "Action under loftslamperne — Super Cup 2026 kvinder",
+    "width": 2200,
+    "height": 1467,
+    "orientation": "landscape"
+  },
+  "images": [
+    {
+      "src": "/images/projects/super-cup-kvinder/01-01-dsc01122.jpg",
+      "alt": "Action under loftslamperne — Super Cup 2026 kvinder",
+      "width": 2200,
+      "height": 1467,
+      "orientation": "landscape"
+    },
+    {
+      "src": "/images/projects/super-cup-kvinder/02-02-dsc00672.jpg",
+      "alt": "Super Cup 2026 – Kvinder — øjeblik 2",
+      "width": 1467,
+      "height": 2200,
+      "orientation": "portrait"
+    },
+    {
+      "src": "/images/projects/super-cup-kvinder/03-03-dsc00800.jpg",
+      "alt": "Super Cup 2026 – Kvinder — øjeblik 3",
+      "width": 2200,
+      "height": 1467,
+      "orientation": "landscape"
+    },
+    {
+      "src": "/images/projects/super-cup-kvinder/04-04-dsc00820.jpg",
+      "alt": "Super Cup 2026 – Kvinder — øjeblik 4",
+      "width": 2200,
+      "height": 1467,
+      "orientation": "landscape"
+    },
+    {
+      "src": "/images/projects/super-cup-kvinder/05-05-dsc01053.jpg",
+      "alt": "Super Cup 2026 – Kvinder — øjeblik 5",
+      "width": 2200,
+      "height": 1467,
+      "orientation": "landscape"
+    },
+    {
+      "src": "/images/projects/super-cup-kvinder/06-06-dsc01104.jpg",
+      "alt": "Super Cup 2026 – Kvinder — øjeblik 6",
+      "width": 2200,
+      "height": 1467,
+      "orientation": "landscape"
+    },
+    {
+      "src": "/images/projects/super-cup-kvinder/07-07-dsc01171.jpg",
+      "alt": "Super Cup 2026 – Kvinder — øjeblik 7",
+      "width": 2200,
+      "height": 1467,
+      "orientation": "landscape"
+    },
+    {
+      "src": "/images/projects/super-cup-kvinder/08-08-dsc01210.jpg",
+      "alt": "Super Cup 2026 – Kvinder — øjeblik 8",
+      "width": 1467,
+      "height": 2200,
+      "orientation": "portrait"
+    },
+    {
+      "src": "/images/projects/super-cup-kvinder/09-09-dsc01396.jpg",
+      "alt": "Super Cup 2026 – Kvinder — øjeblik 9",
+      "width": 2200,
+      "height": 1467,
+      "orientation": "landscape"
+    }
+  ]
+}

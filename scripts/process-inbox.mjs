@@ -43,6 +43,7 @@ const PROJECT_TITLES = {
   "esbjerg-streetfood": "Esbjerg Streetfood",
   "dm-finalen-herrer": "DM-finalen – Herrer",
   "dm-finalen-kvinder": "DM-finalen – Kvinder",
+  "super-cup-kvinder": "Super Cup 2026 – Kvinder",
   "fredericia-haandboldklub": "Fredericia Håndboldklub",
   "rasmus-seebach-suset": "Rasmus Seebach — Suset",
 };
@@ -111,6 +112,9 @@ function defaultAlt(slug, index, orientation) {
       return `${title} — spillerportræt ${index + 1}`;
     }
     return `${title} — holdfoto ${index + 1}`;
+  }
+  if (slug === "super-cup-kvinder" || slug.startsWith("dm-finalen-")) {
+    return `${title} — øjeblik ${index + 1}`;
   }
   if (orientation === "portrait") {
     return `${title} — koncertøjeblik ${index + 1}`;

@@ -15,6 +15,8 @@ Smid dine rå billeder ind i den rigtige projektmappe (op til **40 MB** pr. fil)
 | `esbjerg-streetfood/` | Esbjerg Streetfood |
 | `dm-finalen-herrer/` | DM-finalen – Herrer |
 | `dm-finalen-kvinder/` | DM-finalen – Kvinder |
+| `super-cup-kvinder/` | Super Cup 2026 – Kvinder |
+| `fredericia-haandboldklub/` | Fredericia Håndboldklub |
 
 ## Sådan gør du
 

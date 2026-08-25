@@ -22,9 +22,9 @@ export function ValueSection() {
             </h2>
           </FadeIn>
           <FadeIn delay={0.06} className="md:col-span-5">
-            <p className="max-w-[36ch] text-[0.9375rem] leading-[1.7] text-muted-ink md:ml-auto md:text-[1.0625rem]">
-              Målet er ikke bare at levere billeder — men visuelt indhold, der
-              faktisk virker for dit brand, event eller projekt.
+            <p className="max-w-[38ch] text-[0.9375rem] leading-[1.7] text-muted-ink md:ml-auto md:text-[1.0625rem]">
+              Målet er ikke bare at levere billeder — men visuelt indhold og
+              content, der faktisk virker for dit brand, event eller projekt.
             </p>
           </FadeIn>
         </div>

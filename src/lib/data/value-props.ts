@@ -22,7 +22,7 @@ export const valueProps: ValueProp[] = [
   {
     id: "personal",
     title: "Personlig tilgang",
-    body: "Jeg går ind i hvert projekt med fokus på dig, dit brand og det, du gerne vil fortælle.",
+    body: "Jeg går ind i hvert projekt med fokus på dig, dit brand og det, du gerne vil fortælle — privat, forening eller virksomhed.",
     icon: UserRound,
   },
   {
@@ -39,8 +39,8 @@ export const valueProps: ValueProp[] = [
   },
   {
     id: "flexible",
-    title: "Fleksibel produktion",
-    body: "Fra enkelte billeder til større produktioner — løsningen tilpasses det konkrete projekt.",
+    title: "Skræddersyet produktion",
+    body: "Fra én fotografering til event, web-materiale eller løbende content — omfanget tilpasses dig.",
     icon: Layers,
   },
   {
@@ -52,7 +52,7 @@ export const valueProps: ValueProp[] = [
   {
     id: "usable",
     title: "Indhold der kan bruges",
-    body: "Indholdet tænkes til de platforme og formater, hvor det faktisk skal leve.",
+    body: "Indholdet tænkes til web, SoMe, kampagner og de formater, hvor det faktisk skal leve.",
     icon: LayoutTemplate,
   },
 ];

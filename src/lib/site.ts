@@ -29,7 +29,7 @@ export const siteConfig = {
   ] as const,
   tagline: "Fotograf",
   description:
-    "Fotograf og videograf fra Grindsted — Lukas Svendsen. Foto, video og drone til koncerter, festivaler, sport, events og brands. Også Billund, Esbjerg, Vejle og Jylland.",
+    "Fotograf og videograf fra Grindsted — Lukas Svendsen. Foto, video, drone og skræddersyet content til koncerter, festivaler, sport, events, foreninger og virksomheder. Også Billund, Esbjerg, Vejle og Jylland.",
   nav: [
     { href: "/arbejde", label: "Arbejde" },
     { href: "/om", label: "Om mig" },

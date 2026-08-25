@@ -202,6 +202,7 @@ const jsonLd = {
         "Event- og erhvervsfotografi",
         "Sportsfotografi",
         "Business & brand content",
+        "Contentproduktion",
         "Video & content",
         "Fotografering",
         "Videoproduktion",
@@ -245,9 +246,9 @@ const jsonLd = {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
-              name: "Business & brand",
+              name: "Contentproduktion",
               description:
-                "Brand-content og erhvervsfotografi til virksomheder.",
+                "Skræddersyet content til web, SoMe, kampagner, events og brands.",
               areaServed,
             },
           },
@@ -255,9 +256,9 @@ const jsonLd = {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
-              name: "Video & content",
+              name: "Video & drone",
               description:
-                "Aftermovies, branded video og drone-content.",
+                "Aftermovies, film, branded video og droneoptagelser.",
               areaServed,
             },
           },

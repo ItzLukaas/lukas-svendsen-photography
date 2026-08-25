@@ -27,7 +27,7 @@ export function HomeHeroCopy() {
               : { duration: 0.65, delay: 0.28, ease }
           }
         >
-          Foto · Video · Drone
+          Foto · Video · Drone · Content
         </motion.p>
 
         <motion.h1
@@ -53,8 +53,8 @@ export function HomeHeroCopy() {
               : { duration: 0.7, delay: 0.5, ease }
           }
         >
-          Jeg er {siteConfig.name}. Jeg laver foto, video og drone til
-          koncerter, sport, events og brands — fra{" "}
+          Jeg er {siteConfig.name}. Jeg laver foto, video, drone og content
+          til koncerter, sport, events, foreninger og virksomheder — fra{" "}
           {siteConfig.location.city} og ud i Jylland.
         </motion.p>
 

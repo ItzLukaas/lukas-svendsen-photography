@@ -14,7 +14,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: "Book mig",
   description:
-    "Book fotograf i Grindsted — foto, video, drone eller content. Fortæl kort hvad, hvornår og hvor. Svar inden for 1–2 hverdage.",
+    "Book fotograf i Grindsted — foto, video, drone eller skræddersyet content. Fortæl kort hvad, hvornår og hvor. Svar inden for 1–2 hverdage.",
   path: "/booking",
 });
 
@@ -50,14 +50,17 @@ export default function BookingPage() {
               Hvad skal du bruge?
             </h1>
             <p className="text-body mt-5 max-w-md">
-              Foto, video, drone eller content. Skriv kort hvad det drejer sig
-              om, hvornår og hvor — så svarer jeg inden for 1–2 hverdage.
+              Foto, video, drone eller content. Ét job, en event eller en
+              større contentløsning — skriv kort hvad, hvornår og hvor, så
+              svarer jeg inden for 1–2 hverdage.
             </p>
 
             <ul className="mt-9 max-w-md space-y-3 text-[0.875rem] leading-[1.6] text-muted-ink">
               <li>Koncerter, festivaler, sport og events</li>
-              <li>Virksomheder og brands</li>
-              <li>Aftermovies, drone og content til sociale medier</li>
+              <li>Virksomheder, foreninger og brands</li>
+              <li>
+                Web, SoMe, kampagner, aftermovies, drone og contentpakker
+              </li>
             </ul>
 
             <div className="mt-10 space-y-2 border-t border-foreground/10 pt-8 text-[0.875rem]">

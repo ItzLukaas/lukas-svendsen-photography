@@ -45,8 +45,9 @@ export function HomeCta() {
               <div className="mt-5 h-px w-14 bg-paper/22" aria-hidden />
 
               <p className="mt-5 max-w-xl text-[0.9375rem] leading-[1.7] text-paper/68 md:mt-6 md:text-[1.0625rem]">
-                Har du brug for billeder eller video til dit næste projekt?
-                Fortæl mig kort, hvad du har i tankerne — så tager vi den derfra.
+                Har du brug for foto, video eller content til dit næste
+                projekt — ét job eller en større løsning? Fortæl kort, hvad du
+                har i tankerne, så tager vi den derfra.
               </p>
 
               <div className="mt-10 grid items-start gap-10 lg:mt-14 lg:grid-cols-12 lg:gap-14">

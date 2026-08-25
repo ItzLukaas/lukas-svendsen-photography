@@ -32,9 +32,9 @@ export function SiteFooter() {
             <p className="font-display text-[1.25rem] tracking-[-0.025em] text-paper md:text-[1.4rem]">
               {siteConfig.name}
             </p>
-            <p className="mt-2 max-w-[36ch] text-[0.875rem] leading-[1.65] text-paper/50">
-              Fotograf i Grindsted — foto, video og drone til projekter, der
-              skal ses.
+            <p className="mt-2 max-w-[40ch] text-[0.875rem] leading-[1.65] text-paper/50">
+              Fotograf i Grindsted — foto, video, drone og content til
+              projekter, der skal ses.
             </p>
           </div>
           <Link href="/booking" className="btn-solid mt-2 shrink-0 bg-paper text-ink md:mt-0">

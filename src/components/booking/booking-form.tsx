@@ -18,10 +18,10 @@ import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 const productionHints: Record<(typeof productionTypes)[number], string> = {
-  Fotografering: "Koncert, event, sport eller brand",
+  Fotografering: "Koncert, event, sport, portræt eller brand",
   Videoproduktion: "Aftermovie, eventfilm, korte klip",
   Droneproduktion: "Luftfoto og video",
-  Content: "Sociale medier, web, kampagner",
+  Content: "Web, SoMe, kampagner eller løbende pakke",
   Andet: "Fortæl gerne mere nedenfor",
 };
 

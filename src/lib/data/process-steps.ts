@@ -13,7 +13,7 @@ export const processSteps: ProcessStep[] = [
     id: "talk",
     step: 1,
     title: "Vi starter med en snak",
-    body: "Jeg vil gerne forstå, hvad du har i tankerne, før jeg tager kameraet frem. Vi snakker om idéen, hvad billederne eller videoen skal bruges til, og hvordan vi får det til at føles helt rigtigt.",
+    body: "Jeg vil gerne forstå, hvad du har i tankerne, før jeg tager kameraet frem. Vi snakker om idéen, om det er ét job eller en større contentløsning, og hvordan resultatet skal bruges.",
   },
   {
     id: "on-site",
@@ -31,6 +31,6 @@ export const processSteps: ProcessStep[] = [
     id: "deliver",
     step: 4,
     title: "Du får noget, du kan bruge",
-    body: "Til sidst får du det færdige materiale, klar til at blive brugt. På hjemmesiden, sociale medier, i markedsføring eller lige dér, hvor du har brug for det.",
+    body: "Til sidst får du det færdige materiale — klar til hjemmeside, sociale medier, kampagne eller lige dér, hvor du har brug for det.",
   },
 ];

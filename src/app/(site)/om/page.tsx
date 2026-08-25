@@ -13,7 +13,7 @@ import {
 export const metadata: Metadata = pageMetadata({
   title: "Om mig",
   description:
-    "Mød Lukas Svendsen — 16-årig fotograf fra Grindsted. Foto, video og drone til koncerter, festivaler, sport, events og brands.",
+    "Mød Lukas Svendsen — 16-årig fotograf fra Grindsted. Foto, video, drone og content til koncerter, festivaler, sport, events, foreninger og virksomheder.",
   path: "/om",
 });
 
@@ -22,7 +22,7 @@ export default function OmPage() {
     path: "/om",
     name: "Om Lukas Svendsen",
     description:
-      "Lukas Svendsen er fotograf fra Grindsted. Foto, video og drone til koncerter, festivaler, sport, events og brands.",
+      "Lukas Svendsen er fotograf fra Grindsted. Foto, video, drone og content til koncerter, festivaler, sport, events, foreninger og virksomheder.",
     type: "AboutPage",
   });
   const breadcrumbJsonLd = pageBreadcrumbJsonLd([
@@ -71,13 +71,15 @@ export default function OmPage() {
               <p>
                 Jeg hedder Lukas Svendsen — fulde navn Lukas Guldager Svendsen.
                 Jeg er 16 år og kommer fra Grindsted. Jeg laver foto, video,
-                drone og content — mest til koncerter, festivaler, sport,
-                events og brands.
+                drone og content — til koncerter, festivaler, sport, events,
+                foreninger og virksomheder.
               </p>
               <p>
-                Jeg møder op klar, holder hovedet koldt under presset og
-                leverer billeder, der kan bruges med det samme. Også i Billund,
-                Esbjerg, Vejle, Kolding og resten af Jylland.
+                Det kan være ét job, materiale til en ny hjemmeside, SoMe eller
+                en større contentløsning. Jeg møder op klar, holder hovedet
+                koldt under presset og leverer billeder, der kan bruges med det
+                samme. Også i Billund, Esbjerg, Vejle, Kolding og resten af
+                Jylland.
               </p>
               <p>
                 Book mig, hvis du har et job. Så snakker vi om det.

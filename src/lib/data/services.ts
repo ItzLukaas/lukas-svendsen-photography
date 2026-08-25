@@ -2,6 +2,7 @@ import type { LucideIcon } from "lucide-react";
 import {
   Camera,
   Clapperboard,
+  Layers,
   Plane,
   UserRound,
   Video,
@@ -27,14 +28,15 @@ export type VideoServiceFeature = {
 };
 
 /**
- * Three clear offers — each links straight to booking.
+ * Four clear offers — each links straight to booking.
+ * Content sits beside foto/video/drone as a natural extension.
  */
 export const homeServices: HomeService[] = [
   {
     id: "foto",
     title: "Fotografering",
     bookingType: "Fotografering",
-    description: "Koncert, event, sport og brand.",
+    description: "Koncert, event, sport, portræt og brand.",
     icon: Camera,
   },
   {
@@ -51,34 +53,42 @@ export const homeServices: HomeService[] = [
     description: "Luftfoto og video med klart overblik.",
     icon: Plane,
   },
+  {
+    id: "content",
+    title: "Contentproduktion",
+    bookingType: "Content",
+    description: "Web, SoMe, kampagner og løbende pakker.",
+    icon: Layers,
+  },
 ];
 
 /**
- * Expanded video & drone points shown under the service offers.
+ * Expanded content points under the service offers —
+ * broad enough for companies, events, associations and one-off jobs.
  */
 export const videoServiceFeatures: VideoServiceFeature[] = [
   {
-    id: "drone",
-    title: "Luftfoto & overblik",
-    body: "Få et helt andet perspektiv på dit projekt. Jeg bruger droneoptagelser til at skabe stemning, overblik og dynamik – uanset om det er en virksomhed, et event, en lokation eller noget helt fjerde.",
-    icon: Plane,
-  },
-  {
-    id: "some",
-    title: "SoMe & YouTube",
-    body: "Dit indhold skal kunne bruges mere end ét sted. Jeg tilpasser optagelserne, så de fungerer til både Instagram, TikTok, YouTube og andre platforme – så du får mest muligt ud af dit indhold.",
-    icon: Clapperboard,
-  },
-  {
-    id: "gear",
-    title: "Professionelt udstyr",
-    body: "Godt indhold starter med det rigtige udstyr. Jeg arbejder med professionelt kamera-, lyd- og lysudstyr for at sikre skarpe billeder, god lyd og et gennemført visuelt udtryk.",
+    id: "web-brand",
+    title: "Web & branding",
+    body: "Foto og video til ny hjemmeside, branding og marketing — materiale der ser skarpt ud og kan bruges med det samme.",
     icon: Camera,
   },
   {
-    id: "story",
-    title: "Din historie, din stil",
-    body: "Ingen projekter er ens. Derfor tager jeg udgangspunkt i dig, dit formål og det udtryk, du gerne vil skabe. Sammen finder vi den løsning, der passer bedst til projektet.",
+    id: "some",
+    title: "SoMe & kampagner",
+    body: "Content til sociale medier, lanceringer og kampagner. Formateret til de platforme, hvor det faktisk skal leve.",
+    icon: Clapperboard,
+  },
+  {
+    id: "event-drone",
+    title: "Events, film & drone",
+    body: "Recaps, aftermovies, produkt- og virksomhedsfilm samt dronefotos og -video, når overblikket gør en forskel.",
+    icon: Plane,
+  },
+  {
+    id: "tailored",
+    title: "Skræddersyet efter behov",
+    body: "Én fotografering, en eventproduktion, materiale til en ny hjemmeside eller en løbende contentpakke — vi tilpasser omfanget.",
     icon: UserRound,
   },
 ];

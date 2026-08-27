@@ -700,8 +700,8 @@ const projectSeed: Project[] = [
       "Leverede action- og stemningsbilleder fra Super Cup — klar til presse, klub og sociale medier.",
     featured: true,
     cover: L(
-      "/images/projects/super-cup-kvinder/01-01-dsc01122.jpg",
-      "Action under loftslamperne — Super Cup 2026 kvinder",
+      "/images/projects/super-cup-kvinder/09-09-dsc01396.jpg",
+      "Super Cup 2026 – Kvinder — øjeblik 9",
       2200,
       1467
     ),

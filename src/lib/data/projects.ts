@@ -957,8 +957,9 @@ export const projects: Project[] = projectsResolved.filter(
   (project) => project.images.length > 0
 );
 
+/** About-page portrait — filename versioned for CDN cache bust. */
 export const aboutPortrait: ProjectImage = P(
-  "/images/about.jpg",
+  "/images/about-lukas-2026.jpg",
   "Portræt af fotograf Lukas Svendsen fra Grindsted",
   1650,
   2200

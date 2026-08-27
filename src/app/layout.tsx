@@ -104,7 +104,7 @@ const jsonLd = {
       telephone: siteConfig.phone,
       jobTitle: "Fotograf og videograf",
       description: siteConfig.description,
-      image: `${siteConfig.url}/images/about.jpg`,
+      image: `${siteConfig.url}/images/about-lukas-2026.jpg`,
       homeLocation: {
         "@type": "Place",
         name: "Grindsted",
@@ -174,7 +174,7 @@ const jsonLd = {
       url: siteConfig.url,
       email: siteConfig.email,
       telephone: siteConfig.phone,
-      image: `${siteConfig.url}/images/about.jpg`,
+      image: `${siteConfig.url}/images/about-lukas-2026.jpg`,
       description: siteConfig.description,
       provider: { "@id": `${siteConfig.url}/#person` },
       address: {

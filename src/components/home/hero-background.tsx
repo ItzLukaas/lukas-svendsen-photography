@@ -69,7 +69,7 @@ export function HeroBackground({
           {...rest}
           src={fallbackSrc}
           alt={mobileImage.alt}
-          className="absolute inset-0 h-full w-full object-cover object-[50%_42%] md:object-[50%_45%]"
+          className="absolute inset-0 h-full w-full object-cover object-[50%_38%] md:object-[40%_42%]"
           // Override getImageProps default loading="lazy" — this is the LCP image
           loading="eager"
           fetchPriority="high"

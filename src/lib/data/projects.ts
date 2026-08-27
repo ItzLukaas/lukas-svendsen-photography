@@ -965,18 +965,18 @@ export const aboutPortrait: ProjectImage = P(
   2200
 );
 
-/** Desktop hero — DSC06190 church still. Filename versioned for CDN cache bust. */
+/** Desktop hero — DSC02045 handball through net. Filename versioned for CDN cache bust. */
 export const heroImage: ProjectImage = L(
-  "/images/hero-church-dsc06190.jpg",
-  "Hvid kirke under blå himmel — fotografi af Lukas Svendsen",
+  "/images/hero-dsc02045.jpg",
+  "Håndboldspiller gennem målnet — sportsfoto af Lukas Svendsen",
   2400,
   1600
 );
 
-/** Mobile hero — portrait crop of DSC06190 */
+/** Mobile hero — portrait crop of DSC02045 */
 export const heroMobileImage: ProjectImage = P(
-  "/images/hero-church-dsc06190-mobile.jpg",
-  "Hvid kirke under blå himmel — fotografi af Lukas Svendsen",
+  "/images/hero-dsc02045-mobile.jpg",
+  "Håndboldspiller gennem målnet — sportsfoto af Lukas Svendsen",
   1200,
   1800
 );

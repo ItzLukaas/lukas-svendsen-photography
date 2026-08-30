@@ -29,6 +29,8 @@ export type Project = {
   client?: string;
   /** Official client page when relevant (e.g. team roster) */
   clientUrl?: string;
+  /** Link label for clientUrl — e.g. "fhk.dk" */
+  clientUrlLabel?: string;
   /** Role on the job, e.g. "Fotograf" */
   role?: string;
   /** Short delivery outcome — no invented KPIs */
@@ -873,6 +875,7 @@ const projectSeed: Project[] = [
     client: "Fredericia Håndboldklub",
     clientUrl:
       "https://fhk.dk/1div-kvinder/1-div-kvinder-spillertrup-og-stab",
+    clientUrlLabel: "fhk.dk",
     role: "Portrætfotograf",
     outcome:
       "Leverede hold- og spillerportrætter til web og sociale medier — fra gruppemotiver til individuelle poses.",

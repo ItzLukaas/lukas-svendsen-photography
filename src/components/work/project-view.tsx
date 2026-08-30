@@ -57,20 +57,7 @@ export function ProjectView({ project, previous, next }: ProjectViewProps) {
           {project.client || project.role || project.location ? (
             <p className="mt-5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.75rem] tracking-[0.02em] text-muted-ink">
               {project.client ? (
-                <span className="inline-flex items-center gap-x-2">
-                  {project.clientUrl ? (
-                    <a
-                      href={project.clientUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="transition-opacity duration-300 hover:opacity-55"
-                    >
-                      {project.client}
-                    </a>
-                  ) : (
-                    project.client
-                  )}
-                </span>
+                <span>{project.client}</span>
               ) : null}
               {project.role ? (
                 <span className="inline-flex items-center gap-x-2">
@@ -98,31 +85,28 @@ export function ProjectView({ project, previous, next }: ProjectViewProps) {
               {project.outcome}
             </p>
           ) : null}
-
-          {project.clientUrl ? (
-            <p className="mt-4">
-              <a
-                href={project.clientUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-0 text-[0.75rem] font-semibold tracking-[0.055em] text-ink transition-[gap] duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] hover:gap-[0.55em]"
-              >
-                Se spillertuppen på fhk.dk
-                <span
-                  aria-hidden
-                  className="inline-block max-w-0 overflow-hidden opacity-0 transition-[max-width,opacity,transform] duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:max-w-[1.1em] group-hover:translate-x-0 group-hover:opacity-100 -translate-x-[0.3em]"
-                >
-                  →
-                </span>
-              </a>
-            </p>
-          ) : null}
         </FadeIn>
       </header>
 
       <div className="mt-10 md:mt-12">
         <ProjectGallery project={project} />
       </div>
+
+      {project.clientUrl ? (
+        <div className="mx-auto max-w-[1600px] px-5 md:px-8 lg:px-12">
+          <p className="mt-14 text-center text-[0.9375rem] font-semibold tracking-[0.01em] text-ink md:mt-20 md:text-base">
+            Se hele casen på{" "}
+            <a
+              href={project.clientUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-foreground/25 underline-offset-[0.2em] transition-[decoration-color,opacity] duration-300 hover:decoration-foreground/60 hover:opacity-80"
+            >
+              {project.clientUrlLabel ?? "klientens hjemmeside"}
+            </a>
+          </p>
+        </div>
+      ) : null}
 
       {/* Adjacent projects — clear path through the portfolio */}
       {(previous || next) && (

@@ -13,12 +13,6 @@ type ProjectViewProps = {
 };
 
 export function ProjectView({ project, previous, next }: ProjectViewProps) {
-  const metaParts = [
-    project.client,
-    project.role,
-    `${project.location}, ${project.year}`,
-  ].filter(Boolean);
-
   return (
     <article className="pt-[calc(var(--chrome-h)+2.5rem)]">
       {/* Exhibition intro — quiet, then the work */}
@@ -60,18 +54,40 @@ export function ProjectView({ project, previous, next }: ProjectViewProps) {
             {project.title}
           </h1>
 
-          {metaParts.length > 0 ? (
+          {project.client || project.role || project.location ? (
             <p className="mt-5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.75rem] tracking-[0.02em] text-muted-ink">
-              {metaParts.map((part, index) => (
-                <span key={part} className="inline-flex items-center gap-x-2">
-                  {index > 0 ? (
-                    <span aria-hidden className="opacity-25">
-                      ·
-                    </span>
-                  ) : null}
-                  {part}
+              {project.client ? (
+                <span className="inline-flex items-center gap-x-2">
+                  {project.clientUrl ? (
+                    <a
+                      href={project.clientUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="transition-opacity duration-300 hover:opacity-55"
+                    >
+                      {project.client}
+                    </a>
+                  ) : (
+                    project.client
+                  )}
                 </span>
-              ))}
+              ) : null}
+              {project.role ? (
+                <span className="inline-flex items-center gap-x-2">
+                  <span aria-hidden className="opacity-25">
+                    ·
+                  </span>
+                  {project.role}
+                </span>
+              ) : null}
+              <span className="inline-flex items-center gap-x-2">
+                {(project.client || project.role) && (
+                  <span aria-hidden className="opacity-25">
+                    ·
+                  </span>
+                )}
+                {project.location}, {project.year}
+              </span>
             </p>
           ) : null}
 
@@ -80,6 +96,25 @@ export function ProjectView({ project, previous, next }: ProjectViewProps) {
           {project.outcome ? (
             <p className="mt-4 max-w-lg text-[0.9375rem] leading-[1.65] text-muted-ink">
               {project.outcome}
+            </p>
+          ) : null}
+
+          {project.clientUrl ? (
+            <p className="mt-4">
+              <a
+                href={project.clientUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-0 text-[0.75rem] font-semibold tracking-[0.055em] text-ink transition-[gap] duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] hover:gap-[0.55em]"
+              >
+                Se spillertuppen på fhk.dk
+                <span
+                  aria-hidden
+                  className="inline-block max-w-0 overflow-hidden opacity-0 transition-[max-width,opacity,transform] duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:max-w-[1.1em] group-hover:translate-x-0 group-hover:opacity-100 -translate-x-[0.3em]"
+                >
+                  →
+                </span>
+              </a>
             </p>
           ) : null}
         </FadeIn>

@@ -27,6 +27,8 @@ export type Project = {
   excerpt: string;
   /** Client / organizer when known */
   client?: string;
+  /** Official client page when relevant (e.g. team roster) */
+  clientUrl?: string;
   /** Role on the job, e.g. "Fotograf" */
   role?: string;
   /** Short delivery outcome — no invented KPIs */
@@ -869,6 +871,8 @@ const projectSeed: Project[] = [
     excerpt:
       "Spillerportrætter og holdfotos for Fredericia Håndboldklubs 1. divisionskvinder — skarpt, enkelt og klar til klubbens kommunikation.",
     client: "Fredericia Håndboldklub",
+    clientUrl:
+      "https://fhk.dk/1div-kvinder/1-div-kvinder-spillertrup-og-stab",
     role: "Portrætfotograf",
     outcome:
       "Leverede hold- og spillerportrætter til web og sociale medier — fra gruppemotiver til individuelle poses.",
@@ -906,43 +910,43 @@ const projectSeed: Project[] = [
       ),
       P(
         "/images/projects/fredericia-haandboldklub/05-04-fhk-03-pose.jpg",
-        "Fredericia Håndboldklub — spillerportræt",
+        "Freja Thor Ammidtsbøl Andersen (Midtsbøl) — Fredericia Håndboldklub spillerportræt, nummer 3",
         1467,
         2200
       ),
       P(
         "/images/projects/fredericia-haandboldklub/06-05-fhk-04-pose.jpg",
-        "Fredericia Håndboldklub — spillerportræt",
+        "Maria Husted — Fredericia Håndboldklub spillerportræt, nummer 4",
         1467,
         2200
       ),
       P(
         "/images/projects/fredericia-haandboldklub/07-06-fhk-19-pose.jpg",
-        "Fredericia Håndboldklub — spillerportræt",
+        "Eline Osland jubler — Fredericia Håndboldklub spillerportræt, nummer 19",
         1467,
         2200
       ),
       P(
         "/images/projects/fredericia-haandboldklub/08-07-fhk-29-pose.jpg",
-        "Fredericia Håndboldklub — spillerportræt",
+        "Julie Grønne Thinggård — Fredericia Håndboldklub spillerportræt, nummer 29",
         1467,
         2200
       ),
       P(
         "/images/projects/fredericia-haandboldklub/09-08-fhk-27-pose.jpg",
-        "Fredericia Håndboldklub — spillerportræt",
+        "Annette Wirén Larsen — Fredericia Håndboldklub spillerportræt, nummer 27",
         1467,
         2200
       ),
       P(
         "/images/projects/fredericia-haandboldklub/10-09-fhk-37-pose.jpg",
-        "Fredericia Håndboldklub — spillerportræt",
+        "Nikoline Johansen — Fredericia Håndboldklub spillerportræt, nummer 37",
         1467,
         2200
       ),
       P(
         "/images/projects/fredericia-haandboldklub/11-10-fhk-82-pose.jpg",
-        "Fredericia Håndboldklub — spillerportræt",
+        "Fredericia Håndboldklub spillerportræt, nummer 82",
         1467,
         2200
       ),

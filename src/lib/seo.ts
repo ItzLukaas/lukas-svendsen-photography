@@ -20,7 +20,7 @@ export const defaultShareImage = {
   url: "/images/og-share.jpg",
   width: 1200,
   height: 630,
-  alt: "Hvid kirke under blå himmel — fotografi af Lukas Svendsen",
+  alt: "Håndboldspiller scorer i målnet — sportsfotografi af Lukas Svendsen",
 } as const;
 
 /**

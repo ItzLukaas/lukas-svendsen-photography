@@ -4,12 +4,17 @@ import { WorkIndex } from "@/components/work/work-index";
 import { fetchProjects } from "@/lib/content";
 import { collectionPageJsonLd, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = pageMetadata({
+const arbejdeMetadata = pageMetadata({
   title: "Portfolio — koncertfotograf, sportsfotograf og events",
   description:
     "Portfolio med koncertfotografi, sportsfotografi og eventfoto fra Lukas Svendsen — fotograf i Grindsted. Festival, håndbold, koncerter og events i Billund, Esbjerg, Vejle og Jylland.",
   path: "/arbejde",
 });
+
+export async function generateMetadata(): Promise<Metadata> {
+  // Filter URLs share one canonical — avoids duplicate content for ?kategori=
+  return arbejdeMetadata;
+}
 
 type Props = PageProps<"/arbejde">;
 

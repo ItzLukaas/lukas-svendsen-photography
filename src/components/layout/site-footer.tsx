@@ -115,6 +115,35 @@ export function SiteFooter() {
                 </li>
               ))}
             </ul>
+            <p className="mt-6 text-[0.6875rem] font-medium tracking-[0.12em] text-paper/55 uppercase">
+              Portfolio
+            </p>
+            <ul className="mt-4 space-y-2.5">
+              <li>
+                <Link
+                  href="/arbejde?kategori=koncerter"
+                  className="text-[0.9375rem] text-paper/75 transition-colors duration-300 hover:text-paper focus-visible:text-paper"
+                >
+                  Festivalfoto
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/arbejde?kategori=sport"
+                  className="text-[0.9375rem] text-paper/75 transition-colors duration-300 hover:text-paper focus-visible:text-paper"
+                >
+                  Sportsfoto
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/arbejde?kategori=events"
+                  className="text-[0.9375rem] text-paper/75 transition-colors duration-300 hover:text-paper focus-visible:text-paper"
+                >
+                  Eventfoto
+                </Link>
+              </li>
+            </ul>
           </div>
 
           <div>

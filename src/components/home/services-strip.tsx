@@ -90,6 +90,29 @@ export function ServicesStrip() {
           </p>
         </FadeIn>
 
+        <FadeIn delay={0.08}>
+          <p className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-[0.8125rem] text-muted-ink">
+            <Link
+              href="/arbejde?kategori=koncerter"
+              className="font-medium text-ink underline-offset-4 transition-opacity duration-300 hover:opacity-55 hover:underline"
+            >
+              Festivalfoto
+            </Link>
+            <Link
+              href="/arbejde?kategori=sport"
+              className="font-medium text-ink underline-offset-4 transition-opacity duration-300 hover:opacity-55 hover:underline"
+            >
+              Sportsfoto
+            </Link>
+            <Link
+              href="/arbejde?kategori=events"
+              className="font-medium text-ink underline-offset-4 transition-opacity duration-300 hover:opacity-55 hover:underline"
+            >
+              Eventfoto
+            </Link>
+          </p>
+        </FadeIn>
+
         <div className="mt-10 border-t border-foreground/8 pt-10 sm:mt-12 sm:pt-12">
           <div className="mx-auto flex max-w-full flex-col items-center">
             <FadeIn className="max-w-full text-center">

@@ -51,7 +51,7 @@ export const metadata: Metadata = {
         url: "/images/og-share.jpg",
         width: 1200,
         height: 630,
-        alt: "Hvid kirke under blå himmel — fotografi af Lukas Svendsen",
+        alt: "Håndboldspiller scorer i målnet — sportsfotografi af Lukas Svendsen",
       },
     ],
   },
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/images/og-share.jpg",
-        alt: "Hvid kirke under blå himmel — fotografi af Lukas Svendsen",
+        alt: "Håndboldspiller scorer i målnet — sportsfotografi af Lukas Svendsen",
       },
     ],
   },

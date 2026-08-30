@@ -22,7 +22,7 @@ const instrumentSans = Instrument_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Lukas Svendsen | Fotograf i Grindsted",
+    default: "Fotograf i Grindsted — koncert, sport og events | Lukas Svendsen",
     template: `%s · ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     locale: siteConfig.locale,
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: "Lukas Svendsen | Fotograf i Grindsted",
+    title: "Fotograf i Grindsted — koncert, sport og events | Lukas Svendsen",
     description: siteConfig.description,
     images: [
       {
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lukas Svendsen | Fotograf i Grindsted",
+    title: "Fotograf i Grindsted — koncert, sport og events | Lukas Svendsen",
     description: siteConfig.description,
     images: [
       {

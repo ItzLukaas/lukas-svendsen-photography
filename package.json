@@ -13,6 +13,7 @@
     "typecheck": "tsc --noEmit",
     "seo:check": "node scripts/seo-check.mjs",
     "images:process": "node scripts/process-inbox.mjs",
+    "images:seo-migrate": "node scripts/seo-migrate-images.mjs",
     "hero:process": "node scripts/process-hero-video.mjs"
   },
   "dependencies": {

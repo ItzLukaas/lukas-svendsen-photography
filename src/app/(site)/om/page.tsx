@@ -11,9 +11,9 @@ import {
 } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Om mig",
+  title: "Om mig — fotograf og videograf i Grindsted",
   description:
-    "Mød Lukas Svendsen — 16-årig fotograf fra Grindsted. Foto, video, drone og content til koncerter, festivaler, sport, events, foreninger og virksomheder.",
+    "Mød Lukas Svendsen — fotograf og videograf fra Grindsted. Koncertfotografi, sportsfotografi, eventfoto, drone og content til virksomheder, foreninger og events i Jylland.",
   path: "/om",
 });
 

@@ -1,5 +1,7 @@
 import type { NextConfig } from "next";
 
+import { legacyImageRedirects } from "./src/lib/legacy-image-redirects";
+
 const longCache = "public, max-age=31536000, immutable";
 
 const nextConfig: NextConfig = {
@@ -35,6 +37,7 @@ const nextConfig: NextConfig = {
         destination: "/",
         permanent: true,
       },
+      ...legacyImageRedirects,
     ];
   },
   async headers() {

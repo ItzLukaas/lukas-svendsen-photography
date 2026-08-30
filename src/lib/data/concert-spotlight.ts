@@ -24,7 +24,7 @@ export const concertSpotlightShots: ConcertSpotlightShot[] = [
     placement: "primary",
     objectPosition: "50% 48%",
     image: {
-      src: "/images/projects/thor-farlov-smukfest/01-dsc05949.jpg",
+      src: "/images/projects/thor-farlov-smukfest/01-thor-farlov-synger-pa-scenen-til-smukfest-under-spot.jpg",
       alt: "Thor Farlov synger på scenen til Smukfest under grønt scenelys",
       width: 1467,
       height: 2200,
@@ -38,8 +38,8 @@ export const concertSpotlightShots: ConcertSpotlightShot[] = [
     placement: "secondary",
     objectPosition: "50% 45%",
     image: {
-      src: "/images/projects/varde-open-air/03-dsc08653.jpg",
-      alt: "Live performance på scenen til Varde Open Air",
+      src: "/images/projects/varde-open-air/03-sofie1998-varde-open-air.jpg",
+      alt: "Sofie1998 på scenen til Varde Open Air",
       width: 2400,
       height: 3600,
       orientation: "portrait",
@@ -53,7 +53,7 @@ export const concertSpotlightShots: ConcertSpotlightShot[] = [
     /** Keep face + pink light in frame when the cell crops the portrait */
     objectPosition: "50% 32%",
     image: {
-      src: "/images/projects/gron-koncert/01-dsc06913.jpg",
+      src: "/images/projects/gron-koncert/01-sivas-smiler-pa-scenen-til-groen-koncert.jpg",
       alt: "Sivas smiler på scenen til Grøn Koncert",
       width: 1600,
       height: 2400,

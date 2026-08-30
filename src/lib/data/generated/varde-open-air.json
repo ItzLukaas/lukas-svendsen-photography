@@ -1,8 +1,8 @@
 {
   "slug": "varde-open-air",
-  "updatedAt": "2026-08-06T20:40:27.825Z",
+  "updatedAt": "2026-08-30T08:15:00.000Z",
   "cover": {
-    "src": "/images/projects/varde-open-air/00-dsc08572-cover.jpg",
+    "src": "/images/projects/varde-open-air/00-publikum-i-skoven-til-varde-open-air.jpg",
     "alt": "Publikum i skoven til Varde Open Air",
     "width": 2200,
     "height": 1467,
@@ -10,50 +10,50 @@
   },
   "images": [
     {
-      "src": "/images/projects/varde-open-air/01-dsc00062.jpg",
-      "alt": "Sanger i spotlys på Varde Open Air",
+      "src": "/images/projects/varde-open-air/01-gnags-varde-open-air.jpg",
+      "alt": "Gnags på scenen til Varde Open Air",
       "width": 1467,
       "height": 2200,
       "orientation": "portrait"
     },
     {
-      "src": "/images/projects/varde-open-air/02-dsc08235.jpg",
-      "alt": "Sangerinde med lilla mikrofonstativ",
+      "src": "/images/projects/varde-open-air/02-ella-augusta-varde-open-air.jpg",
+      "alt": "Ella Augusta på scenen til Varde Open Air",
       "width": 1467,
       "height": 2200,
       "orientation": "portrait"
     },
     {
-      "src": "/images/projects/varde-open-air/03-dsc08653.jpg",
-      "alt": "Artist i orange på scenen til Varde Open Air",
+      "src": "/images/projects/varde-open-air/03-sofie1998-varde-open-air.jpg",
+      "alt": "Sofie1998 på scenen til Varde Open Air",
       "width": 1467,
       "height": 2200,
       "orientation": "portrait"
     },
     {
-      "src": "/images/projects/varde-open-air/04-dsc08717.jpg",
-      "alt": "Sangerinde i pink scenelys",
+      "src": "/images/projects/varde-open-air/04-sofie1998-pink-varde-open-air.jpg",
+      "alt": "Sofie1998 i pink scenelys på Varde Open Air",
       "width": 1467,
       "height": 2200,
       "orientation": "portrait"
     },
     {
-      "src": "/images/projects/varde-open-air/05-dsc08738.jpg",
-      "alt": "Gæst med hænderne i vejret",
+      "src": "/images/projects/varde-open-air/05-publikum-haender-i-vejret-varde-open-air.jpg",
+      "alt": "Publikum med hænderne i vejret — Varde Open Air",
       "width": 1467,
       "height": 2200,
       "orientation": "portrait"
     },
     {
-      "src": "/images/projects/varde-open-air/06-dsc08779.jpg",
-      "alt": "Venner i festivalstemning",
+      "src": "/images/projects/varde-open-air/06-publikum-festivalstemning-varde-open-air.jpg",
+      "alt": "Publikum i festivalstemning — Varde Open Air",
       "width": 1467,
       "height": 2200,
       "orientation": "portrait"
     },
     {
-      "src": "/images/projects/varde-open-air/07-dsc08787.jpg",
-      "alt": "Gæst midt i publikum",
+      "src": "/images/projects/varde-open-air/07-publikum-midt-i-skoven-varde-open-air.jpg",
+      "alt": "Publikum midt i skovkoncerten — Varde Open Air",
       "width": 1467,
       "height": 2200,
       "orientation": "portrait"

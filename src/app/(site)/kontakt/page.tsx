@@ -11,9 +11,9 @@ import {
 } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Kontakt",
+  title: "Kontakt — fotograf i Grindsted",
   description:
-    "Kontakt fotograf Lukas Svendsen i Grindsted. Email, telefon og formular — hurtig respons om foto, video og booking.",
+    "Kontakt fotograf Lukas Svendsen i Grindsted. Email, telefon og formular — hurtig respons om koncertfoto, sportsfoto, video og booking i Jylland.",
   path: "/kontakt",
 });
 

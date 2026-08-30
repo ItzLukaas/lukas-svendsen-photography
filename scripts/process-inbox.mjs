@@ -119,7 +119,10 @@ function defaultAlt(slug, index, orientation) {
     slug === "super-cup-herrer" ||
     slug.startsWith("dm-finalen-")
   ) {
-    return `${title} — øjeblik ${index + 1}`;
+    if (orientation === "portrait") {
+      return `${title} — håndboldspiller i aktion`;
+    }
+    return `${title} — håndboldkamp i arenaen`;
   }
   if (orientation === "portrait") {
     return `${title} — koncertøjeblik ${index + 1}`;

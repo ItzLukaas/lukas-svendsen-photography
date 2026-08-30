@@ -4,7 +4,7 @@ import { HomePage } from "@/components/home/home-page";
 import { defaultShareImage } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
-const title = "Lukas Svendsen | Fotograf i Grindsted";
+const title = "Fotograf i Grindsted — koncert, sport og events | Lukas Svendsen";
 
 export const metadata: Metadata = {
   title: {

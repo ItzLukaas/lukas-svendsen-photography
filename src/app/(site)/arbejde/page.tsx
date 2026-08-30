@@ -5,9 +5,9 @@ import { fetchProjects } from "@/lib/content";
 import { collectionPageJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Portfolio — Festival, sport & events",
+  title: "Portfolio — koncertfotograf, sportsfotograf og events",
   description:
-    "Portfolio fra Lukas Svendsen — festival, koncert, sport og event. Fra Grindsted og ud i Jylland.",
+    "Portfolio med koncertfotografi, sportsfotografi og eventfoto fra Lukas Svendsen — fotograf i Grindsted. Festival, håndbold, koncerter og events i Billund, Esbjerg, Vejle og Jylland.",
   path: "/arbejde",
 });
 

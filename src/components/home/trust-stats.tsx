@@ -102,7 +102,7 @@ export function TrustStats() {
               id="trust-stats-heading"
               className="mt-3 font-display text-[clamp(1.65rem,3vw,2.25rem)] leading-[1.08] tracking-[-0.03em]"
             >
-              Bevist gennem arbejde
+              30+ Projekter og Samarbejder
             </h2>
           </div>
         </FadeIn>

@@ -52,8 +52,8 @@ export function HomeHeroCopy() {
               : { duration: 0.7, delay: 0.5, ease }
           }
         >
-          Jeg fotograferer sport, koncerter og events — foto, video og drone
-          i hele Danmark.
+          Jeg er fotograf og videograf fra Grindsted — sport, koncerter og
+          events i Billund, Vejle og hele Danmark.
         </motion.p>
 
         <motion.div

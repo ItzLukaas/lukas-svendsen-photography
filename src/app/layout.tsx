@@ -22,7 +22,8 @@ const instrumentSans = Instrument_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Fotograf i Danmark | Lukas Svendsen",
+    default:
+      "Fotograf & videograf i Grindsted, Billund og Vejle | Lukas Svendsen",
     template: `%s · ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -33,6 +34,11 @@ export const metadata: Metadata = {
     "Lukas Svendsen",
     "fotograf Danmark",
     "fotograf Grindsted",
+    "fotograf Billund",
+    "fotograf Vejle",
+    "fotograf Kolding",
+    "fotograf Esbjerg",
+    "fotograf Give",
     "sportsfotograf",
     "koncertfotograf",
     "eventfotograf",
@@ -45,7 +51,8 @@ export const metadata: Metadata = {
     locale: siteConfig.locale,
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: "Fotograf i Danmark | Lukas Svendsen",
+    title:
+      "Fotograf & videograf i Grindsted, Billund og Vejle | Lukas Svendsen",
     description: siteConfig.description,
     images: [
       {
@@ -58,7 +65,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fotograf i Danmark | Lukas Svendsen",
+    title:
+      "Fotograf & videograf i Grindsted, Billund og Vejle | Lukas Svendsen",
     description: siteConfig.description,
     images: [
       {
@@ -170,7 +178,7 @@ const jsonLd = {
     {
       "@type": ["ProfessionalService", "LocalBusiness"],
       "@id": `${siteConfig.url}/#service`,
-      name: `${siteConfig.name} — Fotograf`,
+      name: `${siteConfig.name} — Fotograf i Grindsted`,
       alternateName: "Lukas Svendsen Photography",
       url: siteConfig.url,
       email: siteConfig.email,

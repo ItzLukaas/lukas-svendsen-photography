@@ -18,9 +18,9 @@ export const homeStats: HomeStat[] = [
   },
   {
     id: "projects",
-    value: 50,
+    value: 30,
     suffix: "+",
-    label: "Projekter & samarbejder",
+    label: "Projekter og samarbejder",
   },
   {
     id: "deliveries",

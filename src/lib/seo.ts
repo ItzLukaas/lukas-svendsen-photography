@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import type { LocalArea } from "@/lib/data/local-areas";
 import type { Project } from "@/lib/data/projects";
 import { siteConfig } from "@/lib/site";
 
@@ -188,7 +189,7 @@ export function collectionPageJsonLd(
     "@id": `${siteConfig.url}/arbejde#collection`,
     name: "Portfolio — Lukas Svendsen",
     description:
-      "Portfolio med festival-, koncert-, sport- og eventfotografi fra Lukas Svendsen — fotograf med base i Grindsted og opgaver i hele Danmark.",
+      "Portfolio med festival-, koncert-, sport- og eventfotografi fra Lukas Svendsen — fotograf fra Grindsted med opgaver i Billund, Vejle og hele Danmark.",
     url: `${siteConfig.url}/arbejde`,
     isPartOf: { "@id": `${siteConfig.url}/#website` },
     about: { "@id": `${siteConfig.url}/#person` },
@@ -212,12 +213,19 @@ export const serviceAreaPlaces = [
   { name: "Grindsted", type: "City" as const },
   { name: "Billund", type: "City" as const },
   { name: "Give", type: "City" as const },
+  { name: "Jelling", type: "City" as const },
+  { name: "Bredsten", type: "City" as const },
+  { name: "Brande", type: "City" as const },
   { name: "Vejle", type: "City" as const },
   { name: "Vejen", type: "City" as const },
   { name: "Esbjerg", type: "City" as const },
   { name: "Kolding", type: "City" as const },
   { name: "Fredericia", type: "City" as const },
+  { name: "Horsens", type: "City" as const },
   { name: "Herning", type: "City" as const },
+  { name: "Aarhus", type: "City" as const },
+  { name: "Odense", type: "City" as const },
+  { name: "Jylland", type: "AdministrativeArea" as const },
 ];
 
 type SimplePageJsonLdOptions = {
@@ -273,6 +281,31 @@ export function pageBreadcrumbJsonLd(
           ? siteConfig.url
           : `${siteConfig.url}${crumb.path}`,
     })),
+  };
+}
+
+/** Local landing page — WebPage with geographic context */
+export function localAreaPageJsonLd(area: LocalArea) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${siteConfig.url}${area.path}#webpage`,
+    url: `${siteConfig.url}${area.path}`,
+    name: area.headline,
+    description: area.metaDescription,
+    inLanguage: "da-DK",
+    isPartOf: { "@id": `${siteConfig.url}/#website` },
+    about: { "@id": `${siteConfig.url}/#person` },
+    mainEntity: { "@id": `${siteConfig.url}/#service` },
+    contentLocation: {
+      "@type": "Place",
+      name: area.city,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: area.city,
+        addressCountry: "DK",
+      },
+    },
   };
 }
 

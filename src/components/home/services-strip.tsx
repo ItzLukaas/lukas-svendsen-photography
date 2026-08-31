@@ -24,8 +24,8 @@ export function ServicesStrip() {
             Hvad jeg leverer
           </h2>
           <p className="mt-3 max-w-[48ch] text-[0.9375rem] leading-[1.65] text-muted-ink">
-            Foto, video, drone og content til sport, koncerter, events og
-            erhverv.
+            Foto, video, drone og content — til sport, koncerter, events og
+            erhverv i Grindsted, Billund, Vejle og hele Danmark.
           </p>
         </FadeIn>
 

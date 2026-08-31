@@ -7,6 +7,7 @@ import {
   IconLinkedin,
 } from "@/components/layout/social-icons";
 import { homeServices } from "@/lib/data/services";
+import { localAreas } from "@/lib/data/local-areas";
 import { siteConfig } from "@/lib/site";
 
 const navLinks = [
@@ -32,9 +33,9 @@ export function SiteFooter() {
             <p className="font-display text-[1.25rem] tracking-[-0.025em] text-paper md:text-[1.4rem]">
               {siteConfig.name}
             </p>
-            <p className="mt-2 max-w-[40ch] text-[0.875rem] leading-[1.65] text-paper/50">
-              Foto, video, drone og content til projekter, der skal ses — i
-              hele Danmark.
+            <p className="mt-2 max-w-[48ch] text-[0.875rem] leading-[1.65] text-paper/50">
+              Fotograf og videograf med base i Grindsted — opgaver i Billund,
+              Vejle og hele Danmark.
             </p>
           </div>
           <Link href="/booking" className="btn-solid mt-2 shrink-0 bg-paper text-ink md:mt-0">
@@ -42,7 +43,7 @@ export function SiteFooter() {
           </Link>
         </div>
 
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-12">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5 lg:gap-8">
           <div>
             <p className="text-[0.6875rem] font-medium tracking-[0.12em] text-paper/55 uppercase">
               Kontakt
@@ -158,6 +159,24 @@ export function SiteFooter() {
                     className="text-[0.9375rem] text-paper/75 transition-colors duration-300 hover:text-paper focus-visible:text-paper"
                   >
                     {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <p className="text-[0.6875rem] font-medium tracking-[0.12em] text-paper/55 uppercase">
+              Områder
+            </p>
+            <ul className="mt-5 space-y-2.5">
+              {localAreas.map((area) => (
+                <li key={area.slug}>
+                  <Link
+                    href={area.path}
+                    className="text-[0.9375rem] text-paper/75 transition-colors duration-300 hover:text-paper focus-visible:text-paper"
+                  >
+                    Fotograf {area.city}
                   </Link>
                 </li>
               ))}

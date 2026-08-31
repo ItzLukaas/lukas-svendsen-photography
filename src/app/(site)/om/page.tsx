@@ -11,9 +11,9 @@ import {
 } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Om mig — fotograf og videograf",
+  title: "Om mig — fotograf i Grindsted",
   description:
-    "Lukas Svendsen — fotograf og videograf med base i Grindsted. Koncert-, sports- og eventfoto samt video og drone i hele Danmark.",
+    "Lukas Svendsen — fotograf og videograf fra Grindsted. Koncert-, sports- og eventfoto i Billund, Vejle og hele Danmark.",
   path: "/om",
 });
 
@@ -22,7 +22,7 @@ export default function OmPage() {
     path: "/om",
     name: "Om Lukas Svendsen",
     description:
-      "Lukas Svendsen er fotograf med base i Grindsted. Foto, video, drone og content til koncerter, festivaler, sport og events i hele Danmark.",
+      "Lukas Svendsen er fotograf fra Grindsted. Foto, video og drone til koncerter, sport og events i Billund, Vejle og hele Danmark.",
     type: "AboutPage",
   });
   const breadcrumbJsonLd = pageBreadcrumbJsonLd([
@@ -62,7 +62,7 @@ export default function OmPage() {
               Lukas Svendsen
             </h1>
             <p className="mt-4 text-[0.9375rem] text-muted-ink">
-              Fotograf · base i Grindsted
+              Fotograf · Grindsted
             </p>
           </FadeIn>
 
@@ -78,7 +78,8 @@ export default function OmPage() {
                 Det kan være ét job, materiale til en ny hjemmeside, SoMe eller
                 en større contentløsning. Jeg møder op klar, holder hovedet
                 koldt under presset og leverer billeder, der kan bruges med det
-                samme — i hele Danmark.
+                samme — i Billund, Vejle, Give, Kolding, Esbjerg og resten af
+                Danmark.
               </p>
               <p>
                 Book mig, hvis du har et job. Så snakker vi om det.
@@ -96,6 +97,30 @@ export default function OmPage() {
                     className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
                   >
                     Hvad jeg leverer
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/fotograf-grindsted"
+                    className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
+                  >
+                    Fotograf Grindsted
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/fotograf-billund"
+                    className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
+                  >
+                    Fotograf Billund
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/fotograf-vejle"
+                    className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
+                  >
+                    Fotograf Vejle
                   </Link>
                 </li>
                 <li>

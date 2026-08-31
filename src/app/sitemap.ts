@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 
 import { fetchProjects } from "@/lib/content";
+import { localAreas } from "@/lib/data/local-areas";
 import { getGeneratedGallery } from "@/lib/data/generated-images";
 import { siteConfig } from "@/lib/site";
 
@@ -58,5 +59,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     };
   });
 
-  return [...staticRoutes, ...projectRoutes];
+  const localRoutes: MetadataRoute.Sitemap = localAreas.map((area) => ({
+    url: `${base}${area.path}`,
+    lastModified: SITE_REVISED,
+    changeFrequency: "monthly" as const,
+    priority: area.slug === "grindsted" ? 0.88 : 0.82,
+  }));
+
+  return [...staticRoutes, ...localRoutes, ...projectRoutes];
 }

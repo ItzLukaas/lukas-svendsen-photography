@@ -10,10 +10,10 @@
       "orientation": "portrait"
     },
     {
-      "source": "03/FHK-03-Halv-Hvid.jpg",
-      "out": "02-fhk-freja-halv-hvid.jpg",
-      "alt": "Freja Thor Ammidtsbøl Andersen (Midtsbøl) — Fredericia Håndbold, nummer 3",
-      "src": "/images/projects/fredericia-haandboldklub/02-fhk-freja-halv-hvid.jpg",
+      "source": "03/FHK-03-Pose-Hvid.jpg",
+      "out": "02-fhk-freja-pose-hvid.jpg",
+      "alt": "Freja Thor Ammidtsbøl Andersen jubler — Fredericia Håndbold, nummer 3",
+      "src": "/images/projects/fredericia-haandboldklub/02-fhk-freja-pose-hvid.jpg",
       "width": 1467,
       "height": 2200,
       "orientation": "portrait"
@@ -82,14 +82,14 @@
       "orientation": "portrait"
     },
     {
-      "source": "03/FHK-03-Pose-Hvid.jpg",
-      "out": "10-fhk-freja-pose-hvid.jpg",
-      "alt": "Freja Thor Ammidtsbøl Andersen jubler — Fredericia Håndbold, nummer 3",
-      "src": "/images/projects/fredericia-haandboldklub/10-fhk-freja-pose-hvid.jpg",
+      "source": "23/FHK-23-Pose-Hvid.jpg",
+      "out": "10-fhk-sophie-pose-hvid.jpg",
+      "alt": "Sophie Voldby jubler — Fredericia Håndbold, nummer 23",
+      "src": "/images/projects/fredericia-haandboldklub/10-fhk-sophie-pose-hvid.jpg",
       "width": 1467,
       "height": 2200,
       "orientation": "portrait"
     }
   ],
-  "processedAt": "2026-08-31T15:55:21.843Z"
+  "processedAt": "2026-08-31T16:00:19.425Z"
 }

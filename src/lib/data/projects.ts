@@ -956,8 +956,8 @@ const projectSeed: Project[] = [
       "Leverede spillerportrætter til web og sociale medier — klar til klubbens kanaler.",
     featured: true,
     cover: P(
-      "/images/projects/fredericia-haandboldklub/02-fhk-freja-halv-hvid.jpg",
-      "Freja Thor Ammidtsbøl Andersen (Midtsbøl) — Fredericia Håndbold, nummer 3",
+      "/images/projects/fredericia-haandboldklub/02-fhk-freja-pose-hvid.jpg",
+      "Freja Thor Ammidtsbøl Andersen jubler — Fredericia Håndbold, nummer 3",
       1467,
       2200
     ),
@@ -969,8 +969,8 @@ const projectSeed: Project[] = [
         2200
       ),
       P(
-        "/images/projects/fredericia-haandboldklub/02-fhk-freja-halv-hvid.jpg",
-        "Freja Thor Ammidtsbøl Andersen (Midtsbøl) — Fredericia Håndbold, nummer 3",
+        "/images/projects/fredericia-haandboldklub/02-fhk-freja-pose-hvid.jpg",
+        "Freja Thor Ammidtsbøl Andersen jubler — Fredericia Håndbold, nummer 3",
         1467,
         2200
       ),
@@ -1017,8 +1017,8 @@ const projectSeed: Project[] = [
         2200
       ),
       P(
-        "/images/projects/fredericia-haandboldklub/10-fhk-freja-pose-hvid.jpg",
-        "Freja Thor Ammidtsbøl Andersen jubler — Fredericia Håndbold, nummer 3",
+        "/images/projects/fredericia-haandboldklub/10-fhk-sophie-pose-hvid.jpg",
+        "Sophie Voldby jubler — Fredericia Håndbold, nummer 23",
         1467,
         2200
       ),

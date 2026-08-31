@@ -46,9 +46,9 @@ const GALLERY = [
     alt: "Fredericia Håndboldklub — gruppefoto",
   },
   {
-    source: "03/FHK-03-Halv-Hvid.jpg",
-    out: "02-fhk-freja-halv-hvid.jpg",
-    alt: "Freja Thor Ammidtsbøl Andersen (Midtsbøl) — Fredericia Håndbold, nummer 3",
+    source: "03/FHK-03-Pose-Hvid.jpg",
+    out: "02-fhk-freja-pose-hvid.jpg",
+    alt: "Freja Thor Ammidtsbøl Andersen jubler — Fredericia Håndbold, nummer 3",
   },
   {
     source: "04/FHK-04-Pose-Hvid.jpg",
@@ -86,9 +86,9 @@ const GALLERY = [
     alt: "Nikoline Johansen jubler — Fredericia Håndbold, nummer 37",
   },
   {
-    source: "03/FHK-03-Pose-Hvid.jpg",
-    out: "10-fhk-freja-pose-hvid.jpg",
-    alt: "Freja Thor Ammidtsbøl Andersen jubler — Fredericia Håndbold, nummer 3",
+    source: "23/FHK-23-Pose-Hvid.jpg",
+    out: "10-fhk-sophie-pose-hvid.jpg",
+    alt: "Sophie Voldby jubler — Fredericia Håndbold, nummer 23",
   },
 ];
 

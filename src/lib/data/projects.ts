@@ -956,62 +956,62 @@ const projectSeed: Project[] = [
       "Leverede spillerportrætter til web og sociale medier — klar til klubbens kanaler.",
     featured: true,
     cover: P(
-      "/images/projects/fredericia-haandboldklub/fhk-squad/03-fhk-freja-thor-ammidtsbol-andersen.jpg",
-      "Freja Thor Ammidtsbøl Andersen — Fredericia Håndbold, nummer 3",
+      "/images/projects/fredericia-haandboldklub/02-fhk-freja-halv-hvid.jpg",
+      "Freja Thor Ammidtsbøl Andersen (Midtsbøl) — Fredericia Håndbold, nummer 3",
       1467,
       2200
     ),
     images: [
-      L(
-        "/images/projects/fredericia-haandboldklub/01-00-1-div-kvinder.jpg",
-        "Fredericia Håndboldklub — 1. DIV Kvinder",
-        2200,
-        1237
-      ),
       P(
-        "/images/projects/fredericia-haandboldklub/02-01-fhk-gruppe-06.jpg",
+        "/images/projects/fredericia-haandboldklub/01-fhk-gruppe-06-hvid.jpg",
         "Fredericia Håndboldklub — gruppefoto",
         1467,
         2200
       ),
       P(
-        "/images/projects/fredericia-haandboldklub/fhk-squad/03-fhk-freja-thor-ammidtsbol-andersen.jpg",
+        "/images/projects/fredericia-haandboldklub/02-fhk-freja-halv-hvid.jpg",
         "Freja Thor Ammidtsbøl Andersen (Midtsbøl) — Fredericia Håndbold, nummer 3",
         1467,
         2200
       ),
       P(
-        "/images/projects/fredericia-haandboldklub/fhk-squad/04-fhk-maria-husted.jpg",
+        "/images/projects/fredericia-haandboldklub/03-fhk-maria-pose-hvid.jpg",
         "Maria Husted — Fredericia Håndbold, nummer 4",
         1467,
         2200
       ),
       P(
-        "/images/projects/fredericia-haandboldklub/04-fhk-gruppe-04.jpg",
+        "/images/projects/fredericia-haandboldklub/04-fhk-gruppe-03-hvid.jpg",
         "Fredericia Håndboldklub — gruppefoto",
         1467,
         2200
       ),
       P(
-        "/images/projects/fredericia-haandboldklub/07-06-fhk-19-pose.jpg",
-        "Eline Osland jubler — Fredericia Håndbold, nummer 19",
+        "/images/projects/fredericia-haandboldklub/05-fhk-eline-hel-hvid.jpg",
+        "Eline Osland — Fredericia Håndbold, nummer 19",
         1467,
         2200
       ),
       P(
-        "/images/projects/fredericia-haandboldklub/fhk-squad/27-fhk-annette-wiren-larsen.jpg",
+        "/images/projects/fredericia-haandboldklub/06-fhk-julie-laursen-halv-hvid.jpg",
+        "Julie Laursen — Fredericia Håndbold, nummer 11",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/fredericia-haandboldklub/07-fhk-annette-pose-hvid.jpg",
         "Annette Wirén Larsen — Fredericia Håndbold, nummer 27",
         1467,
         2200
       ),
       P(
-        "/images/projects/fredericia-haandboldklub/fhk-squad/29-fhk-julie-gronne-thinggard.jpg",
+        "/images/projects/fredericia-haandboldklub/08-fhk-julie-gronne-halv-hvid.jpg",
         "Julie Grønne Thinggård — Fredericia Håndbold, nummer 29",
         1467,
         2200
       ),
       P(
-        "/images/projects/fredericia-haandboldklub/10-09-fhk-37-pose.jpg",
+        "/images/projects/fredericia-haandboldklub/09-fhk-nikoline-hel-hvid.jpg",
         "Nikoline Johansen — Fredericia Håndbold, nummer 37",
         1467,
         2200

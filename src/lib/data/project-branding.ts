@@ -33,12 +33,11 @@ export type ProjectHoverBrand = {
  * - Bork Festival → #182848 (dominant ink from logo)
  * - Smukfest → #0a472f (smukfest.dk brand green)
  * - Grøn Koncert → #04A64B (official logo fill)
- * - Esbjerg Streetfood → #d94a32 (logo vermilion)
- * - DanskHåndbold → #e61428 (official SVG fill)
- * - Super Cup Kvinder → same DanskHåndbold red
- * - Fredericia Håndboldklub → #464545 (logo grey — red mark reads on neutral tint)
- * - Fredericia — Ribe Esbjerg → #1a2840 (cool ink — action/sport, pairs with FHK logo)
- * - Suset → #C44040 (sampled from official Suset visual identity / cover art)
+ * - Esbjerg Streetfood → #8b4518 (warm amber-brown from venue palette)
+ * - DanskHåndbold → varied tints per project (ink, navy, charcoal — logo inverted white)
+ * - Fredericia Håndboldklub → #464545 (logo grey)
+ * - Fredericia — Ribe Esbjerg → #1a2840 (cool ink)
+ * - Suset → #2c2419 (warm espresso — cover art tonality)
  */
 export const projectHoverBrands: Record<string, ProjectHoverBrand> = {
   "varde-open-air": {
@@ -87,7 +86,8 @@ export const projectHoverBrands: Record<string, ProjectHoverBrand> = {
     logoAlt: "Esbjerg Street Food logo",
     logoWidth: 507,
     logoHeight: 419,
-    overlayColor: "#d94a32",
+    overlayColor: "#8b4518",
+    overlayOpacity: 0.4,
     logoClassName: "h-16 w-auto max-w-[68%] md:h-[4.5rem]",
     invertLogo: true,
   },
@@ -97,7 +97,8 @@ export const projectHoverBrands: Record<string, ProjectHoverBrand> = {
     logoAlt: "DanskHåndbold logo",
     logoWidth: 655,
     logoHeight: 150,
-    overlayColor: "#e61428",
+    overlayColor: "#1c1c1e",
+    overlayOpacity: 0.44,
     logoClassName: "h-8 w-auto max-w-[78%] md:h-9",
     invertLogo: true,
   },
@@ -107,7 +108,8 @@ export const projectHoverBrands: Record<string, ProjectHoverBrand> = {
     logoAlt: "DanskHåndbold logo",
     logoWidth: 655,
     logoHeight: 150,
-    overlayColor: "#e61428",
+    overlayColor: "#1a2840",
+    overlayOpacity: 0.44,
     logoClassName: "h-8 w-auto max-w-[78%] md:h-9",
     invertLogo: true,
   },
@@ -117,7 +119,8 @@ export const projectHoverBrands: Record<string, ProjectHoverBrand> = {
     logoAlt: "DanskHåndbold logo",
     logoWidth: 655,
     logoHeight: 150,
-    overlayColor: "#e61428",
+    overlayColor: "#2a1f35",
+    overlayOpacity: 0.42,
     logoClassName: "h-8 w-auto max-w-[78%] md:h-9",
     invertLogo: true,
   },
@@ -127,7 +130,8 @@ export const projectHoverBrands: Record<string, ProjectHoverBrand> = {
     logoAlt: "DanskHåndbold logo",
     logoWidth: 655,
     logoHeight: 150,
-    overlayColor: "#e61428",
+    overlayColor: "#152238",
+    overlayOpacity: 0.44,
     logoClassName: "h-8 w-auto max-w-[78%] md:h-9",
     invertLogo: true,
   },
@@ -159,7 +163,8 @@ export const projectHoverBrands: Record<string, ProjectHoverBrand> = {
     logoAlt: "Suset logo",
     logoWidth: 400,
     logoHeight: 181,
-    overlayColor: "#C44040",
+    overlayColor: "#2c2419",
+    overlayOpacity: 0.42,
     logoClassName: "h-12 w-auto max-w-[70%] md:h-14",
     invertLogo: false,
   },

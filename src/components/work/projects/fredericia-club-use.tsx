@@ -1,7 +1,7 @@
 import { FadeIn } from "@/components/motion/fade-in";
 import { Photo } from "@/components/photography/photo";
 import {
-  fredericiaPhotographedCount,
+  fredericiaSquadCount,
   fredericiaSquadPlayers,
   fredericiaSquadUrl,
   type FredericiaSquadPlayer,
@@ -17,30 +17,21 @@ function SquadPlayerCard({
   player: FredericiaSquadPlayer;
   index: number;
 }) {
-  const hasImage = Boolean(player.fhkImage);
-
   return (
     <li>
       <FadeIn delay={Math.min(0.02 + index * 0.025, 0.22)}>
         <article className="group relative overflow-hidden bg-paper shadow-[0_1px_0_rgba(0,0,0,0.06)]">
           <div className="relative aspect-[640/880] bg-mist/30">
-            {hasImage && player.fhkImage ? (
-              <Photo
-                src={player.fhkImage.src}
-                alt={player.fhkImage.alt}
-                fill
-                sizes="(min-width: 1280px) 20vw, (min-width: 640px) 25vw, 50vw"
-                className="absolute inset-0"
-                imageClassName="object-cover object-top"
-                quality={88}
-                interactive
-              />
-            ) : (
-              <div
-                aria-hidden
-                className="absolute inset-0 bg-gradient-to-b from-mist/20 to-mist/50"
-              />
-            )}
+            <Photo
+              src={player.image.src}
+              alt={player.image.alt}
+              fill
+              sizes="(min-width: 1280px) 20vw, (min-width: 640px) 25vw, 50vw"
+              className="absolute inset-0"
+              imageClassName="object-cover object-top"
+              quality={88}
+              interactive
+            />
 
             <p
               aria-hidden
@@ -87,9 +78,9 @@ export function FredericiaClubUse({ primary = false }: FredericiaClubUseProps) {
             I brug i klubben
           </h2>
           <p className="text-body mt-5 max-w-[52ch]">
-            Mine billeder bliver ikke kun brugt i portfolioen. De indgår
-            direkte i Fredericia Håndboldklubs kommunikation og præsentation af
-            spillertruppen — sammen med resten af 1. divisionsholdet.
+            Mine portrætter indgår direkte i Fredericia Håndboldklubs
+            kommunikation og præsentation af spillertruppen — fra shoot til live
+            på klubbens hjemmeside.
           </p>
         </FadeIn>
 
@@ -101,8 +92,8 @@ export function FredericiaClubUse({ primary = false }: FredericiaClubUseProps) {
 
         <FadeIn delay={0.08}>
           <p className="mx-auto mt-12 max-w-[52ch] text-center text-[0.9375rem] leading-[1.65] text-muted-ink md:mt-14">
-            {fredericiaPhotographedCount} af portrætterne i gridet er mine
-            fotografier — brugt i klubbens officielle præsentation på{" "}
+            {fredericiaSquadCount} spillerportrætter — brugt i klubbens officielle
+            præsentation på{" "}
             <a
               href={fredericiaSquadUrl}
               target="_blank"
@@ -112,10 +103,6 @@ export function FredericiaClubUse({ primary = false }: FredericiaClubUseProps) {
               fhk.dk
             </a>
             .
-          </p>
-          <p className="mx-auto mt-4 max-w-[44ch] text-center text-[0.875rem] leading-[1.65] text-muted-ink">
-            Fotografierne indgår som en del af klubbens officielle
-            spillerpræsentation — fra shoot til live på klubbens hjemmeside.
           </p>
         </FadeIn>
       </div>

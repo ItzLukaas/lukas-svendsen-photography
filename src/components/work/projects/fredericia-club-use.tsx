@@ -1,12 +1,9 @@
 import { FadeIn } from "@/components/motion/fade-in";
 import { Photo } from "@/components/photography/photo";
 import {
-  fredericiaSquadCount,
   fredericiaSquadPlayers,
-  fredericiaSquadUrl,
   type FredericiaSquadPlayer,
 } from "@/lib/data/fredericia-squad";
-import { cn } from "@/lib/utils";
 
 const FHK_RED = "#ff0033";
 
@@ -55,57 +52,14 @@ function SquadPlayerCard({
   );
 }
 
-type FredericiaClubUseProps = {
-  /** When true, section is the main project content (not an add-on below a gallery). */
-  primary?: boolean;
-};
-
-export function FredericiaClubUse({ primary = false }: FredericiaClubUseProps) {
+export function FredericiaClubUse() {
   return (
-    <section
-      aria-labelledby="fredericia-club-use-heading"
-      className={cn(
-        primary ? "mt-0" : "mt-24 border-t border-foreground/10 md:mt-32"
-      )}
-    >
-      <div className="mx-auto max-w-[1600px] px-5 py-[var(--space-section-sm)] md:px-8 lg:px-12">
-        <FadeIn>
-          <p className="label-meta">Brugt af Fredericia Håndboldklub</p>
-          <h2
-            id="fredericia-club-use-heading"
-            className="mt-3 max-w-[14ch] font-display text-[clamp(1.85rem,3.8vw,2.85rem)] leading-[1.05] tracking-[-0.03em]"
-          >
-            I brug i klubben
-          </h2>
-          <p className="text-body mt-5 max-w-[52ch]">
-            Mine portrætter indgår direkte i Fredericia Håndboldklubs
-            kommunikation og præsentation af spillertruppen — fra shoot til live
-            på klubbens hjemmeside.
-          </p>
-        </FadeIn>
-
-        <ul className="mt-12 m-0 grid list-none grid-cols-2 gap-3 p-0 sm:grid-cols-3 sm:gap-4 md:grid-cols-4 lg:mt-16 xl:grid-cols-5">
-          {fredericiaSquadPlayers.map((player, index) => (
-            <SquadPlayerCard key={player.number} player={player} index={index} />
-          ))}
-        </ul>
-
-        <FadeIn delay={0.08}>
-          <p className="mx-auto mt-12 max-w-[52ch] text-center text-[0.9375rem] leading-[1.65] text-muted-ink md:mt-14">
-            {fredericiaSquadCount} spillerportrætter — brugt i klubbens officielle
-            præsentation på{" "}
-            <a
-              href={fredericiaSquadUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-medium text-ink underline decoration-foreground/25 underline-offset-[0.2em] transition-[decoration-color,opacity] duration-300 hover:decoration-foreground/60 hover:opacity-80"
-            >
-              fhk.dk
-            </a>
-            .
-          </p>
-        </FadeIn>
-      </div>
-    </section>
+    <div className="mx-auto max-w-[1600px] px-5 md:px-8 lg:px-12">
+      <ul className="m-0 grid list-none grid-cols-2 gap-3 p-0 sm:grid-cols-3 sm:gap-4 md:grid-cols-4 xl:grid-cols-5">
+        {fredericiaSquadPlayers.map((player, index) => (
+          <SquadPlayerCard key={player.number} player={player} index={index} />
+        ))}
+      </ul>
+    </div>
   );
 }

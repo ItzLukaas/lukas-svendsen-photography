@@ -167,5 +167,3 @@ export const fredericiaSquadPlayers: FredericiaSquadPlayer[] = [
     ),
   },
 ];
-
-export const fredericiaSquadCount = fredericiaSquadPlayers.length;

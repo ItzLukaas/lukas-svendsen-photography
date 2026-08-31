@@ -91,7 +91,7 @@ export function ProjectView({ project, previous, next }: ProjectViewProps) {
 
       <div className="mt-10 md:mt-12">
         {project.slug === "fredericia-haandboldklub" ? (
-          <FredericiaClubUse primary />
+          <FredericiaClubUse />
         ) : (
           <ProjectGallery project={project} />
         )}

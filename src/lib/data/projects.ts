@@ -949,14 +949,14 @@ const projectSeed: Project[] = [
     year: "2026",
     location: "Fredericia",
     excerpt:
-      "Spillerportrætter til Fredericia Håndboldklubs 1. divisionskvinder — fra shoot til live på fhk.dk.",
+      "Spillerportrætter for Fredericia Håndboldklubs 1. divisionskvinder — skarpt, enkelt og klar til klubbens kommunikation.",
     client: "Fredericia Håndboldklub",
     clientUrl:
       "https://fhk.dk/1div-kvinder/1-div-kvinder-spillertrup-og-stab",
     clientUrlLabel: "fhk.dk",
     role: "Portrætfotograf",
     outcome:
-      "Mine fotografier indgår i klubbens officielle spillerpræsentation sammen med resten af truppen.",
+      "Leverede spillerportrætter til web og sociale medier — klar til klubbens kanaler.",
     featured: true,
     cover: P(
       "/images/projects/fredericia-haandboldklub/fhk-squad/03-fhk-freja-thor-ammidtsbol-andersen.jpg",

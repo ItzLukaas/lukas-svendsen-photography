@@ -36,14 +36,14 @@ const JPEG_QUALITY = 85;
 /** Replacement shots — read from inbox/fredericia-ribe-esbjerg/ */
 const REPLACEMENTS = [
   {
-    inbox: "DSC02820.jpg",
+    inbox: "DSC02807.jpg",
     out: "03-spring-angreb-mod-ribe-esbjerg-fredericia-haandbold.jpg",
-    alt: "Spring mod Ribe-Esbjerg — Fredericia Håndbold",
+    alt: "Angreb mod Ribe-Esbjerg — Fredericia Håndbold",
   },
   {
-    inbox: "DSC03025.jpg",
+    inbox: "DSC03030.jpg",
     out: "08-luftkamp-mod-ribe-esbjerg-fredericia-haandbold.jpg",
-    alt: "Luftkamp mod Ribe-Esbjerg — Fredericia Håndbold",
+    alt: "Kampduel mod Ribe-Esbjerg — Fredericia Håndbold",
   },
 ];
 
@@ -59,9 +59,9 @@ const SHOTS = [
     alt: "Springskud i luften mod Ribe-Esbjerg — Fredericia Håndbold",
   },
   {
-    inbox: "DSC02820.jpg",
+    inbox: "DSC02807.jpg",
     out: "03-spring-angreb-mod-ribe-esbjerg-fredericia-haandbold.jpg",
-    alt: "Spring mod Ribe-Esbjerg — Fredericia Håndbold",
+    alt: "Angreb mod Ribe-Esbjerg — Fredericia Håndbold",
   },
   {
     inbox: "DSC02875.jpg",
@@ -84,9 +84,9 @@ const SHOTS = [
     alt: "Hopskud mod mål mod Ribe-Esbjerg — Fredericia Håndbold",
   },
   {
-    inbox: "DSC03025.jpg",
+    inbox: "DSC03030.jpg",
     out: "08-luftkamp-mod-ribe-esbjerg-fredericia-haandbold.jpg",
-    alt: "Luftkamp mod Ribe-Esbjerg — Fredericia Håndbold",
+    alt: "Kampduel mod Ribe-Esbjerg — Fredericia Håndbold",
   },
   {
     inbox: "DSC03044.jpg",
@@ -144,7 +144,11 @@ async function processShot(shot, inputDir) {
 }
 
 const manifest = [];
-const inputDir = replaceOnly ? INBOX_DIR : INBOX;
+const inputDir = replaceOnly
+  ? existsSync(path.join(INBOX_DIR, shots[0].inbox))
+    ? INBOX_DIR
+    : INBOX
+  : INBOX;
 
 for (const shot of shots) {
   manifest.push(await processShot(shot, inputDir));

@@ -31,7 +31,7 @@ export function ProjectHoverBrandOverlay({
         className="absolute inset-0"
         style={{
           backgroundColor: brand.overlayColor,
-          opacity: 0.38,
+          opacity: brand.overlayOpacity ?? 0.38,
         }}
       />
       {/* Soft ink veil for logo/text contrast without killing the photo */}

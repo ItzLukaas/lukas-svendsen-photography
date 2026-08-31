@@ -15,6 +15,8 @@ export type ProjectHoverBrand = {
    * Applied at low opacity so the photograph stays visible.
    */
   overlayColor: string;
+  /** Overlay strength — default 0.38 */
+  overlayOpacity?: number;
   /** Optical size — keep marks proportional, never stretch */
   logoClassName: string;
   /**
@@ -34,7 +36,8 @@ export type ProjectHoverBrand = {
  * - Esbjerg Streetfood → #d94a32 (logo vermilion)
  * - DanskHåndbold → #e61428 (official SVG fill)
  * - Super Cup Kvinder → same DanskHåndbold red
- * - Fredericia Håndboldklub → #ff0033 (official SVG fill #f03)
+ * - Fredericia Håndboldklub → #464545 (logo grey — red mark reads on neutral tint)
+ * - Fredericia — Ribe Esbjerg → #1a2840 (cool ink — action/sport, pairs with FHK logo)
  * - Suset → #C44040 (sampled from official Suset visual identity / cover art)
  */
 export const projectHoverBrands: Record<string, ProjectHoverBrand> = {
@@ -134,7 +137,19 @@ export const projectHoverBrands: Record<string, ProjectHoverBrand> = {
     logoAlt: "Fredericia Håndboldklub logo",
     logoWidth: 157,
     logoHeight: 157,
-    overlayColor: "#ff0033",
+    overlayColor: "#464545",
+    overlayOpacity: 0.42,
+    logoClassName: "h-16 w-auto max-w-[48%] md:h-[4.5rem]",
+    invertLogo: false,
+  },
+  "fredericia-ribe-esbjerg": {
+    brandName: "Fredericia Håndboldklub",
+    logoSrc: "/logos/fredericia-haandboldklub.svg",
+    logoAlt: "Fredericia Håndboldklub logo",
+    logoWidth: 157,
+    logoHeight: 157,
+    overlayColor: "#1a2840",
+    overlayOpacity: 0.44,
     logoClassName: "h-16 w-auto max-w-[48%] md:h-[4.5rem]",
     invertLogo: false,
   },

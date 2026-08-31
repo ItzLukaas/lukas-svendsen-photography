@@ -6,6 +6,9 @@ import {
   fredericiaSquadUrl,
   type FredericiaSquadPlayer,
 } from "@/lib/data/fredericia-squad";
+import { cn } from "@/lib/utils";
+
+const FHK_RED = "#ff0033";
 
 function SquadPlayerCard({
   player,
@@ -14,70 +17,46 @@ function SquadPlayerCard({
   player: FredericiaSquadPlayer;
   index: number;
 }) {
-  const hasPortrait = Boolean(player.portrait);
+  const hasImage = Boolean(player.fhkImage);
 
   return (
-    <li className="bg-paper">
+    <li>
       <FadeIn delay={Math.min(0.02 + index * 0.025, 0.22)}>
-        <article className="group h-full">
-          {hasPortrait && player.portrait ? (
-            <div className="relative aspect-[2/3] overflow-hidden">
+        <article className="group relative overflow-hidden bg-paper shadow-[0_1px_0_rgba(0,0,0,0.06)]">
+          <div className="relative aspect-[640/880] bg-mist/30">
+            {hasImage && player.fhkImage ? (
               <Photo
-                src={player.portrait.src}
-                alt={player.portrait.alt}
+                src={player.fhkImage.src}
+                alt={player.fhkImage.alt}
                 fill
                 sizes="(min-width: 1280px) 20vw, (min-width: 640px) 25vw, 50vw"
                 className="absolute inset-0"
-                imageClassName="object-cover"
+                imageClassName="object-cover object-top"
                 quality={88}
                 interactive
               />
+            ) : (
               <div
                 aria-hidden
-                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/55 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 motion-reduce:opacity-0"
+                className="absolute inset-0 bg-gradient-to-b from-mist/20 to-mist/50"
               />
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-x-0 bottom-0 translate-y-1 px-4 pb-4 opacity-0 transition-[opacity,transform] duration-300 group-hover:translate-y-0 group-hover:opacity-100 motion-reduce:hidden"
-              >
-                <p className="font-display text-[1.125rem] leading-tight tracking-[-0.02em] text-paper">
-                  {player.name}
-                </p>
-                <p className="mt-0.5 text-[0.75rem] text-paper/75">
-                  #{player.number}
-                </p>
-              </div>
-            </div>
-          ) : (
-            <div className="relative flex aspect-[2/3] flex-col justify-end border-b border-foreground/8 bg-mist/40 px-4 py-5">
-              <p
-                aria-hidden
-                className="font-display text-[clamp(2.5rem,6vw,3.25rem)] leading-none tracking-[-0.04em] text-foreground/10"
-              >
-                {player.number}
+            )}
+
+            <p
+              aria-hidden
+              className="pointer-events-none absolute right-2 top-1 font-display text-[clamp(3rem,9vw,4.5rem)] leading-none tracking-[-0.05em] text-foreground/[0.08] sm:right-3 sm:top-2"
+            >
+              {player.number}
+            </p>
+
+            <div
+              className="absolute bottom-0 left-0 max-w-[88%] px-3 py-2 sm:px-3.5 sm:py-2.5"
+              style={{ backgroundColor: FHK_RED }}
+            >
+              <p className="font-display text-[0.8125rem] leading-tight tracking-[-0.01em] text-paper sm:text-[0.9375rem]">
+                {player.name}
               </p>
             </div>
-          )}
-
-          <div className="border-t border-foreground/8 px-3 py-3.5 sm:px-4 sm:py-4">
-            <h3 className="font-display text-[0.9375rem] leading-tight tracking-[-0.02em] sm:text-[1.05rem]">
-              {player.name}
-            </h3>
-            <p className="mt-1 text-[0.6875rem] tracking-[0.04em] text-muted-ink uppercase">
-              #{player.number}
-              {player.jerseyName ? (
-                <span className="normal-case tracking-normal">
-                  {" "}
-                  · {player.jerseyName} på trøjen
-                </span>
-              ) : null}
-              {hasPortrait ? (
-                <span className="normal-case tracking-normal">
-                  {" "}
-                  · Mit portræt
-                </span>
-              ) : null}
-            </p>
           </div>
         </article>
       </FadeIn>
@@ -85,11 +64,18 @@ function SquadPlayerCard({
   );
 }
 
-export function FredericiaClubUse() {
+type FredericiaClubUseProps = {
+  /** When true, section is the main project content (not an add-on below a gallery). */
+  primary?: boolean;
+};
+
+export function FredericiaClubUse({ primary = false }: FredericiaClubUseProps) {
   return (
     <section
       aria-labelledby="fredericia-club-use-heading"
-      className="mt-24 border-t border-foreground/10 md:mt-32"
+      className={cn(
+        primary ? "mt-0" : "mt-24 border-t border-foreground/10 md:mt-32"
+      )}
     >
       <div className="mx-auto max-w-[1600px] px-5 py-[var(--space-section-sm)] md:px-8 lg:px-12">
         <FadeIn>
@@ -107,7 +93,7 @@ export function FredericiaClubUse() {
           </p>
         </FadeIn>
 
-        <ul className="mt-12 m-0 grid list-none grid-cols-2 gap-px border border-foreground/10 bg-foreground/10 p-0 sm:grid-cols-3 md:grid-cols-4 lg:mt-16 xl:grid-cols-5">
+        <ul className="mt-12 m-0 grid list-none grid-cols-2 gap-3 p-0 sm:grid-cols-3 sm:gap-4 md:grid-cols-4 lg:mt-16 xl:grid-cols-5">
           {fredericiaSquadPlayers.map((player, index) => (
             <SquadPlayerCard key={player.number} player={player} index={index} />
           ))}

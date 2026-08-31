@@ -863,6 +863,84 @@ const projectSeed: Project[] = [
     ],
   },
   {
+    slug: "fredericia-ribe-esbjerg",
+    title: "Fredericia — Ribe Esbjerg",
+    discipline: "sport",
+    category: "Sport",
+    galleryFormat: "wide",
+    year: "2026",
+    location: "Fredericia",
+    excerpt:
+      "Action fra håndboldkampen mellem Fredericia Håndboldklub og Ribe-Esbjerg — tempo, dueller og scoringer.",
+    client: "Fredericia Håndboldklub",
+    role: "Sportsfotograf",
+    outcome:
+      "Leverede kampbilleder fra mødet mod Ribe-Esbjerg — fra angreb i luften til jubel efter scoring.",
+    featured: false,
+    cover: L(
+      "/images/projects/fredericia-ribe-esbjerg/01-fhk-spiller-med-bold-mod-ribe-esbjerg.jpg",
+      "Fredericia Håndbold spiller med bold mod Ribe-Esbjerg",
+      2200,
+      1467
+    ),
+    images: [
+      L(
+        "/images/projects/fredericia-ribe-esbjerg/01-fhk-spiller-med-bold-mod-ribe-esbjerg.jpg",
+        "Fredericia Håndbold spiller med bold mod Ribe-Esbjerg",
+        2200,
+        1467
+      ),
+      L(
+        "/images/projects/fredericia-ribe-esbjerg/02-springskud-mod-ribe-esbjerg-fredericia-haandbold.jpg",
+        "Springskud i luften mod Ribe-Esbjerg — Fredericia Håndbold",
+        2200,
+        1467
+      ),
+      L(
+        "/images/projects/fredericia-ribe-esbjerg/03-angreb-i-luften-mod-ribe-esbjerg-fredericia-haandbold.jpg",
+        "Angreb i luften mod Ribe-Esbjerg — Fredericia Håndbold",
+        2200,
+        1467
+      ),
+      L(
+        "/images/projects/fredericia-ribe-esbjerg/04-duel-under-pres-mod-ribe-esbjerg-fredericia-haandbold.jpg",
+        "Duel under pres mod Ribe-Esbjerg — Fredericia Håndbold",
+        2200,
+        1467
+      ),
+      L(
+        "/images/projects/fredericia-ribe-esbjerg/05-palmar-klar-til-kast-mod-ribe-esbjerg-fredericia-haandbold.jpg",
+        "Palmar klar til kast mod Ribe-Esbjerg — Fredericia Håndbold",
+        2200,
+        1467
+      ),
+      L(
+        "/images/projects/fredericia-ribe-esbjerg/06-spiller-dirigerer-mod-ribe-esbjerg-fredericia-haandbold.jpg",
+        "Fredericia Håndbold spiller dirigerer på banen mod Ribe-Esbjerg",
+        2200,
+        1467
+      ),
+      L(
+        "/images/projects/fredericia-ribe-esbjerg/07-hopskud-mod-mal-mod-ribe-esbjerg-fredericia-haandbold.jpg",
+        "Hopskud mod mål mod Ribe-Esbjerg — Fredericia Håndbold",
+        2200,
+        1467
+      ),
+      L(
+        "/images/projects/fredericia-ribe-esbjerg/08-luftduel-mod-ribe-esbjerg-fredericia-haandbold.jpg",
+        "Luftduel mod Ribe-Esbjerg — Fredericia Håndbold",
+        2200,
+        1467
+      ),
+      P(
+        "/images/projects/fredericia-ribe-esbjerg/09-jubel-efter-scoring-mod-ribe-esbjerg.jpg",
+        "Jubel efter scoring mod Ribe-Esbjerg — håndboldkamp",
+        1760,
+        2200
+      ),
+    ],
+  },
+  {
     slug: "fredericia-haandboldklub",
     title: "Fredericia Håndboldklub",
     discipline: "portraetter",
@@ -871,98 +949,36 @@ const projectSeed: Project[] = [
     year: "2026",
     location: "Fredericia",
     excerpt:
-      "Spillerportrætter og holdfotos for Fredericia Håndboldklubs 1. divisionskvinder — skarpt, enkelt og klar til klubbens kommunikation.",
+      "Spillerportrætter til Fredericia Håndboldklubs 1. divisionskvinder — fra shoot til live på fhk.dk.",
     client: "Fredericia Håndboldklub",
     clientUrl:
       "https://fhk.dk/1div-kvinder/1-div-kvinder-spillertrup-og-stab",
     clientUrlLabel: "fhk.dk",
     role: "Portrætfotograf",
     outcome:
-      "Leverede hold- og spillerportrætter til web og sociale medier — fra gruppemotiver til individuelle poses.",
+      "Mine fotografier indgår i klubbens officielle spillerpræsentation sammen med resten af truppen.",
     featured: true,
-    cover: L(
-      "/images/projects/fredericia-haandboldklub/01-00-1-div-kvinder.jpg",
-      "Fredericia Håndboldklub — 1. DIV Kvinder",
-      2200,
-      1237
+    cover: P(
+      "/images/projects/fredericia-haandboldklub/fhk-squad/03-fhk-freja-thor-ammidtsbol-andersen.jpg",
+      "Freja Thor Ammidtsbøl Andersen — Fredericia Håndbold, nummer 3",
+      640,
+      880
     ),
-    images: [
-      L(
-        "/images/projects/fredericia-haandboldklub/01-00-1-div-kvinder.jpg",
-        "Fredericia Håndboldklub — 1. DIV Kvinder",
-        2200,
-        1237
-      ),
-      P(
-        "/images/projects/fredericia-haandboldklub/02-01-fhk-gruppe-06.jpg",
-        "Fredericia Håndboldklub — gruppefoto",
-        1467,
-        2200
-      ),
-      P(
-        "/images/projects/fredericia-haandboldklub/03-02-fhk-gruppe-03.jpg",
-        "Fredericia Håndboldklub — gruppefoto",
-        1467,
-        2200
-      ),
-      P(
-        "/images/projects/fredericia-haandboldklub/04-fhk-gruppe-04.jpg",
-        "Fredericia Håndboldklub — gruppefoto",
-        1467,
-        2200
-      ),
-      P(
-        "/images/projects/fredericia-haandboldklub/05-04-fhk-03-pose.jpg",
-        "Freja Thor Ammidtsbøl Andersen (Midtsbøl) — Fredericia Håndboldklub spillerportræt, nummer 3",
-        1467,
-        2200
-      ),
-      P(
-        "/images/projects/fredericia-haandboldklub/06-05-fhk-04-pose.jpg",
-        "Maria Husted — Fredericia Håndboldklub spillerportræt, nummer 4",
-        1467,
-        2200
-      ),
-      P(
-        "/images/projects/fredericia-haandboldklub/07-06-fhk-19-pose.jpg",
-        "Eline Osland jubler — Fredericia Håndboldklub spillerportræt, nummer 19",
-        1467,
-        2200
-      ),
-      P(
-        "/images/projects/fredericia-haandboldklub/08-07-fhk-29-pose.jpg",
-        "Julie Grønne Thinggård — Fredericia Håndboldklub spillerportræt, nummer 29",
-        1467,
-        2200
-      ),
-      P(
-        "/images/projects/fredericia-haandboldklub/09-08-fhk-27-pose.jpg",
-        "Annette Wirén Larsen — Fredericia Håndboldklub spillerportræt, nummer 27",
-        1467,
-        2200
-      ),
-      P(
-        "/images/projects/fredericia-haandboldklub/10-09-fhk-37-pose.jpg",
-        "Nikoline Johansen — Fredericia Håndboldklub spillerportræt, nummer 37",
-        1467,
-        2200
-      ),
-      P(
-        "/images/projects/fredericia-haandboldklub/11-10-fhk-82-pose.jpg",
-        "Fredericia Håndboldklub spillerportræt, nummer 82",
-        1467,
-        2200
-      ),
-    ],
+    images: [],
   },
 ];
 
 const projectsResolved: Project[] = projectSeed.map(withGeneratedGallery);
 
+/** Listed in portfolio — gallery projects plus club-use cases without a traditional gallery */
+export function isPublishedProject(project: Project) {
+  return (
+    project.images.length > 0 || project.slug === "fredericia-haandboldklub"
+  );
+}
+
 /** Projects with images — used for listings and homepage */
-export const projects: Project[] = projectsResolved.filter(
-  (project) => project.images.length > 0
-);
+export const projects: Project[] = projectsResolved.filter(isPublishedProject);
 
 /** About-page portrait — filename versioned for CDN cache bust. */
 export const aboutPortrait: ProjectImage = P(
@@ -990,7 +1006,7 @@ export const heroMobileImage: ProjectImage = P(
 
 export function getProject(slug: string) {
   const project = projectsResolved.find((item) => item.slug === slug);
-  if (!project || project.images.length === 0) return undefined;
+  if (!project || !isPublishedProject(project)) return undefined;
   return project;
 }
 

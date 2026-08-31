@@ -2,6 +2,7 @@ import {
   getFeaturedProjects,
   getProject,
   getProjectsByDiscipline,
+  isPublishedProject,
   projects as seedProjects,
   sortProjectsForMasonry,
   type Project,
@@ -15,7 +16,7 @@ import type { DisciplineSlug } from "@/lib/site";
 
 export async function fetchProjects(): Promise<Project[]> {
   const published = (items: Project[]) =>
-    items.filter((project) => project.images.length > 0);
+    items.filter(isPublishedProject);
 
   if (!hasSanity || !sanityClient) return published(seedProjects);
   try {

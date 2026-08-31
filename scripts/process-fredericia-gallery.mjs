@@ -38,7 +38,7 @@ const MANIFEST = path.join(
 const MAX_LONG_EDGE = 2200;
 const JPEG_QUALITY = 88;
 
-/** Curated mix: gruppe + Halv-Hvid + Hel-Hvid + Pose-Hvid */
+/** Curated mix: gruppe + Halv-Hvid + Pose-Hvid (celebrations) — no Hel-Hvid */
 const GALLERY = [
   {
     source: "Gruppe/FHK-Gruppe-06-Hvid.jpg",
@@ -53,7 +53,7 @@ const GALLERY = [
   {
     source: "04/FHK-04-Pose-Hvid.jpg",
     out: "03-fhk-maria-pose-hvid.jpg",
-    alt: "Maria Husted — Fredericia Håndbold, nummer 4",
+    alt: "Maria Husted jubler — Fredericia Håndbold, nummer 4",
   },
   {
     source: "Gruppe/FHK-Gruppe-03-Hvid.jpg",
@@ -61,9 +61,9 @@ const GALLERY = [
     alt: "Fredericia Håndboldklub — gruppefoto",
   },
   {
-    source: "19/FHK-19-Hel-Hvid.jpg",
-    out: "05-fhk-eline-hel-hvid.jpg",
-    alt: "Eline Osland — Fredericia Håndbold, nummer 19",
+    source: "19/FHK-19-Pose-Hvid.jpg",
+    out: "05-fhk-eline-pose-hvid.jpg",
+    alt: "Eline Osland jubler — Fredericia Håndbold, nummer 19",
   },
   {
     source: "21/FHK-21-Halv-Hvid.jpg",
@@ -73,17 +73,22 @@ const GALLERY = [
   {
     source: "27/FHK-27-Pose-Hvid.jpg",
     out: "07-fhk-annette-pose-hvid.jpg",
-    alt: "Annette Wirén Larsen — Fredericia Håndbold, nummer 27",
+    alt: "Annette Wirén Larsen jubler — Fredericia Håndbold, nummer 27",
   },
   {
-    source: "29/FHK-29-Halv-Hvid.jpg",
-    out: "08-fhk-julie-gronne-halv-hvid.jpg",
-    alt: "Julie Grønne Thinggård — Fredericia Håndbold, nummer 29",
+    source: "29/FHK-29-Pose-Hvid.jpg",
+    out: "08-fhk-julie-gronne-pose-hvid.jpg",
+    alt: "Julie Grønne Thinggård jubler — Fredericia Håndbold, nummer 29",
   },
   {
-    source: "37/FHK-37-Hel-Hvid.jpg",
-    out: "09-fhk-nikoline-hel-hvid.jpg",
-    alt: "Nikoline Johansen — Fredericia Håndbold, nummer 37",
+    source: "37/FHK-37-Pose-Hvid.jpg",
+    out: "09-fhk-nikoline-pose-hvid.jpg",
+    alt: "Nikoline Johansen jubler — Fredericia Håndbold, nummer 37",
+  },
+  {
+    source: "03/FHK-03-Pose-Hvid.jpg",
+    out: "10-fhk-freja-pose-hvid.jpg",
+    alt: "Freja Thor Ammidtsbøl Andersen jubler — Fredericia Håndbold, nummer 3",
   },
 ];
 

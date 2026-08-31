@@ -976,7 +976,7 @@ const projectSeed: Project[] = [
       ),
       P(
         "/images/projects/fredericia-haandboldklub/03-fhk-maria-pose-hvid.jpg",
-        "Maria Husted — Fredericia Håndbold, nummer 4",
+        "Maria Husted jubler — Fredericia Håndbold, nummer 4",
         1467,
         2200
       ),
@@ -987,8 +987,8 @@ const projectSeed: Project[] = [
         2200
       ),
       P(
-        "/images/projects/fredericia-haandboldklub/05-fhk-eline-hel-hvid.jpg",
-        "Eline Osland — Fredericia Håndbold, nummer 19",
+        "/images/projects/fredericia-haandboldklub/05-fhk-eline-pose-hvid.jpg",
+        "Eline Osland jubler — Fredericia Håndbold, nummer 19",
         1467,
         2200
       ),
@@ -1000,19 +1000,25 @@ const projectSeed: Project[] = [
       ),
       P(
         "/images/projects/fredericia-haandboldklub/07-fhk-annette-pose-hvid.jpg",
-        "Annette Wirén Larsen — Fredericia Håndbold, nummer 27",
+        "Annette Wirén Larsen jubler — Fredericia Håndbold, nummer 27",
         1467,
         2200
       ),
       P(
-        "/images/projects/fredericia-haandboldklub/08-fhk-julie-gronne-halv-hvid.jpg",
-        "Julie Grønne Thinggård — Fredericia Håndbold, nummer 29",
+        "/images/projects/fredericia-haandboldklub/08-fhk-julie-gronne-pose-hvid.jpg",
+        "Julie Grønne Thinggård jubler — Fredericia Håndbold, nummer 29",
         1467,
         2200
       ),
       P(
-        "/images/projects/fredericia-haandboldklub/09-fhk-nikoline-hel-hvid.jpg",
-        "Nikoline Johansen — Fredericia Håndbold, nummer 37",
+        "/images/projects/fredericia-haandboldklub/09-fhk-nikoline-pose-hvid.jpg",
+        "Nikoline Johansen jubler — Fredericia Håndbold, nummer 37",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/fredericia-haandboldklub/10-fhk-freja-pose-hvid.jpg",
+        "Freja Thor Ammidtsbøl Andersen jubler — Fredericia Håndbold, nummer 3",
         1467,
         2200
       ),

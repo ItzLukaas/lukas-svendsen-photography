@@ -24,8 +24,8 @@ export function ServicesStrip() {
             Hvad jeg leverer
           </h2>
           <p className="mt-3 max-w-[48ch] text-[0.9375rem] leading-[1.65] text-muted-ink">
-            Foto, video, drone og content — skræddersyet efter, hvad du har
-            brug for. Til virksomheder, foreninger, events og private jobs.
+            Foto, video, drone og content til sport, koncerter, events og
+            erhverv.
           </p>
         </FadeIn>
 
@@ -120,11 +120,11 @@ export function ServicesStrip() {
                 id="video-drone-heading"
                 className="font-display text-[clamp(1.55rem,2.8vw,2.1rem)] leading-[1.08] tracking-[-0.03em] text-ink"
               >
-                Content der kan bruges
+                Video og drone
               </h3>
               <p className="mx-auto mt-3 max-w-[46ch] text-[0.9375rem] leading-[1.65] text-muted-ink">
-                En naturlig udvidelse af foto, video og drone — til web, SoMe,
-                kampagner, events og brands. Altid tilpasset dit behov.
+                Aftermovies, branded video og droneoptagelser — som supplement
+                til foto.
               </p>
             </FadeIn>
 

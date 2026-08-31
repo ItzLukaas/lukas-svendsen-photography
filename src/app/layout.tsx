@@ -22,7 +22,7 @@ const instrumentSans = Instrument_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Fotograf i Grindsted — koncert, sport og events | Lukas Svendsen",
+    default: "Fotograf i Danmark | Lukas Svendsen",
     template: `%s · ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -31,9 +31,10 @@ export const metadata: Metadata = {
   creator: siteConfig.name,
   keywords: [
     "Lukas Svendsen",
+    "fotograf Danmark",
     "fotograf Grindsted",
-    "koncertfotograf",
     "sportsfotograf",
+    "koncertfotograf",
     "eventfotograf",
     "videograf",
     "dronefotograf",
@@ -44,7 +45,7 @@ export const metadata: Metadata = {
     locale: siteConfig.locale,
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: "Fotograf i Grindsted — koncert, sport og events | Lukas Svendsen",
+    title: "Fotograf i Danmark | Lukas Svendsen",
     description: siteConfig.description,
     images: [
       {
@@ -57,7 +58,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fotograf i Grindsted — koncert, sport og events | Lukas Svendsen",
+    title: "Fotograf i Danmark | Lukas Svendsen",
     description: siteConfig.description,
     images: [
       {
@@ -169,7 +170,7 @@ const jsonLd = {
     {
       "@type": ["ProfessionalService", "LocalBusiness"],
       "@id": `${siteConfig.url}/#service`,
-      name: `${siteConfig.name} — Fotograf i Grindsted`,
+      name: `${siteConfig.name} — Fotograf`,
       alternateName: "Lukas Svendsen Photography",
       url: siteConfig.url,
       email: siteConfig.email,
@@ -210,7 +211,7 @@ const jsonLd = {
       ],
       hasOfferCatalog: {
         "@type": "OfferCatalog",
-        name: "Foto, video, drone og content fra Grindsted",
+        name: "Foto, video, drone og content",
         itemListElement: [
           {
             "@type": "Offer",
@@ -228,7 +229,7 @@ const jsonLd = {
               "@type": "Service",
               name: "Event & erhverv",
               description:
-                "Eventfotografi til virksomheder og arrangementer i Jylland.",
+                "Eventfotografi til virksomheder og arrangementer i hele Danmark.",
               areaServed,
             },
           },

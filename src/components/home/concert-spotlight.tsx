@@ -72,7 +72,7 @@ export function ConcertSpotlight() {
               id="concert-spotlight-heading"
               className="mt-3 max-w-[12ch] font-display text-[clamp(1.85rem,3.8vw,2.85rem)] leading-[1.05] tracking-[-0.03em]"
             >
-              Professionel koncertfotografering
+              Koncertfotografi
             </h2>
             <div
               className="mt-3 h-px w-[min(100%,14rem)] bg-foreground/15"
@@ -81,13 +81,8 @@ export function ConcertSpotlight() {
 
             <div className="mt-6 max-w-md space-y-4 text-[0.9375rem] leading-[1.7] text-muted-ink md:mt-7 md:text-[1rem]">
               <p>
-                Jeg fotograferer koncerter og festivaler med fokus på energi,
-                stemning og artistens udtryk — billeder, der holder både på
-                scenen og bagefter.
-              </p>
-              <p>
-                Fra tætte portrætter til live-øjeblikke og publikum. Klar til
-                presse, sociale medier og kommunikation.
+                Live fra scenen — artister, lys og publikum. Smukfest, Grøn
+                Koncert, Suset og mere.
               </p>
             </div>
 

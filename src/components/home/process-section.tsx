@@ -25,7 +25,7 @@ export function ProcessSection() {
 
         <ol
           role="list"
-          className="mt-10 m-0 grid list-none grid-cols-1 gap-10 p-0 sm:mt-12 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-12 lg:mt-14 lg:grid-cols-4 lg:gap-8"
+          className="mt-10 m-0 grid list-none grid-cols-1 gap-10 p-0 sm:mt-12 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-12 lg:mt-14 lg:grid-cols-3 lg:gap-8"
         >
           {processSteps.map((item, index) => (
             <li key={item.id}>

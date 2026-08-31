@@ -1,12 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import {
-  Aperture,
-  Camera,
-  Layers,
-  LayoutTemplate,
-  Timer,
-  UserRound,
-} from "lucide-react";
+import { Camera, Music2, Trophy } from "lucide-react";
 
 export type ValueProp = {
   id: string;
@@ -15,44 +8,24 @@ export type ValueProp = {
   icon: LucideIcon;
 };
 
-/**
- * Why choose Lukas — compact benefit cards for the homepage value section.
- */
+/** Concrete proof points — not generic agency copy. */
 export const valueProps: ValueProp[] = [
   {
-    id: "personal",
-    title: "Personlig tilgang",
-    body: "Jeg går ind i hvert projekt med fokus på dig, dit brand og det, du gerne vil fortælle — privat, forening eller virksomhed.",
-    icon: UserRound,
+    id: "sport",
+    title: "Sport og håndbold",
+    body: "DM-finaler, Super Cup og klubkampe — action, jubel og de øjeblikke, der afgør kampen.",
+    icon: Trophy,
   },
   {
-    id: "creative",
-    title: "Kreativt blik",
-    body: "Jeg tænker i stemning, fortælling og udtryk — ikke kun i enkeltstående billeder.",
-    icon: Aperture,
-  },
-  {
-    id: "pro",
-    title: "Professionelt resultat",
-    body: "Udstyr, lys og efterbehandling er gennemtænkt, så resultatet står skarpt og professionelt.",
-    icon: Camera,
-  },
-  {
-    id: "flexible",
-    title: "Skræddersyet produktion",
-    body: "Fra én fotografering til event, web-materiale eller løbende content — omfanget tilpasses dig.",
-    icon: Layers,
+    id: "concert",
+    title: "Koncert og festival",
+    body: "Smukfest, Grøn Koncert, Varde Open Air og Suset — live fra scenen og publikum.",
+    icon: Music2,
   },
   {
     id: "delivery",
-    title: "Hurtig levering",
-    body: "Du får det færdige materiale leveret effektivt, så du hurtigt kan bruge det.",
-    icon: Timer,
-  },
-  {
-    id: "usable",
-    title: "Indhold der kan bruges",
-    body: "Indholdet tænkes til web, SoMe, kampagner og de formater, hvor det faktisk skal leve.",
-    icon: LayoutTemplate,
+    title: "Klar til brug",
+    body: "Billeder og video leveret i de formater, kunderne faktisk bruger — web, SoMe og presse.",
+    icon: Camera,
   },
 ];

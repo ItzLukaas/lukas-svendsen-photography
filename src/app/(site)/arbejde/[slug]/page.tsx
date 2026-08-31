@@ -15,6 +15,18 @@ import {
 
 type Props = PageProps<"/arbejde/[slug]">;
 
+function projectPageTitle(project: Project) {
+  const disciplineLabel: Record<Project["discipline"], string> = {
+    koncerter: "koncertfotografi",
+    sport: "sportsfotografi",
+    events: "eventfotografi",
+    erhverv: "erhvervsfoto",
+    portraetter: "portrætfotografi",
+  };
+  const kind = disciplineLabel[project.discipline] ?? "fotografi";
+  return `${project.title} — ${kind} ${project.year}`;
+}
+
 function projectDescription(project: Project) {
   const disciplineSeo: Partial<Record<Project["discipline"], string>> = {
     koncerter: "Koncertfotografi og festivalfoto",
@@ -45,7 +57,7 @@ export async function generateMetadata({
   if (!project) return { title: "Projekt" };
 
   return pageMetadata({
-    title: project.title,
+    title: projectPageTitle(project),
     description: projectDescription(project),
     path: `/arbejde/${project.slug}`,
     ...shareImageFromCover(project.cover),

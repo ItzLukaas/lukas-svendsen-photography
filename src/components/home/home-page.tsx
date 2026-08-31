@@ -10,9 +10,6 @@ import { ValueSection } from "@/components/home/value-section";
 import { getCollaborationsJsonLd } from "@/lib/data/clients";
 import { siteConfig } from "@/lib/site";
 
-const TrustStats = dynamic(() =>
-  import("@/components/home/trust-stats").then((mod) => mod.TrustStats)
-);
 const LogoMarquee = dynamic(() =>
   import("@/components/home/logo-marquee").then((mod) => mod.LogoMarquee)
 );
@@ -39,7 +36,6 @@ export function HomePage() {
       <ConcertSpotlight />
       <ValueSection />
       <ProcessSection />
-      <TrustStats />
       <LogoMarquee />
       <HomeCta />
     </>

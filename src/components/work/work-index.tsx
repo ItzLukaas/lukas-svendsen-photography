@@ -13,6 +13,16 @@ import { sortProjectsForMasonry } from "@/lib/data/projects";
 import { siteConfig } from "@/lib/site";
 import { aspectRatioStyle, cn } from "@/lib/utils";
 
+const FILTER_INTRO: Record<string, string> = {
+  sport:
+    "Håndbold-DM, Super Cup, klubkampe og spillerportrætter — sportsfotografi fra hele Danmark.",
+  koncerter:
+    "Festivaler og koncerter — Smukfest, Grøn Koncert, Varde Open Air, Suset og mere.",
+  events: "Events med stemning, gæster og liveoplevelser.",
+  portraetter: "Portrætter til klubber og foreninger.",
+  erhverv: "Erhvervsfoto og brand content.",
+};
+
 type WorkIndexProps = {
   projects: Project[];
   initialKategori?: string;
@@ -130,7 +140,13 @@ function MasonryBoard({ projects }: { projects: Project[] }) {
                     <h2 className="project-title min-w-0 font-display text-[0.95rem] leading-snug tracking-[-0.02em] md:text-[1.05rem]">
                       {project.title}
                     </h2>
-                    <p className="project-meta shrink-0">{project.category}</p>
+                    <p className="project-meta shrink-0">
+                      {project.category}
+                      <span className="mx-1.5 opacity-35" aria-hidden>
+                        ·
+                      </span>
+                      {project.location}
+                    </p>
                   </div>
                 </Link>
               </article>
@@ -173,16 +189,20 @@ export function WorkIndex({
     ...activeDisciplines,
   ] as const;
 
+  const intro =
+    kategori !== "alle" && FILTER_INTRO[kategori]
+      ? FILTER_INTRO[kategori]
+      : "Festival, sport, events og mere — udvalgte projekter fra hele Danmark. Åbn et projekt for at se billederne.";
+
   return (
-    <div className="mx-auto max-w-[1680px] px-4 pt-[calc(var(--chrome-h)+2rem)] pb-24 sm:px-6 md:px-8 md:pt-[calc(var(--chrome-h)+2.75rem)] md:pb-32 lg:px-12">
+    <div className="mx-auto max-w-[1600px] px-5 pt-[calc(var(--chrome-h)+2.5rem)] pb-24 md:px-8 md:pb-32 lg:px-12">
       <FadeIn immediate>
         <div className="max-w-2xl">
           <h1 className="font-display text-[clamp(3rem,8vw,6.25rem)] leading-[0.9] tracking-[-0.035em]">
             Arbejde
           </h1>
           <p className="mt-5 max-w-md text-[0.9375rem] leading-[1.65] text-muted-ink md:mt-6 md:text-[1.0625rem]">
-            Festival, sport, events og mere — udvalgte projekter fra hele
-            Danmark. Åbn et projekt for at se billederne.
+            {intro}
           </p>
           <p className="mt-3 text-[0.875rem] text-muted-ink">
             Har du et job?{" "}

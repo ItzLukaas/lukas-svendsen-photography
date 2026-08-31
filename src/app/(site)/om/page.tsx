@@ -11,9 +11,9 @@ import {
 } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Om mig — fotograf og videograf i Grindsted",
+  title: "Om mig — fotograf og videograf",
   description:
-    "Mød Lukas Svendsen — fotograf og videograf fra Grindsted. Koncertfotografi, sportsfotografi, eventfoto, drone og content til virksomheder, foreninger og events i Jylland.",
+    "Lukas Svendsen — fotograf og videograf med base i Grindsted. Koncert-, sports- og eventfoto samt video og drone i hele Danmark.",
   path: "/om",
 });
 
@@ -22,7 +22,7 @@ export default function OmPage() {
     path: "/om",
     name: "Om Lukas Svendsen",
     description:
-      "Lukas Svendsen er fotograf fra Grindsted. Foto, video, drone og content til koncerter, festivaler, sport, events, foreninger og virksomheder.",
+      "Lukas Svendsen er fotograf med base i Grindsted. Foto, video, drone og content til koncerter, festivaler, sport og events i hele Danmark.",
     type: "AboutPage",
   });
   const breadcrumbJsonLd = pageBreadcrumbJsonLd([
@@ -62,7 +62,7 @@ export default function OmPage() {
               Lukas Svendsen
             </h1>
             <p className="mt-4 text-[0.9375rem] text-muted-ink">
-              Fotograf · Grindsted
+              Fotograf · base i Grindsted
             </p>
           </FadeIn>
 
@@ -78,8 +78,7 @@ export default function OmPage() {
                 Det kan være ét job, materiale til en ny hjemmeside, SoMe eller
                 en større contentløsning. Jeg møder op klar, holder hovedet
                 koldt under presset og leverer billeder, der kan bruges med det
-                samme. Også i Billund, Esbjerg, Vejle, Kolding og resten af
-                Jylland.
+                samme — i hele Danmark.
               </p>
               <p>
                 Book mig, hvis du har et job. Så snakker vi om det.
@@ -97,6 +96,22 @@ export default function OmPage() {
                     className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
                   >
                     Hvad jeg leverer
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/arbejde?kategori=sport"
+                    className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
+                  >
+                    Sportsfotografi
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/arbejde?kategori=koncerter"
+                    className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
+                  >
+                    Koncertfotografi
                   </Link>
                 </li>
                 <li>

@@ -188,7 +188,7 @@ export function collectionPageJsonLd(
     "@id": `${siteConfig.url}/arbejde#collection`,
     name: "Portfolio — Lukas Svendsen",
     description:
-      "Portfolio med festival-, koncert-, sport- og eventfotografi fra Lukas Svendsen i Grindsted — også Billund, Esbjerg, Vejle og Jylland.",
+      "Portfolio med festival-, koncert-, sport- og eventfotografi fra Lukas Svendsen — fotograf med base i Grindsted og opgaver i hele Danmark.",
     url: `${siteConfig.url}/arbejde`,
     isPartOf: { "@id": `${siteConfig.url}/#website` },
     about: { "@id": `${siteConfig.url}/#person` },
@@ -208,6 +208,7 @@ export function collectionPageJsonLd(
 
 /** Typed service area entities for LocalBusiness / ProfessionalService */
 export const serviceAreaPlaces = [
+  { name: "Danmark", type: "Country" as const },
   { name: "Grindsted", type: "City" as const },
   { name: "Billund", type: "City" as const },
   { name: "Give", type: "City" as const },
@@ -217,8 +218,6 @@ export const serviceAreaPlaces = [
   { name: "Kolding", type: "City" as const },
   { name: "Fredericia", type: "City" as const },
   { name: "Herning", type: "City" as const },
-  { name: "Jylland", type: "AdministrativeArea" as const },
-  { name: "Danmark", type: "Country" as const },
 ];
 
 type SimplePageJsonLdOptions = {

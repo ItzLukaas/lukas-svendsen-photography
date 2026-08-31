@@ -78,7 +78,9 @@ export function ProjectView({ project, previous, next }: ProjectViewProps) {
             </p>
           ) : null}
 
-          <p className="text-body mt-6 max-w-md md:mt-7">{project.excerpt}</p>
+          <p className="text-body mt-6 max-w-md font-medium text-ink md:mt-7">
+            {project.excerpt}
+          </p>
 
           {project.outcome ? (
             <p className="mt-4 max-w-lg text-[0.9375rem] leading-[1.65] text-muted-ink">
@@ -94,13 +96,13 @@ export function ProjectView({ project, previous, next }: ProjectViewProps) {
 
       {project.clientUrl ? (
         <div className="mx-auto max-w-[1600px] px-5 md:px-8 lg:px-12">
-          <p className="mt-14 text-center text-[0.9375rem] font-semibold tracking-[0.01em] text-ink md:mt-20 md:text-base">
-            Se hele casen på{" "}
+          <p className="mt-14 text-center text-[0.9375rem] tracking-[0.01em] text-muted-ink md:mt-20 md:text-base">
+            Billederne i brug på{" "}
             <a
               href={project.clientUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="underline decoration-foreground/25 underline-offset-[0.2em] transition-[decoration-color,opacity] duration-300 hover:decoration-foreground/60 hover:opacity-80"
+              className="font-medium text-ink underline decoration-foreground/25 underline-offset-[0.2em] transition-[decoration-color,opacity] duration-300 hover:decoration-foreground/60 hover:opacity-80"
             >
               {project.clientUrlLabel ?? "klientens hjemmeside"}
             </a>
@@ -187,7 +189,14 @@ export function ProjectView({ project, previous, next }: ProjectViewProps) {
       <section className="border-t border-foreground/10">
         <div className="mx-auto flex max-w-[1600px] flex-col gap-6 px-5 py-14 md:flex-row md:items-center md:justify-between md:px-8 md:py-16 lg:px-12">
           <p className="text-body max-w-md">
-            Skal jeg med på noget lignende? Book mig til dit næste projekt.
+            Har du et lignende job?{" "}
+            <Link
+              href={`/arbejde?kategori=${project.discipline}`}
+              className="font-medium text-foreground underline underline-offset-4 transition-opacity hover:opacity-70"
+            >
+              Se mere {project.category.toLowerCase()}
+            </Link>{" "}
+            eller book mig til dit næste projekt.
           </p>
           <Link href="/booking" className="btn-solid bg-ink text-paper">
             Book mig

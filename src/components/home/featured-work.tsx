@@ -72,8 +72,11 @@ export function FeaturedWork() {
               id="selected-work-heading"
               className="mt-3 font-display text-[clamp(1.65rem,3vw,2.25rem)] leading-[1.08] tracking-[-0.03em]"
             >
-              Udvalgte jobs
+              Udvalgt arbejde
             </h2>
+            <p className="mt-3 text-[0.9375rem] leading-[1.65] text-muted-ink md:text-[1rem]">
+              30+ projekter og samarbejder
+            </p>
           </div>
           <Link href="/arbejde" className="btn-ghost hidden shrink-0 sm:inline-flex">
             Se alt arbejde

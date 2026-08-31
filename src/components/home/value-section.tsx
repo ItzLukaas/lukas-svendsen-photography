@@ -13,18 +13,18 @@ export function ValueSection() {
       <div className="mx-auto max-w-[1600px] px-5 py-[var(--space-section)] md:px-8 lg:px-12">
         <div className="grid gap-5 md:grid-cols-12 md:items-end md:gap-12 lg:gap-16">
           <FadeIn className="md:col-span-7">
-            <p className="label-meta">Hvorfor Lukas</p>
+            <p className="label-meta">Hvad jeg laver</p>
             <h2
               id="value-heading"
               className="mt-3 max-w-[16ch] font-display text-[clamp(1.9rem,4.4vw,3.15rem)] leading-[1.05] tracking-[-0.035em] text-ink"
             >
-              Her får du mere end bare en fotograf
+              Det jeg fotograferer
             </h2>
           </FadeIn>
           <FadeIn delay={0.06} className="md:col-span-5">
             <p className="max-w-[38ch] text-[0.9375rem] leading-[1.7] text-muted-ink md:ml-auto md:text-[1.0625rem]">
-              Målet er ikke bare at levere billeder — men visuelt indhold og
-              content, der faktisk virker for dit brand, event eller projekt.
+              Håndbold, festivaler, koncerter og events — med kunder som
+              Dansk Håndbold, Fredericia HK og Varde Open Air.
             </p>
           </FadeIn>
         </div>

@@ -27,7 +27,7 @@ export function ContactCard() {
           Lukas Guldager Svendsen
         </p>
         <p className="mt-1 text-[0.8125rem] leading-snug text-muted-ink">
-          Fotograf · Grindsted · 16 år
+          Fotograf · base i Grindsted
         </p>
 
         <div className="mt-3 space-y-1 text-[0.875rem] leading-[1.5]">

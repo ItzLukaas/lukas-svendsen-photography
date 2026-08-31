@@ -12,9 +12,9 @@ import {
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Book fotograf — foto, video og content",
+  title: "Book fotograf — foto, video og drone",
   description:
-    "Book fotograf i Grindsted — koncertfoto, sportsfoto, eventfoto, video, drone eller skræddersyet content. Svar inden for 1–2 hverdage.",
+    "Book fotograf til koncert, sport, event eller portræt — foto, video og drone. Base i Grindsted, opgaver i hele Danmark. Svar inden for 1–2 hverdage.",
   path: "/booking",
 });
 

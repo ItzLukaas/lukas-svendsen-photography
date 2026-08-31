@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
 
-import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -53,9 +52,8 @@ export function HomeHeroCopy() {
               : { duration: 0.7, delay: 0.5, ease }
           }
         >
-          Jeg er {siteConfig.name}. Jeg laver foto, video, drone og content
-          til koncerter, sport, events, foreninger og virksomheder — i hele
-          Danmark.
+          Jeg fotograferer sport, koncerter og events — foto, video og drone
+          i hele Danmark.
         </motion.p>
 
         <motion.div

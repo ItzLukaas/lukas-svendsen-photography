@@ -11,9 +11,9 @@ import {
 } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Kontakt — fotograf i Grindsted",
+  title: "Kontakt — fotograf Lukas Svendsen",
   description:
-    "Kontakt fotograf Lukas Svendsen i Grindsted. Email, telefon og formular — hurtig respons om koncertfoto, sportsfoto, video og booking i Jylland.",
+    "Kontakt fotograf Lukas Svendsen — email, telefon og formular. Spørgsmål om koncertfoto, sportsfoto, video og booking i hele Danmark.",
   path: "/kontakt",
 });
 
@@ -22,7 +22,7 @@ export default function KontaktPage() {
     path: "/kontakt",
     name: "Kontakt Lukas Svendsen",
     description:
-      "Kontakt fotograf Lukas Svendsen i Grindsted via formular, email eller telefon.",
+      "Kontakt fotograf Lukas Svendsen — base i Grindsted, opgaver i hele Danmark.",
     type: "ContactPage",
     mainEntityId: "service",
   });
@@ -49,8 +49,8 @@ export default function KontaktPage() {
               Skriv til mig
             </h1>
             <p className="text-body mt-6 max-w-md">
-              Spørgsmål, idé eller job — skriv kort, så svarer jeg. Jeg er i
-              Grindsted og tager jobs i hele Jylland.
+              Spørgsmål, idé eller job — skriv kort, så svarer jeg. Base i
+              Grindsted, opgaver i hele Danmark.
             </p>
             <p className="text-body mt-4 max-w-md">
               Klar til at booke?{" "}

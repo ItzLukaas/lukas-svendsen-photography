@@ -90,12 +90,11 @@ const projectSeed: Project[] = [
     galleryFormat: "festival",
     year: "2026",
     location: "Varde",
-    excerpt:
-      "Støv, sol og en festival, der fylder hele byen. Scenen, publikum og det derimellem.",
+    excerpt: "Varde Open Air · Festivalfoto",
     client: "Varde Open Air",
     role: "Fotograf",
     outcome:
-      "Leverede et festivalgalleri med fokus på scenen, publikum og stemningen mellem sets — klar til web og sociale medier.",
+      "Fotograferede scener, artister og publikum til festivalens kommunikation.",
     featured: true,
     cover: L(
       "/images/projects/varde-open-air/00-publikum-i-skoven-til-varde-open-air.jpg",
@@ -156,12 +155,11 @@ const projectSeed: Project[] = [
     galleryFormat: "festival",
     year: "2026",
     location: "Bork",
-    excerpt:
-      "Artister, publikum og det, der sker mellem scenerne.",
+    excerpt: "Bork Festival · Festivalfoto",
     client: "Bork Festival",
     role: "Fotograf",
     outcome:
-      "Dokumenterede artister og live-energi på tværs af scener — skarpe portrætter og scenefotos til festivalens kommunikation.",
+      "Livebilleder fra artister som Lukas Graham, TV-2 og Poul Krebs på Bork Festival.",
     featured: true,
     cover: P(
       "/images/projects/bork-festival/04-berg-bork-festival.jpg",
@@ -234,12 +232,10 @@ const projectSeed: Project[] = [
     galleryFormat: "festival",
     year: "2026",
     location: "Skanderborg",
-    excerpt:
-      "Thor Farlov live på Smukfest — scenelys, energi og øjeblikke i højformat.",
+    excerpt: "Thor Farlov · Smukfest",
     client: "Smukfest",
     role: "Fotograf",
-    outcome:
-      "Ni lodrette koncertbilleder fra Thor Farlov på Smukfest — klar til web og sociale medier.",
+    outcome: "Livebilleder fra koncerten på Smukfest i Skanderborg.",
     featured: true,
     cover: P(
       "/images/projects/thor-farlov-smukfest/01-thor-farlov-synger-pa-scenen-til-smukfest-under-spot.jpg",
@@ -312,12 +308,10 @@ const projectSeed: Project[] = [
     galleryFormat: "festival",
     year: "2026",
     location: "Danmark",
-    excerpt:
-      "Sivas live til Grøn Koncert — scenelys, energi og øjeblikke i højformat.",
+    excerpt: "Sivas · Grøn Koncert",
     client: "Grøn Koncert",
     role: "Fotograf",
-    outcome:
-      "Ni lodrette koncertbilleder fra Sivas på Grøn Koncert — klar til web og sociale medier.",
+    outcome: "Koncertfoto fra Sivas' optræden til Grøn Koncert.",
     featured: true,
     cover: P(
       "/images/projects/gron-koncert/01-sivas-smiler-pa-scenen-til-groen-koncert.jpg",
@@ -390,12 +384,10 @@ const projectSeed: Project[] = [
     galleryFormat: "festival",
     year: "2026",
     location: "Esbjerg",
-    excerpt:
-      "Rasmus Seebach live på Suset i Esbjerg — scenelys, stemning og de store øjeblikke i højformat.",
+    excerpt: "Rasmus Seebach · Suset, Esbjerg",
     client: "Suset",
     role: "Fotograf",
-    outcome:
-      "Otte lodrette koncertbilleder fra Rasmus Seebach på Suset — klar til web og sociale medier.",
+    outcome: "Livebilleder fra koncerten på Suset i Esbjerg.",
     featured: true,
     cover: P(
       "/images/projects/rasmus-seebach-suset/01-rasmus-seebach-pa-scenen-til-suset-i-esbjerg.jpg",
@@ -462,12 +454,11 @@ const projectSeed: Project[] = [
     galleryFormat: "wide",
     year: "2026",
     location: "Esbjerg",
-    excerpt:
-      "Mad, mennesker og den løse stemning på Esbjerg Streetfood — eventfotografi fra Vestjylland.",
+    excerpt: "Esbjerg Streetfood · Eventfoto",
     client: "Esbjerg Streetfood",
     role: "Eventfotograf",
     outcome:
-      "Fangede gæster, madboder og live-musik i én sammenhængende eventfortælling — klar til branding og sociale kanaler.",
+      "Stemning, gæster og livemusik fra eventet — brugt til Esbjerg Streetfoods kommunikation.",
     featured: true,
     cover: L(
       "/images/projects/esbjerg-streetfood/09-fejring-under-lygterne-pa-esbjerg-streetfood.jpg",
@@ -539,13 +530,12 @@ const projectSeed: Project[] = [
     category: "Sport",
     galleryFormat: "wide",
     year: "2026",
-    location: "Jylland",
-    excerpt:
-      "Håndbold-DM for herrer — tempo, dueller og de sekunder, hvor finalen afgøres.",
+    location: "Herning",
+    excerpt: "DanskHåndbold · DM-finalen herrer",
     client: "DanskHåndbold",
     role: "Sportsfotograf",
     outcome:
-      "Leverede action- og jubelbilleder fra finalen — fra dueller på banen til pokaløjeblikket.",
+      "Kampbilleder fra finalen i Herning — action, jubel og pokaløjeblikket.",
     featured: true,
     cover: L(
       "/images/projects/dm-finalen-herrer/09-mestre-med-pokalen-dm-finalen-herrer.jpg",
@@ -617,13 +607,12 @@ const projectSeed: Project[] = [
     category: "Sport",
     galleryFormat: "wide",
     year: "2026",
-    location: "Jylland",
-    excerpt:
-      "Håndbold-DM for kvinder — koncentration, kampevne og følelserne, når det gælder mest.",
+    location: "Herning",
+    excerpt: "DanskHåndbold · DM-finalen kvinder",
     client: "DanskHåndbold",
     role: "Sportsfotograf",
     outcome:
-      "Dokumenterede finalens intensitet og mesterskabsøjeblikket — billeder til presse, klub og sociale medier.",
+      "Kampbilleder fra finalen i Herning — intensitet, jubel og mesterskabsøjeblikket.",
     featured: true,
     cover: L(
       "/images/projects/dm-finalen-kvinder/09-danske-mestre-dm-finalen-kvinder.jpg",
@@ -695,72 +684,71 @@ const projectSeed: Project[] = [
     category: "Sport",
     galleryFormat: "wide",
     year: "2026",
-    location: "Jylland",
-    excerpt:
-      "Bambuni Super Cup for kvinder — tempo, dueller og de afgørende øjeblikke under loftslamperne.",
+    location: "Herning",
+    excerpt: "DanskHåndbold · Bambuni Super Cup kvinder",
     client: "DanskHåndbold",
     role: "Sportsfotograf",
     outcome:
-      "Leverede action- og stemningsbilleder fra Super Cup — klar til presse, klub og sociale medier.",
+      "Kampdækning fra Super Cup i Herning — Team Esbjerg vandt finalen.",
     featured: true,
     cover: L(
       "/images/projects/super-cup-kvinder/09-team-esbjerg-fejrer-sejr-med-pokal-bambuni-super-cup.jpg",
-      "Super Cup 2026 – Kvinder — øjeblik 9",
+      "Team Esbjerg fejrer sejr med pokal — Bambuni Super Cup kvinder",
       2200,
       1467
     ),
     images: [
       L(
         "/images/projects/super-cup-kvinder/01-arena-overblik-med-handboldkamp-i-gang-bambuni-super.jpg",
-        "Action under loftslamperne — Super Cup 2026 kvinder",
+        "Arena overblik med håndboldkamp i gang — Bambuni Super Cup kvinder",
         2200,
         1467
       ),
       P(
         "/images/projects/super-cup-kvinder/02-select-ultimate-handbold-pa-stand-bambuni-super-cup-.jpg",
-        "Super Cup 2026 – Kvinder — øjeblik 2",
+        "SELECT ULTIMATE-håndbold på stand — Bambuni Super Cup kvinder",
         1467,
         2200
       ),
       L(
         "/images/projects/super-cup-kvinder/03-marit-roesberg-jacobsen-i-team-esbjerg-troeje-super-.jpg",
-        "Super Cup 2026 – Kvinder — øjeblik 3",
+        "Marit Røsberg Jacobsen i Team Esbjerg-trøje — Super Cup kvinder",
         2200,
         1467
       ),
       L(
         "/images/projects/super-cup-kvinder/04-angreb-mod-mal-under-kampen-bambuni-super-cup-kvinde.jpg",
-        "Super Cup 2026 – Kvinder — øjeblik 4",
+        "Angreb mod mål under kampen — Bambuni Super Cup kvinder",
         2200,
         1467
       ),
       L(
         "/images/projects/super-cup-kvinder/05-odense-handbold-spiller-pa-banen-bambuni-super-cup-k.jpg",
-        "Super Cup 2026 – Kvinder — øjeblik 5",
+        "Odense Håndbold-spiller på banen — Bambuni Super Cup kvinder",
         2200,
         1467
       ),
       L(
         "/images/projects/super-cup-kvinder/06-hurtigt-angreb-langs-sidelinjen-bambuni-super-cup-kv.jpg",
-        "Super Cup 2026 – Kvinder — øjeblik 6",
+        "Hurtigt angreb langs sidelinjen — Bambuni Super Cup kvinder",
         2200,
         1467
       ),
       L(
         "/images/projects/super-cup-kvinder/07-duel-mellem-to-spillere-bambuni-super-cup-kvinder.jpg",
-        "Super Cup 2026 – Kvinder — øjeblik 7",
+        "Duel mellem to spillere — Bambuni Super Cup kvinder",
         2200,
         1467
       ),
       P(
         "/images/projects/super-cup-kvinder/08-sandra-toft-i-malmandstroeje-bambuni-super-cup-kvind.jpg",
-        "Super Cup 2026 – Kvinder — øjeblik 8",
+        "Sandra Toft i målmandstrøje — Bambuni Super Cup kvinder",
         1467,
         2200
       ),
       L(
         "/images/projects/super-cup-kvinder/09-team-esbjerg-fejrer-sejr-med-pokal-bambuni-super-cup.jpg",
-        "Super Cup 2026 – Kvinder — øjeblik 9",
+        "Team Esbjerg fejrer sejr med pokal — Bambuni Super Cup kvinder",
         2200,
         1467
       ),
@@ -773,90 +761,89 @@ const projectSeed: Project[] = [
     category: "Sport",
     galleryFormat: "wide",
     year: "2026",
-    location: "Jylland",
-    excerpt:
-      "Bambuni Super Cup for herrer — tempo, dueller og de afgørende øjeblikke under loftslamperne.",
+    location: "Herning",
+    excerpt: "DanskHåndbold · Bambuni Super Cup herrer",
     client: "DanskHåndbold",
     role: "Sportsfotograf",
     outcome:
-      "Leverede action- og stemningsbilleder fra Super Cup — klar til presse, klub og sociale medier.",
+      "Kampdækning fra Super Cup i Herning — Aalborg Håndbold løftede pokalen.",
     featured: true,
     cover: L(
       "/images/projects/super-cup-herrer/11-aalborg-handbold-loefter-pokalen-bambuni-super-cup-h.jpg",
-      "Super Cup 2026 – Herrer — øjeblik 11",
+      "Aalborg Håndbold løfter pokalen — Bambuni Super Cup herrer",
       2200,
       1467
     ),
     images: [
       L(
         "/images/projects/super-cup-herrer/01-thomas-arnoldsen-i-hopskud-for-aalborg-handbold-supe.jpg",
-        "Super Cup 2026 – Herrer — øjeblik 1",
+        "Thomas Arnoldsen i hopskud for Aalborg Håndbold — Super Cup herrer",
         2200,
         1467
       ),
       L(
         "/images/projects/super-cup-herrer/02-handboldkamp-i-fyldt-arena-bambuni-super-cup-herrer.jpg",
-        "Super Cup 2026 – Herrer — øjeblik 2",
+        "Håndboldkamp i fyldt arena — Bambuni Super Cup herrer",
         2200,
         1467
       ),
       L(
         "/images/projects/super-cup-herrer/03-tempofyldt-angreb-mod-mal-bambuni-super-cup-herrer.jpg",
-        "Super Cup 2026 – Herrer — øjeblik 3",
+        "Tempofyldt angreb mod mål — Bambuni Super Cup herrer",
         2200,
         1467
       ),
       P(
         "/images/projects/super-cup-herrer/04-niklas-landin-fejrer-redning-bambuni-super-cup-herre.jpg",
-        "Super Cup 2026 – Herrer — øjeblik 4",
+        "Niklas Landin fejrer redning — Bambuni Super Cup herrer",
         1467,
         2200
       ),
       L(
         "/images/projects/super-cup-herrer/05-forsvarsspil-midt-pa-banen-bambuni-super-cup-herrer.jpg",
-        "Super Cup 2026 – Herrer — øjeblik 5",
+        "Forsvarsspil midt på banen — Bambuni Super Cup herrer",
         2200,
         1467
       ),
       L(
         "/images/projects/super-cup-herrer/06-spiller-i-fald-under-kampen-bambuni-super-cup-herrer.jpg",
-        "Super Cup 2026 – Herrer — øjeblik 6",
+        "Spiller i fald under kampen — Bambuni Super Cup herrer",
         2200,
         1467
       ),
       L(
         "/images/projects/super-cup-herrer/07-hurtigt-kontraangreb-bambuni-super-cup-herrer.jpg",
-        "Super Cup 2026 – Herrer — øjeblik 7",
+        "Hurtigt kontraangreb — Bambuni Super Cup herrer",
         2200,
         1467
       ),
       L(
         "/images/projects/super-cup-herrer/08-malscoring-i-malzonen-bambuni-super-cup-herrer.jpg",
-        "Super Cup 2026 – Herrer — øjeblik 8",
+        "Målscoring i målzonen — Bambuni Super Cup herrer",
         2200,
         1467
       ),
       L(
         "/images/projects/super-cup-herrer/09-jubel-efter-scoring-bambuni-super-cup-herrer.jpg",
-        "Super Cup 2026 – Herrer — øjeblik 9",
+        "Jubel efter scoring — Bambuni Super Cup herrer",
         2200,
         1467
       ),
       L(
         "/images/projects/super-cup-herrer/10-kampens-intensitet-under-loftslamperne-super-cup-her.jpg",
-        "Super Cup 2026 – Herrer — øjeblik 10",
+        "Kampens intensitet under loftslamperne — Super Cup herrer",
         2200,
         1467
       ),
       L(
         "/images/projects/super-cup-herrer/11-aalborg-handbold-loefter-pokalen-bambuni-super-cup-h.jpg",
-        "Super Cup 2026 – Herrer — øjeblik 11",
+        "Aalborg Håndbold løfter pokalen — Bambuni Super Cup herrer",
         2200,
         1467
       ),
       L(
         "/images/projects/super-cup-herrer/12-fejring-pa-podiet-efter-finale-bambuni-super-cup-her.jpg",
-        "Super Cup 2026 – Herrer — øjeblik 12",
+        "Fejring på podiet efter finale — Bambuni Super Cup herrer",
         2200,
         1467
       ),
@@ -870,12 +857,11 @@ const projectSeed: Project[] = [
     galleryFormat: "wide",
     year: "2026",
     location: "Fredericia",
-    excerpt:
-      "Action fra håndboldkampen mellem Fredericia Håndboldklub og Ribe-Esbjerg — tempo, dueller og scoringer.",
+    excerpt: "Fredericia Håndboldklub · Liga mod Ribe-Esbjerg",
     client: "Fredericia Håndboldklub",
     role: "Sportsfotograf",
     outcome:
-      "Leverede kampbilleder fra mødet mod Ribe-Esbjerg — fra angreb i luften til jubel efter scoring.",
+      "Kampbilleder fra hjemmekampen i Fredericia — angreb, dueller og jubel.",
     featured: false,
     cover: L(
       "/images/projects/fredericia-ribe-esbjerg/01-fhk-spiller-med-bold-mod-ribe-esbjerg.jpg",
@@ -949,11 +935,14 @@ const projectSeed: Project[] = [
     year: "2026",
     location: "Fredericia",
     excerpt:
-      "Spillerportrætter for Fredericia Håndboldklubs 1. divisionskvinder — skarpt, enkelt og klar til klubbens kommunikation.",
+      "Spillerportrætter · 1. Division Kvinder — til klubbens officielle spillertrup.",
     client: "Fredericia Håndboldklub",
     role: "Portrætfotograf",
     outcome:
-      "Leverede spillerportrætter til web og sociale medier — klar til klubbens kanaler.",
+      "Portrætterne bruges på Fredericia Håndboldklubs officielle spillertrup på fhk.dk.",
+    clientUrl:
+      "https://fhk.dk/1div-kvinder/1-div-kvinder-spillertrup-og-stab",
+    clientUrlLabel: "fhk.dk — spillertrup",
     featured: true,
     cover: P(
       "/images/projects/fredericia-haandboldklub/02-fhk-freja-pose-hvid.jpg",
@@ -1039,7 +1028,7 @@ export const projects: Project[] = projectsResolved.filter(isPublishedProject);
 /** About-page portrait — filename versioned for CDN cache bust. */
 export const aboutPortrait: ProjectImage = P(
   "/images/about-lukas-2026.jpg",
-  "Portræt af fotograf Lukas Svendsen fra Grindsted",
+  "Portræt af fotograf Lukas Svendsen",
   1650,
   2200
 );

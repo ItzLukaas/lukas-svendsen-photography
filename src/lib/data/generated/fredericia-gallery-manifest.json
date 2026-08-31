@@ -28,10 +28,10 @@
       "orientation": "portrait"
     },
     {
-      "source": "Gruppe/FHK-Gruppe-03-Hvid.jpg",
-      "out": "04-fhk-gruppe-03-hvid.jpg",
-      "alt": "Fredericia Håndboldklub — gruppefoto",
-      "src": "/images/projects/fredericia-haandboldklub/04-fhk-gruppe-03-hvid.jpg",
+      "source": "20/FHK-20-Pose-Hvid.jpg",
+      "out": "04-fhk-emma-pose-hvid.jpg",
+      "alt": "Emma Skou Larsen jubler — Fredericia Håndbold, nummer 20",
+      "src": "/images/projects/fredericia-haandboldklub/04-fhk-emma-pose-hvid.jpg",
       "width": 1467,
       "height": 2200,
       "orientation": "portrait"
@@ -91,5 +91,5 @@
       "orientation": "portrait"
     }
   ],
-  "processedAt": "2026-08-31T15:51:02.538Z"
+  "processedAt": "2026-08-31T15:55:21.843Z"
 }

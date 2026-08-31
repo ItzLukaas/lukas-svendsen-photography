@@ -181,8 +181,8 @@ export function WorkIndex({
             Arbejde
           </h1>
           <p className="mt-5 max-w-md text-[0.9375rem] leading-[1.65] text-muted-ink md:mt-6 md:text-[1.0625rem]">
-            Festival, sport, events og mere — fra Grindsted og ud i Jylland.
-            Åbn et projekt for at se billederne.
+            Festival, sport, events og mere — udvalgte projekter fra hele
+            Danmark. Åbn et projekt for at se billederne.
           </p>
           <p className="mt-3 text-[0.875rem] text-muted-ink">
             Har du et job?{" "}

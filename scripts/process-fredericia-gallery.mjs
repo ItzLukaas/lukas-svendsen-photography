@@ -56,9 +56,9 @@ const GALLERY = [
     alt: "Maria Husted jubler — Fredericia Håndbold, nummer 4",
   },
   {
-    source: "Gruppe/FHK-Gruppe-03-Hvid.jpg",
-    out: "04-fhk-gruppe-03-hvid.jpg",
-    alt: "Fredericia Håndboldklub — gruppefoto",
+    source: "20/FHK-20-Pose-Hvid.jpg",
+    out: "04-fhk-emma-pose-hvid.jpg",
+    alt: "Emma Skou Larsen jubler — Fredericia Håndbold, nummer 20",
   },
   {
     source: "19/FHK-19-Pose-Hvid.jpg",

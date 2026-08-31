@@ -981,8 +981,8 @@ const projectSeed: Project[] = [
         2200
       ),
       P(
-        "/images/projects/fredericia-haandboldklub/04-fhk-gruppe-03-hvid.jpg",
-        "Fredericia Håndboldklub — gruppefoto",
+        "/images/projects/fredericia-haandboldklub/04-fhk-emma-pose-hvid.jpg",
+        "Emma Skou Larsen jubler — Fredericia Håndbold, nummer 20",
         1467,
         2200
       ),

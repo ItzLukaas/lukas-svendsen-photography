@@ -40,7 +40,7 @@ export function HomeHeroCopy() {
               : { duration: 0.75, delay: 0.38, ease }
           }
         >
-          Fotograf og videograf fra Grindsted
+          Fotograf og videograf
         </motion.h1>
 
         <motion.p
@@ -54,8 +54,8 @@ export function HomeHeroCopy() {
           }
         >
           Jeg er {siteConfig.name}. Jeg laver foto, video, drone og content
-          til koncerter, sport, events, foreninger og virksomheder — fra{" "}
-          {siteConfig.location.city} og ud i Jylland.
+          til koncerter, sport, events, foreninger og virksomheder — i hele
+          Danmark.
         </motion.p>
 
         <motion.div

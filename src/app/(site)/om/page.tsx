@@ -107,22 +107,6 @@ export default function OmPage() {
                     Arbejde
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    href="/arbejde?kategori=sport"
-                    className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
-                  >
-                    Sportsfoto
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/arbejde?kategori=koncerter"
-                    className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
-                  >
-                    Festivalfoto
-                  </Link>
-                </li>
               </ul>
             </div>
           </FadeIn>

@@ -33,8 +33,8 @@ export function SiteFooter() {
               {siteConfig.name}
             </p>
             <p className="mt-2 max-w-[40ch] text-[0.875rem] leading-[1.65] text-paper/50">
-              Fotograf i Grindsted — foto, video, drone og content til
-              projekter, der skal ses.
+              Foto, video, drone og content til projekter, der skal ses — i
+              hele Danmark.
             </p>
           </div>
           <Link href="/booking" className="btn-solid mt-2 shrink-0 bg-paper text-ink md:mt-0">

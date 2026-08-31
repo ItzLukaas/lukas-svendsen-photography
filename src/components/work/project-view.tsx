@@ -187,7 +187,7 @@ export function ProjectView({ project, previous, next }: ProjectViewProps) {
       <section className="border-t border-foreground/10">
         <div className="mx-auto flex max-w-[1600px] flex-col gap-6 px-5 py-14 md:flex-row md:items-center md:justify-between md:px-8 md:py-16 lg:px-12">
           <p className="text-body max-w-md">
-            Skal jeg med på noget lignende? Book mig fra Grindsted.
+            Skal jeg med på noget lignende? Book mig til dit næste projekt.
           </p>
           <Link href="/booking" className="btn-solid bg-ink text-paper">
             Book mig

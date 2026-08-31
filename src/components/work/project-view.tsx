@@ -3,6 +3,7 @@ import Link from "next/link";
 import { FadeIn } from "@/components/motion/fade-in";
 import { Photo } from "@/components/photography/photo";
 import { ProjectGallery } from "@/components/work/galleries/project-gallery";
+import { ProjectExtras } from "@/components/work/projects/project-extras";
 import type { Project } from "@/lib/data/projects";
 import { aspectRatioStyle } from "@/lib/utils";
 
@@ -91,6 +92,8 @@ export function ProjectView({ project, previous, next }: ProjectViewProps) {
       <div className="mt-10 md:mt-12">
         <ProjectGallery project={project} />
       </div>
+
+      <ProjectExtras project={project} />
 
       {project.clientUrl ? (
         <div className="mx-auto max-w-[1600px] px-5 md:px-8 lg:px-12">

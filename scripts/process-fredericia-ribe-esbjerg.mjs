@@ -7,7 +7,6 @@ import {
   copyFileSync,
   existsSync,
   mkdirSync,
-  renameSync,
   unlinkSync,
 } from "node:fs";
 import path from "node:path";
@@ -29,8 +28,24 @@ const OUT_DIR = path.join(
 );
 const DONE = path.join(INBOX, "_done", "fredericia-ribe-esbjerg");
 
+const INBOX_DIR = path.join(INBOX, "fredericia-ribe-esbjerg");
+
 const MAX_LONG_EDGE = 2200;
-const JPEG_QUALITY = 82;
+const JPEG_QUALITY = 85;
+
+/** Replacement shots — read from inbox/fredericia-ribe-esbjerg/ */
+const REPLACEMENTS = [
+  {
+    inbox: "DSC02820.jpg",
+    out: "03-spring-angreb-mod-ribe-esbjerg-fredericia-haandbold.jpg",
+    alt: "Spring mod Ribe-Esbjerg — Fredericia Håndbold",
+  },
+  {
+    inbox: "DSC03025.jpg",
+    out: "08-luftkamp-mod-ribe-esbjerg-fredericia-haandbold.jpg",
+    alt: "Luftkamp mod Ribe-Esbjerg — Fredericia Håndbold",
+  },
+];
 
 const SHOTS = [
   {
@@ -44,9 +59,9 @@ const SHOTS = [
     alt: "Springskud i luften mod Ribe-Esbjerg — Fredericia Håndbold",
   },
   {
-    inbox: "DSC02807.jpg",
-    out: "03-angreb-i-luften-mod-ribe-esbjerg-fredericia-haandbold.jpg",
-    alt: "Angreb mod Ribe-Esbjerg — Fredericia Håndbold",
+    inbox: "DSC02820.jpg",
+    out: "03-spring-angreb-mod-ribe-esbjerg-fredericia-haandbold.jpg",
+    alt: "Spring mod Ribe-Esbjerg — Fredericia Håndbold",
   },
   {
     inbox: "DSC02875.jpg",
@@ -69,9 +84,9 @@ const SHOTS = [
     alt: "Hopskud mod mål mod Ribe-Esbjerg — Fredericia Håndbold",
   },
   {
-    inbox: "DSC03030.jpg",
-    out: "08-luftduel-mod-ribe-esbjerg-fredericia-haandbold.jpg",
-    alt: "Kampduel mod Ribe-Esbjerg — Fredericia Håndbold",
+    inbox: "DSC03025.jpg",
+    out: "08-luftkamp-mod-ribe-esbjerg-fredericia-haandbold.jpg",
+    alt: "Luftkamp mod Ribe-Esbjerg — Fredericia Håndbold",
   },
   {
     inbox: "DSC03044.jpg",
@@ -82,11 +97,13 @@ const SHOTS = [
 
 mkdirSync(OUT_DIR, { recursive: true });
 mkdirSync(DONE, { recursive: true });
+mkdirSync(INBOX_DIR, { recursive: true });
 
-const manifest = [];
+const replaceOnly = process.argv.includes("--replace");
+const shots = replaceOnly ? REPLACEMENTS : SHOTS;
 
-for (const shot of SHOTS) {
-  const input = path.join(INBOX, shot.inbox);
+async function processShot(shot, inputDir) {
+  const input = path.join(inputDir, shot.inbox);
   if (!existsSync(input)) {
     console.error("Missing:", input);
     process.exit(1);
@@ -108,21 +125,29 @@ for (const shot of SHOTS) {
   }
 
   await pipeline
-    .jpeg({ quality: JPEG_QUALITY, mozjpeg: true })
+    .jpeg({ quality: JPEG_QUALITY, mozjpeg: true, progressive: true })
     .toFile(output);
 
   const outMeta = await sharp(output).metadata();
-  manifest.push({
+  const entry = {
     src: `/images/projects/fredericia-ribe-esbjerg/${shot.out}`,
     alt: shot.alt,
     width: outMeta.width,
     height: outMeta.height,
     orientation: outMeta.width >= outMeta.height ? "landscape" : "portrait",
-  });
+  };
 
   copyFileSync(input, path.join(DONE, shot.inbox));
   unlinkSync(input);
   console.log("Processed", shot.out, `${outMeta.width}x${outMeta.height}`);
+  return entry;
+}
+
+const manifest = [];
+const inputDir = replaceOnly ? INBOX_DIR : INBOX;
+
+for (const shot of shots) {
+  manifest.push(await processShot(shot, inputDir));
 }
 
 console.log(JSON.stringify(manifest, null, 2));

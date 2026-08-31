@@ -897,8 +897,8 @@ const projectSeed: Project[] = [
         1467
       ),
       L(
-        "/images/projects/fredericia-ribe-esbjerg/03-angreb-i-luften-mod-ribe-esbjerg-fredericia-haandbold.jpg",
-        "Angreb mod Ribe-Esbjerg — Fredericia Håndbold",
+        "/images/projects/fredericia-ribe-esbjerg/03-spring-angreb-mod-ribe-esbjerg-fredericia-haandbold.jpg",
+        "Spring mod Ribe-Esbjerg — Fredericia Håndbold",
         2200,
         1467
       ),
@@ -927,8 +927,8 @@ const projectSeed: Project[] = [
         1467
       ),
       L(
-        "/images/projects/fredericia-ribe-esbjerg/08-luftduel-mod-ribe-esbjerg-fredericia-haandbold.jpg",
-        "Kampduel mod Ribe-Esbjerg — Fredericia Håndbold",
+        "/images/projects/fredericia-ribe-esbjerg/08-luftkamp-mod-ribe-esbjerg-fredericia-haandbold.jpg",
+        "Luftkamp mod Ribe-Esbjerg — Fredericia Håndbold",
         2200,
         1467
       ),

@@ -3,7 +3,6 @@ import Link from "next/link";
 import { FadeIn } from "@/components/motion/fade-in";
 import { Photo } from "@/components/photography/photo";
 import { ProjectGallery } from "@/components/work/galleries/project-gallery";
-import { FredericiaClubUse } from "@/components/work/projects/fredericia-club-use";
 import type { Project } from "@/lib/data/projects";
 import { aspectRatioStyle } from "@/lib/utils";
 
@@ -90,11 +89,7 @@ export function ProjectView({ project, previous, next }: ProjectViewProps) {
       </header>
 
       <div className="mt-10 md:mt-12">
-        {project.slug === "fredericia-haandboldklub" ? (
-          <FredericiaClubUse />
-        ) : (
-          <ProjectGallery project={project} />
-        )}
+        <ProjectGallery project={project} />
       </div>
 
       {project.clientUrl ? (

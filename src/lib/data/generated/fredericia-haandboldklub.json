@@ -1,12 +1,76 @@
 {
   "slug": "fredericia-haandboldklub",
-  "updatedAt": "2026-08-31T15:30:00.000Z",
+  "updatedAt": "2026-08-31T15:46:00.000Z",
   "cover": {
     "src": "/images/projects/fredericia-haandboldklub/fhk-squad/03-fhk-freja-thor-ammidtsbol-andersen.jpg",
     "alt": "Freja Thor Ammidtsbøl Andersen — Fredericia Håndbold, nummer 3",
-    "width": 640,
-    "height": 880,
+    "width": 1467,
+    "height": 2200,
     "orientation": "portrait"
   },
-  "images": []
+  "images": [
+    {
+      "src": "/images/projects/fredericia-haandboldklub/01-00-1-div-kvinder.jpg",
+      "alt": "Fredericia Håndboldklub — 1. DIV Kvinder",
+      "width": 2200,
+      "height": 1237,
+      "orientation": "landscape"
+    },
+    {
+      "src": "/images/projects/fredericia-haandboldklub/02-01-fhk-gruppe-06.jpg",
+      "alt": "Fredericia Håndboldklub — gruppefoto",
+      "width": 1467,
+      "height": 2200,
+      "orientation": "portrait"
+    },
+    {
+      "src": "/images/projects/fredericia-haandboldklub/fhk-squad/03-fhk-freja-thor-ammidtsbol-andersen.jpg",
+      "alt": "Freja Thor Ammidtsbøl Andersen (Midtsbøl) — Fredericia Håndbold, nummer 3",
+      "width": 1467,
+      "height": 2200,
+      "orientation": "portrait"
+    },
+    {
+      "src": "/images/projects/fredericia-haandboldklub/fhk-squad/04-fhk-maria-husted.jpg",
+      "alt": "Maria Husted — Fredericia Håndbold, nummer 4",
+      "width": 1467,
+      "height": 2200,
+      "orientation": "portrait"
+    },
+    {
+      "src": "/images/projects/fredericia-haandboldklub/04-fhk-gruppe-04.jpg",
+      "alt": "Fredericia Håndboldklub — gruppefoto",
+      "width": 1467,
+      "height": 2200,
+      "orientation": "portrait"
+    },
+    {
+      "src": "/images/projects/fredericia-haandboldklub/07-06-fhk-19-pose.jpg",
+      "alt": "Eline Osland jubler — Fredericia Håndbold, nummer 19",
+      "width": 1467,
+      "height": 2200,
+      "orientation": "portrait"
+    },
+    {
+      "src": "/images/projects/fredericia-haandboldklub/fhk-squad/27-fhk-annette-wiren-larsen.jpg",
+      "alt": "Annette Wirén Larsen — Fredericia Håndbold, nummer 27",
+      "width": 1467,
+      "height": 2200,
+      "orientation": "portrait"
+    },
+    {
+      "src": "/images/projects/fredericia-haandboldklub/fhk-squad/29-fhk-julie-gronne-thinggard.jpg",
+      "alt": "Julie Grønne Thinggård — Fredericia Håndbold, nummer 29",
+      "width": 1467,
+      "height": 2200,
+      "orientation": "portrait"
+    },
+    {
+      "src": "/images/projects/fredericia-haandboldklub/10-09-fhk-37-pose.jpg",
+      "alt": "Nikoline Johansen — Fredericia Håndbold, nummer 37",
+      "width": 1467,
+      "height": 2200,
+      "orientation": "portrait"
+    }
+  ]
 }

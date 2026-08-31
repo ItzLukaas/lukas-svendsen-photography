@@ -958,20 +958,73 @@ const projectSeed: Project[] = [
     cover: P(
       "/images/projects/fredericia-haandboldklub/fhk-squad/03-fhk-freja-thor-ammidtsbol-andersen.jpg",
       "Freja Thor Ammidtsbøl Andersen — Fredericia Håndbold, nummer 3",
-      640,
-      880
+      1467,
+      2200
     ),
-    images: [],
+    images: [
+      L(
+        "/images/projects/fredericia-haandboldklub/01-00-1-div-kvinder.jpg",
+        "Fredericia Håndboldklub — 1. DIV Kvinder",
+        2200,
+        1237
+      ),
+      P(
+        "/images/projects/fredericia-haandboldklub/02-01-fhk-gruppe-06.jpg",
+        "Fredericia Håndboldklub — gruppefoto",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/fredericia-haandboldklub/fhk-squad/03-fhk-freja-thor-ammidtsbol-andersen.jpg",
+        "Freja Thor Ammidtsbøl Andersen (Midtsbøl) — Fredericia Håndbold, nummer 3",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/fredericia-haandboldklub/fhk-squad/04-fhk-maria-husted.jpg",
+        "Maria Husted — Fredericia Håndbold, nummer 4",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/fredericia-haandboldklub/04-fhk-gruppe-04.jpg",
+        "Fredericia Håndboldklub — gruppefoto",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/fredericia-haandboldklub/07-06-fhk-19-pose.jpg",
+        "Eline Osland jubler — Fredericia Håndbold, nummer 19",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/fredericia-haandboldklub/fhk-squad/27-fhk-annette-wiren-larsen.jpg",
+        "Annette Wirén Larsen — Fredericia Håndbold, nummer 27",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/fredericia-haandboldklub/fhk-squad/29-fhk-julie-gronne-thinggard.jpg",
+        "Julie Grønne Thinggård — Fredericia Håndbold, nummer 29",
+        1467,
+        2200
+      ),
+      P(
+        "/images/projects/fredericia-haandboldklub/10-09-fhk-37-pose.jpg",
+        "Nikoline Johansen — Fredericia Håndbold, nummer 37",
+        1467,
+        2200
+      ),
+    ],
   },
 ];
 
 const projectsResolved: Project[] = projectSeed.map(withGeneratedGallery);
 
-/** Listed in portfolio — gallery projects plus club-use cases without a traditional gallery */
+/** Listed in portfolio — projects with at least one gallery image */
 export function isPublishedProject(project: Project) {
-  return (
-    project.images.length > 0 || project.slug === "fredericia-haandboldklub"
-  );
+  return project.images.length > 0;
 }
 
 /** Projects with images — used for listings and homepage */

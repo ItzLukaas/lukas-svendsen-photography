@@ -14,9 +14,6 @@ export type FredericiaSquadPlayer = {
   };
 };
 
-export const fredericiaSquadUrl =
-  "https://fhk.dk/1div-kvinder/1-div-kvinder-spillertrup-og-stab";
-
 const portrait = (
   src: string,
   alt: string

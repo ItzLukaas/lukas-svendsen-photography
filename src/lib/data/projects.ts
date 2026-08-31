@@ -951,9 +951,6 @@ const projectSeed: Project[] = [
     excerpt:
       "Spillerportrætter for Fredericia Håndboldklubs 1. divisionskvinder — skarpt, enkelt og klar til klubbens kommunikation.",
     client: "Fredericia Håndboldklub",
-    clientUrl:
-      "https://fhk.dk/1div-kvinder/1-div-kvinder-spillertrup-og-stab",
-    clientUrlLabel: "fhk.dk",
     role: "Portrætfotograf",
     outcome:
       "Leverede spillerportrætter til web og sociale medier — klar til klubbens kanaler.",

@@ -25,8 +25,7 @@ const OUT_DIR = path.join(
   "public",
   "images",
   "projects",
-  "fredericia-haandboldklub",
-  "ribe-esbjerg"
+  "fredericia-ribe-esbjerg"
 );
 const DONE = path.join(INBOX, "_done", "fredericia-ribe-esbjerg");
 
@@ -45,9 +44,9 @@ const SHOTS = [
     alt: "Springskud i luften mod Ribe-Esbjerg — Fredericia Håndbold",
   },
   {
-    inbox: "DSC02820.jpg",
+    inbox: "DSC02807.jpg",
     out: "03-angreb-i-luften-mod-ribe-esbjerg-fredericia-haandbold.jpg",
-    alt: "Angreb i luften mod Ribe-Esbjerg — Fredericia Håndbold",
+    alt: "Angreb mod Ribe-Esbjerg — Fredericia Håndbold",
   },
   {
     inbox: "DSC02875.jpg",
@@ -70,9 +69,9 @@ const SHOTS = [
     alt: "Hopskud mod mål mod Ribe-Esbjerg — Fredericia Håndbold",
   },
   {
-    inbox: "DSC03025.jpg",
+    inbox: "DSC03030.jpg",
     out: "08-luftduel-mod-ribe-esbjerg-fredericia-haandbold.jpg",
-    alt: "Luftduel mod Ribe-Esbjerg — Fredericia Håndbold",
+    alt: "Kampduel mod Ribe-Esbjerg — Fredericia Håndbold",
   },
   {
     inbox: "DSC03044.jpg",
@@ -114,7 +113,7 @@ for (const shot of SHOTS) {
 
   const outMeta = await sharp(output).metadata();
   manifest.push({
-    src: `/images/projects/fredericia-haandboldklub/ribe-esbjerg/${shot.out}`,
+    src: `/images/projects/fredericia-ribe-esbjerg/${shot.out}`,
     alt: shot.alt,
     width: outMeta.width,
     height: outMeta.height,

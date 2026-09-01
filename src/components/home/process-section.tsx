@@ -22,9 +22,8 @@ export function ProcessSection() {
             Sådan foregår det
           </h2>
           <p className="mt-4 max-w-[52ch] text-[0.9375rem] leading-[1.65] text-muted-ink">
-            Samarbejdet er enkelt og overskueligt. Fra første kontakt til færdigt
-            materiale ved du, hvad der sker, og hvornår du kan forvente at få
-            filerne.
+            Du ved, hvad der sker, og hvornår du får materialet. Ingen
+            overraskelser undervejs.
           </p>
         </FadeIn>
 

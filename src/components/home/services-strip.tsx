@@ -21,12 +21,12 @@ export function ServicesStrip() {
             id="services-heading"
             className="mt-3 font-display text-[clamp(1.55rem,2.8vw,2.1rem)] leading-[1.08] tracking-[-0.03em]"
           >
-            Foto, video og content til både private og erhverv
+            Foto, video og content
           </h2>
           <p className="mt-3 max-w-[56ch] text-[0.9375rem] leading-[1.65] text-muted-ink">
-            Jeg arbejder med virksomheder, organisationer, brands og private
-            kunder, der har brug for professionelt visuelt materiale til
-            kommunikation, kampagner og digitale kanaler.
+            Virksomheder får materiale, der gør dem mere synlige og troværdige
+            online. Private får billeder og film, der fanger stemningen og de
+            mennesker, det handler om.
           </p>
         </FadeIn>
 
@@ -101,10 +101,9 @@ export function ServicesStrip() {
                 Video og drone
               </h3>
               <p className="mx-auto mt-3 max-w-[52ch] text-[0.9375rem] leading-[1.65] text-muted-ink">
-                Video og drone indgår ofte som en del af en samlet produktion,
-                men kan også bookes separat. Jeg sørger for, at optagelserne
-                hænger sammen med resten af materialet, så du får noget, der kan
-                bruges direkte.
+                Video og drone giver et andet perspektiv på opgaven. Jeg bruger
+                begge dele, når det gør materialet stærkere, og leverer filer klar
+                til web, sociale medier og kampagner.
               </p>
             </FadeIn>
 

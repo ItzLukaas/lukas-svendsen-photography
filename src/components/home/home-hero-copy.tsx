@@ -39,7 +39,7 @@ export function HomeHeroCopy() {
               : { duration: 0.75, delay: 0.38, ease }
           }
         >
-          Fotograf og videoproducent i Grindsted
+          Fotograf og videograf i Grindsted
         </motion.h1>
 
         <motion.p
@@ -52,10 +52,9 @@ export function HomeHeroCopy() {
               : { duration: 0.7, delay: 0.5, ease }
           }
         >
-          Jeg arbejder med foto, video og content for både virksomheder,
-          organisationer, brands og private. Fra den enkelte fotosession til
-          større visuelle produktioner tilpasser jeg opgaven efter det, du har
-          brug for.
+          Jeg tager foto- og videoopgaver for virksomheder, organisationer og
+          private. Uanset om det er til hjemmeside, sociale medier, en kampagne
+          eller en vigtig dag, leverer jeg materiale, der holder.
         </motion.p>
 
         <motion.p
@@ -68,8 +67,8 @@ export function HomeHeroCopy() {
               : { duration: 0.7, delay: 0.58, ease }
           }
         >
-          Jeg arbejder i Grindsted, Billund, Vejle, Esbjerg, på tværs af Jylland
-          og i resten af Danmark.
+          Base i Grindsted. Jeg møder op i Billund, Vejle, Esbjerg og resten af
+          Jylland, når opgaven kræver det.
         </motion.p>
 
         <motion.div

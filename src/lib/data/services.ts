@@ -37,7 +37,7 @@ export const homeServices: HomeService[] = [
     title: "Foto",
     bookingType: "Fotografering",
     description:
-      "Jeg tager stillbilleder med et professionelt udtryk, der passer til den opgave, du står med. Materialet leveres redigeret og klar til det, du skal bruge det til.",
+      "Portrætter, produktbilleder og stemningsbilleder til hjemmeside, sociale medier og kampagner. Du får redigerede filer, der er klar til brug.",
     icon: Camera,
   },
   {
@@ -45,7 +45,7 @@ export const homeServices: HomeService[] = [
     title: "Video",
     bookingType: "Videoproduktion",
     description:
-      "Jeg producerer film og bevægeligt materiale til kampagner, kommunikation og digitale kanaler. Det kan være kortere klip eller en større produktion, afhængigt af behovet.",
+      "Film til hjemmeside, sociale medier og markedsføring. Fra korte klip til større produktioner med et klart budskab.",
     icon: Video,
   },
   {
@@ -53,7 +53,7 @@ export const homeServices: HomeService[] = [
     title: "Drone",
     bookingType: "Droneproduktion",
     description:
-      "Når opgaven kræver perspektiv fra oven, leverer jeg luftfoto og luftvideo som en naturlig del af produktionen eller som en selvstændig opgave.",
+      "Luftfoto og luftvideo, når opgaven har brug for overblik og bevægelse fra oven.",
     icon: Plane,
   },
   {
@@ -61,7 +61,7 @@ export const homeServices: HomeService[] = [
     title: "Content",
     bookingType: "Content",
     description:
-      "Jeg laver visuelt materiale til web, sociale medier og løbende kommunikation. Det skal fungere i praksis og ikke bare se godt ud i et galleri.",
+      "Billeder og film til løbende kommunikation på web og sociale medier. Materiale, der kan postes og bruges med det samme.",
     icon: Layers,
   },
 ];
@@ -87,8 +87,8 @@ export const videoServiceFeatures: VideoServiceFeature[] = [
   },
   {
     id: "tailored",
-    title: "Tilpasset opgaven",
-    body: "Hver opgave er forskellig. Vi tager udgangspunkt i dit behov og finder sammen ud af omfang, form og leverance, så det passer til det, du skal bruge.",
+    title: "Til din opgave",
+    body: "Vi aftaler omfang, format og leverance, så du får det, du har brug for, uden unødvendigt bureaukrati.",
     icon: UserRound,
   },
 ];

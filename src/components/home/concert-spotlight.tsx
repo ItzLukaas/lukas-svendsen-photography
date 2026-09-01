@@ -72,7 +72,7 @@ export function ConcertSpotlight() {
               id="concert-spotlight-heading"
               className="mt-3 max-w-[14ch] font-display text-[clamp(1.85rem,3.8vw,2.85rem)] leading-[1.05] tracking-[-0.03em]"
             >
-              Liveproduktioner
+              Live og events
             </h3>
             <div
               className="mt-3 h-px w-[min(100%,14rem)] bg-foreground/15"
@@ -81,16 +81,16 @@ export function ConcertSpotlight() {
 
             <div className="mt-6 max-w-md space-y-4 text-[0.9375rem] leading-[1.7] text-muted-ink md:mt-7 md:text-[1rem]">
               <p>
-                Når der skal leveres hurtigt og præcist materiale fra en større
-                produktion, arbejder jeg struktureret og målrettet. Resultatet
-                kan bruges direkte i presse, sociale medier og efterfølgende
+                Der sker meget på kort tid, og lyset skifter hele tiden. Jeg
+                arbejder hurtigt, fanger energien og leverer billeder og film,
+                der kan bruges til presse, sociale medier og efterfølgende
                 kommunikation.
               </p>
             </div>
 
             <div className="mt-8 md:mt-10">
               <Link href="/arbejde?kategori=koncerter" className="btn-outline">
-                Se flere eksempler
+                Se livearbejde
               </Link>
             </div>
           </FadeIn>

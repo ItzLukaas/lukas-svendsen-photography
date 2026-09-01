@@ -236,11 +236,11 @@ export function LogoMarquee({ className }: LogoMarqueeProps) {
                 id="collaborations-heading"
                 className="mt-3 font-display text-[clamp(1.25rem,2vw,1.5rem)] leading-[1.15] tracking-[-0.022em]"
               >
-                Udvalgte samarbejder
+                Nogle jeg har arbejdet med
               </h2>
               <p className="mt-2 text-[0.8125rem] leading-[1.55] text-muted-ink md:text-[0.875rem]">
-                Jeg arbejder med virksomheder, organisationer og brands, der har
-                brug for professionelt visuelt materiale.
+                Jeg har leveret foto og video til kommuner, sport, brands og
+                organisationer i Jylland.
               </p>
               <p className="sr-only">{collaborationsSummary}</p>
             </div>

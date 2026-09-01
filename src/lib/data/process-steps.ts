@@ -23,6 +23,6 @@ export const processSteps: ProcessStep[] = [
     id: "deliver",
     step: 3,
     title: "Du får filerne",
-    body: "Du får udvalgte og redigerede filer, så materialet er klar til det, du skal bruge det til. Ikke rå data, du selv skal sidde og sortere i.",
+    body: "Du får redigerede filer, klar til web, sociale medier eller intern brug. Klar til at poste og dele.",
   },
 ];

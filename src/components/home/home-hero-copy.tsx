@@ -52,9 +52,8 @@ export function HomeHeroCopy() {
               : { duration: 0.7, delay: 0.5, ease }
           }
         >
-          Jeg tager foto- og videoopgaver for virksomheder, organisationer og
-          private. Uanset om det er til hjemmeside, sociale medier, en kampagne
-          eller en vigtig dag, leverer jeg materiale, der holder.
+          Jeg skaber foto og video med et skarpt blik for både mennesker,
+          detaljer og det udtryk, du gerne vil vise.
         </motion.p>
 
         <motion.p
@@ -67,8 +66,10 @@ export function HomeHeroCopy() {
               : { duration: 0.7, delay: 0.58, ease }
           }
         >
-          Base i Grindsted. Jeg møder op i Billund, Vejle, Esbjerg og resten af
-          Jylland, når opgaven kræver det.
+          Jeg arbejder med virksomheder, organisationer og private og leverer
+          visuelt materiale til blandt andet hjemmesider, sociale medier,
+          kampagner, events og særlige øjeblikke. Jeg tager opgaver i hele
+          Jylland.
         </motion.p>
 
         <motion.div

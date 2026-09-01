@@ -21,7 +21,7 @@ export const defaultShareImage = {
   url: "/images/og-share.jpg",
   width: 1200,
   height: 630,
-  alt: "Håndboldspiller scorer i målnet — sportsfotografi af Lukas Svendsen",
+  alt: "Lukas Svendsen — fotograf og videograf",
 } as const;
 
 /**
@@ -189,7 +189,7 @@ export function collectionPageJsonLd(
     "@id": `${siteConfig.url}/arbejde#collection`,
     name: "Portfolio — Lukas Svendsen",
     description:
-      "Portfolio med festival-, koncert-, sport- og eventfotografi fra Lukas Svendsen — fotograf fra Grindsted med opgaver i Billund, Vejle og hele Danmark.",
+      "Portfolio med udvalgte foto- og videoprojekter fra Lukas Svendsen — fotograf fra Grindsted med opgaver i Billund, Vejle og hele Danmark.",
     url: `${siteConfig.url}/arbejde`,
     isPartOf: { "@id": `${siteConfig.url}/#website` },
     about: { "@id": `${siteConfig.url}/#person` },

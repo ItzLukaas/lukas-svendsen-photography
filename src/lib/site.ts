@@ -29,7 +29,7 @@ export const siteConfig = {
   ] as const,
   tagline: "Fotograf",
   description:
-    "Fotograf og videograf fra Grindsted. Sport, koncerter og events — foto, video og drone i Billund, Vejle og hele Danmark.",
+    "Fotograf og videograf fra Grindsted — professionel foto og video til mange formål. Billund, Vejle og hele Danmark.",
   nav: [
     { href: "/arbejde", label: "Arbejde" },
     { href: "/om", label: "Om mig" },

@@ -19,8 +19,8 @@ const FILTER_INTRO: Record<string, string> = {
   koncerter:
     "Festivaler og koncerter — Smukfest, Grøn Koncert, Varde Open Air, Suset og mere.",
   events: "Events med stemning, gæster og liveoplevelser.",
-  portraetter: "Portrætter til klubber og foreninger.",
-  erhverv: "Erhvervsfoto og brand content.",
+  portraetter: "Portrætter til private, klubber og foreninger.",
+  erhverv: "Branding, produkt og visuelt materiale.",
 };
 
 type WorkIndexProps = {
@@ -192,7 +192,7 @@ export function WorkIndex({
   const intro =
     kategori !== "alle" && FILTER_INTRO[kategori]
       ? FILTER_INTRO[kategori]
-      : "Festival, sport, events og mere — udvalgte projekter fra hele Danmark. Åbn et projekt for at se billederne.";
+      : "Forskellige typer opgaver fra hele Danmark — sport, koncert, event, portræt og mere. Åbn et projekt for at se billederne.";
 
   return (
     <div className="mx-auto max-w-[1600px] px-5 pt-[calc(var(--chrome-h)+2.5rem)] pb-24 md:px-8 md:pb-32 lg:px-12">

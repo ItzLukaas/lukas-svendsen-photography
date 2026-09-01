@@ -34,8 +34,8 @@ export function SiteFooter() {
               {siteConfig.name}
             </p>
             <p className="mt-2 max-w-[48ch] text-[0.875rem] leading-[1.65] text-paper/50">
-              Fotograf og videograf med base i Grindsted — opgaver i Billund,
-              Vejle og hele Danmark.
+              Fotograf og videograf — foto, video og drone. Base i Grindsted,
+              opgaver i Billund, Vejle og hele Danmark.
             </p>
           </div>
           <Link href="/booking" className="btn-solid mt-2 shrink-0 bg-paper text-ink md:mt-0">
@@ -120,6 +120,14 @@ export function SiteFooter() {
               Portfolio
             </p>
             <ul className="mt-4 space-y-2.5">
+              <li>
+                <Link
+                  href="/arbejde?kategori=portraetter"
+                  className="text-[0.9375rem] text-paper/75 transition-colors duration-300 hover:text-paper focus-visible:text-paper"
+                >
+                  Portrætfoto
+                </Link>
+              </li>
               <li>
                 <Link
                   href="/arbejde?kategori=koncerter"

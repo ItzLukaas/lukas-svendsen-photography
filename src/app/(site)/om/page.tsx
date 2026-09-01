@@ -13,7 +13,7 @@ import {
 export const metadata: Metadata = pageMetadata({
   title: "Om mig — fotograf i Grindsted",
   description:
-    "Lukas Svendsen — fotograf og videograf fra Grindsted. Koncert-, sports- og eventfoto i Billund, Vejle og hele Danmark.",
+    "Lukas Svendsen — fotograf og videograf fra Grindsted. Foto, video og drone til mange formål i Billund, Vejle og hele Danmark.",
   path: "/om",
 });
 
@@ -22,7 +22,7 @@ export default function OmPage() {
     path: "/om",
     name: "Om Lukas Svendsen",
     description:
-      "Lukas Svendsen er fotograf fra Grindsted. Foto, video og drone til koncerter, sport og events i Billund, Vejle og hele Danmark.",
+      "Lukas Svendsen er fotograf og videograf fra Grindsted. Foto, video og drone til private, foreninger, organisationer og brands i hele Danmark.",
     type: "AboutPage",
   });
   const breadcrumbJsonLd = pageBreadcrumbJsonLd([
@@ -71,15 +71,15 @@ export default function OmPage() {
               <p>
                 Jeg hedder Lukas Svendsen — fulde navn Lukas Guldager Svendsen.
                 Jeg er 16 år og kommer fra Grindsted. Jeg laver foto, video,
-                drone og content — til koncerter, festivaler, sport, events,
-                foreninger og virksomheder.
+                drone og content — til private, foreninger, organisationer og
+                brands.
               </p>
               <p>
-                Det kan være ét job, materiale til en ny hjemmeside, SoMe eller
-                en større contentløsning. Jeg møder op klar, holder hovedet
-                koldt under presset og leverer billeder, der kan bruges med det
-                samme — i Billund, Vejle, Give, Kolding, Esbjerg og resten af
-                Danmark.
+                Det kan være portrætter, et event, produktfoto, content til
+                sociale medier, en ny hjemmeside eller en større produktion. Jeg
+                møder op klar, holder hovedet koldt under presset og leverer
+                materiale, der kan bruges med det samme — i Billund, Vejle,
+                Give, Kolding, Esbjerg og resten af Danmark.
               </p>
               <p>
                 Book mig, hvis du har et job. Så snakker vi om det.
@@ -121,6 +121,14 @@ export default function OmPage() {
                     className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
                   >
                     Fotograf Vejle
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/arbejde?kategori=portraetter"
+                    className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
+                  >
+                    Portrætfotografi
                   </Link>
                 </li>
                 <li>

@@ -32,7 +32,7 @@ function projectDescription(project: Project) {
     koncerter: "Koncertfotografi og festivalfoto",
     sport: "Sportsfotografi og håndboldfoto",
     events: "Eventfotografi og stemningsbilleder",
-    erhverv: "Virksomhedsfoto og brand content",
+    erhverv: "Branding, produkt og visuelt materiale",
     portraetter: "Portrætfotografi",
   };
   const seoLead = disciplineSeo[project.discipline] ?? "Fotografi";

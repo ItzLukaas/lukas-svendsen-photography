@@ -39,11 +39,11 @@ export function HomeHeroCopy() {
               : { duration: 0.75, delay: 0.38, ease }
           }
         >
-          Fotograf og videograf
+          Foto og video — skabt til dit behov
         </motion.h1>
 
         <motion.p
-          className="mt-5 max-w-[28rem] text-[0.9375rem] leading-[1.65] text-pretty text-white/78 sm:mt-6 sm:text-[1.0625rem] md:max-w-[32rem]"
+          className="mt-5 max-w-[28rem] text-[0.9375rem] leading-[1.65] text-pretty text-white/78 sm:mt-6 sm:text-[1.0625rem] md:max-w-[34rem]"
           initial={reduceMotion ? false : { y: 14 }}
           animate={{ y: 0 }}
           transition={
@@ -52,8 +52,9 @@ export function HomeHeroCopy() {
               : { duration: 0.7, delay: 0.5, ease }
           }
         >
-          Jeg er fotograf og videograf fra Grindsted — sport, koncerter og
-          events i Billund, Vejle og hele Danmark.
+          Portrætter, content, events, produkt, drone eller noget helt andet —
+          jeg er fotograf og videograf fra Grindsted med opgaver i Billund,
+          Vejle og hele Danmark.
         </motion.p>
 
         <motion.div

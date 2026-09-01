@@ -11,10 +11,10 @@ export type ValueProp = {
 /** Concrete proof points — not generic agency copy. */
 export const valueProps: ValueProp[] = [
   {
-    id: "sport",
-    title: "Sport og håndbold",
-    body: "DM-finaler, Super Cup og klubkampe — action, jubel og de øjeblikke, der afgør kampen.",
-    icon: Trophy,
+    id: "versatile",
+    title: "Mange typer opgaver",
+    body: "Portræt, produkt, event, sport, koncert, content og drone — jeg tilpasser mig det, du har brug for.",
+    icon: Camera,
   },
   {
     id: "concert",
@@ -25,7 +25,7 @@ export const valueProps: ValueProp[] = [
   {
     id: "delivery",
     title: "Klar til brug",
-    body: "Billeder og video leveret i de formater, kunderne faktisk bruger — web, SoMe og presse.",
-    icon: Camera,
+    body: "Billeder og video leveret i de formater, du faktisk bruger — web, SoMe og presse.",
+    icon: Trophy,
   },
 ];

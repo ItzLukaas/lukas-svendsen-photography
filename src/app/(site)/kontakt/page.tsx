@@ -13,7 +13,7 @@ import {
 export const metadata: Metadata = pageMetadata({
   title: "Kontakt — fotograf i Grindsted",
   description:
-    "Kontakt fotograf Lukas Svendsen i Grindsted. Email, telefon og formular — koncertfoto, sportsfoto og booking i Billund, Vejle og hele Danmark.",
+    "Kontakt fotograf Lukas Svendsen i Grindsted. Email, telefon og formular — foto, video og booking i Billund, Vejle og hele Danmark.",
   path: "/kontakt",
 });
 

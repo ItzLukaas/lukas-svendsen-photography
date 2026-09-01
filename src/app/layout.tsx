@@ -33,6 +33,9 @@ export const metadata: Metadata = {
   keywords: [
     "Lukas Svendsen",
     "fotograf Danmark",
+    "videograf Danmark",
+    "portrætfotograf",
+    "produktfotograf",
     "fotograf Grindsted",
     "fotograf Billund",
     "fotograf Vejle",
@@ -59,7 +62,7 @@ export const metadata: Metadata = {
         url: "/images/og-share.jpg",
         width: 1200,
         height: 630,
-        alt: "Håndboldspiller scorer i målnet — sportsfotografi af Lukas Svendsen",
+        alt: "Lukas Svendsen — fotograf og videograf",
       },
     ],
   },
@@ -71,7 +74,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/images/og-share.jpg",
-        alt: "Håndboldspiller scorer i målnet — sportsfotografi af Lukas Svendsen",
+        alt: "Lukas Svendsen — fotograf og videograf",
       },
     ],
   },
@@ -128,15 +131,16 @@ const jsonLd = {
       },
       knowsAbout: [
         "Fotografering",
-        "Content creation",
+        "Portrætfotografi",
+        "Produktfotografi",
         "Videoproduktion",
         "Droneproduktion",
+        "Content creation",
+        "Brand content",
         "Koncertfotografi",
         "Festivalfotografi",
         "Eventfotografi",
         "Sportsfotografi",
-        "Virksomhedsfotografi",
-        "Brand content",
         ...siteConfig.disciplines.map((item) => item.label),
       ],
       worksFor: { "@id": `${siteConfig.url}/#organization` },
@@ -207,20 +211,30 @@ const jsonLd = {
       ],
       openingHoursSpecification: openingHoursJsonLd(),
       serviceType: [
-        "Koncert- og festivalfotografi",
-        "Event- og erhvervsfotografi",
-        "Sportsfotografi",
-        "Business & brand content",
-        "Contentproduktion",
-        "Video & content",
         "Fotografering",
         "Videoproduktion",
         "Droneproduktion",
+        "Portrætfotografi",
+        "Produktfotografi",
+        "Contentproduktion",
+        "Koncert- og festivalfotografi",
+        "Eventfotografi",
+        "Sportsfotografi",
       ],
       hasOfferCatalog: {
         "@type": "OfferCatalog",
         name: "Foto, video, drone og content",
         itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Fotografering",
+              description:
+                "Portræt, produkt, event, sport og brand — foto til mange forskellige formål.",
+              areaServed,
+            },
+          },
           {
             "@type": "Offer",
             itemOffered: {
@@ -235,9 +249,9 @@ const jsonLd = {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
-              name: "Event & erhverv",
+              name: "Event & arrangement",
               description:
-                "Eventfotografi til virksomheder og arrangementer i hele Danmark.",
+                "Eventfoto og video til arrangementer, foreninger og organisationer.",
               areaServed,
             },
           },

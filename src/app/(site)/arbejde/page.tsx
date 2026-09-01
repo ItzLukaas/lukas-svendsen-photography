@@ -7,7 +7,7 @@ import { collectionPageJsonLd, pageMetadata } from "@/lib/seo";
 const arbejdeMetadata = pageMetadata({
   title: "Portfolio — fotograf i Grindsted, Billund og Vejle",
   description:
-    "Portfolio med koncert-, sports- og eventfotografi fra Lukas Svendsen — fotograf fra Grindsted med opgaver i Billund, Vejle og hele Danmark.",
+    "Portfolio med udvalgte foto- og videoprojekter fra Lukas Svendsen — fotograf fra Grindsted med opgaver i Billund, Vejle og hele Danmark.",
   path: "/arbejde",
 });
 

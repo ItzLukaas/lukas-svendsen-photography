@@ -24,8 +24,8 @@ export function ServicesStrip() {
             Hvad jeg leverer
           </h2>
           <p className="mt-3 max-w-[48ch] text-[0.9375rem] leading-[1.65] text-muted-ink">
-            Foto, video, drone og content — til sport, koncerter, events og
-            erhverv i Grindsted, Billund, Vejle og hele Danmark.
+            Foto, video, drone og content til mange forskellige formål —
+            uanset om du er privatperson, forening, organisation eller brand.
           </p>
         </FadeIn>
 
@@ -93,6 +93,12 @@ export function ServicesStrip() {
         <FadeIn delay={0.08}>
           <p className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-[0.8125rem] text-muted-ink">
             <Link
+              href="/arbejde?kategori=portraetter"
+              className="font-medium text-ink underline-offset-4 transition-opacity duration-300 hover:opacity-55 hover:underline"
+            >
+              Portrætfoto
+            </Link>
+            <Link
               href="/arbejde?kategori=koncerter"
               className="font-medium text-ink underline-offset-4 transition-opacity duration-300 hover:opacity-55 hover:underline"
             >
@@ -109,6 +115,12 @@ export function ServicesStrip() {
               className="font-medium text-ink underline-offset-4 transition-opacity duration-300 hover:opacity-55 hover:underline"
             >
               Eventfoto
+            </Link>
+            <Link
+              href="/arbejde?kategori=erhverv"
+              className="font-medium text-ink underline-offset-4 transition-opacity duration-300 hover:opacity-55 hover:underline"
+            >
+              Brand & produkt
             </Link>
           </p>
         </FadeIn>

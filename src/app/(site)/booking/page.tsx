@@ -14,7 +14,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: "Book fotograf i Grindsted — foto, video og drone",
   description:
-    "Book fotograf til koncert, sport, event eller portræt i Grindsted, Billund, Vejle og hele Danmark. Foto, video og drone — svar inden for 1–2 hverdage.",
+    "Book fotograf til foto, video og drone i Grindsted, Billund, Vejle og hele Danmark. Portræt, event, produkt, content og mere — svar inden for 1–2 hverdage.",
   path: "/booking",
 });
 
@@ -56,10 +56,10 @@ export default function BookingPage() {
             </p>
 
             <ul className="mt-9 max-w-md space-y-3 text-[0.875rem] leading-[1.6] text-muted-ink">
-              <li>Koncerter, festivaler, sport og events</li>
-              <li>Virksomheder, foreninger og brands</li>
+              <li>Portrætter, events, produkt, kampagner og content</li>
+              <li>Private, foreninger, organisationer og brands</li>
               <li>
-                Web, SoMe, kampagner, aftermovies, drone og contentpakker
+                Web, SoMe, aftermovies, drone og løbende contentpakker
               </li>
             </ul>
 

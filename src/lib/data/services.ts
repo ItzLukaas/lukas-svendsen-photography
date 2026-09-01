@@ -36,14 +36,14 @@ export const homeServices: HomeService[] = [
     id: "foto",
     title: "Fotografering",
     bookingType: "Fotografering",
-    description: "Koncert, event, sport, portræt og brand.",
+    description: "Portræt, produkt, event, sport, brand — og andet du har brug for.",
     icon: Camera,
   },
   {
     id: "video",
     title: "Videoproduktion",
     bookingType: "Videoproduktion",
-    description: "Aftermovies, eventfilm og korte klip.",
+    description: "Profilfilm, eventfilm, SoMe-video og korte klip.",
     icon: Video,
   },
   {
@@ -82,7 +82,7 @@ export const videoServiceFeatures: VideoServiceFeature[] = [
   {
     id: "event-drone",
     title: "Events, film & drone",
-    body: "Recaps, aftermovies, produkt- og virksomhedsfilm samt dronefotos og -video, når overblikket gør en forskel.",
+    body: "Recaps, aftermovies, produktfilm og droneoptagelser — når overblikket eller bevægelsen gør en forskel.",
     icon: Plane,
   },
   {

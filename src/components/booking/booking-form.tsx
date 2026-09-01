@@ -18,7 +18,7 @@ import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 const productionHints: Record<(typeof productionTypes)[number], string> = {
-  Fotografering: "Koncert, event, sport, portræt eller brand",
+  Fotografering: "Portræt, produkt, event, sport, brand — eller noget helt andet",
   Videoproduktion: "Aftermovie, eventfilm, korte klip",
   Droneproduktion: "Luftfoto og video",
   Content: "Web, SoMe, kampagner eller løbende pakke",

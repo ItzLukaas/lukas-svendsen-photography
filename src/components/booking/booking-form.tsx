@@ -18,7 +18,7 @@ import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 const productionHints: Record<(typeof productionTypes)[number], string> = {
-  Fotografering: "Portræt, produkt, event, sport, brand — eller noget helt andet",
+  Fotografering: "Portræt, produkt, event, sport, brand eller noget helt andet",
   Videoproduktion: "Aftermovie, eventfilm, korte klip",
   Droneproduktion: "Luftfoto og video",
   Content: "Web, SoMe, kampagner eller løbende pakke",
@@ -152,8 +152,8 @@ export function BookingForm() {
           Tak for din forespørgsel.
         </h2>
         <p className="text-body mt-4 max-w-md">
-          Jeg har modtaget din bookingforespørgsel og vender tilbage snarest —
-          typisk inden for 1–2 hverdage.
+          Jeg har modtaget din bookingforespørgsel og vender tilbage snarest,
+          typisk inden for 1 til 2 hverdage.
         </p>
         <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3">
           <button
@@ -393,14 +393,14 @@ export function BookingForm() {
             >
               <Input
                 id={`${formId}-budget`}
-                placeholder="Fx 5–10.000 kr. eller aftales"
+                placeholder="Fx 5.000 til 10.000 kr. eller aftales"
                 aria-invalid={Boolean(errors.budget)}
                 className={fieldClass}
                 {...register("budget")}
               />
             </FormField>
             <p className="text-[0.875rem] leading-relaxed text-muted-ink">
-              Ingen binding — jeg vender tilbage med afklaring. Hellere starte
+              Ingen binding. Jeg vender tilbage med afklaring. Hellere starte
               blødt?{" "}
               <Link
                 href="/kontakt"

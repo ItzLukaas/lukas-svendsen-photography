@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   ...pageMetadata({
     title: "Privatlivspolitik",
     description:
-      "Privatlivspolitik for lukassvendsen.dk — hvordan kontakt- og bookingforespørgsler behandles.",
+      "Privatlivspolitik for lukassvendsen.dk. Sådan behandles kontakt- og bookingforespørgsler.",
     path: "/privatliv",
   }),
   robots: { index: false, follow: true },

@@ -49,7 +49,7 @@ function LogoItem({
         href={logo.href}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={`${logo.name} — besøg officiel hjemmeside`}
+        aria-label={`${logo.name}, besøg officiel hjemmeside`}
         className="inline-flex items-center justify-center outline-none transition-opacity duration-300 focus-visible:opacity-100 focus-visible:ring-2 focus-visible:ring-foreground/20 focus-visible:ring-offset-4 focus-visible:ring-offset-paper"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -158,7 +158,7 @@ function LogoStepper() {
               href={logo.href}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`${logo.name} — besøg officiel hjemmeside`}
+              aria-label={`${logo.name}, besøg officiel hjemmeside`}
               className="inline-flex items-center justify-center outline-none transition-opacity duration-300 focus-visible:opacity-100 focus-visible:ring-2 focus-visible:ring-foreground/20 focus-visible:ring-offset-4 focus-visible:ring-offset-paper"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -239,7 +239,7 @@ export function LogoMarquee({ className }: LogoMarqueeProps) {
                 Udvalgte samarbejder
               </h2>
               <p className="mt-2 text-[0.8125rem] leading-[1.55] text-muted-ink md:text-[0.875rem]">
-                Private, foreninger, organisationer og brands
+                Private og erhverv
               </p>
               <p className="sr-only">{collaborationsSummary}</p>
             </div>

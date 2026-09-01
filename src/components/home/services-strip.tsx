@@ -21,11 +21,11 @@ export function ServicesStrip() {
             id="services-heading"
             className="mt-3 font-display text-[clamp(1.55rem,2.8vw,2.1rem)] leading-[1.08] tracking-[-0.03em]"
           >
-            Hvad jeg leverer
+            Hvad jeg laver
           </h2>
           <p className="mt-3 max-w-[48ch] text-[0.9375rem] leading-[1.65] text-muted-ink">
-            Foto, video, drone og content til mange forskellige formål —
-            uanset om du er privatperson, forening, organisation eller brand.
+            Foto, video, drone og content til private og erhverv. Vi finder
+            omfanget sammen.
           </p>
         </FadeIn>
 
@@ -135,8 +135,8 @@ export function ServicesStrip() {
                 Video og drone
               </h3>
               <p className="mx-auto mt-3 max-w-[46ch] text-[0.9375rem] leading-[1.65] text-muted-ink">
-                Aftermovies, branded video og droneoptagelser — som supplement
-                til foto.
+                Aftermovies, branded video og droneoptagelser. Ofte som
+                supplement til foto.
               </p>
             </FadeIn>
 

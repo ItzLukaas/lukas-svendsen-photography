@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
     default:
-      "Fotograf & videograf i Grindsted, Billund og Vejle | Lukas Svendsen",
+      "Foto, video og content | Lukas Svendsen",
     template: `%s · ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -32,6 +32,14 @@ export const metadata: Metadata = {
   creator: siteConfig.name,
   keywords: [
     "Lukas Svendsen",
+    "fotograf",
+    "videograf",
+    "videoproducent",
+    "foto og video",
+    "contentproduktion",
+    "visuelt content",
+    "dronefoto",
+    "dronevideo",
     "fotograf Danmark",
     "videograf Danmark",
     "portrætfotograf",
@@ -41,12 +49,7 @@ export const metadata: Metadata = {
     "fotograf Vejle",
     "fotograf Kolding",
     "fotograf Esbjerg",
-    "fotograf Give",
-    "sportsfotograf",
-    "koncertfotograf",
-    "eventfotograf",
-    "videograf",
-    "dronefotograf",
+    "fotograf Jylland",
     "videoproduktion",
   ],
   openGraph: {
@@ -54,27 +57,25 @@ export const metadata: Metadata = {
     locale: siteConfig.locale,
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title:
-      "Fotograf & videograf i Grindsted, Billund og Vejle | Lukas Svendsen",
+    title: "Foto, video og content | Lukas Svendsen",
     description: siteConfig.description,
     images: [
       {
         url: "/images/og-share.jpg",
         width: 1200,
         height: 630,
-        alt: "Lukas Svendsen — fotograf og videograf",
+        alt: "Lukas Svendsen, fotograf og videoproducent",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "Fotograf & videograf i Grindsted, Billund og Vejle | Lukas Svendsen",
+    title: "Foto, video og content | Lukas Svendsen",
     description: siteConfig.description,
     images: [
       {
         url: "/images/og-share.jpg",
-        alt: "Lukas Svendsen — fotograf og videograf",
+        alt: "Lukas Svendsen, fotograf og videoproducent",
       },
     ],
   },
@@ -114,7 +115,7 @@ const jsonLd = {
       url: siteConfig.url,
       email: siteConfig.email,
       telephone: siteConfig.phone,
-      jobTitle: "Fotograf og videograf",
+      jobTitle: "Fotograf og videoproducent",
       description: siteConfig.description,
       image: `${siteConfig.url}/images/about-lukas-2026.jpg`,
       homeLocation: {
@@ -182,7 +183,7 @@ const jsonLd = {
     {
       "@type": ["ProfessionalService", "LocalBusiness"],
       "@id": `${siteConfig.url}/#service`,
-      name: `${siteConfig.name} — Fotograf i Grindsted`,
+      name: `${siteConfig.name}, foto og video i Grindsted`,
       alternateName: "Lukas Svendsen Photography",
       url: siteConfig.url,
       email: siteConfig.email,
@@ -231,7 +232,7 @@ const jsonLd = {
               "@type": "Service",
               name: "Fotografering",
               description:
-                "Portræt, produkt, event, sport og brand — foto til mange forskellige formål.",
+                "Portræt, produkt, event, sport og brand. Foto til mange forskellige formål.",
               areaServed,
             },
           },
@@ -241,7 +242,7 @@ const jsonLd = {
               "@type": "Service",
               name: "Koncert & festival",
               description:
-                "Koncert- og festivalfotografi — artister, publikum og stemning.",
+                "Koncert- og festivalfotografi. Artister, publikum og stemning.",
               areaServed,
             },
           },

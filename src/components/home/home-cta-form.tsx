@@ -56,7 +56,7 @@ export function HomeCtaForm() {
     return (
       <div className="mt-5 py-2" role="status" aria-live="polite">
         <p className="font-display text-[1.125rem] tracking-[-0.02em] text-ink">
-          Tak — jeg vender tilbage snart.
+          Tak. Jeg vender tilbage snart.
         </p>
         <button
           type="button"

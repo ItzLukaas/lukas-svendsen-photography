@@ -12,20 +12,20 @@ export type ValueProp = {
 export const valueProps: ValueProp[] = [
   {
     id: "versatile",
-    title: "Mange typer opgaver",
-    body: "Portræt, produkt, event, sport, koncert, content og drone — jeg tilpasser mig det, du har brug for.",
+    title: "Bredt setup",
+    body: "Foto, video, drone og content. Private og erhverv. Vi finder løsningen til opgaven.",
     icon: Camera,
   },
   {
     id: "concert",
     title: "Koncert og festival",
-    body: "Smukfest, Grøn Koncert, Varde Open Air og Suset — live fra scenen og publikum.",
+    body: "Smukfest, Grøn Koncert, Varde Open Air og Suset. Live fra scenen og publikum.",
     icon: Music2,
   },
   {
     id: "delivery",
     title: "Klar til brug",
-    body: "Billeder og video leveret i de formater, du faktisk bruger — web, SoMe og presse.",
+    body: "Billeder og video i de formater, du faktisk bruger. Web, SoMe og presse.",
     icon: Trophy,
   },
 ];

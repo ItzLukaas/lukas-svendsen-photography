@@ -5,9 +5,9 @@ import { fetchProjects } from "@/lib/content";
 import { collectionPageJsonLd, pageMetadata } from "@/lib/seo";
 
 const arbejdeMetadata = pageMetadata({
-  title: "Portfolio — fotograf i Grindsted, Billund og Vejle",
+  title: "Arbejde",
   description:
-    "Portfolio med udvalgte foto- og videoprojekter fra Lukas Svendsen — fotograf fra Grindsted med opgaver i Billund, Vejle og hele Danmark.",
+    "Udvalgte foto- og videoprojekter fra Lukas Svendsen. Fotograf og videoproducent fra Grindsted med opgaver i hele Danmark.",
   path: "/arbejde",
 });
 

@@ -5,7 +5,7 @@ import { defaultShareImage } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
 const title =
-  "Fotograf & videograf i Grindsted, Billund og Vejle | Lukas Svendsen";
+  "Foto, video og content til private og erhverv | Lukas Svendsen";
 
 export const metadata: Metadata = {
   title: {

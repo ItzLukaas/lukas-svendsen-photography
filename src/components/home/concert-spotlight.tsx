@@ -81,14 +81,14 @@ export function ConcertSpotlight() {
 
             <div className="mt-6 max-w-md space-y-4 text-[0.9375rem] leading-[1.7] text-muted-ink md:mt-7 md:text-[1rem]">
               <p>
-                Live fra scenen — artister, lys og publikum. Smukfest, Grøn
+                Live fra scenen. Artister, lys og publikum. Smukfest, Grøn
                 Koncert, Suset og mere.
               </p>
             </div>
 
             <div className="mt-8 md:mt-10">
               <Link href="/arbejde?kategori=koncerter" className="btn-outline">
-                Se mere koncertfotografering
+                Se koncertarbejde
               </Link>
             </div>
           </FadeIn>

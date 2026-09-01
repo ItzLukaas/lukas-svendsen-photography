@@ -26,7 +26,7 @@ export function HomeHeroCopy() {
               : { duration: 0.65, delay: 0.28, ease }
           }
         >
-          Foto · Video · Drone · Content
+          Foto · Video · Content · Drone
         </motion.p>
 
         <motion.h1
@@ -39,7 +39,7 @@ export function HomeHeroCopy() {
               : { duration: 0.75, delay: 0.38, ease }
           }
         >
-          Foto og video — skabt til dit behov
+          Foto, video og content
         </motion.h1>
 
         <motion.p
@@ -52,9 +52,8 @@ export function HomeHeroCopy() {
               : { duration: 0.7, delay: 0.5, ease }
           }
         >
-          Portrætter, content, events, produkt, drone eller noget helt andet —
-          jeg er fotograf og videograf fra Grindsted med opgaver i Billund,
-          Vejle og hele Danmark.
+          Til private og erhverv. Konfirmation, portræt, branding, events eller
+          produktion. Base i Grindsted, hele Danmark.
         </motion.p>
 
         <motion.div

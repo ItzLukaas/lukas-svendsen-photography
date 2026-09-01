@@ -18,12 +18,12 @@ export function ValueSection() {
               id="value-heading"
               className="mt-3 max-w-[16ch] font-display text-[clamp(1.9rem,4.4vw,3.15rem)] leading-[1.05] tracking-[-0.035em] text-ink"
             >
-              Det jeg fotograferer
+              Foto, video og content
             </h2>
           </FadeIn>
           <FadeIn delay={0.06} className="md:col-span-5">
             <p className="max-w-[38ch] text-[0.9375rem] leading-[1.7] text-muted-ink md:ml-auto md:text-[1.0625rem]">
-              Håndbold, festivaler, koncerter og events — med kunder som
+              Fra konfirmation og portræt til events og branding. Med kunder som
               Dansk Håndbold, Fredericia HK og Varde Open Air.
             </p>
           </FadeIn>

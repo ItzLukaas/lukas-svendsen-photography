@@ -11,9 +11,9 @@ import {
 } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Om mig — fotograf i Grindsted",
+  title: "Om mig",
   description:
-    "Lukas Svendsen — fotograf og videograf fra Grindsted. Foto, video og drone til mange formål i Billund, Vejle og hele Danmark.",
+    "Lukas Svendsen laver foto, video og content til private og erhverv. Fotograf og videoproducent fra Grindsted med opgaver i hele Danmark.",
   path: "/om",
 });
 
@@ -22,7 +22,7 @@ export default function OmPage() {
     path: "/om",
     name: "Om Lukas Svendsen",
     description:
-      "Lukas Svendsen er fotograf og videograf fra Grindsted. Foto, video og drone til private, foreninger, organisationer og brands i hele Danmark.",
+      "Lukas Svendsen laver foto, video og content til private og erhverv fra Grindsted.",
     type: "AboutPage",
   });
   const breadcrumbJsonLd = pageBreadcrumbJsonLd([
@@ -62,27 +62,25 @@ export default function OmPage() {
               Lukas Svendsen
             </h1>
             <p className="mt-4 text-[0.9375rem] text-muted-ink">
-              Fotograf · Grindsted
+              Foto, video og content · Grindsted
             </p>
           </FadeIn>
 
           <FadeIn delay={0.05}>
             <div className="mt-9 space-y-5 text-body">
               <p>
-                Jeg hedder Lukas Svendsen — fulde navn Lukas Guldager Svendsen.
-                Jeg er 16 år og kommer fra Grindsted. Jeg laver foto, video,
-                drone og content — til private, foreninger, organisationer og
-                brands.
+                Jeg hedder Lukas Svendsen. Fulde navn Lukas Guldager Svendsen.
+                Jeg er 16 år, kommer fra Grindsted og laver foto, video, drone
+                og content til private og erhverv.
               </p>
               <p>
-                Det kan være portrætter, et event, produktfoto, content til
-                sociale medier, en ny hjemmeside eller en større produktion. Jeg
-                møder op klar, holder hovedet koldt under presset og leverer
-                materiale, der kan bruges med det samme — i Billund, Vejle,
-                Give, Kolding, Esbjerg og resten af Danmark.
+                Det kan være en konfirmation, portrætter, virksomhedsvideo,
+                produktfoto, et event eller content til SoMe. Ét job eller en
+                større produktion. Jeg møder op, holder hovedet koldt og
+                leverer materiale, der kan bruges med det samme.
               </p>
               <p>
-                Book mig, hvis du har et job. Så snakker vi om det.
+                Book mig, hvis du har en opgave. Så tager vi den derfra.
               </p>
             </div>
           </FadeIn>
@@ -96,7 +94,7 @@ export default function OmPage() {
                     href="/#services"
                     className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
                   >
-                    Hvad jeg leverer
+                    Hvad jeg laver
                   </Link>
                 </li>
                 <li>
@@ -128,7 +126,7 @@ export default function OmPage() {
                     href="/arbejde?kategori=portraetter"
                     className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
                   >
-                    Portrætfotografi
+                    Portrætfoto
                   </Link>
                 </li>
                 <li>
@@ -136,7 +134,7 @@ export default function OmPage() {
                     href="/arbejde?kategori=sport"
                     className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
                   >
-                    Sportsfotografi
+                    Sportsfoto
                   </Link>
                 </li>
                 <li>
@@ -144,7 +142,7 @@ export default function OmPage() {
                     href="/arbejde?kategori=koncerter"
                     className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
                   >
-                    Koncertfotografi
+                    Koncertfoto
                   </Link>
                 </li>
                 <li>

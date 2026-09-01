@@ -34,8 +34,8 @@ export function SiteFooter() {
               {siteConfig.name}
             </p>
             <p className="mt-2 max-w-[48ch] text-[0.875rem] leading-[1.65] text-paper/50">
-              Fotograf og videograf — foto, video og drone. Base i Grindsted,
-              opgaver i Billund, Vejle og hele Danmark.
+              Foto, video og content. Base i Grindsted, opgaver i Billund,
+              Vejle og hele Danmark.
             </p>
           </div>
           <Link href="/booking" className="btn-solid mt-2 shrink-0 bg-paper text-ink md:mt-0">
@@ -210,7 +210,7 @@ export function SiteFooter() {
         <div className="mt-14 flex justify-center pt-2 md:mt-16 lg:mt-20">
           <SignatureMark
             className="h-10 w-auto opacity-[0.32] md:h-11"
-            title={`${siteConfig.name} — signatur`}
+            title={`${siteConfig.name}, signatur`}
           />
         </div>
       </div>

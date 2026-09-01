@@ -128,7 +128,7 @@ export function SiteHeader() {
           <Link
             href="/"
             className="font-display relative z-10 shrink-0 text-[1.05rem] leading-none tracking-[-0.025em] transition-opacity duration-300 hover:opacity-65 md:text-[1.15rem]"
-            aria-label={`${siteConfig.name} — forsiden`}
+            aria-label={`${siteConfig.name}, forsiden`}
           >
             {siteConfig.name}
           </Link>

@@ -19,20 +19,20 @@ const areas: LocalArea[] = [
     slug: "grindsted",
     city: "Grindsted",
     path: "/fotograf-grindsted",
-    title: "Fotograf i Grindsted — foto og video",
+    title: "Fotograf i Grindsted",
     metaDescription:
-      "Fotograf og videograf i Grindsted. Lukas Svendsen laver foto, video og drone til mange formål — lokalt og i hele Danmark.",
+      "Foto, video og content i Grindsted. Lukas Svendsen, fotograf og videoproducent. Private og erhverv, lokalt og i hele Danmark.",
     headline: "Fotograf i Grindsted",
     intro: [
-      "Jeg er fotograf og videograf med base i Grindsted. Herfra tager jeg opgaver til private, foreninger, organisationer og brands — både lokalt og i resten af landet.",
-      "Det kan være portrætter, et event, produktfoto, content til sociale medier eller sport og koncert. Jeg møder op med kamera, video og drone, og leverer materiale, der kan bruges med det samme.",
+      "Jeg laver foto, video og content med base i Grindsted. Til private og erhverv, lokalt og i resten af landet.",
+      "Konfirmation, portræt, event, produktfoto eller content til SoMe. Jeg møder op med kamera, video og drone og leverer materiale, der kan bruges med det samme.",
     ],
     proof:
       "Har blandt andet fotograferet for MAGION Grindsted og leveret materiale til lokale events og foreninger.",
     services: [
       { label: "Portrætfoto", href: "/arbejde?kategori=portraetter" },
-      { label: "Sportsfotografi", href: "/arbejde?kategori=sport" },
-      { label: "Koncertfotografi", href: "/arbejde?kategori=koncerter" },
+      { label: "Sportsfoto", href: "/arbejde?kategori=sport" },
+      { label: "Koncertfoto", href: "/arbejde?kategori=koncerter" },
       { label: "Book mig", href: "/booking" },
     ],
     nearbySlugs: ["billund", "give", "vejle", "kolding"],
@@ -42,19 +42,19 @@ const areas: LocalArea[] = [
     slug: "billund",
     city: "Billund",
     path: "/fotograf-billund",
-    title: "Fotograf i Billund — foto og video",
+    title: "Fotograf i Billund",
     metaDescription:
-      "Fotograf i Billund til portræt, event, produkt og content. Lukas Svendsen — base i Grindsted, hurtig til Billund og hele Danmark.",
+      "Foto, video og content i Billund. Lukas Svendsen fra Grindsted. Private og erhverv i Billund og hele Danmark.",
     headline: "Fotograf i Billund",
     intro: [
-      "Jeg er fotograf og videograf med base i Grindsted — tæt på Billund. Jeg tager opgaver til private, foreninger, organisationer og brands i Billund og omegn.",
-      "Fra portrætter og produktfoto til events, content til web og SoMe. Jeg tilpasser opgaven — ét shoot eller løbende samarbejde.",
+      "Jeg laver foto, video og content med base i Grindsted, tæt på Billund. Til private og erhverv i Billund og omegn.",
+      "Portræt, produktfoto, events og content til web og SoMe. Ét shoot eller løbende samarbejde.",
     ],
     proof: "Har leveret foto til Billund Kommune og events i området.",
     services: [
       { label: "Portrætfoto", href: "/arbejde?kategori=portraetter" },
-      { label: "Eventfotografi", href: "/arbejde?kategori=events" },
-      { label: "Brand & produkt", href: "/arbejde?kategori=erhverv" },
+      { label: "Eventfoto", href: "/arbejde?kategori=events" },
+      { label: "Brand og produkt", href: "/arbejde?kategori=erhverv" },
       { label: "Kontakt", href: "/kontakt" },
     ],
     nearbySlugs: ["grindsted", "give", "vejle", "kolding"],
@@ -64,19 +64,19 @@ const areas: LocalArea[] = [
     slug: "vejle",
     city: "Vejle",
     path: "/fotograf-vejle",
-    title: "Fotograf i Vejle — foto og video",
+    title: "Fotograf i Vejle",
     metaDescription:
-      "Fotograf i Vejle til portræt, event, produkt og content. Lukas Svendsen — foto, video og drone fra Grindsted med opgaver i Vejle og hele Danmark.",
+      "Foto, video og content i Vejle. Lukas Svendsen, fotograf og videoproducent fra Grindsted. Private og erhverv.",
     headline: "Fotograf i Vejle",
     intro: [
-      "Jeg fotograferer og filmer i Vejle — til private, foreninger, organisationer og brands. Base i Grindsted, men jeg tager gerne opgaver i Vejle og resten af Danmark.",
-      "Uanset om det er portrætter, et event, produktfoto eller live fra scenen, leverer jeg skarpt materiale klar til brug.",
+      "Jeg laver foto, video og content i Vejle. Til private og erhverv. Base i Grindsted, opgaver i Vejle og resten af Danmark.",
+      "Portræt, event, produktfoto eller live fra scenen. Skarpt materiale, klar til brug.",
     ],
     proof:
-      "Har fotograferet for Vejle Kommune og Bygningen Vejle — blandt andre opgaver i området.",
+      "Har fotograferet for Vejle Kommune og Bygningen Vejle, blandt andre opgaver i området.",
     services: [
       { label: "Portrætfoto", href: "/arbejde?kategori=portraetter" },
-      { label: "Koncertfotografi", href: "/arbejde?kategori=koncerter" },
+      { label: "Koncertfoto", href: "/arbejde?kategori=koncerter" },
       { label: "Eventfoto", href: "/arbejde?kategori=events" },
       { label: "Se arbejde", href: "/arbejde" },
     ],
@@ -87,17 +87,17 @@ const areas: LocalArea[] = [
     slug: "give",
     city: "Give",
     path: "/fotograf-give",
-    title: "Fotograf i Give — foto og video",
+    title: "Fotograf i Give",
     metaDescription:
-      "Fotograf i Give og omegn. Lukas Svendsen laver foto, video og drone til mange formål — base i Grindsted, opgaver i hele Danmark.",
+      "Foto, video og content i Give og omegn. Lukas Svendsen fra Grindsted. Private og erhverv i hele Danmark.",
     headline: "Fotograf i Give",
     intro: [
-      "Give ligger tæt på min base i Grindsted. Jeg tager foto- og videoopgaver til private, foreninger og organisationer i Give og det sydvestjyske område.",
-      "Jeg kører ud til dig — lokalt eller længere væk, når jobbet kræver det.",
+      "Give ligger tæt på min base i Grindsted. Jeg laver foto og video til private og erhverv i Give og det sydvestjyske område.",
+      "Jeg kører ud til dig, lokalt eller længere væk, når opgaven kræver det.",
     ],
     services: [
       { label: "Portrætfoto", href: "/arbejde?kategori=portraetter" },
-      { label: "Sportsfotografi", href: "/arbejde?kategori=sport" },
+      { label: "Sportsfoto", href: "/arbejde?kategori=sport" },
       { label: "Book mig", href: "/booking" },
     ],
     nearbySlugs: ["grindsted", "billund", "vejle", "esbjerg"],
@@ -107,13 +107,13 @@ const areas: LocalArea[] = [
     slug: "kolding",
     city: "Kolding",
     path: "/fotograf-kolding",
-    title: "Fotograf i Kolding — foto og video",
+    title: "Fotograf i Kolding",
     metaDescription:
-      "Fotograf i Kolding til portræt, event, produkt og content. Lukas Svendsen — foto, video og drone med base i Grindsted.",
+      "Foto, video og content i Kolding. Lukas Svendsen, fotograf og videoproducent fra Grindsted. Private og erhverv.",
     headline: "Fotograf i Kolding",
     intro: [
-      "Jeg tager fotograf- og videoopgaver i Kolding — til private, foreninger, organisationer og brands. Fra Grindsted er Kolding en naturlig del af mit arbejdsområde.",
-      "Kontakt mig med dato, sted og hvad du skal bruge materialet til. Så finder vi den rigtige løsning.",
+      "Jeg laver foto og video i Kolding. Til private og erhverv. Fra Grindsted er Kolding en naturlig del af mit arbejdsområde.",
+      "Kontakt mig med dato, sted og hvad du skal bruge materialet til.",
     ],
     services: [
       { label: "Portrætfoto", href: "/arbejde?kategori=portraetter" },
@@ -127,13 +127,13 @@ const areas: LocalArea[] = [
     slug: "esbjerg",
     city: "Esbjerg",
     path: "/fotograf-esbjerg",
-    title: "Fotograf i Esbjerg — foto og video",
+    title: "Fotograf i Esbjerg",
     metaDescription:
-      "Fotograf i Esbjerg til portræt, event, koncert og content. Lukas Svendsen — har fotograferet Suset, Esbjerg Streetfood og håndbold i området.",
+      "Foto, video og content i Esbjerg. Lukas Svendsen har fotograferet Suset, Esbjerg Streetfood og håndbold i området.",
     headline: "Fotograf i Esbjerg",
     intro: [
-      "Jeg har fotograferet i Esbjerg — fra Suset og Esbjerg Streetfood til håndbold og events. Jeg tager stadig opgaver i Esbjerg og Vestjylland.",
-      "Portræt, event, koncert eller noget helt andet — skriv med dato og sted, så tager vi en snak.",
+      "Jeg har fotograferet i Esbjerg. Suset, Esbjerg Streetfood, håndbold og events. Jeg tager stadig opgaver i Esbjerg og Vestjylland.",
+      "Portræt, event, koncert eller noget helt andet. Skriv med dato og sted.",
     ],
     proof:
       "Har leveret koncertfoto fra Suset og eventfoto fra Esbjerg Streetfood.",
@@ -149,12 +149,12 @@ const areas: LocalArea[] = [
     slug: "jelling",
     city: "Jelling",
     path: "/fotograf-jelling",
-    title: "Fotograf i Jelling — foto og video",
+    title: "Fotograf i Jelling",
     metaDescription:
-      "Fotograf i Jelling og omegn. Lukas Svendsen — foto, video og drone til mange formål med base i Grindsted, opgaver i hele Danmark.",
+      "Foto, video og content i Jelling og omegn. Lukas Svendsen fra Grindsted. Private og erhverv i hele Danmark.",
     headline: "Fotograf i Jelling",
     intro: [
-      "Jelling og omegn er en del af mit lokale arbejdsfelt fra Grindsted. Jeg fotograferer og filmer til private, foreninger og organisationer — og tager opgaver i hele Danmark.",
+      "Jelling og omegn er en del af mit lokale arbejdsfelt fra Grindsted. Foto og video til private og erhverv, og opgaver i hele Danmark.",
       "Har du et job i Jelling? Skriv kort, hvad du skal bruge.",
     ],
     services: [
@@ -189,4 +189,4 @@ export function getLocalAreaByPath(localSlug: string) {
 export const primaryLocalCities = ["Grindsted", "Billund", "Vejle"] as const;
 
 export const localAreasSummary =
-  "Fotograf og videograf med base i Grindsted — foto, video og drone til mange formål i Billund, Vejle, Give, Kolding, Esbjerg og hele Danmark.";
+  "Foto, video og content med base i Grindsted. Opgaver i Billund, Vejle, Give, Kolding, Esbjerg og hele Danmark.";

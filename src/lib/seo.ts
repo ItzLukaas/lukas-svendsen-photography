@@ -21,7 +21,7 @@ export const defaultShareImage = {
   url: "/images/og-share.jpg",
   width: 1200,
   height: 630,
-  alt: "Lukas Svendsen — fotograf og videograf",
+  alt: "Lukas Svendsen, fotograf og videoproducent",
 } as const;
 
 /**
@@ -187,9 +187,9 @@ export function collectionPageJsonLd(
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "@id": `${siteConfig.url}/arbejde#collection`,
-    name: "Portfolio — Lukas Svendsen",
+    name: "Portfolio, Lukas Svendsen",
     description:
-      "Portfolio med udvalgte foto- og videoprojekter fra Lukas Svendsen — fotograf fra Grindsted med opgaver i Billund, Vejle og hele Danmark.",
+      "Udvalgte foto- og videoprojekter fra Lukas Svendsen. Fotograf og videoproducent fra Grindsted med opgaver i hele Danmark.",
     url: `${siteConfig.url}/arbejde`,
     isPartOf: { "@id": `${siteConfig.url}/#website` },
     about: { "@id": `${siteConfig.url}/#person` },

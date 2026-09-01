@@ -45,7 +45,7 @@ export function HomeCta() {
               <div className="mt-5 h-px w-14 bg-paper/22" aria-hidden />
 
               <p className="mt-5 max-w-xl text-[0.9375rem] leading-[1.7] text-paper/68 md:mt-6 md:text-[1.0625rem]">
-                Skriv kort, hvad du skal bruge — så tager vi den derfra.
+                Skriv kort, hvad du skal bruge. Så tager vi den derfra.
               </p>
 
               <div className="mt-10 grid items-start gap-10 lg:mt-14 lg:grid-cols-12 lg:gap-14">
@@ -64,7 +64,7 @@ export function HomeCta() {
 
                   <div className="space-y-3.5">
                     <p className="text-[0.8125rem] leading-relaxed text-paper/55">
-                      Personlig kontakt — hurtigt svar.
+                      Personlig kontakt. Hurtigt svar.
                     </p>
                     <a
                       href={`tel:${siteConfig.phone}`}

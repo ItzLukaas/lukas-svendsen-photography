@@ -24,7 +24,7 @@ function projectPageTitle(project: Project) {
     portraetter: "portrætfotografi",
   };
   const kind = disciplineLabel[project.discipline] ?? "fotografi";
-  return `${project.title} — ${kind} ${project.year}`;
+  return `${project.title} · ${kind} ${project.year}`;
 }
 
 function projectDescription(project: Project) {
@@ -36,7 +36,7 @@ function projectDescription(project: Project) {
     portraetter: "Portrætfotografi",
   };
   const seoLead = disciplineSeo[project.discipline] ?? "Fotografi";
-  const location = project.location ? ` — ${project.location}` : "";
+  const location = project.location ? ` · ${project.location}` : "";
   const client = project.client ? ` ${project.client}.` : "";
   return `${seoLead}: ${project.excerpt}${location}.${client}`.replace(
     /\.\./g,

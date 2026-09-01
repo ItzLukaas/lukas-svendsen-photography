@@ -19,11 +19,12 @@ export function ProcessSection() {
             id="process-heading"
             className="mt-3 max-w-[18ch] font-display text-[clamp(1.9rem,4.4vw,3.15rem)] leading-[1.05] tracking-[-0.035em] text-ink"
           >
-            Sådan foregår det
+            Fra idé til færdigt visuelt content
           </h2>
-          <p className="mt-4 max-w-[48ch] text-[0.9375rem] leading-[1.65] text-muted-ink">
-            Fra første snak til færdigt materiale. En enkel proces, uanset om
-            opgaven er lille eller større.
+          <p className="mt-4 max-w-[52ch] text-[0.9375rem] leading-[1.65] text-muted-ink">
+            Samarbejdet er enkelt og overskueligt. Fra første kontakt til færdigt
+            materiale ved du, hvad der sker, og hvornår du kan forvente at få
+            filerne.
           </p>
         </FadeIn>
 
@@ -40,7 +41,7 @@ export function ProcessSection() {
                 <h3 className="mt-4 font-display text-[1.125rem] leading-[1.2] tracking-[-0.022em] text-ink md:text-[1.2rem]">
                   {item.title}
                 </h3>
-                <p className="mt-3 max-w-[36ch] text-[0.875rem] leading-[1.65] text-muted-ink md:text-[0.9375rem]">
+                <p className="mt-3 max-w-[42ch] text-[0.875rem] leading-[1.65] text-muted-ink md:text-[0.9375rem]">
                   {item.body}
                 </p>
               </FadeIn>

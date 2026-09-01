@@ -37,7 +37,7 @@ export const homeServices: HomeService[] = [
     title: "Foto",
     bookingType: "Fotografering",
     description:
-      "Stillebilleder til det, du skal bruge dem til. Professionelt udtryk og levering, der er klar til brug.",
+      "Jeg tager stillbilleder med et professionelt udtryk, der passer til den opgave, du står med. Materialet leveres redigeret og klar til det, du skal bruge det til.",
     icon: Camera,
   },
   {
@@ -45,7 +45,7 @@ export const homeServices: HomeService[] = [
     title: "Video",
     bookingType: "Videoproduktion",
     description:
-      "Film og bevægeligt materiale til kampagner, kommunikation og digitale kanaler.",
+      "Jeg producerer film og bevægeligt materiale til kampagner, kommunikation og digitale kanaler. Det kan være kortere klip eller en større produktion, afhængigt af behovet.",
     icon: Video,
   },
   {
@@ -53,7 +53,7 @@ export const homeServices: HomeService[] = [
     title: "Drone",
     bookingType: "Droneproduktion",
     description:
-      "Luftfoto og luftvideo som del af en samlet produktion eller som selvstændig opgave.",
+      "Når opgaven kræver perspektiv fra oven, leverer jeg luftfoto og luftvideo som en naturlig del af produktionen eller som en selvstændig opgave.",
     icon: Plane,
   },
   {
@@ -61,7 +61,7 @@ export const homeServices: HomeService[] = [
     title: "Content",
     bookingType: "Content",
     description:
-      "Visuelt materiale til web, sociale medier og løbende kommunikation.",
+      "Jeg laver visuelt materiale til web, sociale medier og løbende kommunikation. Det skal fungere i praksis og ikke bare se godt ud i et galleri.",
     icon: Layers,
   },
 ];
@@ -70,19 +70,25 @@ export const videoServiceFeatures: VideoServiceFeature[] = [
   {
     id: "web-some",
     title: "Web og sociale medier",
-    body: "Materiale til hjemmeside, SoMe og digitale kanaler, der skal bruges med det samme.",
+    body: "Jeg producerer materiale til hjemmeside og sociale medier, som du kan begynde at bruge med det samme. Det formateres til de kanaler, det skal leve på.",
     icon: Camera,
   },
   {
     id: "campaigns",
     title: "Kampagner",
-    body: "Til lanceringer, kampagner og løbende kommunikation, hvor billeder og video skal hænge sammen.",
+    body: "Når du skal lancere noget nyt eller holde kommunikationen i gang, kan foto og video hænge sammen i det samme udtryk gennem hele produktionen.",
     icon: Clapperboard,
+  },
+  {
+    id: "drone",
+    title: "Droneoptagelser",
+    body: "Jeg laver luftfoto og luftvideo, når opgaven har brug for overblik, bevægelse eller et perspektiv, som ikke kan tages fra jorden.",
+    icon: Plane,
   },
   {
     id: "tailored",
     title: "Tilpasset opgaven",
-    body: "Omfang, form og leverance finder vi sammen ud fra det, du skal bruge materialet til.",
+    body: "Hver opgave er forskellig. Vi tager udgangspunkt i dit behov og finder sammen ud af omfang, form og leverance, så det passer til det, du skal bruge.",
     icon: UserRound,
   },
 ];

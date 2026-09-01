@@ -12,19 +12,19 @@ export const valueProps: ValueProp[] = [
   {
     id: "production",
     title: "Hel produktion",
-    body: "Foto, video, drone og content fra én kontakt. Du får et samlet udtryk, uanset om det er ét job eller en større produktion.",
+    body: "Du får foto, video, drone og content fra én kontakt. Det giver et samlet udtryk og gør det nemmere at planlægge, uanset om opgaven er lille eller større.",
     icon: Camera,
   },
   {
     id: "on-site",
     title: "På opgaven",
-    body: "Jeg møder op og fanger det, der skal med. Praktisk, rolig og fokuseret på at levere det, du har brug for.",
+    body: "Jeg møder op forberedt og tilpasser mig situationen på stedet. Målet er altid det samme: at levere materiale, du faktisk kan bruge bagefter.",
     icon: Clapperboard,
   },
   {
     id: "delivery",
     title: "Klar til brug",
-    body: "Materialet leveres i de formater, du faktisk bruger. Klar til web, sociale medier og videre brug.",
+    body: "Du modtager filer i de formater, der passer til dit behov. Klar til web, sociale medier, intern brug eller videre produktion.",
     icon: Layers,
   },
 ];

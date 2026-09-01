@@ -29,11 +29,11 @@ export type Project = {
   client?: string;
   /** Official client page when relevant (e.g. team roster) */
   clientUrl?: string;
-  /** Link label for clientUrl — e.g. "fhk.dk" */
+  /** Link label for clientUrl, e.g. "fhk.dk" */
   clientUrlLabel?: string;
   /** Role on the job, e.g. "Fotograf" */
   role?: string;
-  /** Short delivery outcome — no invented KPIs */
+  /** Short delivery outcome, no invented KPIs */
   outcome?: string;
   cover: ProjectImage;
   images: ProjectImage[];
@@ -78,7 +78,7 @@ function withGeneratedGallery<T extends Project>(project: T): T {
 }
 
 /**
- * Portfolio projects — gallery format follows the photography.
+ * Portfolio projects, gallery format follows the photography.
  * Drop raw files in inbox/<slug>/ and run `npm run images:process`.
  */
 const projectSeed: Project[] = [
@@ -129,19 +129,19 @@ const projectSeed: Project[] = [
       ),
       P(
         "/images/projects/varde-open-air/05-publikum-haender-i-vejret-varde-open-air.jpg",
-        "Publikum med hænderne i vejret — Varde Open Air",
+        "Publikum med hænderne i vejret, Varde Open Air",
         2400,
         3600
       ),
       P(
         "/images/projects/varde-open-air/06-publikum-festivalstemning-varde-open-air.jpg",
-        "Publikum i festivalstemning — Varde Open Air",
+        "Publikum i festivalstemning, Varde Open Air",
         2400,
         3600
       ),
       P(
         "/images/projects/varde-open-air/07-publikum-midt-i-skoven-varde-open-air.jpg",
-        "Publikum midt i skovkoncerten — Varde Open Air",
+        "Publikum midt i skovkoncerten, Varde Open Air",
         2400,
         3600
       ),
@@ -226,7 +226,7 @@ const projectSeed: Project[] = [
   },
   {
     slug: "thor-farlov-smukfest",
-    title: "Thor Farlov — Smukfest",
+    title: "Thor Farlov, Smukfest",
     discipline: "koncerter",
     category: "Festival",
     galleryFormat: "festival",
@@ -252,7 +252,7 @@ const projectSeed: Project[] = [
       ),
       P(
         "/images/projects/thor-farlov-smukfest/02-thor-farlov-live-pa-smukfest-sceneportraet.jpg",
-        "Thor Farlov live på Smukfest — sceneportræt",
+        "Thor Farlov live på Smukfest, sceneportræt",
         1467,
         2200
       ),
@@ -302,7 +302,7 @@ const projectSeed: Project[] = [
   },
   {
     slug: "gron-koncert",
-    title: "Sivas — Grøn Koncert",
+    title: "Sivas, Grøn Koncert",
     discipline: "koncerter",
     category: "Koncert",
     galleryFormat: "festival",
@@ -346,7 +346,7 @@ const projectSeed: Project[] = [
       ),
       P(
         "/images/projects/gron-koncert/05-sivas-live-pa-groen-koncert-sceneportraet.jpg",
-        "Sivas live på Grøn Koncert — sceneportræt",
+        "Sivas live på Grøn Koncert, sceneportræt",
         1600,
         2400
       ),
@@ -378,7 +378,7 @@ const projectSeed: Project[] = [
   },
   {
     slug: "rasmus-seebach-suset",
-    title: "Rasmus Seebach — Suset",
+    title: "Rasmus Seebach, Suset",
     discipline: "koncerter",
     category: "Koncert",
     galleryFormat: "festival",
@@ -422,7 +422,7 @@ const projectSeed: Project[] = [
       ),
       P(
         "/images/projects/rasmus-seebach-suset/05-rasmus-seebach-live-pa-suset-sceneportraet.jpg",
-        "Rasmus Seebach live på Suset — sceneportræt",
+        "Rasmus Seebach live på Suset, sceneportræt",
         1467,
         2200
       ),
@@ -458,7 +458,7 @@ const projectSeed: Project[] = [
     client: "Esbjerg Streetfood",
     role: "Eventfotograf",
     outcome:
-      "Stemning, gæster og livemusik fra eventet — brugt til Esbjerg Streetfoods kommunikation.",
+      "Stemning, gæster og livemusik fra eventet, brugt til Esbjerg Streetfoods kommunikation.",
     featured: true,
     cover: L(
       "/images/projects/esbjerg-streetfood/09-fejring-under-lygterne-pa-esbjerg-streetfood.jpg",
@@ -481,7 +481,7 @@ const projectSeed: Project[] = [
       ),
       L(
         "/images/projects/esbjerg-streetfood/03-live-musik-keyboardist-pa-esbjerg-streetfood.jpg",
-        "Live musik — keyboardist på Esbjerg Streetfood",
+        "Live musik, keyboardist på Esbjerg Streetfood",
         3600,
         2400
       ),
@@ -525,7 +525,7 @@ const projectSeed: Project[] = [
   },
   {
     slug: "dm-finalen-herrer",
-    title: "DM-finalen – Herrer",
+    title: "DM-finalen, Herrer",
     discipline: "sport",
     category: "Sport",
     galleryFormat: "wide",
@@ -535,66 +535,66 @@ const projectSeed: Project[] = [
     client: "DanskHåndbold",
     role: "Sportsfotograf",
     outcome:
-      "Kampbilleder fra finalen i Herning — action, jubel og pokaløjeblikket.",
+      "Kampbilleder fra finalen i Herning, action, jubel og pokaløjeblikket.",
     featured: true,
     cover: L(
       "/images/projects/dm-finalen-herrer/09-mestre-med-pokalen-dm-finalen-herrer.jpg",
-      "Mestre med pokalen — DM-finalen herrer",
+      "Mestre med pokalen, DM-finalen herrer",
       3600,
       2400
     ),
     images: [
       L(
         "/images/projects/dm-finalen-herrer/01-jubel-efter-scoring-dm-finalen-herrer.jpg",
-        "Jubel efter scoring — DM-finalen herrer",
+        "Jubel efter scoring, DM-finalen herrer",
         3600,
         2400
       ),
       L(
         "/images/projects/dm-finalen-herrer/02-skud-i-luften-dm-finalen-herrer.jpg",
-        "Skud i luften — DM-finalen herrer",
+        "Skud i luften, DM-finalen herrer",
         3600,
         2400
       ),
       L(
         "/images/projects/dm-finalen-herrer/03-action-pa-banen-dm-finalen-herrer.jpg",
-        "Action på banen — DM-finalen herrer",
+        "Action på banen, DM-finalen herrer",
         3600,
         2400
       ),
       L(
         "/images/projects/dm-finalen-herrer/04-springskud-dm-finalen-herrer.jpg",
-        "Springskud — DM-finalen herrer",
+        "Springskud, DM-finalen herrer",
         3600,
         2400
       ),
       L(
         "/images/projects/dm-finalen-herrer/05-duel-midt-pa-banen-dm-finalen-herrer.jpg",
-        "Duel midt på banen — DM-finalen herrer",
+        "Duel midt på banen, DM-finalen herrer",
         3600,
         2400
       ),
       L(
         "/images/projects/dm-finalen-herrer/06-kampens-intensitet-dm-finalen-herrer.jpg",
-        "Kampens intensitet — DM-finalen herrer",
+        "Kampens intensitet, DM-finalen herrer",
         3600,
         2400
       ),
       L(
         "/images/projects/dm-finalen-herrer/07-afgoerende-oejeblik-dm-finalen-herrer.jpg",
-        "Afgørende øjeblik — DM-finalen herrer",
+        "Afgørende øjeblik, DM-finalen herrer",
         3600,
         2400
       ),
       L(
         "/images/projects/dm-finalen-herrer/08-pokalen-og-champagne-dm-finalen-herrer.jpg",
-        "Pokalen og champagne — DM-finalen herrer",
+        "Pokalen og champagne, DM-finalen herrer",
         3600,
         2400
       ),
       L(
         "/images/projects/dm-finalen-herrer/09-mestre-med-pokalen-dm-finalen-herrer.jpg",
-        "Mestre med pokalen — DM-finalen herrer",
+        "Mestre med pokalen, DM-finalen herrer",
         3600,
         2400
       ),
@@ -602,7 +602,7 @@ const projectSeed: Project[] = [
   },
   {
     slug: "dm-finalen-kvinder",
-    title: "DM-finalen – Kvinder",
+    title: "DM-finalen, Kvinder",
     discipline: "sport",
     category: "Sport",
     galleryFormat: "wide",
@@ -612,66 +612,66 @@ const projectSeed: Project[] = [
     client: "DanskHåndbold",
     role: "Sportsfotograf",
     outcome:
-      "Kampbilleder fra finalen i Herning — intensitet, jubel og mesterskabsøjeblikket.",
+      "Kampbilleder fra finalen i Herning, intensitet, jubel og mesterskabsøjeblikket.",
     featured: true,
     cover: L(
       "/images/projects/dm-finalen-kvinder/09-danske-mestre-dm-finalen-kvinder.jpg",
-      "Danske mestre — DM-finalen kvinder",
+      "Danske mestre, DM-finalen kvinder",
       3600,
       2400
     ),
     images: [
       L(
         "/images/projects/dm-finalen-kvinder/01-jubel-efter-scoring-dm-finalen-kvinder.jpg",
-        "Jubel efter scoring — DM-finalen kvinder",
+        "Jubel efter scoring, DM-finalen kvinder",
         3600,
         2400
       ),
       L(
         "/images/projects/dm-finalen-kvinder/02-springskud-dm-finalen-kvinder.jpg",
-        "Springskud — DM-finalen kvinder",
+        "Springskud, DM-finalen kvinder",
         3600,
         2400
       ),
       L(
         "/images/projects/dm-finalen-kvinder/03-action-pa-banen-dm-finalen-kvinder.jpg",
-        "Action på banen — DM-finalen kvinder",
+        "Action på banen, DM-finalen kvinder",
         3600,
         2400
       ),
       L(
         "/images/projects/dm-finalen-kvinder/04-angreb-i-luften-dm-finalen-kvinder.jpg",
-        "Angreb i luften — DM-finalen kvinder",
+        "Angreb i luften, DM-finalen kvinder",
         3600,
         2400
       ),
       L(
         "/images/projects/dm-finalen-kvinder/05-kampens-intensitet-dm-finalen-kvinder.jpg",
-        "Kampens intensitet — DM-finalen kvinder",
+        "Kampens intensitet, DM-finalen kvinder",
         3600,
         2400
       ),
       L(
         "/images/projects/dm-finalen-kvinder/06-duel-midt-pa-banen-dm-finalen-kvinder.jpg",
-        "Duel midt på banen — DM-finalen kvinder",
+        "Duel midt på banen, DM-finalen kvinder",
         3600,
         2400
       ),
       L(
         "/images/projects/dm-finalen-kvinder/07-afgoerende-oejeblik-dm-finalen-kvinder.jpg",
-        "Afgørende øjeblik — DM-finalen kvinder",
+        "Afgørende øjeblik, DM-finalen kvinder",
         3600,
         2400
       ),
       L(
         "/images/projects/dm-finalen-kvinder/08-pokalen-pa-podiet-dm-finalen-kvinder.jpg",
-        "Pokalen på podiet — DM-finalen kvinder",
+        "Pokalen på podiet, DM-finalen kvinder",
         3600,
         2400
       ),
       L(
         "/images/projects/dm-finalen-kvinder/09-danske-mestre-dm-finalen-kvinder.jpg",
-        "Danske mestre — DM-finalen kvinder",
+        "Danske mestre, DM-finalen kvinder",
         3600,
         2400
       ),
@@ -679,7 +679,7 @@ const projectSeed: Project[] = [
   },
   {
     slug: "super-cup-kvinder",
-    title: "Super Cup 2026 – Kvinder",
+    title: "Super Cup 2026, Kvinder",
     discipline: "sport",
     category: "Sport",
     galleryFormat: "wide",
@@ -689,66 +689,66 @@ const projectSeed: Project[] = [
     client: "DanskHåndbold",
     role: "Sportsfotograf",
     outcome:
-      "Kampdækning fra Super Cup i Herning — Team Esbjerg vandt finalen.",
+      "Kampdækning fra Super Cup i Herning, Team Esbjerg vandt finalen.",
     featured: true,
     cover: L(
       "/images/projects/super-cup-kvinder/09-team-esbjerg-fejrer-sejr-med-pokal-bambuni-super-cup.jpg",
-      "Team Esbjerg fejrer sejr med pokal — Bambuni Super Cup kvinder",
+      "Team Esbjerg fejrer sejr med pokal, Bambuni Super Cup kvinder",
       2200,
       1467
     ),
     images: [
       L(
         "/images/projects/super-cup-kvinder/01-arena-overblik-med-handboldkamp-i-gang-bambuni-super.jpg",
-        "Arena overblik med håndboldkamp i gang — Bambuni Super Cup kvinder",
+        "Arena overblik med håndboldkamp i gang, Bambuni Super Cup kvinder",
         2200,
         1467
       ),
       P(
         "/images/projects/super-cup-kvinder/02-select-ultimate-handbold-pa-stand-bambuni-super-cup-.jpg",
-        "SELECT ULTIMATE-håndbold på stand — Bambuni Super Cup kvinder",
+        "SELECT ULTIMATE-håndbold på stand, Bambuni Super Cup kvinder",
         1467,
         2200
       ),
       L(
         "/images/projects/super-cup-kvinder/03-marit-roesberg-jacobsen-i-team-esbjerg-troeje-super-.jpg",
-        "Marit Røsberg Jacobsen i Team Esbjerg-trøje — Super Cup kvinder",
+        "Marit Røsberg Jacobsen i Team Esbjerg-trøje, Super Cup kvinder",
         2200,
         1467
       ),
       L(
         "/images/projects/super-cup-kvinder/04-angreb-mod-mal-under-kampen-bambuni-super-cup-kvinde.jpg",
-        "Angreb mod mål under kampen — Bambuni Super Cup kvinder",
+        "Angreb mod mål under kampen, Bambuni Super Cup kvinder",
         2200,
         1467
       ),
       L(
         "/images/projects/super-cup-kvinder/05-odense-handbold-spiller-pa-banen-bambuni-super-cup-k.jpg",
-        "Odense Håndbold-spiller på banen — Bambuni Super Cup kvinder",
+        "Odense Håndbold-spiller på banen, Bambuni Super Cup kvinder",
         2200,
         1467
       ),
       L(
         "/images/projects/super-cup-kvinder/06-hurtigt-angreb-langs-sidelinjen-bambuni-super-cup-kv.jpg",
-        "Hurtigt angreb langs sidelinjen — Bambuni Super Cup kvinder",
+        "Hurtigt angreb langs sidelinjen, Bambuni Super Cup kvinder",
         2200,
         1467
       ),
       L(
         "/images/projects/super-cup-kvinder/07-duel-mellem-to-spillere-bambuni-super-cup-kvinder.jpg",
-        "Duel mellem to spillere — Bambuni Super Cup kvinder",
+        "Duel mellem to spillere, Bambuni Super Cup kvinder",
         2200,
         1467
       ),
       P(
         "/images/projects/super-cup-kvinder/08-sandra-toft-i-malmandstroeje-bambuni-super-cup-kvind.jpg",
-        "Sandra Toft i målmandstrøje — Bambuni Super Cup kvinder",
+        "Sandra Toft i målmandstrøje, Bambuni Super Cup kvinder",
         1467,
         2200
       ),
       L(
         "/images/projects/super-cup-kvinder/09-team-esbjerg-fejrer-sejr-med-pokal-bambuni-super-cup.jpg",
-        "Team Esbjerg fejrer sejr med pokal — Bambuni Super Cup kvinder",
+        "Team Esbjerg fejrer sejr med pokal, Bambuni Super Cup kvinder",
         2200,
         1467
       ),
@@ -756,7 +756,7 @@ const projectSeed: Project[] = [
   },
   {
     slug: "super-cup-herrer",
-    title: "Super Cup 2026 – Herrer",
+    title: "Super Cup 2026, Herrer",
     discipline: "sport",
     category: "Sport",
     galleryFormat: "wide",
@@ -766,84 +766,84 @@ const projectSeed: Project[] = [
     client: "DanskHåndbold",
     role: "Sportsfotograf",
     outcome:
-      "Kampdækning fra Super Cup i Herning — Aalborg Håndbold løftede pokalen.",
+      "Kampdækning fra Super Cup i Herning, Aalborg Håndbold løftede pokalen.",
     featured: true,
     cover: L(
       "/images/projects/super-cup-herrer/11-aalborg-handbold-loefter-pokalen-bambuni-super-cup-h.jpg",
-      "Aalborg Håndbold løfter pokalen — Bambuni Super Cup herrer",
+      "Aalborg Håndbold løfter pokalen, Bambuni Super Cup herrer",
       2200,
       1467
     ),
     images: [
       L(
         "/images/projects/super-cup-herrer/01-thomas-arnoldsen-i-hopskud-for-aalborg-handbold-supe.jpg",
-        "Thomas Arnoldsen i hopskud for Aalborg Håndbold — Super Cup herrer",
+        "Thomas Arnoldsen i hopskud for Aalborg Håndbold, Super Cup herrer",
         2200,
         1467
       ),
       L(
         "/images/projects/super-cup-herrer/02-handboldkamp-i-fyldt-arena-bambuni-super-cup-herrer.jpg",
-        "Håndboldkamp i fyldt arena — Bambuni Super Cup herrer",
+        "Håndboldkamp i fyldt arena, Bambuni Super Cup herrer",
         2200,
         1467
       ),
       L(
         "/images/projects/super-cup-herrer/03-tempofyldt-angreb-mod-mal-bambuni-super-cup-herrer.jpg",
-        "Tempofyldt angreb mod mål — Bambuni Super Cup herrer",
+        "Tempofyldt angreb mod mål, Bambuni Super Cup herrer",
         2200,
         1467
       ),
       P(
         "/images/projects/super-cup-herrer/04-niklas-landin-fejrer-redning-bambuni-super-cup-herre.jpg",
-        "Niklas Landin fejrer redning — Bambuni Super Cup herrer",
+        "Niklas Landin fejrer redning, Bambuni Super Cup herrer",
         1467,
         2200
       ),
       L(
         "/images/projects/super-cup-herrer/05-forsvarsspil-midt-pa-banen-bambuni-super-cup-herrer.jpg",
-        "Forsvarsspil midt på banen — Bambuni Super Cup herrer",
+        "Forsvarsspil midt på banen, Bambuni Super Cup herrer",
         2200,
         1467
       ),
       L(
         "/images/projects/super-cup-herrer/06-spiller-i-fald-under-kampen-bambuni-super-cup-herrer.jpg",
-        "Spiller i fald under kampen — Bambuni Super Cup herrer",
+        "Spiller i fald under kampen, Bambuni Super Cup herrer",
         2200,
         1467
       ),
       L(
         "/images/projects/super-cup-herrer/07-hurtigt-kontraangreb-bambuni-super-cup-herrer.jpg",
-        "Hurtigt kontraangreb — Bambuni Super Cup herrer",
+        "Hurtigt kontraangreb, Bambuni Super Cup herrer",
         2200,
         1467
       ),
       L(
         "/images/projects/super-cup-herrer/08-malscoring-i-malzonen-bambuni-super-cup-herrer.jpg",
-        "Målscoring i målzonen — Bambuni Super Cup herrer",
+        "Målscoring i målzonen, Bambuni Super Cup herrer",
         2200,
         1467
       ),
       L(
         "/images/projects/super-cup-herrer/09-jubel-efter-scoring-bambuni-super-cup-herrer.jpg",
-        "Jubel efter scoring — Bambuni Super Cup herrer",
+        "Jubel efter scoring, Bambuni Super Cup herrer",
         2200,
         1467
       ),
       L(
         "/images/projects/super-cup-herrer/10-kampens-intensitet-under-loftslamperne-super-cup-her.jpg",
-        "Kampens intensitet under loftslamperne — Super Cup herrer",
+        "Kampens intensitet under loftslamperne, Super Cup herrer",
         2200,
         1467
       ),
       L(
         "/images/projects/super-cup-herrer/11-aalborg-handbold-loefter-pokalen-bambuni-super-cup-h.jpg",
-        "Aalborg Håndbold løfter pokalen — Bambuni Super Cup herrer",
+        "Aalborg Håndbold løfter pokalen, Bambuni Super Cup herrer",
         2200,
         1467
       ),
       L(
         "/images/projects/super-cup-herrer/12-fejring-pa-podiet-efter-finale-bambuni-super-cup-her.jpg",
-        "Fejring på podiet efter finale — Bambuni Super Cup herrer",
+        "Fejring på podiet efter finale, Bambuni Super Cup herrer",
         2200,
         1467
       ),
@@ -851,7 +851,7 @@ const projectSeed: Project[] = [
   },
   {
     slug: "fredericia-ribe-esbjerg",
-    title: "Fredericia — Ribe Esbjerg",
+    title: "Fredericia, Ribe Esbjerg",
     discipline: "sport",
     category: "Sport",
     galleryFormat: "wide",
@@ -861,7 +861,7 @@ const projectSeed: Project[] = [
     client: "Fredericia Håndboldklub",
     role: "Sportsfotograf",
     outcome:
-      "Kampbilleder fra hjemmekampen i Fredericia — angreb, dueller og jubel.",
+      "Kampbilleder fra hjemmekampen i Fredericia, angreb, dueller og jubel.",
     featured: false,
     cover: L(
       "/images/projects/fredericia-ribe-esbjerg/01-fhk-spiller-med-bold-mod-ribe-esbjerg.jpg",
@@ -878,25 +878,25 @@ const projectSeed: Project[] = [
       ),
       L(
         "/images/projects/fredericia-ribe-esbjerg/02-springskud-mod-ribe-esbjerg-fredericia-haandbold.jpg",
-        "Springskud i luften mod Ribe-Esbjerg — Fredericia Håndbold",
+        "Springskud i luften mod Ribe-Esbjerg, Fredericia Håndbold",
         2200,
         1467
       ),
       L(
         "/images/projects/fredericia-ribe-esbjerg/03-spring-angreb-mod-ribe-esbjerg-fredericia-haandbold.jpg",
-        "Angreb mod Ribe-Esbjerg — Fredericia Håndbold",
+        "Angreb mod Ribe-Esbjerg, Fredericia Håndbold",
         2200,
         1467
       ),
       L(
         "/images/projects/fredericia-ribe-esbjerg/04-duel-under-pres-mod-ribe-esbjerg-fredericia-haandbold.jpg",
-        "Duel under pres mod Ribe-Esbjerg — Fredericia Håndbold",
+        "Duel under pres mod Ribe-Esbjerg, Fredericia Håndbold",
         2200,
         1467
       ),
       L(
         "/images/projects/fredericia-ribe-esbjerg/05-palmar-klar-til-kast-mod-ribe-esbjerg-fredericia-haandbold.jpg",
-        "Palmar klar til kast mod Ribe-Esbjerg — Fredericia Håndbold",
+        "Palmar klar til kast mod Ribe-Esbjerg, Fredericia Håndbold",
         2200,
         1467
       ),
@@ -908,19 +908,19 @@ const projectSeed: Project[] = [
       ),
       L(
         "/images/projects/fredericia-ribe-esbjerg/07-hopskud-mod-mal-mod-ribe-esbjerg-fredericia-haandbold.jpg",
-        "Hopskud mod mål mod Ribe-Esbjerg — Fredericia Håndbold",
+        "Hopskud mod mål mod Ribe-Esbjerg, Fredericia Håndbold",
         2200,
         1467
       ),
       L(
         "/images/projects/fredericia-ribe-esbjerg/08-luftkamp-mod-ribe-esbjerg-fredericia-haandbold.jpg",
-        "Kampduel mod Ribe-Esbjerg — Fredericia Håndbold",
+        "Kampduel mod Ribe-Esbjerg, Fredericia Håndbold",
         2200,
         1467
       ),
       P(
         "/images/projects/fredericia-ribe-esbjerg/09-jubel-efter-scoring-mod-ribe-esbjerg.jpg",
-        "Jubel efter scoring mod Ribe-Esbjerg — håndboldkamp",
+        "Jubel efter scoring mod Ribe-Esbjerg, håndboldkamp",
         1760,
         2200
       ),
@@ -935,79 +935,79 @@ const projectSeed: Project[] = [
     year: "2026",
     location: "Fredericia",
     excerpt:
-      "Spillerportrætter · 1. Division Kvinder — til klubbens officielle spillertrup.",
+      "Spillerportrætter · 1. Division Kvinder, til klubbens officielle spillertrup.",
     client: "Fredericia Håndboldklub",
     role: "Portrætfotograf",
     outcome:
       "Portrætterne bruges på Fredericia Håndboldklubs officielle spillertrup på fhk.dk.",
     clientUrl:
       "https://fhk.dk/1div-kvinder/1-div-kvinder-spillertrup-og-stab",
-    clientUrlLabel: "fhk.dk — spillertrup",
+    clientUrlLabel: "fhk.dk, spillertrup",
     featured: true,
     cover: P(
       "/images/projects/fredericia-haandboldklub/02-fhk-freja-pose-hvid.jpg",
-      "Freja Thor Ammidtsbøl Andersen jubler — Fredericia Håndbold, nummer 3",
+      "Freja Thor Ammidtsbøl Andersen jubler, Fredericia Håndbold, nummer 3",
       1467,
       2200
     ),
     images: [
       P(
         "/images/projects/fredericia-haandboldklub/01-fhk-gruppe-06-hvid.jpg",
-        "Fredericia Håndboldklub — gruppefoto",
+        "Fredericia Håndboldklub, gruppefoto",
         1467,
         2200
       ),
       P(
         "/images/projects/fredericia-haandboldklub/02-fhk-freja-pose-hvid.jpg",
-        "Freja Thor Ammidtsbøl Andersen jubler — Fredericia Håndbold, nummer 3",
+        "Freja Thor Ammidtsbøl Andersen jubler, Fredericia Håndbold, nummer 3",
         1467,
         2200
       ),
       P(
         "/images/projects/fredericia-haandboldklub/03-fhk-maria-pose-hvid.jpg",
-        "Maria Husted jubler — Fredericia Håndbold, nummer 4",
+        "Maria Husted jubler, Fredericia Håndbold, nummer 4",
         1467,
         2200
       ),
       P(
         "/images/projects/fredericia-haandboldklub/04-fhk-emma-pose-hvid.jpg",
-        "Emma Skou Larsen jubler — Fredericia Håndbold, nummer 20",
+        "Emma Skou Larsen jubler, Fredericia Håndbold, nummer 20",
         1467,
         2200
       ),
       P(
         "/images/projects/fredericia-haandboldklub/05-fhk-eline-pose-hvid.jpg",
-        "Eline Osland jubler — Fredericia Håndbold, nummer 19",
+        "Eline Osland jubler, Fredericia Håndbold, nummer 19",
         1467,
         2200
       ),
       P(
         "/images/projects/fredericia-haandboldklub/06-fhk-julie-laursen-halv-hvid.jpg",
-        "Julie Laursen — Fredericia Håndbold, nummer 11",
+        "Julie Laursen, Fredericia Håndbold, nummer 11",
         1467,
         2200
       ),
       P(
         "/images/projects/fredericia-haandboldklub/07-fhk-annette-pose-hvid.jpg",
-        "Annette Wirén Larsen jubler — Fredericia Håndbold, nummer 27",
+        "Annette Wirén Larsen jubler, Fredericia Håndbold, nummer 27",
         1467,
         2200
       ),
       P(
         "/images/projects/fredericia-haandboldklub/08-fhk-julie-gronne-pose-hvid.jpg",
-        "Julie Grønne Thinggård jubler — Fredericia Håndbold, nummer 29",
+        "Julie Grønne Thinggård jubler, Fredericia Håndbold, nummer 29",
         1467,
         2200
       ),
       P(
         "/images/projects/fredericia-haandboldklub/09-fhk-nikoline-pose-hvid.jpg",
-        "Nikoline Johansen jubler — Fredericia Håndbold, nummer 37",
+        "Nikoline Johansen jubler, Fredericia Håndbold, nummer 37",
         1467,
         2200
       ),
       P(
         "/images/projects/fredericia-haandboldklub/10-fhk-sophie-pose-hvid.jpg",
-        "Sophie Voldby jubler — Fredericia Håndbold, nummer 23",
+        "Sophie Voldby jubler, Fredericia Håndbold, nummer 23",
         1467,
         2200
       ),
@@ -1017,15 +1017,15 @@ const projectSeed: Project[] = [
 
 const projectsResolved: Project[] = projectSeed.map(withGeneratedGallery);
 
-/** Listed in portfolio — projects with at least one gallery image */
+/** Listed in portfolio, projects with at least one gallery image */
 export function isPublishedProject(project: Project) {
   return project.images.length > 0;
 }
 
-/** Projects with images — used for listings and homepage */
+/** Projects with images, used for listings and homepage */
 export const projects: Project[] = projectsResolved.filter(isPublishedProject);
 
-/** About-page portrait — filename versioned for CDN cache bust. */
+/** About-page portrait, filename versioned for CDN cache bust. */
 export const aboutPortrait: ProjectImage = P(
   "/images/about-lukas-2026.jpg",
   "Portræt af fotograf Lukas Svendsen fra Grindsted",
@@ -1033,7 +1033,7 @@ export const aboutPortrait: ProjectImage = P(
   2200
 );
 
-/** Desktop hero — handball through goal net at Super Cup. */
+/** Desktop hero, handball through goal net at Super Cup. */
 export const heroImage: ProjectImage = L(
   "/images/hero-handbold-maalnet-super-cup.jpg",
   "Håndboldspiller gennem målnet under kamp",
@@ -1041,7 +1041,7 @@ export const heroImage: ProjectImage = L(
   1600
 );
 
-/** Mobile hero — portrait crop of Super Cup handball action */
+/** Mobile hero, portrait crop of Super Cup handball action */
 export const heroMobileImage: ProjectImage = P(
   "/images/hero-handbold-maalnet-super-cup-mobil.jpg",
   "Håndboldspiller gennem målnet under kamp",
@@ -1063,7 +1063,7 @@ export function isPortrait(image: ProjectImage) {
   return image.orientation === "portrait" || image.height > image.width;
 }
 
-/** Case format from the cover — used for category list ordering. */
+/** Case format from the cover, used for category list ordering. */
 export function isPortraitCase(project: Project) {
   return isPortrait(project.cover);
 }
@@ -1081,7 +1081,7 @@ export function sortProjectsPortraitFirst(list: Project[]): Project[] {
 }
 
 /**
- * Mix covers for Arbejde masonry — maximize variation between neighbours.
+ * Mix covers for Arbejde masonry, maximize variation between neighbours.
  * Prefers alternating tall/wide and different disciplines side by side.
  * Priority slugs (e.g. Thor Farlov) stay near the front.
  * Super Cup kvinder/herrer are kept as a neighbouring pair.

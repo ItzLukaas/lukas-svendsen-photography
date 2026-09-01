@@ -16,26 +16,18 @@ import {
 type Props = PageProps<"/arbejde/[slug]">;
 
 function projectPageTitle(project: Project) {
-  const disciplineLabel: Record<Project["discipline"], string> = {
-    koncerter: "koncertfotografi",
-    sport: "sportsfotografi",
-    events: "eventfotografi",
-    erhverv: "erhvervsfoto",
-    portraetter: "portrætfotografi",
-  };
-  const kind = disciplineLabel[project.discipline] ?? "fotografi";
-  return `${project.title} · ${kind} ${project.year}`;
+  return `${project.title} · ${project.category} ${project.year}`;
 }
 
 function projectDescription(project: Project) {
   const disciplineSeo: Partial<Record<Project["discipline"], string>> = {
-    koncerter: "Foto fra liveoptræden",
-    sport: "Foto fra kamp",
-    events: "Foto fra arrangement",
-    erhverv: "Visuelt materiale",
-    portraetter: "Portrætfoto",
+    koncerter: "Visuelt materiale fra liveproduktion",
+    sport: "Visuelt materiale fra dynamisk produktion",
+    events: "Visuelt materiale fra arrangement",
+    erhverv: "Foto og video til virksomhed",
+    portraetter: "Portrætfoto og visuelt materiale",
   };
-  const seoLead = disciplineSeo[project.discipline] ?? "Foto";
+  const seoLead = disciplineSeo[project.discipline] ?? "Foto og video";
   const location = project.location ? ` · ${project.location}` : "";
   const client = project.client ? ` ${project.client}.` : "";
   return `${seoLead}: ${project.excerpt}${location}.${client}`.replace(

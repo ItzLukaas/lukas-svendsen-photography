@@ -11,18 +11,18 @@ export const processSteps: ProcessStep[] = [
     id: "talk",
     step: 1,
     title: "Kort snak",
-    body: "Du fortæller, hvad du skal bruge. Dato, sted og hvad materialet skal bruges til.",
+    body: "Vi tager en kort snak om, hvad du skal bruge, hvornår det skal ske, og hvad materialet skal bruges til. Så er vi enige om udgangspunktet, før vi går i gang.",
   },
   {
     id: "on-site",
     step: 2,
     title: "Jeg møder op",
-    body: "På lokationen. Der, hvor det skal ske. Jeg fanger det, der skal med.",
+    body: "Jeg møder op på lokationen og arbejder fokuseret igennem opgaven. Du skal ikke bekymre dig om teknikken. Den del tager jeg mig af.",
   },
   {
     id: "deliver",
     step: 3,
     title: "Du får filerne",
-    body: "Udvalgte og redigerede billeder eller video. Klar til det, du skal bruge dem til.",
+    body: "Du får udvalgte og redigerede filer, så materialet er klar til det, du skal bruge det til. Ikke rå data, du selv skal sidde og sortere i.",
   },
 ];

@@ -11,9 +11,9 @@ import {
 } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Om mig",
+  title: "Om Lukas Svendsen | Fotograf og videograf",
   description:
-    "Lukas Svendsen er fotograf og videoproducent. Foto, video, drone og content til forskellige behov.",
+    "Lukas Svendsen er fotograf og videograf med fokus på foto, video, content og drone til virksomheder, organisationer og private i Grindsted, Billund, Vejle, Esbjerg og resten af Danmark.",
   path: "/om",
 });
 
@@ -22,7 +22,7 @@ export default function OmPage() {
     path: "/om",
     name: "Om Lukas Svendsen",
     description:
-      "Lukas Svendsen er fotograf og videoproducent med fokus på foto, video, drone og content.",
+      "Lukas Svendsen er fotograf og videoproducent med fokus på foto, video, drone og content til forskellige kunder og opgaver.",
     type: "AboutPage",
   });
   const breadcrumbJsonLd = pageBreadcrumbJsonLd([
@@ -74,14 +74,15 @@ export default function OmPage() {
                 video, drone og content.
               </p>
               <p>
-                Uanset om du er privatperson, virksomhed, organisation eller
-                brand, hjælper jeg dig med at skabe visuelt materiale, der passer
-                til formålet. Ét job eller en større produktion.
+                Det meste af mit arbejde er for virksomheder, organisationer og
+                brands, men jeg tager også opgaver for private, når det giver
+                mening. Uanset hvem du er, starter vi med at forstå, hvad du skal
+                bruge materialet til.
               </p>
               <p>
-                Jeg møder op, holder hovedet koldt og leverer materiale, der kan
-                bruges med det samme. Book mig, hvis du har en opgave, så tager
-                vi den derfra.
+                Jeg møder op forberedt, holder hovedet koldt og leverer filer, der
+                kan bruges med det samme. Har du en opgave, du vil have hjælp
+                til, så skriv. Så tager vi den derfra.
               </p>
             </div>
           </FadeIn>
@@ -120,6 +121,14 @@ export default function OmPage() {
                     className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
                   >
                     Fotograf Vejle
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/fotograf-esbjerg"
+                    className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
+                  >
+                    Fotograf Esbjerg
                   </Link>
                 </li>
                 <li>

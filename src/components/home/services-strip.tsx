@@ -21,12 +21,12 @@ export function ServicesStrip() {
             id="services-heading"
             className="mt-3 font-display text-[clamp(1.55rem,2.8vw,2.1rem)] leading-[1.08] tracking-[-0.03em]"
           >
-            Hvad jeg laver
+            Foto, video og content til både private og erhverv
           </h2>
-          <p className="mt-3 max-w-[52ch] text-[0.9375rem] leading-[1.65] text-muted-ink">
-            Uanset om du er privatperson, virksomhed, organisation eller brand,
-            hjælper jeg dig med at skabe visuelt content, der passer til
-            formålet. Omfanget finder vi sammen.
+          <p className="mt-3 max-w-[56ch] text-[0.9375rem] leading-[1.65] text-muted-ink">
+            Jeg arbejder med virksomheder, organisationer, brands og private
+            kunder, der har brug for professionelt visuelt materiale til
+            kommunikation, kampagner og digitale kanaler.
           </p>
         </FadeIn>
 
@@ -54,7 +54,7 @@ export function ServicesStrip() {
                     <h3 className="mt-6 font-display text-[1.125rem] leading-[1.15] tracking-[-0.022em] text-ink md:text-[1.2rem]">
                       {service.title}
                     </h3>
-                    <p className="mt-2 max-w-[28ch] text-[0.875rem] leading-[1.6] text-muted-ink">
+                    <p className="mt-2 max-w-[36ch] text-[0.875rem] leading-[1.6] text-muted-ink">
                       {service.description}
                     </p>
 
@@ -100,10 +100,11 @@ export function ServicesStrip() {
               >
                 Video og drone
               </h3>
-              <p className="mx-auto mt-3 max-w-[48ch] text-[0.9375rem] leading-[1.65] text-muted-ink">
-                Video og drone kan indgå som en del af en samlet produktion eller
-                stå alene. Professionelle optagelser, der supplerer foto og
-                content, når opgaven kræver det.
+              <p className="mx-auto mt-3 max-w-[52ch] text-[0.9375rem] leading-[1.65] text-muted-ink">
+                Video og drone indgår ofte som en del af en samlet produktion,
+                men kan også bookes separat. Jeg sørger for, at optagelserne
+                hænger sammen med resten af materialet, så du får noget, der kan
+                bruges direkte.
               </p>
             </FadeIn>
 

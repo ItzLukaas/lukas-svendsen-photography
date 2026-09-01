@@ -22,10 +22,11 @@ export function ValueSection() {
             </h2>
           </FadeIn>
           <FadeIn delay={0.06} className="md:col-span-5">
-            <p className="max-w-[44ch] text-[0.9375rem] leading-[1.7] text-muted-ink md:ml-auto md:text-[1.0625rem]">
-              Jeg er fotograf og videoproducent og skaber visuelt content til
-              forskellige behov. Med kunder som Dansk Håndbold, Fredericia HK og
-              Varde Open Air.
+            <p className="max-w-[48ch] text-[0.9375rem] leading-[1.7] text-muted-ink md:ml-auto md:text-[1.0625rem]">
+              Jeg er fotograf og videoproducent og hjælper virksomheder,
+              organisationer og private med visuelt materiale, der kan bruges med
+              det samme. Blandt andet for Dansk Håndbold, Fredericia HK og Varde
+              Open Air.
             </p>
           </FadeIn>
         </div>
@@ -49,7 +50,7 @@ export function ValueSection() {
                         <h3 className="font-display text-[1.0625rem] leading-[1.2] tracking-[-0.02em] text-ink md:text-[1.125rem]">
                           {prop.title}
                         </h3>
-                        <p className="mt-3 max-w-[34ch] text-[0.875rem] leading-[1.65] text-muted-ink md:text-[0.9375rem]">
+                        <p className="mt-3 max-w-[40ch] text-[0.875rem] leading-[1.65] text-muted-ink md:text-[0.9375rem]">
                           {prop.body}
                         </p>
                       </div>

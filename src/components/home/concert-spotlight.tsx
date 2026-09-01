@@ -68,12 +68,12 @@ export function ConcertSpotlight() {
             className="order-1 flex flex-col md:order-2 md:col-span-5 lg:col-span-4 lg:col-start-9"
           >
             <p className="label-meta">Koncert</p>
-            <h2
+            <h3
               id="concert-spotlight-heading"
-              className="mt-3 max-w-[12ch] font-display text-[clamp(1.85rem,3.8vw,2.85rem)] leading-[1.05] tracking-[-0.03em]"
+              className="mt-3 max-w-[14ch] font-display text-[clamp(1.85rem,3.8vw,2.85rem)] leading-[1.05] tracking-[-0.03em]"
             >
-              Koncertfotografi
-            </h2>
+              Liveproduktioner
+            </h3>
             <div
               className="mt-3 h-px w-[min(100%,14rem)] bg-foreground/15"
               aria-hidden
@@ -81,8 +81,10 @@ export function ConcertSpotlight() {
 
             <div className="mt-6 max-w-md space-y-4 text-[0.9375rem] leading-[1.7] text-muted-ink md:mt-7 md:text-[1rem]">
               <p>
-                Live fra scenen. Kunstnere, lys og publikum fanget i
-                øjeblikket.
+                Når der skal leveres hurtigt og præcist materiale fra en større
+                produktion, arbejder jeg struktureret og målrettet. Resultatet
+                kan bruges direkte i presse, sociale medier og efterfølgende
+                kommunikation.
               </p>
             </div>
 

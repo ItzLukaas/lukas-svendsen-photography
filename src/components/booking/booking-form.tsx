@@ -18,10 +18,10 @@ import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 const productionHints: Record<(typeof productionTypes)[number], string> = {
-  Fotografering: "Beskriv kort opgaven og hvad materialet skal bruges til",
-  Videoproduktion: "Beskriv kort opgaven og hvad materialet skal bruges til",
-  Droneproduktion: "Beskriv kort opgaven og hvad materialet skal bruges til",
-  Content: "Beskriv kort opgaven og hvad materialet skal bruges til",
+  Fotografering: "Beskriv opgaven og hvad materialet skal bruges til",
+  Videoproduktion: "Beskriv opgaven og hvad materialet skal bruges til",
+  Droneproduktion: "Beskriv opgaven og hvad materialet skal bruges til",
+  Content: "Beskriv opgaven og hvad materialet skal bruges til",
   Andet: "Fortæl gerne mere nedenfor",
 };
 

@@ -14,11 +14,16 @@ import { siteConfig } from "@/lib/site";
 import { aspectRatioStyle, cn } from "@/lib/utils";
 
 const FILTER_INTRO: Record<string, string> = {
-  sport: "Udvalgte sportsprojekter fra forskellige opgaver.",
-  koncerter: "Live fra scenen. Kunstnere, lys og publikum.",
-  events: "Stemning og øjeblikke fra udvalgte arrangementer.",
-  portraetter: "Portrætter og personlige opgaver.",
-  erhverv: "Visuelt materiale til brands og virksomheder.",
+  sport:
+    "Udvalgte projekter fra dynamiske produktioner, hvor timing og overblik betyder noget for det endelige resultat.",
+  koncerter:
+    "Materiale fra større liveproduktioner, der kan bruges direkte i kommunikationen bagefter.",
+  events:
+    "Visuelt materiale fra arrangementer og produktioner, leveret så det kan bruges i praksis.",
+  portraetter:
+    "Personligt og professionelt materiale til dem, der skal fremstå tydeligt og troværdigt.",
+  erhverv:
+    "Foto og video til virksomheder og brands, der skal have materiale med et professionelt og sammenhængende udtryk.",
 };
 
 type WorkIndexProps = {
@@ -190,7 +195,7 @@ export function WorkIndex({
   const intro =
     kategori !== "alle" && FILTER_INTRO[kategori]
       ? FILTER_INTRO[kategori]
-      : "Et udvalg af projekter fra forskellige opgaver. Portfolioen viser eksempler på mit arbejde, ikke en komplet liste over ydelser.";
+      : "Her er et udvalg af projekter, der viser bredden i mit arbejde. Det er cases og eksempler, ikke en komplet liste over alt, jeg laver.";
 
   return (
     <div className="mx-auto max-w-[1600px] px-5 pt-[calc(var(--chrome-h)+2.5rem)] pb-24 md:px-8 md:pb-32 lg:px-12">

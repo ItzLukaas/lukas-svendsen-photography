@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 
+import { HomeAreas } from "@/components/home/home-areas";
 import { ConcertSpotlight } from "@/components/home/concert-spotlight";
 import { FeaturedWork } from "@/components/home/featured-work";
 import { HomeCta } from "@/components/home/home-cta";
@@ -7,6 +8,7 @@ import { HomeHero } from "@/components/home/home-hero";
 import { ProcessSection } from "@/components/home/process-section";
 import { ServicesStrip } from "@/components/home/services-strip";
 import { getCollaborationsJsonLd } from "@/lib/data/clients";
+import { homePageJsonLd } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
 const TrustStats = dynamic(() =>
@@ -22,6 +24,7 @@ const LogoMarquee = dynamic(() =>
  */
 export function HomePage() {
   const collaborationsJsonLd = getCollaborationsJsonLd(siteConfig.url);
+  const homeJsonLd = homePageJsonLd();
 
   return (
     <>
@@ -31,6 +34,10 @@ export function HomePage() {
           __html: JSON.stringify(collaborationsJsonLd),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLd) }}
+      />
 
       <HomeHero />
       <FeaturedWork />
@@ -39,6 +46,7 @@ export function HomePage() {
       <ProcessSection />
       <TrustStats />
       <LogoMarquee />
+      <HomeAreas />
       <HomeCta />
     </>
   );

@@ -11,9 +11,9 @@ import {
 } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Kontakt",
+  title: "Kontakt fotograf og videograf",
   description:
-    "Kontakt Lukas Svendsen for foto, video og content. Email, telefon og kontaktformular.",
+    "Kontakt Lukas Svendsen for foto, video og content. Email, telefon og kontaktformular til virksomheder, organisationer og private i Jylland og resten af Danmark.",
   path: "/kontakt",
 });
 
@@ -49,9 +49,9 @@ export default function KontaktPage() {
               Skriv til mig
             </h1>
             <p className="text-body mt-6 max-w-md">
-              Har du et spørgsmål, en idé eller en opgave? Skriv kort, så vender
-              jeg tilbage. Uanset om du er privatperson, virksomhed eller
-              organisation.
+              Har du et spørgsmål, en idé eller en opgave på vej? Skriv en kort
+              besked, så vender jeg tilbage. Det gælder både, hvis du
+              repræsenterer en virksomhed, og hvis du er privat.
             </p>
             <p className="text-body mt-4 max-w-md">
               Klar til at booke?{" "}

@@ -33,9 +33,9 @@ export function SiteFooter() {
             <p className="font-display text-[1.25rem] tracking-[-0.025em] text-paper md:text-[1.4rem]">
               {siteConfig.name}
             </p>
-            <p className="mt-2 max-w-[48ch] text-[0.875rem] leading-[1.65] text-paper/50">
+            <p className="mt-2 max-w-[52ch] text-[0.875rem] leading-[1.65] text-paper/50">
               Fotograf og videoproducent. Foto, video, drone og content til
-              forskellige behov.
+              virksomheder, organisationer og private.
             </p>
           </div>
           <Link href="/booking" className="btn-solid mt-2 shrink-0 bg-paper text-ink md:mt-0">
@@ -160,7 +160,7 @@ export function SiteFooter() {
                     href={area.path}
                     className="text-[0.9375rem] text-paper/75 transition-colors duration-300 hover:text-paper focus-visible:text-paper"
                   >
-                    Fotograf {area.city}
+                    Fotograf i {area.city}
                   </Link>
                 </li>
               ))}

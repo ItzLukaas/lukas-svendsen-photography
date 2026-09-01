@@ -239,7 +239,8 @@ export function LogoMarquee({ className }: LogoMarqueeProps) {
                 Udvalgte samarbejder
               </h2>
               <p className="mt-2 text-[0.8125rem] leading-[1.55] text-muted-ink md:text-[0.875rem]">
-                Private, virksomheder og organisationer
+                Jeg arbejder med virksomheder, organisationer og brands, der har
+                brug for professionelt visuelt materiale.
               </p>
               <p className="sr-only">{collaborationsSummary}</p>
             </div>

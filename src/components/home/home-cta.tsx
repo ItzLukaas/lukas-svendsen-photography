@@ -45,8 +45,9 @@ export function HomeCta() {
               <div className="mt-5 h-px w-14 bg-paper/22" aria-hidden />
 
               <p className="mt-5 max-w-xl text-[0.9375rem] leading-[1.7] text-paper/68 md:mt-6 md:text-[1.0625rem]">
-                Fortæl kort om din opgave, så vender jeg tilbage og tager den
-                derfra. Svar inden for 1 til 2 hverdage.
+                Fortæl kort om din opgave, så vender jeg tilbage og tager en snak
+                om, hvordan vi kommer videre. Du behøver ikke have alle detaljer
+                på plads endnu.
               </p>
 
               <div className="mt-10 grid items-start gap-10 lg:mt-14 lg:grid-cols-12 lg:gap-14">
@@ -65,7 +66,7 @@ export function HomeCta() {
 
                   <div className="space-y-3.5">
                     <p className="text-[0.8125rem] leading-relaxed text-paper/55">
-                      Personlig kontakt. Hurtigt svar.
+                      Personlig kontakt. Svar inden for 1 til 2 hverdage.
                     </p>
                     <a
                       href={`tel:${siteConfig.phone}`}

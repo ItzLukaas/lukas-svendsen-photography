@@ -22,11 +22,10 @@ const instrumentSans = Instrument_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default:
-      "Foto, video og content | Lukas Svendsen",
+    default: `${siteConfig.seo.homeTitle} | ${siteConfig.name}`,
     template: `%s · ${siteConfig.name}`,
   },
-  description: siteConfig.description,
+  description: siteConfig.seo.homeDescription,
   applicationName: siteConfig.name,
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,
@@ -37,28 +36,40 @@ export const metadata: Metadata = {
     "videoproducent",
     "foto og video",
     "contentproduktion",
+    "content creator",
     "visuelt content",
     "dronefoto",
     "dronevideo",
+    "erhvervsfotograf",
+    "fotograf til virksomhed",
+    "fotograf til private",
+    "professionel fotograf",
     "fotograf Danmark",
+    "fotograf Jylland",
     "videograf Danmark",
-    "portrætfotograf",
-    "produktfotograf",
+    "videoproduktion",
     "fotograf Grindsted",
     "fotograf Billund",
     "fotograf Vejle",
-    "fotograf Kolding",
     "fotograf Esbjerg",
-    "fotograf Jylland",
-    "videoproduktion",
+    "videograf Grindsted",
+    "videograf Billund",
+    "videograf Vejle",
+    "videograf Esbjerg",
+    "videoproducent Grindsted",
+    "videoproducent Billund",
+    "videoproducent Vejle",
+    "videoproducent Esbjerg",
+    "portrætfotograf",
+    "produktfotograf",
   ],
   openGraph: {
     type: "website",
     locale: siteConfig.locale,
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: "Foto, video og content | Lukas Svendsen",
-    description: siteConfig.description,
+    title: `${siteConfig.seo.homeTitle} | ${siteConfig.name}`,
+    description: siteConfig.seo.homeDescription,
     images: [
       {
         url: "/images/og-share.jpg",
@@ -70,8 +81,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Foto, video og content | Lukas Svendsen",
-    description: siteConfig.description,
+    title: `${siteConfig.seo.homeTitle} | ${siteConfig.name}`,
+    description: siteConfig.seo.homeDescription,
     images: [
       {
         url: "/images/og-share.jpg",
@@ -108,7 +119,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Person",
+      "@type": ["Person", "Photographer"],
       "@id": `${siteConfig.url}/#person`,
       name: siteConfig.name,
       alternateName: ["Lukas Guldager Svendsen", "Lukas Svendsen Photography"],
@@ -133,10 +144,16 @@ const jsonLd = {
       knowsAbout: [
         "Fotografering",
         "Videoproduktion",
+        "Videografi",
         "Droneproduktion",
+        "Dronefoto",
+        "Dronevideo",
         "Contentproduktion",
         "Visuelt content",
         "Foto og video",
+        "Erhvervsfotografi",
+        "Portrætfotografi",
+        "Videoproducent",
       ],
       worksFor: { "@id": `${siteConfig.url}/#organization` },
       sameAs: [
@@ -175,10 +192,13 @@ const jsonLd = {
       ],
     },
     {
-      "@type": ["ProfessionalService", "LocalBusiness"],
+      "@type": ["ProfessionalService", "LocalBusiness", "Photographer"],
       "@id": `${siteConfig.url}/#service`,
-      name: `${siteConfig.name}, foto og video`,
-      alternateName: "Lukas Svendsen Photography",
+      name: siteConfig.name,
+      alternateName: [
+        "Lukas Svendsen Photography",
+        "Lukas Svendsen Fotograf og Videoproducent",
+      ],
       url: siteConfig.url,
       email: siteConfig.email,
       telephone: siteConfig.phone,
@@ -221,7 +241,7 @@ const jsonLd = {
               "@type": "Service",
               name: "Fotografering",
               description:
-                "Professionelle stillebilleder til private, virksomheder og organisationer.",
+                "Professionelle stillebilleder til virksomheder, organisationer og private, der har brug for materiale med et klart og professionelt udtryk.",
               areaServed,
             },
           },
@@ -231,7 +251,7 @@ const jsonLd = {
               "@type": "Service",
               name: "Videoproduktion",
               description:
-                "Film og bevægeligt materiale til kommunikation, kampagner og digitale kanaler.",
+                "Film og bevægeligt materiale til kommunikation, kampagner og digitale kanaler, der skal kunne bruges direkte efter levering.",
               areaServed,
             },
           },
@@ -240,7 +260,8 @@ const jsonLd = {
             itemOffered: {
               "@type": "Service",
               name: "Droneproduktion",
-              description: "Luftfoto og luftvideo som del af foto og videoproduktion.",
+              description:
+                "Luftfoto og luftvideo som en naturlig del af foto og videoproduktion, når opgaven kræver perspektiv fra oven.",
               areaServed,
             },
           },
@@ -250,7 +271,7 @@ const jsonLd = {
               "@type": "Service",
               name: "Contentproduktion",
               description:
-                "Visuelt materiale til web, sociale medier og løbende kommunikation.",
+                "Visuelt materiale til web, sociale medier og løbende kommunikation, produceret så det kan bruges i praksis.",
               areaServed,
             },
           },

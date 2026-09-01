@@ -13,13 +13,13 @@ export type ConcertSpotlightShot = {
 
 /**
  * Three concert frames from real jobs.
- * Green portrait: Thor Farlov — Smukfest.
- * Pink portrait: Sivas — Grøn Koncert.
+ * Green portrait: Thor Farlov, Smukfest.
+ * Pink portrait: Sivas, Grøn Koncert.
  */
 export const concertSpotlightShots: ConcertSpotlightShot[] = [
   {
     id: "portrait",
-    title: "Thor Farlov — Smukfest",
+    title: "Thor Farlov, Smukfest",
     href: "/arbejde/thor-farlov-smukfest",
     placement: "primary",
     objectPosition: "50% 48%",
@@ -33,7 +33,7 @@ export const concertSpotlightShots: ConcertSpotlightShot[] = [
   },
   {
     id: "live",
-    title: "Koncertfotografi — live performance",
+    title: "Koncertfotografi, live performance",
     href: "/arbejde/varde-open-air",
     placement: "secondary",
     objectPosition: "50% 45%",
@@ -47,7 +47,7 @@ export const concertSpotlightShots: ConcertSpotlightShot[] = [
   },
   {
     id: "stage",
-    title: "Sivas — Grøn Koncert",
+    title: "Sivas, Grøn Koncert",
     href: "/arbejde/gron-koncert",
     placement: "secondary",
     /** Keep face + pink light in frame when the cell crops the portrait */

@@ -30,12 +30,13 @@ export function LocalAreaView({ area }: LocalAreaViewProps) {
             </ol>
           </nav>
 
-          <p className="label-meta mt-6">Område</p>
-          <h1 className="mt-3 max-w-[14ch] font-display text-[clamp(2.65rem,5.8vw,4.5rem)] leading-[0.92] tracking-[-0.03em]">
+          <p className="label-meta mt-6">Fotograf og videoproducent</p>
+          <h1 className="mt-3 max-w-[16ch] font-display text-[clamp(2.65rem,5.8vw,4.5rem)] leading-[0.92] tracking-[-0.03em]">
             {area.headline}
           </h1>
-          <p className="mt-4 text-[0.9375rem] text-muted-ink">
-            Foto, video, drone og content i {area.city}
+          <p className="mt-4 max-w-2xl text-[0.9375rem] leading-[1.65] text-muted-ink">
+            Foto, video, content og drone til virksomheder, organisationer og
+            private i {area.city} og omegn.
           </p>
         </FadeIn>
 
@@ -50,13 +51,16 @@ export function LocalAreaView({ area }: LocalAreaViewProps) {
 
         <FadeIn delay={0.08}>
           <div className="mt-12 border-t border-foreground/10 pt-10">
-            <h2 className="label-meta">Mere</h2>
+            <h2 className="font-display text-[1.35rem] leading-[1.15] tracking-[-0.02em] md:text-[1.5rem]">
+              {area.servicesHeading}
+            </h2>
+            <p className="mt-4 max-w-2xl text-body">{area.servicesBody}</p>
             <ul className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
               {area.services.map((service) => (
                 <li key={service.href}>
                   <Link
                     href={service.href}
-                    className="font-display text-[1.25rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[1.5rem]"
+                    className="font-medium text-foreground underline-offset-4 transition-opacity hover:opacity-70 hover:underline"
                   >
                     {service.label}
                   </Link>
@@ -66,8 +70,44 @@ export function LocalAreaView({ area }: LocalAreaViewProps) {
           </div>
         </FadeIn>
 
+        <FadeIn delay={0.1}>
+          <div className="mt-12 border-t border-foreground/10 pt-10">
+            <h2 className="font-display text-[1.35rem] leading-[1.15] tracking-[-0.02em] md:text-[1.5rem]">
+              {area.processHeading}
+            </h2>
+            <p className="mt-4 max-w-2xl text-body">{area.processBody}</p>
+          </div>
+        </FadeIn>
+
+        {area.portfolioLinks && area.portfolioLinks.length > 0 ? (
+          <FadeIn delay={0.12}>
+            <div className="mt-12 border-t border-foreground/10 pt-10">
+              <h2 className="font-display text-[1.35rem] leading-[1.15] tracking-[-0.02em] md:text-[1.5rem]">
+                Eksempler på arbejde
+              </h2>
+              {area.portfolioNote ? (
+                <p className="mt-4 max-w-2xl text-body text-muted-ink">
+                  {area.portfolioNote}
+                </p>
+              ) : null}
+              <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-[0.9375rem]">
+                {area.portfolioLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="font-medium text-foreground underline-offset-4 transition-opacity hover:opacity-70 hover:underline"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </FadeIn>
+        ) : null}
+
         {nearby.length > 0 ? (
-          <FadeIn delay={0.1}>
+          <FadeIn delay={0.14}>
             <div className="mt-12 border-t border-foreground/10 pt-10">
               <h2 className="label-meta">Andre områder</h2>
               <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-[0.9375rem]">
@@ -77,7 +117,7 @@ export function LocalAreaView({ area }: LocalAreaViewProps) {
                       href={near.path}
                       className="font-medium text-foreground underline-offset-4 transition-opacity hover:opacity-70 hover:underline"
                     >
-                      Fotograf {near.city}
+                      Fotograf i {near.city}
                     </Link>
                   </li>
                 ))}
@@ -94,7 +134,7 @@ export function LocalAreaView({ area }: LocalAreaViewProps) {
           </FadeIn>
         ) : null}
 
-        <FadeIn delay={0.12}>
+        <FadeIn delay={0.16}>
           <div className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-4">
             <Link href="/booking" className="btn-solid bg-ink text-paper">
               Book mig

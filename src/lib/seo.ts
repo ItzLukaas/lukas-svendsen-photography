@@ -189,7 +189,7 @@ export function collectionPageJsonLd(
     "@id": `${siteConfig.url}/arbejde#collection`,
     name: "Portfolio, Lukas Svendsen",
     description:
-      "Udvalgte foto- og videoprojekter fra Lukas Svendsen. Fotograf og videoproducent.",
+      "Udvalgte foto- og videoprojekter fra Lukas Svendsen. Eksempler på foto, video og content til virksomheder, organisationer og private.",
     url: `${siteConfig.url}/arbejde`,
     isPartOf: { "@id": `${siteConfig.url}/#website` },
     about: { "@id": `${siteConfig.url}/#person` },
@@ -306,6 +306,22 @@ export function localAreaPageJsonLd(area: LocalArea) {
         addressCountry: "DK",
       },
     },
+  };
+}
+
+/** Homepage WebPage — primary broad SEO landing */
+export function homePageJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${siteConfig.url}/#homepage`,
+    url: siteConfig.url,
+    name: siteConfig.seo.homeTitle,
+    description: siteConfig.seo.homeDescription,
+    inLanguage: "da-DK",
+    isPartOf: { "@id": `${siteConfig.url}/#website` },
+    about: { "@id": `${siteConfig.url}/#person` },
+    mainEntity: { "@id": `${siteConfig.url}/#service` },
   };
 }
 

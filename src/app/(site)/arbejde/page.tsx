@@ -5,9 +5,9 @@ import { fetchProjects } from "@/lib/content";
 import { collectionPageJsonLd, pageMetadata } from "@/lib/seo";
 
 const arbejdeMetadata = pageMetadata({
-  title: "Arbejde",
+  title: "Portfolio | Foto og video",
   description:
-    "Udvalgte foto- og videoprojekter fra Lukas Svendsen. Fotograf og videoproducent.",
+    "Udvalgte foto- og videoprojekter fra Lukas Svendsen. Eksempler på foto, video og content til virksomheder, organisationer og private, ikke en komplet liste over alle ydelser.",
   path: "/arbejde",
 });
 

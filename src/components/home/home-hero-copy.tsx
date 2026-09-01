@@ -30,7 +30,7 @@ export function HomeHeroCopy() {
         </motion.p>
 
         <motion.h1
-          className="mt-4 max-w-[18ch] font-display text-[clamp(2rem,5.2vw,4rem)] leading-[1.05] tracking-[-0.035em] text-balance text-white sm:mt-5"
+          className="mt-4 max-w-[20ch] font-display text-[clamp(2rem,5.2vw,4rem)] leading-[1.05] tracking-[-0.035em] text-balance text-white sm:mt-5"
           initial={reduceMotion ? false : { y: 18 }}
           animate={{ y: 0 }}
           transition={
@@ -39,7 +39,7 @@ export function HomeHeroCopy() {
               : { duration: 0.75, delay: 0.38, ease }
           }
         >
-          Foto, video og content til det, du vil fortælle
+          Fotograf og videoproducent i Grindsted
         </motion.h1>
 
         <motion.p
@@ -52,9 +52,23 @@ export function HomeHeroCopy() {
               : { duration: 0.7, delay: 0.5, ease }
           }
         >
-          Uanset om du er privatperson, virksomhed, organisation eller brand,
-          hjælper jeg dig med at skabe visuelt content, der passer til
-          formålet. Fra idé til færdigt materiale.
+          Foto, video og content til både private og erhverv. Uanset om du er
+          privatperson, virksomhed, organisation eller brand, hjælper jeg dig med
+          at skabe visuelt materiale, der passer til det, du skal bruge det til.
+        </motion.p>
+
+        <motion.p
+          className="mt-4 max-w-[34rem] text-[0.9375rem] leading-[1.65] text-pretty text-white/65 sm:text-[1rem]"
+          initial={reduceMotion ? false : { y: 12 }}
+          animate={{ y: 0 }}
+          transition={
+            reduceMotion
+              ? { duration: 0 }
+              : { duration: 0.7, delay: 0.58, ease }
+          }
+        >
+          Jeg arbejder med virksomheder, organisationer, brands og private kunder
+          i Grindsted, Billund, Vejle, Esbjerg og resten af Danmark.
         </motion.p>
 
         <motion.div

@@ -38,7 +38,7 @@ const VIDEO_HEVC = path.join(ROOT, "public", "videos", "hero-hevc.mp4");
 const POSTER_OUT = path.join(ROOT, "public", "images", "hero-poster.jpg");
 
 const VIDEO_EXT = new Set([".mp4", ".mov", ".mkv", ".webm"]);
-const MAX_INPUT_BYTES = 500 * 1024 * 1024;
+const MAX_INPUT_BYTES = 700 * 1024 * 1024;
 
 function ffmpegCmd() {
   const result = spawnSync("ffmpeg", ["-version"], { encoding: "utf8" });
@@ -206,7 +206,7 @@ async function main() {
   const size = statSync(input).size;
   if (size > MAX_INPUT_BYTES) {
     throw new Error(
-      `${path.basename(input)} er ${(size / 1024 / 1024).toFixed(1)} MB (max 500 MB)`
+      `${path.basename(input)} er ${(size / 1024 / 1024).toFixed(1)} MB (max 700 MB)`
     );
   }
 

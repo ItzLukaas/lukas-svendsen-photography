@@ -14,13 +14,11 @@ import { siteConfig } from "@/lib/site";
 import { aspectRatioStyle, cn } from "@/lib/utils";
 
 const FILTER_INTRO: Record<string, string> = {
-  sport:
-    "Håndbold-DM, Super Cup, klubkampe og spillerportrætter. Sportsfoto fra hele Danmark.",
-  koncerter:
-    "Festivaler og koncerter. Smukfest, Grøn Koncert, Varde Open Air, Suset og mere.",
-  events: "Events med stemning, gæster og liveoplevelser.",
-  portraetter: "Portrætter til private, klubber og foreninger.",
-  erhverv: "Branding, produkt og visuelt materiale.",
+  sport: "Udvalgte sportsprojekter.",
+  koncerter: "Live fra scenen og publikum.",
+  events: "Stemning og øjeblikke.",
+  portraetter: "Portrætter og personlige opgaver.",
+  erhverv: "Visuelt materiale til brands og virksomheder.",
 };
 
 type WorkIndexProps = {
@@ -192,7 +190,7 @@ export function WorkIndex({
   const intro =
     kategori !== "alle" && FILTER_INTRO[kategori]
       ? FILTER_INTRO[kategori]
-      : "Projekter fra hele Danmark. Sport, koncert, event, portræt og mere. Åbn et projekt for at se billederne.";
+      : "Udvalgte projekter fra hele Danmark.";
 
   return (
     <div className="mx-auto max-w-[1600px] px-5 pt-[calc(var(--chrome-h)+2.5rem)] pb-24 md:px-8 md:pb-32 lg:px-12">

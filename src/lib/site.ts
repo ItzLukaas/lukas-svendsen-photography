@@ -29,7 +29,7 @@ export const siteConfig = {
   ] as const,
   tagline: "Foto, video og content",
   description:
-    "Foto, video og content til private og erhverv. Lukas Svendsen, fotograf og videoproducent fra Grindsted. Opgaver i Billund, Vejle og hele Danmark.",
+    "Foto, video og content. Lukas Svendsen, fotograf og videoproducent fra Grindsted. Hele Danmark.",
   nav: [
     { href: "/arbejde", label: "Arbejde" },
     { href: "/om", label: "Om mig" },

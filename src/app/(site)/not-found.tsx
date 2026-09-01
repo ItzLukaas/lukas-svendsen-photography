@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Siden findes ikke",
   description:
-    "Siden findes ikke. Gå til portfolio, booking eller forsiden hos fotograf Lukas Svendsen.",
+    "Siden findes ikke. Gå til arbejde, booking eller forsiden hos Lukas Svendsen.",
   robots: { index: false, follow: true },
 };
 

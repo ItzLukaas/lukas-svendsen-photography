@@ -36,59 +36,49 @@ export const homeServices: HomeService[] = [
     id: "foto",
     title: "Foto",
     bookingType: "Fotografering",
-    description: "Portræt, produkt, event, branding og private arrangementer.",
+    description: "Stillebilleder med professionelt udtryk.",
     icon: Camera,
   },
   {
     id: "video",
     title: "Video",
     bookingType: "Videoproduktion",
-    description: "Profilfilm, eventfilm, SoMe og korte klip.",
+    description: "Film og bevægeligt materiale.",
     icon: Video,
   },
   {
     id: "drone",
     title: "Drone",
     bookingType: "Droneproduktion",
-    description: "Luftfoto og luftvideo med klart overblik.",
+    description: "Luftfoto og luftvideo.",
     icon: Plane,
   },
   {
     id: "content",
     title: "Content",
     bookingType: "Content",
-    description: "Web, SoMe, kampagner og løbende pakker.",
+    description: "Materiale til digitale kanaler.",
     icon: Layers,
   },
 ];
 
-/**
- * Expanded content points under the service offers —
- * broad enough for companies, events, associations and one-off jobs.
- */
 export const videoServiceFeatures: VideoServiceFeature[] = [
   {
-    id: "web-brand",
-    title: "Web og branding",
-    body: "Foto og video til hjemmeside, branding og marketing. Materiale der ser skarpt ud og kan bruges med det samme.",
+    id: "web-some",
+    title: "Web og sociale medier",
+    body: "Materiale til hjemmeside og SoMe.",
     icon: Camera,
   },
   {
-    id: "some",
-    title: "SoMe og kampagner",
-    body: "Content til sociale medier, lanceringer og kampagner. Formateret til de platforme, det skal leve på.",
+    id: "campaigns",
+    title: "Kampagner",
+    body: "Til lanceringer og løbende kommunikation.",
     icon: Clapperboard,
-  },
-  {
-    id: "event-drone",
-    title: "Events og drone",
-    body: "Recaps, aftermovies, produktfilm og droneoptagelser. Når overblikket eller bevægelsen gør en forskel.",
-    icon: Plane,
   },
   {
     id: "tailored",
     title: "Tilpasset opgaven",
-    body: "Ét shoot, en eventproduktion eller en løbende contentpakke. Omfanget tilpasser vi sammen.",
+    body: "Omfang og form finder vi sammen.",
     icon: UserRound,
   },
 ];

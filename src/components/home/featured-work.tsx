@@ -75,7 +75,7 @@ export function FeaturedWork() {
               Udvalgt arbejde
             </h2>
             <p className="mt-3 text-[0.9375rem] leading-[1.65] text-muted-ink md:text-[1rem]">
-              Udvalgte projekter. Sport, koncert, event og mere.
+              Udvalgte projekter.
             </p>
           </div>
           <Link href="/arbejde" className="btn-ghost hidden shrink-0 sm:inline-flex">

@@ -13,7 +13,7 @@ import {
 export const metadata: Metadata = pageMetadata({
   title: "Om mig",
   description:
-    "Lukas Svendsen laver foto, video og content til private og erhverv. Fotograf og videoproducent fra Grindsted med opgaver i hele Danmark.",
+    "Lukas Svendsen laver foto, video og content. Fotograf og videoproducent fra Grindsted med opgaver i hele Danmark.",
   path: "/om",
 });
 
@@ -22,7 +22,7 @@ export default function OmPage() {
     path: "/om",
     name: "Om Lukas Svendsen",
     description:
-      "Lukas Svendsen laver foto, video og content til private og erhverv fra Grindsted.",
+      "Lukas Svendsen laver foto, video og content fra Grindsted.",
     type: "AboutPage",
   });
   const breadcrumbJsonLd = pageBreadcrumbJsonLd([
@@ -62,7 +62,7 @@ export default function OmPage() {
               Lukas Svendsen
             </h1>
             <p className="mt-4 text-[0.9375rem] text-muted-ink">
-              Foto, video og content · Grindsted
+              Fotograf og videoproducent · Grindsted
             </p>
           </FadeIn>
 
@@ -71,13 +71,11 @@ export default function OmPage() {
               <p>
                 Jeg hedder Lukas Svendsen. Fulde navn Lukas Guldager Svendsen.
                 Jeg er 16 år, kommer fra Grindsted og laver foto, video, drone
-                og content til private og erhverv.
+                og content.
               </p>
               <p>
-                Det kan være en konfirmation, portrætter, virksomhedsvideo,
-                produktfoto, et event eller content til SoMe. Ét job eller en
-                større produktion. Jeg møder op, holder hovedet koldt og
-                leverer materiale, der kan bruges med det samme.
+                Ét job eller en større produktion. Jeg møder op og leverer
+                materiale, der kan bruges med det samme.
               </p>
               <p>
                 Book mig, hvis du har en opgave. Så tager vi den derfra.
@@ -119,30 +117,6 @@ export default function OmPage() {
                     className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
                   >
                     Fotograf Vejle
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/arbejde?kategori=portraetter"
-                    className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
-                  >
-                    Portrætfoto
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/arbejde?kategori=sport"
-                    className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
-                  >
-                    Sportsfoto
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/arbejde?kategori=koncerter"
-                    className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
-                  >
-                    Koncertfoto
                   </Link>
                 </li>
                 <li>

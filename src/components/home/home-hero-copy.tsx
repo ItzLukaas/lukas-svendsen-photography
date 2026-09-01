@@ -43,7 +43,7 @@ export function HomeHeroCopy() {
         </motion.h1>
 
         <motion.p
-          className="mt-5 max-w-[28rem] text-[0.9375rem] leading-[1.65] text-pretty text-white/78 sm:mt-6 sm:text-[1.0625rem] md:max-w-[34rem]"
+          className="mt-5 max-w-[26rem] text-[0.9375rem] leading-[1.65] text-pretty text-white/78 sm:mt-6 sm:text-[1.0625rem]"
           initial={reduceMotion ? false : { y: 14 }}
           animate={{ y: 0 }}
           transition={
@@ -52,8 +52,7 @@ export function HomeHeroCopy() {
               : { duration: 0.7, delay: 0.5, ease }
           }
         >
-          Til private og erhverv. Konfirmation, portræt, branding, events eller
-          produktion. Base i Grindsted, hele Danmark.
+          Professionelt visuelt materiale. Fra Grindsted, hele Danmark.
         </motion.p>
 
         <motion.div

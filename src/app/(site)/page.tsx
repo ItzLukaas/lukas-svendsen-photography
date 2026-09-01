@@ -4,8 +4,7 @@ import { HomePage } from "@/components/home/home-page";
 import { defaultShareImage } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
-const title =
-  "Foto, video og content til private og erhverv | Lukas Svendsen";
+const title = "Fotograf og videoproducent | Lukas Svendsen";
 
 export const metadata: Metadata = {
   title: {

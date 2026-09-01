@@ -1,5 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import { Camera, Music2, Trophy } from "lucide-react";
+import { Camera, Clapperboard, Layers } from "lucide-react";
 
 export type ValueProp = {
   id: string;
@@ -8,24 +8,23 @@ export type ValueProp = {
   icon: LucideIcon;
 };
 
-/** Concrete proof points — not generic agency copy. */
 export const valueProps: ValueProp[] = [
   {
-    id: "versatile",
-    title: "Bredt setup",
-    body: "Foto, video, drone og content. Private og erhverv. Vi finder løsningen til opgaven.",
+    id: "production",
+    title: "Hel produktion",
+    body: "Foto, video, drone og content fra én kontakt.",
     icon: Camera,
   },
   {
-    id: "concert",
-    title: "Koncert og festival",
-    body: "Smukfest, Grøn Koncert, Varde Open Air og Suset. Live fra scenen og publikum.",
-    icon: Music2,
+    id: "on-site",
+    title: "På opgaven",
+    body: "Jeg møder op og fanger det, der skal med.",
+    icon: Clapperboard,
   },
   {
     id: "delivery",
     title: "Klar til brug",
-    body: "Billeder og video i de formater, du faktisk bruger. Web, SoMe og presse.",
-    icon: Trophy,
+    body: "Leveret i de formater, du faktisk bruger.",
+    icon: Layers,
   },
 ];

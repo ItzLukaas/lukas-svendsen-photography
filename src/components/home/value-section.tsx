@@ -23,8 +23,8 @@ export function ValueSection() {
           </FadeIn>
           <FadeIn delay={0.06} className="md:col-span-5">
             <p className="max-w-[38ch] text-[0.9375rem] leading-[1.7] text-muted-ink md:ml-auto md:text-[1.0625rem]">
-              Fra konfirmation og portræt til events og branding. Med kunder som
-              Dansk Håndbold, Fredericia HK og Varde Open Air.
+              Professionelt visuelt materiale. Med kunder som Dansk Håndbold,
+              Fredericia HK og Varde Open Air.
             </p>
           </FadeIn>
         </div>

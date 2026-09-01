@@ -29,13 +29,13 @@ function projectPageTitle(project: Project) {
 
 function projectDescription(project: Project) {
   const disciplineSeo: Partial<Record<Project["discipline"], string>> = {
-    koncerter: "Koncertfotografi og festivalfoto",
-    sport: "Sportsfotografi og håndboldfoto",
-    events: "Eventfotografi og stemningsbilleder",
-    erhverv: "Branding, produkt og visuelt materiale",
-    portraetter: "Portrætfotografi",
+    koncerter: "Foto fra liveoptræden",
+    sport: "Foto fra kamp",
+    events: "Foto fra arrangement",
+    erhverv: "Visuelt materiale",
+    portraetter: "Portrætfoto",
   };
-  const seoLead = disciplineSeo[project.discipline] ?? "Fotografi";
+  const seoLead = disciplineSeo[project.discipline] ?? "Foto";
   const location = project.location ? ` · ${project.location}` : "";
   const client = project.client ? ` ${project.client}.` : "";
   return `${seoLead}: ${project.excerpt}${location}.${client}`.replace(

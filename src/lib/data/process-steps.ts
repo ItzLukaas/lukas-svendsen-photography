@@ -17,7 +17,7 @@ export const processSteps: ProcessStep[] = [
     id: "on-site",
     step: 2,
     title: "Jeg møder op",
-    body: "På lokationen. Hos dig, på eventet eller der, hvor det skal ske. Jeg fanger det, der skal med.",
+    body: "På lokationen. Der, hvor det skal ske. Jeg fanger det, der skal med.",
   },
   {
     id: "deliver",

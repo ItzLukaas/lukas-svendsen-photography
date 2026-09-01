@@ -132,17 +132,11 @@ const jsonLd = {
       },
       knowsAbout: [
         "Fotografering",
-        "Portrætfotografi",
-        "Produktfotografi",
         "Videoproduktion",
         "Droneproduktion",
-        "Content creation",
-        "Brand content",
-        "Koncertfotografi",
-        "Festivalfotografi",
-        "Eventfotografi",
-        "Sportsfotografi",
-        ...siteConfig.disciplines.map((item) => item.label),
+        "Contentproduktion",
+        "Visuelt content",
+        "Foto og video",
       ],
       worksFor: { "@id": `${siteConfig.url}/#organization` },
       sameAs: [
@@ -215,12 +209,7 @@ const jsonLd = {
         "Fotografering",
         "Videoproduktion",
         "Droneproduktion",
-        "Portrætfotografi",
-        "Produktfotografi",
         "Contentproduktion",
-        "Koncert- og festivalfotografi",
-        "Eventfotografi",
-        "Sportsfotografi",
       ],
       hasOfferCatalog: {
         "@type": "OfferCatalog",
@@ -232,7 +221,7 @@ const jsonLd = {
               "@type": "Service",
               name: "Fotografering",
               description:
-                "Portræt, produkt, event, sport og brand. Foto til mange forskellige formål.",
+                "Professionelle stillebilleder til den opgave, du har.",
               areaServed,
             },
           },
@@ -240,9 +229,9 @@ const jsonLd = {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
-              name: "Koncert & festival",
+              name: "Videoproduktion",
               description:
-                "Koncert- og festivalfotografi. Artister, publikum og stemning.",
+                "Film og bevægeligt materiale til den opgave, du har.",
               areaServed,
             },
           },
@@ -250,19 +239,8 @@ const jsonLd = {
             "@type": "Offer",
             itemOffered: {
               "@type": "Service",
-              name: "Event & arrangement",
-              description:
-                "Eventfoto og video til arrangementer, foreninger og organisationer.",
-              areaServed,
-            },
-          },
-          {
-            "@type": "Offer",
-            itemOffered: {
-              "@type": "Service",
-              name: "Sport",
-              description:
-                "Sportsfotografi med fokus på action, jubel og afgørende øjeblikke.",
+              name: "Droneproduktion",
+              description: "Luftfoto og luftvideo.",
               areaServed,
             },
           },
@@ -272,17 +250,7 @@ const jsonLd = {
               "@type": "Service",
               name: "Contentproduktion",
               description:
-                "Skræddersyet content til web, SoMe, kampagner, events og brands.",
-              areaServed,
-            },
-          },
-          {
-            "@type": "Offer",
-            itemOffered: {
-              "@type": "Service",
-              name: "Video & drone",
-              description:
-                "Aftermovies, film, branded video og droneoptagelser.",
+                "Visuelt materiale til digitale kanaler og kampagner.",
               areaServed,
             },
           },

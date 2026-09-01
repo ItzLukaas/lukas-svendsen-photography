@@ -50,7 +50,7 @@ export function LocalAreaView({ area }: LocalAreaViewProps) {
 
         <FadeIn delay={0.08}>
           <div className="mt-12 border-t border-foreground/10 pt-10">
-            <h2 className="label-meta">Hvad jeg laver</h2>
+            <h2 className="label-meta">Mere</h2>
             <ul className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
               {area.services.map((service) => (
                 <li key={service.href}>

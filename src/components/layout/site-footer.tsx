@@ -34,8 +34,7 @@ export function SiteFooter() {
               {siteConfig.name}
             </p>
             <p className="mt-2 max-w-[48ch] text-[0.875rem] leading-[1.65] text-paper/50">
-              Foto, video og content. Base i Grindsted, opgaver i Billund,
-              Vejle og hele Danmark.
+              Foto, video og content. Grindsted, hele Danmark.
             </p>
           </div>
           <Link href="/booking" className="btn-solid mt-2 shrink-0 bg-paper text-ink md:mt-0">
@@ -117,39 +116,15 @@ export function SiteFooter() {
               ))}
             </ul>
             <p className="mt-6 text-[0.6875rem] font-medium tracking-[0.12em] text-paper/55 uppercase">
-              Portfolio
+              Arbejde
             </p>
             <ul className="mt-4 space-y-2.5">
               <li>
                 <Link
-                  href="/arbejde?kategori=portraetter"
+                  href="/arbejde"
                   className="text-[0.9375rem] text-paper/75 transition-colors duration-300 hover:text-paper focus-visible:text-paper"
                 >
-                  Portrætfoto
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/arbejde?kategori=koncerter"
-                  className="text-[0.9375rem] text-paper/75 transition-colors duration-300 hover:text-paper focus-visible:text-paper"
-                >
-                  Festivalfoto
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/arbejde?kategori=sport"
-                  className="text-[0.9375rem] text-paper/75 transition-colors duration-300 hover:text-paper focus-visible:text-paper"
-                >
-                  Sportsfoto
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/arbejde?kategori=events"
-                  className="text-[0.9375rem] text-paper/75 transition-colors duration-300 hover:text-paper focus-visible:text-paper"
-                >
-                  Eventfoto
+                  Se portfolio
                 </Link>
               </li>
             </ul>

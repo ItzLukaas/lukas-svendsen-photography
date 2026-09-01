@@ -238,7 +238,7 @@ export function getCollaborationsJsonLd(siteUrl: string) {
     "@id": `${siteUrl}/#collaborations`,
     name: "Samarbejder & opgaver",
     description:
-      "Udvalgte samarbejder og opgaver. Blandt andet MAGION Grindsted, Vejle Kommune, Billund Kommune, DanskHåndbold, Fredericia Håndboldklub, Varde Open Air, Bork Festival, Suset, Smukfest og SPORT 24.",
+      "Udvalgte samarbejder og opgaver med kunder i hele Danmark.",
     numberOfItems: clientLogos.length,
     itemListElement: clientLogos.map((logo, index) => ({
       "@type": "ListItem",

@@ -18,10 +18,10 @@ import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 const productionHints: Record<(typeof productionTypes)[number], string> = {
-  Fotografering: "Portræt, produkt, event, sport, brand eller noget helt andet",
-  Videoproduktion: "Aftermovie, eventfilm, korte klip",
-  Droneproduktion: "Luftfoto og video",
-  Content: "Web, SoMe, kampagner eller løbende pakke",
+  Fotografering: "Kort beskrivelse af opgaven",
+  Videoproduktion: "Kort beskrivelse af opgaven",
+  Droneproduktion: "Kort beskrivelse af opgaven",
+  Content: "Kort beskrivelse af opgaven",
   Andet: "Fortæl gerne mere nedenfor",
 };
 
@@ -339,7 +339,7 @@ export function BookingForm() {
                 <Input
                   id={`${formId}-company`}
                   autoComplete="organization"
-                  placeholder="Fx festival, brand eller firma"
+                placeholder="Valgfrit"
                   aria-invalid={Boolean(errors.company)}
                   className={fieldClass}
                   {...register("company")}

@@ -23,13 +23,17 @@ export function HomeAreas() {
           </h2>
           <div className="mt-4 max-w-[58ch] space-y-4 text-[0.9375rem] leading-[1.65] text-muted-ink">
             <p>
-              Jeg har base i Grindsted og tager foto- og videoopgaver i hele
-              Jylland og Danmark.
+              Jeg arbejder fra Grindsted og tager foto- og videoopgaver i hele
+              Jylland og resten af Danmark.
             </p>
             <p>
-              Virksomheder, foreninger, sport, events og private booker mig til
-              produktioner i Grindsted, Billund, Vejle, Esbjerg og resten af
-              landet.
+              Jeg arbejder blandt andet med virksomheder, foreninger, sport,
+              events og private, og opgaverne spænder fra enkeltstående
+              fotoshoots til større foto- og videoproduktioner.
+            </p>
+            <p>
+              Jeg arbejder ofte i Grindsted, Billund, Vejle og Esbjerg, men
+              tager også gerne opgaver andre steder i landet.
             </p>
           </div>
         </FadeIn>

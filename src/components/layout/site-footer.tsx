@@ -35,7 +35,8 @@ export function SiteFooter() {
             </p>
             <p className="mt-2 max-w-[52ch] text-[0.875rem] leading-[1.65] text-paper/50">
               Fotograf og videoproducent. Foto, video, drone og content til
-              virksomheder, organisationer og private.
+              virksomheder, organisationer og private i Jylland og resten af
+              Danmark.
             </p>
           </div>
           <Link href="/booking" className="btn-solid mt-2 shrink-0 bg-paper text-ink md:mt-0">

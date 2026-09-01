@@ -19,7 +19,7 @@ export function ProcessSection() {
             id="process-heading"
             className="mt-3 max-w-[18ch] font-display text-[clamp(1.9rem,4.4vw,3.15rem)] leading-[1.05] tracking-[-0.035em] text-ink"
           >
-            Fra idé til færdigt visuelt content
+            Sådan foregår det
           </h2>
           <p className="mt-4 max-w-[52ch] text-[0.9375rem] leading-[1.65] text-muted-ink">
             Samarbejdet er enkelt og overskueligt. Fra første kontakt til færdigt

@@ -104,7 +104,7 @@ export default function OmPage() {
                     href="/fotograf-grindsted"
                     className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
                   >
-                    Fotograf Grindsted
+                    Fotograf i Grindsted
                   </Link>
                 </li>
                 <li>
@@ -112,7 +112,7 @@ export default function OmPage() {
                     href="/fotograf-billund"
                     className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
                   >
-                    Fotograf Billund
+                    Fotograf i Billund
                   </Link>
                 </li>
                 <li>
@@ -120,7 +120,7 @@ export default function OmPage() {
                     href="/fotograf-vejle"
                     className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
                   >
-                    Fotograf Vejle
+                    Fotograf i Vejle
                   </Link>
                 </li>
                 <li>
@@ -128,7 +128,7 @@ export default function OmPage() {
                     href="/fotograf-esbjerg"
                     className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
                   >
-                    Fotograf Esbjerg
+                    Fotograf i Esbjerg
                   </Link>
                 </li>
                 <li>

@@ -52,9 +52,10 @@ export function HomeHeroCopy() {
               : { duration: 0.7, delay: 0.5, ease }
           }
         >
-          Foto, video og content til både private og erhverv. Uanset om du er
-          privatperson, virksomhed, organisation eller brand, hjælper jeg dig med
-          at skabe visuelt materiale, der passer til det, du skal bruge det til.
+          Jeg arbejder med foto, video og content for både virksomheder,
+          organisationer, brands og private. Fra den enkelte fotosession til
+          større visuelle produktioner tilpasser jeg opgaven efter det, du har
+          brug for.
         </motion.p>
 
         <motion.p
@@ -67,8 +68,8 @@ export function HomeHeroCopy() {
               : { duration: 0.7, delay: 0.58, ease }
           }
         >
-          Jeg arbejder med virksomheder, organisationer, brands og private kunder
-          i Grindsted, Billund, Vejle, Esbjerg og resten af Danmark.
+          Jeg arbejder i Grindsted, Billund, Vejle, Esbjerg, på tværs af Jylland
+          og i resten af Danmark.
         </motion.p>
 
         <motion.div

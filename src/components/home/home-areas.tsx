@@ -22,10 +22,9 @@ export function HomeAreas() {
             Arbejder i Grindsted, Billund, Vejle, Esbjerg og resten af Danmark
           </h2>
           <p className="mt-4 max-w-[56ch] text-[0.9375rem] leading-[1.65] text-muted-ink">
-            Jeg arbejder med virksomheder, organisationer, brands og private
-            kunder i Grindsted, Billund, Vejle, Esbjerg og resten af Danmark.
-            Uanset om du skal bruge foto, video, content eller drone, kan vi tage
-            en snak om opgaven.
+            Jeg tager opgaver i hele Jylland og resten af Danmark. Uanset om du
+            skal bruge foto, video, content eller drone, kan vi tage en snak om
+            opgaven.
           </p>
         </FadeIn>
 
@@ -41,6 +40,14 @@ export function HomeAreas() {
                 </Link>
               </li>
             ))}
+            <li>
+              <Link
+                href="/#services"
+                className="font-medium text-foreground underline-offset-4 transition-opacity hover:opacity-70 hover:underline"
+              >
+                Foto og video til virksomheder
+              </Link>
+            </li>
             <li>
               <Link
                 href="/arbejde"

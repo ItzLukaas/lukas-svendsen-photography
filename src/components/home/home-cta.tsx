@@ -39,7 +39,7 @@ export function HomeCta() {
                 id="booking-heading"
                 className="mt-4 font-display text-[clamp(1.85rem,3.6vw,3rem)] leading-[1.08] tracking-[-0.035em] text-balance lg:whitespace-nowrap"
               >
-                Har du et job?
+                Skal vi skabe noget sammen?
               </h2>
 
               <div className="mt-5 h-px w-14 bg-paper/22" aria-hidden />

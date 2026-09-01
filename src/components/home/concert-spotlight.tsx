@@ -67,7 +67,7 @@ export function ConcertSpotlight() {
             delay={0.06}
             className="order-1 flex flex-col md:order-2 md:col-span-5 lg:col-span-4 lg:col-start-9"
           >
-            <p className="label-meta">Koncert</p>
+            <p className="label-meta">Live</p>
             <h3
               id="concert-spotlight-heading"
               className="mt-3 max-w-[14ch] font-display text-[clamp(1.85rem,3.8vw,2.85rem)] leading-[1.05] tracking-[-0.03em]"
@@ -90,7 +90,7 @@ export function ConcertSpotlight() {
 
             <div className="mt-8 md:mt-10">
               <Link href="/arbejde?kategori=koncerter" className="btn-outline">
-                Se koncertarbejde
+                Se flere eksempler
               </Link>
             </div>
           </FadeIn>

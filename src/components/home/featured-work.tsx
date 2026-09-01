@@ -72,12 +72,12 @@ export function FeaturedWork() {
               id="selected-work-heading"
               className="mt-3 font-display text-[clamp(1.65rem,3vw,2.25rem)] leading-[1.08] tracking-[-0.03em]"
             >
-              Se et udvalg af mit arbejde
+              Et udvalg af mit arbejde
             </h2>
             <p className="mt-3 max-w-lg text-[0.9375rem] leading-[1.65] text-muted-ink md:text-[1rem]">
-              Se et udvalg af mit arbejde. Her er cases fra forskellige
-              produktioner, der viser bredden i det, jeg laver. Portfolioen er
-              ikke en komplet liste over alle ydelser.
+              Her er cases fra forskellige produktioner, der viser bredden i det,
+              jeg laver. Det er eksempler, ikke en komplet liste over alle
+              ydelser.
             </p>
           </div>
           <Link href="/arbejde" className="btn-ghost hidden shrink-0 sm:inline-flex">

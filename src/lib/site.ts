@@ -29,11 +29,11 @@ export const siteConfig = {
   ] as const,
   tagline: "Foto, video og content",
   description:
-    "Fotograf og videograf i Grindsted. Lukas Svendsen laver foto, video, content og drone til virksomheder, organisationer og private i Grindsted, Billund, Vejle, Esbjerg og resten af Danmark.",
+    "Fotograf og videograf i Grindsted. Lukas Svendsen laver foto, video, content og drone til virksomheder, organisationer og private i Grindsted, Billund, Vejle, Esbjerg, på tværs af Jylland og i resten af Danmark.",
   seo: {
     homeTitle: "Fotograf og videograf i Grindsted",
     homeDescription:
-      "Fotograf og videograf i Grindsted. Lukas Svendsen laver foto, video, content og drone til virksomheder, organisationer og private i Grindsted, Billund, Vejle, Esbjerg og resten af Danmark.",
+      "Fotograf og videograf i Grindsted. Foto, video, content og drone til virksomheder, organisationer og private i Billund, Vejle, Esbjerg, Jylland og resten af Danmark.",
   },
   nav: [
     { href: "/arbejde", label: "Arbejde" },

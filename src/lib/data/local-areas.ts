@@ -21,11 +21,11 @@ const areas: LocalArea[] = [
     path: "/fotograf-grindsted",
     title: "Fotograf og videoproducent i Grindsted",
     metaDescription:
-      "Foto, video og content i Grindsted. Lukas Svendsen, fotograf og videoproducent. Hele Danmark.",
+      "Foto, video og content i Grindsted. Lukas Svendsen, fotograf og videoproducent.",
     headline: "Fotograf i Grindsted",
     intro: [
-      "Jeg laver foto, video og content med base i Grindsted.",
-      "Professionelt visuelt materiale til den opgave, du har. Lokalt og i hele landet.",
+      "Jeg laver foto, video, drone og content med udgangspunkt i Grindsted.",
+      "Uanset om du er privatperson, virksomhed, organisation eller brand, hjælper jeg dig med at skabe visuelt materiale, der passer til opgaven.",
     ],
     proof:
       "Har blandt andet fotograferet for MAGION Grindsted og leveret materiale til lokale opgaver.",
@@ -43,11 +43,11 @@ const areas: LocalArea[] = [
     path: "/fotograf-billund",
     title: "Fotograf og videoproducent i Billund",
     metaDescription:
-      "Foto, video og content i Billund. Lukas Svendsen fra Grindsted. Hele Danmark.",
+      "Foto, video og content i Billund. Lukas Svendsen, fotograf og videoproducent.",
     headline: "Fotograf i Billund",
     intro: [
-      "Jeg laver foto, video og content med base i Grindsted, tæt på Billund.",
-      "Ét job eller løbende samarbejde. Omfanget finder vi sammen.",
+      "Jeg laver foto, video, drone og content i Billund og omegn.",
+      "Professionelt visuelt materiale til det, du skal bruge det til. Ét job eller løbende samarbejde.",
     ],
     proof: "Har leveret foto til Billund Kommune og opgaver i området.",
     services: [
@@ -64,11 +64,11 @@ const areas: LocalArea[] = [
     path: "/fotograf-vejle",
     title: "Fotograf og videoproducent i Vejle",
     metaDescription:
-      "Foto, video og content i Vejle. Lukas Svendsen, fotograf og videoproducent fra Grindsted.",
+      "Foto, video og content i Vejle. Lukas Svendsen, fotograf og videoproducent.",
     headline: "Fotograf i Vejle",
     intro: [
-      "Jeg laver foto, video og content i Vejle. Base i Grindsted, opgaver i hele Danmark.",
-      "Skarpt materiale, klar til brug.",
+      "Jeg laver foto, video, drone og content i Vejle.",
+      "Materialet leveres skarpt og klar til brug, uanset om det er til kommunikation, kampagner eller digitale kanaler.",
     ],
     proof:
       "Har fotograferet for Vejle Kommune og Bygningen Vejle, blandt andre opgaver i området.",
@@ -86,11 +86,11 @@ const areas: LocalArea[] = [
     path: "/fotograf-give",
     title: "Fotograf og videoproducent i Give",
     metaDescription:
-      "Foto, video og content i Give og omegn. Lukas Svendsen fra Grindsted. Hele Danmark.",
+      "Foto, video og content i Give og omegn. Lukas Svendsen, fotograf og videoproducent.",
     headline: "Fotograf i Give",
     intro: [
-      "Give ligger tæt på min base i Grindsted. Jeg laver foto og video i Give og det sydvestjyske område.",
-      "Jeg kører ud til dig, lokalt eller længere væk, når opgaven kræver det.",
+      "Jeg laver foto og video i Give og det sydvestjyske område.",
+      "Kontakt mig med dato, sted og hvad du skal bruge materialet til, så finder vi ud af det sammen.",
     ],
     services: [
       { label: "Se arbejde", href: "/arbejde" },
@@ -106,11 +106,11 @@ const areas: LocalArea[] = [
     path: "/fotograf-kolding",
     title: "Fotograf og videoproducent i Kolding",
     metaDescription:
-      "Foto, video og content i Kolding. Lukas Svendsen, fotograf og videoproducent fra Grindsted.",
+      "Foto, video og content i Kolding. Lukas Svendsen, fotograf og videoproducent.",
     headline: "Fotograf i Kolding",
     intro: [
-      "Jeg laver foto og video i Kolding. Fra Grindsted er Kolding en naturlig del af mit arbejdsområde.",
-      "Kontakt mig med dato, sted og hvad du skal bruge materialet til.",
+      "Jeg laver foto, video, drone og content i Kolding.",
+      "Uanset om du har brug for ét shoot eller en større produktion, tager vi udgangspunkt i det, du skal bruge materialet til.",
     ],
     services: [
       { label: "Se arbejde", href: "/arbejde" },
@@ -126,11 +126,11 @@ const areas: LocalArea[] = [
     path: "/fotograf-esbjerg",
     title: "Fotograf og videoproducent i Esbjerg",
     metaDescription:
-      "Foto, video og content i Esbjerg. Lukas Svendsen, fotograf og videoproducent. Hele Danmark.",
+      "Foto, video og content i Esbjerg. Lukas Svendsen, fotograf og videoproducent.",
     headline: "Fotograf i Esbjerg",
     intro: [
-      "Jeg har leveret foto og video i Esbjerg og tager stadig opgaver i Vestjylland.",
-      "Skriv med dato og sted, så tager vi den derfra.",
+      "Jeg har leveret foto og video i Esbjerg og tager stadig opgaver i området.",
+      "Skriv med dato og sted, så tager vi en kort snak om, hvad du skal bruge.",
     ],
     proof:
       "Har leveret materiale fra Suset og Esbjerg Streetfood, blandt andre opgaver i området.",
@@ -148,11 +148,11 @@ const areas: LocalArea[] = [
     path: "/fotograf-jelling",
     title: "Fotograf og videoproducent i Jelling",
     metaDescription:
-      "Foto, video og content i Jelling og omegn. Lukas Svendsen fra Grindsted. Hele Danmark.",
+      "Foto, video og content i Jelling og omegn. Lukas Svendsen, fotograf og videoproducent.",
     headline: "Fotograf i Jelling",
     intro: [
-      "Jelling og omegn er en del af mit lokale arbejdsfelt fra Grindsted.",
-      "Har du en opgave i Jelling? Skriv kort, hvad du skal bruge.",
+      "Jeg laver foto og video i Jelling og omegn.",
+      "Har du en opgave i området? Skriv kort, hvad du skal bruge, så vender jeg tilbage.",
     ],
     services: [
       { label: "Se arbejde", href: "/arbejde" },
@@ -186,4 +186,4 @@ export function getLocalAreaByPath(localSlug: string) {
 export const primaryLocalCities = ["Grindsted", "Billund", "Vejle"] as const;
 
 export const localAreasSummary =
-  "Foto, video og content med base i Grindsted. Opgaver i Billund, Vejle, Give, Kolding, Esbjerg og hele Danmark.";
+  "Foto, video og content i Grindsted, Billund, Vejle, Give, Kolding, Esbjerg og Jelling.";

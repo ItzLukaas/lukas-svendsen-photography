@@ -13,7 +13,7 @@ import {
 export const metadata: Metadata = pageMetadata({
   title: "Om mig",
   description:
-    "Lukas Svendsen laver foto, video og content. Fotograf og videoproducent fra Grindsted med opgaver i hele Danmark.",
+    "Lukas Svendsen er fotograf og videoproducent. Foto, video, drone og content til forskellige behov.",
   path: "/om",
 });
 
@@ -22,7 +22,7 @@ export default function OmPage() {
     path: "/om",
     name: "Om Lukas Svendsen",
     description:
-      "Lukas Svendsen laver foto, video og content fra Grindsted.",
+      "Lukas Svendsen er fotograf og videoproducent med fokus på foto, video, drone og content.",
     type: "AboutPage",
   });
   const breadcrumbJsonLd = pageBreadcrumbJsonLd([
@@ -62,7 +62,7 @@ export default function OmPage() {
               Lukas Svendsen
             </h1>
             <p className="mt-4 text-[0.9375rem] text-muted-ink">
-              Fotograf og videoproducent · Grindsted
+              Fotograf og videoproducent
             </p>
           </FadeIn>
 
@@ -70,15 +70,18 @@ export default function OmPage() {
             <div className="mt-9 space-y-5 text-body">
               <p>
                 Jeg hedder Lukas Svendsen. Fulde navn Lukas Guldager Svendsen.
-                Jeg er 16 år, kommer fra Grindsted og laver foto, video, drone
-                og content.
+                Jeg er 16 år og arbejder som fotograf og videoproducent med foto,
+                video, drone og content.
               </p>
               <p>
-                Ét job eller en større produktion. Jeg møder op og leverer
-                materiale, der kan bruges med det samme.
+                Uanset om du er privatperson, virksomhed, organisation eller
+                brand, hjælper jeg dig med at skabe visuelt materiale, der passer
+                til formålet. Ét job eller en større produktion.
               </p>
               <p>
-                Book mig, hvis du har en opgave. Så tager vi den derfra.
+                Jeg møder op, holder hovedet koldt og leverer materiale, der kan
+                bruges med det samme. Book mig, hvis du har en opgave, så tager
+                vi den derfra.
               </p>
             </div>
           </FadeIn>

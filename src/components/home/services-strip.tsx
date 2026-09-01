@@ -23,9 +23,10 @@ export function ServicesStrip() {
           >
             Hvad jeg laver
           </h2>
-          <p className="mt-3 max-w-[40ch] text-[0.9375rem] leading-[1.65] text-muted-ink">
-            Visuelt content til forskellige opgaver. Omfanget finder vi
-            sammen.
+          <p className="mt-3 max-w-[52ch] text-[0.9375rem] leading-[1.65] text-muted-ink">
+            Uanset om du er privatperson, virksomhed, organisation eller brand,
+            hjælper jeg dig med at skabe visuelt content, der passer til
+            formålet. Omfanget finder vi sammen.
           </p>
         </FadeIn>
 
@@ -99,8 +100,10 @@ export function ServicesStrip() {
               >
                 Video og drone
               </h3>
-              <p className="mx-auto mt-3 max-w-[36ch] text-[0.9375rem] leading-[1.65] text-muted-ink">
-                Som del af den samlede produktion.
+              <p className="mx-auto mt-3 max-w-[48ch] text-[0.9375rem] leading-[1.65] text-muted-ink">
+                Video og drone kan indgå som en del af en samlet produktion eller
+                stå alene. Professionelle optagelser, der supplerer foto og
+                content, når opgaven kræver det.
               </p>
             </FadeIn>
 

@@ -35,7 +35,7 @@ export function LocalAreaView({ area }: LocalAreaViewProps) {
             {area.headline}
           </h1>
           <p className="mt-4 text-[0.9375rem] text-muted-ink">
-            Foto · video · drone · {area.city} og hele Danmark
+            Foto, video, drone og content i {area.city}
           </p>
         </FadeIn>
 

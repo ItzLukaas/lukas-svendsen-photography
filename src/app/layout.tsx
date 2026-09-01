@@ -177,7 +177,7 @@ const jsonLd = {
     {
       "@type": ["ProfessionalService", "LocalBusiness"],
       "@id": `${siteConfig.url}/#service`,
-      name: `${siteConfig.name}, foto og video i Grindsted`,
+      name: `${siteConfig.name}, foto og video`,
       alternateName: "Lukas Svendsen Photography",
       url: siteConfig.url,
       email: siteConfig.email,
@@ -221,7 +221,7 @@ const jsonLd = {
               "@type": "Service",
               name: "Fotografering",
               description:
-                "Professionelle stillebilleder til den opgave, du har.",
+                "Professionelle stillebilleder til private, virksomheder og organisationer.",
               areaServed,
             },
           },
@@ -231,7 +231,7 @@ const jsonLd = {
               "@type": "Service",
               name: "Videoproduktion",
               description:
-                "Film og bevægeligt materiale til den opgave, du har.",
+                "Film og bevægeligt materiale til kommunikation, kampagner og digitale kanaler.",
               areaServed,
             },
           },
@@ -240,7 +240,7 @@ const jsonLd = {
             itemOffered: {
               "@type": "Service",
               name: "Droneproduktion",
-              description: "Luftfoto og luftvideo.",
+              description: "Luftfoto og luftvideo som del af foto og videoproduktion.",
               areaServed,
             },
           },
@@ -250,7 +250,7 @@ const jsonLd = {
               "@type": "Service",
               name: "Contentproduktion",
               description:
-                "Visuelt materiale til digitale kanaler og kampagner.",
+                "Visuelt materiale til web, sociale medier og løbende kommunikation.",
               areaServed,
             },
           },

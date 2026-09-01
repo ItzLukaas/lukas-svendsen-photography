@@ -7,7 +7,7 @@ import { collectionPageJsonLd, pageMetadata } from "@/lib/seo";
 const arbejdeMetadata = pageMetadata({
   title: "Arbejde",
   description:
-    "Udvalgte foto- og videoprojekter fra Lukas Svendsen. Fotograf og videoproducent fra Grindsted med opgaver i hele Danmark.",
+    "Udvalgte foto- og videoprojekter fra Lukas Svendsen. Fotograf og videoproducent.",
   path: "/arbejde",
 });
 

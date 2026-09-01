@@ -81,7 +81,8 @@ export function ConcertSpotlight() {
 
             <div className="mt-6 max-w-md space-y-4 text-[0.9375rem] leading-[1.7] text-muted-ink md:mt-7 md:text-[1rem]">
               <p>
-                Live fra scenen. Udvalgte opgaver.
+                Live fra scenen. Kunstnere, lys og publikum fanget i
+                øjeblikket.
               </p>
             </div>
 

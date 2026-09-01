@@ -14,9 +14,9 @@ import { siteConfig } from "@/lib/site";
 import { aspectRatioStyle, cn } from "@/lib/utils";
 
 const FILTER_INTRO: Record<string, string> = {
-  sport: "Udvalgte sportsprojekter.",
-  koncerter: "Live fra scenen og publikum.",
-  events: "Stemning og øjeblikke.",
+  sport: "Udvalgte sportsprojekter fra forskellige opgaver.",
+  koncerter: "Live fra scenen. Kunstnere, lys og publikum.",
+  events: "Stemning og øjeblikke fra udvalgte arrangementer.",
   portraetter: "Portrætter og personlige opgaver.",
   erhverv: "Visuelt materiale til brands og virksomheder.",
 };
@@ -190,7 +190,7 @@ export function WorkIndex({
   const intro =
     kategori !== "alle" && FILTER_INTRO[kategori]
       ? FILTER_INTRO[kategori]
-      : "Udvalgte projekter fra hele Danmark.";
+      : "Et udvalg af projekter fra forskellige opgaver. Portfolioen viser eksempler på mit arbejde, ikke en komplet liste over ydelser.";
 
   return (
     <div className="mx-auto max-w-[1600px] px-5 pt-[calc(var(--chrome-h)+2.5rem)] pb-24 md:px-8 md:pb-32 lg:px-12">

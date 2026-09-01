@@ -189,7 +189,7 @@ export function collectionPageJsonLd(
     "@id": `${siteConfig.url}/arbejde#collection`,
     name: "Portfolio, Lukas Svendsen",
     description:
-      "Udvalgte foto- og videoprojekter fra Lukas Svendsen. Fotograf og videoproducent fra Grindsted med opgaver i hele Danmark.",
+      "Udvalgte foto- og videoprojekter fra Lukas Svendsen. Fotograf og videoproducent.",
     url: `${siteConfig.url}/arbejde`,
     isPartOf: { "@id": `${siteConfig.url}/#website` },
     about: { "@id": `${siteConfig.url}/#person` },

@@ -14,7 +14,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: "Book foto, video og content",
   description:
-    "Book Lukas Svendsen til foto, video og content. Base i Grindsted, opgaver i hele Danmark. Svar inden for 1 til 2 hverdage.",
+    "Book Lukas Svendsen til foto, video, drone og content. Svar inden for 1 til 2 hverdage.",
   path: "/booking",
 });
 
@@ -22,7 +22,8 @@ export default function BookingPage() {
   const jsonLd = simplePageJsonLd({
     path: "/booking",
     name: "Book Lukas Svendsen",
-    description: "Booking af foto, video, drone og content.",
+    description:
+      "Booking af foto, video, drone og content til forskellige opgaver og behov.",
     type: "WebPage",
     mainEntityId: "service",
   });
@@ -49,8 +50,9 @@ export default function BookingPage() {
               Hvad skal du bruge?
             </h1>
             <p className="text-body mt-5 max-w-md">
-              Foto, video, drone eller content. Skriv kort hvad, hvornår og
-              hvor. Så svarer jeg inden for 1 til 2 hverdage.
+              Uanset om du skal bruge foto, video, drone eller content, kan du
+              skrive kort hvad, hvornår og hvor. Så svarer jeg inden for 1 til 2
+              hverdage, og vi finder ud af det sammen.
             </p>
 
             <div className="mt-10 space-y-2 border-t border-foreground/10 pt-8 text-[0.875rem]">

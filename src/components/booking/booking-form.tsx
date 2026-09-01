@@ -18,10 +18,10 @@ import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 const productionHints: Record<(typeof productionTypes)[number], string> = {
-  Fotografering: "Kort beskrivelse af opgaven",
-  Videoproduktion: "Kort beskrivelse af opgaven",
-  Droneproduktion: "Kort beskrivelse af opgaven",
-  Content: "Kort beskrivelse af opgaven",
+  Fotografering: "Beskriv kort opgaven og hvad materialet skal bruges til",
+  Videoproduktion: "Beskriv kort opgaven og hvad materialet skal bruges til",
+  Droneproduktion: "Beskriv kort opgaven og hvad materialet skal bruges til",
+  Content: "Beskriv kort opgaven og hvad materialet skal bruges til",
   Andet: "Fortæl gerne mere nedenfor",
 };
 
@@ -291,7 +291,7 @@ export function BookingForm() {
             >
               <Input
                 id={`${formId}-date`}
-                placeholder="Fx 12. juni eller uge 24"
+                placeholder="Fx dato, uge eller periode"
                 aria-invalid={Boolean(errors.datePeriod)}
                 className={fieldClass}
                 {...register("datePeriod")}
@@ -304,7 +304,7 @@ export function BookingForm() {
             >
               <Input
                 id={`${formId}-location`}
-                placeholder="Fx Grindsted, Esbjerg eller venue"
+                placeholder="Fx by, adresse eller venue"
                 aria-invalid={Boolean(errors.location)}
                 className={fieldClass}
                 {...register("location")}

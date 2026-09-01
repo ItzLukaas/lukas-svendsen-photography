@@ -74,8 +74,9 @@ export function FeaturedWork() {
             >
               Udvalgt arbejde
             </h2>
-            <p className="mt-3 text-[0.9375rem] leading-[1.65] text-muted-ink md:text-[1rem]">
-              Udvalgte projekter.
+            <p className="mt-3 max-w-md text-[0.9375rem] leading-[1.65] text-muted-ink md:text-[1rem]">
+              Et udvalg af projekter, der viser bredden i mit arbejde. Åbn et
+              projekt for at se billederne.
             </p>
           </div>
           <Link href="/arbejde" className="btn-ghost hidden shrink-0 sm:inline-flex">

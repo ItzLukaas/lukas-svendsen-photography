@@ -238,7 +238,7 @@ export function getCollaborationsJsonLd(siteUrl: string) {
     "@id": `${siteUrl}/#collaborations`,
     name: "Samarbejder & opgaver",
     description:
-      "Udvalgte samarbejder og opgaver med kunder i hele Danmark.",
+      "Udvalgte samarbejder med private, virksomheder og organisationer.",
     numberOfItems: clientLogos.length,
     itemListElement: clientLogos.map((logo, index) => ({
       "@type": "ListItem",

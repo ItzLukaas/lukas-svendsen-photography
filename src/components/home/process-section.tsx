@@ -21,6 +21,10 @@ export function ProcessSection() {
           >
             Sådan foregår det
           </h2>
+          <p className="mt-4 max-w-[48ch] text-[0.9375rem] leading-[1.65] text-muted-ink">
+            Fra første snak til færdigt materiale. En enkel proces, uanset om
+            opgaven er lille eller større.
+          </p>
         </FadeIn>
 
         <ol

@@ -30,7 +30,7 @@ export function HomeHeroCopy() {
         </motion.p>
 
         <motion.h1
-          className="mt-4 font-display text-[clamp(2rem,5.2vw,4rem)] leading-[1.05] tracking-[-0.035em] text-balance text-white sm:mt-5"
+          className="mt-4 max-w-[18ch] font-display text-[clamp(2rem,5.2vw,4rem)] leading-[1.05] tracking-[-0.035em] text-balance text-white sm:mt-5"
           initial={reduceMotion ? false : { y: 18 }}
           animate={{ y: 0 }}
           transition={
@@ -39,11 +39,11 @@ export function HomeHeroCopy() {
               : { duration: 0.75, delay: 0.38, ease }
           }
         >
-          Foto, video og content
+          Foto, video og content til det, du vil fortælle
         </motion.h1>
 
         <motion.p
-          className="mt-5 max-w-[26rem] text-[0.9375rem] leading-[1.65] text-pretty text-white/78 sm:mt-6 sm:text-[1.0625rem]"
+          className="mt-5 max-w-[34rem] text-[0.9375rem] leading-[1.65] text-pretty text-white/78 sm:mt-6 sm:text-[1.0625rem]"
           initial={reduceMotion ? false : { y: 14 }}
           animate={{ y: 0 }}
           transition={
@@ -52,7 +52,9 @@ export function HomeHeroCopy() {
               : { duration: 0.7, delay: 0.5, ease }
           }
         >
-          Professionelt visuelt materiale. Fra Grindsted, hele Danmark.
+          Uanset om du er privatperson, virksomhed, organisation eller brand,
+          hjælper jeg dig med at skabe visuelt content, der passer til
+          formålet. Fra idé til færdigt materiale.
         </motion.p>
 
         <motion.div

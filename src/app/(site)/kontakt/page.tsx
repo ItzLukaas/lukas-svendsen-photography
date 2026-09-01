@@ -13,7 +13,7 @@ import {
 export const metadata: Metadata = pageMetadata({
   title: "Kontakt",
   description:
-    "Kontakt Lukas Svendsen for foto, video og content. Email, telefon og formular. Base i Grindsted, opgaver i hele Danmark.",
+    "Kontakt Lukas Svendsen for foto, video og content. Email, telefon og kontaktformular.",
   path: "/kontakt",
 });
 
@@ -22,7 +22,7 @@ export default function KontaktPage() {
     path: "/kontakt",
     name: "Kontakt Lukas Svendsen",
     description:
-      "Kontakt Lukas Svendsen for foto, video og content. Base i Grindsted, opgaver i hele Danmark.",
+      "Kontakt Lukas Svendsen for foto, video, drone og content.",
     type: "ContactPage",
     mainEntityId: "service",
   });
@@ -49,8 +49,9 @@ export default function KontaktPage() {
               Skriv til mig
             </h1>
             <p className="text-body mt-6 max-w-md">
-              Spørgsmål, idé eller opgave. Skriv kort, så svarer jeg. Base i
-              Grindsted, hele Danmark.
+              Har du et spørgsmål, en idé eller en opgave? Skriv kort, så vender
+              jeg tilbage. Uanset om du er privatperson, virksomhed eller
+              organisation.
             </p>
             <p className="text-body mt-4 max-w-md">
               Klar til at booke?{" "}

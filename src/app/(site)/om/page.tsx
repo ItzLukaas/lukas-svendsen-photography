@@ -69,81 +69,38 @@ export default function OmPage() {
           <FadeIn delay={0.05}>
             <div className="mt-9 space-y-5 text-body">
               <p>
-                Jeg hedder Lukas Svendsen. Fulde navn Lukas Guldager Svendsen.
-                Jeg er 16 år og arbejder som fotograf og videoproducent med foto,
-                video, drone og content.
+                Jeg hedder Lukas Guldager Svendsen. Jeg er 16 år og arbejder som
+                fotograf og videoproducent med foto, video, drone og content.
               </p>
               <p>
-                Det meste af mit arbejde er for virksomheder, organisationer og
-                brands, men jeg tager også opgaver for private, når det giver
-                mening. Uanset hvem du er, starter vi med at forstå, hvad du skal
-                bruge materialet til.
+                Jeg startede med at tage det seriøst i slutningen af 2025, og
+                siden har jeg brugt en stor del af min fritid på at udvikle mig,
+                investere i mit udstyr og bygge LukasSvendsen.dk op. I dag
+                arbejder jeg med virksomheder, organisationer, sport, events,
+                koncerter og private, hvor jeg både fotograferer, filmer og
+                producerer indhold til blandt andet hjemmesider og sociale
+                medier.
               </p>
               <p>
-                Jeg møder op forberedt, holder hovedet koldt og leverer filer, der
-                kan bruges med det samme. Har du en opgave, du vil have hjælp
-                til, så skriv. Så tager vi den derfra.
+                For mig handler det ikke kun om at få et kamera i hånden og
+                trykke på optage. Jeg vil gerne forstå, hvad materialet skal
+                bruges til, hvem det skal ramme, og hvordan det bedst kan fortælle
+                det, du gerne vil vise. Derfor går jeg til hver opgave med både
+                det kreative og det praktiske i tankerne.
+              </p>
+              <p>
+                Jeg er stadig i starten, men jeg har store ambitioner og har ikke
+                tænkt mig at stå stille. Jeg lærer hele tiden nyt, prøver nye
+                ting og investerer løbende i at blive bedre.
+              </p>
+              <p>
+                Har du en idé, en opgave eller bare noget, du gerne vil have
+                sparring på, så tag endelig fat i mig.
               </p>
             </div>
           </FadeIn>
 
           <FadeIn delay={0.08}>
-            <div className="mt-16 border-t border-foreground/10 pt-11">
-              <h2 className="label-meta">Mere</h2>
-              <ul className="mt-6 space-y-3.5">
-                <li>
-                  <Link
-                    href="/#services"
-                    className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
-                  >
-                    Hvad jeg laver
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/fotograf-grindsted"
-                    className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
-                  >
-                    Fotograf i Grindsted
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/fotograf-billund"
-                    className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
-                  >
-                    Fotograf i Billund
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/fotograf-vejle"
-                    className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
-                  >
-                    Fotograf i Vejle
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/fotograf-esbjerg"
-                    className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
-                  >
-                    Fotograf i Esbjerg
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/arbejde"
-                    className="font-display text-[1.65rem] leading-none tracking-[-0.02em] transition-opacity duration-300 hover:opacity-55 md:text-[2rem]"
-                  >
-                    Arbejde
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </FadeIn>
-
-          <FadeIn delay={0.1}>
             <div className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-4">
               <Link href="/booking" className="btn-solid bg-ink text-paper">
                 Book mig

@@ -22,8 +22,8 @@ export function ProcessSection() {
             Sådan foregår det
           </h2>
           <p className="mt-4 max-w-[52ch] text-[0.9375rem] leading-[1.65] text-muted-ink">
-            Du ved, hvad der sker, og hvornår du får materialet. Ingen
-            overraskelser undervejs.
+            Vi taler opgaven igennem, jeg møder op, og du får filerne bagefter.
+            Simpelt.
           </p>
         </FadeIn>
 

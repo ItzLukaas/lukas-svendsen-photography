@@ -52,8 +52,7 @@ export function HomeHeroCopy() {
               : { duration: 0.7, delay: 0.5, ease }
           }
         >
-          Jeg skaber foto og video med et skarpt blik for både mennesker,
-          detaljer og det udtryk, du gerne vil vise.
+          Jeg tager foto og video for virksomheder, organisationer og private.
         </motion.p>
 
         <motion.p
@@ -66,10 +65,9 @@ export function HomeHeroCopy() {
               : { duration: 0.7, delay: 0.58, ease }
           }
         >
-          Jeg arbejder med virksomheder, organisationer og private og leverer
-          visuelt materiale til blandt andet hjemmesider, sociale medier,
-          kampagner, events og særlige øjeblikke. Jeg tager opgaver i hele
-          Jylland.
+          Det kan være til hjemmeside, sociale medier, en kampagne, et event
+          eller en dag, du gerne vil have dokumenteret. Jeg arbejder fra
+          Grindsted og tager opgaver i hele Jylland.
         </motion.p>
 
         <motion.div

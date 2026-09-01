@@ -37,7 +37,7 @@ export const homeServices: HomeService[] = [
     title: "Foto",
     bookingType: "Fotografering",
     description:
-      "Portrætter, produktbilleder og stemningsbilleder til hjemmeside, sociale medier og kampagner. Du får redigerede filer, der er klar til brug.",
+      "Portrætter, produktbilleder og stemning fra dagen. Redigeret og klar til brug.",
     icon: Camera,
   },
   {
@@ -45,7 +45,7 @@ export const homeServices: HomeService[] = [
     title: "Video",
     bookingType: "Videoproduktion",
     description:
-      "Film til hjemmeside, sociale medier og markedsføring. Fra korte klip til større produktioner med et klart budskab.",
+      "Korte klip eller længere produktioner til web, sociale medier og markedsføring.",
     icon: Video,
   },
   {
@@ -53,7 +53,7 @@ export const homeServices: HomeService[] = [
     title: "Drone",
     bookingType: "Droneproduktion",
     description:
-      "Luftfoto og luftvideo, når opgaven har brug for overblik og bevægelse fra oven.",
+      "Luftfoto og luftvideo, når du har brug for overblik fra oven.",
     icon: Plane,
   },
   {
@@ -61,7 +61,7 @@ export const homeServices: HomeService[] = [
     title: "Content",
     bookingType: "Content",
     description:
-      "Billeder og film til løbende kommunikation på web og sociale medier. Materiale, der kan postes og bruges med det samme.",
+      "Billeder og film til det, du poster løbende på web og sociale medier.",
     icon: Layers,
   },
 ];
@@ -70,13 +70,13 @@ export const videoServiceFeatures: VideoServiceFeature[] = [
   {
     id: "web-some",
     title: "Web og sociale medier",
-    body: "Jeg producerer materiale til hjemmeside og sociale medier, som du kan begynde at bruge med det samme. Det formateres til de kanaler, det skal leve på.",
+    body: "Materiale til hjemmeside og sociale medier, formateret til de kanaler, du skal bruge det på.",
     icon: Camera,
   },
   {
     id: "campaigns",
     title: "Kampagner",
-    body: "Når du skal lancere noget nyt eller holde kommunikationen i gang, kan foto og video hænge sammen i det samme udtryk gennem hele produktionen.",
+    body: "Når du skal lancere noget eller holde kommunikationen i gang, kan foto og video følge samme linje gennem produktionen.",
     icon: Clapperboard,
   },
   {

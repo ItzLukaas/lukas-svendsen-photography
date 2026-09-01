@@ -81,10 +81,9 @@ export function ConcertSpotlight() {
 
             <div className="mt-6 max-w-md space-y-4 text-[0.9375rem] leading-[1.7] text-muted-ink md:mt-7 md:text-[1rem]">
               <p>
-                Der sker meget på kort tid, og lyset skifter hele tiden. Jeg
-                arbejder hurtigt, fanger energien og leverer billeder og film,
-                der kan bruges til presse, sociale medier og efterfølgende
-                kommunikation.
+                På koncert og event går det stærkt. Jeg er vant til at holde
+                overblikket og komme hjem med billeder og film, du faktisk kan
+                bruge.
               </p>
             </div>
 

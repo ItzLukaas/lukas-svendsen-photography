@@ -75,9 +75,8 @@ export function FeaturedWork() {
               Mit arbejde
             </h2>
             <p className="mt-3 max-w-lg text-[0.9375rem] leading-[1.65] text-muted-ink md:text-[1rem]">
-              Fra brands og erhverv til sport, events og private opgaver. Jeg
-              fanger energien, stemningen og øjeblikkene, og leverer billeder og
-              film, du kan bruge med det samme.
+              Sport, events, erhverv og private opgaver. Sådan ser det ud, når
+              jeg er på lokationen.
             </p>
           </div>
           <Link href="/arbejde" className="btn-ghost hidden shrink-0 sm:inline-flex">

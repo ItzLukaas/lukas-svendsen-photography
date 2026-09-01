@@ -17,12 +17,12 @@ export const processSteps: ProcessStep[] = [
     id: "on-site",
     step: 2,
     title: "Jeg møder op",
-    body: "Jeg møder op på lokationen og arbejder fokuseret igennem opgaven. Du skal ikke bekymre dig om teknikken. Den del tager jeg mig af.",
+    body: "Jeg møder op med udstyret klar og en plan for, hvad vi skal have med hjem. Du skal ikke tænke på teknikken.",
   },
   {
     id: "deliver",
     step: 3,
     title: "Du får filerne",
-    body: "Du får redigerede filer, klar til web, sociale medier eller intern brug. Klar til at poste og dele.",
+    body: "Du får redigerede filer til web, sociale medier eller intern brug.",
   },
 ];

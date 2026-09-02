@@ -4,9 +4,9 @@ import { Mail, Phone } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import {
-  IconFacebook,
-  IconInstagram,
-  IconLinkedin,
+  BrandFacebook,
+  BrandInstagram,
+  BrandLinkedin,
 } from "@/components/layout/social-icons";
 import { getAvailabilityStatus } from "@/lib/availability";
 import { siteConfig } from "@/lib/site";
@@ -100,7 +100,7 @@ export function AnnouncementBar() {
             aria-label="Instagram"
             className="inline-flex size-9 items-center justify-center text-muted-ink transition-colors duration-300 hover:text-ink focus-visible:text-ink"
           >
-            <IconInstagram className="size-3.5" />
+            <BrandInstagram className="size-3.5" />
           </a>
           <a
             href={siteConfig.social.facebook}
@@ -109,7 +109,7 @@ export function AnnouncementBar() {
             aria-label="Facebook"
             className="inline-flex size-9 items-center justify-center text-muted-ink transition-colors duration-300 hover:text-ink focus-visible:text-ink"
           >
-            <IconFacebook className="size-3.5" />
+            <BrandFacebook className="size-3.5" />
           </a>
           <a
             href={siteConfig.social.linkedin}
@@ -118,7 +118,7 @@ export function AnnouncementBar() {
             aria-label="LinkedIn"
             className="inline-flex size-9 items-center justify-center text-muted-ink transition-colors duration-300 hover:text-ink focus-visible:text-ink"
           >
-            <IconLinkedin className="size-3.5" />
+            <BrandLinkedin className="size-3.5" />
           </a>
         </div>
       </div>

@@ -72,11 +72,13 @@ export function FeaturedWork() {
               id="selected-work-heading"
               className="mt-3 font-display text-[clamp(1.65rem,3vw,2.25rem)] leading-[1.08] tracking-[-0.03em]"
             >
-              Mit arbejde
+              Det, jeg skaber
             </h2>
             <p className="mt-3 max-w-lg text-[0.9375rem] leading-[1.65] text-muted-ink md:text-[1rem]">
-              Sport, events, erhverv og private opgaver. Sådan ser det ud, når
-              jeg er på lokationen.
+              Hver opgave er forskellig. Nogle gange handler det om at fange
+              øjeblikket, andre gange om at skabe det. Her kan du se et udvalg
+              af billeder, film og content fra de projekter, jeg har været en
+              del af.
             </p>
           </div>
           <Link href="/arbejde" className="btn-ghost hidden shrink-0 sm:inline-flex">
@@ -193,17 +195,25 @@ function FeaturedLink({
             : "project-caption"
         }
       >
-        <div className="min-w-0">
-          <p className="project-meta">
-            {project.category}
-            <span className="mx-1.5 opacity-35" aria-hidden>
-              ·
-            </span>
-            {project.location}
-          </p>
-          <h3 className="project-title mt-1 font-display text-[0.975rem] leading-snug tracking-[-0.018em] md:text-[1.1rem]">
-            {project.title}
-          </h3>
+        <div className="min-w-0 flex items-end justify-between gap-4">
+          <div>
+            <p className="project-meta">
+              {project.category}
+              <span className="mx-1.5 opacity-35" aria-hidden>
+                ·
+              </span>
+              {project.location}
+            </p>
+            <h3 className="project-title mt-1 font-display text-[0.975rem] leading-snug tracking-[-0.018em] md:text-[1.1rem]">
+              {project.title}
+            </h3>
+          </div>
+          <span
+            aria-hidden
+            className="mb-0.5 shrink-0 text-[0.75rem] font-semibold tracking-[0.04em] text-ink opacity-0 transition-[opacity,transform] duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/project:translate-x-0.5 group-hover/project:opacity-100"
+          >
+            Se projekt →
+          </span>
         </div>
       </div>
     </Link>

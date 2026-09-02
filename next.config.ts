@@ -37,6 +37,36 @@ const nextConfig: NextConfig = {
         destination: "/",
         permanent: true,
       },
+      {
+        source: "/ydelser/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/fotografering",
+        destination: "/arbejde",
+        permanent: true,
+      },
+      {
+        source: "/fotografering/:category",
+        destination: "/arbejde",
+        permanent: true,
+      },
+      {
+        source: "/videoproduktion",
+        destination: "/arbejde",
+        permanent: true,
+      },
+      {
+        source: "/drone",
+        destination: "/arbejde",
+        permanent: true,
+      },
+      {
+        source: "/content",
+        destination: "/arbejde",
+        permanent: true,
+      },
       ...legacyImageRedirects,
     ];
   },

@@ -195,14 +195,14 @@ export function WorkIndex({
   const intro =
     kategori !== "alle" && FILTER_INTRO[kategori]
       ? FILTER_INTRO[kategori]
-      : "Her er et udvalg af projekter, der viser bredden i mit arbejde. Det er cases og eksempler, ikke en komplet liste over alt, jeg laver.";
+      : "Her finder du et udvalg af projekter, der viser bredden i mit arbejde – fra sport og koncerter til events, virksomheder og content. Det er et udpluk af mit arbejde og ikke en komplet oversigt over alt, jeg laver.";
 
   return (
     <div className="mx-auto max-w-[1600px] px-5 pt-[calc(var(--chrome-h)+2.5rem)] pb-24 md:px-8 md:pb-32 lg:px-12">
       <FadeIn immediate>
         <div className="max-w-2xl">
           <h1 className="font-display text-[clamp(3rem,8vw,6.25rem)] leading-[0.9] tracking-[-0.035em]">
-            Arbejde
+            Udvalgt arbejde
           </h1>
           <p className="mt-5 max-w-md text-[0.9375rem] leading-[1.65] text-muted-ink md:mt-6 md:text-[1.0625rem]">
             {intro}

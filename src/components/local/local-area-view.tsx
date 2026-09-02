@@ -52,27 +52,6 @@ export function LocalAreaView({ area }: LocalAreaViewProps) {
         <FadeIn delay={0.08}>
           <div className="mt-12 border-t border-foreground/10 pt-10">
             <h2 className="font-display text-[1.35rem] leading-[1.15] tracking-[-0.02em] md:text-[1.5rem]">
-              {area.servicesHeading}
-            </h2>
-            <p className="mt-4 max-w-2xl text-body">{area.servicesBody}</p>
-            <ul className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
-              {area.services.map((service) => (
-                <li key={service.href}>
-                  <Link
-                    href={service.href}
-                    className="font-medium text-foreground underline-offset-4 transition-opacity hover:opacity-70 hover:underline"
-                  >
-                    {service.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </FadeIn>
-
-        <FadeIn delay={0.1}>
-          <div className="mt-12 border-t border-foreground/10 pt-10">
-            <h2 className="font-display text-[1.35rem] leading-[1.15] tracking-[-0.02em] md:text-[1.5rem]">
               {area.processHeading}
             </h2>
             <p className="mt-4 max-w-2xl text-body">{area.processBody}</p>

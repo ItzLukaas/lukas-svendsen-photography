@@ -146,7 +146,7 @@ export function ContactForm() {
         <Textarea
           id="message"
           rows={5}
-          placeholder="Hvad kan jeg hjælpe med?"
+          placeholder="Skriv kort, hvad du har brug for foto eller video til…"
           aria-invalid={Boolean(errors.message)}
           className={cn(fieldClass, "min-h-32 resize-y")}
           {...register("message")}

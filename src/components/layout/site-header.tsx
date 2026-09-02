@@ -20,7 +20,6 @@ function isNavActive(pathname: string, href: string, hash: string) {
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [hash, setHash] = useState("");
   const [navPath, setNavPath] = useState(pathname);
@@ -36,21 +35,6 @@ export function SiteHeader() {
     window.addEventListener("hashchange", syncHash);
     return () => window.removeEventListener("hashchange", syncHash);
   }, [pathname]);
-
-  useEffect(() => {
-    const root = document.getElementById("site-scroll");
-    const onScroll = () => {
-      const y = root?.scrollTop ?? window.scrollY;
-      setScrolled(y > 36);
-    };
-    onScroll();
-    root?.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      root?.removeEventListener("scroll", onScroll);
-      window.removeEventListener("scroll", onScroll);
-    };
-  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -112,22 +96,21 @@ export function SiteHeader() {
   const bookingActive =
     pathname === "/booking" || pathname.startsWith("/booking/");
 
+  const linkClass = (active: boolean) =>
+    cn(
+      "link-nav text-[0.8125rem] font-medium tracking-[0.02em] transition-[color,font-weight] duration-300",
+      active ? "font-semibold text-ink" : "text-muted-ink hover:text-ink"
+    );
+
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <AnnouncementBar />
 
-      <div
-        className={cn(
-          "relative border-b border-foreground/8 text-foreground transition-[background-color,backdrop-filter] duration-500 ease-out",
-          scrolled
-            ? "bg-paper/92 backdrop-blur-md"
-            : "bg-paper"
-        )}
-      >
+      <div className="border-b border-foreground/8 bg-paper text-foreground shadow-[0_1px_0_rgb(23_23_22_/_0.04)]">
         <div className="relative mx-auto flex h-[var(--header-h)] max-w-[1600px] items-center justify-between px-5 md:px-8 lg:px-12">
           <Link
             href="/"
-            className="font-display relative z-10 shrink-0 text-[1.05rem] leading-none tracking-[-0.025em] transition-opacity duration-300 hover:opacity-65 md:text-[1.15rem]"
+            className="font-display relative z-10 shrink-0 text-[1.05rem] leading-none tracking-[-0.025em] text-ink transition-opacity duration-300 hover:opacity-65 md:text-[1.15rem]"
             aria-label={`${siteConfig.name}, forsiden`}
           >
             {siteConfig.name}
@@ -144,12 +127,7 @@ export function SiteHeader() {
                   key={item.href}
                   href={item.href}
                   aria-current={active ? "page" : undefined}
-                  className={cn(
-                    "link-nav text-[0.8125rem] tracking-[0.02em]",
-                    active
-                      ? "font-semibold text-ink"
-                      : "font-medium text-muted-ink hover:text-ink"
-                  )}
+                  className={linkClass(active)}
                 >
                   {item.label}
                 </Link>

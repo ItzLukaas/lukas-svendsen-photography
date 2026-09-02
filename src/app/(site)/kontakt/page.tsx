@@ -49,9 +49,8 @@ export default function KontaktPage() {
               Skriv til mig
             </h1>
             <p className="text-body mt-6 max-w-md">
-              Har du et spørgsmål, en idé eller en opgave på vej? Skriv en kort
-              besked, så vender jeg tilbage. Det gælder både, hvis du
-              repræsenterer en virksomhed, og hvis du er privat.
+              Skriv kort, hvad du har brug for foto eller video til, så vender
+              jeg tilbage inden for 1–2 hverdage.
             </p>
             <p className="text-body mt-4 max-w-md">
               Klar til at booke?{" "}

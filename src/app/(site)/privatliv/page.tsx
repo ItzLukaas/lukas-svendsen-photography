@@ -45,7 +45,7 @@ export default function PrivatlivPage() {
             </a>
             .
           </p>
-          <p>
+          <p id="cookies">
             Siden bruger teknisk nødvendige cookies til at fungere. Der
             trackes ikke til reklame.
           </p>

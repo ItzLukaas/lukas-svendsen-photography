@@ -65,7 +65,7 @@ export function getAvailabilityStatus(date = new Date()): AvailabilityStatus {
       available: true,
       label: "Ledig",
       detail:
-        "Inden for åbningstid (man til tor og søn 08 til 22, fre til lør 08 til 00). Ring for en hurtig snak.",
+        "Inden for åbningstid (man til tor 08 til 22, fre til lør 08 til 00, søn lukket). Ring for en hurtig snak.",
       href: `tel:${siteConfig.phone}`,
       action: "Ring til mig",
     };

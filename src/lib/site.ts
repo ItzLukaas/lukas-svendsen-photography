@@ -20,12 +20,12 @@ export const siteConfig = {
   },
   /**
    * Local opening hours (Europe/Copenhagen).
-   * endHour 24 = open until midnight.
+   * close 24 = open until midnight (00:00 next day).
+   * Sunday has no rule = closed all day.
    */
   openingHours: [
-    { days: [1, 2, 3, 4], open: 8, close: 22 }, // Mon–Thu
-    { days: [5, 6], open: 8, close: 24 }, // Fri–Sat
-    { days: [0], open: 8, close: 22 }, // Sun
+    { days: [1, 2, 3, 4], open: 8, close: 22 }, // Mon–Thu 08:00–22:00
+    { days: [5, 6], open: 8, close: 24 }, // Fri–Sat 08:00–00:00
   ] as const,
   tagline: "Foto, video og content",
   description:

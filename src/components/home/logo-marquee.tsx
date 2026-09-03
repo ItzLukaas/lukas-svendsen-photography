@@ -239,8 +239,8 @@ export function LogoMarquee({ className }: LogoMarqueeProps) {
                 Udvalgte samarbejder
               </h2>
               <p className="mt-2 text-[0.8125rem] leading-[1.55] text-muted-ink md:text-[0.875rem]">
-                Jeg har leveret foto og video til kommuner, sport, brands og
-                organisationer i Jylland.
+                Jeg har leveret foto og video til kommuner, sport, brands,
+                organisationer og events på tværs af hele Danmark.
               </p>
               <p className="sr-only">{collaborationsSummary}</p>
             </div>

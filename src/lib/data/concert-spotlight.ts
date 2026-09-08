@@ -12,21 +12,21 @@ export type ConcertSpotlightShot = {
 };
 
 /**
- * Three concert frames from real jobs.
- * Green portrait: Thor Farlov, Smukfest.
+ * Three photography frames from real jobs.
+ * Primary: sports celebration, Fredericia.
  * Pink portrait: Sivas, Grøn Koncert.
  */
 export const concertSpotlightShots: ConcertSpotlightShot[] = [
   {
     id: "portrait",
-    title: "Thor Farlov, Smukfest",
-    href: "/arbejde/thor-farlov-smukfest",
+    title: "Sport, Fredericia",
+    href: "/arbejde/fredericia-ribe-esbjerg",
     placement: "primary",
-    objectPosition: "50% 48%",
+    objectPosition: "50% 40%",
     image: {
-      src: "/images/projects/thor-farlov-smukfest/01-thor-farlov-synger-pa-scenen-til-smukfest-under-spot.jpg",
-      alt: "Thor Farlov synger på scenen til Smukfest under grønt scenelys",
-      width: 1467,
+      src: "/images/photography-spotlight-primary.jpg",
+      alt: "Håndboldspiller jubler efter scoring i Fredericia",
+      width: 1760,
       height: 2200,
       orientation: "portrait",
     },

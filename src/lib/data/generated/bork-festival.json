@@ -10,6 +10,13 @@
   },
   "images": [
     {
+      "src": "/images/projects/bork-festival/02-ardit-bork-festival.jpg",
+      "alt": "Ardit i blåt scenelys på Bork Festival",
+      "width": 1467,
+      "height": 2200,
+      "orientation": "portrait"
+    },
+    {
       "src": "/images/projects/bork-festival/04-berg-bork-festival.jpg",
       "alt": "Berg på scenen til Bork Festival",
       "width": 1467,
@@ -19,13 +26,6 @@
     {
       "src": "/images/projects/bork-festival/03-gilli-bork-festival.jpg",
       "alt": "Gilli på scenen til Bork Festival",
-      "width": 1467,
-      "height": 2200,
-      "orientation": "portrait"
-    },
-    {
-      "src": "/images/projects/bork-festival/02-ardit-bork-festival.jpg",
-      "alt": "Ardit i blåt scenelys på Bork Festival",
       "width": 1467,
       "height": 2200,
       "orientation": "portrait"

@@ -169,6 +169,12 @@ const projectSeed: Project[] = [
     ),
     images: [
       P(
+        "/images/projects/bork-festival/02-ardit-bork-festival.jpg",
+        "Ardit i blåt scenelys på Bork Festival",
+        2400,
+        3600
+      ),
+      P(
         "/images/projects/bork-festival/04-berg-bork-festival.jpg",
         "Berg på scenen til Bork Festival",
         2400,
@@ -177,12 +183,6 @@ const projectSeed: Project[] = [
       P(
         "/images/projects/bork-festival/03-gilli-bork-festival.jpg",
         "Gilli på scenen til Bork Festival",
-        2400,
-        3600
-      ),
-      P(
-        "/images/projects/bork-festival/02-ardit-bork-festival.jpg",
-        "Ardit i blåt scenelys på Bork Festival",
         2400,
         3600
       ),

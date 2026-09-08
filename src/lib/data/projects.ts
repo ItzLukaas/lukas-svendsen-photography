@@ -162,8 +162,8 @@ const projectSeed: Project[] = [
       "Livebilleder fra artister som Lukas Graham, TV-2 og Poul Krebs på Bork Festival.",
     featured: true,
     cover: P(
-      "/images/projects/bork-festival/04-berg-bork-festival.jpg",
-      "Berg på scenen til Bork Festival",
+      "/images/projects/bork-festival/02-ardit-bork-festival.jpg",
+      "Ardit i blåt scenelys på Bork Festival",
       2400,
       3600
     ),

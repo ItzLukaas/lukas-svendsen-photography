@@ -49,11 +49,12 @@ export default function KontaktPage() {
               Skriv til mig
             </h1>
             <p className="text-body mt-6 max-w-md">
-              Skriv kort, hvad du har brug for foto eller video til, så vender
-              jeg tilbage inden for 1–2 hverdage.
+              Har din virksomhed, organisation eller event brug for foto, video
+              eller content? Skriv kort om opgaven, så vender jeg tilbage inden
+              for 1–2 hverdage.
             </p>
             <p className="text-body mt-4 max-w-md">
-              Klar til at booke?{" "}
+              Klar til at starte et projekt?{" "}
               <Link
                 href="/booking"
                 className="link-quiet font-medium text-foreground underline underline-offset-4"

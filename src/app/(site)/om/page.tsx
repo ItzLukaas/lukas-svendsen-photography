@@ -62,24 +62,23 @@ export default function OmPage() {
               Lukas Svendsen
             </h1>
             <p className="mt-4 text-[0.9375rem] text-muted-ink">
-              Fotograf og videoproducent
+              Personen bag arbejdet — fotograf og videoproducent
             </p>
           </FadeIn>
 
           <FadeIn delay={0.05}>
             <div className="mt-9 space-y-5 text-body">
               <p>
-                Jeg hedder Lukas Guldager Svendsen. Jeg er 16 år og arbejder som
-                fotograf og videoproducent med foto, video, drone og content.
+                Jeg hedder Lukas Guldager Svendsen. Jeg arbejder som fotograf og
+                videoproducent med foto, video, drone og content — primært for
+                virksomheder, organisationer og events, og også for private.
               </p>
               <p>
                 Jeg startede med at tage det seriøst i slutningen af 2025, og
                 siden har jeg brugt en stor del af min fritid på at udvikle mig,
                 investere i mit udstyr og bygge LukasSvendsen.dk op. I dag
-                arbejder jeg med virksomheder, organisationer, sport, events,
-                koncerter og private, hvor jeg både fotograferer, filmer og
-                producerer indhold til blandt andet hjemmesider og sociale
-                medier.
+                leverer jeg visuelt materiale til blandt andet hjemmesider,
+                sociale medier, sport, koncerter og virksomhedskommunikation.
               </p>
               <p>
                 For mig handler det ikke kun om at få et kamera i hånden og
@@ -94,8 +93,9 @@ export default function OmPage() {
                 ting og investerer løbende i at blive bedre.
               </p>
               <p>
-                Har du en idé, en opgave eller bare noget, du gerne vil have
-                sparring på, så tag endelig fat i mig.
+                Har din virksomhed eller organisation et projekt — eller har du
+                bare noget, du gerne vil have sparring på — så tag endelig fat i
+                mig.
               </p>
             </div>
           </FadeIn>

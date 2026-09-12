@@ -181,5 +181,22 @@ fs.writeFileSync(
   "H:/Fotograf/email-signature/lukas-svendsen-mailsignatur.preview.html",
   html.split(ICON).join("icons")
 );
-// Only icons live under public/email-signature/ (silent asset host for mail clients)
+
+// Outlook-ready: only the signature, as a full HTML document (.htm)
+const outlookOnly = `<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lukas Svendsen</title>
+</head>
+<body style="margin:0;padding:16px;background:#ffffff;">
+${signature.replace(/<!-- ========== START: KOPIÉR FRA HER ========== -->\n?/, "").replace(/\n?<!-- ========== SLUT: KOPIÉR TIL HER ========== -->/, "")}
+</body>
+</html>
+`;
+fs.writeFileSync(
+  "H:/Fotograf/email-signature/outlook-signatur.htm",
+  outlookOnly
+);
 console.log("written ok (HTML stays in email-signature/; icons host via public/)");

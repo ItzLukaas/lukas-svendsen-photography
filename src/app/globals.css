@@ -568,6 +568,36 @@
   }
 }
 
+@keyframes arbejde-board-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*
+ * Arbejde index: B&W covers by default on fine-pointer devices;
+ * color returns only on the hovered/focused project.
+ */
+@media (hover: hover) and (pointer: fine) {
+  .arbejde-bw-cover img {
+    filter: grayscale(1);
+    transition:
+      filter 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .group\/project:hover .arbejde-bw-cover img,
+  .group\/project:focus-visible .arbejde-bw-cover img {
+    filter: grayscale(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   @keyframes arbejde-card-in {
     from,
@@ -575,6 +605,18 @@
       opacity: 1;
       transform: none;
     }
+  }
+
+  @keyframes arbejde-board-in {
+    from,
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .arbejde-bw-cover img {
+    transition: none;
   }
 }
 

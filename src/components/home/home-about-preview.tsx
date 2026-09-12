@@ -36,13 +36,12 @@ export function HomeAboutPreview() {
               Lukas Svendsen
             </h2>
             <p className="mt-2 text-[0.9375rem] text-muted-ink">
-              Fotograf og videoproducent
+              Personen bag arbejdet
             </p>
             <p className="mt-5 max-w-[48ch] text-[0.9375rem] leading-[1.65] text-muted-ink md:text-[1rem]">
-              Jeg laver foto, video, drone og content til virksomheder,
-              organisationer og private. For mig handler det om at forstå, hvad
-              materialet skal bruges til, og levere noget, der faktisk kan tages i
-              brug bagefter.
+              Jeg laver foto, video, drone og content for virksomheder,
+              organisationer og private. Det vigtigste for mig er, at vi får
+              lavet noget, der passer til opgaven og kan bruges bagefter.
             </p>
             <p className="mt-8">
               <Link

@@ -32,6 +32,7 @@ export function HomeCtaForm() {
       email: "",
       phone: "",
       company: "",
+      projectType: "",
       message: "",
     },
   });

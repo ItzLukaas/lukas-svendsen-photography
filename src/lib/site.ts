@@ -37,6 +37,7 @@ export const siteConfig = {
   },
   nav: [
     { href: "/arbejde", label: "Arbejde" },
+    { href: "/hvad-jeg-laver", label: "Hvad jeg laver" },
     { href: "/om", label: "Om mig" },
     { href: "/kontakt", label: "Kontakt" },
     { href: "/booking", label: "Book mig" },

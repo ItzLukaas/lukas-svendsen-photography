@@ -233,8 +233,15 @@ export function ProcessSection() {
           </div>
         </ol>
 
+        <FadeIn delay={0.1}>
+          <p className="mt-10 max-w-xl text-[0.875rem] leading-[1.65] text-muted-ink sm:mt-12 md:text-[0.9375rem]">
+            Har du brug for foto, video eller content flere gange, kan vi også
+            finde en løsning, der passer til jer og jeres behov.
+          </p>
+        </FadeIn>
+
         <FadeIn delay={0.14}>
-          <div className="mt-10 sm:mt-12">
+          <div className="mt-7 sm:mt-8">
             <Link href="/booking" className="btn-solid bg-ink text-paper">
               Book en opgave
             </Link>

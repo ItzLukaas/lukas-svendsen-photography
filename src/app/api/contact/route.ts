@@ -43,6 +43,7 @@ export async function POST(request: Request) {
         `Email: ${data.email}`,
         `Telefon: ${data.phone || "—"}`,
         `Virksomhed: ${data.company || "—"}`,
+        `Type af projekt: ${data.projectType || "—"}`,
         "",
         data.message,
       ].join("\n"),

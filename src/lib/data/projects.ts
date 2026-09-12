@@ -926,93 +926,6 @@ const projectSeed: Project[] = [
       ),
     ],
   },
-  {
-    slug: "fredericia-haandboldklub",
-    title: "Fredericia Håndboldklub",
-    discipline: "portraetter",
-    category: "Portræt",
-    galleryFormat: "mixed",
-    year: "2026",
-    location: "Fredericia",
-    excerpt:
-      "Spillerportrætter · 1. Division Kvinder, til klubbens officielle spillertrup.",
-    client: "Fredericia Håndboldklub",
-    role: "Portrætfotograf",
-    outcome:
-      "Portrætterne bruges på Fredericia Håndboldklubs officielle spillertrup på fhk.dk.",
-    clientUrl:
-      "https://fhk.dk/1div-kvinder/1-div-kvinder-spillertrup-og-stab",
-    clientUrlLabel: "fhk.dk, spillertrup",
-    featured: true,
-    cover: P(
-      "/images/projects/fredericia-haandboldklub/02-fhk-freja-pose-hvid.jpg",
-      "Freja Thor Ammidtsbøl Andersen jubler, Fredericia Håndbold, nummer 3",
-      1467,
-      2200
-    ),
-    images: [
-      P(
-        "/images/projects/fredericia-haandboldklub/01-fhk-gruppe-06-hvid.jpg",
-        "Fredericia Håndboldklub, gruppefoto",
-        1467,
-        2200
-      ),
-      P(
-        "/images/projects/fredericia-haandboldklub/02-fhk-freja-pose-hvid.jpg",
-        "Freja Thor Ammidtsbøl Andersen jubler, Fredericia Håndbold, nummer 3",
-        1467,
-        2200
-      ),
-      P(
-        "/images/projects/fredericia-haandboldklub/03-fhk-maria-pose-hvid.jpg",
-        "Maria Husted jubler, Fredericia Håndbold, nummer 4",
-        1467,
-        2200
-      ),
-      P(
-        "/images/projects/fredericia-haandboldklub/04-fhk-emma-pose-hvid.jpg",
-        "Emma Skou Larsen jubler, Fredericia Håndbold, nummer 20",
-        1467,
-        2200
-      ),
-      P(
-        "/images/projects/fredericia-haandboldklub/05-fhk-eline-pose-hvid.jpg",
-        "Eline Osland jubler, Fredericia Håndbold, nummer 19",
-        1467,
-        2200
-      ),
-      P(
-        "/images/projects/fredericia-haandboldklub/06-fhk-julie-laursen-halv-hvid.jpg",
-        "Julie Laursen, Fredericia Håndbold, nummer 11",
-        1467,
-        2200
-      ),
-      P(
-        "/images/projects/fredericia-haandboldklub/07-fhk-annette-pose-hvid.jpg",
-        "Annette Wirén Larsen jubler, Fredericia Håndbold, nummer 27",
-        1467,
-        2200
-      ),
-      P(
-        "/images/projects/fredericia-haandboldklub/08-fhk-julie-gronne-pose-hvid.jpg",
-        "Julie Grønne Thinggård jubler, Fredericia Håndbold, nummer 29",
-        1467,
-        2200
-      ),
-      P(
-        "/images/projects/fredericia-haandboldklub/09-fhk-nikoline-pose-hvid.jpg",
-        "Nikoline Johansen jubler, Fredericia Håndbold, nummer 37",
-        1467,
-        2200
-      ),
-      P(
-        "/images/projects/fredericia-haandboldklub/10-fhk-sophie-pose-hvid.jpg",
-        "Sophie Voldby jubler, Fredericia Håndbold, nummer 23",
-        1467,
-        2200
-      ),
-    ],
-  },
 ];
 
 const projectsResolved: Project[] = projectSeed.map(withGeneratedGallery);
@@ -1081,22 +994,14 @@ export function sortProjectsPortraitFirst(list: Project[]): Project[] {
 }
 
 /**
- * Mix covers for Arbejde masonry, maximize variation between neighbours.
- * Prefers alternating tall/wide and different disciplines side by side.
+ * Mix covers for Arbejde masonry — alternate tall/wide so shortest-column
+ * packing staggers (P-L-P-L…), not a flat row of equal tops.
  * Priority slugs (e.g. Thor Farlov) stay near the front.
- * Super Cup kvinder/herrer are kept as a neighbouring pair.
  */
 export function sortProjectsForMasonry(list: Project[]): Project[] {
   if (list.length <= 1) return [...list];
 
   const prioritySlugs = ["thor-farlov-smukfest"];
-  /** Keep these project pairs adjacent (first slug first when both present). */
-  const pairMate: Record<string, string> = {
-    "super-cup-kvinder": "super-cup-herrer",
-    "super-cup-herrer": "super-cup-kvinder",
-  };
-  const pairLead = "super-cup-kvinder";
-
   const ordered: Project[] = [];
   const remaining = [...list];
 
@@ -1105,24 +1010,8 @@ export function sortProjectsForMasonry(list: Project[]): Project[] {
     if (index >= 0) ordered.push(remaining.splice(index, 1)[0]);
   }
 
-  const takeBySlug = (slug: string) => {
-    const index = remaining.findIndex((project) => project.slug === slug);
-    if (index < 0) return null;
-    return remaining.splice(index, 1)[0];
-  };
-
   while (remaining.length > 0) {
     const prev = ordered[ordered.length - 1];
-
-    // If the previous card is half of a Super Cup pair, place its mate next
-    if (prev && pairMate[prev.slug]) {
-      const mate = takeBySlug(pairMate[prev.slug]);
-      if (mate) {
-        ordered.push(mate);
-        continue;
-      }
-    }
-
     let bestIndex = 0;
     let bestScore = Number.NEGATIVE_INFINITY;
 
@@ -1130,17 +1019,12 @@ export function sortProjectsForMasonry(list: Project[]): Project[] {
       const candidate = remaining[i];
       let score = 0;
 
-      // Prefer starting the Super Cup pair with kvinder (herrer follows via mate rule)
-      if (candidate.slug === pairLead) score += 4;
-      if (candidate.slug === "super-cup-herrer" && remaining.some((p) => p.slug === pairLead)) {
-        score -= 12;
-      }
-
       if (prev) {
         const prevPortrait = isPortraitCase(prev);
         const nextPortrait = isPortraitCase(candidate);
-        score += prevPortrait === nextPortrait ? -8 : 10;
-        score += prev.discipline === candidate.discipline ? -6 : 7;
+        // Strong orientation alternation → clear masonry stagger across columns
+        score += prevPortrait === nextPortrait ? -14 : 16;
+        score += prev.discipline === candidate.discipline ? -5 : 6;
         score += prev.category === candidate.category ? -2 : 2;
       } else {
         score += isPortraitCase(candidate) ? 3 : 0;

@@ -5,6 +5,8 @@ import { legacyImageRedirects } from "./src/lib/legacy-image-redirects";
 const longCache = "public, max-age=31536000, immutable";
 
 const nextConfig: NextConfig = {
+  // LAN access (bærbar → http://192.168.1.211:3000). Restart `next dev` after changing this.
+  allowedDevOrigins: ["192.168.1.211", "192.168.*.*"],
   images: {
     // WebP only — AVIF often softens concert photos (noise, stage lights)
     formats: ["image/webp"],
@@ -34,12 +36,12 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/ydelser",
-        destination: "/",
+        destination: "/hvad-jeg-laver",
         permanent: true,
       },
       {
         source: "/ydelser/:path*",
-        destination: "/",
+        destination: "/hvad-jeg-laver",
         permanent: true,
       },
       {

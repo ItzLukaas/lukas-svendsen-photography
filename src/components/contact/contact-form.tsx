@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { FormField, fieldClass } from "@/components/forms/form-field";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { productionTypes } from "@/lib/booking/schema";
 import {
   contactSchema,
   type ContactInput,
@@ -28,6 +29,7 @@ export function ContactForm() {
       email: "",
       phone: "",
       company: "",
+      projectType: "",
       message: "",
     },
   });
@@ -142,11 +144,36 @@ export function ContactForm() {
         />
       </FormField>
 
+      <FormField
+        id="projectType"
+        label="Type af projekt"
+        optional
+        error={errors.projectType?.message}
+      >
+        <select
+          id="projectType"
+          aria-invalid={Boolean(errors.projectType)}
+          className={cn(
+            fieldClass,
+            "h-11 appearance-none bg-[length:0.75rem] bg-[right_0.75rem_center] bg-no-repeat pr-10",
+            "bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2712%27 height=%278%27 fill=%27none%27%3E%3Cpath stroke=%27%2371716d%27 stroke-width=%271.5%27 d=%27m1 1 5 5 5-5%27/%3E%3C/svg%3E')]"
+          )}
+          {...register("projectType")}
+        >
+          <option value="">Vælg type</option>
+          {productionTypes.map((type) => (
+            <option key={type} value={type}>
+              {type}
+            </option>
+          ))}
+        </select>
+      </FormField>
+
       <FormField id="message" label="Besked" error={errors.message?.message}>
         <Textarea
           id="message"
           rows={5}
-          placeholder="Skriv kort, hvad du har brug for foto eller video til…"
+          placeholder="Skriv kort om opgaven, dato og hvad materialet skal bruges til…"
           aria-invalid={Boolean(errors.message)}
           className={cn(fieldClass, "min-h-32 resize-y")}
           {...register("message")}

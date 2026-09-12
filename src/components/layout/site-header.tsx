@@ -117,7 +117,7 @@ export function SiteHeader() {
           </Link>
 
           <nav
-            className="relative z-10 hidden items-center gap-7 md:flex lg:gap-9"
+            className="relative z-10 hidden items-center gap-5 md:flex lg:gap-8"
             aria-label="Primær navigation"
           >
             {navLinks.map((item) => {

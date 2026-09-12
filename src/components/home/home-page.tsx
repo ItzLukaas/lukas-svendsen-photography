@@ -1,12 +1,16 @@
 import dynamic from "next/dynamic";
 
+import { BusinessSection } from "@/components/home/business-section";
 import { ConcertSpotlight } from "@/components/home/concert-spotlight";
+import { FaqSection } from "@/components/home/faq-section";
 import { FeaturedWork } from "@/components/home/featured-work";
 import { HomeAboutPreview } from "@/components/home/home-about-preview";
 import { HomeCta } from "@/components/home/home-cta";
 import { HomeHero } from "@/components/home/home-hero";
+import { OfferingsPreview } from "@/components/home/offerings-preview";
 import { ProcessSection } from "@/components/home/process-section";
 import { getCollaborationsJsonLd } from "@/lib/data/clients";
+import { faqItems } from "@/lib/data/faq";
 import { homePageJsonLd } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
@@ -19,11 +23,23 @@ const TrustStats = dynamic(() =>
 
 /**
  * Homepage story:
- * Hero → Work → Portfolio spotlight → Process → Proof → About → CTA
+ * Hero → Trust → Offerings → Business → Work → Process → FAQ → About → CTA
  */
 export function HomePage() {
   const collaborationsJsonLd = getCollaborationsJsonLd(siteConfig.url);
   const homeJsonLd = homePageJsonLd();
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
 
   return (
     <>
@@ -37,13 +53,20 @@ export function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
 
       <HomeHero />
+      <TrustStats />
+      <LogoMarquee />
+      <OfferingsPreview />
+      <BusinessSection />
       <FeaturedWork />
       <ConcertSpotlight />
       <ProcessSection />
-      <TrustStats />
-      <LogoMarquee />
+      <FaqSection />
       <HomeAboutPreview />
       <HomeCta />
     </>

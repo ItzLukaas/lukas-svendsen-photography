@@ -26,6 +26,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
     },
     {
+      url: `${base}/hvad-jeg-laver`,
+      lastModified: SITE_REVISED,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
       url: `${base}/om`,
       lastModified: SITE_REVISED,
       changeFrequency: "monthly",

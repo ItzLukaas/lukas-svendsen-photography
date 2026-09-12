@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import { useRouter } from "next/navigation";
 
 import { FadeIn } from "@/components/motion/fade-in";
@@ -31,39 +31,63 @@ type WorkIndexProps = {
   initialKategori?: string;
 };
 
-function useColumnCount() {
-  const [count, setCount] = useState(1);
-
-  useEffect(() => {
-    const update = () => {
-      const w = window.innerWidth;
-      if (w >= 1024) setCount(3);
-      else if (w >= 640) setCount(2);
-      else setCount(1);
-    };
-    update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
-  }, []);
-
-  return count;
-}
-
-function coverRatio(project: Project) {
-  const { cover } = project;
-  if (cover.width >= cover.height) {
-    return cover.height / cover.width;
-  }
-  // Portrait cards use 3/4 for rhythm without towering
-  return 4 / 3;
+function subscribeColumnCount(onStoreChange: () => void) {
+  window.addEventListener("resize", onStoreChange);
+  return () => window.removeEventListener("resize", onStoreChange);
 }
 
 /**
- * Shortest-column masonry — packs by estimated cover height.
- * Avoids CSS-column + FadeIn bugs that made the grid look empty/flat.
+ * Responsive masonry columns:
+ * mobile <640 → 1 | tablet ≥640 → 2 | desktop ≥1024 → 3
+ * Prefer larger tiles (3 across) over denser 4-col packing.
  */
-function MasonryBoard({ projects }: { projects: Project[] }) {
-  const columnCount = useColumnCount();
+function getViewportColumnCount() {
+  const w = window.innerWidth;
+  if (w >= 1024) return 3;
+  if (w >= 640) return 2;
+  return 1;
+}
+
+/** SSR fallback — matches desktop default. */
+function getServerColumnCount() {
+  return 3;
+}
+
+function useViewportColumnCount() {
+  return useSyncExternalStore(
+    subscribeColumnCount,
+    getViewportColumnCount,
+    getServerColumnCount
+  );
+}
+
+/** Cap at viewport cols; never leave empty columns for sparse filters. */
+function resolveColumnCount(viewportCols: number, itemCount: number) {
+  if (itemCount <= 1) return 1;
+  return Math.min(viewportCols, itemCount);
+}
+
+/** Natural cover height ratio for shortest-column packing. */
+function coverRatio(project: Project) {
+  const { cover } = project;
+  if (!cover.width || !cover.height) return 1;
+  return cover.height / cover.width;
+}
+
+/**
+ * Shortest-column masonry — each image keeps its natural height; next item
+ * goes into the currently shortest column (not a CSS row grid).
+ * Recomputes whenever `projects` or column count changes (incl. filters).
+ */
+function MasonryBoard({
+  projects,
+  layoutKey,
+}: {
+  projects: Project[];
+  layoutKey: string;
+}) {
+  const viewportCols = useViewportColumnCount();
+  const columnCount = resolveColumnCount(viewportCols, projects.length);
 
   const columns = useMemo(() => {
     const cols: { project: Project; index: number }[][] = Array.from(
@@ -78,39 +102,45 @@ function MasonryBoard({ projects }: { projects: Project[] }) {
         if (colHeights[c] < colHeights[target]) target = c;
       }
       cols[target].push({ project, index });
-      // Relative units — only ratios matter for packing
-      colHeights[target] += coverRatio(project) + 0.12;
+      // Cover ratio + title/meta + vertical gap (relative to column width)
+      colHeights[target] += coverRatio(project) + 0.2;
     });
 
     return cols;
   }, [projects, columnCount]);
 
+  const sizes =
+    columnCount >= 3
+      ? "(min-width: 1024px) 32vw, (min-width: 640px) 46vw, 100vw"
+      : columnCount === 2
+        ? "(min-width: 640px) 46vw, 100vw"
+        : "100vw";
+
   return (
     <div
+      key={layoutKey}
       className={cn(
-        "grid items-start gap-x-4",
-        columnCount === 1 && "grid-cols-1",
-        columnCount === 2 && "grid-cols-2",
-        columnCount === 3 && "grid-cols-3",
-        "md:gap-x-5 lg:gap-x-6 xl:gap-x-7"
+        "flex items-start gap-x-5 motion-safe:animate-[arbejde-board-in_0.45s_cubic-bezier(0.22,1,0.36,1)_both] md:gap-x-6 lg:gap-x-7",
+        projects.length === 1 && "max-w-3xl",
+        projects.length === 2 && columnCount <= 2 && "max-w-5xl"
       )}
+      data-masonry-cols={columnCount}
     >
       {columns.map((col, colIndex) => (
         <div
-          key={`col-${colIndex}`}
-          className="flex min-w-0 flex-col gap-5 md:gap-6 lg:gap-7"
+          key={`${layoutKey}-col-${colIndex}`}
+          className="flex min-w-0 flex-1 flex-col gap-5 md:gap-6 lg:gap-7"
         >
           {col.map(({ project, index }) => {
             const hoverBrand = getProjectHoverBrand(project.slug);
             const { cover } = project;
-            const isWide = cover.width >= cover.height;
 
             return (
               <article
                 key={project.slug}
                 className="motion-safe:animate-[arbejde-card-in_0.75s_cubic-bezier(0.22,1,0.36,1)_both]"
                 style={{
-                  animationDelay: `${Math.min(index * 60 + colIndex * 40, 360)}ms`,
+                  animationDelay: `${Math.min(index * 55 + colIndex * 35, 320)}ms`,
                 }}
               >
                 <Link
@@ -123,16 +153,11 @@ function MasonryBoard({ projects }: { projects: Project[] }) {
                       alt={cover.alt}
                       width={cover.width}
                       height={cover.height}
-                      sizes="(min-width: 1024px) 32vw, (min-width: 640px) 46vw, 100vw"
-                      className="w-full"
-                      style={
-                        isWide
-                          ? aspectRatioStyle(cover.width, cover.height)
-                          : { aspectRatio: "3 / 4" }
-                      }
-                      imageClassName="object-cover object-center"
-                      priority={index < 5}
-                      quality={isWide ? 92 : 90}
+                      sizes={sizes}
+                      className="arbejde-bw-cover w-full"
+                      style={aspectRatioStyle(cover.width, cover.height)}
+                      priority={index < columnCount}
+                      quality={90}
                       interactive
                     />
                     {hoverBrand ? (
@@ -143,13 +168,7 @@ function MasonryBoard({ projects }: { projects: Project[] }) {
                     <h2 className="project-title min-w-0 font-display text-[0.95rem] leading-snug tracking-[-0.02em] md:text-[1.05rem]">
                       {project.title}
                     </h2>
-                    <p className="project-meta shrink-0">
-                      {project.category}
-                      <span className="mx-1.5 opacity-35" aria-hidden>
-                        ·
-                      </span>
-                      {project.location}
-                    </p>
+                    <p className="project-meta shrink-0">{project.category}</p>
                   </div>
                 </Link>
               </article>
@@ -166,7 +185,12 @@ export function WorkIndex({
   initialKategori = "alle",
 }: WorkIndexProps) {
   const router = useRouter();
-  const kategori = initialKategori || "alle";
+  // Local filter state → instant masonry re-pack; URL stays shareable
+  const [kategori, setKategori] = useState(initialKategori || "alle");
+
+  useEffect(() => {
+    setKategori(initialKategori || "alle");
+  }, [initialKategori]);
 
   const filtered = useMemo(() => {
     const list =
@@ -176,7 +200,9 @@ export function WorkIndex({
     return sortProjectsForMasonry(list);
   }, [kategori, projects]);
 
-  function setKategori(next: string) {
+  function selectKategori(next: string) {
+    if (next === kategori) return;
+    setKategori(next);
     const params = new URLSearchParams();
     if (next !== "alle") params.set("kategori", next);
     const query = params.toString();
@@ -233,7 +259,7 @@ export function WorkIndex({
                 key={filter.slug}
                 type="button"
                 aria-pressed={active}
-                onClick={() => setKategori(filter.slug)}
+                onClick={() => selectKategori(filter.slug)}
                 className={cn(
                   "min-h-11 border-b pb-1 text-[0.75rem] font-medium tracking-[0.04em] transition-[color,border-color] duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink",
                   active
@@ -250,7 +276,7 @@ export function WorkIndex({
 
       <div className="mt-8 md:mt-10">
         {filtered.length > 0 ? (
-          <MasonryBoard projects={filtered} />
+          <MasonryBoard projects={filtered} layoutKey={kategori} />
         ) : (
           <p className="mt-12 text-muted-ink">
             Ingen projekter i den kategori endnu.

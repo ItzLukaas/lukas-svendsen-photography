@@ -67,18 +67,17 @@ export function FeaturedWork() {
       <div className="mx-auto max-w-[1600px] px-5 py-[var(--space-section)] md:px-8 lg:px-12">
         <FadeIn className="flex items-end justify-between gap-6">
           <div>
-            <p className="label-meta">Arbejde</p>
+            <p className="label-meta">Udvalgt arbejde</p>
             <h2
               id="selected-work-heading"
               className="mt-3 font-display text-[clamp(1.65rem,3vw,2.25rem)] leading-[1.08] tracking-[-0.03em]"
             >
-              Det, jeg skaber
+              Det jeg laver
             </h2>
             <p className="mt-3 max-w-lg text-[0.9375rem] leading-[1.65] text-muted-ink md:text-[1rem]">
-              Hver opgave er forskellig. Nogle gange handler det om at fange
-              øjeblikket, andre gange om at skabe det. Her kan du se et udvalg
-              af billeder, film og content fra de projekter, jeg har været en
-              del af.
+              Her kan du se et udvalg af de opgaver og projekter, jeg har
+              arbejdet med – fra sport og koncerter til virksomheder, events og
+              mennesker.
             </p>
           </div>
           <Link href="/arbejde" className="btn-ghost hidden shrink-0 sm:inline-flex">

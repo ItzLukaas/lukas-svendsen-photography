@@ -47,14 +47,20 @@ export default function BookingPage() {
           <FadeIn className="md:col-span-5 lg:col-span-4">
             <p className="label-meta">Book mig</p>
             <h1 className="mt-3 max-w-[12ch] font-display text-[clamp(2.45rem,5.5vw,4.25rem)] leading-[0.92] tracking-[-0.03em]">
-              Hvad skal du bruge?
+              Start et projekt
             </h1>
-            <p className="text-body mt-5 max-w-md">
-              Hvad end du skal bruge foto, video, drone eller content til, kan
-              du skrive kort om opgaven her. Jo mere jeg ved om behovet, jo
-              bedre kan jeg svare konkret. Jeg vender tilbage inden for 1 til 2
-              hverdage.
-            </p>
+            <div className="text-body mt-5 max-w-md space-y-4">
+              <p>
+                Fortæl lidt om opgaven, hvad du har brug for, og hvad materialet
+                skal bruges til. Du må også gerne skrive dato, sted og andre
+                detaljer, hvis du allerede har dem på plads.
+              </p>
+              <p>
+                Jo mere jeg ved om opgaven, jo bedre kan jeg vurdere, hvad der
+                giver mening og vende tilbage med et konkret svar.
+              </p>
+              <p>Jeg vender tilbage hurtigst muligt.</p>
+            </div>
 
             <div className="mt-10 space-y-2 border-t border-foreground/10 pt-8 text-[0.875rem]">
               <p className="text-muted-ink">Eller skriv direkte</p>

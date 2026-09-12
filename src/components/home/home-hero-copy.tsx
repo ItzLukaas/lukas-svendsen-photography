@@ -33,7 +33,7 @@ export function HomeHeroCopy({ inverted = true }: HomeHeroCopyProps) {
               : { duration: 0.65, delay: 0.2, ease }
           }
         >
-          Foto · Video · Drone · Content
+          Foto, video og meget mere
         </motion.p>
 
         <motion.h1
@@ -65,9 +65,9 @@ export function HomeHeroCopy({ inverted = true }: HomeHeroCopyProps) {
               : { duration: 0.7, delay: 0.44, ease }
           }
         >
-          Jeg skaber visuelt indhold med ambitioner, energi og blik for de
-          øjeblikke, der gør en forskel – fra lokale virksomheder og events
-          til sport, koncerter og projekter i hele Danmark.
+          Jeg er Lukas Svendsen, 16 år og fotograf og videograf. Jeg laver
+          foto, video og content for virksomheder, organisationer og private,
+          og elsker at være med, når der skal skabes noget godt.
         </motion.p>
 
         <motion.div
@@ -81,19 +81,19 @@ export function HomeHeroCopy({ inverted = true }: HomeHeroCopyProps) {
           }
         >
           <Link
-            href="/arbejde"
+            href="/booking"
             className={cn(
               "btn-solid w-full justify-center sm:w-auto",
               inverted ? "bg-paper text-ink" : "bg-ink text-paper"
             )}
           >
-            Se mit arbejde
+            Book en opgave
           </Link>
           <Link
-            href="/booking"
+            href="/arbejde"
             className={inverted ? "btn-ghost-on-dark" : "btn-ghost"}
           >
-            Book en opgave
+            Se mit arbejde
           </Link>
         </motion.div>
       </div>

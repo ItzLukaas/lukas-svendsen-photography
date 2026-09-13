@@ -1,0 +1,83 @@
+{
+  "slug": "bjerringbro-silkeborg-fredericia",
+  "updatedAt": "2026-09-13T10:22:35.529Z",
+  "cover": {
+    "src": "/images/projects/bjerringbro-silkeborg-fredericia/02-springskud-mod-bjerringbro-silkeborg-fredericia-hk.jpg",
+    "alt": "Springskud i luften mod Bjerringbro-Silkeborg, Fredericia HK",
+    "width": 2200,
+    "height": 1467,
+    "orientation": "landscape"
+  },
+  "images": [
+    {
+      "src": "/images/projects/bjerringbro-silkeborg-fredericia/01-fhk-spiller-overfor-bjerringbro-silkeborg.jpg",
+      "alt": "Fredericia HK-spiller over for Bjerringbro-Silkeborg, nummer 19",
+      "width": 2200,
+      "height": 1467,
+      "orientation": "landscape"
+    },
+    {
+      "src": "/images/projects/bjerringbro-silkeborg-fredericia/02-springskud-mod-bjerringbro-silkeborg-fredericia-hk.jpg",
+      "alt": "Springskud i luften mod Bjerringbro-Silkeborg, Fredericia HK",
+      "width": 2200,
+      "height": 1467,
+      "orientation": "landscape"
+    },
+    {
+      "src": "/images/projects/bjerringbro-silkeborg-fredericia/03-duel-mod-bjerringbro-silkeborg-fredericia-hk.jpg",
+      "alt": "Duel under pres mod Bjerringbro-Silkeborg, Fredericia HK",
+      "width": 2200,
+      "height": 1467,
+      "orientation": "landscape"
+    },
+    {
+      "src": "/images/projects/bjerringbro-silkeborg-fredericia/04-kast-mod-mal-mod-bjerringbro-silkeborg-fredericia-hk.jpg",
+      "alt": "Kast mod mål mod Bjerringbro-Silkeborg, Fredericia HK",
+      "width": 2200,
+      "height": 1467,
+      "orientation": "landscape"
+    },
+    {
+      "src": "/images/projects/bjerringbro-silkeborg-fredericia/05-fhk-spiller-dirigerer-mod-bjerringbro-silkeborg.jpg",
+      "alt": "Fredericia HK-spiller dirigerer på banen mod Bjerringbro-Silkeborg",
+      "width": 2200,
+      "height": 1467,
+      "orientation": "landscape"
+    },
+    {
+      "src": "/images/projects/bjerringbro-silkeborg-fredericia/06-angreb-mellem-forsvarere-mod-bjerringbro-silkeborg.jpg",
+      "alt": "Angreb mellem to forsvarere mod Bjerringbro-Silkeborg, Fredericia HK",
+      "width": 2200,
+      "height": 1467,
+      "orientation": "landscape"
+    },
+    {
+      "src": "/images/projects/bjerringbro-silkeborg-fredericia/07-fhk-spiller-i-kampen-mod-bjerringbro-silkeborg.jpg",
+      "alt": "Fredericia HK-spiller i kampen mod Bjerringbro-Silkeborg",
+      "width": 2200,
+      "height": 1467,
+      "orientation": "landscape"
+    },
+    {
+      "src": "/images/projects/bjerringbro-silkeborg-fredericia/08-maalmand-jubel-mod-bjerringbro-silkeborg-fredericia.jpg",
+      "alt": "Målmand jubler i kampen mod Bjerringbro-Silkeborg, Fredericia HK",
+      "width": 1760,
+      "height": 2200,
+      "orientation": "portrait"
+    },
+    {
+      "src": "/images/projects/bjerringbro-silkeborg-fredericia/09-highfive-mod-bjerringbro-silkeborg-fredericia-hk.jpg",
+      "alt": "Highfive mellem Fredericia HK-spillere mod Bjerringbro-Silkeborg",
+      "width": 2200,
+      "height": 1467,
+      "orientation": "landscape"
+    },
+    {
+      "src": "/images/projects/bjerringbro-silkeborg-fredericia/10-holdkreds-mod-bjerringbro-silkeborg-fredericia-hk.jpg",
+      "alt": "Holdkreds, Fredericia HK mod Bjerringbro-Silkeborg",
+      "width": 2200,
+      "height": 1467,
+      "orientation": "landscape"
+    }
+  ]
+}

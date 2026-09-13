@@ -36,7 +36,7 @@ export type ProjectHoverBrand = {
  * - Esbjerg Streetfood → #8b4518 (warm amber-brown from venue palette)
  * - DanskHåndbold → varied tints per project (ink, navy, charcoal — logo inverted white)
  * - Fredericia Håndboldklub → #464545 (logo grey)
- * - Fredericia — Ribe Esbjerg → #1a2840 (cool ink)
+ * - Fredericia — Ribe Esbjerg / Bjerringbro-Silkeborg → #1a2840 (cool ink)
  * - Suset → #2c2419 (warm espresso — cover art tonality)
  */
 export const projectHoverBrands: Record<string, ProjectHoverBrand> = {
@@ -147,6 +147,17 @@ export const projectHoverBrands: Record<string, ProjectHoverBrand> = {
     invertLogo: false,
   },
   "fredericia-ribe-esbjerg": {
+    brandName: "Fredericia Håndboldklub",
+    logoSrc: "/logos/fredericia-haandboldklub.svg",
+    logoAlt: "Fredericia Håndboldklub logo",
+    logoWidth: 157,
+    logoHeight: 157,
+    overlayColor: "#1a2840",
+    overlayOpacity: 0.44,
+    logoClassName: "h-16 w-auto max-w-[48%] md:h-[4.5rem]",
+    invertLogo: false,
+  },
+  "bjerringbro-silkeborg-fredericia": {
     brandName: "Fredericia Håndboldklub",
     logoSrc: "/logos/fredericia-haandboldklub.svg",
     logoAlt: "Fredericia Håndboldklub logo",

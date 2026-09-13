@@ -926,6 +926,89 @@ const projectSeed: Project[] = [
       ),
     ],
   },
+  {
+    slug: "bjerringbro-silkeborg-fredericia",
+    title: "Bjerringbro-Silkeborg, Fredericia HK",
+    discipline: "sport",
+    category: "Sport",
+    galleryFormat: "wide",
+    year: "2026",
+    location: "Silkeborg",
+    excerpt: "Fredericia Håndboldklub · Liga mod Bjerringbro-Silkeborg",
+    client: "Fredericia Håndboldklub",
+    role: "Sportsfotograf",
+    outcome:
+      "Kampbilleder fra udebanekampen i Silkeborg, angreb, dueller, jubel og holdkreds.",
+    featured: false,
+    cover: L(
+      "/images/projects/bjerringbro-silkeborg-fredericia/02-springskud-mod-bjerringbro-silkeborg-fredericia-hk.jpg",
+      "Springskud i luften mod Bjerringbro-Silkeborg, Fredericia HK",
+      2200,
+      1467
+    ),
+    images: [
+      L(
+        "/images/projects/bjerringbro-silkeborg-fredericia/01-fhk-spiller-overfor-bjerringbro-silkeborg.jpg",
+        "Fredericia HK-spiller over for Bjerringbro-Silkeborg, nummer 19",
+        2200,
+        1467
+      ),
+      L(
+        "/images/projects/bjerringbro-silkeborg-fredericia/02-springskud-mod-bjerringbro-silkeborg-fredericia-hk.jpg",
+        "Springskud i luften mod Bjerringbro-Silkeborg, Fredericia HK",
+        2200,
+        1467
+      ),
+      L(
+        "/images/projects/bjerringbro-silkeborg-fredericia/03-duel-mod-bjerringbro-silkeborg-fredericia-hk.jpg",
+        "Duel under pres mod Bjerringbro-Silkeborg, Fredericia HK",
+        2200,
+        1467
+      ),
+      L(
+        "/images/projects/bjerringbro-silkeborg-fredericia/04-kast-mod-mal-mod-bjerringbro-silkeborg-fredericia-hk.jpg",
+        "Kast mod mål mod Bjerringbro-Silkeborg, Fredericia HK",
+        2200,
+        1467
+      ),
+      L(
+        "/images/projects/bjerringbro-silkeborg-fredericia/05-fhk-spiller-dirigerer-mod-bjerringbro-silkeborg.jpg",
+        "Fredericia HK-spiller dirigerer på banen mod Bjerringbro-Silkeborg",
+        2200,
+        1467
+      ),
+      L(
+        "/images/projects/bjerringbro-silkeborg-fredericia/06-angreb-mellem-forsvarere-mod-bjerringbro-silkeborg.jpg",
+        "Angreb mellem to forsvarere mod Bjerringbro-Silkeborg, Fredericia HK",
+        2200,
+        1467
+      ),
+      L(
+        "/images/projects/bjerringbro-silkeborg-fredericia/07-fhk-spiller-i-kampen-mod-bjerringbro-silkeborg.jpg",
+        "Fredericia HK-spiller i kampen mod Bjerringbro-Silkeborg",
+        2200,
+        1467
+      ),
+      P(
+        "/images/projects/bjerringbro-silkeborg-fredericia/08-maalmand-jubel-mod-bjerringbro-silkeborg-fredericia.jpg",
+        "Målmand jubler i kampen mod Bjerringbro-Silkeborg, Fredericia HK",
+        1760,
+        2200
+      ),
+      L(
+        "/images/projects/bjerringbro-silkeborg-fredericia/09-highfive-mod-bjerringbro-silkeborg-fredericia-hk.jpg",
+        "Highfive mellem Fredericia HK-spillere mod Bjerringbro-Silkeborg",
+        2200,
+        1467
+      ),
+      L(
+        "/images/projects/bjerringbro-silkeborg-fredericia/10-holdkreds-mod-bjerringbro-silkeborg-fredericia-hk.jpg",
+        "Holdkreds, Fredericia HK mod Bjerringbro-Silkeborg",
+        2200,
+        1467
+      ),
+    ],
+  },
 ];
 
 const projectsResolved: Project[] = projectSeed.map(withGeneratedGallery);

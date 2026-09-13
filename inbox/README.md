@@ -18,6 +18,8 @@ Smid dine rå billeder ind i den rigtige projektmappe (op til **40 MB** pr. fil)
 | `super-cup-kvinder/` | Super Cup 2026 – Kvinder |
 | `super-cup-herrer/` | Super Cup 2026 – Herrer |
 | `fredericia-haandboldklub/` | Fredericia Håndboldklub |
+| `fredericia-ribe-esbjerg/` | Fredericia HK · Ribe-Esbjerg |
+| `bjerringbro-silkeborg-fredericia/` | Fredericia HK · Bjerringbro-Silkeborg |
 
 ## Sådan gør du
 

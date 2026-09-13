@@ -46,6 +46,8 @@ const PROJECT_TITLES = {
   "super-cup-kvinder": "Super Cup 2026 – Kvinder",
   "super-cup-herrer": "Super Cup 2026 – Herrer",
   "fredericia-haandboldklub": "Fredericia Håndboldklub",
+  "fredericia-ribe-esbjerg": "Fredericia, Ribe Esbjerg",
+  "bjerringbro-silkeborg-fredericia": "Bjerringbro-Silkeborg, Fredericia HK",
   "rasmus-seebach-suset": "Rasmus Seebach — Suset",
 };
 
@@ -117,7 +119,9 @@ function defaultAlt(slug, index, orientation) {
   if (
     slug === "super-cup-kvinder" ||
     slug === "super-cup-herrer" ||
-    slug.startsWith("dm-finalen-")
+    slug.startsWith("dm-finalen-") ||
+    slug === "fredericia-ribe-esbjerg" ||
+    slug === "bjerringbro-silkeborg-fredericia"
   ) {
     if (orientation === "portrait") {
       return `${title} — håndboldspiller i aktion`;

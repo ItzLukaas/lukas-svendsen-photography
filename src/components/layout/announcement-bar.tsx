@@ -8,17 +8,28 @@ import {
   BrandInstagram,
   BrandLinkedin,
 } from "@/components/layout/social-icons";
-import { getAvailabilityStatus } from "@/lib/availability";
+import {
+  getAvailabilityStatus,
+  type AvailabilityStatus,
+} from "@/lib/availability";
 import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
+
+/** SSR placeholder — live status is set after mount to avoid a stuck build-time label. */
+const placeholderStatus: AvailabilityStatus = {
+  available: false,
+  label: "Åbningstid",
+  detail: "Se om jeg er inden for åbningstid.",
+  href: `mailto:${siteConfig.email}`,
+  action: "Kontakt",
+};
 
 /**
  * Thin stone bar — contact + live availability.
  * Soft neutral only. Green is reserved for the live status dot.
  */
 export function AnnouncementBar() {
-  // SSR + first paint use live status (Copenhagen TZ) — avoids "…" label CLS
-  const [status, setStatus] = useState(getAvailabilityStatus);
+  const [status, setStatus] = useState(placeholderStatus);
 
   useEffect(() => {
     const tick = () => setStatus(getAvailabilityStatus());
@@ -26,8 +37,6 @@ export function AnnouncementBar() {
     const id = window.setInterval(tick, 60_000);
     return () => window.clearInterval(id);
   }, []);
-
-  const display = status;
 
   return (
     <div
@@ -37,31 +46,24 @@ export function AnnouncementBar() {
     >
       <div className="mx-auto flex h-[var(--announcement-h)] max-w-[1600px] items-center justify-between gap-4 px-5 text-[0.6875rem] font-medium tracking-[0.02em] md:px-8 md:text-[0.71875rem] lg:px-12">
         <a
-          href={display.href}
+          href={status.href}
           className="inline-flex min-h-9 items-center gap-2 transition-opacity duration-300 hover:opacity-70"
-          title={display.detail}
+          title={status.detail}
         >
           <span
             className={cn(
               "relative size-1.5 shrink-0 rounded-full",
-              display.available
+              status.available
                 ? "bg-available status-dot-live"
                 : "bg-muted-ink/45"
             )}
             aria-hidden
           />
-          <span className="text-ink" suppressHydrationWarning>
-            {display.label}
-          </span>
+          <span className="text-ink">{status.label}</span>
           <span className="hidden text-muted-ink sm:inline" aria-hidden>
             ·
           </span>
-          <span
-            className="hidden text-muted-ink sm:inline"
-            suppressHydrationWarning
-          >
-            {display.action}
-          </span>
+          <span className="hidden text-muted-ink sm:inline">{status.action}</span>
         </a>
 
         <div className="flex items-center gap-1 sm:gap-0.5 md:gap-1">

@@ -5,19 +5,21 @@ import { FaqSection } from "@/components/home/faq-section";
 import { FadeIn } from "@/components/motion/fade-in";
 import {
   businessAudiencePoints,
+  businessOfferingsIntro,
   offerings,
   offeringsIntro,
+  privateOfferingsIntro,
 } from "@/lib/data/offerings";
 import {
   pageBreadcrumbJsonLd,
   pageMetadata,
   simplePageJsonLd,
 } from "@/lib/seo";
+import { pageSeo } from "@/lib/seo-copy";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Hvad jeg laver — foto, video og content",
-  description:
-    "Professionel fotografering, videoproduktion, drone og content til virksomheder, organisationer, events, sport og private i Jylland og Danmark.",
+  title: pageSeo.hvadJegLaver.title,
+  description: pageSeo.hvadJegLaver.description,
   path: "/hvad-jeg-laver",
 });
 
@@ -25,7 +27,7 @@ export default function HvadJegLaverPage() {
   const jsonLd = simplePageJsonLd({
     path: "/hvad-jeg-laver",
     name: "Hvad jeg laver",
-    description: offeringsIntro.body,
+    description: pageSeo.hvadJegLaver.description,
     type: "WebPage",
     mainEntityId: "service",
   });
@@ -89,13 +91,16 @@ export default function HvadJegLaverPage() {
         >
           <div className="mx-auto max-w-[1600px] px-5 py-[var(--space-section-sm)] md:px-8 lg:px-12">
             <FadeIn>
-              <p className="label-meta">Primært</p>
+              <p className="label-meta">{businessOfferingsIntro.eyebrow}</p>
               <h2
                 id="business-offerings-heading"
-                className="mt-3 font-display text-[clamp(1.65rem,3vw,2.35rem)] leading-[1.08] tracking-[-0.03em]"
+                className="mt-3 max-w-[18ch] font-display text-[clamp(1.65rem,3vw,2.35rem)] leading-[1.08] tracking-[-0.03em]"
               >
-                Til virksomheder og organisationer
+                {businessOfferingsIntro.title}
               </h2>
+              <p className="mt-5 max-w-2xl text-[0.9375rem] leading-[1.7] text-muted-ink md:text-[1.0625rem]">
+                {businessOfferingsIntro.body}
+              </p>
             </FadeIn>
 
             <div className="mt-10 grid gap-10 md:grid-cols-12 md:gap-12">
@@ -112,14 +117,6 @@ export default function HvadJegLaverPage() {
                       <p className="mt-3 max-w-xl text-[0.9375rem] leading-[1.7] text-muted-ink">
                         {item.summary}
                       </p>
-                      <p className="mt-3 text-[0.8125rem] text-muted-ink">
-                        <span className="font-medium text-ink">Til: </span>
-                        {item.forWho}
-                      </p>
-                      <p className="mt-1 text-[0.8125rem] text-muted-ink">
-                        <span className="font-medium text-ink">Du får: </span>
-                        {item.value}
-                      </p>
                     </FadeIn>
                   </li>
                 ))}
@@ -127,7 +124,7 @@ export default function HvadJegLaverPage() {
 
               <FadeIn delay={0.08} className="md:col-span-4 md:col-start-9">
                 <div className="border border-foreground/10 bg-mist/40 px-5 py-6 md:px-6 md:py-7">
-                  <p className="label-meta">Typiske behov</p>
+                  <p className="label-meta">Typiske opgaver</p>
                   <ul className="mt-4 m-0 list-none space-y-3 p-0">
                     {businessAudiencePoints.map((point) => (
                       <li
@@ -158,17 +155,14 @@ export default function HvadJegLaverPage() {
           >
             <div className="mx-auto max-w-[1600px] px-5 py-[var(--space-section-sm)] md:px-8 lg:px-12">
               <FadeIn>
-                <p className="label-meta">Også</p>
+                <p className="label-meta">{privateOfferingsIntro.eyebrow}</p>
                 <h2
                   id="private-offerings-heading"
                   className="mt-3 font-display text-[clamp(1.65rem,3vw,2.35rem)] leading-[1.08] tracking-[-0.03em]"
                 >
-                  Til private
-                </h2>
-                <h3 className="mt-6 font-display text-[1.25rem] tracking-[-0.02em]">
                   {privateOffer.title}
-                </h3>
-                <p className="mt-3 max-w-xl text-[0.9375rem] leading-[1.7] text-muted-ink">
+                </h2>
+                <p className="mt-5 max-w-xl text-[0.9375rem] leading-[1.7] text-muted-ink md:text-[1.0625rem]">
                   {privateOffer.summary}
                 </p>
                 <p className="mt-6">

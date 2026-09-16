@@ -3,11 +3,11 @@ import type { Metadata } from "next";
 import { WorkIndex } from "@/components/work/work-index";
 import { fetchProjects } from "@/lib/content";
 import { collectionPageJsonLd, pageMetadata } from "@/lib/seo";
+import { pageSeo } from "@/lib/seo-copy";
 
 const arbejdeMetadata = pageMetadata({
-  title: "Portfolio | Foto og video",
-  description:
-    "Udvalgte foto- og videoprojekter fra Lukas Svendsen. Eksempler på foto, video og content til virksomheder, organisationer og private.",
+  title: pageSeo.arbejde.title,
+  description: pageSeo.arbejde.description,
   path: "/arbejde",
 });
 

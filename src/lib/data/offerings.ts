@@ -16,35 +16,35 @@ export type Offering = {
 export const offerings: Offering[] = [
   {
     id: "business",
-    title: "Virksomheder & branding",
+    title: "Virksomhedsfoto & video",
     audience: "business",
     summary:
-      "Foto og video til virksomheder, organisationer og brands, der har brug for stærkt indhold til hjemmeside, sociale medier, kampagner og intern kommunikation.",
+      "Foto og video, der viser virksomheden, menneskene bag og det, I tilbyder. Det kan være alt fra billeder til hjemmeside og præsentationer til produkter, medarbejdere, kampagner og andet visuelt materiale.",
     forWho: "Virksomheder, organisationer og brands",
     value:
-      "Stærkt visuelt indhold til hjemmeside, sociale medier, kampagner og intern kommunikation.",
-    href: "/hvad-jeg-laver#virksomheder",
-  },
-  {
-    id: "events",
-    title: "Events, koncerter & sport",
-    audience: "business",
-    summary:
-      "Foto og video fra events, koncerter, festivaler og sport. Fra de store øjeblikke til de små detaljer, der tilsammen fortæller historien om dagen.",
-    forWho: "Arrangører, klubber, festivals, venues og medier",
-    value:
-      "Billeder og film, der fanger både de store øjeblikke og de små detaljer fra dagen.",
+      "Foto og video til hjemmeside, kampagner, produkter, medarbejdere og visuel kommunikation.",
     href: "/hvad-jeg-laver#virksomheder",
   },
   {
     id: "content",
-    title: "Content & video",
+    title: "Content & markedsføring",
     audience: "both",
     summary:
-      "Indhold til sociale medier, hjemmesider og kampagner. Fra korte videoer og reels til større produktioner, hvor foto, video og drone går op i en højere enhed.",
-    forWho: "Brands, virksomheder og projekter med behov for indhold",
+      "Indhold til sociale medier, hjemmesider og markedsføring, skabt med udgangspunkt i virksomhedens udtryk og behov. Fra enkelte billeder og korte videoer til større produktioner med foto, video og drone.",
+    forWho: "Virksomheder og brands med behov for indhold",
     value:
-      "Sammenhængende content — fra korte videoer og reels til større produktioner med foto, video og drone.",
+      "Enkeltstående billeder og videoer — eller et samlet contentunivers med foto, video og drone.",
+    href: "/hvad-jeg-laver#virksomheder",
+  },
+  {
+    id: "events",
+    title: "Events, sport & oplevelser",
+    audience: "business",
+    summary:
+      "Foto og video fra events, konferencer, koncerter, festivaler, sport og andre arrangementer. Jeg fanger både stemningen, menneskene og de øjeblikke, der gør dagen til noget særligt, så materialet kan bruges både under og efter arrangementet.",
+    forWho: "Arrangører, klubber, festivals, venues og virksomheder",
+    value:
+      "Billeder og film, der fanger stemningen, menneskene og de særlige øjeblikke.",
     href: "/hvad-jeg-laver#virksomheder",
   },
   {
@@ -52,24 +52,37 @@ export const offerings: Offering[] = [
     title: "Privat fotografering",
     audience: "private",
     summary:
-      "Fotografering til portrætter, fester, mærkedage og andre private begivenheder, hvor de gode øjeblikke skal foreviges.",
-    forWho: "Private kunder, familier og personlige brands",
-    value: "Personlige billeder, der holder på de gode øjeblikke.",
+      "Foto er ikke kun til virksomheder. Jeg fotograferer også for private til portrætter, fester, mærkedage og andre begivenheder. Uanset om det er en enkelt fotografering eller en større dag, handler det om at skabe naturlige og gennemarbejdede billeder, som man har lyst til at gemme og se tilbage på.",
+    forWho: "Private kunder og familier",
+    value: "Billeder, man har lyst til at gemme og se tilbage på.",
     href: "/hvad-jeg-laver#privat",
   },
 ];
 
 export const businessAudiencePoints = [
-  "Hjemmeside & digitalt indhold",
-  "Sociale medier & content",
-  "Kampagner & markedsføring",
-  "Events, sport & live",
-  "Employer branding & portrætter",
-  "PR & visuelt materiale",
+  "Hjemmeside og virksomhedsprofil",
+  "Sociale medier og content",
+  "Kampagner og markedsføring",
+  "Produktfoto",
+  "Medarbejder- og portrætfoto",
+  "Employer branding",
+  "Events og arrangementer",
+  "PR og presse",
+  "Video- og droneproduktion",
 ] as const;
 
 export const offeringsIntro = {
   eyebrow: "Hvad jeg laver",
   title: "Professionel foto, video og content",
   body: "Jeg hjælper virksomheder, organisationer og private med foto, video og content til blandt andet web, events, sport, koncerter og sociale medier.",
+} as const;
+
+export const businessOfferingsIntro = {
+  eyebrow: "Primært",
+  title: "Til virksomheder, organisationer og brands",
+  body: "Jeg arbejder med virksomheder i alle størrelser og brancher og tilpasser altid foto og video til den enkelte virksomhed, opgave og situation. Det kan være alt fra billeder til hjemmesiden og medarbejderportrætter til content, kampagner, video og visuelt materiale til sociale medier. Uanset behovet er målet at skabe indhold, der får virksomheden til at stå skarpt og kan bruges aktivt i kommunikationen.",
+} as const;
+
+export const privateOfferingsIntro = {
+  eyebrow: "Også til private",
 } as const;

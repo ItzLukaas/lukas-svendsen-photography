@@ -1,14 +1,21 @@
 {
   "slug": "fredericia-haandboldklub",
-  "updatedAt": "2026-08-31T16:00:19.425Z",
+  "updatedAt": "2026-09-12T07:32:00.000Z",
   "cover": {
-    "src": "/images/projects/fredericia-haandboldklub/02-fhk-freja-pose-hvid.jpg",
-    "alt": "Freja Thor Ammidtsbøl Andersen jubler — Fredericia Håndbold, nummer 3",
-    "width": 1467,
-    "height": 2200,
-    "orientation": "portrait"
+    "src": "/images/projects/fredericia-haandboldklub/00-fhk-1div-kvinder-holdfoto.jpg",
+    "alt": "Fredericia Håndboldklub 1. Division Kvinder, holdfoto",
+    "width": 2200,
+    "height": 1237,
+    "orientation": "landscape"
   },
   "images": [
+    {
+      "src": "/images/projects/fredericia-haandboldklub/00-fhk-1div-kvinder-holdfoto.jpg",
+      "alt": "Fredericia Håndboldklub 1. Division Kvinder, holdfoto",
+      "width": 2200,
+      "height": 1237,
+      "orientation": "landscape"
+    },
     {
       "src": "/images/projects/fredericia-haandboldklub/01-fhk-gruppe-06-hvid.jpg",
       "alt": "Fredericia Håndboldklub — gruppefoto",

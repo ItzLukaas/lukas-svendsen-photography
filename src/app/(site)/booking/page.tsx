@@ -9,12 +9,12 @@ import {
   pageMetadata,
   simplePageJsonLd,
 } from "@/lib/seo";
+import { pageSeo } from "@/lib/seo-copy";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Book foto, video og content",
-  description:
-    "Book Lukas Svendsen til foto, video, drone og content. Beskriv din opgave som virksomhed eller privat, og få svar inden for 1 til 2 hverdage.",
+  title: pageSeo.booking.title,
+  description: pageSeo.booking.description,
   path: "/booking",
 });
 
@@ -22,8 +22,7 @@ export default function BookingPage() {
   const jsonLd = simplePageJsonLd({
     path: "/booking",
     name: "Book Lukas Svendsen",
-    description:
-      "Booking af foto, video, drone og content. Beskriv din opgave, så finder vi sammen ud af næste skridt.",
+    description: pageSeo.booking.description,
     type: "WebPage",
     mainEntityId: "service",
   });

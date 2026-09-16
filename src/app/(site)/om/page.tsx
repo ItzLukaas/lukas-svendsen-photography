@@ -9,11 +9,11 @@ import {
   pageMetadata,
   simplePageJsonLd,
 } from "@/lib/seo";
+import { pageSeo } from "@/lib/seo-copy";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Om Lukas Svendsen | Fotograf og videograf",
-  description:
-    "Lukas Svendsen er fotograf og videograf med fokus på foto, video, content og drone til virksomheder, organisationer og private i Grindsted, Billund, Vejle, Esbjerg og resten af Danmark.",
+  title: pageSeo.om.title,
+  description: pageSeo.om.description,
   path: "/om",
 });
 
@@ -21,8 +21,7 @@ export default function OmPage() {
   const jsonLd = simplePageJsonLd({
     path: "/om",
     name: "Om Lukas Svendsen",
-    description:
-      "Lukas Svendsen er fotograf og videoproducent med fokus på foto, video, drone og content til forskellige kunder og opgaver.",
+    description: pageSeo.om.description,
     type: "AboutPage",
   });
   const breadcrumbJsonLd = pageBreadcrumbJsonLd([
@@ -104,6 +103,9 @@ export default function OmPage() {
             <div className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-4">
               <Link href="/booking" className="btn-solid bg-ink text-paper">
                 Book mig
+              </Link>
+              <Link href="/arbejde" className="btn-ghost">
+                Se arbejde
               </Link>
               <Link href="/kontakt" className="btn-ghost">
                 Kontakt mig

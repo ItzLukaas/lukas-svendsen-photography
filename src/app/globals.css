@@ -586,15 +586,17 @@
 @media (hover: hover) and (pointer: fine) {
   .arbejde-bw-cover img {
     filter: grayscale(1);
+    transform: scale(1);
     transition:
-      filter 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-      opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+      filter 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .group\/project:hover .arbejde-bw-cover img,
   .group\/project:focus-visible .arbejde-bw-cover img {
     filter: grayscale(0);
+    transform: scale(1.02);
   }
 }
 
@@ -617,6 +619,12 @@
 
   .arbejde-bw-cover img {
     transition: none;
+    transform: none;
+  }
+
+  .group\/project:hover .arbejde-bw-cover img,
+  .group\/project:focus-visible .arbejde-bw-cover img {
+    transform: none;
   }
 }
 

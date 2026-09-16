@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 
 import type { LocalArea } from "@/lib/data/local-areas";
 import type { Project } from "@/lib/data/projects";
+import { pageSeo, projectMetaDescription } from "@/lib/seo-copy";
 import { siteConfig } from "@/lib/site";
 
 type PageMetaOptions = {
+  /** Full document title — not passed through the root `%s · Name` template */
   title: string;
   description: string;
   path: string;
@@ -15,6 +17,12 @@ type PageMetaOptions = {
   /** Defaults to website; use article for project stories */
   ogType?: "website" | "article";
 };
+
+/** Absolute canonical for a site path (`/` → origin without trailing slash). */
+export function canonicalUrl(path: string) {
+  if (!path || path === "/") return siteConfig.url;
+  return `${siteConfig.url}${path.startsWith("/") ? path : `/${path}`}`;
+}
 
 /** Primary social / fallback share image — landscape, web-optimized */
 export const defaultShareImage = {
@@ -51,7 +59,7 @@ export function shareImageFromCover(cover: {
   };
 }
 
-/** Shared page metadata — titles use root template `%s · Lukas Svendsen`. */
+/** Shared page metadata — unique title, description, canonical, OG and Twitter. */
 export function pageMetadata({
   title,
   description,
@@ -62,18 +70,17 @@ export function pageMetadata({
   imageHeight = defaultShareImage.height,
   ogType = "website",
 }: PageMetaOptions): Metadata {
-  const url = `${siteConfig.url}${path}`;
-  const fullTitle = `${title} · ${siteConfig.name}`;
+  const url = canonicalUrl(path);
 
   return {
-    title,
+    title: { absolute: title },
     description,
-    alternates: { canonical: path },
+    alternates: { canonical: url },
     openGraph: {
       type: ogType,
       locale: siteConfig.locale,
       siteName: siteConfig.name,
-      title: fullTitle,
+      title,
       description,
       url,
       images: [
@@ -82,7 +89,7 @@ export function pageMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: fullTitle,
+      title,
       description,
       images: [{ url: image, alt: imageAlt }],
     },
@@ -145,7 +152,7 @@ export function projectCreativeWorkJsonLd(project: Project) {
     "@id": `${url}#work`,
     name: project.title,
     headline: project.title,
-    description: project.excerpt,
+    description: projectMetaDescription(project),
     url,
     dateCreated: `${project.year}-01-01`,
     copyrightYear: Number(project.year),
@@ -187,9 +194,8 @@ export function collectionPageJsonLd(
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "@id": `${siteConfig.url}/arbejde#collection`,
-    name: "Portfolio, Lukas Svendsen",
-    description:
-      "Udvalgte foto- og videoprojekter fra Lukas Svendsen. Eksempler på foto, video og content til virksomheder, organisationer og private.",
+    name: pageSeo.arbejde.title,
+    description: pageSeo.arbejde.description,
     url: `${siteConfig.url}/arbejde`,
     isPartOf: { "@id": `${siteConfig.url}/#website` },
     about: { "@id": `${siteConfig.url}/#person` },
@@ -316,8 +322,8 @@ export function homePageJsonLd() {
     "@type": "WebPage",
     "@id": `${siteConfig.url}/#homepage`,
     url: siteConfig.url,
-    name: siteConfig.seo.homeTitle,
-    description: siteConfig.seo.homeDescription,
+    name: pageSeo.home.title,
+    description: pageSeo.home.description,
     inLanguage: "da-DK",
     isPartOf: { "@id": `${siteConfig.url}/#website` },
     about: { "@id": `${siteConfig.url}/#person` },

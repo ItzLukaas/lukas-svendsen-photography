@@ -9,11 +9,11 @@ import {
   pageMetadata,
   simplePageJsonLd,
 } from "@/lib/seo";
+import { pageSeo } from "@/lib/seo-copy";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Kontakt fotograf og videograf",
-  description:
-    "Kontakt Lukas Svendsen for foto, video og content. Email, telefon og kontaktformular til virksomheder, organisationer og private i Jylland og resten af Danmark.",
+  title: pageSeo.kontakt.title,
+  description: pageSeo.kontakt.description,
   path: "/kontakt",
 });
 
@@ -21,8 +21,7 @@ export default function KontaktPage() {
   const jsonLd = simplePageJsonLd({
     path: "/kontakt",
     name: "Kontakt Lukas Svendsen",
-    description:
-      "Kontakt Lukas Svendsen for foto, video, drone og content.",
+    description: pageSeo.kontakt.description,
     type: "ContactPage",
     mainEntityId: "service",
   });

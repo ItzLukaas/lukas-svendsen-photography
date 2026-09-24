@@ -77,6 +77,10 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
+  icons: {
+    icon: [{ url: "/brand/icon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/brand/apple-icon.svg", sizes: "180x180" }],
+  },
 };
 
 export const viewport: Viewport = {
@@ -137,7 +141,7 @@ const jsonLd = {
       url: siteConfig.url,
       logo: {
         "@type": "ImageObject",
-        url: `${siteConfig.url}/apple-icon`,
+        url: `${siteConfig.url}/brand/apple-icon.svg`,
         width: 180,
         height: 180,
       },

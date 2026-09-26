@@ -303,7 +303,7 @@ export function MuxIntroPlayer({ className }: MuxIntroPlayerProps) {
         loading="viewport"
         playbackId={playbackId}
         streamType="on-demand"
-        preload="metadata"
+        preload="none"
         poster={poster}
         thumbnailTime={introVideo.thumbnailTime}
         primaryColor="var(--paper)"

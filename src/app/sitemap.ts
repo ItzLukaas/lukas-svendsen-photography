@@ -1,12 +1,12 @@
 import type { MetadataRoute } from "next";
 
 import { fetchProjects } from "@/lib/content";
-import { localAreas } from "@/lib/data/local-areas";
 import { getGeneratedGallery } from "@/lib/data/generated-images";
+import { localAreas } from "@/lib/data/local-areas";
 import { siteConfig } from "@/lib/site";
 
 /** Stable lastModified for mostly-static marketing routes */
-const SITE_REVISED = new Date("2026-08-13");
+const SITE_REVISED = new Date("2026-09-26");
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = siteConfig.url;

@@ -32,7 +32,7 @@ export const siteConfig = {
   seo: {
     homeTitle: "Lukas Svendsen | Fotograf og videograf",
     homeDescription:
-      "Fotograf og videograf i Grindsted. Lukas Svendsen laver foto, video og content til virksomheder, organisationer og private.",
+      "Fotograf og videograf i Grindsted. Lukas Svendsen laver foto, video, drone og content til virksomheder og private i Danmark.",
   },
   nav: [
     { href: "/arbejde", label: "Arbejde" },

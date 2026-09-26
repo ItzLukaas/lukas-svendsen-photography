@@ -1,9 +1,33 @@
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { Mail, Phone, type LucideIcon } from "lucide-react";
 
 import { FadeIn } from "@/components/motion/fade-in";
-import { MuxIntroPlayer } from "@/components/video/mux-intro-player";
 import { siteConfig } from "@/lib/site";
+import { introPosterUrl, introVideo } from "@/lib/video/intro";
+
+const introPoster = introPosterUrl();
+
+const MuxIntroPlayer = dynamic(
+  () =>
+    import("@/components/video/mux-intro-player").then(
+      (mod) => mod.MuxIntroPlayer
+    ),
+  {
+    loading: () => (
+      <div
+        className="aspect-square overflow-hidden rounded-[1rem] bg-ink bg-cover bg-center"
+        style={{
+          aspectRatio: introVideo.aspectRatio,
+          backgroundImage: introPoster
+            ? `url(${introPoster})`
+            : undefined,
+        }}
+        aria-hidden
+      />
+    ),
+  }
+);
 
 function ContactLine({
   href,
@@ -53,9 +77,10 @@ export function MeetLukasSection() {
               Mød Lukas
             </h2>
             <p className="mt-5 max-w-[40ch] text-[0.9375rem] leading-[1.7] text-paper/72 md:text-[1.0625rem]">
-              Jeg er 16 år og arbejder professionelt med foto, video og content
-              for virksomheder, sportsklubber og events. Her fortæller jeg kort
-              om, hvem jeg er, hvordan jeg arbejder, og hvad jeg kan hjælpe med.
+              Jeg er 16 år, bor i Grindsted og arbejder professionelt med foto,
+              video og content for virksomheder, sportsklubber og events. Her
+              fortæller jeg kort om, hvem jeg er, hvordan jeg arbejder, og hvad
+              jeg kan hjælpe med.
             </p>
 
             <Link

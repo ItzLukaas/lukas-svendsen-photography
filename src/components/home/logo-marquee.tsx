@@ -65,6 +65,7 @@ function LogoItem({
           )}
           loading="lazy"
           decoding="async"
+          fetchPriority="low"
         />
       </a>
     </li>

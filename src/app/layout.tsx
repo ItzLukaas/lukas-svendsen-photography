@@ -17,6 +17,7 @@ const instrumentSans = Instrument_Sans({
   display: "swap",
   preload: true,
   adjustFontFallback: true,
+  fallback: ["ui-sans-serif", "system-ui", "Segoe UI", "sans-serif"],
 });
 
 export const metadata: Metadata = {
@@ -33,11 +34,14 @@ export const metadata: Metadata = {
     "Lukas Svendsen",
     "fotograf",
     "videograf",
-    "foto og video",
     "fotograf Grindsted",
+    "videograf Danmark",
+    "foto og video",
     "videoproduktion",
     "dronefoto",
     "contentproduktion",
+    "sportsfotografi",
+    "koncertfotografi",
   ],
   openGraph: {
     type: "website",
@@ -106,7 +110,8 @@ const jsonLd = {
       url: siteConfig.url,
       email: siteConfig.email,
       telephone: siteConfig.phone,
-      jobTitle: "Fotograf og videoproducent",
+      jobTitle: "Fotograf og videograf",
+      knowsLanguage: "da-DK",
       description: siteConfig.description,
       image: `${siteConfig.url}/images/about-lukas-2026.jpg`,
       homeLocation: {
@@ -126,6 +131,10 @@ const jsonLd = {
         "Videoproduktion",
         "Droneproduktion",
         "Contentproduktion",
+        "Sportsfotografi",
+        "Koncertfotografi",
+        "Eventfotografi",
+        "Virksomhedsfotografering",
       ],
       worksFor: { "@id": `${siteConfig.url}/#organization` },
       sameAs: [
@@ -203,6 +212,8 @@ const jsonLd = {
         "Videoproduktion",
         "Droneproduktion",
         "Contentproduktion",
+        "Sportsfotografi",
+        "Koncert- og eventfotografi",
       ],
       hasOfferCatalog: {
         "@type": "OfferCatalog",

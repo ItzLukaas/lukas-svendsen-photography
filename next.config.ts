@@ -7,9 +7,12 @@ const longCache = "public, max-age=31536000, immutable";
 const nextConfig: NextConfig = {
   // LAN access (bærbar → http://192.168.1.211:3000). Restart `next dev` after changing this.
   allowedDevOrigins: ["192.168.1.211", "192.168.*.*"],
+  experimental: {
+    optimizePackageImports: ["lucide-react", "motion"],
+  },
   images: {
-    // WebP only — AVIF often softens concert photos (noise, stage lights)
-    formats: ["image/webp"],
+    // AVIF first, WebP fallback. Quality 82+ keeps concert grain usable.
+    formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1600, 1920, 2400],
     imageSizes: [96, 128, 256, 384],
     qualities: [70, 82, 88, 90, 92, 95],
@@ -22,6 +25,10 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "cdn.sanity.io",
+      },
+      {
+        protocol: "https",
+        hostname: "image.mux.com",
       },
     ],
   },
@@ -66,6 +73,16 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/content",
+        destination: "/arbejde",
+        permanent: true,
+      },
+      {
+        source: "/cases",
+        destination: "/arbejde",
+        permanent: true,
+      },
+      {
+        source: "/cases/:slug",
         destination: "/arbejde",
         permanent: true,
       },

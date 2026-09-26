@@ -14,7 +14,7 @@ export function SignatureMark({
 }: SignatureMarkProps) {
   return (
     <Image
-      src="/images/ls-signature.png"
+      src="/images/ls-signature.webp"
       alt={title}
       width={186}
       height={329}

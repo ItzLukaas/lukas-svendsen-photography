@@ -69,8 +69,10 @@ export default function OmPage() {
             <div className="mt-9 space-y-5 text-body">
               <p>
                 Jeg hedder Lukas Guldager Svendsen. Jeg arbejder som fotograf og
-                videoproducent med foto, video, drone og content — primært for
-                virksomheder, organisationer og events, og også for private.
+                videograf med foto, video, drone og content — primært for
+                virksomheder, organisationer og events, og også for private. Min
+                base er Grindsted, og jeg tager jævnligt opgaver i Billund,
+                Vejle, Esbjerg og resten af Danmark.
               </p>
               <p>
                 Jeg startede med at tage det seriøst i slutningen af 2025, og

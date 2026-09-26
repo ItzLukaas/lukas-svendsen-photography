@@ -74,7 +74,7 @@ export const businessAudiencePoints = [
 export const offeringsIntro = {
   eyebrow: "Hvad jeg laver",
   title: "Professionel foto, video og content",
-  body: "Jeg hjælper virksomheder, organisationer og private med foto, video og content til blandt andet web, events, sport, koncerter og sociale medier.",
+  body: "Jeg hjælper virksomheder, organisationer og private med foto, video, drone og content til blandt andet web, events, sport, koncerter og sociale medier.",
 } as const;
 
 export const businessOfferingsIntro = {

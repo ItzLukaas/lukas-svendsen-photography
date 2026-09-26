@@ -12,7 +12,7 @@ import { OfferingsPreview } from "@/components/home/offerings-preview";
 import { ProcessSection } from "@/components/home/process-section";
 import { getCollaborationsJsonLd } from "@/lib/data/clients";
 import { faqItems } from "@/lib/data/faq";
-import { homePageJsonLd } from "@/lib/seo";
+import { homePageJsonLd, introVideoJsonLd } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
 const LogoMarquee = dynamic(() =>
@@ -29,6 +29,7 @@ const TrustStats = dynamic(() =>
 export function HomePage() {
   const collaborationsJsonLd = getCollaborationsJsonLd(siteConfig.url);
   const homeJsonLd = homePageJsonLd();
+  const introJsonLd = introVideoJsonLd();
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -53,6 +54,10 @@ export function HomePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(introJsonLd) }}
       />
       <script
         type="application/ld+json"

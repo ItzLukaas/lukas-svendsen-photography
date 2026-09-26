@@ -17,6 +17,13 @@ const mainNav = [
   { href: "/booking", label: "Book mig" },
 ] as const;
 
+const areaLinks = [
+  { href: "/fotograf-grindsted", label: "Grindsted" },
+  { href: "/fotograf-billund", label: "Billund" },
+  { href: "/fotograf-vejle", label: "Vejle" },
+  { href: "/fotograf-esbjerg", label: "Esbjerg" },
+] as const;
+
 const socialLinks = [
   {
     href: siteConfig.social.instagram,
@@ -104,6 +111,21 @@ export function SiteFooter() {
               <br />
               {location.country}
             </address>
+            <nav
+              aria-label="Områder"
+              className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.875rem]"
+            >
+              {areaLinks.map((item, index) => (
+                <span key={item.href} className="inline-flex items-center gap-2">
+                  {index > 0 ? (
+                    <span className="text-paper/35" aria-hidden>
+                      ·
+                    </span>
+                  ) : null}
+                  <FooterLink href={item.href}>{item.label}</FooterLink>
+                </span>
+              ))}
+            </nav>
           </div>
 
           <div>

@@ -68,12 +68,12 @@ export function ConcertSpotlight() {
             className="order-1 flex flex-col md:order-2 md:col-span-5 lg:col-span-4 lg:col-start-9"
           >
             <p className="label-meta">Udvalgt arbejde</p>
-            <h3
+            <h2
               id="photography-spotlight-heading"
               className="mt-3 max-w-[14ch] font-display text-[clamp(1.85rem,3.8vw,2.85rem)] leading-[1.05] tracking-[-0.03em]"
             >
               Billeder med et formål
-            </h3>
+            </h2>
             <div
               className="mt-3 h-px w-[min(100%,14rem)] bg-foreground/15"
               aria-hidden

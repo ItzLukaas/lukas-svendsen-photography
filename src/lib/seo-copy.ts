@@ -6,7 +6,7 @@ export const pageSeo = {
   home: {
     title: "Lukas Svendsen | Fotograf og videograf",
     description:
-      "Fotograf og videograf i Grindsted. Lukas Svendsen laver foto, video og content til virksomheder, organisationer og private.",
+      "Fotograf og videograf i Grindsted. Lukas Svendsen laver foto, video, drone og content til virksomheder og private i Danmark.",
   },
   arbejde: {
     title: "Arbejde | Lukas Svendsen",
@@ -16,7 +16,7 @@ export const pageSeo = {
   hvadJegLaver: {
     title: "Hvad jeg laver | Foto, video og content",
     description:
-      "Foto, video, drone og content til virksomheder, organisationer, events og private. Se hvad Lukas Svendsen laver.",
+      "Foto, video, drone og content til virksomheder, events, sport, koncerter og private. Se hvad fotograf Lukas Svendsen laver.",
   },
   om: {
     title: "Om Lukas Svendsen | Fotograf og videograf",

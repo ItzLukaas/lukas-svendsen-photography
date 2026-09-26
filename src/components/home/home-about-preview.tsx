@@ -40,8 +40,9 @@ export function HomeAboutPreview() {
             </p>
             <p className="mt-5 max-w-[48ch] text-[0.9375rem] leading-[1.65] text-muted-ink md:text-[1rem]">
               Jeg laver foto, video, drone og content for virksomheder,
-              organisationer og private. Det vigtigste for mig er, at vi får
-              lavet noget, der passer til opgaven og kan bruges bagefter.
+              organisationer og private — med base i Grindsted. Det vigtigste
+              for mig er, at vi får lavet noget, der passer til opgaven og kan
+              bruges bagefter.
             </p>
             <p className="mt-8">
               <Link

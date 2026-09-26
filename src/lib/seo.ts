@@ -4,6 +4,7 @@ import type { LocalArea } from "@/lib/data/local-areas";
 import type { Project } from "@/lib/data/projects";
 import { pageSeo, projectMetaDescription } from "@/lib/seo-copy";
 import { siteConfig } from "@/lib/site";
+import { introPosterUrl, introVideo } from "@/lib/video/intro";
 
 type PageMetaOptions = {
   /** Full document title — not passed through the root `%s · Name` template */
@@ -328,6 +329,28 @@ export function homePageJsonLd() {
     isPartOf: { "@id": `${siteConfig.url}/#website` },
     about: { "@id": `${siteConfig.url}/#person` },
     mainEntity: { "@id": `${siteConfig.url}/#service` },
+    primaryImageOfPage: {
+      "@type": "ImageObject",
+      url: `${siteConfig.url}/images/hero-handbold-maalnet-super-cup.jpg`,
+      caption: "Sportsfoto — håndbold set gennem målnettet",
+    },
+  };
+}
+
+/** Intro film on the homepage — facts only, no invented duration or view counts */
+export function introVideoJsonLd() {
+  const poster = introPosterUrl();
+  return {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "@id": `${siteConfig.url}/#intro-video`,
+    name: introVideo.title,
+    description: introVideo.description,
+    thumbnailUrl: poster ? [poster] : undefined,
+    publisher: { "@id": `${siteConfig.url}/#organization` },
+    creator: { "@id": `${siteConfig.url}/#person` },
+    inLanguage: "da-DK",
+    isPartOf: { "@id": `${siteConfig.url}/#homepage` },
   };
 }
 

@@ -15,7 +15,7 @@ export const introVideo = {
 export function introPosterUrl(playbackId: string = introVideo.playbackId) {
   const id = playbackId.trim();
   if (!id) return undefined;
-  return `https://image.mux.com/${id}/thumbnail.jpg?time=${introVideo.thumbnailTime}&width=1200`;
+  return `https://image.mux.com/${id}/thumbnail.webp?time=${introVideo.thumbnailTime}&width=800`;
 }
 
 export function hasIntroPlaybackId() {

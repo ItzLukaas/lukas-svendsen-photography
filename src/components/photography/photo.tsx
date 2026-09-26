@@ -165,6 +165,7 @@ export function Photo({
           priority={priority}
           quality={quality}
           unoptimized={unoptimized}
+          fetchPriority={priority ? "high" : "low"}
           className={imageClasses}
           onLoad={handleLoad}
           onError={handleError}
@@ -182,6 +183,7 @@ export function Photo({
           priority={priority}
           quality={quality}
           unoptimized={unoptimized}
+          fetchPriority={priority ? "high" : "low"}
           className={imageClasses}
           onLoad={handleLoad}
           onError={handleError}

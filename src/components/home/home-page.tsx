@@ -4,7 +4,6 @@ import { BusinessSection } from "@/components/home/business-section";
 import { ConcertSpotlight } from "@/components/home/concert-spotlight";
 import { FaqSection } from "@/components/home/faq-section";
 import { FeaturedWork } from "@/components/home/featured-work";
-import { HomeAboutPreview } from "@/components/home/home-about-preview";
 import { HomeCta } from "@/components/home/home-cta";
 import { HomeHero } from "@/components/home/home-hero";
 import { MeetLukasSection } from "@/components/home/meet-lukas-section";
@@ -24,7 +23,7 @@ const TrustStats = dynamic(() =>
 
 /**
  * Homepage story:
- * Hero → Trust → Offerings → Business → Work → Process → Meet → FAQ → About → CTA
+ * Hero → Trust → Offerings → Business → Work → Process → Meet → FAQ → CTA
  */
 export function HomePage() {
   const collaborationsJsonLd = getCollaborationsJsonLd(siteConfig.url);
@@ -74,7 +73,6 @@ export function HomePage() {
       <ProcessSection />
       <MeetLukasSection />
       <FaqSection />
-      <HomeAboutPreview />
       <HomeCta />
     </>
   );

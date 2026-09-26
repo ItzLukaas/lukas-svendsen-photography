@@ -60,7 +60,8 @@ export function WorkIndex({
     <div className="mx-auto max-w-[1600px] px-5 pt-[calc(var(--chrome-h)+2.5rem)] pb-24 md:px-8 md:pb-32 lg:px-12">
       <FadeIn immediate>
         <div className="max-w-xl">
-          <h1 className="font-display text-[clamp(3rem,8vw,6.25rem)] leading-[0.9] tracking-[-0.035em]">
+          <p className="label-meta">Portfolio</p>
+          <h1 className="mt-3 font-display text-[clamp(3rem,8vw,6.25rem)] leading-[0.9] tracking-[-0.035em]">
             Arbejde
           </h1>
           <p className="mt-5 max-w-md text-[0.9375rem] leading-[1.65] text-muted-ink md:mt-6 md:text-[1.0625rem]">
@@ -82,7 +83,7 @@ export function WorkIndex({
 
       <FadeIn delay={0.04} immediate>
         <div
-          className="mt-10 flex flex-wrap gap-x-6 gap-y-2 border-b border-foreground/10 pb-4 md:mt-14 md:gap-x-8"
+          className="mt-10 flex flex-wrap gap-x-6 gap-y-2 md:mt-14 md:gap-x-8"
           role="group"
           aria-label="Filtrer efter kategori"
         >
@@ -95,10 +96,10 @@ export function WorkIndex({
                 aria-pressed={active}
                 onClick={() => selectKategori(filter.slug)}
                 className={cn(
-                  "min-h-11 pb-1 text-[0.6875rem] font-medium tracking-[0.14em] uppercase transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink",
+                  "min-h-11 border-b pb-1 text-[0.6875rem] font-medium tracking-[0.14em] uppercase transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink",
                   active
-                    ? "border-b border-foreground text-foreground"
-                    : "border-b border-transparent text-muted-ink hover:text-foreground"
+                    ? "border-ink text-ink"
+                    : "border-transparent text-muted-ink hover:text-ink"
                 )}
               >
                 {filter.label}
@@ -115,10 +116,7 @@ export function WorkIndex({
             className="grid grid-cols-1 items-end gap-3 sm:grid-cols-12 sm:gap-4 md:gap-6 lg:gap-8"
           >
             {tiles.map((tile, index) => (
-              <div
-                key={tile.project.slug}
-                className={tileClassName(tile)}
-              >
+              <div key={tile.project.slug} className={tileClassName(tile)}>
                 <WorkCard
                   project={tile.project}
                   sizes={sizesForSpan(tile.span, tile.center)}
@@ -130,9 +128,23 @@ export function WorkIndex({
             ))}
           </div>
         ) : (
-          <p className="mt-12 text-muted-ink">
-            Ingen projekter i den kategori endnu.
-          </p>
+          <div className="mt-12 max-w-md space-y-5">
+            <p className="text-muted-ink">
+              Ingen projekter i den kategori endnu.
+            </p>
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+              <button
+                type="button"
+                className="btn-ghost"
+                onClick={() => selectKategori("alle")}
+              >
+                Vis alle
+              </button>
+              <Link href="/booking" className="btn-ghost">
+                Book mig
+              </Link>
+            </div>
+          </div>
         )}
       </div>
     </div>

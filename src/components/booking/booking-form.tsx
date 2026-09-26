@@ -18,11 +18,11 @@ import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 const productionHints: Record<(typeof productionTypes)[number], string> = {
-  Fotografering: "Beskriv opgaven og hvad materialet skal bruges til",
-  Videoproduktion: "Beskriv opgaven og hvad materialet skal bruges til",
-  Droneproduktion: "Beskriv opgaven og hvad materialet skal bruges til",
-  Content: "Beskriv opgaven og hvad materialet skal bruges til",
-  Andet: "Fortæl gerne mere nedenfor",
+  Fotografering: "Portrætter, events, produkter og reportage",
+  Videoproduktion: "Film, interviews og korte formater",
+  Droneproduktion: "Luftbilleder og oversigtsoptagelser",
+  Content: "Sociale medier og løbende leverancer",
+  Andet: "Fortæl gerne mere i næste trin",
 };
 
 const STEPS = [
@@ -143,13 +143,13 @@ export function BookingForm() {
   if (status === "success") {
     return (
       <div
-        className="border border-foreground/10 bg-[color-mix(in_srgb,var(--ink)_2.5%,var(--paper))] px-6 py-10 md:px-8 md:py-12"
+        className="border border-foreground/10 bg-paper px-6 py-10 md:px-8 md:py-12"
         role="status"
         aria-live="polite"
       >
         <p className="label-meta">Modtaget</p>
-        <h2 className="mt-3 font-display text-[clamp(1.65rem,3vw,2.1rem)] leading-[1.05] tracking-[-0.025em]">
-          Tak for din forespørgsel.
+        <h2 className="mt-3 font-display text-[clamp(1.5rem,3vw,1.85rem)] leading-[1.05] tracking-[-0.025em]">
+          Tak for din forespørgsel
         </h2>
         <p className="text-body mt-4 max-w-md">
           Jeg har modtaget din bookingforespørgsel og vender tilbage snarest,
@@ -158,7 +158,7 @@ export function BookingForm() {
         <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3">
           <button
             type="button"
-            className="btn-solid bg-ink text-paper"
+            className="btn-solid"
             onClick={() => setStatus("idle")}
           >
             Send en ny forespørgsel
@@ -429,7 +429,7 @@ export function BookingForm() {
           {!isLast ? (
             <button
               type="button"
-              className="btn-solid bg-ink text-paper"
+              className="btn-solid"
               onClick={goNext}
             >
               Fortsæt
@@ -438,7 +438,7 @@ export function BookingForm() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="btn-solid bg-ink text-paper"
+              className="btn-solid"
             >
               {isSubmitting ? "Sender…" : "Send bookingforespørgsel"}
             </button>

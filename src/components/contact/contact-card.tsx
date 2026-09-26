@@ -10,7 +10,7 @@ export function ContactCard() {
 
   return (
     <div className="flex items-start gap-4">
-      <div className="relative size-16 shrink-0 overflow-hidden rounded-full border border-foreground/12 sm:size-[4.5rem]">
+      <div className="relative size-16 shrink-0 overflow-hidden border border-foreground/12 sm:size-[4.5rem]">
         <Photo
           src={aboutPortrait.src}
           alt={aboutPortrait.alt}

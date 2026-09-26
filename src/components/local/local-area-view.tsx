@@ -115,7 +115,7 @@ export function LocalAreaView({ area }: LocalAreaViewProps) {
 
         <FadeIn delay={0.16}>
           <div className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-4">
-            <Link href="/booking" className="btn-solid bg-ink text-paper">
+            <Link href="/booking" className="btn-solid">
               Book mig
             </Link>
             <Link href="/kontakt" className="btn-ghost">

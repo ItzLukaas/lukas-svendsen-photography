@@ -204,6 +204,20 @@
     }
   }
 
+  /* Story sections — offerings, process, FAQ, business */
+  .heading-section {
+    font-size: clamp(1.9rem, 4.4vw, 3.15rem);
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+  }
+
+  /* Index / strip headings — trust, featured work, collaborations */
+  .heading-strip {
+    font-size: clamp(1.65rem, 3vw, 2.25rem);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+  }
+
   .section-y {
     padding-block: var(--space-section);
   }
@@ -229,20 +243,53 @@
     color: var(--muted-ink);
   }
 
+  .project-cta {
+    flex-shrink: 0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    opacity: 0.55;
+    transition:
+      opacity 420ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .group\/project:hover .project-cta,
+  .group\/project:focus-visible .project-cta {
+    opacity: 1;
+    transform: translateX(2px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .group\/project:hover .project-cta,
+    .group\/project:focus-visible .project-cta {
+      transform: none;
+    }
+  }
+
   .btn-solid {
     display: inline-flex;
     height: 3rem;
     align-items: center;
     justify-content: center;
     gap: 0;
-    padding-inline: 1.875rem;
+    padding-inline: 1.5rem;
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.055em;
+    background-color: var(--ink);
+    color: var(--paper);
     transition:
       opacity 420ms cubic-bezier(0.22, 1, 0.36, 1),
       transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
       gap 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* Paper fill on ink / photography fields */
+  .btn-solid-invert {
+    background-color: var(--paper);
+    color: var(--ink);
   }
 
   /* Primary CTA only — arrow on filled background buttons */
@@ -309,14 +356,14 @@
     opacity: 1;
   }
 
-  /* Outlined secondary CTA — fills on hover */
+  /* Outlined secondary CTA — fills on hover; use sparingly for deliberate contrast */
   .btn-outline {
     display: inline-flex;
     height: 3rem;
     align-items: center;
     justify-content: center;
     gap: 0;
-    padding-inline: 1.35rem;
+    padding-inline: 1.5rem;
     border: 1px solid var(--ink);
     font-size: 0.75rem;
     font-weight: 600;
@@ -517,6 +564,28 @@
       animation: none;
       box-shadow: none;
     }
+  }
+
+  /* Route enter — fast, cinematic, no loader */
+  .page-enter {
+    animation: page-enter 380ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .page-enter {
+      animation: none;
+    }
+  }
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

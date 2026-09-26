@@ -20,7 +20,7 @@ export function OfferingsPreview() {
               <p className="label-meta">{offeringsIntro.eyebrow}</p>
               <h2
                 id="offerings-heading"
-                className="mt-3 max-w-[16ch] font-display text-[clamp(1.9rem,4.4vw,3.15rem)] leading-[1.05] tracking-[-0.035em] text-ink"
+                className="heading-section mt-3 max-w-[16ch] font-display text-ink"
               >
                 {offeringsIntro.title}
               </h2>

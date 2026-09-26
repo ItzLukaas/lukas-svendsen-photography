@@ -145,7 +145,7 @@ export function HomeCtaForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="btn-solid bg-ink text-paper"
+          className="btn-solid"
         >
           {isSubmitting ? "Sender…" : "Send forespørgsel"}
         </button>

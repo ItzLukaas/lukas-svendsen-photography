@@ -75,13 +75,13 @@ function SocialLink({
       rel="noopener noreferrer"
       aria-label={label}
       className={cn(
-        "inline-flex size-10 items-center justify-center text-paper/85",
-        "transition-[transform,opacity] duration-300 ease-out",
-        "hover:-translate-y-0.5 hover:scale-105 hover:text-paper hover:opacity-100",
-        "focus-visible:-translate-y-0.5 focus-visible:scale-105 focus-visible:text-paper"
+        "inline-flex size-10 items-center justify-center text-paper/70",
+        "transition-colors duration-300 ease-out",
+        "hover:text-paper",
+        "focus-visible:text-paper"
       )}
     >
-      <Icon className="size-6" />
+      <Icon className="size-5" />
     </a>
   );
 }
@@ -96,7 +96,21 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-paper/10 bg-ink text-paper">
       <div className="mx-auto max-w-[1600px] px-5 py-10 md:px-8 md:py-12 lg:px-12">
-        <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 md:gap-6">
+        <div className="flex flex-col gap-6 border-b border-paper/10 pb-8 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-[0.6875rem] font-medium tracking-[0.1em] text-paper/45 uppercase">
+              Næste skridt
+            </p>
+            <p className="mt-2 font-display text-[clamp(1.35rem,3vw,1.85rem)] leading-[1.1] tracking-[-0.025em] text-paper">
+              Klar til at arbejde sammen?
+            </p>
+          </div>
+          <Link href="/booking" className="btn-solid btn-solid-invert shrink-0">
+            Book mig
+          </Link>
+        </div>
+
+        <div className="mt-8 grid gap-8 sm:grid-cols-2 md:grid-cols-3 md:gap-6">
           <div>
             <p className="font-display text-[1.125rem] leading-tight tracking-[-0.02em] text-paper">
               {siteConfig.name}
@@ -175,7 +189,7 @@ export function SiteFooter() {
           </p>
           <nav
             aria-label="Sociale medier"
-            className="mt-4 flex items-center gap-3"
+            className="mt-4 flex items-center gap-2"
           >
             {socialLinks.map((item) => (
               <SocialLink key={item.label} {...item} />

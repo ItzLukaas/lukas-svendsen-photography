@@ -78,7 +78,7 @@ export function ProjectView({ project, previous, next }: ProjectViewProps) {
             </p>
           ) : null}
 
-          <p className="text-body mt-6 max-w-md font-medium text-ink md:mt-7">
+          <p className="text-body mt-6 max-w-md md:mt-7">
             {project.excerpt}
           </p>
 
@@ -188,19 +188,27 @@ export function ProjectView({ project, previous, next }: ProjectViewProps) {
 
       <section className="border-t border-foreground/10">
         <div className="mx-auto flex max-w-[1600px] flex-col gap-6 px-5 py-14 md:flex-row md:items-center md:justify-between md:px-8 md:py-16 lg:px-12">
-          <p className="text-body max-w-md">
-            Har du et lignende job?{" "}
-            <Link
-              href={`/arbejde?kategori=${project.discipline}`}
-              className="font-medium text-foreground underline underline-offset-4 transition-opacity hover:opacity-70"
-            >
-              Se mere {project.category.toLowerCase()}
-            </Link>{" "}
-            eller book mig til dit næste projekt.
-          </p>
-          <Link href="/booking" className="btn-solid bg-ink text-paper">
-            Book mig
-          </Link>
+          <div className="max-w-md">
+            <p className="label-meta">Næste skridt</p>
+            <p className="text-body mt-3">
+              Har du et lignende job?{" "}
+              <Link
+                href={`/arbejde?kategori=${project.discipline}`}
+                className="font-medium text-foreground underline underline-offset-4 transition-opacity hover:opacity-70"
+              >
+                Se mere {project.category.toLowerCase()}
+              </Link>{" "}
+              eller book mig til dit næste projekt.
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+            <Link href="/booking" className="btn-solid">
+              Book mig
+            </Link>
+            <Link href="/arbejde" className="btn-ghost">
+              Tilbage til arbejde
+            </Link>
+          </div>
         </div>
       </section>
     </article>

@@ -100,7 +100,7 @@ export function TrustStats() {
             <p className="label-meta">I tal</p>
             <h2
               id="trust-stats-heading"
-              className="mt-3 font-display text-[clamp(1.65rem,3vw,2.25rem)] leading-[1.08] tracking-[-0.03em]"
+              className="heading-strip mt-3 font-display"
             >
               30+ Projekter og Samarbejder
             </h2>

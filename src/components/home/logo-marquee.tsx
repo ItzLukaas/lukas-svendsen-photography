@@ -235,7 +235,7 @@ export function LogoMarquee({ className }: LogoMarqueeProps) {
               <p className="label-meta">Samarbejder</p>
               <h2
                 id="collaborations-heading"
-                className="mt-3 font-display text-[clamp(1.25rem,2vw,1.5rem)] leading-[1.15] tracking-[-0.022em]"
+                className="heading-strip mt-3 font-display"
               >
                 Udvalgte samarbejder
               </h2>

@@ -17,7 +17,7 @@ export function BusinessSection() {
           <p className="label-meta">Til virksomheder</p>
           <h2
             id="business-heading"
-            className="mt-3 max-w-[14ch] font-display text-[clamp(1.9rem,4vw,2.85rem)] leading-[1.05] tracking-[-0.035em] text-ink"
+            className="heading-section mt-3 max-w-[14ch] font-display text-ink"
           >
             Foto og video, der kan bruges
           </h2>
@@ -27,7 +27,7 @@ export function BusinessSection() {
             medier, kampagner og øvrige kommunikation.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
-            <Link href="/booking" className="btn-solid bg-ink text-paper">
+            <Link href="/booking" className="btn-solid">
               Har du et projekt?
             </Link>
             <Link href="/hvad-jeg-laver" className="btn-ghost">

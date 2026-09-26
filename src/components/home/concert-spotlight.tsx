@@ -16,7 +16,7 @@ export function ConcertSpotlight() {
   return (
     <section
       aria-labelledby="photography-spotlight-heading"
-      className="border-t border-foreground/8 bg-mist/30"
+      className="border-t border-foreground/8"
     >
       <div className="mx-auto max-w-[1600px] px-5 py-[var(--space-section)] md:px-8 lg:px-12">
         <div className="grid items-center gap-10 md:grid-cols-12 md:gap-12 lg:gap-16 xl:gap-20">
@@ -67,10 +67,10 @@ export function ConcertSpotlight() {
             delay={0.06}
             className="order-1 flex flex-col md:order-2 md:col-span-5 lg:col-span-4 lg:col-start-9"
           >
-            <p className="label-meta">Udvalgt arbejde</p>
+            <p className="label-meta">Fotografi</p>
             <h2
               id="photography-spotlight-heading"
-              className="mt-3 max-w-[14ch] font-display text-[clamp(1.85rem,3.8vw,2.85rem)] leading-[1.05] tracking-[-0.03em]"
+              className="heading-section mt-3 max-w-[14ch] font-display"
             >
               Billeder med et formål
             </h2>

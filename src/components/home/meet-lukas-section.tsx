@@ -85,7 +85,7 @@ export function MeetLukasSection() {
 
             <Link
               href="/booking"
-              className="btn-solid mt-7 w-fit max-w-full bg-paper text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-paper"
+              className="btn-solid btn-solid-invert mt-7 w-fit max-w-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-paper"
             >
               Skal vi lave noget sammen?
             </Link>

@@ -20,7 +20,7 @@ export default function NotFound() {
         steder at fortsætte.
       </p>
       <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
-        <Link href="/arbejde" className="btn-solid bg-ink text-paper">
+        <Link href="/arbejde" className="btn-solid">
           Se arbejde
         </Link>
         <Link href="/booking" className="btn-ghost">

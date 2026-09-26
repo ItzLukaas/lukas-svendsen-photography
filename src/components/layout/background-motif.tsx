@@ -1,11 +1,9 @@
 /**
  * Global background line motif — thin stroked paths only.
- * Principle: pencil contour lines on paper, then made almost invisible.
- * No fills, blobs, gradients, or wide ribbons.
+ * Subtle editorial contours on paper; photos stay dominant.
  */
 export function BackgroundMotif() {
-  // Announcement bar stone (#ebe9e4) — near paper, almost invisible
-  const stroke = "#ebe9e4";
+  const stroke = "#d8d5ce";
 
   return (
     <div
@@ -21,14 +19,13 @@ export function BackgroundMotif() {
         preserveAspectRatio="xMidYMin slice"
         style={{ minHeight: "100%" }}
       >
-        {/* Sparse editorial contours — stroked only, never filled */}
         <path
           d="M-80 360C180 120 420 520 720 340C980 180 1180 40 1480 220"
           fill="none"
           stroke={stroke}
           strokeWidth="1"
           vectorEffect="non-scaling-stroke"
-          opacity="0.09"
+          opacity="0.14"
         />
         <path
           d="M1520 980C1240 780 960 1020 680 1180C360 1380 80 1260 -120 980"
@@ -36,7 +33,7 @@ export function BackgroundMotif() {
           stroke={stroke}
           strokeWidth="1"
           vectorEffect="non-scaling-stroke"
-          opacity="0.08"
+          opacity="0.12"
         />
         <path
           d="M-60 1880C240 1620 560 1980 900 1760C1180 1600 1360 1380 1600 1580"
@@ -44,7 +41,7 @@ export function BackgroundMotif() {
           stroke={stroke}
           strokeWidth="1"
           vectorEffect="non-scaling-stroke"
-          opacity="0.09"
+          opacity="0.13"
         />
         <path
           d="M1580 2680C1280 2460 980 2760 660 2940C320 3160 40 2980 -100 2640"
@@ -52,7 +49,7 @@ export function BackgroundMotif() {
           stroke={stroke}
           strokeWidth="1"
           vectorEffect="non-scaling-stroke"
-          opacity="0.07"
+          opacity="0.11"
         />
         <path
           d="M-40 3480C260 3200 600 3580 960 3360C1240 3200 1420 2940 1680 3180"
@@ -60,7 +57,7 @@ export function BackgroundMotif() {
           stroke={stroke}
           strokeWidth="1"
           vectorEffect="non-scaling-stroke"
-          opacity="0.08"
+          opacity="0.12"
         />
         <path
           d="M1620 4280C1320 4040 1000 4360 660 4560C300 4780 20 4580 -120 4200"
@@ -68,7 +65,7 @@ export function BackgroundMotif() {
           stroke={stroke}
           strokeWidth="1"
           vectorEffect="non-scaling-stroke"
-          opacity="0.07"
+          opacity="0.11"
         />
       </svg>
     </div>

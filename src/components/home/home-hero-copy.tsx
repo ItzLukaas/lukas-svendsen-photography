@@ -29,7 +29,7 @@ export function HomeHeroCopy({ inverted = true }: HomeHeroCopyProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, delay: 0.2, ease }}
         >
-          Foto, video og meget mere
+          Lukas Svendsen
         </motion.p>
 
         <motion.h1
@@ -53,10 +53,9 @@ export function HomeHeroCopy({ inverted = true }: HomeHeroCopyProps) {
           animate={{ y: 0 }}
           transition={{ duration: 0.7, delay: 0.44, ease }}
         >
-          Jeg er Lukas Svendsen, 16 år og fotograf og videograf i Grindsted. Jeg
-          laver foto, video og content for virksomheder, organisationer og
-          private i Danmark, og elsker at være med, når der skal skabes noget
-          godt.
+          Jeg er 16 år og fotograf og videograf i Grindsted. Jeg laver foto,
+          video og content for virksomheder, organisationer og private i
+          Danmark — og elsker at være med, når der skal skabes noget godt.
         </motion.p>
 
         <motion.div
@@ -69,7 +68,7 @@ export function HomeHeroCopy({ inverted = true }: HomeHeroCopyProps) {
             href="/booking"
             className={cn(
               "btn-solid w-full justify-center sm:w-auto",
-              inverted ? "bg-paper text-ink" : "bg-ink text-paper"
+              inverted && "btn-solid-invert"
             )}
           >
             Book en opgave

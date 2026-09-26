@@ -94,7 +94,7 @@ export default function HvadJegLaverPage() {
               <p className="label-meta">{businessOfferingsIntro.eyebrow}</p>
               <h2
                 id="business-offerings-heading"
-                className="mt-3 max-w-[18ch] font-display text-[clamp(1.65rem,3vw,2.35rem)] leading-[1.08] tracking-[-0.03em]"
+                className="heading-strip mt-3 max-w-[18ch] font-display"
               >
                 {businessOfferingsIntro.title}
               </h2>
@@ -123,22 +123,19 @@ export default function HvadJegLaverPage() {
               </ul>
 
               <FadeIn delay={0.08} className="md:col-span-4 md:col-start-9">
-                <div className="border border-foreground/10 bg-mist/40 px-5 py-6 md:px-6 md:py-7">
+                <div className="border-t border-foreground/10 pt-5">
                   <p className="label-meta">Typiske opgaver</p>
-                  <ul className="mt-4 m-0 list-none space-y-3 p-0">
+                  <ul className="mt-4 m-0 list-none space-y-0 p-0">
                     {businessAudiencePoints.map((point) => (
                       <li
                         key={point}
-                        className="border-b border-foreground/8 pb-3 text-[0.875rem] leading-[1.5] text-ink last:border-0 last:pb-0"
+                        className="border-b border-foreground/8 py-3 text-[0.875rem] leading-[1.5] text-ink last:border-0"
                       >
                         {point}
                       </li>
                     ))}
                   </ul>
-                  <Link
-                    href="/booking"
-                    className="btn-solid mt-7 bg-ink text-paper"
-                  >
+                  <Link href="/booking" className="btn-solid mt-7">
                     Start en opgave
                   </Link>
                 </div>
@@ -158,13 +155,17 @@ export default function HvadJegLaverPage() {
                 <p className="label-meta">{privateOfferingsIntro.eyebrow}</p>
                 <h2
                   id="private-offerings-heading"
-                  className="mt-3 font-display text-[clamp(1.65rem,3vw,2.35rem)] leading-[1.08] tracking-[-0.03em]"
+                  className="heading-strip mt-3 font-display"
                 >
                   {privateOffer.title}
                 </h2>
                 <p className="mt-5 max-w-xl text-[0.9375rem] leading-[1.7] text-muted-ink md:text-[1.0625rem]">
                   {privateOffer.summary}
                 </p>
+                <div
+                  className="mt-6 h-px w-12 bg-foreground/15"
+                  aria-hidden
+                />
                 <p className="mt-6">
                   <Link href="/booking" className="btn-ghost">
                     Book en privat opgave
@@ -180,18 +181,19 @@ export default function HvadJegLaverPage() {
         <section className="border-t border-foreground/8">
           <div className="mx-auto max-w-[1600px] px-5 py-[var(--space-section-sm)] md:px-8 lg:px-12">
             <FadeIn>
-              <h2 className="font-display text-[clamp(1.5rem,3vw,2.25rem)] leading-[1.08] tracking-[-0.03em]">
+              <p className="label-meta">Næste skridt</p>
+              <h2 className="heading-strip mt-3 font-display">
                 Klar til at snakke om din opgave?
               </h2>
+              <p className="mt-4 max-w-lg text-[0.9375rem] leading-[1.65] text-muted-ink">
+                Fortæl kort, hvad du skal bruge — så finder vi ud af resten.
+              </p>
               <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3">
-                <Link href="/booking" className="btn-solid bg-ink text-paper">
+                <Link href="/booking" className="btn-solid">
                   Book mig
                 </Link>
                 <Link href="/kontakt" className="btn-ghost">
                   Kontakt
-                </Link>
-                <Link href="/arbejde" className="btn-ghost">
-                  Se arbejde
                 </Link>
               </div>
             </FadeIn>

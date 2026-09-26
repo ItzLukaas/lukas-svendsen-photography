@@ -193,7 +193,7 @@ export function SiteHeader() {
                 aria-current={active ? "page" : undefined}
                 className={cn(
                   "font-display border-b border-foreground/10 py-5 text-[clamp(1.85rem,8vw,2.5rem)] leading-none tracking-[-0.03em] text-foreground transition-opacity duration-300",
-                  active ? "opacity-100" : "opacity-35 hover:opacity-100"
+                  active ? "opacity-100" : "opacity-60 hover:opacity-100"
                 )}
                 onClick={() => setOpen(false)}
               >
@@ -205,7 +205,7 @@ export function SiteHeader() {
         <div className="absolute bottom-12 left-5 right-5">
           <Link
             href="/booking"
-            className="btn-solid w-full justify-center bg-ink text-paper"
+            className="btn-solid w-full justify-center"
             aria-current={bookingActive ? "page" : undefined}
             onClick={() => setOpen(false)}
           >

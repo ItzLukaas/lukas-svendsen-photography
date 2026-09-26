@@ -70,7 +70,7 @@ export function FeaturedWork() {
             <p className="label-meta">Udvalgt arbejde</p>
             <h2
               id="selected-work-heading"
-              className="mt-3 font-display text-[clamp(1.65rem,3vw,2.25rem)] leading-[1.08] tracking-[-0.03em]"
+              className="heading-strip mt-3 font-display"
             >
               Det jeg laver
             </h2>
@@ -207,10 +207,7 @@ function FeaturedLink({
               {project.title}
             </h3>
           </div>
-          <span
-            aria-hidden
-            className="mb-0.5 shrink-0 text-[0.75rem] font-semibold tracking-[0.04em] text-ink opacity-0 transition-[opacity,transform] duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/project:translate-x-0.5 group-hover/project:opacity-100"
-          >
+          <span aria-hidden className="project-cta mb-0.5">
             Se projekt →
           </span>
         </div>

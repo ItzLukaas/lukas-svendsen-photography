@@ -93,7 +93,7 @@ export function FaqSection({ withIntro = true, className }: FaqSectionProps) {
             <p className="label-meta">FAQ</p>
             <h2
               id="faq-heading"
-              className="mt-3 max-w-[18ch] font-display text-[clamp(1.9rem,4.4vw,3.15rem)] leading-[1.05] tracking-[-0.035em] text-ink"
+              className="heading-section mt-3 max-w-[18ch] font-display text-ink"
             >
               Ofte stillede spørgsmål
             </h2>

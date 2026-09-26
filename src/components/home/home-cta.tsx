@@ -38,10 +38,7 @@ export function HomeCta() {
                 Fortæl kort, hvad du skal bruge, så finder vi ud af resten.
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-4 sm:mt-10">
-                <Link
-                  href="/booking"
-                  className="btn-solid bg-paper text-ink"
-                >
+                <Link href="/booking" className="btn-solid btn-solid-invert">
                   Fortæl om din opgave
                 </Link>
                 <Link href="/kontakt" className="btn-ghost-on-dark">

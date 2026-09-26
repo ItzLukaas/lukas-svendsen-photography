@@ -22,7 +22,6 @@ const lineTransition: Transition = {
 
 function ProcessNode({
   step,
-  active,
   reached,
 }: {
   step: number;
@@ -34,11 +33,10 @@ function ProcessNode({
   return (
     <div
       className={cn(
-        "relative z-10 flex size-9 shrink-0 items-center justify-center rounded-full border transition-[border-color,background-color,color,box-shadow] duration-500 ease-out",
+        "relative z-10 flex size-9 shrink-0 items-center justify-center border transition-[border-color,background-color,color] duration-500 ease-out",
         reached
-          ? "border-ink bg-ink text-paper shadow-[0_0_0_4px_rgb(23_23_22_/_0.06)]"
-          : "border-foreground/18 bg-paper text-muted-ink",
-        active && reached && "shadow-[0_0_0_5px_rgb(23_23_22_/_0.08)]"
+          ? "border-ink bg-ink text-paper"
+          : "border-foreground/18 bg-paper text-muted-ink"
       )}
       aria-hidden
     >
@@ -65,27 +63,11 @@ function DesktopConnector({
     >
       <div className="absolute top-1/2 right-0 left-0 h-px -translate-y-1/2 bg-foreground/10" />
       <motion.div
-        className="absolute top-1/2 left-0 h-px -translate-y-1/2 bg-foreground/30"
+        className="absolute top-1/2 left-0 h-px -translate-y-1/2 bg-ink"
         initial={{ width: "0%" }}
         animate={{ width: showComplete ? "100%" : "0%" }}
         transition={reduceMotion ? { duration: 0 } : lineTransition}
       />
-      {!reduceMotion ? (
-        <motion.div
-          className="absolute top-1/2 size-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-ink shadow-[0_0_10px_rgb(23_23_22_/_0.28)]"
-          initial={{ left: "0%" }}
-          animate={{ left: animate ? ["0%", "50%", "100%"] : "0%" }}
-          transition={
-            animate
-              ? {
-                  duration: lineDuration,
-                  ease,
-                  times: [0, 0.5, 1],
-                }
-              : { duration: 0 }
-          }
-        />
-      ) : null}
     </div>
   );
 }
@@ -98,13 +80,10 @@ function MobileConnector({
   reduceMotion: boolean;
 }) {
   return (
-    <div
-      className="relative my-2 h-10 w-9 shrink-0 lg:hidden"
-      aria-hidden
-    >
+    <div className="relative my-2 h-10 w-9 shrink-0 lg:hidden" aria-hidden>
       <div className="absolute top-0 bottom-0 left-1/2 w-px -translate-x-1/2 bg-foreground/10" />
       <motion.div
-        className="absolute top-0 left-1/2 w-px -translate-x-1/2 bg-foreground/30"
+        className="absolute top-0 left-1/2 w-px -translate-x-1/2 bg-ink"
         initial={{ height: "0%" }}
         animate={{ height: filled || reduceMotion ? "100%" : "0%" }}
         transition={
@@ -116,7 +95,7 @@ function MobileConnector({
 }
 
 /**
- * Process — connected steps with a single animated journey line.
+ * Process — connected steps with a calm connector line.
  */
 export function ProcessSection() {
   const reduceMotion = !!useReducedMotion();
@@ -172,7 +151,7 @@ export function ProcessSection() {
           <p className="label-meta">Proces</p>
           <h2
             id="process-heading"
-            className="mt-3 max-w-[18ch] font-display text-[clamp(1.9rem,4.4vw,3.15rem)] leading-[1.05] tracking-[-0.035em] text-ink"
+            className="heading-section mt-3 max-w-[18ch] font-display text-ink"
           >
             Sådan foregår det
           </h2>
@@ -193,10 +172,7 @@ export function ProcessSection() {
               return (
                 <li
                   key={item.id}
-                  className={cn(
-                    "relative",
-                    !isLast && "pb-2 lg:pb-0"
-                  )}
+                  className={cn("relative", !isLast && "pb-2 lg:pb-0")}
                 >
                   <div className="flex gap-4 lg:block lg:gap-0">
                     <div className="flex flex-col items-center lg:items-start">
@@ -242,7 +218,7 @@ export function ProcessSection() {
 
         <FadeIn delay={0.14}>
           <div className="mt-7 sm:mt-8">
-            <Link href="/booking" className="btn-solid bg-ink text-paper">
+            <Link href="/booking" className="btn-solid">
               Book en opgave
             </Link>
           </div>

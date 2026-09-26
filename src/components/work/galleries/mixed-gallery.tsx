@@ -7,9 +7,6 @@ type MixedGalleryProps = {
   onOpen: (index: number) => void;
 };
 
-/**
- * Mixed gallery — 2-up grid (portrait + landscape keep native ratios).
- */
 export function MixedGallery({
   images,
   projectSlug,
@@ -20,6 +17,7 @@ export function MixedGallery({
       images={images}
       projectSlug={projectSlug}
       onOpen={onOpen}
+      format="mixed"
       quality={86}
     />
   );

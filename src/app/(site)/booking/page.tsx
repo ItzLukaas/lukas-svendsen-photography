@@ -1,30 +1,30 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { Suspense } from "react";
 
-import { BookingForm } from "@/components/booking/booking-form";
-import { FadeIn } from "@/components/motion/fade-in";
+import { BookingPageView } from "@/components/booking/booking-page-view";
 import {
   pageBreadcrumbJsonLd,
   pageMetadata,
   simplePageJsonLd,
 } from "@/lib/seo";
-import { pageSeo } from "@/lib/seo-copy";
-import { siteConfig } from "@/lib/site";
+import { getPageSeo } from "@/lib/seo-copy";
+
+const seo = getPageSeo("da");
 
 export const metadata: Metadata = pageMetadata({
-  title: pageSeo.booking.title,
-  description: pageSeo.booking.description,
+  title: seo.booking.title,
+  description: seo.booking.description,
   path: "/booking",
+  locale: "da",
 });
 
 export default function BookingPage() {
   const jsonLd = simplePageJsonLd({
     path: "/booking",
-    name: "Book Lukas Svendsen",
-    description: pageSeo.booking.description,
+    name: seo.booking.title,
+    description: seo.booking.description,
     type: "WebPage",
     mainEntityId: "service",
+    locale: "da",
   });
   const breadcrumbJsonLd = pageBreadcrumbJsonLd([
     { name: "Forside", path: "/" },
@@ -41,61 +41,7 @@ export default function BookingPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <div className="mx-auto max-w-[1600px] px-5 pt-[calc(var(--chrome-h)+2.5rem)] pb-20 md:px-8 md:pb-28 lg:px-12">
-        <div className="grid gap-12 md:grid-cols-12 md:gap-14 lg:gap-16">
-          <FadeIn className="md:col-span-5 lg:col-span-4">
-            <p className="label-meta">Book mig</p>
-            <h1 className="mt-3 max-w-[12ch] font-display text-[clamp(2.45rem,5.5vw,4.25rem)] leading-[0.92] tracking-[-0.03em]">
-              Start et projekt
-            </h1>
-            <div className="text-body mt-5 max-w-md space-y-4">
-              <p>
-                Fortæl lidt om opgaven, hvad du har brug for, og hvad materialet
-                skal bruges til. Du må også gerne skrive dato, sted og andre
-                detaljer, hvis du allerede har dem på plads.
-              </p>
-              <p>
-                Jo mere jeg ved om opgaven, jo bedre kan jeg vurdere, hvad der
-                giver mening og vende tilbage med et konkret svar.
-              </p>
-              <p>Jeg vender tilbage hurtigst muligt.</p>
-            </div>
-
-            <div className="mt-10 space-y-2 border-t border-foreground/10 pt-8 text-[0.875rem]">
-              <p className="text-muted-ink">Eller skriv direkte</p>
-              <p>
-                <a
-                  href={`mailto:${siteConfig.email}`}
-                  className="font-medium link-quiet"
-                >
-                  {siteConfig.email}
-                </a>
-              </p>
-              <p className="pt-2 text-muted-ink">
-                Bare et spørgsmål?{" "}
-                <Link
-                  href="/kontakt"
-                  className="font-medium text-foreground underline underline-offset-4"
-                >
-                  Kontakt mig
-                </Link>
-              </p>
-            </div>
-          </FadeIn>
-
-          <FadeIn delay={0.06} className="min-w-0 md:col-span-7 lg:col-span-8">
-            <Suspense
-              fallback={
-                <div className="border border-foreground/10 px-5 py-16 text-center text-muted-ink md:px-8">
-                  Indlæser formular…
-                </div>
-              }
-            >
-              <BookingForm />
-            </Suspense>
-          </FadeIn>
-        </div>
-      </div>
+      <BookingPageView />
     </>
   );
 }

@@ -10,7 +10,9 @@ import { MeetLukasSection } from "@/components/home/meet-lukas-section";
 import { OfferingsPreview } from "@/components/home/offerings-preview";
 import { ProcessSection } from "@/components/home/process-section";
 import { getCollaborationsJsonLd } from "@/lib/data/clients";
-import { faqItems } from "@/lib/data/faq";
+import { getDictionary } from "@/lib/i18n/get-dictionary";
+import type { Locale } from "@/lib/i18n/config";
+import { getRequestLocale } from "@/lib/i18n/request-locale";
 import { homePageJsonLd, introVideoJsonLd } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
@@ -21,23 +23,39 @@ const TrustStats = dynamic(() =>
   import("@/components/home/trust-stats").then((mod) => mod.TrustStats)
 );
 
+const faqOrder = [
+  "what",
+  "pricing",
+  "areas",
+  "brief",
+  "delivery",
+  "booking",
+] as const;
+
+type HomePageProps = {
+  locale?: Locale;
+};
+
 /**
  * Homepage story:
- * Hero → Trust → Offerings → Business → Work → Process → Meet → FAQ → CTA
+ * Hero → Trust → Offerings → Business → Work → Process → Meet (DA) → FAQ → CTA
  */
-export function HomePage() {
+export async function HomePage({ locale: localeProp }: HomePageProps = {}) {
+  const locale = localeProp ?? (await getRequestLocale());
+  const dict = await getDictionary(locale);
+  const isDanish = locale === "da";
   const collaborationsJsonLd = getCollaborationsJsonLd(siteConfig.url);
-  const homeJsonLd = homePageJsonLd();
-  const introJsonLd = introVideoJsonLd();
+  const homeJsonLd = homePageJsonLd(locale);
+  const introJsonLd = isDanish ? introVideoJsonLd() : null;
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqItems.map((item) => ({
+    mainEntity: faqOrder.map((id) => ({
       "@type": "Question",
-      name: item.question,
+      name: dict.faq.items[id].question,
       acceptedAnswer: {
         "@type": "Answer",
-        text: item.answer,
+        text: dict.faq.items[id].answer,
       },
     })),
   };
@@ -54,16 +72,18 @@ export function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLd) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(introJsonLd) }}
-      />
+      {introJsonLd ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(introJsonLd) }}
+        />
+      ) : null}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
-      <HomeHero />
+      <HomeHero locale={locale} />
       <TrustStats />
       <LogoMarquee />
       <OfferingsPreview />
@@ -71,7 +91,7 @@ export function HomePage() {
       <FeaturedWork />
       <ConcertSpotlight />
       <ProcessSection />
-      <MeetLukasSection />
+      {isDanish ? <MeetLukasSection /> : null}
       <FaqSection />
       <HomeCta />
     </>

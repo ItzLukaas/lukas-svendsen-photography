@@ -1,12 +1,17 @@
+"use client";
+
 import Link from "next/link";
 
+import { useLocale } from "@/components/i18n/locale-provider";
 import { FadeIn } from "@/components/motion/fade-in";
-import { businessAudiencePoints } from "@/lib/data/offerings";
+import { localizedHref } from "@/lib/i18n/paths";
 
 /**
  * B2B-focused section — confidence without agency fluff.
  */
 export function BusinessSection() {
+  const { locale, dict } = useLocale();
+
   return (
     <section
       aria-labelledby="business-heading"
@@ -14,31 +19,35 @@ export function BusinessSection() {
     >
       <div className="mx-auto grid max-w-[1600px] gap-10 px-5 py-[var(--space-section)] md:grid-cols-12 md:gap-12 md:px-8 lg:px-12">
         <FadeIn className="md:col-span-5">
-          <p className="label-meta">Til virksomheder</p>
+          <p className="label-meta">{dict.business.eyebrow}</p>
           <h2
             id="business-heading"
-            className="heading-section mt-3 max-w-[14ch] font-display text-ink"
+            className="heading-section mt-3 max-w-[16ch] font-display text-ink"
           >
-            Foto og video, der kan bruges
+            {dict.business.title}
           </h2>
           <p className="mt-5 max-w-md text-[0.9375rem] leading-[1.7] text-muted-ink md:text-[1rem]">
-            Jeg hjælper virksomheder, organisationer og brands med foto, video
-            og content, der kan bruges på tværs af jeres hjemmeside, sociale
-            medier, kampagner og øvrige kommunikation.
+            {dict.business.body}
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
-            <Link href="/booking" className="btn-solid">
-              Har du et projekt?
+            <Link
+              href={localizedHref("/booking", locale)}
+              className="btn-solid"
+            >
+              {dict.business.ctaPrimary}
             </Link>
-            <Link href="/hvad-jeg-laver" className="btn-ghost">
-              Se hvad jeg laver
+            <Link
+              href={localizedHref("/hvad-jeg-laver", locale)}
+              className="btn-ghost"
+            >
+              {dict.business.ctaSecondary}
             </Link>
           </div>
         </FadeIn>
 
         <FadeIn delay={0.06} className="md:col-span-6 md:col-start-7">
           <ul className="m-0 grid list-none grid-cols-1 gap-0 border-t border-foreground/10 p-0 sm:grid-cols-2 sm:gap-x-8">
-            {businessAudiencePoints.map((point) => (
+            {dict.business.points.map((point) => (
               <li
                 key={point}
                 className="border-b border-foreground/10 py-4 text-[0.9375rem] leading-[1.5] text-ink"

@@ -1,10 +1,15 @@
+"use client";
+
 import type { ReactNode } from "react";
 import Link from "next/link";
 
+import { useLocale } from "@/components/i18n/locale-provider";
 import { FadeIn } from "@/components/motion/fade-in";
 import { Photo } from "@/components/photography/photo";
 import type { Project, ProjectImage } from "@/lib/data/projects";
 import { projects } from "@/lib/data/projects";
+import { localizeImageAlt } from "@/lib/i18n/localize-content";
+import { localizedHref } from "@/lib/i18n/paths";
 
 type FeaturedEntry = {
   project: Project;
@@ -28,10 +33,10 @@ function pickPortrait(project: Project): ProjectImage {
 
 /**
  * Selected work — editorial rhythm on neutral paper.
- * Photography carries color; UI stays quiet (90/10).
- * Large slots stay landscape so portrait cases don’t get stretched.
  */
 export function FeaturedWork() {
+  const { locale, dict } = useLocale();
+  const workHref = localizedHref("/arbejde", locale);
   const varde = projectBySlug("varde-open-air");
   const thor = projectBySlug("thor-farlov-smukfest");
   const esbjerg = projectBySlug("esbjerg-streetfood");
@@ -67,21 +72,22 @@ export function FeaturedWork() {
       <div className="mx-auto max-w-[1600px] px-5 py-[var(--space-section)] md:px-8 lg:px-12">
         <FadeIn className="flex items-end justify-between gap-6">
           <div>
-            <p className="label-meta">Udvalgt arbejde</p>
+            <p className="label-meta">{dict.featuredWork.eyebrow}</p>
             <h2
               id="selected-work-heading"
               className="heading-strip mt-3 font-display"
             >
-              Det jeg laver
+              {dict.featuredWork.title}
             </h2>
             <p className="mt-3 max-w-lg text-[0.9375rem] leading-[1.65] text-muted-ink md:text-[1rem]">
-              Her kan du se et udvalg af de opgaver og projekter, jeg har
-              arbejdet med – fra sport og koncerter til virksomheder, events og
-              mennesker.
+              {dict.featuredWork.body}
             </p>
           </div>
-          <Link href="/arbejde" className="btn-ghost hidden shrink-0 sm:inline-flex">
-            Se alt arbejde
+          <Link
+            href={workHref}
+            className="btn-ghost hidden shrink-0 sm:inline-flex"
+          >
+            {dict.featuredWork.viewAll}
           </Link>
         </FadeIn>
 
@@ -90,7 +96,7 @@ export function FeaturedWork() {
             <FeaturedLink entry={concert}>
               <Photo
                 src={concert.image.src}
-                alt={concert.image.alt}
+                alt={localizeImageAlt(concert.image.alt, locale)}
                 width={concert.image.width}
                 height={concert.image.height}
                 sizes="(min-width: 768px) 66vw, 100vw"
@@ -104,7 +110,7 @@ export function FeaturedWork() {
             <FeaturedLink entry={concertPortrait}>
               <Photo
                 src={concertPortrait.image.src}
-                alt={concertPortrait.image.alt}
+                alt={localizeImageAlt(concertPortrait.image.alt, locale)}
                 width={concertPortrait.image.width}
                 height={concertPortrait.image.height}
                 sizes="(min-width: 768px) 32vw, 100vw"
@@ -120,7 +126,7 @@ export function FeaturedWork() {
         <FeaturedLink entry={event} fullBleed>
           <Photo
             src={event.image.src}
-            alt={event.image.alt}
+            alt={localizeImageAlt(event.image.alt, locale)}
             width={event.image.width}
             height={event.image.height}
             sizes="100vw"
@@ -136,7 +142,7 @@ export function FeaturedWork() {
             <FeaturedLink entry={sportMen}>
               <Photo
                 src={sportMen.image.src}
-                alt={sportMen.image.alt}
+                alt={localizeImageAlt(sportMen.image.alt, locale)}
                 width={sportMen.image.width}
                 height={sportMen.image.height}
                 sizes="(min-width: 768px) 48vw, 100vw"
@@ -149,7 +155,7 @@ export function FeaturedWork() {
             <FeaturedLink entry={sportWomen}>
               <Photo
                 src={sportWomen.image.src}
-                alt={sportWomen.image.alt}
+                alt={localizeImageAlt(sportWomen.image.alt, locale)}
                 width={sportWomen.image.width}
                 height={sportWomen.image.height}
                 sizes="(min-width: 768px) 48vw, 100vw"
@@ -161,8 +167,8 @@ export function FeaturedWork() {
         </div>
 
         <FadeIn delay={0.06} className="mt-9 flex justify-center sm:hidden">
-          <Link href="/arbejde" className="btn-ghost">
-            Se alt arbejde
+          <Link href={workHref} className="btn-ghost">
+            {dict.featuredWork.viewAll}
           </Link>
         </FadeIn>
       </div>
@@ -179,11 +185,15 @@ function FeaturedLink({
   children: ReactNode;
   fullBleed?: boolean;
 }) {
+  const { locale, dict } = useLocale();
   const { project } = entry;
+  const labels = dict.projectLabels[project.slug];
+  const title = labels?.title ?? project.title;
+  const category = labels?.category ?? project.category;
 
   return (
     <Link
-      href={`/arbejde/${project.slug}`}
+      href={localizedHref(`/arbejde/${project.slug}`, locale)}
       className="group/project group block"
     >
       {children}
@@ -194,21 +204,21 @@ function FeaturedLink({
             : "project-caption"
         }
       >
-        <div className="min-w-0 flex items-end justify-between gap-4">
+        <div className="flex min-w-0 items-end justify-between gap-4">
           <div>
             <p className="project-meta">
-              {project.category}
+              {category}
               <span className="mx-1.5 opacity-35" aria-hidden>
                 ·
               </span>
               {project.location}
             </p>
             <h3 className="project-title mt-1 font-display text-[0.975rem] leading-snug tracking-[-0.018em] md:text-[1.1rem]">
-              {project.title}
+              {title}
             </h3>
           </div>
           <span aria-hidden className="project-cta mb-0.5">
-            Se projekt →
+            {dict.featuredWork.seeProject} →
           </span>
         </div>
       </div>

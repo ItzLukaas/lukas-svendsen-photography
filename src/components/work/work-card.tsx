@@ -1,9 +1,14 @@
+"use client";
+
 import Link from "next/link";
 
+import { useLocale } from "@/components/i18n/locale-provider";
 import { Photo } from "@/components/photography/photo";
 import { ProjectHoverBrandOverlay } from "@/components/work/project-hover-brand";
 import { getProjectHoverBrand } from "@/lib/data/project-branding";
 import type { Project } from "@/lib/data/projects";
+import { localizeImageAlt } from "@/lib/i18n/localize-content";
+import { localizedHref } from "@/lib/i18n/paths";
 import { aspectRatioStyle, cn } from "@/lib/utils";
 
 type WorkCardProps = {
@@ -22,20 +27,24 @@ export function WorkCard({
   featured = false,
   fullBleed = false,
 }: WorkCardProps) {
+  const { locale, dict } = useLocale();
   const hoverBrand = getProjectHoverBrand(project.slug);
   const { cover } = project;
+  const labels = dict.projectLabels[project.slug];
+  const title = labels?.title ?? project.title;
+  const category = labels?.category ?? project.category;
 
   return (
     <article>
       <Link
-        href={`/arbejde/${project.slug}`}
-        aria-label={`${project.title}, ${project.category}`}
+        href={localizedHref(`/arbejde/${project.slug}`, locale)}
+        aria-label={`${title}, ${category}`}
         className="group/project group block"
       >
         <div className="relative overflow-hidden">
           <Photo
             src={cover.src}
-            alt={cover.alt}
+            alt={localizeImageAlt(cover.alt, locale)}
             width={cover.width}
             height={cover.height}
             sizes={sizes}
@@ -66,7 +75,7 @@ export function WorkCard({
 
         <div className="project-caption">
           <div className="min-w-0">
-            <p className="project-meta">{project.category}</p>
+            <p className="project-meta">{category}</p>
             <h2
               className={cn(
                 "project-title mt-1 font-display leading-snug tracking-[-0.02em]",
@@ -75,11 +84,11 @@ export function WorkCard({
                   : "text-[0.975rem] md:text-[1.05rem]"
               )}
             >
-              {project.title}
+              {title}
             </h2>
           </div>
           <span aria-hidden className="project-cta">
-            Se projekt →
+            {dict.workPage.seeProject} →
           </span>
         </div>
       </Link>

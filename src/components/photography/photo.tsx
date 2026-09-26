@@ -10,6 +10,7 @@ import {
   type CSSProperties,
 } from "react";
 
+import { useLocaleOptional } from "@/components/i18n/locale-provider";
 import { cn } from "@/lib/utils";
 
 const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
@@ -68,12 +69,18 @@ export function Photo({
   unoptimized = false,
   interactive = false,
 }: PhotoProps) {
+  const locale = useLocaleOptional()?.locale ?? "da";
   const [loaded, setLoaded] = useState(priority);
   const [failed, setFailed] = useState(false);
   const [activeSrc, setActiveSrc] = useState(src);
   const imgRef = useRef<HTMLImageElement | null>(null);
   const useCloudinary = Boolean(cloudName && cloudinaryId);
   const resolvedAlt = alt || "";
+  const missingLabel =
+    locale === "en" ? "Image missing" : "Billede mangler";
+  const failedAria =
+    resolvedAlt ||
+    (locale === "en" ? "Image could not be loaded" : "Billede kunne ikke indlæses");
 
   if (src !== activeSrc) {
     setActiveSrc(src);
@@ -133,10 +140,10 @@ export function Photo({
         <div
           className="absolute inset-0 flex items-center justify-center bg-[color-mix(in_srgb,var(--ink)_6%,var(--paper))]"
           role="img"
-          aria-label={resolvedAlt || "Billede kunne ikke indlæses"}
+          aria-label={failedAria}
         >
           <span className="px-3 text-center text-[0.6875rem] tracking-[0.04em] text-muted-ink uppercase">
-            Billede mangler
+            {missingLabel}
           </span>
         </div>
       ) : useCloudinary && cloudinaryId ? (

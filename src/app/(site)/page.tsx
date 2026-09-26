@@ -2,14 +2,17 @@ import type { Metadata } from "next";
 
 import { HomePage } from "@/components/home/home-page";
 import { pageMetadata } from "@/lib/seo";
-import { pageSeo } from "@/lib/seo-copy";
+import { getPageSeo } from "@/lib/seo-copy";
+
+const seo = getPageSeo("da");
 
 export const metadata: Metadata = pageMetadata({
-  title: pageSeo.home.title,
-  description: pageSeo.home.description,
+  title: seo.home.title,
+  description: seo.home.description,
   path: "/",
+  locale: "da",
 });
 
 export default function Page() {
-  return <HomePage />;
+  return <HomePage locale="da" />;
 }

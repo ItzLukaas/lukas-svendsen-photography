@@ -9,10 +9,10 @@ import {
 } from "react";
 import { useReducedMotion } from "motion/react";
 
+import { useLocale } from "@/components/i18n/locale-provider";
 import { FadeIn } from "@/components/motion/fade-in";
 import {
   clientLogos,
-  collaborationsSummary,
   type ClientLogo,
 } from "@/lib/data/clients";
 import { cn } from "@/lib/utils";
@@ -36,9 +36,11 @@ function getPerPage(width: number) {
 function LogoItem({
   logo,
   widthPercent,
+  visitLabel,
 }: {
   logo: ClientLogo;
   widthPercent: number;
+  visitLabel: string;
 }) {
   return (
     <li
@@ -49,7 +51,7 @@ function LogoItem({
         href={logo.href}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={`${logo.name}, besøg officiel hjemmeside`}
+        aria-label={`${logo.name}, ${visitLabel}`}
         className="inline-flex items-center justify-center outline-none transition-opacity duration-300 focus-visible:opacity-100 focus-visible:ring-2 focus-visible:ring-foreground/20 focus-visible:ring-offset-4 focus-visible:ring-offset-paper"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -77,6 +79,8 @@ function LogoItem({
  * Not a continuous marquee; not a full-page carousel.
  */
 function LogoStepper() {
+  const { dict } = useLocale();
+  const visitLabel = dict.collaborations.visitWebsite;
   const reduceMotion = !!useReducedMotion();
   const [perPage, setPerPage] = useState(4);
   const [index, setIndex] = useState(0);
@@ -159,7 +163,7 @@ function LogoStepper() {
               href={logo.href}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`${logo.name}, besøg officiel hjemmeside`}
+              aria-label={`${logo.name}, ${visitLabel}`}
               className="inline-flex items-center justify-center outline-none transition-opacity duration-300 focus-visible:opacity-100 focus-visible:ring-2 focus-visible:ring-foreground/20 focus-visible:ring-offset-4 focus-visible:ring-offset-paper"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -194,7 +198,7 @@ function LogoStepper() {
           setPaused(false);
         }
       }}
-      aria-label="Samarbejdspartnere"
+      aria-label={dict.collaborations.partnersLabel}
     >
       <ul
         className="m-0 flex list-none items-center p-0 will-change-transform"
@@ -212,6 +216,7 @@ function LogoStepper() {
             key={`${logo.name}-${i}`}
             logo={logo}
             widthPercent={itemWidthPercent}
+            visitLabel={visitLabel}
           />
         ))}
       </ul>
@@ -223,6 +228,8 @@ function LogoStepper() {
  * Editorial collaborations strip — fixed copy left, one-step logo showcase right.
  */
 export function LogoMarquee({ className }: LogoMarqueeProps) {
+  const { dict } = useLocale();
+
   return (
     <section
       className={cn("bg-transparent", className)}
@@ -232,18 +239,17 @@ export function LogoMarquee({ className }: LogoMarqueeProps) {
         <FadeIn>
           <div className="flex flex-col border border-foreground/10 md:flex-row md:items-stretch">
             <div className="flex shrink-0 flex-col justify-center px-5 py-10 md:w-[32%] md:max-w-[22rem] md:px-8 md:py-12 lg:px-10 lg:py-14">
-              <p className="label-meta">Samarbejder</p>
+              <p className="label-meta">{dict.collaborations.eyebrow}</p>
               <h2
                 id="collaborations-heading"
                 className="heading-strip mt-3 font-display"
               >
-                Udvalgte samarbejder
+                {dict.collaborations.title}
               </h2>
               <p className="mt-2 text-[0.8125rem] leading-[1.55] text-muted-ink md:text-[0.875rem]">
-                Jeg har leveret foto og video til kommuner, sport, brands,
-                organisationer og events på tværs af hele Danmark.
+                {dict.collaborations.body}
               </p>
-              <p className="sr-only">{collaborationsSummary}</p>
+              <p className="sr-only">{dict.collaborations.list}</p>
             </div>
 
             <div

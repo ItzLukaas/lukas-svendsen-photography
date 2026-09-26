@@ -10,7 +10,9 @@ import {
 } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 
+import { useLocale } from "@/components/i18n/locale-provider";
 import type { ProjectImage } from "@/lib/data/projects";
+import { localizeImageAlt } from "@/lib/i18n/localize-content";
 import { cn } from "@/lib/utils";
 
 type LightboxProps = {
@@ -28,11 +30,15 @@ export function Lightbox({
   onChange,
   projectTitle,
 }: LightboxProps) {
+  const { locale, dict } = useLocale();
   const open = index !== null;
   const reduceMotion = useReducedMotion();
   const closeRef = useRef<HTMLButtonElement>(null);
   const labelId = useId();
   const current = index !== null ? images[index] : null;
+  const currentAlt = current
+    ? localizeImageAlt(current.alt, locale)
+    : "";
 
   const goPrev = useCallback(() => {
     if (index === null || images.length === 0) return;
@@ -118,7 +124,7 @@ export function Lightbox({
               onClick={onClose}
               className="min-h-11 min-w-11 text-sm font-medium text-paper/50 transition-colors hover:text-paper"
             >
-              Luk
+              {dict.shared.close}
             </button>
           </header>
 
@@ -128,7 +134,7 @@ export function Lightbox({
               data-lightbox-control
               onClick={goPrev}
               className="absolute left-3 z-20 hidden size-11 items-center justify-center text-paper/40 transition-colors hover:text-paper focus-visible:text-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-paper md:flex"
-              aria-label="Forrige billede"
+              aria-label={dict.shared.previousImage}
             >
               <span aria-hidden className="text-[1.75rem] font-light leading-none">
                 ←
@@ -145,7 +151,7 @@ export function Lightbox({
             >
               <Image
                 src={current.src}
-                alt={current.alt}
+                alt={currentAlt}
                 fill
                 priority
                 unoptimized
@@ -160,7 +166,7 @@ export function Lightbox({
               data-lightbox-control
               onClick={goNext}
               className="absolute right-3 z-20 hidden size-11 items-center justify-center text-paper/40 transition-colors hover:text-paper focus-visible:text-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-paper md:flex"
-              aria-label="Næste billede"
+              aria-label={dict.shared.nextImage}
             >
               <span aria-hidden className="text-[1.75rem] font-light leading-none">
                 →
@@ -175,7 +181,7 @@ export function Lightbox({
               onClick={goPrev}
               className="min-h-11 px-2 text-sm font-medium text-paper/50 transition-colors hover:text-paper"
             >
-              Forrige
+              {dict.shared.previous}
             </button>
             <button
               type="button"
@@ -183,7 +189,7 @@ export function Lightbox({
               onClick={goNext}
               className="min-h-11 px-2 text-sm font-medium text-paper/50 transition-colors hover:text-paper"
             >
-              Næste
+              {dict.shared.next}
             </button>
           </footer>
         </motion.div>
@@ -197,6 +203,8 @@ type GalleryFrameProps = {
   className?: string;
   label: string;
   onOpen: () => void;
+  /** Optional quiet index, e.g. 01 / 24 — shown on hover */
+  indexLabel?: string;
 };
 
 /** Clickable frame — opens the lightbox. */
@@ -205,6 +213,7 @@ export function GalleryFrame({
   className,
   label,
   onOpen,
+  indexLabel,
 }: GalleryFrameProps) {
   return (
     <button
@@ -217,6 +226,14 @@ export function GalleryFrame({
       )}
     >
       {children}
+      {indexLabel ? (
+        <span
+          aria-hidden
+          className="pointer-events-none absolute right-3 bottom-3 z-10 text-[0.625rem] font-medium tracking-[0.12em] text-paper opacity-0 transition-opacity duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-80 group-focus-visible:opacity-80"
+        >
+          {indexLabel}
+        </span>
+      ) : null}
     </button>
   );
 }

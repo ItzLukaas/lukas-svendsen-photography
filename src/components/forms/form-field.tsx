@@ -19,12 +19,14 @@ export function FormField({
   label,
   error,
   optional,
+  optionalLabel = "(valgfrit)",
   children,
 }: {
   id: string;
   label: string;
   error?: string;
   optional?: boolean;
+  optionalLabel?: string;
   children: ReactNode;
 }) {
   const errorId = `${id}-error`;
@@ -59,7 +61,7 @@ export function FormField({
         {label}
         {optional ? (
           <span className="ml-1.5 font-normal normal-case tracking-normal text-muted-ink/70">
-            (valgfrit)
+            {optionalLabel}
           </span>
         ) : null}
       </Label>

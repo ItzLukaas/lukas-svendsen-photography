@@ -54,6 +54,7 @@ export async function generateMetadata({
     path: `/arbejde/${project.slug}`,
     ...shareImageFromCover(project.cover),
     ogType: "article",
+    locale: "da",
   });
 }
 

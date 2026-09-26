@@ -1,7 +1,10 @@
+"use client";
+
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { Mail, Phone, type LucideIcon } from "lucide-react";
 
+import { useLocale } from "@/components/i18n/locale-provider";
 import { FadeIn } from "@/components/motion/fade-in";
 import { siteConfig } from "@/lib/site";
 import { introPosterUrl, introVideo } from "@/lib/video/intro";
@@ -59,6 +62,8 @@ function ContactLine({
  * Meet Lukas — compact copy + video; contact as a clear, icon-led block.
  */
 export function MeetLukasSection() {
+  const { dict } = useLocale();
+
   return (
     <section
       id="moed-lukas"
@@ -69,25 +74,22 @@ export function MeetLukasSection() {
       <div className="relative z-[1] mx-auto flex w-full min-w-0 max-w-[1600px] justify-center px-5 py-[var(--space-section-sm)] md:px-8 lg:px-12">
         <div className="meet-lukas-group w-full min-w-0">
           <FadeIn className="min-w-0 w-full">
-            <p className="label-meta text-paper/55">Om mig</p>
+            <p className="label-meta text-paper/55">{dict.meet.eyebrow}</p>
             <h2
               id="meet-lukas-heading"
               className="mt-3 max-w-[12ch] font-display text-[clamp(2rem,4.2vw,3.05rem)] leading-[1.04] tracking-[-0.035em] text-paper"
             >
-              Mød Lukas
+              {dict.meet.title}
             </h2>
             <p className="mt-5 max-w-[40ch] text-[0.9375rem] leading-[1.7] text-paper/72 md:text-[1.0625rem]">
-              Jeg er 16 år, bor i Grindsted og arbejder professionelt med foto,
-              video og content for virksomheder, sportsklubber og events. Her
-              fortæller jeg kort om, hvem jeg er, hvordan jeg arbejder, og hvad
-              jeg kan hjælpe med.
+              {dict.meet.body}
             </p>
 
             <Link
               href="/booking"
               className="btn-solid btn-solid-invert mt-7 w-fit max-w-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-paper"
             >
-              Skal vi lave noget sammen?
+              {dict.meet.cta}
             </Link>
 
             <ul className="mt-8 m-0 list-none space-y-1 border-t border-paper/12 pt-5 p-0">

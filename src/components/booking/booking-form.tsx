@@ -7,6 +7,7 @@ import { useEffect, useId, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { FormField, fieldClass } from "@/components/forms/form-field";
+import { useLocale } from "@/components/i18n/locale-provider";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
@@ -14,41 +15,29 @@ import {
   productionTypes,
   type BookingInput,
 } from "@/lib/booking/schema";
+import { localizedHref } from "@/lib/i18n/paths";
 import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
-
-const productionHints: Record<(typeof productionTypes)[number], string> = {
-  Fotografering: "Portrætter, events, produkter og reportage",
-  Videoproduktion: "Film, interviews og korte formater",
-  Droneproduktion: "Luftbilleder og oversigtsoptagelser",
-  Content: "Sociale medier og løbende leverancer",
-  Andet: "Fortæl gerne mere i næste trin",
-};
 
 const STEPS = [
   {
     id: "type",
-    title: "Type",
     fields: ["productionType"] as const,
   },
   {
     id: "job",
-    title: "Opgave",
     fields: ["description"] as const,
   },
   {
     id: "when",
-    title: "Tid & sted",
     fields: ["datePeriod", "location"] as const,
   },
   {
     id: "contact",
-    title: "Kontakt",
     fields: ["name", "email", "phone", "company"] as const,
   },
   {
     id: "budget",
-    title: "Afslut",
     fields: ["budget"] as const,
   },
 ] as const;
@@ -63,6 +52,8 @@ function getInitialProductionType(searchParams: URLSearchParams) {
 }
 
 export function BookingForm() {
+  const { locale, dict } = useLocale();
+  const copy = dict.bookingPage.form;
   const searchParams = useSearchParams();
   const formId = useId();
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -147,37 +138,26 @@ export function BookingForm() {
         role="status"
         aria-live="polite"
       >
-        <p className="label-meta">Modtaget</p>
+        <p className="label-meta">{copy.successEyebrow}</p>
         <h2 className="mt-3 font-display text-[clamp(1.5rem,3vw,1.85rem)] leading-[1.05] tracking-[-0.025em]">
-          Tak for din forespørgsel
+          {copy.successTitle}
         </h2>
-        <p className="text-body mt-4 max-w-md">
-          Jeg har modtaget din bookingforespørgsel og vender tilbage snarest,
-          typisk inden for 1 til 2 hverdage.
-        </p>
+        <p className="text-body mt-4 max-w-md">{copy.successBody}</p>
         <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3">
           <button
             type="button"
             className="btn-solid"
             onClick={() => setStatus("idle")}
           >
-            Send en ny forespørgsel
+            {copy.successAgain}
           </button>
-          <Link href="/arbejde" className="btn-ghost">
-            Se portfolio
+          <Link href={localizedHref("/arbejde", locale)} className="btn-ghost">
+            {copy.successPortfolio}
           </Link>
         </div>
       </div>
     );
   }
-
-  const stepTitles: Record<StepId, string> = {
-    type: "Hvad skal du bruge?",
-    job: "Fortæl om opgaven",
-    when: "Hvornår og hvor?",
-    contact: "Hvordan når jeg dig?",
-    budget: "Budget og afslut",
-  };
 
   return (
     <form
@@ -187,7 +167,9 @@ export function BookingForm() {
     >
       <div className="flex items-center justify-between gap-4 border-b border-foreground/10 pb-5">
         <p className="label-meta" aria-live="polite">
-          Trin {stepIndex + 1} af {totalSteps}
+          {copy.stepOf
+            .replace("{current}", String(stepIndex + 1))
+            .replace("{total}", String(totalSteps))}
         </p>
         <ol className="m-0 flex list-none items-center gap-1.5 p-0" aria-hidden>
           {STEPS.map((item, index) => (
@@ -208,17 +190,17 @@ export function BookingForm() {
         tabIndex={-1}
         className="mt-7 font-display text-[clamp(1.35rem,2.6vw,1.75rem)] leading-[1.1] tracking-[-0.025em] outline-none"
       >
-        {stepTitles[step.id]}
+        {copy.stepTitles[step.id as StepId]}
       </h2>
 
       <div className="mt-7 min-h-[14rem]">
         {step.id === "type" ? (
           <fieldset className="space-y-3">
-            <legend className="sr-only">Type produktion</legend>
+            <legend className="sr-only">{copy.productionTypeLegend}</legend>
             <div
               className="grid grid-cols-1 gap-2 sm:grid-cols-2"
               role="radiogroup"
-              aria-label="Type produktion"
+              aria-label={copy.productionTypeLegend}
             >
               {productionTypes.map((type) => {
                 const selected = productionType === type;
@@ -242,7 +224,7 @@ export function BookingForm() {
                     )}
                   >
                     <span className="text-[0.875rem] font-medium tracking-[-0.01em]">
-                      {type}
+                      {copy.types[type]}
                     </span>
                     <span
                       className={cn(
@@ -250,7 +232,7 @@ export function BookingForm() {
                         selected ? "text-paper/65" : "text-muted-ink"
                       )}
                     >
-                      {productionHints[type]}
+                      {copy.productionHints[type]}
                     </span>
                   </button>
                 );
@@ -268,13 +250,13 @@ export function BookingForm() {
         {step.id === "job" ? (
           <FormField
             id={`${formId}-description`}
-            label="Om opgaven"
+            label={copy.description}
             error={errors.description?.message}
           >
             <Textarea
               id={`${formId}-description`}
               rows={6}
-              placeholder="Hvad skal jeg levere, og hvad er vigtigt for dig?"
+              placeholder={copy.descriptionPlaceholder}
               aria-invalid={Boolean(errors.description)}
               className={cn(fieldClass, "min-h-36 resize-y")}
               {...register("description")}
@@ -286,12 +268,12 @@ export function BookingForm() {
           <div className="grid gap-7 sm:grid-cols-2 sm:gap-6">
             <FormField
               id={`${formId}-date`}
-              label="Dato / periode"
+              label={copy.datePeriod}
               error={errors.datePeriod?.message}
             >
               <Input
                 id={`${formId}-date`}
-                placeholder="Fx dato, uge eller periode"
+                placeholder={copy.datePeriodPlaceholder}
                 aria-invalid={Boolean(errors.datePeriod)}
                 className={fieldClass}
                 {...register("datePeriod")}
@@ -299,12 +281,12 @@ export function BookingForm() {
             </FormField>
             <FormField
               id={`${formId}-location`}
-              label="Lokation"
+              label={copy.location}
               error={errors.location?.message}
             >
               <Input
                 id={`${formId}-location`}
-                placeholder="Fx by, adresse eller venue"
+                placeholder={copy.locationPlaceholder}
                 aria-invalid={Boolean(errors.location)}
                 className={fieldClass}
                 {...register("location")}
@@ -318,13 +300,13 @@ export function BookingForm() {
             <div className="grid gap-7 sm:grid-cols-2 sm:gap-6">
               <FormField
                 id={`${formId}-name`}
-                label="Navn"
+                label={copy.name}
                 error={errors.name?.message}
               >
                 <Input
                   id={`${formId}-name`}
                   autoComplete="name"
-                  placeholder="Dit fulde navn"
+                  placeholder={copy.namePlaceholder}
                   aria-invalid={Boolean(errors.name)}
                   className={fieldClass}
                   {...register("name")}
@@ -332,14 +314,15 @@ export function BookingForm() {
               </FormField>
               <FormField
                 id={`${formId}-company`}
-                label="Virksomhed / organisation"
+                label={copy.company}
                 optional
+                optionalLabel={dict.shared.optional}
                 error={errors.company?.message}
               >
                 <Input
                   id={`${formId}-company`}
                   autoComplete="organization"
-                placeholder="Valgfrit"
+                  placeholder={copy.companyPlaceholder}
                   aria-invalid={Boolean(errors.company)}
                   className={fieldClass}
                   {...register("company")}
@@ -349,7 +332,7 @@ export function BookingForm() {
             <div className="grid gap-7 sm:grid-cols-2 sm:gap-6">
               <FormField
                 id={`${formId}-email`}
-                label="E-mail"
+                label={copy.email}
                 error={errors.email?.message}
               >
                 <Input
@@ -357,7 +340,7 @@ export function BookingForm() {
                   type="email"
                   inputMode="email"
                   autoComplete="email"
-                  placeholder="dig@email.dk"
+                  placeholder={copy.emailPlaceholder}
                   aria-invalid={Boolean(errors.email)}
                   className={fieldClass}
                   {...register("email")}
@@ -365,7 +348,7 @@ export function BookingForm() {
               </FormField>
               <FormField
                 id={`${formId}-phone`}
-                label="Telefon"
+                label={copy.phone}
                 error={errors.phone?.message}
               >
                 <Input
@@ -373,7 +356,7 @@ export function BookingForm() {
                   type="tel"
                   inputMode="tel"
                   autoComplete="tel"
-                  placeholder="8-cifret nummer"
+                  placeholder={copy.phonePlaceholder}
                   aria-invalid={Boolean(errors.phone)}
                   className={fieldClass}
                   {...register("phone")}
@@ -387,26 +370,26 @@ export function BookingForm() {
           <div className="space-y-6">
             <FormField
               id={`${formId}-budget`}
-              label="Budget"
+              label={copy.budget}
               optional
+              optionalLabel={dict.shared.optional}
               error={errors.budget?.message}
             >
               <Input
                 id={`${formId}-budget`}
-                placeholder="Fx 5.000 til 10.000 kr. eller aftales"
+                placeholder={copy.budgetPlaceholder}
                 aria-invalid={Boolean(errors.budget)}
                 className={fieldClass}
                 {...register("budget")}
               />
             </FormField>
             <p className="text-[0.875rem] leading-relaxed text-muted-ink">
-              Ingen binding. Jeg vender tilbage med afklaring. Hellere starte
-              blødt?{" "}
+              {copy.budgetNote}{" "}
               <Link
-                href="/kontakt"
+                href={localizedHref("/kontakt", locale)}
                 className="font-medium text-foreground underline underline-offset-4"
               >
-                Send en kort besked
+                {copy.budgetNoteLink}
               </Link>
               .
             </p>
@@ -423,7 +406,7 @@ export function BookingForm() {
               onClick={goBack}
               disabled={isSubmitting}
             >
-              Tilbage
+              {copy.back}
             </button>
           ) : null}
           {!isLast ? (
@@ -432,7 +415,7 @@ export function BookingForm() {
               className="btn-solid"
               onClick={goNext}
             >
-              Fortsæt
+              {copy.continue}
             </button>
           ) : (
             <button
@@ -440,7 +423,7 @@ export function BookingForm() {
               disabled={isSubmitting}
               className="btn-solid"
             >
-              {isSubmitting ? "Sender…" : "Send bookingforespørgsel"}
+              {isSubmitting ? copy.submitting : copy.submit}
             </button>
           )}
         </div>
@@ -450,7 +433,7 @@ export function BookingForm() {
             role="alert"
             aria-live="assertive"
           >
-            Noget gik galt. Prøv igen, eller skriv til{" "}
+            {copy.errorPrefix}{" "}
             <a
               href={`mailto:${siteConfig.email}`}
               className="underline underline-offset-4"

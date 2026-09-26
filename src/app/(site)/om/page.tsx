@@ -1,28 +1,29 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
-import { FadeIn } from "@/components/motion/fade-in";
-import { Photo } from "@/components/photography/photo";
-import { aboutPortrait } from "@/lib/data/projects";
+import { AboutPageView } from "@/components/about/about-page-view";
 import {
   pageBreadcrumbJsonLd,
   pageMetadata,
   simplePageJsonLd,
 } from "@/lib/seo";
-import { pageSeo } from "@/lib/seo-copy";
+import { getPageSeo } from "@/lib/seo-copy";
+
+const seo = getPageSeo("da");
 
 export const metadata: Metadata = pageMetadata({
-  title: pageSeo.om.title,
-  description: pageSeo.om.description,
+  title: seo.om.title,
+  description: seo.om.description,
   path: "/om",
+  locale: "da",
 });
 
 export default function OmPage() {
   const jsonLd = simplePageJsonLd({
     path: "/om",
-    name: "Om Lukas Svendsen",
-    description: pageSeo.om.description,
+    name: seo.om.title,
+    description: seo.om.description,
     type: "AboutPage",
+    locale: "da",
   });
   const breadcrumbJsonLd = pageBreadcrumbJsonLd([
     { name: "Forside", path: "/" },
@@ -39,111 +40,7 @@ export default function OmPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <div className="pt-[calc(var(--chrome-h)+2.5rem)]">
-        <section className="mx-auto grid max-w-[1600px] items-start gap-10 px-5 pb-16 md:grid-cols-12 md:gap-14 md:px-8 md:pb-24 lg:px-12">
-          <FadeIn className="md:col-span-5 md:sticky md:top-[calc(var(--chrome-h)+1.25rem)]">
-            <Photo
-              src={aboutPortrait.src}
-              alt={aboutPortrait.alt}
-              width={aboutPortrait.width}
-              height={aboutPortrait.height}
-              sizes="(min-width: 768px) 40vw, 100vw"
-              className="aspect-[4/5] w-full"
-              priority
-              quality={90}
-            />
-          </FadeIn>
-
-          <div className="md:col-span-6 md:col-start-7">
-            <FadeIn>
-              <nav
-                aria-label="Brødkrumme"
-                className="text-[0.75rem] tracking-[0.02em] text-muted-ink"
-              >
-                <ol className="m-0 flex list-none flex-wrap items-baseline gap-x-0 gap-y-1 p-0">
-                  <li className="after:mx-3 after:opacity-25 after:content-['/']">
-                    <Link
-                      href="/"
-                      className="transition-opacity duration-300 hover:opacity-55"
-                    >
-                      Forside
-                    </Link>
-                  </li>
-                  <li className="text-ink/70" aria-current="page">
-                    Om mig
-                  </li>
-                </ol>
-              </nav>
-
-              <p className="label-meta mt-8">Om mig</p>
-              <h1 className="mt-3 max-w-[12ch] font-display text-[clamp(2.65rem,5.8vw,4.5rem)] leading-[0.92] tracking-[-0.03em]">
-                Lukas Svendsen
-              </h1>
-              <p className="mt-4 text-[0.9375rem] text-muted-ink">
-                Personen bag arbejdet — fotograf og videoproducent
-              </p>
-            </FadeIn>
-
-            <FadeIn delay={0.05}>
-              <div className="mt-9 space-y-8 text-body">
-                <div className="space-y-5">
-                  <p>
-                    Jeg hedder Lukas Guldager Svendsen. Jeg arbejder som fotograf
-                    og videograf med foto, video, drone og content — primært for
-                    virksomheder, organisationer og events, og også for private.
-                    Min base er Grindsted, og jeg tager jævnligt opgaver i
-                    Billund, Vejle, Esbjerg og resten af Danmark.
-                  </p>
-                  <p>
-                    Jeg startede med at tage det seriøst i slutningen af 2025, og
-                    siden har jeg brugt en stor del af min fritid på at udvikle
-                    mig, investere i mit udstyr og bygge LukasSvendsen.dk op. I
-                    dag leverer jeg visuelt materiale til blandt andet
-                    hjemmesider, sociale medier, sport, koncerter og
-                    virksomhedskommunikation.
-                  </p>
-                </div>
-
-                <div
-                  className="h-px w-12 bg-foreground/15"
-                  aria-hidden
-                />
-
-                <div className="space-y-5">
-                  <p>
-                    For mig handler det ikke kun om at få et kamera i hånden og
-                    trykke på optage. Jeg vil gerne forstå, hvad materialet skal
-                    bruges til, hvem det skal ramme, og hvordan det bedst kan
-                    fortælle det, du gerne vil vise. Derfor går jeg til hver
-                    opgave med både det kreative og det praktiske i tankerne.
-                  </p>
-                  <p>
-                    Jeg er stadig i starten, men jeg har store ambitioner og har
-                    ikke tænkt mig at stå stille. Jeg lærer hele tiden nyt, prøver
-                    nye ting og investerer løbende i at blive bedre.
-                  </p>
-                  <p>
-                    Har din virksomhed eller organisation et projekt — eller har
-                    du bare noget, du gerne vil have sparring på — så tag endelig
-                    fat i mig.
-                  </p>
-                </div>
-              </div>
-            </FadeIn>
-
-            <FadeIn delay={0.08}>
-              <div className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-4">
-                <Link href="/booking" className="btn-solid">
-                  Book mig
-                </Link>
-                <Link href="/arbejde" className="btn-ghost">
-                  Se arbejde
-                </Link>
-              </div>
-            </FadeIn>
-          </div>
-        </section>
-      </div>
+      <AboutPageView />
     </>
   );
 }

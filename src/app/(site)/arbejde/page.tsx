@@ -5,11 +5,14 @@ import { fetchProjects } from "@/lib/content";
 import { collectionPageJsonLd, pageMetadata } from "@/lib/seo";
 import { pageSeo } from "@/lib/seo-copy";
 
-const arbejdeMetadata = pageMetadata({
-  title: pageSeo.arbejde.title,
-  description: pageSeo.arbejde.description,
-  path: "/arbejde",
-});
+const arbejdeMetadata: Metadata = {
+  ...pageMetadata({
+    title: pageSeo.arbejde.title,
+    description: pageSeo.arbejde.description,
+    path: "/arbejde",
+    locale: "da",
+  }),
+};
 
 export async function generateMetadata(): Promise<Metadata> {
   // Filter URLs share one canonical — avoids duplicate content for ?kategori=

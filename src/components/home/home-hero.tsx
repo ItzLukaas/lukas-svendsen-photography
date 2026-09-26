@@ -2,21 +2,38 @@ import { HeroBackground } from "@/components/home/hero-background";
 import { HomeHeroCopy } from "@/components/home/home-hero-copy";
 import { preloadHeroImages } from "@/components/home/hero-preload";
 import { heroImage, heroMobileImage } from "@/lib/data/projects";
+import type { Locale } from "@/lib/i18n/config";
+import { localizeImageAlt } from "@/lib/i18n/localize-content";
+import { getRequestLocale } from "@/lib/i18n/request-locale";
+
+type HomeHeroProps = {
+  locale?: Locale;
+};
 
 /**
  * Full-bleed hero — strongest visual on the site.
  */
-export function HomeHero() {
+export async function HomeHero({ locale: localeProp }: HomeHeroProps = {}) {
+  const locale = localeProp ?? (await getRequestLocale());
   preloadHeroImages();
+
+  const desktop = {
+    ...heroImage,
+    alt: localizeImageAlt(heroImage.alt, locale),
+  };
+  const mobile = {
+    ...heroMobileImage,
+    alt: localizeImageAlt(heroMobileImage.alt, locale),
+  };
 
   return (
     <section
-      aria-label="Intro"
+      aria-label={locale === "en" ? "Introduction" : "Intro"}
       className="relative bg-ink pt-[var(--chrome-h)]"
       data-hero-section
     >
       <div className="relative min-h-[calc(100svh-var(--chrome-h))] w-full overflow-hidden">
-        <HeroBackground image={heroImage} mobileImage={heroMobileImage} />
+        <HeroBackground image={desktop} mobileImage={mobile} />
 
         <div className="absolute inset-0 bg-ink/35" aria-hidden />
         <div

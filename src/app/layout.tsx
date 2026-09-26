@@ -2,6 +2,7 @@
 import { Instrument_Sans } from "next/font/google";
 
 import { CustomScrollbarLazy } from "@/components/layout/custom-scrollbar-lazy";
+import { getRequestLocale } from "@/lib/i18n/request-locale";
 import { openingHoursJsonLd, serviceAreaPlaces } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
@@ -110,8 +111,8 @@ const jsonLd = {
       url: siteConfig.url,
       email: siteConfig.email,
       telephone: siteConfig.phone,
-      jobTitle: "Fotograf og videograf",
-      knowsLanguage: "da-DK",
+      jobTitle: "Fotograf og videograf / Photographer and videographer",
+      knowsLanguage: ["da", "en"],
       description: siteConfig.description,
       image: `${siteConfig.url}/images/about-lukas-2026.jpg`,
       homeLocation: {
@@ -275,10 +276,13 @@ const jsonLd = {
   ],
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default async function RootLayout({ children }: LayoutProps<"/">) {
+  const locale = await getRequestLocale();
+  const htmlLang = locale === "en" ? "en" : "da";
+
   return (
     <html
-      lang="da"
+      lang={htmlLang}
       className={`${instrumentSans.variable} h-full overflow-hidden`}
     >
       <body className="h-full overflow-hidden bg-paper font-sans text-ink antialiased">
@@ -286,12 +290,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-paper focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-ink focus:outline focus:outline-2 focus:outline-ink focus:outline-offset-2"
-        >
-          Spring til indhold
-        </a>
         {/* Element scrollport — custom scrollbar CSS applies reliably here */}
         <div
           id="site-scroll"

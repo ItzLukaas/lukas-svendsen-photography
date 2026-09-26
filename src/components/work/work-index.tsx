@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 
+import { useLocale } from "@/components/i18n/locale-provider";
 import { FadeIn } from "@/components/motion/fade-in";
 import { WorkCard } from "@/components/work/work-card";
 import type { Project } from "@/lib/data/projects";
@@ -12,6 +13,7 @@ import {
   sizesForSpan,
   tileClassName,
 } from "@/lib/data/work-layout";
+import { localizedHref } from "@/lib/i18n/paths";
 import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -24,8 +26,10 @@ export function WorkIndex({
   projects,
   initialKategori = "alle",
 }: WorkIndexProps) {
+  const { locale, dict } = useLocale();
   const router = useRouter();
   const [kategori, setKategori] = useState(initialKategori || "alle");
+  const workBase = localizedHref("/arbejde", locale);
 
   useEffect(() => {
     setKategori(initialKategori || "alle");
@@ -44,7 +48,9 @@ export function WorkIndex({
     const params = new URLSearchParams();
     if (next !== "alle") params.set("kategori", next);
     const query = params.toString();
-    router.replace(query ? `/arbejde?${query}` : "/arbejde", { scroll: false });
+    router.replace(query ? `${workBase}?${query}` : workBase, {
+      scroll: false,
+    });
   }
 
   const activeDisciplines = siteConfig.disciplines.filter((item) =>
@@ -52,29 +58,34 @@ export function WorkIndex({
   );
 
   const filters = [
-    { slug: "alle", label: "Alle" },
-    ...activeDisciplines,
-  ] as const;
+    { slug: "alle" as const, label: dict.workPage.filters.alle },
+    ...activeDisciplines.map((item) => ({
+      slug: item.slug,
+      label:
+        dict.workPage.filters[
+          item.slug as keyof typeof dict.workPage.filters
+        ] ?? item.label,
+    })),
+  ];
 
   return (
     <div className="mx-auto max-w-[1600px] px-5 pt-[calc(var(--chrome-h)+2.5rem)] pb-24 md:px-8 md:pb-32 lg:px-12">
       <FadeIn immediate>
         <div className="max-w-xl">
-          <p className="label-meta">Portfolio</p>
+          <p className="label-meta">{dict.workPage.eyebrow}</p>
           <h1 className="mt-3 font-display text-[clamp(3rem,8vw,6.25rem)] leading-[0.9] tracking-[-0.035em]">
-            Arbejde
+            {dict.workPage.title}
           </h1>
           <p className="mt-5 max-w-md text-[0.9375rem] leading-[1.65] text-muted-ink md:mt-6 md:text-[1.0625rem]">
-            Udvalgte projekter med foto, video og content — sport, koncerter,
-            events og det, der ligger imellem.
+            {dict.workPage.body}
           </p>
           <p className="mt-3 text-[0.875rem] text-muted-ink">
-            Har du et job?{" "}
+            {dict.workPage.haveProject}{" "}
             <Link
-              href="/booking"
+              href={localizedHref("/booking", locale)}
               className="font-medium text-foreground underline underline-offset-4 transition-opacity hover:opacity-70"
             >
-              Book mig
+              {dict.workPage.bookMe}
             </Link>
             .
           </p>
@@ -85,7 +96,7 @@ export function WorkIndex({
         <div
           className="mt-10 flex flex-wrap gap-x-6 gap-y-2 md:mt-14 md:gap-x-8"
           role="group"
-          aria-label="Filtrer efter kategori"
+          aria-label={dict.workPage.filterLabel}
         >
           {filters.map((filter) => {
             const active = kategori === filter.slug;
@@ -129,19 +140,17 @@ export function WorkIndex({
           </div>
         ) : (
           <div className="mt-12 max-w-md space-y-5">
-            <p className="text-muted-ink">
-              Ingen projekter i den kategori endnu.
-            </p>
+            <p className="text-muted-ink">{dict.workPage.empty}</p>
             <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
               <button
                 type="button"
                 className="btn-ghost"
                 onClick={() => selectKategori("alle")}
               >
-                Vis alle
+                {dict.workPage.showAll}
               </button>
-              <Link href="/booking" className="btn-ghost">
-                Book mig
+              <Link href={localizedHref("/booking", locale)} className="btn-ghost">
+                {dict.workPage.bookMe}
               </Link>
             </div>
           </div>

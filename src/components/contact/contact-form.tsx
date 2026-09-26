@@ -9,6 +9,7 @@ import {
   fieldClass,
   selectClass,
 } from "@/components/forms/form-field";
+import { useLocale } from "@/components/i18n/locale-provider";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { productionTypes } from "@/lib/booking/schema";
@@ -20,6 +21,8 @@ import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 export function ContactForm() {
+  const { dict } = useLocale();
+  const copy = dict.contactPage.form;
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const {
     register,
@@ -61,21 +64,18 @@ export function ContactForm() {
         role="status"
         aria-live="polite"
       >
-        <p className="label-meta">Sendt</p>
+        <p className="label-meta">{copy.successEyebrow}</p>
         <h2 className="mt-3 font-display text-[clamp(1.5rem,3vw,1.85rem)] leading-tight tracking-[-0.025em]">
-          Tak for din besked
+          {copy.successTitle}
         </h2>
-        <p className="text-body mt-4 max-w-md">
-          Jeg vender tilbage snart. Har du travlt, kan du ringe eller skrive
-          direkte.
-        </p>
+        <p className="text-body mt-4 max-w-md">{copy.successBody}</p>
         <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3">
           <button
             type="button"
             className="btn-solid"
             onClick={() => setStatus("idle")}
           >
-            Send en ny besked
+            {copy.successAgain}
           </button>
           <a href={`mailto:${siteConfig.email}`} className="btn-ghost">
             {siteConfig.email}
@@ -92,7 +92,11 @@ export function ContactForm() {
       noValidate
     >
       <div className="space-y-8">
-        <FormField id="name" label="Navn" error={errors.name?.message}>
+        <FormField
+          id="name"
+          label={copy.name}
+          error={errors.name?.message}
+        >
           <Input
             id="name"
             autoComplete="name"
@@ -102,7 +106,11 @@ export function ContactForm() {
           />
         </FormField>
 
-        <FormField id="email" label="E-mail" error={errors.email?.message}>
+        <FormField
+          id="email"
+          label={copy.email}
+          error={errors.email?.message}
+        >
           <Input
             id="email"
             type="email"
@@ -115,8 +123,9 @@ export function ContactForm() {
 
         <FormField
           id="phone"
-          label="Telefon"
+          label={copy.phone}
           optional
+          optionalLabel={copy.optional}
           error={errors.phone?.message}
         >
           <Input
@@ -131,8 +140,9 @@ export function ContactForm() {
 
         <FormField
           id="company"
-          label="Virksomhed"
+          label={copy.company}
           optional
+          optionalLabel={copy.optional}
           error={errors.company?.message}
         >
           <Input
@@ -146,8 +156,9 @@ export function ContactForm() {
 
         <FormField
           id="projectType"
-          label="Type af projekt"
+          label={copy.projectType}
           optional
+          optionalLabel={copy.optional}
           error={errors.projectType?.message}
         >
           <select
@@ -156,20 +167,24 @@ export function ContactForm() {
             className={selectClass}
             {...register("projectType")}
           >
-            <option value="">Vælg type</option>
+            <option value="">{copy.projectTypePlaceholder}</option>
             {productionTypes.map((type) => (
               <option key={type} value={type}>
-                {type}
+                {copy.types[type]}
               </option>
             ))}
           </select>
         </FormField>
 
-        <FormField id="message" label="Besked" error={errors.message?.message}>
+        <FormField
+          id="message"
+          label={copy.message}
+          error={errors.message?.message}
+        >
           <Textarea
             id="message"
             rows={5}
-            placeholder="Skriv kort om opgaven, dato og hvad materialet skal bruges til…"
+            placeholder={copy.messagePlaceholder}
             aria-invalid={Boolean(errors.message)}
             className={cn(fieldClass, "min-h-32 resize-y")}
             {...register("message")}
@@ -179,10 +194,10 @@ export function ContactForm() {
 
       <div className="mt-8 flex flex-col gap-4 pt-2 sm:flex-row sm:items-center sm:justify-between">
         <button type="submit" disabled={isSubmitting} className="btn-solid">
-          {isSubmitting ? "Sender…" : "Send besked"}
+          {isSubmitting ? copy.submitting : copy.submit}
         </button>
         <p className="text-[0.85rem] text-muted-ink">
-          Eller skriv til{" "}
+          {copy.orEmail}{" "}
           <a
             href={`mailto:${siteConfig.email}`}
             className="link-quiet underline underline-offset-4"
@@ -195,7 +210,7 @@ export function ContactForm() {
       <div aria-live="polite" className="min-h-6 text-[0.95rem]">
         {status === "error" ? (
           <p className="text-destructive" role="alert">
-            Noget gik galt. Prøv igen, eller skriv til{" "}
+            {copy.errorPrefix}{" "}
             <a
               href={`mailto:${siteConfig.email}`}
               className="underline underline-offset-2 transition-opacity hover:opacity-70"

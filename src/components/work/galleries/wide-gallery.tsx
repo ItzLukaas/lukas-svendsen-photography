@@ -7,9 +7,6 @@ type WideGalleryProps = {
   onOpen: (index: number) => void;
 };
 
-/**
- * Wide gallery — 2-up grid sized for landscape-heavy sets.
- */
 export function WideGallery({
   images,
   projectSlug,
@@ -20,6 +17,7 @@ export function WideGallery({
       images={images}
       projectSlug={projectSlug}
       onOpen={onOpen}
+      format="wide"
       quality={90}
     />
   );

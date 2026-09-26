@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 
 import type { LocalArea } from "@/lib/data/local-areas";
 import type { Project } from "@/lib/data/projects";
-import { pageSeo, projectMetaDescription } from "@/lib/seo-copy";
+import type { Locale } from "@/lib/i18n/config";
+import { getLocalePathPair } from "@/lib/i18n/paths";
+import { localizeImageAlt } from "@/lib/i18n/localize-content";
+import { pageSeo, pageSeoEn, projectMetaDescription } from "@/lib/seo-copy";
 import { siteConfig } from "@/lib/site";
 import { introPosterUrl, introVideo } from "@/lib/video/intro";
 
@@ -17,6 +20,13 @@ type PageMetaOptions = {
   imageHeight?: number;
   /** Defaults to website; use article for project stories */
   ogType?: "website" | "article";
+  /** Active page locale — drives OG locale and optional hreflang pair */
+  locale?: Locale;
+  /**
+   * Explicit hreflang pair. When omitted, derived from `path` via locale map.
+   * Pass `false` to skip hreflang (orphan pages).
+   */
+  languages?: Record<string, string> | false;
 };
 
 /** Absolute canonical for a site path (`/` → origin without trailing slash). */
@@ -25,12 +35,28 @@ export function canonicalUrl(path: string) {
   return `${siteConfig.url}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
+/** Bidirectional hreflang cluster — Danish is x-default. */
+export function localeLanguageAlternates(daPath: string, enPath: string) {
+  return {
+    da: canonicalUrl(daPath),
+    en: canonicalUrl(enPath),
+    "x-default": canonicalUrl(daPath),
+  };
+}
+
+/** Resolve hreflang languages for a path, or undefined if no EN pair. */
+export function languagesForPath(path: string) {
+  const pair = getLocalePathPair(path);
+  if (!pair) return undefined;
+  return localeLanguageAlternates(pair.da, pair.en);
+}
+
 /** Primary social / fallback share image — landscape, web-optimized */
 export const defaultShareImage = {
   url: "/images/og-share.jpg",
   width: 1200,
   height: 630,
-  alt: "Lukas Svendsen, fotograf og videoproducent",
+  alt: "Lukas Svendsen, photographer and videographer",
 } as const;
 
 /**
@@ -70,16 +96,28 @@ export function pageMetadata({
   imageWidth = defaultShareImage.width,
   imageHeight = defaultShareImage.height,
   ogType = "website",
+  locale = "da",
+  languages,
 }: PageMetaOptions): Metadata {
   const url = canonicalUrl(path);
+  const resolvedLanguages =
+    languages === false
+      ? undefined
+      : (languages ?? languagesForPath(path));
+  const ogLocale = locale === "en" ? "en_GB" : "da_DK";
+  const ogAlternate = locale === "en" ? "da_DK" : "en_GB";
 
   return {
     title: { absolute: title },
     description,
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      ...(resolvedLanguages ? { languages: resolvedLanguages } : {}),
+    },
     openGraph: {
       type: ogType,
-      locale: siteConfig.locale,
+      locale: ogLocale,
+      alternateLocale: [ogAlternate],
       siteName: siteConfig.name,
       title,
       description,
@@ -101,27 +139,33 @@ export function projectBreadcrumbJsonLd(
   title: string,
   slug: string,
   _category?: string,
-  _discipline?: string
+  _discipline?: string,
+  locale: Locale = "da"
 ) {
+  const homePath = locale === "en" ? "/en" : "/";
+  const workPath = locale === "en" ? "/en/work" : "/arbejde";
+  const homeName = locale === "en" ? "Home" : "Forside";
+  const workName = locale === "en" ? "Work" : "Arbejde";
+
   // Canonical breadcrumb path only — no filter query URLs in schema
   const items = [
     {
       "@type": "ListItem",
       position: 1,
-      name: "Forside",
-      item: siteConfig.url,
+      name: homeName,
+      item: canonicalUrl(homePath),
     },
     {
       "@type": "ListItem",
       position: 2,
-      name: "Arbejde",
-      item: `${siteConfig.url}/arbejde`,
+      name: workName,
+      item: canonicalUrl(workPath),
     },
     {
       "@type": "ListItem",
       position: 3,
       name: title,
-      item: `${siteConfig.url}/arbejde/${slug}`,
+      item: canonicalUrl(`${workPath}/${slug}`),
     },
   ];
 
@@ -135,13 +179,22 @@ export function projectBreadcrumbJsonLd(
 /**
  * Project as a photographic CreativeWork — truthful fields only.
  */
-export function projectCreativeWorkJsonLd(project: Project) {
-  const url = `${siteConfig.url}/arbejde/${project.slug}`;
+export function projectCreativeWorkJsonLd(
+  project: Project,
+  locale: Locale = "da",
+  localized?: { name?: string; genre?: string }
+) {
+  const workPath = locale === "en" ? "/en/work" : "/arbejde";
+  const url = `${siteConfig.url}${workPath}/${project.slug}`;
+  const collectionId = `${siteConfig.url}${workPath}#collection`;
+  const description = projectMetaDescription(project, locale);
+  const name = localized?.name ?? project.title;
+  const genre = localized?.genre ?? project.category;
   const images = project.images.map((image) => ({
     "@type": "ImageObject" as const,
     contentUrl: `${siteConfig.url}${image.src}`,
     url: `${siteConfig.url}${image.src}`,
-    name: image.alt,
+    name: localizeImageAlt(image.alt, locale),
     width: image.width,
     height: image.height,
     creator: { "@id": `${siteConfig.url}/#person` },
@@ -151,17 +204,18 @@ export function projectCreativeWorkJsonLd(project: Project) {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
     "@id": `${url}#work`,
-    name: project.title,
-    headline: project.title,
-    description: projectMetaDescription(project),
+    name,
+    headline: name,
+    description,
     url,
+    inLanguage: locale === "en" ? "en-GB" : "da-DK",
     dateCreated: `${project.year}-01-01`,
     copyrightYear: Number(project.year),
-    genre: project.category,
+    genre,
     creator: { "@id": `${siteConfig.url}/#person` },
     author: { "@id": `${siteConfig.url}/#person` },
     provider: { "@id": `${siteConfig.url}/#service` },
-    isPartOf: { "@id": `${siteConfig.url}/arbejde#collection` },
+    isPartOf: { "@id": collectionId },
     ...(project.client
       ? {
           about: {
@@ -189,15 +243,21 @@ export function projectCreativeWorkJsonLd(project: Project) {
 }
 
 export function collectionPageJsonLd(
-  projects: { title: string; slug: string; excerpt: string }[]
+  projects: { title: string; slug: string; excerpt: string }[],
+  locale: "da" | "en" = "da"
 ) {
+  const seo = locale === "en" ? pageSeoEn : pageSeo;
+  const basePath = locale === "en" ? "/en/work" : "/arbejde";
+  const url = `${siteConfig.url}${basePath}`;
+
   return {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "@id": `${siteConfig.url}/arbejde#collection`,
-    name: pageSeo.arbejde.title,
-    description: pageSeo.arbejde.description,
-    url: `${siteConfig.url}/arbejde`,
+    "@id": `${url}#collection`,
+    name: seo.arbejde.title,
+    description: seo.arbejde.description,
+    url,
+    inLanguage: locale === "en" ? "en-GB" : "da-DK",
     isPartOf: { "@id": `${siteConfig.url}/#website` },
     about: { "@id": `${siteConfig.url}/#person` },
     mainEntity: {
@@ -206,7 +266,7 @@ export function collectionPageJsonLd(
       itemListElement: projects.map((project, index) => ({
         "@type": "ListItem",
         position: index + 1,
-        url: `${siteConfig.url}/arbejde/${project.slug}`,
+        url: `${siteConfig.url}${basePath}/${project.slug}`,
         name: project.title,
         description: project.excerpt,
       })),
@@ -251,7 +311,8 @@ export function simplePageJsonLd({
   description,
   type,
   mainEntityId = "person",
-}: SimplePageJsonLdOptions) {
+  locale = "da",
+}: SimplePageJsonLdOptions & { locale?: "da" | "en" }) {
   const url = `${siteConfig.url}${path}`;
   const entity =
     mainEntityId === "service"
@@ -265,7 +326,7 @@ export function simplePageJsonLd({
     url,
     name,
     description,
-    inLanguage: "da-DK",
+    inLanguage: locale === "en" ? "en-GB" : "da-DK",
     isPartOf: { "@id": `${siteConfig.url}/#website` },
     about: { "@id": `${siteConfig.url}/#person` },
     mainEntity: entity,
@@ -317,22 +378,28 @@ export function localAreaPageJsonLd(area: LocalArea) {
 }
 
 /** Homepage WebPage — primary broad SEO landing */
-export function homePageJsonLd() {
+export function homePageJsonLd(locale: Locale = "da") {
+  const seo = locale === "en" ? pageSeoEn : pageSeo;
+  const path = locale === "en" ? "/en" : "/";
+  const url = canonicalUrl(path);
   return {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": `${siteConfig.url}/#homepage`,
-    url: siteConfig.url,
-    name: pageSeo.home.title,
-    description: pageSeo.home.description,
-    inLanguage: "da-DK",
+    "@id": `${url}#homepage`,
+    url,
+    name: seo.home.title,
+    description: seo.home.description,
+    inLanguage: locale === "en" ? "en-GB" : "da-DK",
     isPartOf: { "@id": `${siteConfig.url}/#website` },
     about: { "@id": `${siteConfig.url}/#person` },
     mainEntity: { "@id": `${siteConfig.url}/#service` },
     primaryImageOfPage: {
       "@type": "ImageObject",
       url: `${siteConfig.url}/images/hero-handbold-maalnet-super-cup.jpg`,
-      caption: "Sportsfoto — håndbold set gennem målnettet",
+      caption:
+        locale === "en"
+          ? "Sports photography — handball seen through the goal net"
+          : "Sportsfoto — håndbold set gennem målnettet",
     },
   };
 }

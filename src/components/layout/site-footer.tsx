@@ -1,21 +1,16 @@
+"use client";
+
 import Link from "next/link";
 
+import { useLocale } from "@/components/i18n/locale-provider";
 import {
   BrandFacebook,
   BrandInstagram,
   BrandLinkedin,
 } from "@/components/layout/social-icons";
+import { localizedHref } from "@/lib/i18n/paths";
 import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
-
-const mainNav = [
-  { href: "/", label: "Forside" },
-  { href: "/arbejde", label: "Arbejde" },
-  { href: "/hvad-jeg-laver", label: "Hvad jeg laver" },
-  { href: "/om", label: "Om mig" },
-  { href: "/kontakt", label: "Kontakt" },
-  { href: "/booking", label: "Book mig" },
-] as const;
 
 const areaLinks = [
   { href: "/fotograf-grindsted", label: "Grindsted" },
@@ -90,8 +85,21 @@ function SocialLink({
  * Compact studio footer — contact, navigation, social, legal.
  */
 export function SiteFooter() {
+  const { locale, dict } = useLocale();
   const year = 2026;
   const { location } = siteConfig;
+
+  const mainNav = [
+    { href: localizedHref("/", locale), label: dict.nav.home },
+    { href: localizedHref("/arbejde", locale), label: dict.nav.work },
+    {
+      href: localizedHref("/hvad-jeg-laver", locale),
+      label: dict.nav.whatIDo,
+    },
+    { href: localizedHref("/om", locale), label: dict.nav.about },
+    { href: localizedHref("/kontakt", locale), label: dict.nav.contact },
+    { href: localizedHref("/booking", locale), label: dict.nav.bookMe },
+  ] as const;
 
   return (
     <footer className="border-t border-paper/10 bg-ink text-paper">
@@ -99,14 +107,17 @@ export function SiteFooter() {
         <div className="flex flex-col gap-6 border-b border-paper/10 pb-8 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-[0.6875rem] font-medium tracking-[0.1em] text-paper/45 uppercase">
-              Næste skridt
+              {dict.footer.nextStep}
             </p>
             <p className="mt-2 font-display text-[clamp(1.35rem,3vw,1.85rem)] leading-[1.1] tracking-[-0.025em] text-paper">
-              Klar til at arbejde sammen?
+              {dict.footer.ready}
             </p>
           </div>
-          <Link href="/booking" className="btn-solid btn-solid-invert shrink-0">
-            Book mig
+          <Link
+            href={localizedHref("/booking", locale)}
+            className="btn-solid btn-solid-invert shrink-0"
+          >
+            {dict.footer.bookMe}
           </Link>
         </div>
 
@@ -116,17 +127,17 @@ export function SiteFooter() {
               {siteConfig.name}
             </p>
             <p className="mt-1.5 text-[0.875rem] text-paper/55">
-              Fotograf & videoproducent
+              {dict.footer.role}
             </p>
             <address className="mt-3 not-italic text-[0.875rem] leading-[1.55] text-paper/55">
               {location.street}
               <br />
               {location.postalCode} {location.city}
               <br />
-              {location.country}
+              {dict.footer.country}
             </address>
             <nav
-              aria-label="Områder"
+              aria-label={dict.footer.areas}
               className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.875rem]"
             >
               {areaLinks.map((item, index) => (
@@ -136,7 +147,11 @@ export function SiteFooter() {
                       ·
                     </span>
                   ) : null}
-                  <FooterLink href={item.href}>{item.label}</FooterLink>
+                  {locale === "da" ? (
+                    <FooterLink href={item.href}>{item.label}</FooterLink>
+                  ) : (
+                    <span className="text-paper/70">{item.label}</span>
+                  )}
                 </span>
               ))}
             </nav>
@@ -144,7 +159,7 @@ export function SiteFooter() {
 
           <div>
             <p className="text-[0.6875rem] font-medium tracking-[0.08em] text-paper/45 uppercase">
-              Navigation
+              {dict.footer.navigation}
             </p>
             <ul className="mt-3 space-y-2">
               {mainNav.map((item) => (
@@ -157,7 +172,7 @@ export function SiteFooter() {
 
           <div className="sm:col-span-2 md:col-span-1">
             <p className="text-[0.6875rem] font-medium tracking-[0.08em] text-paper/45 uppercase">
-              Kontakt
+              {dict.footer.contact}
             </p>
             <ul className="mt-3 space-y-2">
               <li>
@@ -182,13 +197,13 @@ export function SiteFooter() {
 
         <div className="mt-8 border-t border-paper/10 pt-8">
           <p className="text-[0.6875rem] font-medium tracking-[0.08em] text-paper/45 uppercase">
-            Følg min rejse
+            {dict.footer.follow}
           </p>
           <p className="mt-1.5 text-[0.875rem] text-paper/55">
-            Se hvad der sker bag kameraet.
+            {dict.footer.followBody}
           </p>
           <nav
-            aria-label="Sociale medier"
+            aria-label="Social"
             className="mt-4 flex items-center gap-2"
           >
             {socialLinks.map((item) => (
@@ -203,17 +218,17 @@ export function SiteFooter() {
           </p>
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
             <Link
-              href="/privatliv"
+              href={localizedHref("/privatliv", locale)}
               className="transition-colors hover:text-paper/70"
             >
-              Privatlivspolitik
+              {dict.footer.privacy}
             </Link>
             <span aria-hidden>·</span>
             <Link
-              href="/privatliv#cookies"
+              href={`${localizedHref("/privatliv", locale)}#cookies`}
               className="transition-colors hover:text-paper/70"
             >
-              Cookies
+              {dict.footer.cookies}
             </Link>
           </div>
         </div>

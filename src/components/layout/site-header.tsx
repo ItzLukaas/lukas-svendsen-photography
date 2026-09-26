@@ -4,25 +4,49 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
+import { useLocale } from "@/components/i18n/locale-provider";
 import { AnnouncementBar } from "@/components/layout/announcement-bar";
+import { LanguageSwitcher } from "@/components/layout/language-switcher";
+import { localizedHref } from "@/lib/i18n/paths";
 import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
-const navLinks = siteConfig.nav.filter((item) => item.href !== "/booking");
-
 function isNavActive(pathname: string, href: string, hash: string) {
   if (href.startsWith("/#")) {
-    return pathname === "/" && hash === href.slice(1);
+    return (pathname === "/" || pathname === "/en") && hash === href.slice(1);
   }
-  if (href === "/") return pathname === "/";
+  if (href === "/" || href === "/en") {
+    return pathname === "/" || pathname === "/en";
+  }
+  if (href === "/arbejde" || href === "/en/work") {
+    return (
+      pathname === "/arbejde" ||
+      pathname.startsWith("/arbejde/") ||
+      pathname === "/en/work" ||
+      pathname.startsWith("/en/work/")
+    );
+  }
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
 export function SiteHeader() {
+  const { locale, dict } = useLocale();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [hash, setHash] = useState("");
   const [navPath, setNavPath] = useState(pathname);
+
+  const homeHref = localizedHref("/", locale);
+
+  const navLinks = [
+    { href: localizedHref("/arbejde", locale), label: dict.nav.work },
+    {
+      href: localizedHref("/hvad-jeg-laver", locale),
+      label: dict.nav.whatIDo,
+    },
+    { href: localizedHref("/om", locale), label: dict.nav.about },
+    { href: localizedHref("/kontakt", locale), label: dict.nav.contact },
+  ] as const;
 
   if (pathname !== navPath) {
     setNavPath(pathname);
@@ -94,7 +118,10 @@ export function SiteHeader() {
   }, [open]);
 
   const bookingActive =
-    pathname === "/booking" || pathname.startsWith("/booking/");
+    pathname === "/booking" ||
+    pathname.startsWith("/booking/") ||
+    pathname === "/en/booking" ||
+    pathname.startsWith("/en/booking/");
 
   const linkClass = (active: boolean) =>
     cn(
@@ -109,16 +136,16 @@ export function SiteHeader() {
       <div className="border-b border-foreground/8 bg-paper text-foreground shadow-[0_1px_0_rgb(23_23_22_/_0.04)]">
         <div className="relative mx-auto flex h-[var(--header-h)] max-w-[1600px] items-center justify-between px-5 md:px-8 lg:px-12">
           <Link
-            href="/"
+            href={homeHref}
             className="font-display relative z-10 shrink-0 text-[1.05rem] leading-none tracking-[-0.025em] text-ink transition-opacity duration-300 hover:opacity-65 md:text-[1.15rem]"
-            aria-label={`${siteConfig.name}, forsiden`}
+            aria-label={`${siteConfig.name}, ${dict.nav.home}`}
           >
             {siteConfig.name}
           </Link>
 
           <nav
-            className="relative z-10 hidden items-center gap-5 md:flex lg:gap-8"
-            aria-label="Primær navigation"
+            className="relative z-10 hidden items-center gap-5 md:flex lg:gap-7"
+            aria-label="Primary"
           >
             {navLinks.map((item) => {
               const active = isNavActive(pathname, item.href, hash);
@@ -134,38 +161,43 @@ export function SiteHeader() {
               );
             })}
 
+            <LanguageSwitcher className="ml-1 lg:ml-2" />
+
             <Link
-              href="/booking"
+              href={localizedHref("/booking", locale)}
               className="btn-nav-cta ml-0.5 bg-ink text-paper"
               aria-current={bookingActive ? "page" : undefined}
             >
-              Book mig
+              {dict.nav.bookMe}
             </Link>
           </nav>
 
-          <button
-            type="button"
-            className="relative z-50 -mr-1 flex h-11 w-11 items-center justify-center text-foreground md:hidden"
-            aria-expanded={open}
-            aria-controls="mobil-menu"
-            aria-label={open ? "Luk menu" : "Åbn menu"}
-            onClick={() => setOpen((value) => !value)}
-          >
-            <span className="relative flex h-3 w-[18px] flex-col justify-between">
-              <span
-                className={cn(
-                  "block h-[1.5px] w-full bg-current transition-transform duration-300 ease-out",
-                  open && "translate-y-[5.5px] rotate-45"
-                )}
-              />
-              <span
-                className={cn(
-                  "block h-[1.5px] w-full bg-current transition-transform duration-300 ease-out",
-                  open && "-translate-y-[5.5px] -rotate-45"
-                )}
-              />
-            </span>
-          </button>
+          <div className="relative z-50 flex items-center gap-1 md:hidden">
+            <LanguageSwitcher />
+            <button
+              type="button"
+              className="-mr-1 flex h-11 w-11 items-center justify-center text-foreground"
+              aria-expanded={open}
+              aria-controls="mobil-menu"
+              aria-label={open ? dict.language.menuClose : dict.language.menuOpen}
+              onClick={() => setOpen((value) => !value)}
+            >
+              <span className="relative flex h-3 w-[18px] flex-col justify-between">
+                <span
+                  className={cn(
+                    "block h-[1.5px] w-full bg-current transition-transform duration-300 ease-out",
+                    open && "translate-y-[5.5px] rotate-45"
+                  )}
+                />
+                <span
+                  className={cn(
+                    "block h-[1.5px] w-full bg-current transition-transform duration-300 ease-out",
+                    open && "-translate-y-[5.5px] -rotate-45"
+                  )}
+                />
+              </span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -183,7 +215,7 @@ export function SiteHeader() {
         )}
       >
         <div className="h-[var(--chrome-h)]" />
-        <nav className="flex flex-col px-5 pt-2" aria-label="Mobil navigation">
+        <nav className="flex flex-col px-5 pt-2" aria-label={dict.language.menuOpen}>
           {navLinks.map((item) => {
             const active = isNavActive(pathname, item.href, hash);
             return (
@@ -202,18 +234,16 @@ export function SiteHeader() {
             );
           })}
         </nav>
-        <div className="absolute bottom-12 left-5 right-5">
+        <div className="absolute bottom-12 left-5 right-5 space-y-6">
           <Link
-            href="/booking"
+            href={localizedHref("/booking", locale)}
             className="btn-solid w-full justify-center"
             aria-current={bookingActive ? "page" : undefined}
             onClick={() => setOpen(false)}
           >
-            Book mig
+            {dict.nav.bookMe}
           </Link>
-          <p className="mt-5 text-center text-sm text-muted-ink">
-            {siteConfig.email}
-          </p>
+          <p className="text-center text-sm text-muted-ink">{siteConfig.email}</p>
         </div>
       </div>
     </header>

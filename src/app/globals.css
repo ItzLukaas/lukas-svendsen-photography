@@ -571,10 +571,24 @@
     animation: page-enter 380ms cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
+  html[data-locale-switch="1"] #main {
+    animation: locale-crossfade 280ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    .page-enter {
+    .page-enter,
+    html[data-locale-switch="1"] #main {
       animation: none;
     }
+  }
+}
+
+@keyframes locale-crossfade {
+  from {
+    opacity: 0.42;
+  }
+  to {
+    opacity: 1;
   }
 }
 

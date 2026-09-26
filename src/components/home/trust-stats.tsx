@@ -8,6 +8,7 @@ import {
 } from "react";
 import { useReducedMotion } from "motion/react";
 
+import { useLocale } from "@/components/i18n/locale-provider";
 import { FadeIn } from "@/components/motion/fade-in";
 import { homeStats, type HomeStat } from "@/lib/data/stats";
 
@@ -63,6 +64,7 @@ function StatValue({
  * Editorial trust strip — open layout that leads into collaborations.
  */
 export function TrustStats() {
+  const { dict } = useLocale();
   const reduceMotion = !!useReducedMotion();
   const sectionRef = useRef<HTMLElement>(null);
   const [active, setActive] = useState(false);
@@ -88,6 +90,12 @@ export function TrustStats() {
     return () => observer.disconnect();
   }, [active]);
 
+  const labels: Record<string, string> = {
+    viewers: dict.trust.viewers,
+    projects: dict.trust.projects,
+    deliveries: dict.trust.deliveries,
+  };
+
   return (
     <section
       ref={sectionRef}
@@ -97,12 +105,12 @@ export function TrustStats() {
       <div className="mx-auto max-w-[1600px] px-5 pt-[var(--space-section)] pb-[var(--space-section-sm)] md:px-8 lg:px-12">
         <FadeIn>
           <div className="text-center">
-            <p className="label-meta">I tal</p>
+            <p className="label-meta">{dict.trust.eyebrow}</p>
             <h2
               id="trust-stats-heading"
               className="heading-strip mt-3 font-display"
             >
-              30+ Projekter og Samarbejder
+              {dict.trust.title}
             </h2>
           </div>
         </FadeIn>
@@ -124,7 +132,7 @@ export function TrustStats() {
                   reduceMotion={reduceMotion}
                 />
                 <p className="mt-3.5 max-w-[16ch] text-[0.6875rem] font-medium tracking-[0.12em] text-muted-ink uppercase">
-                  {stat.label}
+                  {labels[stat.id] ?? stat.label}
                 </p>
               </div>
             ))}

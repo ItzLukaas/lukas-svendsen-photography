@@ -1,11 +1,17 @@
+"use client";
+
 import Link from "next/link";
 
+import { useLocale } from "@/components/i18n/locale-provider";
 import { FadeIn } from "@/components/motion/fade-in";
+import { localizedHref } from "@/lib/i18n/paths";
 
 /**
  * Final homepage CTA — invitation, not a form dump.
  */
 export function HomeCta() {
+  const { locale, dict } = useLocale();
+
   return (
     <section
       id="foresporgsel"
@@ -15,10 +21,7 @@ export function HomeCta() {
       <div className="mx-auto max-w-[1600px] px-5 pt-[var(--space-section)] pb-[calc(var(--space-section)+0.5rem)] md:px-8 lg:px-12">
         <FadeIn y={16}>
           <div className="relative overflow-hidden bg-ink px-5 py-12 text-paper sm:px-8 sm:py-14 md:px-10 md:py-16 lg:px-12">
-            <div
-              className="pointer-events-none absolute inset-0"
-              aria-hidden
-            >
+            <div className="pointer-events-none absolute inset-0" aria-hidden>
               <div className="absolute -top-24 -right-8 font-display text-[clamp(7rem,20vw,16rem)] leading-none tracking-[-0.06em] text-paper/[0.035] select-none">
                 LS
               </div>
@@ -26,23 +29,29 @@ export function HomeCta() {
 
             <div className="relative max-w-3xl">
               <p className="text-[0.6875rem] font-medium tracking-[0.14em] text-paper/60 uppercase">
-                Kontakt
+                {dict.homeCta.eyebrow}
               </p>
               <h2
                 id="booking-heading"
                 className="mt-4 font-display text-[clamp(2rem,5vw,3.75rem)] leading-[1.02] tracking-[-0.035em] text-balance"
               >
-                Har du en opgave?
+                {dict.homeCta.title}
               </h2>
               <p className="mt-5 max-w-xl text-[0.9375rem] leading-[1.7] text-paper/68 md:mt-6 md:text-[1.0625rem]">
-                Fortæl kort, hvad du skal bruge, så finder vi ud af resten.
+                {dict.homeCta.body}
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-4 sm:mt-10">
-                <Link href="/booking" className="btn-solid btn-solid-invert">
-                  Fortæl om din opgave
+                <Link
+                  href={localizedHref("/booking", locale)}
+                  className="btn-solid btn-solid-invert"
+                >
+                  {dict.homeCta.primary}
                 </Link>
-                <Link href="/kontakt" className="btn-ghost-on-dark">
-                  Kontakt mig
+                <Link
+                  href={localizedHref("/kontakt", locale)}
+                  className="btn-ghost-on-dark"
+                >
+                  {dict.homeCta.secondary}
                 </Link>
               </div>
             </div>

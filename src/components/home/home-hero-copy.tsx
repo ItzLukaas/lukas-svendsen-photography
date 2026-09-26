@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { motion } from "motion/react";
 
+import { useLocale } from "@/components/i18n/locale-provider";
+import { localizedHref } from "@/lib/i18n/paths";
 import { cn } from "@/lib/utils";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -13,10 +15,10 @@ type HomeHeroCopyProps = {
 
 /**
  * Hero text + CTAs — minimal, confident studio intro.
- * Motion props stay identical on server and client to avoid hydration mismatch.
- * Reduced-motion is handled by globals.css and Tailwind motion-reduce utilities.
  */
 export function HomeHeroCopy({ inverted = true }: HomeHeroCopyProps) {
+  const { locale, dict } = useLocale();
+
   return (
     <>
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-5 py-16 text-center sm:px-8 md:px-12 md:py-20 lg:px-16">
@@ -29,19 +31,19 @@ export function HomeHeroCopy({ inverted = true }: HomeHeroCopyProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, delay: 0.2, ease }}
         >
-          Lukas Svendsen
+          {dict.hero.eyebrow}
         </motion.p>
 
         <motion.h1
           className={cn(
-            "mt-5 max-w-[12ch] font-display text-[clamp(2.35rem,6vw,4.75rem)] leading-[0.98] tracking-[-0.04em] text-balance sm:mt-6",
+            "mt-5 max-w-[14ch] font-display text-[clamp(2.35rem,6vw,4.75rem)] leading-[0.98] tracking-[-0.04em] text-balance sm:mt-6",
             inverted ? "text-white" : "text-ink"
           )}
           initial={{ y: 20 }}
           animate={{ y: 0 }}
           transition={{ duration: 0.75, delay: 0.32, ease }}
         >
-          Foto. Film. Content.
+          {dict.hero.title}
         </motion.h1>
 
         <motion.p
@@ -53,9 +55,7 @@ export function HomeHeroCopy({ inverted = true }: HomeHeroCopyProps) {
           animate={{ y: 0 }}
           transition={{ duration: 0.7, delay: 0.44, ease }}
         >
-          Jeg er 16 år og fotograf og videograf i Grindsted. Jeg laver foto,
-          video og content for virksomheder, organisationer og private i
-          Danmark — og elsker at være med, når der skal skabes noget godt.
+          {dict.hero.body}
         </motion.p>
 
         <motion.div
@@ -65,19 +65,19 @@ export function HomeHeroCopy({ inverted = true }: HomeHeroCopyProps) {
           transition={{ duration: 0.65, delay: 0.52, ease }}
         >
           <Link
-            href="/booking"
+            href={localizedHref("/booking", locale)}
             className={cn(
               "btn-solid w-full justify-center sm:w-auto",
               inverted && "btn-solid-invert"
             )}
           >
-            Book en opgave
+            {dict.hero.ctaPrimary}
           </Link>
           <Link
-            href="/arbejde"
+            href={localizedHref("/arbejde", locale)}
             className={inverted ? "btn-ghost-on-dark" : "btn-ghost"}
           >
-            Se mit arbejde
+            {dict.hero.ctaSecondary}
           </Link>
         </motion.div>
       </div>

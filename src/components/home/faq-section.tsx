@@ -2,8 +2,8 @@
 
 import { useId, useState } from "react";
 
+import { useLocale } from "@/components/i18n/locale-provider";
 import { FadeIn } from "@/components/motion/fade-in";
-import { faqItems } from "@/lib/data/faq";
 import { cn } from "@/lib/utils";
 
 type FaqSectionProps = {
@@ -11,6 +11,15 @@ type FaqSectionProps = {
   withIntro?: boolean;
   className?: string;
 };
+
+const faqOrder = [
+  "what",
+  "pricing",
+  "areas",
+  "brief",
+  "delivery",
+  "booking",
+] as const;
 
 function FaqItem({
   question,
@@ -54,33 +63,35 @@ function FaqItem({
           </span>
         </button>
       </h3>
-        <div
-          id={panelId}
-          role="region"
-          aria-labelledby={buttonId}
-          hidden={!open}
-          className={cn(
-            "max-w-2xl space-y-3 pb-5 text-[0.9375rem] leading-[1.7] text-muted-ink",
-            !open && "hidden"
-          )}
-        >
-          {answer
-            .split(/\n\s*\n/)
-            .map((paragraph) => paragraph.trim())
-            .filter(Boolean)
-            .map((paragraph) => (
-              <p key={paragraph.slice(0, 48)}>{paragraph}</p>
-            ))}
-        </div>
+      <div
+        id={panelId}
+        role="region"
+        aria-labelledby={buttonId}
+        hidden={!open}
+        className={cn(
+          "max-w-2xl space-y-3 pb-5 text-[0.9375rem] leading-[1.7] text-muted-ink",
+          !open && "hidden"
+        )}
+      >
+        {answer
+          .split(/\n\s*\n/)
+          .map((paragraph) => paragraph.trim())
+          .filter(Boolean)
+          .map((paragraph) => (
+            <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+          ))}
+      </div>
     </div>
   );
 }
 
 /**
  * FAQ accordion — shared on homepage and offerings page.
+ * Copy comes from the active locale dictionary.
  */
 export function FaqSection({ withIntro = true, className }: FaqSectionProps) {
-  const [openId, setOpenId] = useState<string | null>(faqItems[0]?.id ?? null);
+  const { dict } = useLocale();
+  const [openId, setOpenId] = useState<string | null>(faqOrder[0]);
 
   return (
     <section
@@ -90,12 +101,12 @@ export function FaqSection({ withIntro = true, className }: FaqSectionProps) {
       <div className="mx-auto max-w-[1600px] px-5 py-[var(--space-section)] md:px-8 lg:px-12">
         {withIntro ? (
           <FadeIn>
-            <p className="label-meta">FAQ</p>
+            <p className="label-meta">{dict.faq.eyebrow}</p>
             <h2
               id="faq-heading"
               className="heading-section mt-3 max-w-[18ch] font-display text-ink"
             >
-              Ofte stillede spørgsmål
+              {dict.faq.title}
             </h2>
           </FadeIn>
         ) : null}
@@ -106,20 +117,21 @@ export function FaqSection({ withIntro = true, className }: FaqSectionProps) {
             withIntro ? "mt-10 md:mt-12" : "mt-0"
           )}
         >
-          {faqItems.map((item, index) => (
-            <FadeIn key={item.id} delay={Math.min(0.04 + index * 0.03, 0.18)}>
-              <FaqItem
-                question={item.question}
-                answer={item.answer}
-                open={openId === item.id}
-                onToggle={() =>
-                  setOpenId((current) =>
-                    current === item.id ? null : item.id
-                  )
-                }
-              />
-            </FadeIn>
-          ))}
+          {faqOrder.map((id, index) => {
+            const item = dict.faq.items[id];
+            return (
+              <FadeIn key={id} delay={Math.min(0.04 + index * 0.03, 0.18)}>
+                <FaqItem
+                  question={item.question}
+                  answer={item.answer}
+                  open={openId === id}
+                  onToggle={() =>
+                    setOpenId((current) => (current === id ? null : id))
+                  }
+                />
+              </FadeIn>
+            );
+          })}
         </div>
       </div>
     </section>

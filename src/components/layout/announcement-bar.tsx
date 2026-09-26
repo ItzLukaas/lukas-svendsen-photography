@@ -3,6 +3,7 @@
 import { Mail, Phone } from "lucide-react";
 import { useEffect, useState } from "react";
 
+import { useLocale } from "@/components/i18n/locale-provider";
 import {
   BrandFacebook,
   BrandInstagram,
@@ -15,34 +16,46 @@ import {
 import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
-/** SSR placeholder — live status is set after mount to avoid a stuck build-time label. */
-const placeholderStatus: AvailabilityStatus = {
-  available: false,
-  label: "Åbningstid",
-  detail: "Se om jeg er inden for åbningstid.",
-  href: `mailto:${siteConfig.email}`,
-  action: "Kontakt",
-};
-
 /**
  * Thin stone bar — contact + live availability.
  * Soft neutral only. Green is reserved for the live status dot.
  */
 export function AnnouncementBar() {
+  const { dict } = useLocale();
+  const a = dict.availability;
+
+  const placeholderStatus: AvailabilityStatus = {
+    available: false,
+    label: a.placeholderLabel,
+    detail: a.placeholderDetail,
+    href: `mailto:${siteConfig.email}`,
+    action: a.placeholderAction,
+  };
+
   const [status, setStatus] = useState(placeholderStatus);
 
   useEffect(() => {
-    const tick = () => setStatus(getAvailabilityStatus());
+    const tick = () =>
+      setStatus(
+        getAvailabilityStatus({
+          availableLabel: a.availableLabel,
+          availableDetail: a.availableDetail,
+          availableAction: a.availableAction,
+          closedLabel: a.closedLabel,
+          closedDetail: a.closedDetail,
+          closedAction: a.closedAction,
+        })
+      );
     tick();
     const id = window.setInterval(tick, 60_000);
     return () => window.clearInterval(id);
-  }, []);
+  }, [a]);
 
   return (
     <div
       className="border-b border-foreground/8 bg-stone text-ink"
       role="region"
-      aria-label="Kontakt og åbningstid"
+      aria-label={a.regionLabel}
     >
       <div className="mx-auto flex h-[var(--announcement-h)] max-w-[1600px] items-center justify-between gap-4 px-5 text-[0.6875rem] font-medium tracking-[0.02em] md:px-8 md:text-[0.71875rem] lg:px-12">
         <a
@@ -70,7 +83,7 @@ export function AnnouncementBar() {
           <a
             href={`tel:${siteConfig.phone}`}
             className="inline-flex min-h-9 items-center gap-1.5 px-1.5 text-muted-ink transition-colors duration-300 hover:text-ink sm:px-2"
-            aria-label={`Ring ${siteConfig.phoneDisplay}`}
+            aria-label={a.callAria.replace("{phone}", siteConfig.phoneDisplay)}
           >
             <Phone className="size-3.5 shrink-0" strokeWidth={1.4} aria-hidden />
             <span className="hidden lg:inline">{siteConfig.phoneDisplay}</span>
@@ -84,7 +97,7 @@ export function AnnouncementBar() {
           <a
             href={`mailto:${siteConfig.email}`}
             className="inline-flex min-h-9 items-center gap-1.5 px-1.5 text-muted-ink transition-colors duration-300 hover:text-ink sm:px-2"
-            aria-label={`Skriv til ${siteConfig.email}`}
+            aria-label={a.emailAria.replace("{email}", siteConfig.email)}
           >
             <Mail className="size-3.5 shrink-0" strokeWidth={1.4} aria-hidden />
             <span className="hidden xl:inline">{siteConfig.email}</span>

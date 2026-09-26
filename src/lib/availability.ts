@@ -11,6 +11,15 @@ export type AvailabilityStatus = {
   action: string;
 };
 
+export type AvailabilityCopy = {
+  availableLabel: string;
+  availableDetail: string;
+  availableAction: string;
+  closedLabel: string;
+  closedDetail: string;
+  closedAction: string;
+};
+
 function getCopenhagenParts(date: Date) {
   const parts = new Intl.DateTimeFormat("en-GB", {
     timeZone: siteConfig.timezone,
@@ -57,26 +66,27 @@ export function isWithinOpeningHours(date = new Date()): boolean {
   return false;
 }
 
-export function getAvailabilityStatus(date = new Date()): AvailabilityStatus {
+export function getAvailabilityStatus(
+  copy: AvailabilityCopy,
+  date = new Date()
+): AvailabilityStatus {
   const available = isWithinOpeningHours(date);
 
   if (available) {
     return {
       available: true,
-      label: "Ledig",
-      detail:
-        "Inden for åbningstid (søn til tor 08 til 22, fre til lør 08 til 00). Ring for en hurtig snak.",
+      label: copy.availableLabel,
+      detail: copy.availableDetail,
       href: `tel:${siteConfig.phone}`,
-      action: "Ring til mig",
+      action: copy.availableAction,
     };
   }
 
   return {
     available: false,
-    label: "Uden for åbningstid",
-    detail:
-      "Send en mail, så svarer jeg inden for 1 til 2 hverdage.",
+    label: copy.closedLabel,
+    detail: copy.closedDetail,
     href: `mailto:${siteConfig.email}`,
-    action: "Send en mail",
+    action: copy.closedAction,
   };
 }

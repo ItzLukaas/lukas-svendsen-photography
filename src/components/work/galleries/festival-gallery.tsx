@@ -7,9 +7,6 @@ type FestivalGalleryProps = {
   onOpen: (index: number) => void;
 };
 
-/**
- * Festival gallery — 2-up grid for concert/portrait sets.
- */
 export function FestivalGallery({
   images,
   projectSlug,
@@ -20,6 +17,7 @@ export function FestivalGallery({
       images={images}
       projectSlug={projectSlug}
       onOpen={onOpen}
+      format="festival"
       quality={90}
     />
   );

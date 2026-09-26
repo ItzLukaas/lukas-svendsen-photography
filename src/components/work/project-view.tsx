@@ -1,9 +1,14 @@
+"use client";
+
 import Link from "next/link";
 
+import { useLocale } from "@/components/i18n/locale-provider";
 import { FadeIn } from "@/components/motion/fade-in";
 import { Photo } from "@/components/photography/photo";
 import { ProjectGallery } from "@/components/work/galleries/project-gallery";
 import type { Project } from "@/lib/data/projects";
+import { localizeImageAlt, localizeRole } from "@/lib/i18n/localize-content";
+import { localizedHref } from "@/lib/i18n/paths";
 import { aspectRatioStyle } from "@/lib/utils";
 
 type ProjectViewProps = {
@@ -13,62 +18,74 @@ type ProjectViewProps = {
 };
 
 export function ProjectView({ project, previous, next }: ProjectViewProps) {
+  const { locale, dict } = useLocale();
+  const copy = dict.projectPage;
+  const labels = dict.projectLabels[project.slug];
+  const title = labels?.title ?? project.title;
+  const category = labels?.category ?? project.category;
+  const excerpt = labels?.excerpt ?? project.excerpt;
+  const outcome = labels?.outcome ?? project.outcome;
+  const role = labels?.role ?? localizeRole(project.role, locale);
+  const workHref = localizedHref("/arbejde", locale);
+  const projectHref = (slug: string) =>
+    localizedHref(`/arbejde/${slug}`, locale);
+
   return (
     <article className="pt-[calc(var(--chrome-h)+2.5rem)]">
-      {/* Exhibition intro — quiet, then the work */}
       <header className="mx-auto max-w-[1600px] px-5 md:px-8 lg:px-12">
         <FadeIn>
-          <nav aria-label="Brødkrumme" className="text-[0.75rem] tracking-[0.02em] text-muted-ink">
+          <nav
+            aria-label={dict.shared.breadcrumb}
+            className="text-[0.75rem] tracking-[0.02em] text-muted-ink"
+          >
             <ol className="m-0 flex list-none flex-wrap items-baseline gap-x-0 gap-y-1 p-0">
               <li className="after:mx-3 after:opacity-25 after:content-['/']">
                 <Link
-                  href="/"
+                  href={localizedHref("/", locale)}
                   className="transition-opacity duration-300 hover:opacity-55"
                 >
-                  Forside
+                  {dict.shared.home}
                 </Link>
               </li>
               <li className="after:mx-3 after:opacity-25 after:content-['/']">
                 <Link
-                  href="/arbejde"
+                  href={workHref}
                   className="transition-opacity duration-300 hover:opacity-55"
                 >
-                  Arbejde
+                  {dict.nav.work}
                 </Link>
               </li>
               <li className="after:mx-3 after:opacity-25 after:content-['/']">
                 <Link
-                  href={`/arbejde?kategori=${project.discipline}`}
+                  href={`${workHref}?kategori=${project.discipline}`}
                   className="transition-opacity duration-300 hover:opacity-55"
                 >
-                  {project.category}
+                  {category}
                 </Link>
               </li>
               <li className="text-ink/70" aria-current="page">
-                {project.title}
+                {title}
               </li>
             </ol>
           </nav>
 
           <h1 className="mt-5 max-w-[16ch] font-display text-[clamp(2.65rem,6.5vw,5rem)] leading-[0.92] tracking-[-0.03em]">
-            {project.title}
+            {title}
           </h1>
 
-          {project.client || project.role || project.location ? (
+          {project.client || role || project.location ? (
             <p className="mt-5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.75rem] tracking-[0.02em] text-muted-ink">
-              {project.client ? (
-                <span>{project.client}</span>
-              ) : null}
-              {project.role ? (
+              {project.client ? <span>{project.client}</span> : null}
+              {role ? (
                 <span className="inline-flex items-center gap-x-2">
                   <span aria-hidden className="opacity-25">
                     ·
                   </span>
-                  {project.role}
+                  {role}
                 </span>
               ) : null}
               <span className="inline-flex items-center gap-x-2">
-                {(project.client || project.role) && (
+                {(project.client || role) && (
                   <span aria-hidden className="opacity-25">
                     ·
                   </span>
@@ -78,13 +95,11 @@ export function ProjectView({ project, previous, next }: ProjectViewProps) {
             </p>
           ) : null}
 
-          <p className="text-body mt-6 max-w-md md:mt-7">
-            {project.excerpt}
-          </p>
+          <p className="text-body mt-6 max-w-md md:mt-7">{excerpt}</p>
 
-          {project.outcome ? (
+          {outcome ? (
             <p className="mt-4 max-w-lg text-[0.9375rem] leading-[1.65] text-muted-ink">
-              {project.outcome}
+              {outcome}
             </p>
           ) : null}
         </FadeIn>
@@ -97,37 +112,36 @@ export function ProjectView({ project, previous, next }: ProjectViewProps) {
       {project.clientUrl ? (
         <div className="mx-auto max-w-[1600px] px-5 md:px-8 lg:px-12">
           <p className="mt-14 text-center text-[0.9375rem] tracking-[0.01em] text-muted-ink md:mt-20 md:text-base">
-            Billederne i brug på{" "}
+            {copy.inUseOn}{" "}
             <a
               href={project.clientUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="font-medium text-ink underline decoration-foreground/25 underline-offset-[0.2em] transition-[decoration-color,opacity] duration-300 hover:decoration-foreground/60 hover:opacity-80"
             >
-              {project.clientUrlLabel ?? "klientens hjemmeside"}
+              {project.clientUrlLabel ?? copy.clientWebsite}
             </a>
           </p>
         </div>
       ) : null}
 
-      {/* Adjacent projects — clear path through the portfolio */}
       {(previous || next) && (
         <nav
-          aria-label="Flere projekter"
+          aria-label={copy.moreProjects}
           className="mt-24 border-t border-foreground/10 md:mt-32"
         >
           <div className="mx-auto grid max-w-[1600px] grid-cols-1 md:grid-cols-2">
             {previous ? (
               <Link
-                href={`/arbejde/${previous.slug}`}
+                href={projectHref(previous.slug)}
                 className="group/project group border-b border-foreground/10 px-5 py-12 md:border-b-0 md:border-r md:px-8 md:py-16 lg:px-12"
               >
-                <p className="project-meta">Forrige</p>
+                <p className="project-meta">{copy.previous}</p>
                 <div className="mt-5 flex items-end gap-6">
                   <div className="relative hidden w-28 shrink-0 overflow-hidden sm:block md:w-36">
                     <Photo
                       src={previous.cover.src}
-                      alt={previous.cover.alt}
+                      alt={localizeImageAlt(previous.cover.alt, locale)}
                       width={previous.cover.width}
                       height={previous.cover.height}
                       sizes="144px"
@@ -140,9 +154,13 @@ export function ProjectView({ project, previous, next }: ProjectViewProps) {
                     />
                   </div>
                   <div className="min-w-0 pb-0.5">
-                    <p className="project-meta">{previous.category}</p>
+                    <p className="project-meta">
+                      {dict.projectLabels[previous.slug]?.category ??
+                        previous.category}
+                    </p>
                     <h2 className="project-title mt-1.5 font-display text-xl leading-tight tracking-[-0.02em] md:text-2xl">
-                      {previous.title}
+                      {dict.projectLabels[previous.slug]?.title ??
+                        previous.title}
                     </h2>
                   </div>
                 </div>
@@ -153,15 +171,15 @@ export function ProjectView({ project, previous, next }: ProjectViewProps) {
 
             {next ? (
               <Link
-                href={`/arbejde/${next.slug}`}
+                href={projectHref(next.slug)}
                 className="group/project group px-5 py-12 text-right md:px-8 md:py-16 lg:px-12"
               >
-                <p className="project-meta">Næste</p>
+                <p className="project-meta">{copy.next}</p>
                 <div className="mt-5 flex flex-row-reverse items-end gap-6">
                   <div className="relative hidden w-28 shrink-0 overflow-hidden sm:block md:w-36">
                     <Photo
                       src={next.cover.src}
-                      alt={next.cover.alt}
+                      alt={localizeImageAlt(next.cover.alt, locale)}
                       width={next.cover.width}
                       height={next.cover.height}
                       sizes="144px"
@@ -174,9 +192,11 @@ export function ProjectView({ project, previous, next }: ProjectViewProps) {
                     />
                   </div>
                   <div className="min-w-0 pb-0.5">
-                    <p className="project-meta">{next.category}</p>
+                    <p className="project-meta">
+                      {dict.projectLabels[next.slug]?.category ?? next.category}
+                    </p>
                     <h2 className="project-title mt-1.5 font-display text-xl leading-tight tracking-[-0.02em] md:text-2xl">
-                      {next.title}
+                      {dict.projectLabels[next.slug]?.title ?? next.title}
                     </h2>
                   </div>
                 </div>
@@ -189,24 +209,30 @@ export function ProjectView({ project, previous, next }: ProjectViewProps) {
       <section className="border-t border-foreground/10">
         <div className="mx-auto flex max-w-[1600px] flex-col gap-6 px-5 py-14 md:flex-row md:items-center md:justify-between md:px-8 md:py-16 lg:px-12">
           <div className="max-w-md">
-            <p className="label-meta">Næste skridt</p>
+            <p className="label-meta">{copy.nextStep.eyebrow}</p>
             <p className="text-body mt-3">
-              Har du et lignende job?{" "}
+              {copy.nextStep.bodyBefore}{" "}
               <Link
-                href={`/arbejde?kategori=${project.discipline}`}
+                href={`${workHref}?kategori=${project.discipline}`}
                 className="font-medium text-foreground underline underline-offset-4 transition-opacity hover:opacity-70"
               >
-                Se mere {project.category.toLowerCase()}
+                {copy.nextStep.seeMore.replace(
+                  "{category}",
+                  category.toLowerCase()
+                )}
               </Link>{" "}
-              eller book mig til dit næste projekt.
+              {copy.nextStep.bodyAfter}
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-            <Link href="/booking" className="btn-solid">
-              Book mig
+            <Link
+              href={localizedHref("/booking", locale)}
+              className="btn-solid"
+            >
+              {copy.nextStep.bookMe}
             </Link>
-            <Link href="/arbejde" className="btn-ghost">
-              Tilbage til arbejde
+            <Link href={workHref} className="btn-ghost">
+              {copy.nextStep.backToWork}
             </Link>
           </div>
         </div>

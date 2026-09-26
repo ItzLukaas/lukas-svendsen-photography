@@ -9,8 +9,10 @@ import {
 } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
+import { useLocale } from "@/components/i18n/locale-provider";
 import { FadeIn } from "@/components/motion/fade-in";
 import { processSteps } from "@/lib/data/process-steps";
+import { localizedHref } from "@/lib/i18n/paths";
 import { cn } from "@/lib/utils";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -98,6 +100,7 @@ function MobileConnector({
  * Process — connected steps with a calm connector line.
  */
 export function ProcessSection() {
+  const { locale, dict } = useLocale();
   const reduceMotion = !!useReducedMotion();
   const sectionRef = useRef<HTMLElement>(null);
   const scrollRootRef = useRef<Element | null>(null);
@@ -140,6 +143,8 @@ export function ProcessSection() {
     };
   }, [inView, reduceMotion]);
 
+  const stepCopy = dict.process.steps;
+
   return (
     <section
       ref={sectionRef}
@@ -148,12 +153,12 @@ export function ProcessSection() {
     >
       <div className="mx-auto max-w-[1600px] px-5 py-[var(--space-section)] md:px-8 lg:px-12">
         <FadeIn>
-          <p className="label-meta">Proces</p>
+          <p className="label-meta">{dict.process.eyebrow}</p>
           <h2
             id="process-heading"
             className="heading-section mt-3 max-w-[18ch] font-display text-ink"
           >
-            Sådan foregår det
+            {dict.process.title}
           </h2>
         </FadeIn>
 
@@ -168,6 +173,11 @@ export function ProcessSection() {
               const reached = activeIndex >= index;
               const current = activeIndex === index;
               const isLast = index === processSteps.length - 1;
+              const copy =
+                stepCopy[item.id as keyof typeof stepCopy] ?? {
+                  title: item.title,
+                  body: item.body,
+                };
 
               return (
                 <li
@@ -196,10 +206,10 @@ export function ProcessSection() {
                           reached ? "text-ink" : "text-muted-ink/80"
                         )}
                       >
-                        {item.title}
+                        {copy.title}
                       </h3>
                       <p className="mt-3 max-w-[42ch] text-[0.875rem] leading-[1.65] text-muted-ink md:text-[0.9375rem]">
-                        {item.body}
+                        {copy.body}
                       </p>
                     </div>
                   </div>
@@ -211,15 +221,17 @@ export function ProcessSection() {
 
         <FadeIn delay={0.1}>
           <p className="mt-10 max-w-xl text-[0.875rem] leading-[1.65] text-muted-ink sm:mt-12 md:text-[0.9375rem]">
-            Har du brug for foto, video eller content flere gange, kan vi også
-            finde en løsning, der passer til jer og jeres behov.
+            {dict.process.footnote}
           </p>
         </FadeIn>
 
         <FadeIn delay={0.14}>
           <div className="mt-7 sm:mt-8">
-            <Link href="/booking" className="btn-solid">
-              Book en opgave
+            <Link
+              href={localizedHref("/booking", locale)}
+              className="btn-solid"
+            >
+              {dict.process.cta}
             </Link>
           </div>
         </FadeIn>

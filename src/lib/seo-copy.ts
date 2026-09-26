@@ -1,8 +1,14 @@
 import type { Project } from "@/lib/data/projects";
+import type { Locale } from "@/lib/i18n/config";
 import { siteConfig } from "@/lib/site";
 
+type PageSeoEntry = {
+  title: string;
+  description: string;
+};
+
 /** Public page titles and unique meta descriptions (70–155 characters). */
-export const pageSeo = {
+export const pageSeoDa = {
   home: {
     title: "Lukas Svendsen | Fotograf og videograf",
     description:
@@ -43,12 +49,63 @@ export const pageSeo = {
     description:
       "Siden findes ikke. Gå til portfolio, booking eller forsiden hos fotograf og videograf Lukas Svendsen.",
   },
-} as const;
+} as const satisfies Record<string, PageSeoEntry>;
+
+/** English SEO titles & descriptions — search intent for photographer Denmark. */
+export const pageSeoEn = {
+  home: {
+    title: "Photographer & Videographer in Denmark | Lukas Svendsen",
+    description:
+      "Photographer and videographer in Denmark. Lukas Svendsen creates photography, video, drone and content for businesses and private clients.",
+  },
+  arbejde: {
+    title: "Work | Photography, Video & Content | Lukas Svendsen",
+    description:
+      "Selected photography and video projects by Lukas Svendsen — festivals, sports, events and commercial work across Denmark.",
+  },
+  hvadJegLaver: {
+    title: "What I Do | Photography, Video & Content in Denmark",
+    description:
+      "Photography, video, drone and content for businesses, events, sports, concerts and private clients. See what Lukas Svendsen offers.",
+  },
+  om: {
+    title: "About Lukas Svendsen | Photographer & Videographer",
+    description:
+      "Meet Lukas Svendsen, photographer and videographer based in Grindsted, Denmark. Photography, video and content for business and private work.",
+  },
+  kontakt: {
+    title: "Contact Lukas Svendsen | Photographer in Denmark",
+    description:
+      "Contact photographer Lukas Svendsen about photography, video or content. Message, email or call — reply within 1–2 business days.",
+  },
+  booking: {
+    title: "Book Lukas Svendsen | Photography & Video in Denmark",
+    description:
+      "Book Lukas Svendsen for photography, video and content. Describe your project and get a clear reply within 1–2 business days.",
+  },
+  privatliv: {
+    title: "Privacy Policy | Lukas Svendsen",
+    description:
+      "Privacy policy for lukassvendsen.dk. How name, email and messages from contact and booking requests are handled.",
+  },
+  notFound: {
+    title: "Page not found | Lukas Svendsen",
+    description:
+      "This page could not be found. Continue to the portfolio, booking or homepage of photographer Lukas Svendsen.",
+  },
+} as const satisfies Record<string, PageSeoEntry>;
+
+/** @deprecated Prefer getPageSeo(locale) — kept for Danish call sites. */
+export const pageSeo = pageSeoDa;
+
+export function getPageSeo(locale: Locale = "da") {
+  return locale === "en" ? pageSeoEn : pageSeoDa;
+}
 
 /**
  * Unique case descriptions — grounded in existing title, category, location and outcome.
  */
-export const projectSeoDescriptions: Record<string, string> = {
+export const projectSeoDescriptionsDa: Record<string, string> = {
   "varde-open-air":
     "Festivalfoto fra Varde Open Air. Scener, artister og publikum, fotograferet til festivalens kommunikation.",
   "bork-festival":
@@ -75,19 +132,69 @@ export const projectSeoDescriptions: Record<string, string> = {
     "Sportsfoto fra Fredericia HK mod Bjerringbro-Silkeborg. Kampbilleder fra udebanekampen i Silkeborg.",
 };
 
-export function projectDocumentTitle(project: Project) {
-  return `${project.title} | ${project.category} | ${siteConfig.name}`;
+export const projectSeoDescriptionsEn: Record<string, string> = {
+  "varde-open-air":
+    "Festival photography from Varde Open Air — stages, artists and crowds, shot for the festival’s own communication.",
+  "bork-festival":
+    "Festival photography from Bork Festival. Live images with artists such as Lukas Graham, TV-2 and Poul Krebs.",
+  "thor-farlov-smukfest":
+    "Concert photography of Thor Farlov at Smukfest in Skanderborg. Live stage images by Lukas Svendsen.",
+  "gron-koncert":
+    "Concert photography of Sivas at Grøn Koncert in Esbjerg. Live stage images by photographer Lukas Svendsen.",
+  "rasmus-seebach-suset":
+    "Concert photography of Rasmus Seebach at Suset in Esbjerg. Live concert images by Lukas Svendsen.",
+  "esbjerg-streetfood":
+    "Event photography from Esbjerg Streetfood — atmosphere, guests and live music for Streetfood’s communication.",
+  "dm-finalen-herrer":
+    "Sports photography from the men’s Danish Championship final in Aarhus — action, celebration and the trophy moment.",
+  "dm-finalen-kvinder":
+    "Sports photography from the women’s Danish Championship final in Esbjerg — intensity, celebration and the title.",
+  "super-cup-kvinder":
+    "Sports photography from Bambuni Super Cup women in Arena Randers, covering Team Esbjerg’s win.",
+  "super-cup-herrer":
+    "Sports photography from Bambuni Super Cup men in Arena Randers, covering Aalborg Håndbold’s win.",
+  "fredericia-ribe-esbjerg":
+    "Sports photography from Fredericia Handball Club’s league match against Ribe-Esbjerg at home in Fredericia.",
+  "bjerringbro-silkeborg-fredericia":
+    "Sports photography from Fredericia HK vs Bjerringbro-Silkeborg — match coverage from the away game in Silkeborg.",
+};
+
+/** @deprecated Prefer locale-aware helpers */
+export const projectSeoDescriptions = projectSeoDescriptionsDa;
+
+export function projectDocumentTitle(
+  project: Project,
+  locale: Locale = "da",
+  localizedTitle?: string,
+  localizedCategory?: string
+) {
+  const title = localizedTitle ?? project.title;
+  const category = localizedCategory ?? project.category;
+  return `${title} | ${category} | ${siteConfig.name}`;
 }
 
-export function projectMetaDescription(project: Project) {
-  const curated = projectSeoDescriptions[project.slug];
+export function projectMetaDescription(
+  project: Project,
+  locale: Locale = "da"
+) {
+  const curated =
+    locale === "en"
+      ? projectSeoDescriptionsEn[project.slug]
+      : projectSeoDescriptionsDa[project.slug];
   if (curated) return curated;
-  return clampMetaDescription(fallbackProjectDescription(project));
+  return clampMetaDescription(fallbackProjectDescription(project, locale));
 }
 
-function fallbackProjectDescription(project: Project) {
-  const place = project.location ? ` i ${project.location}` : "";
+function fallbackProjectDescription(project: Project, locale: Locale) {
+  const place = project.location
+    ? locale === "en"
+      ? ` in ${project.location}`
+      : ` i ${project.location}`
+    : "";
   const outcome = project.outcome?.replace(/\.$/, "") ?? project.excerpt;
+  if (locale === "en") {
+    return `${project.category} project: ${project.title}${place}. ${outcome}.`;
+  }
   return `${project.category}projekt: ${project.title}${place}. ${outcome}.`;
 }
 
@@ -102,7 +209,7 @@ export function clampMetaDescription(text: string) {
     return cut.replace(/[.,;:–-]*$/, "") + ".";
   }
 
-  const pad = `${compact} Foto og video af Lukas Svendsen.`;
+  const pad = `${compact} Photo and video by Lukas Svendsen.`;
   return pad.length <= 155 ? pad : compact;
 }
 
@@ -117,24 +224,37 @@ function assertMetaDescription(text: string, label: string) {
   }
 }
 
-for (const [key, value] of Object.entries(pageSeo)) {
-  assertMetaDescription(value.description, key);
+for (const [key, value] of Object.entries(pageSeoDa)) {
+  assertMetaDescription(value.description, `da.${key}`);
 }
-
-for (const [slug, description] of Object.entries(projectSeoDescriptions)) {
-  assertMetaDescription(description, slug);
+for (const [key, value] of Object.entries(pageSeoEn)) {
+  assertMetaDescription(value.description, `en.${key}`);
+}
+for (const [slug, description] of Object.entries(projectSeoDescriptionsDa)) {
+  assertMetaDescription(description, `da.${slug}`);
+}
+for (const [slug, description] of Object.entries(projectSeoDescriptionsEn)) {
+  assertMetaDescription(description, `en.${slug}`);
 }
 
 const uniqueDescriptions = new Set<string>();
-for (const value of Object.values(pageSeo)) {
-  if (uniqueDescriptions.has(value.description)) {
-    throw new Error(`Duplicate page meta description: ${value.description}`);
+for (const bundle of [pageSeoDa, pageSeoEn] as const) {
+  for (const value of Object.values(bundle)) {
+    if (uniqueDescriptions.has(value.description)) {
+      throw new Error(`Duplicate page meta description: ${value.description}`);
+    }
+    uniqueDescriptions.add(value.description);
   }
-  uniqueDescriptions.add(value.description);
 }
-for (const [slug, description] of Object.entries(projectSeoDescriptions)) {
+for (const [slug, description] of Object.entries(projectSeoDescriptionsDa)) {
   if (uniqueDescriptions.has(description)) {
     throw new Error(`Duplicate project meta description for ${slug}`);
+  }
+  uniqueDescriptions.add(description);
+}
+for (const [slug, description] of Object.entries(projectSeoDescriptionsEn)) {
+  if (uniqueDescriptions.has(description)) {
+    throw new Error(`Duplicate EN project meta description for ${slug}`);
   }
   uniqueDescriptions.add(description);
 }

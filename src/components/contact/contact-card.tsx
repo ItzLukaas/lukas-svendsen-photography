@@ -1,3 +1,6 @@
+"use client";
+
+import { useLocale } from "@/components/i18n/locale-provider";
 import { Photo } from "@/components/photography/photo";
 import { aboutPortrait } from "@/lib/data/projects";
 import { siteConfig } from "@/lib/site";
@@ -6,7 +9,9 @@ import { siteConfig } from "@/lib/site";
  * Compact personal contact block — small portrait + essentials.
  */
 export function ContactCard() {
+  const { dict } = useLocale();
   const { location } = siteConfig;
+  const copy = dict.contactPage.card;
 
   return (
     <div className="flex items-start gap-4">
@@ -24,10 +29,10 @@ export function ContactCard() {
 
       <div className="min-w-0 pt-0.5">
         <p className="font-display text-[1.05rem] leading-tight tracking-[-0.02em] text-ink">
-          Lukas Guldager Svendsen
+          {copy.name}
         </p>
         <p className="mt-1 text-[0.8125rem] leading-snug text-muted-ink">
-          Fotograf og videoproducent
+          {copy.role}
         </p>
 
         <div className="mt-3 space-y-1 text-[0.875rem] leading-[1.5]">

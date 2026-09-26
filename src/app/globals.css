@@ -671,25 +671,108 @@ body {
   }
 }
 
+/* Meet Lukas — centered content group + discrete paper dots on ink */
+.meet-lukas-dots {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(
+    rgb(245 244 241 / 0.045) 0.7px,
+    transparent 0.8px
+  );
+  background-size: 32px 32px;
+  mask-image: radial-gradient(
+    ellipse 68% 62% at 50% 48%,
+    #000 12%,
+    rgb(0 0 0 / 0.55) 42%,
+    transparent 78%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 68% 62% at 50% 48%,
+    #000 12%,
+    rgb(0 0 0 / 0.55) 42%,
+    transparent 78%
+  );
+}
+
+.meet-lukas-group {
+  display: grid;
+  min-width: 0;
+  max-width: 100%;
+  align-items: center;
+  justify-items: stretch;
+  gap: 2.5rem;
+}
+
+@media (max-width: 1023px) {
+  .meet-lukas-dots {
+    opacity: 0.5;
+    background-size: 36px 36px;
+    background-image: radial-gradient(
+      rgb(245 244 241 / 0.03) 0.55px,
+      transparent 0.65px
+    );
+  }
+}
+
+@media (min-width: 1024px) {
+  .meet-lukas-group {
+    width: 100%;
+    grid-template-columns: minmax(0, 26rem) 30rem;
+    justify-content: center;
+    justify-items: stretch;
+    column-gap: clamp(5.5rem, 16vw, 14rem);
+    row-gap: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .meet-lukas-group {
+    grid-template-columns: minmax(0, 26rem) 32rem;
+    column-gap: clamp(8.5rem, 20vw, 22rem);
+  }
+}
+
 /* Homepage intro — reserve 1:1 box; soft fade-in when Mux is ready */
 .mux-intro-player {
   display: block;
   position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  width: 100%;
+  min-width: 0;
   aspect-ratio: 1 / 1;
+  border-radius: 1rem;
   background-color: var(--ink);
+}
+
+@media (max-width: 639px) {
+  .mux-intro-player {
+    max-width: min(20.5rem, 100%);
+  }
 }
 
 .mux-intro-player mux-player,
 .mux-intro-player .mux-intro-player__media {
   display: block;
+  overflow: hidden;
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
   height: 100%;
+  border-radius: inherit;
   --media-primary-color: var(--paper);
   --media-secondary-color: var(--ink);
   --media-accent-color: var(--ink);
+  --big-play-button: none;
+  --fullscreen-button: none;
   background: transparent;
   opacity: 0;
-  transition: opacity 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  transform: scale(1);
+  transform-origin: center;
+  transition:
+    opacity 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .mux-intro-player[data-ready="true"] mux-player,
@@ -697,10 +780,32 @@ body {
   opacity: 1;
 }
 
+.mux-intro-player[data-playing="false"] mux-player,
+.mux-intro-player[data-playing="false"] .mux-intro-player__media {
+  --controls: none;
+}
+
+.mux-intro-player mux-player::part(fullscreen-button) {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .mux-intro-player:hover:not([data-playing="true"]) mux-player,
+  .mux-intro-player:hover:not([data-playing="true"]) .mux-intro-player__media {
+    transform: scale(1.02);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .mux-intro-player mux-player,
   .mux-intro-player .mux-intro-player__media {
     transition: none;
     opacity: 1;
+    transform: none;
+  }
+
+  .mux-intro-player:hover:not([data-playing="true"]) mux-player,
+  .mux-intro-player:hover:not([data-playing="true"]) .mux-intro-player__media {
+    transform: none;
   }
 }

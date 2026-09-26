@@ -262,20 +262,20 @@ export const en: Dictionary = {
     eyebrow: "Process",
     title: "How it works",
     footnote:
-      "If you need photography, video or content on a regular basis, we can also find a solution that fits your needs.",
+      "If you need photography, video or content on an ongoing basis, we can also find a solution that fits your needs and makes it easy to get new material whenever you need it.",
     cta: "Book a project",
     steps: {
       talk: {
-        title: "A quick chat",
-        body: "We start with a quick conversation about what you need, when it needs to happen and what the photos or video will be used for. That way, we're on the same page from the beginning.",
+        title: "We start with a conversation",
+        body: "We have a short conversation about the project, your needs, timing and what the material will be used for. That way, we have a clear plan before we begin.",
       },
       "on-site": {
-        title: "I show up",
-        body: "When the day arrives, I show up with the equipment ready and take care of the practical details. You don't have to worry about cameras, lighting or technical setup. I've got it covered.",
+        title: "I take care of the rest",
+        body: "When the day arrives, I show up with the equipment ready and handle the practical details. You don't have to think about cameras, lighting or technical setup. I make sure everything works, so you can focus on what you need to do.",
       },
       deliver: {
-        title: "You get the final material",
-        body: "After the shoot, I go through the material, select the best images and take care of the editing. You then receive the finished content, ready to use.",
+        title: "You receive the finished material",
+        body: "After the shoot, I go through the material, select the best images or clips and take care of the editing. You then receive the finished material, ready to use on websites, social media, marketing or elsewhere.",
       },
     },
   },

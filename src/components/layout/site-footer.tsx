@@ -180,7 +180,7 @@ export function SiteFooter() {
                   href={`mailto:${siteConfig.email}`}
                   className="text-[0.875rem] text-paper/70 transition-colors duration-300 hover:text-paper"
                 >
-                  {siteConfig.email}
+                  {dict.shared.sendEmail}
                 </a>
               </li>
               <li>

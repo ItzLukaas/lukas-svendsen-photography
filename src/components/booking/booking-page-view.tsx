@@ -34,7 +34,7 @@ export function BookingPageView() {
                 href={`mailto:${siteConfig.email}`}
                 className="font-medium link-quiet"
               >
-                {siteConfig.email}
+                {dict.shared.sendEmail}
               </a>
             </p>
             <p className="pt-2 text-muted-ink">

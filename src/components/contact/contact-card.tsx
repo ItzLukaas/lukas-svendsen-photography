@@ -49,7 +49,7 @@ export function ContactCard() {
               href={`mailto:${siteConfig.email}`}
               className="link-quiet text-ink"
             >
-              {siteConfig.email}
+              {dict.shared.sendEmail}
             </a>
           </p>
           <p className="text-[0.8125rem] text-muted-ink">

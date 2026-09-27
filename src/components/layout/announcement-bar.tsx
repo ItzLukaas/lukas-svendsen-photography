@@ -97,10 +97,10 @@ export function AnnouncementBar() {
           <a
             href={`mailto:${siteConfig.email}`}
             className="inline-flex min-h-9 items-center gap-1.5 px-1.5 text-muted-ink transition-colors duration-300 hover:text-ink sm:px-2"
-            aria-label={a.emailAria.replace("{email}", siteConfig.email)}
+            aria-label={dict.shared.sendEmail}
           >
             <Mail className="size-3.5 shrink-0" strokeWidth={1.4} aria-hidden />
-            <span className="hidden xl:inline">{siteConfig.email}</span>
+            <span className="hidden xl:inline">{dict.shared.sendEmail}</span>
           </a>
 
           <span

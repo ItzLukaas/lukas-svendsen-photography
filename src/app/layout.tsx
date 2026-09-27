@@ -1,4 +1,5 @@
 ﻿import type { Metadata, Viewport } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Instrument_Sans } from "next/font/google";
 
 import { CustomScrollbarLazy } from "@/components/layout/custom-scrollbar-lazy";
@@ -299,6 +300,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
         </div>
         <CustomScrollbarLazy />
       </body>
+      {siteConfig.gaId ? <GoogleAnalytics gaId={siteConfig.gaId} /> : null}
     </html>
   );
 }

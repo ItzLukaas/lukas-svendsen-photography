@@ -78,7 +78,7 @@ export function ContactForm() {
             {copy.successAgain}
           </button>
           <a href={`mailto:${siteConfig.email}`} className="btn-ghost">
-            {siteConfig.email}
+            {dict.shared.sendEmail}
           </a>
         </div>
       </div>
@@ -202,7 +202,7 @@ export function ContactForm() {
             href={`mailto:${siteConfig.email}`}
             className="link-quiet underline underline-offset-4"
           >
-            {siteConfig.email}
+            {dict.shared.sendEmail}
           </a>
         </p>
       </div>
@@ -215,7 +215,7 @@ export function ContactForm() {
               href={`mailto:${siteConfig.email}`}
               className="underline underline-offset-2 transition-opacity hover:opacity-70"
             >
-              {siteConfig.email}
+              {dict.shared.sendEmail}
             </a>
             .
           </p>

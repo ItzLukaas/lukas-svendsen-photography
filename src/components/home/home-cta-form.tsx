@@ -159,7 +159,7 @@ export function HomeCtaForm() {
               href={`mailto:${siteConfig.email}`}
               className="underline underline-offset-2 transition-opacity hover:opacity-70"
             >
-              {siteConfig.email}
+              Send mig en mail
             </a>
             .
           </p>

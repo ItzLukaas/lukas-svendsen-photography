@@ -10,7 +10,7 @@ type PageSeoEntry = {
 /** Public page titles and unique meta descriptions (70–155 characters). */
 export const pageSeoDa = {
   home: {
-    title: "Lukas Svendsen | Fotograf og videograf",
+    title: "Lukas Svendsen | Foto- og videografi i hele Danmark",
     description:
       "Fotograf og videograf i Grindsted. Lukas Svendsen laver foto, video, drone og content til virksomheder og private i Danmark.",
   },

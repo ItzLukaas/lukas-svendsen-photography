@@ -438,7 +438,7 @@ export function BookingForm() {
               href={`mailto:${siteConfig.email}`}
               className="underline underline-offset-4"
             >
-              {siteConfig.email}
+              {dict.shared.sendEmail}
             </a>
             .
           </p>

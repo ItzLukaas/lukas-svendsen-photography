@@ -33,6 +33,7 @@ export const da = {
     loadingForm: "Indlæser formular…",
     optional: "(valgfrit)",
     playVideo: "Afspil video",
+    sendEmail: "Send mig en mail",
   },
   availability: {
     regionLabel: "Kontakt og åbningstid",
@@ -45,7 +46,7 @@ export const da = {
     availableAction: "Ring til mig",
     closedLabel: "Uden for åbningstid",
     closedDetail: "Send en mail, så svarer jeg inden for 1 til 2 hverdage.",
-    closedAction: "Send en mail",
+    closedAction: "Send mig en mail",
     callAria: "Ring {phone}",
     emailAria: "Skriv til {email}",
   },
@@ -379,7 +380,7 @@ export const da = {
       "Når du skriver via kontakt- eller bookingformularen på {domain}, sender du oplysninger som navn, email, telefonnummer og en besked om dit projekt.",
       "Oplysningerne bruges kun til at besvare din henvendelse og aftale et eventuelt samarbejde. De deles ikke med tredjeparter til markedsføring.",
       "Beskeder behandles via email. Du kan til enhver tid bede om at få slettet oplysninger, du har sendt, ved at skrive til {email}.",
-      "Siden bruger teknisk nødvendige cookies til at fungere. Der trackes ikke til reklame.",
+      "Siden bruger teknisk nødvendige cookies til at fungere. Google Analytics bruges til at se, hvordan siden bliver brugt. Dataene bruges ikke til reklame.",
     ] as string[],
     backToContact: "Tilbage til kontakt",
   },
@@ -483,6 +484,7 @@ export type Dictionary = {
     loadingForm: string;
     optional: string;
     playVideo: string;
+    sendEmail: string;
   };
   availability: {
     regionLabel: string;

@@ -95,7 +95,7 @@ export function MeetLukasSection() {
             <ul className="mt-8 m-0 list-none space-y-1 border-t border-paper/12 pt-5 p-0">
               <li>
                 <ContactLine href={`mailto:${siteConfig.email}`} icon={Mail}>
-                  {siteConfig.email}
+                  {dict.shared.sendEmail}
                 </ContactLine>
               </li>
               <li>

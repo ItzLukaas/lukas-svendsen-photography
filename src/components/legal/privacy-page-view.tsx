@@ -12,9 +12,7 @@ export function PrivacyPageView() {
   const copy = dict.privacyPage;
 
   const paragraphs = copy.paragraphs.map((paragraph) =>
-    paragraph
-      .replaceAll("{domain}", siteConfig.domain)
-      .replaceAll("{email}", siteConfig.email)
+    paragraph.replaceAll("{domain}", siteConfig.domain)
   );
 
   return (
@@ -27,10 +25,10 @@ export function PrivacyPageView() {
         <div className="mt-8 space-y-5 text-body">
           {paragraphs.map((paragraph, index) => {
             const isCookies = index === paragraphs.length - 1;
-            const hasEmail = paragraph.includes(siteConfig.email);
+            const hasEmail = paragraph.includes("{email}");
 
             if (hasEmail) {
-              const [before, after] = paragraph.split(siteConfig.email);
+              const [before, after] = paragraph.split("{email}");
               return (
                 <p key={index}>
                   {before}
@@ -38,7 +36,7 @@ export function PrivacyPageView() {
                     href={`mailto:${siteConfig.email}`}
                     className="link-quiet font-medium text-foreground underline underline-offset-4"
                   >
-                    {siteConfig.email}
+                    {dict.shared.sendEmail}
                   </a>
                   {after}
                 </p>

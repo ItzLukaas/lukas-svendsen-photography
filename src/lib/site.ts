@@ -2,6 +2,7 @@ export const siteConfig = {
   name: "Lukas Svendsen",
   domain: "lukassvendsen.dk",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.lukassvendsen.dk",
+  gaId: process.env.NEXT_PUBLIC_GA_ID ?? "G-X4FWNJX12B",
   email: "kontakt@lukassvendsen.dk",
   phone: "+4524463550",
   phoneDisplay: "+45 24 46 35 50",
@@ -30,7 +31,7 @@ export const siteConfig = {
   description:
     "Fotograf og videograf i Grindsted. Lukas Svendsen laver foto, video, content og drone til virksomheder, organisationer og private i Grindsted, Billund, Vejle, Esbjerg, på tværs af Jylland og i resten af Danmark.",
   seo: {
-    homeTitle: "Lukas Svendsen | Fotograf og videograf",
+    homeTitle: "Lukas Svendsen | Foto- og videografi i hele Danmark",
     homeDescription:
       "Fotograf og videograf i Grindsted. Lukas Svendsen laver foto, video, drone og content til virksomheder og private i Danmark.",
   },

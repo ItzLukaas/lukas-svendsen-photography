@@ -243,7 +243,12 @@ export function SiteHeader() {
           >
             {dict.nav.bookMe}
           </Link>
-          <p className="text-center text-sm text-muted-ink">{siteConfig.email}</p>
+          <a
+            href={`mailto:${siteConfig.email}`}
+            className="block text-center text-sm text-muted-ink"
+          >
+            {dict.shared.sendEmail}
+          </a>
         </div>
       </div>
     </header>

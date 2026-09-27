@@ -79,7 +79,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ];
   });
 
-  // Local SEO landings stay Danish-primary for now (EN photographer-* mapped in paths).
+  // Local SEO landings are Danish-only — no English pair, so no hreflang in sitemap.
   const localRoutes: MetadataRoute.Sitemap = localAreas.map((area) => ({
     url: `${base}${area.path}`,
     lastModified: SITE_REVISED,

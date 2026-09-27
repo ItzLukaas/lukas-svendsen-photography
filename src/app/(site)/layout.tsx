@@ -1,22 +1,21 @@
-import { LocaleSync } from "@/components/i18n/locale-sync";
+import { LocaleProvider } from "@/components/i18n/locale-provider";
 import { BackgroundMotif } from "@/components/layout/background-motif";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SkipToContent } from "@/components/layout/skip-to-content";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
+import { getRequestLocale } from "@/lib/i18n/request-locale";
 
 export default async function SiteLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const [daDict, enDict] = await Promise.all([
-    getDictionary("da"),
-    getDictionary("en"),
-  ]);
+  const locale = await getRequestLocale();
+  const dict = await getDictionary(locale);
 
   return (
-    <LocaleSync daDict={daDict} enDict={enDict}>
+    <LocaleProvider locale={locale} dict={dict}>
       <SkipToContent />
       <div className="relative flex min-h-full min-w-0 max-w-[100vw] flex-col overflow-x-clip bg-paper">
         <BackgroundMotif />
@@ -28,6 +27,6 @@ export default async function SiteLayout({
           <SiteFooter />
         </div>
       </div>
-    </LocaleSync>
+    </LocaleProvider>
   );
 }

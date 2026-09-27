@@ -11,7 +11,7 @@ import {
   projectCreativeWorkJsonLd,
   shareImageFromCover,
 } from "@/lib/seo";
-import { projectMetaDescription } from "@/lib/seo-copy";
+import { projectDocumentTitle, projectMetaDescription } from "@/lib/seo-copy";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -19,9 +19,12 @@ type Props = {
 
 function projectPageTitle(project: Project) {
   const labels = en.projectLabels[project.slug];
-  const title = labels?.title ?? project.title;
-  const category = labels?.category ?? project.category;
-  return `${title} · ${category} ${project.year}`;
+  return projectDocumentTitle(
+    project,
+    "en",
+    labels?.title,
+    labels?.category
+  );
 }
 
 export async function generateStaticParams() {

@@ -27,6 +27,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: area.title,
     description: area.metaDescription,
     path: area.path,
+    locale: "da",
+    languages: false,
   });
 }
 

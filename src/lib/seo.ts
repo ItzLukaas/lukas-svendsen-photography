@@ -3,9 +3,11 @@ import type { Metadata } from "next";
 import type { LocalArea } from "@/lib/data/local-areas";
 import type { Project } from "@/lib/data/projects";
 import type { Locale } from "@/lib/i18n/config";
+import { da } from "@/lib/i18n/dictionaries/da";
+import { en } from "@/lib/i18n/dictionaries/en";
 import { getLocalePathPair } from "@/lib/i18n/paths";
 import { localizeImageAlt } from "@/lib/i18n/localize-content";
-import { pageSeo, pageSeoEn, projectMetaDescription } from "@/lib/seo-copy";
+import { getPageSeo, pageSeo, pageSeoEn, projectMetaDescription } from "@/lib/seo-copy";
 import { siteConfig } from "@/lib/site";
 import { introPosterUrl, introVideo } from "@/lib/video/intro";
 
@@ -28,6 +30,46 @@ type PageMetaOptions = {
    */
   languages?: Record<string, string> | false;
 };
+
+export function schemaLanguage(locale: Locale) {
+  return locale === "en" ? "en-DK" : "da-DK";
+}
+
+export function openGraphLocale(locale: Locale) {
+  return locale === "en" ? "en_DK" : "da_DK";
+}
+
+export function websiteNodeId(locale: Locale) {
+  return locale === "en"
+    ? `${siteConfig.url}/en#website`
+    : `${siteConfig.url}/#website`;
+}
+
+export const danishKeywords = [
+  "Lukas Svendsen",
+  "fotograf",
+  "videograf",
+  "fotograf Grindsted",
+  "videograf Danmark",
+  "foto og video",
+  "videoproduktion",
+  "dronefoto",
+  "contentproduktion",
+  "sportsfotografi",
+  "koncertfotografi",
+] as const;
+
+export const englishKeywords = [
+  "Lukas Svendsen",
+  "photographer Denmark",
+  "videographer Denmark",
+  "photographer Grindsted",
+  "video production Denmark",
+  "drone photography",
+  "sports photography",
+  "concert photography",
+  "content production",
+] as const;
 
 /** Absolute canonical for a site path (`/` → origin without trailing slash). */
 export function canonicalUrl(path: string) {
@@ -92,7 +134,7 @@ export function pageMetadata({
   description,
   path,
   image = defaultShareImage.url,
-  imageAlt = defaultShareImage.alt,
+  imageAlt,
   imageWidth = defaultShareImage.width,
   imageHeight = defaultShareImage.height,
   ogType = "website",
@@ -104,8 +146,13 @@ export function pageMetadata({
     languages === false
       ? undefined
       : (languages ?? languagesForPath(path));
-  const ogLocale = locale === "en" ? "en_GB" : "da_DK";
-  const ogAlternate = locale === "en" ? "da_DK" : "en_GB";
+  const ogLocale = openGraphLocale(locale);
+  const ogAlternate = locale === "en" ? "da_DK" : "en_DK";
+  const resolvedImageAlt =
+    imageAlt ??
+    (locale === "en"
+      ? "Lukas Svendsen, photographer and videographer"
+      : "Lukas Svendsen, fotograf og videoproducent");
 
   return {
     title: { absolute: title },
@@ -123,14 +170,14 @@ export function pageMetadata({
       description,
       url,
       images: [
-        { url: image, width: imageWidth, height: imageHeight, alt: imageAlt },
+        { url: image, width: imageWidth, height: imageHeight, alt: resolvedImageAlt },
       ],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [{ url: image, alt: imageAlt }],
+      images: [{ url: image, alt: resolvedImageAlt }],
     },
   };
 }
@@ -208,7 +255,7 @@ export function projectCreativeWorkJsonLd(
     headline: name,
     description,
     url,
-    inLanguage: locale === "en" ? "en-GB" : "da-DK",
+    inLanguage: schemaLanguage(locale),
     dateCreated: `${project.year}-01-01`,
     copyrightYear: Number(project.year),
     genre,
@@ -247,6 +294,7 @@ export function collectionPageJsonLd(
   locale: "da" | "en" = "da"
 ) {
   const seo = locale === "en" ? pageSeoEn : pageSeo;
+  const dict = locale === "en" ? en : da;
   const basePath = locale === "en" ? "/en/work" : "/arbejde";
   const url = `${siteConfig.url}${basePath}`;
 
@@ -257,19 +305,24 @@ export function collectionPageJsonLd(
     name: seo.arbejde.title,
     description: seo.arbejde.description,
     url,
-    inLanguage: locale === "en" ? "en-GB" : "da-DK",
-    isPartOf: { "@id": `${siteConfig.url}/#website` },
+    inLanguage: schemaLanguage(locale),
+    isPartOf: { "@id": websiteNodeId(locale) },
     about: { "@id": `${siteConfig.url}/#person` },
     mainEntity: {
       "@type": "ItemList",
       numberOfItems: projects.length,
-      itemListElement: projects.map((project, index) => ({
-        "@type": "ListItem",
-        position: index + 1,
-        url: `${siteConfig.url}${basePath}/${project.slug}`,
-        name: project.title,
-        description: project.excerpt,
-      })),
+      itemListElement: projects.map((project, index) => {
+        const labels = dict.projectLabels[
+          project.slug as keyof typeof dict.projectLabels
+        ] as { title?: string; excerpt?: string } | undefined;
+        return {
+          "@type": "ListItem",
+          position: index + 1,
+          url: `${siteConfig.url}${basePath}/${project.slug}`,
+          name: labels?.title ?? project.title,
+          description: labels?.excerpt ?? project.excerpt,
+        };
+      }),
     },
   };
 }
@@ -326,8 +379,8 @@ export function simplePageJsonLd({
     url,
     name,
     description,
-    inLanguage: locale === "en" ? "en-GB" : "da-DK",
-    isPartOf: { "@id": `${siteConfig.url}/#website` },
+    inLanguage: schemaLanguage(locale),
+    isPartOf: { "@id": websiteNodeId(locale) },
     about: { "@id": `${siteConfig.url}/#person` },
     mainEntity: entity,
   };
@@ -362,7 +415,7 @@ export function localAreaPageJsonLd(area: LocalArea) {
     name: area.headline,
     description: area.metaDescription,
     inLanguage: "da-DK",
-    isPartOf: { "@id": `${siteConfig.url}/#website` },
+    isPartOf: { "@id": websiteNodeId("da") },
     about: { "@id": `${siteConfig.url}/#person` },
     mainEntity: { "@id": `${siteConfig.url}/#service` },
     contentLocation: {
@@ -389,8 +442,8 @@ export function homePageJsonLd(locale: Locale = "da") {
     url,
     name: seo.home.title,
     description: seo.home.description,
-    inLanguage: locale === "en" ? "en-GB" : "da-DK",
-    isPartOf: { "@id": `${siteConfig.url}/#website` },
+    inLanguage: schemaLanguage(locale),
+    isPartOf: { "@id": websiteNodeId(locale) },
     about: { "@id": `${siteConfig.url}/#person` },
     mainEntity: { "@id": `${siteConfig.url}/#service` },
     primaryImageOfPage: {
@@ -442,4 +495,330 @@ export function openingHoursJsonLd() {
         ? "23:59"
         : `${String(rule.close).padStart(2, "0")}:00`,
   }));
+}
+
+const englishSiteDescription =
+  "Photographer and videographer in Grindsted, Denmark. Lukas Svendsen creates photography, video, content and drone work for businesses, organisations and private clients across Jutland and the rest of Denmark.";
+
+function localizedAreaServed(locale: Locale) {
+  return serviceAreaPlaces.map((place) => ({
+    "@type": place.type,
+    name:
+      locale === "en" && place.name === "Danmark"
+        ? "Denmark"
+        : locale === "en" && place.name === "Jylland"
+          ? "Jutland"
+          : place.name,
+  }));
+}
+
+/** Root metadata defaults — pages override title, description, canonical and OG via pageMetadata. */
+export function rootLayoutMetadata(locale: Locale): Metadata {
+  const seo = getPageSeo(locale);
+  const url = locale === "en" ? canonicalUrl("/en") : siteConfig.url;
+  const imageAlt =
+    locale === "en"
+      ? "Lukas Svendsen, photographer and videographer"
+      : "Lukas Svendsen, fotograf og videoproducent";
+
+  return {
+    metadataBase: new URL(siteConfig.url),
+    title: {
+      default: seo.home.title,
+      template: `%s · ${siteConfig.name}`,
+    },
+    description: seo.home.description,
+    applicationName: siteConfig.name,
+    authors: [{ name: siteConfig.name, url: siteConfig.url }],
+    creator: siteConfig.name,
+    keywords: [...(locale === "en" ? englishKeywords : danishKeywords)],
+    openGraph: {
+      type: "website",
+      locale: openGraphLocale(locale),
+      alternateLocale: [locale === "en" ? "da_DK" : "en_DK"],
+      url,
+      siteName: siteConfig.name,
+      title: seo.home.title,
+      description: seo.home.description,
+      images: [
+        {
+          url: "/images/og-share.jpg",
+          width: 1200,
+          height: 630,
+          alt: imageAlt,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: seo.home.title,
+      description: seo.home.description,
+      images: [{ url: "/images/og-share.jpg", alt: imageAlt }],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
+    },
+    icons: {
+      icon: [{ url: "/brand/icon.svg", type: "image/svg+xml" }],
+      apple: [{ url: "/brand/apple-icon.svg", sizes: "180x180" }],
+    },
+  };
+}
+
+/** Site-wide entity graph — language-specific copy, shared Person/Organization IDs. */
+export function rootEntityGraphJsonLd(locale: Locale) {
+  const isEnglish = locale === "en";
+  const description = isEnglish ? englishSiteDescription : siteConfig.description;
+  const areaServed = localizedAreaServed(locale);
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["Person", "Photographer"],
+        "@id": `${siteConfig.url}/#person`,
+        name: siteConfig.name,
+        alternateName: ["Lukas Guldager Svendsen", "Lukas Svendsen Photography"],
+        url: siteConfig.url,
+        email: siteConfig.email,
+        telephone: siteConfig.phone,
+        jobTitle: isEnglish
+          ? "Photographer and videographer"
+          : "Fotograf og videograf",
+        knowsLanguage: ["da", "en"],
+        description,
+        image: `${siteConfig.url}/images/about-lukas-2026.jpg`,
+        homeLocation: {
+          "@type": "Place",
+          name: "Grindsted",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: siteConfig.location.street,
+            postalCode: siteConfig.location.postalCode,
+            addressLocality: siteConfig.location.city,
+            addressRegion: "Syddanmark",
+            addressCountry: "DK",
+          },
+        },
+        knowsAbout: isEnglish
+          ? [
+              "Photography",
+              "Video production",
+              "Drone production",
+              "Content production",
+              "Sports photography",
+              "Concert photography",
+              "Event photography",
+              "Business photography",
+            ]
+          : [
+              "Fotografering",
+              "Videoproduktion",
+              "Droneproduktion",
+              "Contentproduktion",
+              "Sportsfotografi",
+              "Koncertfotografi",
+              "Eventfotografi",
+              "Virksomhedsfotografering",
+            ],
+        worksFor: { "@id": `${siteConfig.url}/#organization` },
+        sameAs: [
+          siteConfig.social.instagram,
+          siteConfig.social.facebook,
+          siteConfig.social.linkedin,
+        ],
+      },
+      {
+        "@type": "Organization",
+        "@id": `${siteConfig.url}/#organization`,
+        name: siteConfig.name,
+        url: siteConfig.url,
+        logo: {
+          "@type": "ImageObject",
+          url: `${siteConfig.url}/brand/apple-icon.svg`,
+          width: 180,
+          height: 180,
+        },
+        image: `${siteConfig.url}/images/og-share.jpg`,
+        email: siteConfig.email,
+        telephone: siteConfig.phone,
+        founder: { "@id": `${siteConfig.url}/#person` },
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: siteConfig.location.street,
+          postalCode: siteConfig.location.postalCode,
+          addressLocality: siteConfig.location.city,
+          addressRegion: "Syddanmark",
+          addressCountry: "DK",
+        },
+        areaServed,
+        sameAs: [
+          siteConfig.social.instagram,
+          siteConfig.social.facebook,
+          siteConfig.social.linkedin,
+        ],
+      },
+      {
+        "@type": ["ProfessionalService", "LocalBusiness", "Photographer"],
+        "@id": `${siteConfig.url}/#service`,
+        name: siteConfig.name,
+        alternateName: [
+          "Lukas Svendsen Photography",
+          "Lukas Svendsen Fotograf og Videoproducent",
+        ],
+        url: siteConfig.url,
+        email: siteConfig.email,
+        telephone: siteConfig.phone,
+        image: `${siteConfig.url}/images/about-lukas-2026.jpg`,
+        description,
+        provider: { "@id": `${siteConfig.url}/#person` },
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: siteConfig.location.street,
+          postalCode: siteConfig.location.postalCode,
+          addressLocality: siteConfig.location.city,
+          addressRegion: "Syddanmark",
+          addressCountry: "DK",
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: 55.761746,
+          longitude: 8.953157,
+        },
+        areaServed,
+        sameAs: [
+          siteConfig.social.instagram,
+          siteConfig.social.facebook,
+          siteConfig.social.linkedin,
+        ],
+        openingHoursSpecification: openingHoursJsonLd(),
+        serviceType: isEnglish
+          ? [
+              "Photography",
+              "Video production",
+              "Drone production",
+              "Content production",
+              "Sports photography",
+              "Concert and event photography",
+            ]
+          : [
+              "Fotografering",
+              "Videoproduktion",
+              "Droneproduktion",
+              "Contentproduktion",
+              "Sportsfotografi",
+              "Koncert- og eventfotografi",
+            ],
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: isEnglish
+            ? "Photography, video, drone and content"
+            : "Foto, video, drone og content",
+          itemListElement: isEnglish
+            ? [
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Photography",
+                    description:
+                      "Professional stills for businesses, organisations and private clients who need clear, usable imagery.",
+                    areaServed,
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Video production",
+                    description:
+                      "Film and moving images for communication, campaigns and digital channels, ready to use after delivery.",
+                    areaServed,
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Drone production",
+                    description:
+                      "Aerial photography and video as part of a photo or film job when the brief needs a view from above.",
+                    areaServed,
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Content production",
+                    description:
+                      "Visual material for web, social media and ongoing communication, produced so it can be used in practice.",
+                    areaServed,
+                  },
+                },
+              ]
+            : [
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Fotografering",
+                    description:
+                      "Professionelle stillebilleder til virksomheder, organisationer og private, der har brug for materiale med et klart og professionelt udtryk.",
+                    areaServed,
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Videoproduktion",
+                    description:
+                      "Film og bevægeligt materiale til kommunikation, kampagner og digitale kanaler, der skal kunne bruges direkte efter levering.",
+                    areaServed,
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Droneproduktion",
+                    description:
+                      "Luftfoto og luftvideo som en naturlig del af foto og videoproduktion, når opgaven kræver perspektiv fra oven.",
+                    areaServed,
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Contentproduktion",
+                    description:
+                      "Visuelt materiale til web, sociale medier og løbende kommunikation, produceret så det kan bruges i praksis.",
+                    areaServed,
+                  },
+                },
+              ],
+        },
+      },
+      {
+        "@type": "WebSite",
+        "@id": websiteNodeId(locale),
+        url: isEnglish ? `${siteConfig.url}/en` : siteConfig.url,
+        name: siteConfig.name,
+        description,
+        inLanguage: schemaLanguage(locale),
+        publisher: { "@id": `${siteConfig.url}/#organization` },
+        about: { "@id": `${siteConfig.url}/#person` },
+      },
+    ],
+  };
 }

@@ -8,12 +8,17 @@ const BASE = process.env.BASE_URL ?? "http://127.0.0.1:3000";
 
 const ROUTES = [
   "/",
+  "/en",
   "/arbejde",
+  "/en/work",
   "/om",
+  "/en/about",
   "/kontakt",
+  "/en/contact",
   "/booking",
+  "/en/booking",
   "/arbejde/varde-open-air",
-  "/arbejde/thor-farlov-smukfest",
+  "/en/work/varde-open-air",
   "/robots.txt",
   "/sitemap.xml",
 ];
@@ -58,6 +63,8 @@ async function main() {
       if (!/Sitemap:/i.test(result.text)) fail("robots.txt missing Sitemap");
       if (/Disallow:\s*\/$/im.test(result.text))
         fail("robots.txt blocks entire site");
+      if (/Disallow:\s*\/en/im.test(result.text))
+        fail("robots.txt blocks /en");
       continue;
     }
 
@@ -65,7 +72,16 @@ async function main() {
       if (!result.text.includes("<urlset")) fail("sitemap missing urlset");
       if (!result.text.includes("/arbejde"))
         fail("sitemap missing /arbejde");
+      if (!result.text.includes("/en")) fail("sitemap missing /en");
+      if (!result.text.includes("/en/work"))
+        fail("sitemap missing /en/work");
       continue;
+    }
+
+    const htmlLang = result.text.match(/<html[^>]*lang=["']([^"']*)["']/i)?.[1];
+    const expectedLang = path === "/en" || path.startsWith("/en/") ? "en" : "da";
+    if (htmlLang !== expectedLang) {
+      fail(`${path} html lang="${htmlLang ?? ""}" expected "${expectedLang}"`);
     }
 
     const title = result.text.match(/<title[^>]*>([^<]*)<\/title>/i)?.[1]?.trim();
@@ -80,6 +96,17 @@ async function main() {
     const h1 = result.text.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)?.[1]
       ?.replace(/<[^>]+>/g, "")
       ?.trim();
+
+    if (canonical && path.startsWith("/en") && /\/(om|arbejde|kontakt|booking)(\/|$)/.test(canonical) && !canonical.includes("/en")) {
+      fail(`${path} canonical points to a Danish URL: ${canonical}`);
+    }
+
+    const hasDaHreflang = /hreflang=["']da["']/i.test(result.text);
+    const hasEnHreflang = /hreflang=["']en["']/i.test(result.text);
+    const hasDefault = /hreflang=["']x-default["']/i.test(result.text);
+    if (!hasDaHreflang || !hasEnHreflang || !hasDefault) {
+      fail(`${path} missing reciprocal hreflang (da/en/x-default)`);
+    }
 
     if (!title) fail(`${path} missing <title>`);
     if (!description) fail(`${path} missing meta description`);

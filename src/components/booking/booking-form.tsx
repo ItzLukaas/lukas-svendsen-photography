@@ -3,7 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { FormField, fieldClass } from "@/components/forms/form-field";
@@ -11,7 +11,7 @@ import { useLocale } from "@/components/i18n/locale-provider";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
-  bookingSchema,
+  createBookingSchema,
   productionTypes,
   type BookingInput,
 } from "@/lib/booking/schema";
@@ -54,6 +54,10 @@ function getInitialProductionType(searchParams: URLSearchParams) {
 export function BookingForm() {
   const { locale, dict } = useLocale();
   const copy = dict.bookingPage.form;
+  const schema = useMemo(
+    () => createBookingSchema(dict.shared.validation),
+    [dict.shared.validation]
+  );
   const searchParams = useSearchParams();
   const formId = useId();
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -69,7 +73,7 @@ export function BookingForm() {
     trigger,
     formState: { errors, isSubmitting },
   } = useForm<BookingInput>({
-    resolver: zodResolver(bookingSchema),
+    resolver: zodResolver(schema),
     defaultValues: {
       name: "",
       company: "",

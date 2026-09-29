@@ -406,16 +406,22 @@ export function pageBreadcrumbJsonLd(
 }
 
 /** Local landing page — WebPage with geographic context */
-export function localAreaPageJsonLd(area: LocalArea) {
+export function localAreaPageJsonLd(area: LocalArea, locale: Locale = "da") {
+  const path = area.path.startsWith("/en/")
+    ? area.path
+    : locale === "en"
+      ? `/en${area.path}`
+      : area.path;
+  const url = canonicalUrl(path);
   return {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": `${siteConfig.url}${area.path}#webpage`,
-    url: `${siteConfig.url}${area.path}`,
+    "@id": `${url}#webpage`,
+    url,
     name: area.headline,
     description: area.metaDescription,
-    inLanguage: "da-DK",
-    isPartOf: { "@id": websiteNodeId("da") },
+    inLanguage: schemaLanguage(locale),
+    isPartOf: { "@id": websiteNodeId(locale) },
     about: { "@id": `${siteConfig.url}/#person` },
     mainEntity: { "@id": `${siteConfig.url}/#service` },
     contentLocation: {
@@ -458,19 +464,28 @@ export function homePageJsonLd(locale: Locale = "da") {
 }
 
 /** Intro film on the homepage — facts only, no invented duration or view counts */
-export function introVideoJsonLd() {
+export function introVideoJsonLd(locale: Locale = "da") {
   const poster = introPosterUrl();
+  const isEnglish = locale === "en";
   return {
     "@context": "https://schema.org",
     "@type": "VideoObject",
     "@id": `${siteConfig.url}/#intro-video`,
-    name: introVideo.title,
-    description: introVideo.description,
+    name: isEnglish
+      ? "Lukas Svendsen – Introduction"
+      : introVideo.title,
+    description: isEnglish
+      ? "A short personal introduction — who I am, what I do, and how I work."
+      : introVideo.description,
     thumbnailUrl: poster ? [poster] : undefined,
     publisher: { "@id": `${siteConfig.url}/#organization` },
     creator: { "@id": `${siteConfig.url}/#person` },
-    inLanguage: "da-DK",
-    isPartOf: { "@id": `${siteConfig.url}/#homepage` },
+    inLanguage: isEnglish ? "en-DK" : "da-DK",
+    isPartOf: {
+      "@id": isEnglish
+        ? `${siteConfig.url}/en#homepage`
+        : `${siteConfig.url}/#homepage`,
+    },
   };
 }
 

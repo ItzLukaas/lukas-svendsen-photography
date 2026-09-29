@@ -1,6 +1,9 @@
+"use client";
+
 import type { ReactElement, ReactNode } from "react";
 import { Children, cloneElement, isValidElement } from "react";
 
+import { useLocale } from "@/components/i18n/locale-provider";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 
@@ -19,7 +22,7 @@ export function FormField({
   label,
   error,
   optional,
-  optionalLabel = "(valgfrit)",
+  optionalLabel,
   children,
 }: {
   id: string;
@@ -29,6 +32,8 @@ export function FormField({
   optionalLabel?: string;
   children: ReactNode;
 }) {
+  const { dict } = useLocale();
+  const resolvedOptional = optionalLabel ?? dict.shared.optional;
   const errorId = `${id}-error`;
   const child = Children.only(children);
   const enhanced = isValidElement(child)
@@ -61,7 +66,7 @@ export function FormField({
         {label}
         {optional ? (
           <span className="ml-1.5 font-normal normal-case tracking-normal text-muted-ink/70">
-            {optionalLabel}
+            {resolvedOptional}
           </span>
         ) : null}
       </Label>

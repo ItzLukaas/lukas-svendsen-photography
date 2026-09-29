@@ -1,14 +1,15 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useId, useState } from "react";
+import { useId, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { FormField, fieldClass } from "@/components/forms/form-field";
+import { useLocale } from "@/components/i18n/locale-provider";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
-  contactSchema,
+  createContactSchema,
   type ContactInput,
 } from "@/lib/contact/schema";
 import { siteConfig } from "@/lib/site";
@@ -18,6 +19,12 @@ import { cn } from "@/lib/utils";
  * Compact contact form — shared field system, clear feedback.
  */
 export function HomeCtaForm() {
+  const { dict } = useLocale();
+  const copy = dict.contactPage.form;
+  const schema = useMemo(
+    () => createContactSchema(dict.shared.validation),
+    [dict.shared.validation]
+  );
   const formId = useId();
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const {
@@ -26,7 +33,7 @@ export function HomeCtaForm() {
     reset,
     formState: { errors, isSubmitting },
   } = useForm<ContactInput>({
-    resolver: zodResolver(contactSchema),
+    resolver: zodResolver(schema),
     defaultValues: {
       name: "",
       email: "",
@@ -57,14 +64,14 @@ export function HomeCtaForm() {
     return (
       <div className="mt-5 py-2" role="status" aria-live="polite">
         <p className="font-display text-[1.125rem] tracking-[-0.02em] text-ink">
-          Tak. Jeg vender tilbage snart.
+          {copy.successTitle}
         </p>
         <button
           type="button"
           className="btn-ghost mt-5"
           onClick={() => setStatus("idle")}
         >
-          Send en ny forespørgsel
+          {copy.successAgain}
         </button>
       </div>
     );
@@ -79,13 +86,12 @@ export function HomeCtaForm() {
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-5">
         <FormField
           id={`${formId}-name`}
-          label="Navn"
+          label={copy.name}
           error={errors.name?.message}
         >
           <Input
             id={`${formId}-name`}
             autoComplete="name"
-            placeholder="Dit navn"
             aria-invalid={Boolean(errors.name)}
             className={fieldClass}
             {...register("name")}
@@ -94,14 +100,13 @@ export function HomeCtaForm() {
 
         <FormField
           id={`${formId}-email`}
-          label="E-mail"
+          label={copy.email}
           error={errors.email?.message}
         >
           <Input
             id={`${formId}-email`}
             type="email"
             autoComplete="email"
-            placeholder="dig@email.dk"
             aria-invalid={Boolean(errors.email)}
             className={fieldClass}
             {...register("email")}
@@ -110,7 +115,7 @@ export function HomeCtaForm() {
 
         <FormField
           id={`${formId}-phone`}
-          label="Telefon"
+          label={copy.phone}
           optional
           error={errors.phone?.message}
         >
@@ -118,7 +123,6 @@ export function HomeCtaForm() {
             id={`${formId}-phone`}
             type="tel"
             autoComplete="tel"
-            placeholder="Telefon"
             aria-invalid={Boolean(errors.phone)}
             className={fieldClass}
             {...register("phone")}
@@ -128,13 +132,13 @@ export function HomeCtaForm() {
 
       <FormField
         id={`${formId}-message`}
-        label="Besked"
+        label={copy.message}
         error={errors.message?.message}
       >
         <Textarea
           id={`${formId}-message`}
           rows={4}
-          placeholder="Fortæl kort om projektet…"
+          placeholder={copy.messagePlaceholder}
           aria-invalid={Boolean(errors.message)}
           className={cn(fieldClass, "min-h-[6.75rem] resize-y py-2.5")}
           {...register("message")}
@@ -147,19 +151,19 @@ export function HomeCtaForm() {
           disabled={isSubmitting}
           className="btn-solid"
         >
-          {isSubmitting ? "Sender…" : "Send forespørgsel"}
+          {isSubmitting ? copy.submitting : copy.submit}
         </button>
       </div>
 
       <div aria-live="polite" className="min-h-5 text-[0.8125rem]">
         {status === "error" ? (
           <p className="text-destructive" role="alert">
-            Noget gik galt. Prøv igen, eller skriv til{" "}
+            {copy.errorPrefix}{" "}
             <a
               href={`mailto:${siteConfig.email}`}
               className="underline underline-offset-2 transition-opacity hover:opacity-70"
             >
-              Send mig en mail
+              {dict.shared.sendEmail}
             </a>
             .
           </p>

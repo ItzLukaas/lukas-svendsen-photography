@@ -38,15 +38,14 @@ type HomePageProps = {
 
 /**
  * Homepage story:
- * Hero → Trust → Offerings → Business → Work → Process → Meet (DA) → FAQ → CTA
+ * Hero → Trust → Offerings → Business → Work → Process → Meet → FAQ → CTA
  */
 export async function HomePage({ locale: localeProp }: HomePageProps = {}) {
   const locale = localeProp ?? (await getRequestLocale());
   const dict = await getDictionary(locale);
-  const isDanish = locale === "da";
   const collaborationsJsonLd = getCollaborationsJsonLd(siteConfig.url);
   const homeJsonLd = homePageJsonLd(locale);
-  const introJsonLd = isDanish ? introVideoJsonLd() : null;
+  const introJsonLd = introVideoJsonLd(locale);
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -91,7 +90,7 @@ export async function HomePage({ locale: localeProp }: HomePageProps = {}) {
       <FeaturedWork />
       <ConcertSpotlight />
       <ProcessSection />
-      {isDanish ? <MeetLukasSection /> : null}
+      <MeetLukasSection />
       <FaqSection />
       <HomeCta />
     </>

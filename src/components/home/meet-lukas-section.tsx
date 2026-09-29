@@ -6,6 +6,7 @@ import { Mail, Phone, type LucideIcon } from "lucide-react";
 
 import { useLocale } from "@/components/i18n/locale-provider";
 import { FadeIn } from "@/components/motion/fade-in";
+import { localizedHref } from "@/lib/i18n/paths";
 import { siteConfig } from "@/lib/site";
 import { introPosterUrl, introVideo } from "@/lib/video/intro";
 
@@ -62,7 +63,7 @@ function ContactLine({
  * Meet Lukas — compact copy + video; contact as a clear, icon-led block.
  */
 export function MeetLukasSection() {
-  const { dict } = useLocale();
+  const { locale, dict } = useLocale();
 
   return (
     <section
@@ -86,7 +87,7 @@ export function MeetLukasSection() {
             </p>
 
             <Link
-              href="/booking"
+              href={localizedHref("/booking", locale)}
               className="btn-solid btn-solid-invert mt-7 w-fit max-w-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-paper"
             >
               {dict.meet.cta}

@@ -150,7 +150,9 @@ export function SiteFooter() {
                   {locale === "da" ? (
                     <FooterLink href={item.href}>{item.label}</FooterLink>
                   ) : (
-                    <span className="text-paper/70">{item.label}</span>
+                    <FooterLink href={localizedHref(item.href, locale)}>
+                      {item.label}
+                    </FooterLink>
                   )}
                 </span>
               ))}

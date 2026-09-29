@@ -35,6 +35,16 @@ export const en: Dictionary = {
     optional: "(optional)",
     playVideo: "Play video",
     sendEmail: "Send me an email",
+    validation: {
+      nameRequired: "Enter your name",
+      emailInvalid: "Enter a valid email",
+      messageRequired: "Write a bit more in the message",
+      phoneRequired: "Enter a phone number",
+      productionTypeRequired: "Choose a production type",
+      datePeriodRequired: "Enter a date or period",
+      locationRequired: "Enter a location",
+      descriptionRequired: "Briefly describe the project",
+    },
   },
   availability: {
     regionLabel: "Contact and opening hours",
@@ -435,7 +445,7 @@ export const en: Dictionary = {
         "I've received your booking enquiry and will get back to you shortly — typically within 1 to 2 working days.",
       successAgain: "Send another enquiry",
       successPortfolio: "View portfolio",
-      errorPrefix: "Something went wrong. Try again, or write to",
+      errorPrefix: "Something went wrong. Try again.",
     },
   },
   privacyPage: {
@@ -500,7 +510,7 @@ export const en: Dictionary = {
       successBody:
         "I'll get back to you soon. If you're in a hurry, you can call or write directly.",
       successAgain: "Send another message",
-      errorPrefix: "Something went wrong. Try again, or write to",
+      errorPrefix: "Something went wrong. Try again.",
       types: {
         Fotografering: "Photography",
         Videoproduktion: "Video production",
@@ -523,5 +533,15 @@ export const en: Dictionary = {
     privacy: "Privacy Policy",
     cookies: "Cookies",
     areas: "Areas",
+  },
+  localPage: {
+    roleEyebrow: "Photographer and videographer",
+    lead: "Photography, video, content and drone for businesses, organisations and private clients in {city} and nearby.",
+    examples: "Examples of work",
+    otherAreas: "Other areas",
+    photographerIn: "Photographer in {city}",
+    seePortfolio: "View portfolio",
+    bookMe: "Book me",
+    contactMe: "Contact me",
   },
 };

@@ -44,6 +44,35 @@ function projectLocalePaths(
   return null;
 }
 
+/** Local SEO landings: /fotograf-grindsted ↔ /en/fotograf-grindsted */
+function localAreaLocalePaths(
+  pathname: string
+): Partial<Record<Locale, string>> | null {
+  const daMatch = pathname.match(/^\/fotograf-([^/]+)$/);
+  if (daMatch) {
+    const slug = daMatch[1];
+    return {
+      da: `/fotograf-${slug}`,
+      en: `/en/fotograf-${slug}`,
+    };
+  }
+  const enMatch = pathname.match(/^\/en\/fotograf-([^/]+)$/);
+  if (enMatch) {
+    const slug = enMatch[1];
+    return {
+      da: `/fotograf-${slug}`,
+      en: `/en/fotograf-${slug}`,
+    };
+  }
+  return null;
+}
+
+function pairedLocalePaths(
+  pathname: string
+): Partial<Record<Locale, string>> | null {
+  return projectLocalePaths(pathname) ?? localAreaLocalePaths(pathname);
+}
+
 /**
  * Detect locale from a pathname. Danish is default (no prefix).
  * English lives under `/en` (and `/en/...` pages).
@@ -74,9 +103,9 @@ export function switchLocalePath(pathname: string, nextLocale: Locale): string {
       ? pathOnly.slice(0, -1)
       : pathOnly || "/";
 
-  const projectMapped = projectLocalePaths(normalized)?.[nextLocale];
-  if (projectMapped) {
-    return query ? `${projectMapped}?${query}` : projectMapped;
+  const dynamicMapped = pairedLocalePaths(normalized)?.[nextLocale];
+  if (dynamicMapped) {
+    return query ? `${dynamicMapped}?${query}` : dynamicMapped;
   }
 
   const mapped = localePathMap[normalized]?.[nextLocale];
@@ -108,9 +137,9 @@ export function localizedHref(href: string, locale: Locale): string {
   const [path, query] = (pathWithQuery || "/").split("?");
   const normalized = path || "/";
 
-  const projectMapped = projectLocalePaths(normalized)?.[locale];
-  if (projectMapped) {
-    const withQuery = query ? `${projectMapped}?${query}` : projectMapped;
+  const dynamicMapped = pairedLocalePaths(normalized)?.[locale];
+  if (dynamicMapped) {
+    const withQuery = query ? `${dynamicMapped}?${query}` : dynamicMapped;
     return hash ? `${withQuery}#${hash}` : withQuery;
   }
 
@@ -124,6 +153,11 @@ export function localizedHref(href: string, locale: Locale): string {
   // Hash-only anchors on home should stay on the locale home.
   if (!mapped && locale === "en" && normalized === "" && hash) {
     next = "/en";
+  }
+
+  // Local area paths under English: /fotograf-x → /en/fotograf-x
+  if (!mapped && locale === "en" && normalized.startsWith("/fotograf-")) {
+    next = `/en${normalized}`;
   }
 
   const withQuery = query ? `${next}?${query}` : next;
@@ -144,9 +178,9 @@ export function getLocalePathPair(
       ? pathname.slice(0, -1)
       : pathname || "/";
 
-  const project = projectLocalePaths(normalized);
-  if (project?.da && project?.en) {
-    return { da: project.da, en: project.en };
+  const dynamic = pairedLocalePaths(normalized);
+  if (dynamic?.da && dynamic?.en) {
+    return { da: dynamic.da, en: dynamic.en };
   }
 
   const mapped = localePathMap[normalized];

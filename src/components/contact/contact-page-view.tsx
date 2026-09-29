@@ -6,10 +6,11 @@ import { ContactCard } from "@/components/contact/contact-card";
 import { ContactForm } from "@/components/contact/contact-form";
 import { useLocale } from "@/components/i18n/locale-provider";
 import { FadeIn } from "@/components/motion/fade-in";
+import { localizedHref } from "@/lib/i18n/paths";
 
 /** Contact page intro + card + form, driven by the active locale dictionary. */
 export function ContactPageView() {
-  const { dict } = useLocale();
+  const { locale, dict } = useLocale();
   const copy = dict.contactPage;
 
   return (
@@ -24,7 +25,7 @@ export function ContactPageView() {
           <p className="text-body mt-4 max-w-md">
             {copy.bookingPrompt}{" "}
             <Link
-              href="/booking"
+              href={localizedHref("/booking", locale)}
               className="link-quiet font-medium text-foreground underline underline-offset-4"
             >
               {copy.bookingCta}

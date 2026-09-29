@@ -1,27 +1,42 @@
+"use client";
+
 import Link from "next/link";
 
+import { useLocale } from "@/components/i18n/locale-provider";
 import { FadeIn } from "@/components/motion/fade-in";
 import type { LocalArea } from "@/lib/data/local-areas";
 import { getLocalAreaBySlug } from "@/lib/data/local-areas";
+import { localizeLocalArea } from "@/lib/data/local-areas-i18n";
+import { localizedHref } from "@/lib/i18n/paths";
 
 type LocalAreaViewProps = {
   area: LocalArea;
 };
 
-export function LocalAreaView({ area }: LocalAreaViewProps) {
+export function LocalAreaView({ area: areaProp }: LocalAreaViewProps) {
+  const { locale, dict } = useLocale();
+  const copy = dict.localPage;
+  const area = localizeLocalArea(areaProp, locale);
   const nearby = area.nearbySlugs
     .map((slug) => getLocalAreaBySlug(slug))
-    .filter((item): item is LocalArea => !!item);
+    .filter((item): item is LocalArea => !!item)
+    .map((item) => localizeLocalArea(item, locale));
 
   return (
     <div className="pt-[calc(var(--chrome-h)+2.5rem)]">
       <section className="mx-auto max-w-[1600px] px-5 pb-16 md:px-8 md:pb-24 lg:px-12">
         <FadeIn>
-          <nav aria-label="Brødkrumme" className="text-[0.75rem] tracking-[0.02em] text-muted-ink">
+          <nav
+            aria-label={dict.shared.breadcrumb}
+            className="text-[0.75rem] tracking-[0.02em] text-muted-ink"
+          >
             <ol className="m-0 flex list-none flex-wrap items-baseline gap-x-0 gap-y-1 p-0">
               <li className="after:mx-3 after:opacity-25 after:content-['/']">
-                <Link href="/" className="transition-opacity duration-300 hover:opacity-55">
-                  Forside
+                <Link
+                  href={localizedHref("/", locale)}
+                  className="transition-opacity duration-300 hover:opacity-55"
+                >
+                  {dict.shared.home}
                 </Link>
               </li>
               <li className="text-ink/70" aria-current="page">
@@ -30,13 +45,12 @@ export function LocalAreaView({ area }: LocalAreaViewProps) {
             </ol>
           </nav>
 
-          <p className="label-meta mt-6">Fotograf og videoproducent</p>
+          <p className="label-meta mt-6">{copy.roleEyebrow}</p>
           <h1 className="mt-3 max-w-[16ch] font-display text-[clamp(2.65rem,5.8vw,4.5rem)] leading-[0.92] tracking-[-0.03em]">
             {area.headline}
           </h1>
           <p className="mt-4 max-w-2xl text-[0.9375rem] leading-[1.65] text-muted-ink">
-            Foto, video, content og drone til virksomheder, organisationer og
-            private i {area.city} og omegn.
+            {copy.lead.replace("{city}", area.city)}
           </p>
         </FadeIn>
 
@@ -62,7 +76,7 @@ export function LocalAreaView({ area }: LocalAreaViewProps) {
           <FadeIn delay={0.12}>
             <div className="mt-12 border-t border-foreground/10 pt-10">
               <h2 className="font-display text-[1.35rem] leading-[1.15] tracking-[-0.02em] md:text-[1.5rem]">
-                Eksempler på arbejde
+                {copy.examples}
               </h2>
               {area.portfolioNote ? (
                 <p className="mt-4 max-w-2xl text-body text-muted-ink">
@@ -73,7 +87,7 @@ export function LocalAreaView({ area }: LocalAreaViewProps) {
                 {area.portfolioLinks.map((link) => (
                   <li key={link.href}>
                     <Link
-                      href={link.href}
+                      href={localizedHref(link.href, locale)}
                       className="font-medium text-foreground underline-offset-4 transition-opacity hover:opacity-70 hover:underline"
                     >
                       {link.label}
@@ -88,7 +102,7 @@ export function LocalAreaView({ area }: LocalAreaViewProps) {
         {nearby.length > 0 ? (
           <FadeIn delay={0.14}>
             <div className="mt-12 border-t border-foreground/10 pt-10">
-              <h2 className="label-meta">Andre områder</h2>
+              <h2 className="label-meta">{copy.otherAreas}</h2>
               <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-[0.9375rem]">
                 {nearby.map((near) => (
                   <li key={near.slug}>
@@ -96,16 +110,16 @@ export function LocalAreaView({ area }: LocalAreaViewProps) {
                       href={near.path}
                       className="font-medium text-foreground underline-offset-4 transition-opacity hover:opacity-70 hover:underline"
                     >
-                      Fotograf i {near.city}
+                      {copy.photographerIn.replace("{city}", near.city)}
                     </Link>
                   </li>
                 ))}
                 <li>
                   <Link
-                    href="/arbejde"
+                    href={localizedHref("/arbejde", locale)}
                     className="font-medium text-foreground underline-offset-4 transition-opacity hover:opacity-70 hover:underline"
                   >
-                    Se portfolio
+                    {copy.seePortfolio}
                   </Link>
                 </li>
               </ul>
@@ -115,11 +129,17 @@ export function LocalAreaView({ area }: LocalAreaViewProps) {
 
         <FadeIn delay={0.16}>
           <div className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-4">
-            <Link href="/booking" className="btn-solid">
-              Book mig
+            <Link
+              href={localizedHref("/booking", locale)}
+              className="btn-solid"
+            >
+              {copy.bookMe}
             </Link>
-            <Link href="/kontakt" className="btn-ghost">
-              Kontakt mig
+            <Link
+              href={localizedHref("/kontakt", locale)}
+              className="btn-ghost"
+            >
+              {copy.contactMe}
             </Link>
           </div>
         </FadeIn>

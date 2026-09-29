@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useTransition } from "react";
 
 import { useLocale } from "@/components/i18n/locale-provider";
 import { switchLocalePath } from "@/lib/i18n/paths";
@@ -12,14 +13,24 @@ type LanguageSwitcherProps = {
 };
 
 /**
- * Visible, crawlable language switcher.
- * Each option is a real URL to the matching translation — not a JS text swap.
+ * Crawlable language switcher.
+ * Navigates to the sister URL and refreshes the RSC tree so shared layouts
+ * pick up the new locale immediately (no manual browser refresh).
  */
 export function LanguageSwitcher({ className }: LanguageSwitcherProps) {
   const { locale, dict } = useLocale();
   const pathname = usePathname();
+  const router = useRouter();
+  const [, startTransition] = useTransition();
   const daHref = switchLocalePath(pathname, "da");
   const enHref = switchLocalePath(pathname, "en");
+
+  function switchTo(href: string) {
+    startTransition(() => {
+      router.push(href);
+      router.refresh();
+    });
+  }
 
   return (
     <nav
@@ -31,6 +42,19 @@ export function LanguageSwitcher({ className }: LanguageSwitcherProps) {
         hrefLang="da"
         lang="da"
         aria-current={locale === "da" ? "page" : undefined}
+        onClick={(event) => {
+          if (
+            event.metaKey ||
+            event.ctrlKey ||
+            event.shiftKey ||
+            event.altKey ||
+            event.button !== 0
+          ) {
+            return;
+          }
+          event.preventDefault();
+          switchTo(daHref);
+        }}
         className={cn(
           "text-[0.8125rem] font-medium tracking-[0.02em] transition-colors duration-300",
           "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink",
@@ -49,6 +73,19 @@ export function LanguageSwitcher({ className }: LanguageSwitcherProps) {
         hrefLang="en"
         lang="en"
         aria-current={locale === "en" ? "page" : undefined}
+        onClick={(event) => {
+          if (
+            event.metaKey ||
+            event.ctrlKey ||
+            event.shiftKey ||
+            event.altKey ||
+            event.button !== 0
+          ) {
+            return;
+          }
+          event.preventDefault();
+          switchTo(enHref);
+        }}
         className={cn(
           "text-[0.8125rem] font-medium tracking-[0.02em] transition-colors duration-300",
           "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink",

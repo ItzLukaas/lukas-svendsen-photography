@@ -6,13 +6,16 @@ import {
   getLocalAreaByPath,
   localAreaSlugs,
 } from "@/lib/data/local-areas";
+import { localizeLocalArea } from "@/lib/data/local-areas-i18n";
 import {
   localAreaPageJsonLd,
   pageBreadcrumbJsonLd,
   pageMetadata,
 } from "@/lib/seo";
 
-type Props = PageProps<"/[localSlug]">;
+type Props = {
+  params: Promise<{ localSlug: string }>;
+};
 
 export function generateStaticParams() {
   return localAreaSlugs.map((slug) => ({ localSlug: `fotograf-${slug}` }));
@@ -20,25 +23,28 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { localSlug } = await params;
-  const area = getLocalAreaByPath(localSlug);
-  if (!area) return { title: "Side ikke fundet" };
+  const base = getLocalAreaByPath(localSlug);
+  if (!base) return { title: "Page not found" };
+
+  const area = localizeLocalArea(base, "en");
 
   return pageMetadata({
     title: area.title,
     description: area.metaDescription,
     path: area.path,
-    locale: "da",
+    locale: "en",
   });
 }
 
-export default async function LocalAreaPage({ params }: Props) {
+export default async function EnglishLocalAreaPage({ params }: Props) {
   const { localSlug } = await params;
-  const area = getLocalAreaByPath(localSlug);
-  if (!area) notFound();
+  const base = getLocalAreaByPath(localSlug);
+  if (!base) notFound();
 
-  const jsonLd = localAreaPageJsonLd(area, "da");
+  const area = localizeLocalArea(base, "en");
+  const jsonLd = localAreaPageJsonLd(area, "en");
   const breadcrumbJsonLd = pageBreadcrumbJsonLd([
-    { name: "Forside", path: "/" },
+    { name: "Home", path: "/en" },
     { name: area.headline, path: area.path },
   ]);
 
@@ -52,10 +58,9 @@ export default async function LocalAreaPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <LocalAreaView area={area} />
+      <LocalAreaView area={base} />
     </>
   );
 }
 
-/** Prevent unrelated dynamic slugs from being pre-rendered */
 export const dynamicParams = false;

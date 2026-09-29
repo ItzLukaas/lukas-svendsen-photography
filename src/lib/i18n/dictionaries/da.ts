@@ -34,6 +34,16 @@ export const da = {
     optional: "(valgfrit)",
     playVideo: "Afspil video",
     sendEmail: "Send mig en mail",
+    validation: {
+      nameRequired: "Skriv dit navn",
+      emailInvalid: "Skriv en gyldig email",
+      messageRequired: "Skriv lidt mere i beskeden",
+      phoneRequired: "Skriv et telefonnummer",
+      productionTypeRequired: "Vælg type produktion",
+      datePeriodRequired: "Skriv dato eller periode",
+      locationRequired: "Skriv lokation",
+      descriptionRequired: "Beskriv opgaven kort",
+    },
   },
   availability: {
     regionLabel: "Kontakt og åbningstid",
@@ -370,7 +380,7 @@ export const da = {
         "Jeg har modtaget din bookingforespørgsel og vender tilbage snarest, typisk inden for 1 til 2 hverdage.",
       successAgain: "Send en ny forespørgsel",
       successPortfolio: "Se portfolio",
-      errorPrefix: "Noget gik galt. Prøv igen, eller skriv til",
+      errorPrefix: "Noget gik galt. Prøv igen.",
     },
   },
   privacyPage: {
@@ -435,7 +445,7 @@ export const da = {
       successBody:
         "Jeg vender tilbage snart. Har du travlt, kan du ringe eller skrive direkte.",
       successAgain: "Send en ny besked",
-      errorPrefix: "Noget gik galt. Prøv igen, eller skriv til",
+      errorPrefix: "Noget gik galt. Prøv igen.",
       types: {
         Fotografering: "Fotografering",
         Videoproduktion: "Videoproduktion",
@@ -458,6 +468,16 @@ export const da = {
     privacy: "Privatlivspolitik",
     cookies: "Cookies",
     areas: "Områder",
+  },
+  localPage: {
+    roleEyebrow: "Fotograf og videoproducent",
+    lead: "Foto, video, content og drone til virksomheder, organisationer og private i {city} og omegn.",
+    examples: "Eksempler på arbejde",
+    otherAreas: "Andre områder",
+    photographerIn: "Fotograf i {city}",
+    seePortfolio: "Se portfolio",
+    bookMe: "Book mig",
+    contactMe: "Kontakt mig",
   },
 };
 
@@ -485,6 +505,16 @@ export type Dictionary = {
     optional: string;
     playVideo: string;
     sendEmail: string;
+    validation: {
+      nameRequired: string;
+      emailInvalid: string;
+      messageRequired: string;
+      phoneRequired: string;
+      productionTypeRequired: string;
+      datePeriodRequired: string;
+      locationRequired: string;
+      descriptionRequired: string;
+    };
   };
   availability: {
     regionLabel: string;
@@ -795,5 +825,15 @@ export type Dictionary = {
     privacy: string;
     cookies: string;
     areas: string;
+  };
+  localPage: {
+    roleEyebrow: string;
+    lead: string;
+    examples: string;
+    otherAreas: string;
+    photographerIn: string;
+    seePortfolio: string;
+    bookMe: string;
+    contactMe: string;
   };
 };

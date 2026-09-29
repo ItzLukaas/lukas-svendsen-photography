@@ -1,7 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import {
@@ -14,7 +14,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { productionTypes } from "@/lib/booking/schema";
 import {
-  contactSchema,
+  createContactSchema,
   type ContactInput,
 } from "@/lib/contact/schema";
 import { siteConfig } from "@/lib/site";
@@ -23,6 +23,10 @@ import { cn } from "@/lib/utils";
 export function ContactForm() {
   const { dict } = useLocale();
   const copy = dict.contactPage.form;
+  const schema = useMemo(
+    () => createContactSchema(dict.shared.validation),
+    [dict.shared.validation]
+  );
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const {
     register,
@@ -30,7 +34,7 @@ export function ContactForm() {
     reset,
     formState: { errors, isSubmitting },
   } = useForm<ContactInput>({
-    resolver: zodResolver(contactSchema),
+    resolver: zodResolver(schema),
     defaultValues: {
       name: "",
       email: "",
@@ -197,7 +201,6 @@ export function ContactForm() {
           {isSubmitting ? copy.submitting : copy.submit}
         </button>
         <p className="text-[0.85rem] text-muted-ink">
-          {copy.orEmail}{" "}
           <a
             href={`mailto:${siteConfig.email}`}
             className="link-quiet underline underline-offset-4"

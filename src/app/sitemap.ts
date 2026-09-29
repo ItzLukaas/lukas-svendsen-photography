@@ -79,13 +79,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ];
   });
 
-  // Local SEO landings are Danish-only — no English pair, so no hreflang in sitemap.
-  const localRoutes: MetadataRoute.Sitemap = localAreas.map((area) => ({
-    url: `${base}${area.path}`,
-    lastModified: SITE_REVISED,
-    changeFrequency: "monthly" as const,
-    priority: area.slug === "grindsted" ? 0.88 : 0.82,
-  }));
+  // Local SEO landings — Danish + English pairs
+  const localRoutes: MetadataRoute.Sitemap = localAreas.flatMap((area) => {
+    const daPath = area.path;
+    const enPath = `/en${area.path}`;
+    const priority = area.slug === "grindsted" ? 0.88 : 0.82;
+    return pairedEntry(daPath, enPath, priority);
+  });
 
   return [...staticRoutes, ...localRoutes, ...projectRoutes];
 }
